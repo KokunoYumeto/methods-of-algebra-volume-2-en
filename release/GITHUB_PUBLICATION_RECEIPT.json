@@ -1,15 +1,15 @@
 {
   "schema": "o014-english-github-publication-v2",
-  "published_at_utc": "2026-09-01T11:32:10.489402+00:00",
+  "published_at_utc": "2026-09-01T11:37:33.016329+00:00",
   "result": "PUSHED_PENDING_ANONYMOUS_READBACK",
   "repository": "https://github.com/KokunoYumeto/methods-of-algebra-volume-2-en",
   "pages_url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/",
   "visibility": "public",
   "publication_scope": "complete_pdf_html_source_backend_release",
-  "main_content_commit": "ee9ee9202a9f79dba0c3932da307c77ee5ee9a40",
-  "main_content_tree": "fd3f166a22225be555bc01f763be86f10254a407",
+  "main_content_commit": "7f7b8b161f73368abb9448fddcff8f51efa863d1",
+  "main_content_tree": "20257ccf7bf418c60c69fba81d295e91a3d224e8",
   "pages_commit": "81b9a58f16aec0f0c22b3708ef52c7d36d15e009",
-  "pages_previous_commit": "ffe5fd72a87a4de894a7fa09861d415406544278",
+  "pages_previous_commit": "81b9a58f16aec0f0c22b3708ef52c7d36d15e009",
   "source_commit": "9a5803ff77dd3257484cb177f851a73770a59dd3",
   "source_tree": "23bd05c2fb8434278df4fdfb636559a6a2b0d2ff",
   "gate_receipts": {
@@ -57,18 +57,18 @@
     },
     {
       "path": "README.md",
-      "bytes": 3310,
-      "sha256": "d911a14e691497f6270870e87490da9073b76d071a765b7506b2e5d8aede0307"
+      "bytes": 3231,
+      "sha256": "bdd4f7eb2ff9d287e30f7626b5e9e6166d4bb50e8c1ecfaf4b1216bbcf463ff1"
     },
     {
       "path": "backend/BACKEND_VALIDATION.json",
-      "bytes": 2355,
-      "sha256": "92d2d61882c81da10f030a3e461c6b4fedbadd69ccd8a93a6663c7d97a7c4e90"
+      "bytes": 2285,
+      "sha256": "e9964e2745a599d43c01c3e37926fe798d66aadae4167ddd867e663976bcf2be"
     },
     {
       "path": "backend/bridges.jsonl",
-      "bytes": 674,
-      "sha256": "94d32894347a0e24b5e0f9263327376b7f856dbf84cf0efd241286d37f17cd8d"
+      "bytes": 672,
+      "sha256": "acf6141aab87852c2e994fd92adf88317f8552a6c01bde3056c5361dcc51cc57"
     },
     {
       "path": "backend/figure-alt-text-en.csv",
@@ -77,8 +77,8 @@
     },
     {
       "path": "backend/segments.jsonl",
-      "bytes": 2648064,
-      "sha256": "cf3bb3412bb7bf72a9d164a839fda908a88c9fdedcc2f23bc640c2692668ea2e"
+      "bytes": 2641717,
+      "sha256": "d7fd08c42834bc6039c725c9de9ebda7b9617115fa3bfa27b3e7d1c22c825131"
     },
     {
       "path": "backend/term-overrides-en.csv",
@@ -87,18 +87,18 @@
     },
     {
       "path": "backend/terms.csv",
-      "bytes": 42440,
-      "sha256": "34e5d0214c2e5cf97898c9171e35dd78f0aa2171ae543da37899fbd4ba8813a6"
+      "bytes": 41928,
+      "sha256": "24cca046c302af3af058169c4204fad42e8878ec5ee1abc57e26446167413ac8"
     },
     {
       "path": "backend/units.jsonl",
-      "bytes": 111872,
-      "sha256": "f70ede06d1e788e3e6d8104b350a1acb04c4f0e84a76b9833bd92fbb6f9357d6"
+      "bytes": 111726,
+      "sha256": "469e15ad6f5e7db9e716ba10447ee90fe2798420c9f21aa50c696473165d0dd9"
     },
     {
       "path": "controls/CURRENT_STATE.json",
-      "bytes": 1713,
-      "sha256": "1be65cc01f1732e5d582ce04ff9f837b4d8485a9894be3c65c5b5f9bd9587cf6"
+      "bytes": 1670,
+      "sha256": "010de365c4ae4284425840bbc186884a5c8e314b251326aa4551c17de4e8e8b9"
     },
     {
       "path": "controls/ENGLISH_EDITION_SCOPE.md",
@@ -112,13 +112,13 @@
     },
     {
       "path": "controls/SOURCE_FREEZE.json",
-      "bytes": 5312,
-      "sha256": "468b07a489f4bfef79a799b19fbe2b948f8fc3503e48aee16e7f669f8778974f"
+      "bytes": 5147,
+      "sha256": "ca18ccdcc2da5621a682e0ff2e3d6cf32a4af7ccdca52c575e0821d809f43ff7"
     },
     {
       "path": "controls/SOURCE_UNIT_MAP.json",
-      "bytes": 205680,
-      "sha256": "33216e83ffbb2942d5d209ac8ad82b03b121bc187ee02e2eeb3f3620a6ef62cd"
+      "bytes": 202162,
+      "sha256": "658a46f7bd859293846d6e6fa5d73a7f8df52f0a4b22666607ec11519b228b12"
     },
     {
       "path": "controls/ranges/001-015.json",
@@ -207,8 +207,8 @@
     },
     {
       "path": "qa/DIAGRAM_LEDGER_VALIDATION.json",
-      "bytes": 780,
-      "sha256": "fdf43889fe5ac65dc91bf2b7bb98dec3f49ff8f262dca317648dbd7c87f61aba"
+      "bytes": 755,
+      "sha256": "978afacab8de64c9398a1867f1c48c32318a78037afeeeb35daab8853c973958"
     },
     {
       "path": "qa/DIAGRAM_SOURCE_INVENTORY.jsonl",
@@ -217,8 +217,8 @@
     },
     {
       "path": "qa/DIAGRAM_SOURCE_INVENTORY_RECEIPT.json",
-      "bytes": 705,
-      "sha256": "d3b480b54428fc994453c1db8801359fb1e34b61b9aa75326ed96d7c1c27261b"
+      "bytes": 685,
+      "sha256": "34e926fda547abc773b9dffb3d65d742b79607f1dbf2fa51074ec5685cb643a7"
     },
     {
       "path": "qa/HTML_BROWSER_QA.json",
@@ -227,8 +227,8 @@
     },
     {
       "path": "qa/HTML_BUILD_RECEIPT.json",
-      "bytes": 32563,
-      "sha256": "dd5c3eaf230c24ff79fa86dd6b780abb5a2fca47356bcfaee03391a5f6cce7d3"
+      "bytes": 31767,
+      "sha256": "63edfce4490c1ba02cab2e2c47efe285e307a4a3c7a4b37177b1bb3ea1d20ff4"
     },
     {
       "path": "qa/PDF_BUILD_ATTEMPT_001.json",
@@ -237,8 +237,8 @@
     },
     {
       "path": "qa/PDF_BUILD_RECEIPT.json",
-      "bytes": 24254,
-      "sha256": "cb63fc0bf94f1e564ceb31a65eabc80f68a78e6a27689a20843e13818be01795"
+      "bytes": 24067,
+      "sha256": "d10093a0bc1f409d05aa72b3955becdc137d2f34835371b1c085ecff7cfbfea1"
     },
     {
       "path": "qa/PDF_VISUAL_QA.json",
@@ -267,28 +267,28 @@
     },
     {
       "path": "qa/SHARED_SOURCE_VALIDATION.json",
-      "bytes": 2032,
-      "sha256": "366fed85e5fd74fb1f620c3140737cd2e249e6eb2b3b05c1759ee4a75d57372a"
+      "bytes": 1972,
+      "sha256": "fa6e91c23a8a7220e71ac85a9cf62d0ed757b827167f940938c5e3d6d00e24b2"
     },
     {
       "path": "qa/UNIT_ADMISSION.json",
-      "bytes": 184802,
-      "sha256": "28410c32f95364d0d29292274398b06103a89fbd3b3bd2bc383a137312f408c7"
+      "bytes": 180266,
+      "sha256": "02af1610c0b73461bf4f1f7f4637c0fde2db3dcfb71c846d94df666aacebc474"
     },
     {
       "path": "reader/LICENSE.txt",
-      "bytes": 905,
-      "sha256": "a78e7b7f602eb4fc94f1b71bc89a531d4a0ad20bf364e530131f5ce1472ea6d7"
+      "bytes": 885,
+      "sha256": "4c02eff56ccbdb12f2f8179f71608283d01853692d94eaf128f05dbdbbe1d91e"
     },
     {
       "path": "reader/accessibility.html",
-      "bytes": 2398,
-      "sha256": "a69e06aaa543262a13a94d3e48caa8789bcdba4894bb661f2e2baef50b721faf"
+      "bytes": 2364,
+      "sha256": "7a23ffe099ef1387d1ad54d5dff1b1d7b67fd91a6019d26013d4a7fae0e3e2d8"
     },
     {
       "path": "reader/diagram-description-overrides-en.json",
-      "bytes": 4739,
-      "sha256": "9add81ab178d6c523387ae648b50e28ff6b42bf449e8faa6624eeee8cb46cd42"
+      "bytes": 4668,
+      "sha256": "34507345965b87f9ff11c510b232b889afb533fc0991c34c97b7c8e595a34e35"
     },
     {
       "path": "reader/dist/LICENSE.txt",
@@ -452,18 +452,18 @@
     },
     {
       "path": "reader/tools/build_pandoc_reader.py",
-      "bytes": 32036,
-      "sha256": "97e29d5640fde593dee852bb1db34b2f91bb2db20dfe6e00c7405ce4fe3e5330"
+      "bytes": 31803,
+      "sha256": "fcbe49283f313ae6557bd9affb8b1fa6f1643532b2f6bae1c5e5bcba7c931614"
     },
     {
       "path": "reader/tools/postprocess_reader.py",
-      "bytes": 4866,
-      "sha256": "326dbfd87c75e4cff917d2dd5784f802f22821a03f6e73884c236a9ae7cf4732"
+      "bytes": 4743,
+      "sha256": "c5f1d3f0187ce634f466f37206510c10e0eed53666505a52e5c5871720ff9909"
     },
     {
       "path": "reader/tools/validate_reader.py",
-      "bytes": 17712,
-      "sha256": "9c6bda5be1ca0a598b8d1cf00338f194c5dbf154bedc6c1512d68e3748b4a00f"
+      "bytes": 17552,
+      "sha256": "07bcfee26a2cf31a0d1243fc12eb341f71d8c43b73e57e310caa35c4c761d693"
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/LICENSE-MathJax.txt",
@@ -592,18 +592,18 @@
     },
     {
       "path": "release/GITHUB_PUBLIC_READBACK_CHECKPOINT_HTML_ONLY.json",
-      "bytes": 16950,
-      "sha256": "3eab6e18047a82b2e3f76326dc77dbd2497e3e7ee94c92fbcdddf98bac9842df"
+      "bytes": 16614,
+      "sha256": "a43678cabea222fdb5c267b036122f6dea2702f1f7a2b87206d47c9ed397ce1d"
     },
     {
       "path": "release/ZENODO_PUBLICATION_RECEIPT.json",
-      "bytes": 5023,
-      "sha256": "3ed0ba5a089582c17e2f4769a8081dddf100577ebbea78c744a97b29cc578b37"
+      "bytes": 4904,
+      "sha256": "6b935faa68853fb6746de7b11e1457f948737e4308d286ce47ff9ba1769a1aa6"
     },
     {
       "path": "release/publish_github.py",
-      "bytes": 24687,
-      "sha256": "1bd4b6c61c17d9d817ea6f030a535be344eced58b3822b0782934b716f7e8b03"
+      "bytes": 25448,
+      "sha256": "9ba79ef561c1469c21d5844831d6bb1bc30ad8c7dac3d92d73888d6963c772fd"
     },
     {
       "path": "release/publish_zenodo.py",
@@ -612,8 +612,8 @@
     },
     {
       "path": "release/verify_github_public.py",
-      "bytes": 13746,
-      "sha256": "1d319b118dced9a56d86404eb48a217aa06adf3143a1fb047445bdc5eb17a12e"
+      "bytes": 14156,
+      "sha256": "01cc3999c49ae91e3821128829c0ac90e8a6b39245b6bc466262c710f33a9733"
     },
     {
       "path": "source/en/AJbook2.cls",
@@ -622,8 +622,8 @@
     },
     {
       "path": "source/en/Al-jabr-2-en-complete-draft.tex",
-      "bytes": 12928,
-      "sha256": "84ee07571db5eadd7d88783ce743ab510b044e176150f8f9d4d0ecbd39066572"
+      "bytes": 12632,
+      "sha256": "90698a57110759b03164381be8f5a46d1ecf42390d212ec395bfd7b0a469d874"
     },
     {
       "path": "source/en/Al-jabr.bib",
@@ -632,8 +632,8 @@
     },
     {
       "path": "source/en/LICENSE",
-      "bytes": 19045,
-      "sha256": "48a83a6e39f7b2f166763b30776132c9a99aa816f17cb06f87ad5b8542a7b71f"
+      "bytes": 18650,
+      "sha256": "7e7170e3cebf88a9f60c7b8421418323c09304da1af4d5e90f4da1dc1c8a2661"
     },
     {
       "path": "source/en/Lanzhou.png",
@@ -1342,13 +1342,13 @@
     },
     {
       "path": "source/en/coverpage-en.tex",
-      "bytes": 4867,
-      "sha256": "057770c57d3a4b60e9d236ca456cbe422f4d8ce7e7afe1903771d3dd656fcb49"
+      "bytes": 4772,
+      "sha256": "a8a6e567eb03214fc03d3b6ef5dbdfbdfbb6255593195f8a073bad59f8802d3d"
     },
     {
       "path": "source/en/font-setup-en.tex",
-      "bytes": 1850,
-      "sha256": "a48d07b7c79a6d41bf98ec67561bead6fa5c8e16d91e820e815461cfc7ce17c7"
+      "bytes": 1783,
+      "sha256": "7df7f30d28ab530bd8d526a5ae317c6c509f88eddb2e85ec799f164e69852462"
     },
     {
       "path": "source/en/mastery-bridge-001-diagram-chasing.tex",
@@ -1412,8 +1412,8 @@
     },
     {
       "path": "source/en/titles-setup-en.tex",
-      "bytes": 6859,
-      "sha256": "dfd129e2bc5ac2bb976edba4e9d8286432b8890b457dd55543841107b854949c"
+      "bytes": 6659,
+      "sha256": "6e0c188ebb6a961119854041ee892c25a30b24d6bd0c3c183cbacdfa7bd76edf"
     },
     {
       "path": "tools/admit_translated_units.py",
