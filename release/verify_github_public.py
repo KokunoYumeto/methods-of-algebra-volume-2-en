@@ -50,6 +50,16 @@ def git(*args: str) -> str:
     return completed.stdout.strip()
 
 
+def git_blob_bytes(commit: str, path: str) -> bytes:
+    completed = subprocess.run(
+        ["git", "-C", str(ROOT), "show", f"{commit}:{path}"],
+        capture_output=True,
+    )
+    if completed.returncode:
+        raise RuntimeError(f"Narrow local Git blob read failed for {commit}:{path}")
+    return completed.stdout
+
+
 def valid_path(value) -> bool:
     if not isinstance(value, str) or not value or "\\" in value:
         return False
@@ -212,8 +222,9 @@ def main() -> None:
         main_expected = expected_inventory(
             publication.get("main_inventory_excluding_this_receipt"), "main")
         main_receipt_path = "release/GITHUB_PUBLICATION_RECEIPT.json"
+        main_receipt_blob = git_blob_bytes(main_head, main_receipt_path)
         main_expected[main_receipt_path] = {
-            "bytes": PUBLISH.stat().st_size, "sha256": sha_file(PUBLISH)}
+            "bytes": len(main_receipt_blob), "sha256": sha_bytes(main_receipt_blob)}
         pages_expected = expected_inventory(publication.get("pages_inventory"), "Pages")
 
         repo = poll_json(

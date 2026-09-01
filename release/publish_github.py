@@ -383,11 +383,27 @@ def assert_tree(commit: str, expected: set[str]) -> None:
         raise RuntimeError("release/staging is forbidden in the published Git tree")
 
 
-def inventory(paths: set[str]) -> list[dict]:
+def git_blob_bytes(commit: str, rel: str) -> bytes:
+    process = subprocess.run(
+        ["git", "-C", str(ROOT), "show", f"{commit}:{rel}"],
+        cwd=ROOT,
+        capture_output=True,
+    )
+    if process.returncode:
+        raise RuntimeError(f"Cannot read committed Git blob {commit}:{rel}")
+    return process.stdout
+
+
+def inventory(paths: set[str], commit: str | None = None) -> list[dict]:
     rows = []
     for rel in sorted(paths):
-        path = repo_file(rel, "publication inventory file")
-        rows.append({"path": rel, "bytes": path.stat().st_size, "sha256": sha(path)})
+        if commit is None:
+            path = repo_file(rel, "publication inventory file")
+            data = path.read_bytes()
+        else:
+            data = git_blob_bytes(commit, rel)
+        rows.append({"path": rel, "bytes": len(data),
+                     "sha256": hashlib.sha256(data).hexdigest()})
     return rows
 
 
@@ -485,7 +501,10 @@ def main() -> None:
 
     main_content_commit = git("rev-parse", "HEAD")
     main_content_tree = git("rev-parse", "HEAD^{tree}")
-    main_inventory = inventory(allowed - {RECEIPT_REL})
+    # Bind public-source expectations to canonical committed blobs.  On
+    # Windows, Git may normalize working-copy CRLF to LF; working-tree hashes
+    # are therefore not valid identities for raw.githubusercontent.com.
+    main_inventory = inventory(allowed - {RECEIPT_REL}, main_content_commit)
     page_paths = {relative(path) for path in (ROOT / "reader" / "dist").rglob("*") if path.is_file()}
     pages_inventory = inventory(page_paths)
     pages_inventory = [{**row, "path": row["path"].removeprefix("reader/dist/")} for row in pages_inventory]
