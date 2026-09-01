@@ -1,16 +1,1642 @@
 {
-  "schema": "o014-english-github-publication-v1",
-  "published_at_utc": "2026-09-01T01:43:59.081146+00:00",
+  "schema": "o014-english-github-publication-v2",
+  "published_at_utc": "2026-09-01T11:32:10.489402+00:00",
   "result": "PUSHED_PENDING_ANONYMOUS_READBACK",
   "repository": "https://github.com/KokunoYumeto/methods-of-algebra-volume-2-en",
   "pages_url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/",
   "visibility": "public",
-  "publication_scope": "complete_html_reader_checkpoint_pdf_and_zenodo_pending",
-  "main_content_commit": "5e76c3454625afd6227e1762d9d65ba2c6c4b906",
-  "main_content_tree": "3f3f904e1547c01e4c6eab120edc216769bbc1d9",
-  "pages_commit": "ffe5fd72a87a4de894a7fa09861d415406544278",
-  "pages_previous_commit": "1e186f21e91e04b6e289b94780778d3696c73eec",
+  "publication_scope": "complete_pdf_html_source_backend_release",
+  "main_content_commit": "ee9ee9202a9f79dba0c3932da307c77ee5ee9a40",
+  "main_content_tree": "fd3f166a22225be555bc01f763be86f10254a407",
+  "pages_commit": "81b9a58f16aec0f0c22b3708ef52c7d36d15e009",
+  "pages_previous_commit": "ffe5fd72a87a4de894a7fa09861d415406544278",
   "source_commit": "9a5803ff77dd3257484cb177f851a73770a59dd3",
   "source_tree": "23bd05c2fb8434278df4fdfb636559a6a2b0d2ff",
+  "gate_receipts": {
+    "qa/PDF_BUILD_RECEIPT.json": {
+      "bytes": 24254,
+      "sha256": "cb63fc0bf94f1e564ceb31a65eabc80f68a78e6a27689a20843e13818be01795",
+      "result": "PASS"
+    },
+    "qa/HTML_BUILD_RECEIPT.json": {
+      "bytes": 32563,
+      "sha256": "dd5c3eaf230c24ff79fa86dd6b780abb5a2fca47356bcfaee03391a5f6cce7d3",
+      "result": "PASS"
+    },
+    "qa/HTML_BROWSER_QA.json": {
+      "bytes": 3412,
+      "sha256": "d2acf7bebf30988cd276e3d9085f2865a33bf44d6a6b7389be3a93501531e19e",
+      "result": "PASS"
+    },
+    "backend/BACKEND_VALIDATION.json": {
+      "bytes": 2355,
+      "sha256": "92d2d61882c81da10f030a3e461c6b4fedbadd69ccd8a93a6663c7d97a7c4e90",
+      "result": "PASS"
+    },
+    "release/staging/PACKAGE_RECEIPT.json": {
+      "bytes": 5510,
+      "sha256": "d5854156fa5085e838c26ebdae7732e392e00fc7a5096de4611ffc3fb94d6266",
+      "result": "PASS"
+    },
+    "release/ZENODO_PUBLICATION_RECEIPT.json": {
+      "bytes": 5023,
+      "sha256": "3ed0ba5a089582c17e2f4769a8081dddf100577ebbea78c744a97b29cc578b37",
+      "result": "PASS"
+    }
+  },
+  "main_inventory_excluding_this_receipt": [
+    {
+      "path": ".gitattributes",
+      "bytes": 98,
+      "sha256": "e755c22a88101d9f24356cd08f2ff483498bb456154e7a5ea68ded120fc45f21"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 156,
+      "sha256": "afe7701e06064e36f3108732af2338598f782654e5337d5218bad9f45ea85f1c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3310,
+      "sha256": "d911a14e691497f6270870e87490da9073b76d071a765b7506b2e5d8aede0307"
+    },
+    {
+      "path": "backend/BACKEND_VALIDATION.json",
+      "bytes": 2355,
+      "sha256": "92d2d61882c81da10f030a3e461c6b4fedbadd69ccd8a93a6663c7d97a7c4e90"
+    },
+    {
+      "path": "backend/bridges.jsonl",
+      "bytes": 674,
+      "sha256": "94d32894347a0e24b5e0f9263327376b7f856dbf84cf0efd241286d37f17cd8d"
+    },
+    {
+      "path": "backend/figure-alt-text-en.csv",
+      "bytes": 337312,
+      "sha256": "aa15c68e8e0f19ee58dc9329199c4ff84db1deb1df9bf58dd5a11105ff293937"
+    },
+    {
+      "path": "backend/segments.jsonl",
+      "bytes": 2648064,
+      "sha256": "cf3bb3412bb7bf72a9d164a839fda908a88c9fdedcc2f23bc640c2692668ea2e"
+    },
+    {
+      "path": "backend/term-overrides-en.csv",
+      "bytes": 25413,
+      "sha256": "47e88827bf39f5a0827753fdc1bb9304de31f3bd5fc26acdb33c9f72ee156378"
+    },
+    {
+      "path": "backend/terms.csv",
+      "bytes": 42440,
+      "sha256": "34e5d0214c2e5cf97898c9171e35dd78f0aa2171ae543da37899fbd4ba8813a6"
+    },
+    {
+      "path": "backend/units.jsonl",
+      "bytes": 111872,
+      "sha256": "f70ede06d1e788e3e6d8104b350a1acb04c4f0e84a76b9833bd92fbb6f9357d6"
+    },
+    {
+      "path": "controls/CURRENT_STATE.json",
+      "bytes": 1713,
+      "sha256": "1be65cc01f1732e5d582ce04ff9f837b4d8485a9894be3c65c5b5f9bd9587cf6"
+    },
+    {
+      "path": "controls/ENGLISH_EDITION_SCOPE.md",
+      "bytes": 5020,
+      "sha256": "5ba6a091709743b67e5dd596e8c498cb4896b86ce8da17d2fb93794519758a85"
+    },
+    {
+      "path": "controls/PRODUCTION_LOG.md",
+      "bytes": 21230,
+      "sha256": "039e0e9097f185ea617f26c7efa10426410402adc9f1b77c571dd9a8f28a8fa4"
+    },
+    {
+      "path": "controls/SOURCE_FREEZE.json",
+      "bytes": 5312,
+      "sha256": "468b07a489f4bfef79a799b19fbe2b948f8fc3503e48aee16e7f669f8778974f"
+    },
+    {
+      "path": "controls/SOURCE_UNIT_MAP.json",
+      "bytes": 205680,
+      "sha256": "33216e83ffbb2942d5d209ac8ad82b03b121bc187ee02e2eeb3f3620a6ef62cd"
+    },
+    {
+      "path": "controls/ranges/001-015.json",
+      "bytes": 12083,
+      "sha256": "8d1e1b9a7e57629550c4682dd15df6bb436862fd6718dbf28ef24b5045ab2489"
+    },
+    {
+      "path": "controls/ranges/016-024.json",
+      "bytes": 7721,
+      "sha256": "65a2af52e74f542fe75b97b49d690f29b77c899aeba1e2b7b5fdc3fbbcdfe5e3"
+    },
+    {
+      "path": "controls/ranges/025-032.json",
+      "bytes": 4550,
+      "sha256": "5a772da369c949a0c1ff4fc4c56c5b141b4e7ba8bcb7199f95d36ea784a2a294"
+    },
+    {
+      "path": "controls/ranges/033-040.json",
+      "bytes": 4883,
+      "sha256": "616fb37ad215248a051c3b89d79893922cf04cc10bbca62efa178aebe76b77bf"
+    },
+    {
+      "path": "controls/ranges/041-046.json",
+      "bytes": 10374,
+      "sha256": "3166118d44d2e2101171a0a09e646dcb292933342c42076afafa9ca2389bd3c7"
+    },
+    {
+      "path": "controls/ranges/047-055.json",
+      "bytes": 11330,
+      "sha256": "8a3c5070d05c851b93c95a3df37dc0ebdafcdae4a86c3153444d18c8bdde8b22"
+    },
+    {
+      "path": "controls/ranges/056-064.json",
+      "bytes": 7728,
+      "sha256": "6644576c61d618c8b9981842d54a242379640039f669baeffb4b9fd3d023033d"
+    },
+    {
+      "path": "controls/ranges/065-073.json",
+      "bytes": 7750,
+      "sha256": "82b914240995720ca01683f5dc1dcb81f42ab6ff34ff02bef915135c897f147b"
+    },
+    {
+      "path": "controls/ranges/074-082.json",
+      "bytes": 7704,
+      "sha256": "d6e319f6e7199147a2d3ace5066b4527881c578d282ba5a79f8b8e3eb4807452"
+    },
+    {
+      "path": "controls/ranges/083-089.json",
+      "bytes": 11647,
+      "sha256": "865868d251f28f7c02f1fe4278fb9580d7a9f430c81da0e3feaffb9d5149d6f1"
+    },
+    {
+      "path": "controls/ranges/090-099.json",
+      "bytes": 8443,
+      "sha256": "3fb73d4eb08e6d4105d79e04fbfa85d5546782844879d9a0c1321d6f42e0aee8"
+    },
+    {
+      "path": "controls/ranges/100-109.json",
+      "bytes": 8406,
+      "sha256": "0a381a37986961a98624ac2b0a49889b9b0e34e496ccc58f72b112a327fce2dd"
+    },
+    {
+      "path": "controls/ranges/110-121.json",
+      "bytes": 9898,
+      "sha256": "199eaaeab15233c0d46a5273f5ea4093e8dd08b38b36863916712550051dfaf3"
+    },
+    {
+      "path": "controls/ranges/122-132.json",
+      "bytes": 14512,
+      "sha256": "a54ae50b5bf8b18f4d454e4179955f108f47941882b035530d066b64c7ee3b1b"
+    },
+    {
+      "path": "controls/ranges/133-146.json",
+      "bytes": 11686,
+      "sha256": "a744276b1b649f26d7d3a0609b3b4258a36bfcdca4ee989c5cce3a8ccedd8ce7"
+    },
+    {
+      "path": "controls/ranges/bridges.json",
+      "bytes": 5323,
+      "sha256": "eebc902ea9d9697facc311864e91f0823f74d433f84b452f7faf6980340d02df"
+    },
+    {
+      "path": "output/pdf/methods-of-algebra-volume-2-independent-english-edition.pdf",
+      "bytes": 3891627,
+      "sha256": "88114c09af3313d1e93d7b66da67c277aae21727fec60c0643b10a1f2b1d6448"
+    },
+    {
+      "path": "qa/DIAGRAM_LEDGER_VALIDATION.json",
+      "bytes": 780,
+      "sha256": "fdf43889fe5ac65dc91bf2b7bb98dec3f49ff8f262dca317648dbd7c87f61aba"
+    },
+    {
+      "path": "qa/DIAGRAM_SOURCE_INVENTORY.jsonl",
+      "bytes": 696546,
+      "sha256": "36f8d539bce4ce0a8990d5fe2e404195f963f8e2eae1afb82e9f7789677e6a03"
+    },
+    {
+      "path": "qa/DIAGRAM_SOURCE_INVENTORY_RECEIPT.json",
+      "bytes": 705,
+      "sha256": "d3b480b54428fc994453c1db8801359fb1e34b61b9aa75326ed96d7c1c27261b"
+    },
+    {
+      "path": "qa/HTML_BROWSER_QA.json",
+      "bytes": 3412,
+      "sha256": "d2acf7bebf30988cd276e3d9085f2865a33bf44d6a6b7389be3a93501531e19e"
+    },
+    {
+      "path": "qa/HTML_BUILD_RECEIPT.json",
+      "bytes": 32563,
+      "sha256": "dd5c3eaf230c24ff79fa86dd6b780abb5a2fca47356bcfaee03391a5f6cce7d3"
+    },
+    {
+      "path": "qa/PDF_BUILD_ATTEMPT_001.json",
+      "bytes": 659,
+      "sha256": "0f1dd373339a408470432ac060c1109cb49e735080ee40b2b4a2a7839ef6ffec"
+    },
+    {
+      "path": "qa/PDF_BUILD_RECEIPT.json",
+      "bytes": 24254,
+      "sha256": "cb63fc0bf94f1e564ceb31a65eabc80f68a78e6a27689a20843e13818be01795"
+    },
+    {
+      "path": "qa/PDF_VISUAL_QA.json",
+      "bytes": 2637,
+      "sha256": "d55fe8d4a00368ce0e26b349cd22a2c8e261e96b77f09ee00bdb619e1513af81"
+    },
+    {
+      "path": "qa/READER_BUILDER_PREFLIGHT.json",
+      "bytes": 4924,
+      "sha256": "bea09f1d0b1ce4511365a2ceb3c61e60be4f70cb301db31be0312bf59553fdd8"
+    },
+    {
+      "path": "qa/RELEASE_TOOL_PREFLIGHT.json",
+      "bytes": 6211,
+      "sha256": "b0512a0e7da11d47855f45b3b9c4f801b2c5d6d64fc46fdd39501fb0c0c9e552"
+    },
+    {
+      "path": "qa/RELEASE_TOOL_PREFLIGHT_SUPPLEMENT.json",
+      "bytes": 1052,
+      "sha256": "f50579016a91d8c8652c430336b275fecf22980ca3b73b88fcf883d3c5c83957"
+    },
+    {
+      "path": "qa/SHARED_PARATEXT_PREFLIGHT.json",
+      "bytes": 4202,
+      "sha256": "358714a94de2f8335309cfd9cac819b4a0d95913ecc9aa27898b7ca9a1d3d536"
+    },
+    {
+      "path": "qa/SHARED_SOURCE_VALIDATION.json",
+      "bytes": 2032,
+      "sha256": "366fed85e5fd74fb1f620c3140737cd2e249e6eb2b3b05c1759ee4a75d57372a"
+    },
+    {
+      "path": "qa/UNIT_ADMISSION.json",
+      "bytes": 184802,
+      "sha256": "28410c32f95364d0d29292274398b06103a89fbd3b3bd2bc383a137312f408c7"
+    },
+    {
+      "path": "reader/LICENSE.txt",
+      "bytes": 905,
+      "sha256": "a78e7b7f602eb4fc94f1b71bc89a531d4a0ad20bf364e530131f5ce1472ea6d7"
+    },
+    {
+      "path": "reader/accessibility.html",
+      "bytes": 2398,
+      "sha256": "a69e06aaa543262a13a94d3e48caa8789bcdba4894bb661f2e2baef50b721faf"
+    },
+    {
+      "path": "reader/diagram-description-overrides-en.json",
+      "bytes": 4739,
+      "sha256": "9add81ab178d6c523387ae648b50e28ff6b42bf449e8faa6624eeee8cb46cd42"
+    },
+    {
+      "path": "reader/dist/LICENSE.txt",
+      "bytes": 905,
+      "sha256": "a78e7b7f602eb4fc94f1b71bc89a531d4a0ad20bf364e530131f5ce1472ea6d7"
+    },
+    {
+      "path": "reader/dist/SHA256SUMS.txt",
+      "bytes": 3897,
+      "sha256": "4475669070524617dfc671e5091fac14000f8864d27338e5402e0b0a6369d864"
+    },
+    {
+      "path": "reader/dist/accessibility.html",
+      "bytes": 2398,
+      "sha256": "a69e06aaa543262a13a94d3e48caa8789bcdba4894bb661f2e2baef50b721faf"
+    },
+    {
+      "path": "reader/dist/index.html",
+      "bytes": 4501242,
+      "sha256": "15c5ce147ecbff02fe8d95416029e57f0ecbd9af1fcfa16f1857b183f21ce824"
+    },
+    {
+      "path": "reader/dist/reader.css",
+      "bytes": 6769,
+      "sha256": "fd9b89f0a29aa64ee452707d1220f4038658d3ade179079ea4f4ba16662d04a6"
+    },
+    {
+      "path": "reader/dist/validation-report.json",
+      "bytes": 632,
+      "sha256": "f5b97ecbfbdffe9396e6c6d12baf25efe636b91d858944f14951a838292fc9dc"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/LICENSE-MathJax.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff",
+      "bytes": 40808,
+      "sha256": "3de784d07b9fa8f104c10928a878ee879cf3305cae5195cba663c9c2bb0195eb"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff",
+      "bytes": 9908,
+      "sha256": "af04542b29eaac04550a140c5f1760a649783989426f2540855bf4157819367d"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff",
+      "bytes": 9600,
+      "sha256": "26683bf201fb258a2237d9754616de9d4ecf4cc1cd39dd1902476df7d75f1d16"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff",
+      "bytes": 22340,
+      "sha256": "721921bab0d001ebff0206c24cb5de6ca136467bf1843a7aa32030ba061d1e92"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff",
+      "bytes": 21480,
+      "sha256": "870673df72e70f87c91a5a317d558c2c3b54392264ad79bbadc6d424ae8765fe"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff",
+      "bytes": 34464,
+      "sha256": "88b98cad3688915e50da55553ff6ad185e0dce134b47f176e91b100f8a9b175c"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff",
+      "bytes": 20832,
+      "sha256": "355254db9ca10a09a3b5f0929d74eb4670f44fbe864c07526a06213e0a0caf6c"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff",
+      "bytes": 34160,
+      "sha256": "1cb1c39ea642f26a4dfed230b4aea1c3c218689421f6e9c0a7c1811693c4fa07"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff",
+      "bytes": 19776,
+      "sha256": "8ea8dbb1b02e6f730f55b4cb5d413b785b9f5c39807d0a0fa7da206a0824a457"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff",
+      "bytes": 19360,
+      "sha256": "a009bea404f7a500ded48f8b9ad9cf16e12504b3195dd9e25975289b8256b0f0"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Regular.woff",
+      "bytes": 19288,
+      "sha256": "c01d3321e89b403c4b811aa153c4e618eda3421f92d8a072a02c8d190782a191"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff",
+      "bytes": 15944,
+      "sha256": "32792104b5ef69eded905b6d1598ed05d8087684d38e7a94d52e3c38ba16f47e"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff",
+      "bytes": 14628,
+      "sha256": "fc6ddf5df402b263cfb158aed8e89972542c34b719cd87b1db30461985f7bd5b"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff",
+      "bytes": 12660,
+      "sha256": "b418136e3b384baaadecb70bd3c48a8da9825210130b2897db808c44efc883cb"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff",
+      "bytes": 11852,
+      "sha256": "af96f67d7accf5fd2a4a682d0b9f8b339f8ea6fe34c310c1694c8ba7f6ddc96f"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff",
+      "bytes": 5792,
+      "sha256": "c49810b53ecc0d87d8028762c518924197dd9d3f905b08f99ea241301085b9cb"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff",
+      "bytes": 5464,
+      "sha256": "30e889b58cbc51adfbb038ab1a96dc4025aa3542a3cff7712fc55ece510675e2"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff",
+      "bytes": 3244,
+      "sha256": "5cda41563a095bd70c78e2dda13d0f8cb922c71c90fffd0a0044c65173a66e83"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff",
+      "bytes": 5148,
+      "sha256": "3bc6ecaae7ecf6f8d7f8ea07bddbaca8601e2cb6e89d6aef58e78d9f6d8a398f"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff",
+      "bytes": 17604,
+      "sha256": "c56da8d69f1a0208b8e0703656c3264b6dd748bd452524c82b0385b60f6a68c1"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff",
+      "bytes": 1116,
+      "sha256": "36e0d72d8a7afc696a3e7a5c7369807634640de9b02257bca447bdf126221a27"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff",
+      "bytes": 1136,
+      "sha256": "72bc573386dd1d48c5bbd286302ca9e3400c5eb0f298e7cfbf945b9d08fc688f"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Zero.woff",
+      "bytes": 1368,
+      "sha256": "481e39042508ae313a60618af1e37146ab93e9324c98e4c78b8f17fe55d41e0b"
+    },
+    {
+      "path": "reader/dist/vendor/mathjax-3.2.2/tex-chtml-full.js",
+      "bytes": 1327522,
+      "sha256": "91b005503c5d1f0958bf4d73ada1a3be33596b2c4ab5da22277f1b0d3149b5a4"
+    },
+    {
+      "path": "reader/reader.css",
+      "bytes": 6769,
+      "sha256": "fd9b89f0a29aa64ee452707d1220f4038658d3ade179079ea4f4ba16662d04a6"
+    },
+    {
+      "path": "reader/tools/build_pandoc_reader.py",
+      "bytes": 32036,
+      "sha256": "97e29d5640fde593dee852bb1db34b2f91bb2db20dfe6e00c7405ce4fe3e5330"
+    },
+    {
+      "path": "reader/tools/postprocess_reader.py",
+      "bytes": 4866,
+      "sha256": "326dbfd87c75e4cff917d2dd5784f802f22821a03f6e73884c236a9ae7cf4732"
+    },
+    {
+      "path": "reader/tools/validate_reader.py",
+      "bytes": 17712,
+      "sha256": "9c6bda5be1ca0a598b8d1cf00338f194c5dbf154bedc6c1512d68e3748b4a00f"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/LICENSE-MathJax.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff",
+      "bytes": 40808,
+      "sha256": "3de784d07b9fa8f104c10928a878ee879cf3305cae5195cba663c9c2bb0195eb"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff",
+      "bytes": 9908,
+      "sha256": "af04542b29eaac04550a140c5f1760a649783989426f2540855bf4157819367d"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff",
+      "bytes": 9600,
+      "sha256": "26683bf201fb258a2237d9754616de9d4ecf4cc1cd39dd1902476df7d75f1d16"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff",
+      "bytes": 22340,
+      "sha256": "721921bab0d001ebff0206c24cb5de6ca136467bf1843a7aa32030ba061d1e92"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff",
+      "bytes": 21480,
+      "sha256": "870673df72e70f87c91a5a317d558c2c3b54392264ad79bbadc6d424ae8765fe"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff",
+      "bytes": 34464,
+      "sha256": "88b98cad3688915e50da55553ff6ad185e0dce134b47f176e91b100f8a9b175c"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff",
+      "bytes": 20832,
+      "sha256": "355254db9ca10a09a3b5f0929d74eb4670f44fbe864c07526a06213e0a0caf6c"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff",
+      "bytes": 34160,
+      "sha256": "1cb1c39ea642f26a4dfed230b4aea1c3c218689421f6e9c0a7c1811693c4fa07"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff",
+      "bytes": 19776,
+      "sha256": "8ea8dbb1b02e6f730f55b4cb5d413b785b9f5c39807d0a0fa7da206a0824a457"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff",
+      "bytes": 19360,
+      "sha256": "a009bea404f7a500ded48f8b9ad9cf16e12504b3195dd9e25975289b8256b0f0"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Regular.woff",
+      "bytes": 19288,
+      "sha256": "c01d3321e89b403c4b811aa153c4e618eda3421f92d8a072a02c8d190782a191"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff",
+      "bytes": 15944,
+      "sha256": "32792104b5ef69eded905b6d1598ed05d8087684d38e7a94d52e3c38ba16f47e"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff",
+      "bytes": 14628,
+      "sha256": "fc6ddf5df402b263cfb158aed8e89972542c34b719cd87b1db30461985f7bd5b"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff",
+      "bytes": 12660,
+      "sha256": "b418136e3b384baaadecb70bd3c48a8da9825210130b2897db808c44efc883cb"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff",
+      "bytes": 11852,
+      "sha256": "af96f67d7accf5fd2a4a682d0b9f8b339f8ea6fe34c310c1694c8ba7f6ddc96f"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff",
+      "bytes": 5792,
+      "sha256": "c49810b53ecc0d87d8028762c518924197dd9d3f905b08f99ea241301085b9cb"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff",
+      "bytes": 5464,
+      "sha256": "30e889b58cbc51adfbb038ab1a96dc4025aa3542a3cff7712fc55ece510675e2"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff",
+      "bytes": 3244,
+      "sha256": "5cda41563a095bd70c78e2dda13d0f8cb922c71c90fffd0a0044c65173a66e83"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff",
+      "bytes": 5148,
+      "sha256": "3bc6ecaae7ecf6f8d7f8ea07bddbaca8601e2cb6e89d6aef58e78d9f6d8a398f"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff",
+      "bytes": 17604,
+      "sha256": "c56da8d69f1a0208b8e0703656c3264b6dd748bd452524c82b0385b60f6a68c1"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff",
+      "bytes": 1116,
+      "sha256": "36e0d72d8a7afc696a3e7a5c7369807634640de9b02257bca447bdf126221a27"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff",
+      "bytes": 1136,
+      "sha256": "72bc573386dd1d48c5bbd286302ca9e3400c5eb0f298e7cfbf945b9d08fc688f"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Zero.woff",
+      "bytes": 1368,
+      "sha256": "481e39042508ae313a60618af1e37146ab93e9324c98e4c78b8f17fe55d41e0b"
+    },
+    {
+      "path": "reader/vendor/mathjax-3.2.2/tex-chtml-full.js",
+      "bytes": 1327522,
+      "sha256": "91b005503c5d1f0958bf4d73ada1a3be33596b2c4ab5da22277f1b0d3149b5a4"
+    },
+    {
+      "path": "release/GITHUB_PUBLIC_READBACK_CHECKPOINT_HTML_ONLY.json",
+      "bytes": 16950,
+      "sha256": "3eab6e18047a82b2e3f76326dc77dbd2497e3e7ee94c92fbcdddf98bac9842df"
+    },
+    {
+      "path": "release/ZENODO_PUBLICATION_RECEIPT.json",
+      "bytes": 5023,
+      "sha256": "3ed0ba5a089582c17e2f4769a8081dddf100577ebbea78c744a97b29cc578b37"
+    },
+    {
+      "path": "release/publish_github.py",
+      "bytes": 24687,
+      "sha256": "1bd4b6c61c17d9d817ea6f030a535be344eced58b3822b0782934b716f7e8b03"
+    },
+    {
+      "path": "release/publish_zenodo.py",
+      "bytes": 42120,
+      "sha256": "01deed5276de970417b90e9a6e86f4b7b6fc16c132e3fbddd4f6caaf5e2e5d9c"
+    },
+    {
+      "path": "release/verify_github_public.py",
+      "bytes": 13746,
+      "sha256": "1d319b118dced9a56d86404eb48a217aa06adf3143a1fb047445bdc5eb17a12e"
+    },
+    {
+      "path": "source/en/AJbook2.cls",
+      "bytes": 13852,
+      "sha256": "d671788b2a9f24d1a8a7227144f9d8677622a50dbce097baaf632d880b0d0e29"
+    },
+    {
+      "path": "source/en/Al-jabr-2-en-complete-draft.tex",
+      "bytes": 12928,
+      "sha256": "84ee07571db5eadd7d88783ce743ab510b044e176150f8f9d4d0ecbd39066572"
+    },
+    {
+      "path": "source/en/Al-jabr.bib",
+      "bytes": 23967,
+      "sha256": "1114bf4fe47e94d90658f288ae3d72c1a38f8bc297cbd88acd450ca004240306"
+    },
+    {
+      "path": "source/en/LICENSE",
+      "bytes": 19045,
+      "sha256": "48a83a6e39f7b2f166763b30776132c9a99aa816f17cb06f87ad5b8542a7b71f"
+    },
+    {
+      "path": "source/en/Lanzhou.png",
+      "bytes": 276766,
+      "sha256": "6000d7740aab58f1959c07af2c057680e2518dcc75b225f3180ed4b996fe9455"
+    },
+    {
+      "path": "source/en/appendix1-unit-135.tex",
+      "bytes": 11778,
+      "sha256": "b3d693790d2f7aec6769540801fc423736c78c7a9e03a297837322a410486a00"
+    },
+    {
+      "path": "source/en/appendix1-unit-136.tex",
+      "bytes": 15483,
+      "sha256": "5816d8fde62658c6984c49364237ba3bfac17ec84359b4ac924f95fde1bb5e07"
+    },
+    {
+      "path": "source/en/appendix1-unit-137.tex",
+      "bytes": 9617,
+      "sha256": "638dec4235bf63210f3c3e9151faf97bbd2a410c975035148e8ac8c472517340"
+    },
+    {
+      "path": "source/en/appendix1-unit-138.tex",
+      "bytes": 10285,
+      "sha256": "7144b9da2d8f81f4438b304fd82e9f58f371ecdeb8948da2d02e9db4fc25de61"
+    },
+    {
+      "path": "source/en/appendix1-unit-139.tex",
+      "bytes": 5740,
+      "sha256": "4dc57fb9f11ffe1281019316c39eed805c37c73927a8028d82c230c6f09c17a0"
+    },
+    {
+      "path": "source/en/appendix2-unit-140.tex",
+      "bytes": 14627,
+      "sha256": "0e1cf5f82a8816f4e856ebe6ac147b0828cd16d85664fcb28e85465536006292"
+    },
+    {
+      "path": "source/en/appendix2-unit-141.tex",
+      "bytes": 13754,
+      "sha256": "7abb74920baff2e98a63741dcc2f2629a4798c86f73cc8c53bbf18529801195a"
+    },
+    {
+      "path": "source/en/appendix2-unit-142.tex",
+      "bytes": 13596,
+      "sha256": "776a23af4960bbf9eba6f2c88ba0bc5763d038a98998e927fa85e2ba5a7568ba"
+    },
+    {
+      "path": "source/en/appendix2-unit-143.tex",
+      "bytes": 8492,
+      "sha256": "f35dbcfdfb8533e1737635425f0935a4797b5d2e7a2cba73fd23bf697049c218"
+    },
+    {
+      "path": "source/en/appendix2-unit-144.tex",
+      "bytes": 10021,
+      "sha256": "040362f59e0b728b658d509ad4acfed066b2d5ff00095225b98a46d498e15112"
+    },
+    {
+      "path": "source/en/appendix2-unit-145.tex",
+      "bytes": 5729,
+      "sha256": "a2916b63b5f1fab33318ba7fbfe08df0f4d23f8430898d1aece0f7ee0759b0d5"
+    },
+    {
+      "path": "source/en/appendix2-unit-146.tex",
+      "bytes": 9161,
+      "sha256": "3d40cc380e76fe2318b2945a33314b93b39e00e60a97fd331dbfd0b8c40f27aa"
+    },
+    {
+      "path": "source/en/ccby.png",
+      "bytes": 12588,
+      "sha256": "633aae44a5d5b8915debc82f56a8e05c1b62b567b1aefeabc18617b81d8a04a9"
+    },
+    {
+      "path": "source/en/chapter1-unit-008.tex",
+      "bytes": 6391,
+      "sha256": "d8b41e6d03dcfbcad1893913067011c5d80dacd1b836f9d105725bb88259f8eb"
+    },
+    {
+      "path": "source/en/chapter1-unit-009.tex",
+      "bytes": 12624,
+      "sha256": "3a16ef5063206d9918961cd928987bf4e9b49bcc6b9f3865354488af13cb9b2d"
+    },
+    {
+      "path": "source/en/chapter1-unit-010.tex",
+      "bytes": 11942,
+      "sha256": "bdfdb82c6dd52533fe9ed8e107967c54fa99c6455866d94e4ea3e995525aef2b"
+    },
+    {
+      "path": "source/en/chapter1-unit-011.tex",
+      "bytes": 28360,
+      "sha256": "cb8e9593cf34c895e2afc57f200b7045d3d0f9399d91528bc1e636592bc09763"
+    },
+    {
+      "path": "source/en/chapter1-unit-012.tex",
+      "bytes": 8581,
+      "sha256": "1e1916cef13dae45e34080a9250476c5d031fb6b397ae7e3346edb4a5272ba45"
+    },
+    {
+      "path": "source/en/chapter1-unit-013.tex",
+      "bytes": 17799,
+      "sha256": "36ef667d4cd9be4756bdaed93d59edd7e8a4c465fb7145e06b1bf43657a69a14"
+    },
+    {
+      "path": "source/en/chapter1-unit-014.tex",
+      "bytes": 20458,
+      "sha256": "d2823bea92ab0c312edfe2ca17d82e5e3078f83d291bbc5a0f2459339877c540"
+    },
+    {
+      "path": "source/en/chapter1-unit-015.tex",
+      "bytes": 26208,
+      "sha256": "16df36f50811fa71ad7b1624544aa6246518d7de1db4b414a84214bcdbb9f141"
+    },
+    {
+      "path": "source/en/chapter1-unit-016.tex",
+      "bytes": 11926,
+      "sha256": "57b3b4703da87b004cea7ee3f3be4f5f507bf2e243e1df904480078e9b3e3866"
+    },
+    {
+      "path": "source/en/chapter1-unit-017.tex",
+      "bytes": 38631,
+      "sha256": "9280f2cc95c99fc5fc7c59c79a474e33960bcdad942a71f42f1b0d1e45e484f5"
+    },
+    {
+      "path": "source/en/chapter1-unit-018.tex",
+      "bytes": 16174,
+      "sha256": "5aa67a05dc317e2d8796eca3e55d07f880f1dab2c3f3c41a86513037fd5a234f"
+    },
+    {
+      "path": "source/en/chapter1-unit-019.tex",
+      "bytes": 42409,
+      "sha256": "f662655498d0b3495adb22d1c691472115afc43c666c578cc0648752018b3829"
+    },
+    {
+      "path": "source/en/chapter2-unit-020.tex",
+      "bytes": 6910,
+      "sha256": "f92187b487cf7c88e76b14d5e60ba8fa46cdca74478de3fda2e0116c0fb96e6a"
+    },
+    {
+      "path": "source/en/chapter2-unit-021.tex",
+      "bytes": 8424,
+      "sha256": "86b85ff540c9859bb8172dd218a65a945cde870880fdd734928a342d5c2870b6"
+    },
+    {
+      "path": "source/en/chapter2-unit-022.tex",
+      "bytes": 19927,
+      "sha256": "7c8a40388efdad3aafa02567cf07ac390864a6d4ed0430250ca7836aaefe3735"
+    },
+    {
+      "path": "source/en/chapter2-unit-023.tex",
+      "bytes": 24152,
+      "sha256": "65ce863946f2f3f4fa33f4aa088f59e6aa82ed8403e93f8939e1c269e6863a5d"
+    },
+    {
+      "path": "source/en/chapter2-unit-024.tex",
+      "bytes": 21852,
+      "sha256": "02fd91a6a187f2746a5408f0dfe2b77dc393214a91b453c191aafd4ff0cae0db"
+    },
+    {
+      "path": "source/en/chapter2-unit-025.tex",
+      "bytes": 20292,
+      "sha256": "15a238c3717c3914ee85c61d6396bde141e219fd9a3df3a1b73f3269415f00be"
+    },
+    {
+      "path": "source/en/chapter2-unit-026.tex",
+      "bytes": 21378,
+      "sha256": "143b96b6ea25802ef4e4333719ef4a56cb081f7a4f4009a086199f47d3e85a49"
+    },
+    {
+      "path": "source/en/chapter2-unit-027.tex",
+      "bytes": 12396,
+      "sha256": "010219cd8fdac5e6a9737485479754e51b32587485b2e2c367a6a86477aa9822"
+    },
+    {
+      "path": "source/en/chapter2-unit-028.tex",
+      "bytes": 37060,
+      "sha256": "abc948ae5b1de67e7a6742b967609db995609237c718fa417d465a0e76eee6af"
+    },
+    {
+      "path": "source/en/chapter2-unit-029.tex",
+      "bytes": 24236,
+      "sha256": "19472adc31f18eb69c33ea0d21fa9fe780e1dd682b7ff6b44b14cb0d35aa5387"
+    },
+    {
+      "path": "source/en/chapter2-unit-030.tex",
+      "bytes": 42601,
+      "sha256": "c4972c7b0e504812bdc34c6347d7be19a379ba7afe477f3089d945533df98c0f"
+    },
+    {
+      "path": "source/en/chapter3-unit-031.tex",
+      "bytes": 12419,
+      "sha256": "72cb1731c42c7749e3327cf0069e6047035e883a48b2ee577b2a922106ac8446"
+    },
+    {
+      "path": "source/en/chapter3-unit-032.tex",
+      "bytes": 12928,
+      "sha256": "459882c133a4f1358cda8752dc21c6a8043a24fa9c197211c1b884b953422213"
+    },
+    {
+      "path": "source/en/chapter3-unit-033.tex",
+      "bytes": 18354,
+      "sha256": "6b01697f4cc137db97edebeb0c78c38df3108c9b211f2c088c62e2813733332f"
+    },
+    {
+      "path": "source/en/chapter3-unit-034.tex",
+      "bytes": 23850,
+      "sha256": "a0a01c1d6ad88fca0a1342518bbf5287b83ba78f57ad64afca540a63d9285e68"
+    },
+    {
+      "path": "source/en/chapter3-unit-035.tex",
+      "bytes": 10049,
+      "sha256": "909b732309579e5815a92c4eecf2534fd848f006aed7ad794edc1fe69aa300a4"
+    },
+    {
+      "path": "source/en/chapter3-unit-036.tex",
+      "bytes": 27620,
+      "sha256": "19d8806261ceb444319a0441db7e6c609b5e548ca4e3cc2bbe7e2974afbacdb5"
+    },
+    {
+      "path": "source/en/chapter3-unit-037.tex",
+      "bytes": 13395,
+      "sha256": "206451f9e042699e30881d1f8a0085b95e626166dd56fb638286effec90ab759"
+    },
+    {
+      "path": "source/en/chapter3-unit-038.tex",
+      "bytes": 24579,
+      "sha256": "6644e9587a2dcceed53a5f4335730581f84a979f3f6e662d316744a7f96a24a7"
+    },
+    {
+      "path": "source/en/chapter3-unit-039.tex",
+      "bytes": 34086,
+      "sha256": "3a4e5d128f60f6cccd1e4642c749077104a2cf83480e8bbd3cb4f4f30b912a68"
+    },
+    {
+      "path": "source/en/chapter3-unit-040.tex",
+      "bytes": 14423,
+      "sha256": "0a1b949a00e640e80b4bcb199cc29bc844955e4af0cbb6a157759874279fe878"
+    },
+    {
+      "path": "source/en/chapter3-unit-041.tex",
+      "bytes": 19123,
+      "sha256": "d53cb8040f2e1a95fa9f91266d6a2ccef0ea38d80ef8370b8cc8c10c6877d746"
+    },
+    {
+      "path": "source/en/chapter3-unit-042.tex",
+      "bytes": 36601,
+      "sha256": "e12cdf6e4236f8786e5e0c2bc38c78220b4f59442125c3ff48792d3138a4d46f"
+    },
+    {
+      "path": "source/en/chapter3-unit-043.tex",
+      "bytes": 37659,
+      "sha256": "c6460e4841b0bb0fb9e9301a12ad02dbec8616ed6c5bc900a39edbae968bba1d"
+    },
+    {
+      "path": "source/en/chapter3-unit-044.tex",
+      "bytes": 17646,
+      "sha256": "4bee1c185ad84fc2958e9aef474b301d75d25f7206729538bc77db2e78ef735c"
+    },
+    {
+      "path": "source/en/chapter3-unit-045.tex",
+      "bytes": 25148,
+      "sha256": "e9676389e9ca1399b1ea0a367af51276da97805031133bb886d4069dc4dcf583"
+    },
+    {
+      "path": "source/en/chapter3-unit-046.tex",
+      "bytes": 28294,
+      "sha256": "3242dda88ea5c55b3c4e46208af26a3cdec72caa5916aa37befb667bec3f423b"
+    },
+    {
+      "path": "source/en/chapter3-unit-047.tex",
+      "bytes": 26056,
+      "sha256": "ef16a9060d5ada2f4f0272bb9fd314d03d7df9b1312a1c743d9bff7617ed94c7"
+    },
+    {
+      "path": "source/en/chapter4-unit-048.tex",
+      "bytes": 13683,
+      "sha256": "ead325be1b1d04a2dcb941c8916170dc668cd2e26f5c1a2501a2e0d8b366bda3"
+    },
+    {
+      "path": "source/en/chapter4-unit-049.tex",
+      "bytes": 17057,
+      "sha256": "21427c6a7c49183a9cab28157816b2d8199041cb22eb4cd16903c53aca968708"
+    },
+    {
+      "path": "source/en/chapter4-unit-050.tex",
+      "bytes": 5180,
+      "sha256": "5c5087f9f7a983c1e9aabf58de88dab3f75e76e0866e81ae11bec9e8c817f332"
+    },
+    {
+      "path": "source/en/chapter4-unit-051.tex",
+      "bytes": 34556,
+      "sha256": "9d58170a6f35ca29c97a230fdb9627fdae112f5c06163b4d99c0f419cda56814"
+    },
+    {
+      "path": "source/en/chapter4-unit-052.tex",
+      "bytes": 7975,
+      "sha256": "cb362b021765bf96b2ffb8ad9fc8ab267b1574420c034f826b34a989ced0889c"
+    },
+    {
+      "path": "source/en/chapter4-unit-053.tex",
+      "bytes": 13873,
+      "sha256": "34c18e43c2aa2c4bedda7e7bd65f2393a4493f12f97f691ca3db7bbcac386a21"
+    },
+    {
+      "path": "source/en/chapter4-unit-054.tex",
+      "bytes": 32273,
+      "sha256": "7ccf18cd2884cb94d1937269e55f5a2ecbacae5cc733d715d1a30ceb062105d4"
+    },
+    {
+      "path": "source/en/chapter4-unit-055.tex",
+      "bytes": 39225,
+      "sha256": "1c10c315593fa7cec9bb0550e254907d9fc25ba100c08285f1839ffcdb77659d"
+    },
+    {
+      "path": "source/en/chapter4-unit-056.tex",
+      "bytes": 24206,
+      "sha256": "84b32ccf185f4b94f0b233b41cdd808166730dda480abe92fc7bbd0a2a984c07"
+    },
+    {
+      "path": "source/en/chapter4-unit-057.tex",
+      "bytes": 19838,
+      "sha256": "743b278c968b3eac7ff62bcaa708ee321385374848a06f99c6e7df84ad70b3d9"
+    },
+    {
+      "path": "source/en/chapter4-unit-058.tex",
+      "bytes": 21082,
+      "sha256": "a571ee959483b02a0a755d314a1d346269aebb150eba78aa2754844bc6855f32"
+    },
+    {
+      "path": "source/en/chapter4-unit-059.tex",
+      "bytes": 15799,
+      "sha256": "aadcb8f5270f16dedde1846063f1d8f38fba636165b660a5839eccd919c7e749"
+    },
+    {
+      "path": "source/en/chapter4-unit-060.tex",
+      "bytes": 11855,
+      "sha256": "e9a4f30617bb1b430b2daf546a90dc03a6161818b567e6ae14d7b1b02cc32ec3"
+    },
+    {
+      "path": "source/en/chapter4-unit-061.tex",
+      "bytes": 19849,
+      "sha256": "1822a0c5463f9464b8c380389e8186de79de9e111ca446476cbea00bc82ba170"
+    },
+    {
+      "path": "source/en/chapter4-unit-062.tex",
+      "bytes": 24861,
+      "sha256": "e3bc656117326ea0e4fad4a38a8961c428bc7f64a75cd4d2b5fa56154e734754"
+    },
+    {
+      "path": "source/en/chapter4-unit-063.tex",
+      "bytes": 29015,
+      "sha256": "712f3277addcf14951363c6f19ac75a9b7077f3bac70230e1ec1850f1ba53cc6"
+    },
+    {
+      "path": "source/en/chapter5-unit-064.tex",
+      "bytes": 18690,
+      "sha256": "e29c2a43819cb356f49f1e1c525a83ba72062a316a0b096dd52df5b634a7e124"
+    },
+    {
+      "path": "source/en/chapter5-unit-065.tex",
+      "bytes": 18210,
+      "sha256": "473a73f0e4479d1f4bd6bbbf7dd58fdfb030276e39a7c68786c3188da2a55b37"
+    },
+    {
+      "path": "source/en/chapter5-unit-066.tex",
+      "bytes": 9204,
+      "sha256": "0031b8d0c2f550f56367547e9e0cb921f02fc39ea610202d616c754ed44438e4"
+    },
+    {
+      "path": "source/en/chapter5-unit-067.tex",
+      "bytes": 12709,
+      "sha256": "c9509a4a9b7e43f9bf883e9c8e1ee2ad12c09c2b50f3891272f076903d970ed4"
+    },
+    {
+      "path": "source/en/chapter5-unit-068.tex",
+      "bytes": 16379,
+      "sha256": "2c3e4e653b9c0e36844c233aa6276dcac81a0aa95a4d02bd85dce7dddbbe4a6d"
+    },
+    {
+      "path": "source/en/chapter5-unit-069.tex",
+      "bytes": 26293,
+      "sha256": "784d96bed846d9a155bd531b4b48b0baaa542e308dfb798f081d9a8510078a37"
+    },
+    {
+      "path": "source/en/chapter5-unit-070.tex",
+      "bytes": 13206,
+      "sha256": "06e0f2bd28d7a12a12e48c555c3cb6ff0cc4429c11056296483e755a3ad2f51c"
+    },
+    {
+      "path": "source/en/chapter5-unit-071.tex",
+      "bytes": 8913,
+      "sha256": "eb1384674393479b58c9a6fae492d586238ed38fe08a0dfcd912203064593164"
+    },
+    {
+      "path": "source/en/chapter6-unit-072.tex",
+      "bytes": 39512,
+      "sha256": "14ef45338c6f8b0c5a649824600f8d8d9c6aa5693b8066362291e2d4d369e2b7"
+    },
+    {
+      "path": "source/en/chapter6-unit-073.tex",
+      "bytes": 26729,
+      "sha256": "ce88be5939d5a1dd1c273a0aece2bd0c5869bf7353b5bd3bdf18b1382ed7be1f"
+    },
+    {
+      "path": "source/en/chapter6-unit-074.tex",
+      "bytes": 18056,
+      "sha256": "e41aeed95ceb080f1c5844856159e4ca0205ba79a1998b71e0c200d2c9adf73e"
+    },
+    {
+      "path": "source/en/chapter6-unit-075.tex",
+      "bytes": 14458,
+      "sha256": "a43d1b006df6081bdd96c1ddd67f2d98315cd7976319fe83e4efde97bc956545"
+    },
+    {
+      "path": "source/en/chapter6-unit-076.tex",
+      "bytes": 26876,
+      "sha256": "defd6dce94a1fa82cbfc8360a194ab57337d3c8fc3e719b226966146696166d3"
+    },
+    {
+      "path": "source/en/chapter6-unit-077.tex",
+      "bytes": 15275,
+      "sha256": "18acae0fa0ec392cfdac417046e2db0932dc34ca78a584498b506cce8c29e5d9"
+    },
+    {
+      "path": "source/en/chapter6-unit-078.tex",
+      "bytes": 10581,
+      "sha256": "01ae6fa145d8bb971d71cc55f909ac115f346842c0073ca7a0ab913364bfcfe8"
+    },
+    {
+      "path": "source/en/chapter6-unit-079.tex",
+      "bytes": 19339,
+      "sha256": "bc622d340771b5adfb5a5b2374ede458e1781dc899517754668743f35d5ed8c4"
+    },
+    {
+      "path": "source/en/chapter6-unit-080.tex",
+      "bytes": 8521,
+      "sha256": "55d9e22ddc02ba30446e79037d798a5bafc2eb0e3ccd454f2e6cf584f7d9e308"
+    },
+    {
+      "path": "source/en/chapter6-unit-081.tex",
+      "bytes": 12028,
+      "sha256": "63fda72185c8faae1de0f19480547aef86e251e94eb511bc83115f25c6bd8bfd"
+    },
+    {
+      "path": "source/en/chapter6-unit-082.tex",
+      "bytes": 41317,
+      "sha256": "dfe392ba980243833e3b9b4d24f7a3ec8975109128ce48c5db0ff856f8a729f1"
+    },
+    {
+      "path": "source/en/chapter6-unit-083.tex",
+      "bytes": 19929,
+      "sha256": "cfa4c20179bb5bf170c84f9b92959c966af88889b9f10e4c46240964e772a571"
+    },
+    {
+      "path": "source/en/chapter6-unit-084.tex",
+      "bytes": 12178,
+      "sha256": "64549bb89423e42c0cc985e0ecc1a56501906d1bdfadd38b7854b69822c1f4ce"
+    },
+    {
+      "path": "source/en/chapter6-unit-085.tex",
+      "bytes": 14539,
+      "sha256": "10b878afc0641e7c0a5519e0dc15bed94deb9296d71d69677eb5c7adccf4c4f9"
+    },
+    {
+      "path": "source/en/chapter6-unit-086.tex",
+      "bytes": 33624,
+      "sha256": "bb61fc285f5517e8ef99214372be3a827796c200dfbdeb4b0d2ab3bd6dba2e5d"
+    },
+    {
+      "path": "source/en/chapter6-unit-087.tex",
+      "bytes": 21264,
+      "sha256": "c903eb8f65b092ef8b9c09f56c64da655ab1ab51ed3fa46467a3c23fe4379611"
+    },
+    {
+      "path": "source/en/chapter7-unit-088.tex",
+      "bytes": 48902,
+      "sha256": "a54579463b92a3d12f64ea5f2606e932590ca8655832e31ac60097faf5da91a8"
+    },
+    {
+      "path": "source/en/chapter7-unit-089.tex",
+      "bytes": 24634,
+      "sha256": "8abb9bbda52781c4a6af2b00197a62dc3d3515f404a35e7405000a3db8c08531"
+    },
+    {
+      "path": "source/en/chapter7-unit-090.tex",
+      "bytes": 12729,
+      "sha256": "1d0e6f912f1cd77cf91ed205a1c69aa84952b7e1ea4d7c7071cb8f9416d18fb1"
+    },
+    {
+      "path": "source/en/chapter7-unit-091.tex",
+      "bytes": 17069,
+      "sha256": "3e44e60faa355810966eabafc47f39484b780f588e6ad1e07d531996fd5aa0c3"
+    },
+    {
+      "path": "source/en/chapter7-unit-092.tex",
+      "bytes": 21131,
+      "sha256": "a44f575872a8b424b19fd4c8c18d55904f71eb20a0668342004fb30f5c2b2470"
+    },
+    {
+      "path": "source/en/chapter7-unit-093.tex",
+      "bytes": 18037,
+      "sha256": "15489fd304cd613516109492e4ca2d89b32002007c57edf2d7dac87bd3c63d1e"
+    },
+    {
+      "path": "source/en/chapter7-unit-094.tex",
+      "bytes": 15254,
+      "sha256": "0f6655db030ba06516ce93c39fb20b5af5a683c50d7976a0234bc71ce4c1b9f7"
+    },
+    {
+      "path": "source/en/chapter7-unit-095.tex",
+      "bytes": 21133,
+      "sha256": "60fc13499001a96a9b4af8df48900f3043f915241dc8799de036e15aafd0de0f"
+    },
+    {
+      "path": "source/en/chapter7-unit-096.tex",
+      "bytes": 14504,
+      "sha256": "ad3c661340d9d10f31dca14461931ac426da1f0ccb7150d5f059fe06c36ef2ee"
+    },
+    {
+      "path": "source/en/chapter7-unit-097.tex",
+      "bytes": 15662,
+      "sha256": "07a2308565082725d6e8259c055e92c436199889ded333ae2ae576e1d2d76561"
+    },
+    {
+      "path": "source/en/chapter7-unit-098.tex",
+      "bytes": 7975,
+      "sha256": "3d4643f95e047f2f8b1a7d8c6b707cda366c64322ae87f1e8c6676acca672a7a"
+    },
+    {
+      "path": "source/en/chapter7-unit-099.tex",
+      "bytes": 12865,
+      "sha256": "1c2a88d3a2759c05e6759c6dce2adc22337cde6cef5ae1af1e700e3902eb1470"
+    },
+    {
+      "path": "source/en/chapter7-unit-100.tex",
+      "bytes": 17917,
+      "sha256": "56706f04e0fb0a8eb17a7d5dfd2f82851d6562c4a648bbf872c933d1a8c572d6"
+    },
+    {
+      "path": "source/en/chapter7-unit-101.tex",
+      "bytes": 17940,
+      "sha256": "275e51becd9c750a3f206991e5e7dc1c7eb875e19bb78cd1456b08e600d869f1"
+    },
+    {
+      "path": "source/en/chapter7-unit-102.tex",
+      "bytes": 24825,
+      "sha256": "6be024dd14537467aa0aa523c988852ac78a444b5a8a47a48b2d3a51c87a22f9"
+    },
+    {
+      "path": "source/en/chapter7-unit-103.tex",
+      "bytes": 13013,
+      "sha256": "0f7c91413be4620fb3fd019d4e69b3bd423c16cf26f0c25e7bc1ead9f14e298e"
+    },
+    {
+      "path": "source/en/chapter7-unit-104.tex",
+      "bytes": 13224,
+      "sha256": "6b8e51e5e4e2762e5782f6012a267e7aad78cb805960191dd5bc553237d03561"
+    },
+    {
+      "path": "source/en/chapter7-unit-105.tex",
+      "bytes": 8139,
+      "sha256": "631a16dbd43a097c264c92a700ceaf6894ec059e4ca6723ac9f0e56dcc294c88"
+    },
+    {
+      "path": "source/en/chapter8-unit-106.tex",
+      "bytes": 22762,
+      "sha256": "f569c60fd700e40037b9d2c1876425ba0923a5eaba7094bef4ee967ae3c287f7"
+    },
+    {
+      "path": "source/en/chapter8-unit-107.tex",
+      "bytes": 10207,
+      "sha256": "0c70df15d2547c55d95763f546cc766e8aef48ab6d96a0dda960f172d7589973"
+    },
+    {
+      "path": "source/en/chapter8-unit-108.tex",
+      "bytes": 14725,
+      "sha256": "8a403f83c35a6496d16f3070a76d0c8eee5cc150a743e74159aff6a1403ad83c"
+    },
+    {
+      "path": "source/en/chapter8-unit-109.tex",
+      "bytes": 27824,
+      "sha256": "409830f1bff9719422cfd53b82b5ab2379f067da4c5f9c73b7f10a9d9099c1af"
+    },
+    {
+      "path": "source/en/chapter8-unit-110.tex",
+      "bytes": 18559,
+      "sha256": "00ea267f731b589afea395c04c1d508877f8505d7e76ccc611bab210481d55f6"
+    },
+    {
+      "path": "source/en/chapter8-unit-111.tex",
+      "bytes": 17237,
+      "sha256": "6e7c0cff5a8a47e5f4024eef3555e4e331f5da316427f150cd272104a705789e"
+    },
+    {
+      "path": "source/en/chapter8-unit-112.tex",
+      "bytes": 16966,
+      "sha256": "1015fe6ba40c2efe1320dff6243e6fb53dc3b0b53aa03febc31a59f9a97c3437"
+    },
+    {
+      "path": "source/en/chapter8-unit-113.tex",
+      "bytes": 11057,
+      "sha256": "b5283026362c58100a237104131566fb1f3c502023543f8d686d95d0144fc3cf"
+    },
+    {
+      "path": "source/en/chapter8-unit-114.tex",
+      "bytes": 16428,
+      "sha256": "9a589c0c162751a6bbfa0f66bf8718ce1dc7731156d95fdf157076040f83c1da"
+    },
+    {
+      "path": "source/en/chapter8-unit-115.tex",
+      "bytes": 10797,
+      "sha256": "68d83dfa5898ad54a10bea2a74726aa2ce90c089b536f77bb75a7b2016101a28"
+    },
+    {
+      "path": "source/en/chapter8-unit-116.tex",
+      "bytes": 16665,
+      "sha256": "15d109399eecad4676e4d688ac650b50a2a786bec53df4cd6d24ea83b1664192"
+    },
+    {
+      "path": "source/en/chapter8-unit-117.tex",
+      "bytes": 16119,
+      "sha256": "99d32b101570d48056c595949a06ebef965fe4dc01a0a4d0b23f93e6d925690f"
+    },
+    {
+      "path": "source/en/chapter8-unit-118.tex",
+      "bytes": 14574,
+      "sha256": "297d9e2fc4e327b705c4d92f380ea58051480b4242b1815476748da8fcb98cf9"
+    },
+    {
+      "path": "source/en/chapter8-unit-119.tex",
+      "bytes": 13719,
+      "sha256": "45c2c179178cdd301f76a9c1d475601588f4c8ae88aec2cf5463c5e5e5584223"
+    },
+    {
+      "path": "source/en/chapter8-unit-120.tex",
+      "bytes": 11539,
+      "sha256": "1774eba47024250bd4ebff4194782ff2ed9c685d6a1253e528bc78494a62e51e"
+    },
+    {
+      "path": "source/en/chapter9-unit-121.tex",
+      "bytes": 29461,
+      "sha256": "5073c5620c6c317656706e4823b233ee22c4cad3b4976d3d4e0b67fd6941013a"
+    },
+    {
+      "path": "source/en/chapter9-unit-122.tex",
+      "bytes": 16109,
+      "sha256": "c5f6888c6137c3336cd9e6a932c0a46b72bbc63e2e1b7a61b84c4811871ab73f"
+    },
+    {
+      "path": "source/en/chapter9-unit-123.tex",
+      "bytes": 21445,
+      "sha256": "0ce0bcb4d32758a0ff32f0f0c54cf2cda4939823221b143e8253d2cb12faa8d5"
+    },
+    {
+      "path": "source/en/chapter9-unit-124.tex",
+      "bytes": 14707,
+      "sha256": "33e9852cc34892a07ac2fc16a04f642850fe7fff32d1e06f95c270d807ec8f7a"
+    },
+    {
+      "path": "source/en/chapter9-unit-125.tex",
+      "bytes": 11772,
+      "sha256": "807baa28f08e68bd74c6afaa85e492a37f3cefa394a0b2c0cf8f1b298f8a026c"
+    },
+    {
+      "path": "source/en/chapter9-unit-126.tex",
+      "bytes": 14384,
+      "sha256": "35dd341405be58b602ba29b6c5855c28ab4410e9eb665665541ff165669f517f"
+    },
+    {
+      "path": "source/en/chapter9-unit-127.tex",
+      "bytes": 11798,
+      "sha256": "ca563aa99a73ada3006b20c48000d3300ddaf8d962aee6466e60ab3dcca896dc"
+    },
+    {
+      "path": "source/en/chapter9-unit-128.tex",
+      "bytes": 12837,
+      "sha256": "8f2fe7709d47d948dc5a082b1674aa7410c40c8c3ae2ceda357d1594fdf12a11"
+    },
+    {
+      "path": "source/en/chapter9-unit-129.tex",
+      "bytes": 11163,
+      "sha256": "da9a443bb9282cbc0bfa55e3c1bfc909b49a0cb9c3026ad6ca1cdaad3e0d1949"
+    },
+    {
+      "path": "source/en/chapter9-unit-130.tex",
+      "bytes": 17862,
+      "sha256": "94a16f0e01042ebd9ce2cfbc118018b87dfbc7fb44f4033eedb86f133ea0ea12"
+    },
+    {
+      "path": "source/en/chapter9-unit-131.tex",
+      "bytes": 12699,
+      "sha256": "ecfadc01b553062e38da39035ad34ccb43f3a1e4875596cfafee18902ae03f07"
+    },
+    {
+      "path": "source/en/chapter9-unit-132.tex",
+      "bytes": 8959,
+      "sha256": "01f1ec1a13bf83caf1891302f4224c0d548cb1a86d214d472c6d353c68df8df8"
+    },
+    {
+      "path": "source/en/chapter9-unit-133.tex",
+      "bytes": 14044,
+      "sha256": "a277c7e98b3abf84f297eaf9d149cd6598db87cca530ae84db03798a2e3c77bf"
+    },
+    {
+      "path": "source/en/chapter9-unit-134.tex",
+      "bytes": 9643,
+      "sha256": "793ea81b1d192e2b1a08e793b091547967232550e288b8ca61173fcd55c8e615"
+    },
+    {
+      "path": "source/en/coverpage-en.tex",
+      "bytes": 4867,
+      "sha256": "057770c57d3a4b60e9d236ca456cbe422f4d8ce7e7afe1903771d3dd656fcb49"
+    },
+    {
+      "path": "source/en/font-setup-en.tex",
+      "bytes": 1850,
+      "sha256": "a48d07b7c79a6d41bf98ec67561bead6fa5c8e16d91e820e815461cfc7ce17c7"
+    },
+    {
+      "path": "source/en/mastery-bridge-001-diagram-chasing.tex",
+      "bytes": 22487,
+      "sha256": "ed17bd2b07b08d367e5a6bf86c349c4ea51663bb6ed44e57c0f7132e195d4072"
+    },
+    {
+      "path": "source/en/mastery-bridge-002-derived-functors-spectral-sequences.tex",
+      "bytes": 24139,
+      "sha256": "20e7498059a531a3f95e94bb03c32a663b5c14a6ea8fa0dffe38e4ef0c5e103e"
+    },
+    {
+      "path": "source/en/myarrows.sty",
+      "bytes": 3651,
+      "sha256": "9641d56b1d7659da85360ebabb46eddd203d403bf257eaf82541f21d39b0a809"
+    },
+    {
+      "path": "source/en/mycommand.sty",
+      "bytes": 7883,
+      "sha256": "a0ee58270f72078a71c065fda51b027bec7b40fc49721997d996c1c10683496a"
+    },
+    {
+      "path": "source/en/pre-prelude-en.tex",
+      "bytes": 6608,
+      "sha256": "e9ee0be0289954173b7db7775971ff0b97a8956c41ed9ca723d05a34daa914bf"
+    },
+    {
+      "path": "source/en/prelude-unit-001.tex",
+      "bytes": 4688,
+      "sha256": "248318122c0e48c101064a088ac44063770e84a4bb6b2d18671f86d189c8c802"
+    },
+    {
+      "path": "source/en/prelude-unit-002.tex",
+      "bytes": 13829,
+      "sha256": "de59548a0d2e89000335459568fec9855de800ec35f6736f11e969ed870fb33a"
+    },
+    {
+      "path": "source/en/prelude-unit-003.tex",
+      "bytes": 6013,
+      "sha256": "161670859134baea0d2f2f990c81d7c86d447bf5221678526f923757ebaa2d27"
+    },
+    {
+      "path": "source/en/prelude-unit-004.tex",
+      "bytes": 6123,
+      "sha256": "a5c02228b235e063b93cd864b3b6f3fc016e83da0fd8f8f76f795e2f854b5323"
+    },
+    {
+      "path": "source/en/prelude-unit-005.tex",
+      "bytes": 5837,
+      "sha256": "89d59e4ca07a2db8ce75ecf4ca7648e4fe0a39ce91935c734cfe8c9946ea45b9"
+    },
+    {
+      "path": "source/en/prelude-unit-006.tex",
+      "bytes": 3365,
+      "sha256": "e792701d68d2a4d9f39f1d73b226a288f4a8460c141b44caabd23c209ddc0ea7"
+    },
+    {
+      "path": "source/en/prelude-unit-007.tex",
+      "bytes": 36950,
+      "sha256": "d0a49de113f624dda609356655c707a5f84d75a97adc67535cc2033d6c3b8e2d"
+    },
+    {
+      "path": "source/en/titles-setup-en.tex",
+      "bytes": 6859,
+      "sha256": "dfd129e2bc5ac2bb976edba4e9d8286432b8890b457dd55543841107b854949c"
+    },
+    {
+      "path": "tools/admit_translated_units.py",
+      "bytes": 11942,
+      "sha256": "7bf67eca39c4b9a933438f0fc5420cdb5f34eb7850b4ca74128c2cf88d022d02"
+    },
+    {
+      "path": "tools/audit_english_range.py",
+      "bytes": 13106,
+      "sha256": "1b188def09f1352e297a555c0db15d6827aec65da1b10237d35e5abfe9476e6c"
+    },
+    {
+      "path": "tools/build_complete_english_diagram_ledger.py",
+      "bytes": 33123,
+      "sha256": "3d69c8fdbb0304a6fdcf47e8d7ad9588ca1ef1b8a29d45867a2f06d44f7d11fb"
+    },
+    {
+      "path": "tools/build_english_backend.py",
+      "bytes": 13885,
+      "sha256": "6a04ab9320f205ad5968ab485caa7eb84d8a34b4ea1097f71d480d7ec881944f"
+    },
+    {
+      "path": "tools/build_english_pdf.py",
+      "bytes": 13750,
+      "sha256": "666ca188122038fab5b21e6ef3be64de0ce1bae760425351ee9744093582108b"
+    },
+    {
+      "path": "tools/build_english_reader.py",
+      "bytes": 5397,
+      "sha256": "3ddb110903bf206a273559eeff6c98c8e16def3f285ccb7f4ab8fbc2ed55d2b2"
+    },
+    {
+      "path": "tools/build_shared_english.py",
+      "bytes": 5458,
+      "sha256": "a9efbc36c3ba2636f52064c415ecfbc962a4ce718e49910d99b8dace0ad80c39"
+    },
+    {
+      "path": "tools/initialize_english_lane.py",
+      "bytes": 2611,
+      "sha256": "fe29d7dc058037b485594d216ed705f6567dd47d25f3606c34acde3d0bfa5129"
+    },
+    {
+      "path": "tools/initialize_english_reader.py",
+      "bytes": 19062,
+      "sha256": "63e0f8b8cb3ab9dfff91a4d62e9065d52dc5e54b6556a0a25bb12225a52aba90"
+    },
+    {
+      "path": "tools/package_english_release.py",
+      "bytes": 16884,
+      "sha256": "d85875d7a4132c0505ec223aac643d21e0ec4b71771ae39e2eff4c5cf91e479f"
+    },
+    {
+      "path": "tools/prepare_complete_diagram_inventory.py",
+      "bytes": 8275,
+      "sha256": "64597e4defd3c9b2615fe7321a700d4badb970954e9becf4f01a9b0067a6fae7"
+    },
+    {
+      "path": "tools/record_source_freeze.py",
+      "bytes": 2284,
+      "sha256": "67e480d4a403055d9a5afdde69863961088d0aeb8a55e3b1ea1266cbb18b4455"
+    },
+    {
+      "path": "tools/validate_english_diagram_ledger.py",
+      "bytes": 7689,
+      "sha256": "6e5c2fe78b28cfc8477602c2a384aab230738a08ae3942d0dba73145c21a1ab5"
+    }
+  ],
+  "pages_inventory": [
+    {
+      "path": "LICENSE.txt",
+      "bytes": 905,
+      "sha256": "a78e7b7f602eb4fc94f1b71bc89a531d4a0ad20bf364e530131f5ce1472ea6d7"
+    },
+    {
+      "path": "SHA256SUMS.txt",
+      "bytes": 3897,
+      "sha256": "4475669070524617dfc671e5091fac14000f8864d27338e5402e0b0a6369d864"
+    },
+    {
+      "path": "accessibility.html",
+      "bytes": 2398,
+      "sha256": "a69e06aaa543262a13a94d3e48caa8789bcdba4894bb661f2e2baef50b721faf"
+    },
+    {
+      "path": "index.html",
+      "bytes": 4501242,
+      "sha256": "15c5ce147ecbff02fe8d95416029e57f0ecbd9af1fcfa16f1857b183f21ce824"
+    },
+    {
+      "path": "reader.css",
+      "bytes": 6769,
+      "sha256": "fd9b89f0a29aa64ee452707d1220f4038658d3ade179079ea4f4ba16662d04a6"
+    },
+    {
+      "path": "validation-report.json",
+      "bytes": 632,
+      "sha256": "f5b97ecbfbdffe9396e6c6d12baf25efe636b91d858944f14951a838292fc9dc"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/LICENSE-MathJax.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff",
+      "bytes": 40808,
+      "sha256": "3de784d07b9fa8f104c10928a878ee879cf3305cae5195cba663c9c2bb0195eb"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff",
+      "bytes": 9908,
+      "sha256": "af04542b29eaac04550a140c5f1760a649783989426f2540855bf4157819367d"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff",
+      "bytes": 9600,
+      "sha256": "26683bf201fb258a2237d9754616de9d4ecf4cc1cd39dd1902476df7d75f1d16"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff",
+      "bytes": 22340,
+      "sha256": "721921bab0d001ebff0206c24cb5de6ca136467bf1843a7aa32030ba061d1e92"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff",
+      "bytes": 21480,
+      "sha256": "870673df72e70f87c91a5a317d558c2c3b54392264ad79bbadc6d424ae8765fe"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff",
+      "bytes": 34464,
+      "sha256": "88b98cad3688915e50da55553ff6ad185e0dce134b47f176e91b100f8a9b175c"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff",
+      "bytes": 20832,
+      "sha256": "355254db9ca10a09a3b5f0929d74eb4670f44fbe864c07526a06213e0a0caf6c"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff",
+      "bytes": 34160,
+      "sha256": "1cb1c39ea642f26a4dfed230b4aea1c3c218689421f6e9c0a7c1811693c4fa07"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff",
+      "bytes": 19776,
+      "sha256": "8ea8dbb1b02e6f730f55b4cb5d413b785b9f5c39807d0a0fa7da206a0824a457"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff",
+      "bytes": 19360,
+      "sha256": "a009bea404f7a500ded48f8b9ad9cf16e12504b3195dd9e25975289b8256b0f0"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Regular.woff",
+      "bytes": 19288,
+      "sha256": "c01d3321e89b403c4b811aa153c4e618eda3421f92d8a072a02c8d190782a191"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff",
+      "bytes": 15944,
+      "sha256": "32792104b5ef69eded905b6d1598ed05d8087684d38e7a94d52e3c38ba16f47e"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff",
+      "bytes": 14628,
+      "sha256": "fc6ddf5df402b263cfb158aed8e89972542c34b719cd87b1db30461985f7bd5b"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff",
+      "bytes": 12660,
+      "sha256": "b418136e3b384baaadecb70bd3c48a8da9825210130b2897db808c44efc883cb"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff",
+      "bytes": 11852,
+      "sha256": "af96f67d7accf5fd2a4a682d0b9f8b339f8ea6fe34c310c1694c8ba7f6ddc96f"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff",
+      "bytes": 5792,
+      "sha256": "c49810b53ecc0d87d8028762c518924197dd9d3f905b08f99ea241301085b9cb"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff",
+      "bytes": 5464,
+      "sha256": "30e889b58cbc51adfbb038ab1a96dc4025aa3542a3cff7712fc55ece510675e2"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff",
+      "bytes": 3244,
+      "sha256": "5cda41563a095bd70c78e2dda13d0f8cb922c71c90fffd0a0044c65173a66e83"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff",
+      "bytes": 5148,
+      "sha256": "3bc6ecaae7ecf6f8d7f8ea07bddbaca8601e2cb6e89d6aef58e78d9f6d8a398f"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff",
+      "bytes": 17604,
+      "sha256": "c56da8d69f1a0208b8e0703656c3264b6dd748bd452524c82b0385b60f6a68c1"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff",
+      "bytes": 1116,
+      "sha256": "36e0d72d8a7afc696a3e7a5c7369807634640de9b02257bca447bdf126221a27"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff",
+      "bytes": 1136,
+      "sha256": "72bc573386dd1d48c5bbd286302ca9e3400c5eb0f298e7cfbf945b9d08fc688f"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Zero.woff",
+      "bytes": 1368,
+      "sha256": "481e39042508ae313a60618af1e37146ab93e9324c98e4c78b8f17fe55d41e0b"
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/tex-chtml-full.js",
+      "bytes": 1327522,
+      "sha256": "91b005503c5d1f0958bf4d73ada1a3be33596b2c4ab5da22277f1b0d3149b5a4"
+    }
+  ],
   "credentials_recorded": false
 }
