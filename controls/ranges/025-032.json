@@ -5,7 +5,12 @@
     "start": 25,
     "end": 32
   },
-  "recorded_at_utc": "2026-08-31T18:21:31Z",
+  "recorded_at_utc": "2026-09-01T01:56:05Z",
+  "post_admission_correction": {
+    "sequence": 31,
+    "scope": "restore the canonical petunjukbacaan environment command so the existing English Reading Guide box compiles",
+    "mathematical_text_changed": false
+  },
   "source": {
     "commit": "9a5803ff77dd3257484cb177f851a73770a59dd3",
     "tree": "23bd05c2fb8434278df4fdfb636559a6a2b0d2ff"
@@ -108,8 +113,8 @@
       "sequence": 31,
       "unit_id": "o014.aljabr2.chapter3.overview",
       "path": "source/en/chapter3-unit-031.tex",
-      "bytes": 12413,
-      "sha256": "923cc3b6ad0d3c5d28b84bed2c316046fde103fe6652386fd5be03abba282627",
+      "bytes": 12419,
+      "sha256": "72cb1731c42c7749e3327cf0069e6047035e883a48b2ee577b2a922106ac8446",
       "checks": {
         "frozen_witnesses": true,
         "structural_parity": true,

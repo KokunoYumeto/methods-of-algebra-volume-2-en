@@ -65,7 +65,22 @@
 
 \addbibresource{Al-jabr.bib}
 \ExecuteBibliographyOptions{backref=false}
+% AJbook2 localizes several English biblatex strings to Chinese.  Restore the
+% English reader-facing forms after the class has defined its localization.
+\DefineBibliographyStrings{english}{%
+  in = {in},
+  editor = {editor},
+  byeditor = {edited by},
+  backrefpage = {cited on page},
+  backrefpages = {cited on pages},
+}
 \renewcommand{\today}{September 1, 2026}
+
+% AJbook2 resets \contentsname inside its late \frontmatter hook.  Apply this
+% immediately when the embedded table of contents is invoked so both its title
+% and running head remain English.
+\pretocmd{\tableofcontents}{\renewcommand{\contentsname}{Contents}}{}%
+  {\PackageError{english-edition}{Could not install the English contents hook}{}}
 
 % English display labels for the environment command names retained from the
 % Indonesian structural witness. They share the source theorem counter.
@@ -78,8 +93,8 @@
   \renewcommand{\tablename}{Table}
   \renewcommand{\chaptername}{Chapter}
   \renewcommand{\appendixname}{Appendix}
-  \renewcommand{\chaptermark}[1]{\markboth{\AJchapterttl{\thechapter}\quad ##1}{}}
-  \renewcommand{\sectionmark}[1]{\markright{\S\arabic{chapter}.\arabic{section}\quad ##1}}
+  \renewcommand{\chaptermark}[1]{\markboth{\AJchapterttl{\thechapter}\quad #1}{}}
+  \renewcommand{\sectionmark}[1]{\markright{\S\arabic{chapter}.\arabic{section}\quad #1}}
   \theoremstyle{plain}
   \theorembodyfont{\normalfont}
   \theoremheaderfont{\sffamily\bfseries}
@@ -318,6 +333,10 @@ not displace Wen-Wei Li’s authorship or other component credits.
 
 \bookmarksetup{startatroot}
 \appendix
+% AJbook2 appends Chinese running-head definitions to \appendix.  Restore the
+% independent English-edition labels after that class hook has run.
+\renewcommand{\appendixname}{Appendix}
+\renewcommand{\chaptermark}[1]{\markboth{\AJchapterttl{\thechapter}\quad #1}{}}
 \input{appendix1-unit-135}
 \input{appendix1-unit-136}
 \input{appendix1-unit-137}
@@ -333,11 +352,14 @@ not displace Wen-Wei Li’s authorship or other component credits.
 
 \bookmarksetup{startatroot}
 \part*{Mastery Bridges}
-\addcontentsline{toc}{part}{Mastery Bridges}
 \input{mastery-bridge-001-diagram-chasing}
 \input{mastery-bridge-002-derived-functors-spectral-sequences}
 
 \backmatter
+% AJbook2's \backmatter hook restores Chinese bibliography labels; retain the
+% explicit English edition labels before the bibliography and indexes.
+\renewcommand{\refname}{References}
+\renewcommand{\bibname}{References}
 \printbibliography[heading=bibintoc,title={References}]
 {\footnotesize\printindex[sym1]
 \indexprologue{English terms are arranged alphabetically.}

@@ -1,0 +1,67 @@
+{
+  "schema": "o014-english-pdf-visual-qa-v1",
+  "recorded_at_utc": "2026-09-01T11:25:55.385439+00:00",
+  "result": "PASS",
+  "pdf": "output/pdf/methods-of-algebra-volume-2-independent-english-edition.pdf",
+  "pdf_bytes": 3891627,
+  "pdf_sha256": "88114c09af3313d1e93d7b66da67c277aae21727fec60c0643b10a1f2b1d6448",
+  "pages": 820,
+  "page_size_points": [498.9, 708.66],
+  "text_extraction": {
+    "full_document_checked": true,
+    "forbidden_visible_residue": [
+      "目录",
+      "目錄",
+      "刊于",
+      "刊於",
+      "附录",
+      "附錄",
+      "qquad",
+      "readingnote",
+      "\\ensuremath"
+    ],
+    "forbidden_hit_count": 0,
+    "poppler_warning_line_count": 204,
+    "poppler_warning_scope": "Adobe-GB1/CJK font mapping for retained source-language glyphs; not a PDF build or visual-render failure",
+    "contents_heading_present": true,
+    "index_of_symbols_heading_present": true,
+    "index_of_terms_heading_present": true
+  },
+  "inspected_pages": [
+    {
+      "physical_page": 7,
+      "surface": "final contents page",
+      "render_sha256": "b4a775de95f7b84a7fe40d4d6426497236704645a4805a4f3b5f67b17b23ade5",
+      "finding": "English running head; one Mastery Bridges part entry with two bridge children; references and both indexes listed once; no clipping or overlap"
+    },
+    {
+      "physical_page": 805,
+      "surface": "bibliography opening",
+      "render_sha256": "d69bf60750b391bd492dd57da942cdf9263155571586b02ff24cc369e70d389f",
+      "finding": "References heading and English bibliography relationship strings; readable links and columns; no clipping or overlap"
+    },
+    {
+      "physical_page": 811,
+      "surface": "symbol index opening",
+      "render_sha256": "1e637738c5d6c6c15efad3aeb7cbadbd0433d4a9e9e05b0c3f5990a876865484",
+      "finding": "Populated three-column Index of Symbols; readable mathematical entries; no clipping or overlap"
+    },
+    {
+      "physical_page": 815,
+      "surface": "term index opening",
+      "render_sha256": "6db7fc32919d1623137579c8c0bf1d7a81f1a66ff3f23841d4e4df4ba39bc2b8",
+      "finding": "Populated two-column Index of Terms with explicit English sorting note; no clipping or overlap"
+    }
+  ],
+  "ephemeral_renders_retained": false,
+  "replay": "Render the recorded physical pages from the exact PDF with pdftoppm -png -r 120 -singlefile.",
+  "checks": {
+    "pdf_build_receipt_pass": true,
+    "page_count_exact": true,
+    "localized_front_and_back_matter": true,
+    "single_mastery_bridges_toc_entry": true,
+    "symbol_index_populated": true,
+    "term_index_populated": true,
+    "representative_pages_readable": true
+  }
+}

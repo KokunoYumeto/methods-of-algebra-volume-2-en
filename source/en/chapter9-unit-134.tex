@@ -102,13 +102,10 @@
 	% segment-id: o014.li2.chapter9.exercises.ex009
 	\item In general, an end resembles an operation of taking invariants, whereas a coend resembles gluing. For readers familiar with simplicial sets, interpret the geometric realization functor $|\mathord\cdot|$ discussed in \S\ref{sec:geom-realization} as the coend
 	% segment-id: o014.li2.chapter9.exercises.q008
-	% Preserve the witness's literal `qquad` token sequence while rendering it as \qquad.
-	\begingroup
-	\mathcode`q="8000
-	\begingroup\lccode`~=`q\lowercase{\endgroup\def~~uad{\qquad}}
-	\[ |X|\simeq\int^{[n]\in\simpDelta}X_n\times|\Delta^n|,qquad
+	% The Indonesian witness carried literal `qquad`; the frozen Chinese source
+	% at chapter9.tex:2011 authoritatively has \quad.
+	\[ |X|\simeq\int^{[n]\in\simpDelta}X_n\times|\Delta^n|,\quad
 	X\in\Obj(\cate{sSet}). \]
-	\endgroup
 
 	% segment-id: o014.li2.chapter9.exercises.ex010
 	\item For a small category $\mathcal{C}$, define the functor category

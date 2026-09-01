@@ -16,6 +16,34 @@ ID = Path(r"C:\Users\Floris\Documents\interlanguage\04_mirrors\id\methods-of-alg
 BACKEND = ROOT / "backend"
 TERM_OVERRIDES = BACKEND / "term-overrides-en.csv"
 
+# The Chinese authority has two compound term-index entries whose English
+# components are more useful as separately searchable entries.  Every other
+# unit remains a strict one-to-one index alignment.  The tuples map an
+# authority/Indonesian ordinal to one or more English ordinals.
+DOCUMENTED_INDEX_EXPANSIONS = {
+    "o014.aljabr2.chapter3.classical-derived-functors": {
+        "authority_count": 8,
+        "english_count": 9,
+        "alignment": (
+            (0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)),
+            (4, (4,)), (5, (5,)), (6, (6, 7)), (7, (8,)),
+        ),
+        "reason": (
+            "The authority's compound effaceable/co-effaceable entry is "
+            "split into two English lookup entries."
+        ),
+    },
+    "o014.aljabr2.chapter3.example-lim1": {
+        "authority_count": 2,
+        "english_count": 3,
+        "alignment": ((0, (0, 1)), (1, (2,))),
+        "reason": (
+            "The authority's compound exact-countable-products-or-coproducts "
+            "entry is split into two English lookup entries."
+        ),
+    },
+}
+
 
 def sha(path): return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -107,6 +135,7 @@ def main():
     units = []
     index_pairs = []
     index_alignment_mismatches = []
+    index_alignment_expansions = []
     unit_text = {}
     for row in source_map["units"]:
         path = ROOT / row["target_path"]
@@ -125,13 +154,51 @@ def main():
                        "target_sha256": sha(path), "target_bytes": path.stat().st_size})
         units.append(record)
         id_text = Path(row["id_reference_path"]).read_text(encoding="utf-8-sig")
-        left, right = balanced_arguments(id_text, "index"), balanced_arguments(text, "index")
-        if len(left) == len(right):
-            index_pairs.extend((plain(visible_index(a)).casefold(), plain(visible_index(b))) for a,b in zip(left,right))
+        id_indexes = balanced_arguments(id_text, "index")
+        authority_lines = Path(row["chinese_source_path"]).read_text(
+            encoding="utf-8-sig"
+        ).splitlines()
+        authority_slice = "\n".join(
+            authority_lines[row["source_start_line"] - 1:row["source_end_line"]]
+        )
+        authority_indexes = balanced_arguments(authority_slice, "index")
+        english_indexes = balanced_arguments(text, "index")
+        if len(authority_indexes) == len(id_indexes) == len(english_indexes):
+            index_pairs.extend(
+                (plain(visible_index(a)).casefold(), plain(visible_index(b)))
+                for a, b in zip(id_indexes, english_indexes)
+            )
         else:
-            index_alignment_mismatches.append({"unit_id": row["unit_id"],
-                                               "id_index_entries": len(left),
-                                               "en_index_entries": len(right)})
+            expansion = DOCUMENTED_INDEX_EXPANSIONS.get(row["unit_id"])
+            exact_expansion = (
+                expansion
+                and len(authority_indexes) == len(id_indexes)
+                == expansion["authority_count"]
+                and len(english_indexes) == expansion["english_count"]
+            )
+            if exact_expansion:
+                for left_index, right_indexes in expansion["alignment"]:
+                    index_pairs.extend(
+                        (
+                            plain(visible_index(id_indexes[left_index])).casefold(),
+                            plain(visible_index(english_indexes[right_index])),
+                        )
+                        for right_index in right_indexes
+                    )
+                index_alignment_expansions.append({
+                    "unit_id": row["unit_id"],
+                    "authority_index_entries": len(authority_indexes),
+                    "id_index_entries": len(id_indexes),
+                    "en_index_entries": len(english_indexes),
+                    "reason": expansion["reason"],
+                })
+            else:
+                index_alignment_mismatches.append({
+                    "unit_id": row["unit_id"],
+                    "authority_index_entries": len(authority_indexes),
+                    "id_index_entries": len(id_indexes),
+                    "en_index_entries": len(english_indexes),
+                })
     write_jsonl(BACKEND / "units.jsonl", units)
 
     segment_templates = [json.loads(line) for line in (ID / "backend" / "segments.jsonl").read_text(encoding="utf-8-sig").splitlines() if line]
@@ -197,6 +264,7 @@ def main():
         "figure_ids_unique": len({row["diagram_id"] for row in figure_rows})
         == len(figure_rows) == 907,
         "bridges_2": len(bridges) == 2,
+        "index_alignment_mismatches_zero": not index_alignment_mismatches,
     }
     report = {"schema": "o014-english-backend-validation-v1", "recorded_at_utc": datetime.now(timezone.utc).isoformat(),
               "checks": checks, "term_fallback_count": 0, "term_unresolved_count": 0,
@@ -205,6 +273,7 @@ def main():
               "term_aligned_index_pair_count": len(index_pairs),
               "term_aligned_index_key_count": len(pair_map),
               "index_alignment_mismatches": index_alignment_mismatches,
+              "index_alignment_expansions": index_alignment_expansions,
               "term_override_input": {"path": str(TERM_OVERRIDES.relative_to(ROOT)).replace("\\", "/"),
                                       "bytes": TERM_OVERRIDES.stat().st_size,
                                       "sha256": sha(TERM_OVERRIDES)},

@@ -1,6 +1,6 @@
 {
   "schema": "o014-english-unit-admission-v1",
-  "recorded_at_utc": "2026-08-31T23:22:09.423465+00:00",
+  "recorded_at_utc": "2026-09-01T09:44:57.809741+00:00",
   "translated_units": 146,
   "admitted_units": 146,
   "next_sequence": null,
@@ -960,8 +960,8 @@
         "substantive_length": true,
         "indonesian_residue_bounded": true
       },
-      "bytes": 12413,
-      "sha256": "923cc3b6ad0d3c5d28b84bed2c316046fde103fe6652386fd5be03abba282627",
+      "bytes": 12419,
+      "sha256": "72cb1731c42c7749e3327cf0069e6047035e883a48b2ee577b2a922106ac8446",
       "receipt_true_check_count": 17,
       "indonesian_residue_hits": 0,
       "pass": true
@@ -4153,8 +4153,8 @@
         "substantive_length": true,
         "indonesian_residue_bounded": true
       },
-      "bytes": 9708,
-      "sha256": "9d7f4b4ca1de7dc5f802d3aed60f571507cfd7a52378ac5563c49815f3442c02",
+      "bytes": 9643,
+      "sha256": "793ea81b1d192e2b1a08e793b091547967232550e288b8ca61173fcd55c8e615",
       "receipt_true_check_count": 12,
       "indonesian_residue_hits": 0,
       "pass": true

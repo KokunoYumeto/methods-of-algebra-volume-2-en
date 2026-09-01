@@ -181,6 +181,33 @@
   the nine-file Zenodo release, publish/read it back, then update the same
   GitHub lineage from checkpoint to the complete PDF+HTML release.
 
+## 2026-09-01 — full-corpus executable PDF fixes and refreshed HTML closure
+
+- Executable XeLaTeX, rather than speculative review, exposed and closed four
+  edition-layer defects in source order: the xstring chapter-label expansion,
+  doubled parameter tokens inside the begin-document mark hook, a noncanonical
+  `readingnote` environment name in Unit 031, and the Indonesian witness's
+  invalid literal `qquad` sequence in Unit 134. The final Unit 134 form follows
+  frozen Chinese `chapter9.tex:2011` exactly with `\\quad`; no mathematical
+  meaning changed. Narrow range receipts 025--032 and 133--146 bind the new
+  bytes and document both corrections.
+- Admission, shared-source, backend, and HTML builds again pass all 146 units,
+  two bridges, 6,347 segments, 511 terms, and 907 diagrams. The refreshed
+  `reader/dist/index.html` is 4,501,242 bytes with SHA-256
+  `15c5ce147ecbff02fe8d95416029e57f0ecbd9af1fcfa16f1857b183f21ce824`;
+  all 31 local files total 6,202,695 bytes.
+- Fresh browser execution at 1440x900 and 390x844 renders 28,458 MathJax
+  containers across 149 sections, with zero `mjx-merror`, zero unsupported raw
+  residue, zero page overflow, zero uncontained wide displays, 907 readable
+  captions, 3,645 valid same-document links, and a visible Chapter 3 Reading
+  Guide. Local HTTP readback matches all 31 files byte-for-byte. Receipt:
+  `qa/HTML_BROWSER_QA.json`, 3,412 bytes, SHA-256
+  `d2acf7bebf30988cd276e3d9085f2865a33bf44d6a6b7389be3a93501531e19e`.
+- The full first XeLaTeX pass and Biber completed after these source fixes.
+  MiKTeX then rejected MakeIndex's absolute output path; the build wrapper now
+  runs MakeIndex inside the isolated owned build directory with exact relative
+  filenames. The complete deterministic PDF replay is in progress.
+
 ## 2026-09-01 — refreshed reader runtime QA after deterministic ledger replay
 
 - Fresh localhost browser QA closed against `reader/dist/index.html`, 4,499,295
@@ -198,3 +225,28 @@
   the browser console had zero warnings or errors.
 - Receipt: `qa/HTML_BROWSER_QA.json`, 3,306 bytes, SHA-256
   `e4baa7d5d0a1d92c0749790160f50618df59929bf74aff1b34c02f87ca9283f9`.
+
+## 2026-09-01 — strict index closure and final PDF localization
+
+- The earlier MakeIndex invocation was not accepted as index proof: the build
+  wrapper now deterministically separates all 754 raw entries into 512 term
+  entries and 242 symbol entries, runs the two matching Xindy module stacks,
+  validates the generated `theindex` structures and transcripts, and requires
+  a converged final XeLaTeX log. The first complete Xindy replay produced an
+  820-page candidate with both populated indexes.
+- Frozen-Chinese comparison proved that the only two raw backend index-count
+  differences were deliberate English lookup expansions, not omissions. The
+  authority's compound `effaceable/co-effaceable` entry maps to two English
+  entries, as does its compound exact-countable-products-or-coproducts entry.
+  `tools/build_english_backend.py` now admits only those two exact ordinal
+  mappings and fails every other discrepancy. The fresh backend receipt passes
+  146 units, 6,347 segments, 511 terms, 907 figures, two bridges, 512 aligned
+  English index pairs, and zero unexplained mismatches:
+  `backend/BACKEND_VALIDATION.json`, 2,355 bytes, SHA-256
+  `92d2d61882c81da10f030a3e461c6b4fedbadd69ccd8a93a6663c7d97a7c4e90`.
+- PDF inspection confirmed English running heads, bibliography heading and
+  bibliography relationship strings, and populated symbol/term indexes. It
+  also exposed one redundant manually inserted `Mastery Bridges` TOC line;
+  the class already inserts that unnumbered part. The single duplicate
+  `\addcontentsline` was removed, and one final mutex-serialized replay is in
+  progress. The earlier PDF candidate is therefore not a release artifact.

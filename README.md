@@ -5,15 +5,14 @@ Wen-Wei Li's Chinese textbook *Methods of Algebra*, Volume 2. It preserves the
 146-unit source structure and adds two separately attributed mastery bridges
 with exercises and full solutions.
 
-Public release status: complete HTML reader, editable source, and modular
-backend checkpoint; the PDF and Zenodo archive are pending the serialized TeX
-build.
+Public release status: complete PDF and HTML readers, editable source,
+modular backend, and published Zenodo archive.
 
 Reader links:
 
 - Reflowable HTML: <https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/>
 - Repository: <https://github.com/KokunoYumeto/methods-of-algebra-volume-2-en>
-- Archival DOI: pending Zenodo publication
+- Archival DOI: <https://doi.org/10.5281/zenodo.22229884>
 
 ## Source authority
 

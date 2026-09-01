@@ -1,6 +1,6 @@
 {
   "schema": "o014-english-backend-validation-v1",
-  "recorded_at_utc": "2026-09-01T00:24:39.181407+00:00",
+  "recorded_at_utc": "2026-09-01T11:18:14.425080+00:00",
   "checks": {
     "units_146": true,
     "unit_ids_unique": true,
@@ -13,24 +13,30 @@
     "term_unresolved_zero": true,
     "figures_907": true,
     "figure_ids_unique": true,
-    "bridges_2": true
+    "bridges_2": true,
+    "index_alignment_mismatches_zero": true
   },
   "term_fallback_count": 0,
   "term_unresolved_count": 0,
   "term_override_count": 511,
-  "term_aligned_index_concept_count": 134,
-  "term_aligned_index_pair_count": 500,
-  "term_aligned_index_key_count": 416,
-  "index_alignment_mismatches": [
+  "term_aligned_index_concept_count": 136,
+  "term_aligned_index_pair_count": 512,
+  "term_aligned_index_key_count": 423,
+  "index_alignment_mismatches": [],
+  "index_alignment_expansions": [
     {
       "unit_id": "o014.aljabr2.chapter3.classical-derived-functors",
+      "authority_index_entries": 8,
       "id_index_entries": 8,
-      "en_index_entries": 9
+      "en_index_entries": 9,
+      "reason": "The authority's compound effaceable/co-effaceable entry is split into two English lookup entries."
     },
     {
       "unit_id": "o014.aljabr2.chapter3.example-lim1",
+      "authority_index_entries": 2,
       "id_index_entries": 2,
-      "en_index_entries": 3
+      "en_index_entries": 3,
+      "reason": "The authority's compound exact-countable-products-or-coproducts entry is split into two English lookup entries."
     }
   ],
   "term_override_input": {
@@ -42,11 +48,11 @@
   "artifacts": {
     "units.jsonl": {
       "bytes": 111872,
-      "sha256": "cce89eb642c39f891df7d81f75a822dae1ac0d298ee2d080530eb92bc8d8fd49"
+      "sha256": "f70ede06d1e788e3e6d8104b350a1acb04c4f0e84a76b9833bd92fbb6f9357d6"
     },
     "segments.jsonl": {
       "bytes": 2648064,
-      "sha256": "8189b5b0688ca8d5d260fd24ee3b02b179641ce59195b3a14c19a938128ba826"
+      "sha256": "cf3bb3412bb7bf72a9d164a839fda908a88c9fdedcc2f23bc640c2692668ea2e"
     },
     "terms.csv": {
       "bytes": 42440,

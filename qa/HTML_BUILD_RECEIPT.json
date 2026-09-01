@@ -1,21 +1,21 @@
 {
   "schema": "o014-english-html-build-v1",
-  "built_at_utc": "2026-09-01T00:24:51.742753+00:00",
+  "built_at_utc": "2026-09-01T09:45:03.134663+00:00",
   "result": "PASS",
-  "index_bytes": 4499295,
-  "index_sha256": "894749f6fc9e19d37ff981a0e5a2681539d2dc04b33952967ac989b3d70abff3",
+  "index_bytes": 4501242,
+  "index_sha256": "15c5ce147ecbff02fe8d95416029e57f0ecbd9af1fcfa16f1857b183f21ce824",
   "dist_files": 31,
-  "dist_bytes": 6200748,
+  "dist_bytes": 6202695,
   "validation": {
     "status": "pass",
     "html_files": 2,
     "units_and_bridges": 148,
     "mathml_elements": 0,
-    "mathjax_source_elements": 28445,
+    "mathjax_source_elements": 28449,
     "images": 0,
     "diagram_alt_texts_applied": 907,
     "ledger_diagrams": 907,
-    "local_references_checked": 3609,
+    "local_references_checked": 3620,
     "logical_sections": 149,
     "unsupported_math_residue": [],
     "unsupported_raw_residue": [],
@@ -52,15 +52,15 @@
         "backend/figure-alt-text-en.csv"
       ],
       "returncode": 0,
-      "stdout_tail": "{\"status\": \"pass\", \"html_files\": 2, \"units_and_bridges\": 148, \"mathml_elements\": 0, \"mathjax_source_elements\": 28445, \"images\": 0, \"diagram_alt_texts_applied\": 907, \"ledger_diagrams\": 907, \"local_references_checked\": 3609, \"logical_sections\": 149, \"unsupported_math_residue\": [], \"unsupported_raw_residue\": [], \"errors\": [], \"limitations\": [\"MathML pronunciation depends on the browser and assistive technology.\", \"Complex diagram alt text is a summary, not a complete substitute for the visual relation.\", \"No WCAG conformance level or tagged-PDF claim is made.\"]}\n",
+      "stdout_tail": "{\"status\": \"pass\", \"html_files\": 2, \"units_and_bridges\": 148, \"mathml_elements\": 0, \"mathjax_source_elements\": 28449, \"images\": 0, \"diagram_alt_texts_applied\": 907, \"ledger_diagrams\": 907, \"local_references_checked\": 3620, \"logical_sections\": 149, \"unsupported_math_residue\": [], \"unsupported_raw_residue\": [], \"errors\": [], \"limitations\": [\"MathML pronunciation depends on the browser and assistive technology.\", \"Complex diagram alt text is a summary, not a complete substitute for the visual relation.\", \"No WCAG conformance level or tagged-PDF claim is made.\"]}\n",
       "stderr_tail": ""
     }
   ],
-  "reader_build_report_sha256": "0b528d343ff30d9d7fe983589d8f4b517b23ba237922e51df0821e6576dcbcc9",
+  "reader_build_report_sha256": "25c7bf5290991dacd0be15bbacc993c506ebde97475979b4eff18b5853930bd6",
   "source_inputs": {
     "master": {
       "path": "source/en/Al-jabr-2-en-complete-draft.tex",
-      "sha256": "a51b13e91fd9511f3bb400775e318dc83f67594f5d44bccf1b19005291805f89"
+      "sha256": "996433468088ef7a709622726cd53c24eafcc28e975b1fcf5db1d3715d31ba27"
     },
     "bibliography": {
       "path": "source/en/Al-jabr.bib",
@@ -197,7 +197,7 @@
       },
       {
         "path": "source/en/chapter3-unit-031.tex",
-        "sha256": "923cc3b6ad0d3c5d28b84bed2c316046fde103fe6652386fd5be03abba282627"
+        "sha256": "72cb1731c42c7749e3327cf0069e6047035e883a48b2ee577b2a922106ac8446"
       },
       {
         "path": "source/en/chapter3-unit-032.tex",
@@ -609,7 +609,7 @@
       },
       {
         "path": "source/en/chapter9-unit-134.tex",
-        "sha256": "9d7f4b4ca1de7dc5f802d3aed60f571507cfd7a52378ac5563c49815f3442c02"
+        "sha256": "793ea81b1d192e2b1a08e793b091547967232550e288b8ca61173fcd55c8e615"
       },
       {
         "path": "source/en/appendix1-unit-135.tex",

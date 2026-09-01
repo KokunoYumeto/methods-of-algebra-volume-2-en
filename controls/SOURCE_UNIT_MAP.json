@@ -743,7 +743,7 @@
       "id_reference_path": "C:\\Users\\Floris\\Documents\\interlanguage\\04_mirrors\\id\\methods-of-algebra-volume-2-id\\source\\id-ID\\chapter3-unit-031.tex",
       "chinese_source_path": "C:\\Users\\Floris\\Documents\\interlanguage\\04_mirrors\\id\\methods-of-algebra-volume-2-id\\authority\\upstream\\AlJabr-2-9a5803ff77dd3257484cb177f851a73770a59dd3\\chapter3.tex",
       "id_reference_sha256": "c00bde9cba0a5f7f0be710ad4b31ec30398859d082fb920f423e82c71d52aa4c",
-      "target_sha256": "923cc3b6ad0d3c5d28b84bed2c316046fde103fe6652386fd5be03abba282627"
+      "target_sha256": "72cb1731c42c7749e3327cf0069e6047035e883a48b2ee577b2a922106ac8446"
     },
     {
       "unit_id": "o014.aljabr2.chapter3.complexes-over-additive-categories",
@@ -3215,7 +3215,7 @@
       "id_reference_path": "C:\\Users\\Floris\\Documents\\interlanguage\\04_mirrors\\id\\methods-of-algebra-volume-2-id\\source\\id-ID\\chapter9-unit-134.tex",
       "chinese_source_path": "C:\\Users\\Floris\\Documents\\interlanguage\\04_mirrors\\id\\methods-of-algebra-volume-2-id\\authority\\upstream\\AlJabr-2-9a5803ff77dd3257484cb177f851a73770a59dd3\\chapter9.tex",
       "id_reference_sha256": "8b29be36d752d2fe8480ded064d6deebeb0eda04cf1c7f10ef63e6519f7b7c15",
-      "target_sha256": "9d7f4b4ca1de7dc5f802d3aed60f571507cfd7a52378ac5563c49815f3442c02"
+      "target_sha256": "793ea81b1d192e2b1a08e793b091547967232550e288b8ca61173fcd55c8e615"
     },
     {
       "unit_id": "o014.aljabr2.appendix1.yoneda-density",
@@ -3514,5 +3514,5 @@
   "indonesian_root": "C:\\Users\\Floris\\Documents\\interlanguage\\04_mirrors\\id\\methods-of-algebra-volume-2-id",
   "upstream_readme_sha256": "b16c0b27d50c1820bc9590d85fbca5017bc0cd7e511821fd43cd363a09c16063",
   "upstream_license_sha256": "48a83a6e39f7b2f166763b30776132c9a99aa816f17cb06f87ad5b8542a7b71f",
-  "updated_at_utc": "2026-08-31T23:22:09.423465+00:00"
+  "updated_at_utc": "2026-09-01T09:44:57.809741+00:00"
 }

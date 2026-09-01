@@ -18,8 +18,8 @@
   "offline_html": {
     "logical_sections": 149,
     "files": 31,
-    "bytes": 6200748,
-    "index_sha256": "894749f6fc9e19d37ff981a0e5a2681539d2dc04b33952967ac989b3d70abff3",
+    "bytes": 6202695,
+    "index_sha256": "15c5ce147ecbff02fe8d95416029e57f0ecbd9af1fcfa16f1857b183f21ce824",
     "build_receipt": "qa/HTML_BUILD_RECEIPT.json",
     "browser_receipt": "qa/HTML_BROWSER_QA.json"
   },
@@ -40,6 +40,6 @@
   },
   "source_map": "controls/SOURCE_UNIT_MAP.json",
   "workflow": "controls/ENGLISH_EDITION_SCOPE.md",
-  "last_admission_utc": "2026-08-31T23:22:09.423465+00:00",
+  "last_admission_utc": "2026-09-01T09:44:57.809741+00:00",
   "admission_receipt": "qa/UNIT_ADMISSION.json"
 }

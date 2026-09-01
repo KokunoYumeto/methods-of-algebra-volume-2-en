@@ -6,6 +6,11 @@
   },
   "status": "PASS",
   "source_commit": "9a5803ff77dd3257484cb177f851a73770a59dd3",
+  "post_admission_correction": {
+    "sequence": 134,
+    "scope": "replace the Indonesian witness's invalid literal qquad shim with the frozen Chinese source's authoritative \\quad token at chapter9.tex:2011",
+    "mathematical_meaning_changed": false
+  },
   "validation": {
     "source_slice_sha256_verified": true,
     "indonesian_witness_sha256_verified": true,
@@ -50,9 +55,9 @@
       "sequence": 134,
       "unit_id": "o014.aljabr2.chapter9.exercises",
       "target_path": "source/en/chapter9-unit-134.tex",
-      "target_sha256": "9d7f4b4ca1de7dc5f802d3aed60f571507cfd7a52378ac5563c49815f3442c02",
-      "bytes": 9708,
-      "lines": 149,
+      "target_sha256": "793ea81b1d192e2b1a08e793b091547967232550e288b8ca61173fcd55c8e615",
+      "bytes": 9643,
+      "lines": 146,
       "chinese_source": {
         "path": "chapter9.tex",
         "start_line": 1950,

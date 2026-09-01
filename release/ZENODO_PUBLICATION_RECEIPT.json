@@ -1,0 +1,119 @@
+{
+  "schema": "o014-english-zenodo-publication-v1",
+  "verified_at_utc": "2026-09-01T11:29:36.175522+00:00",
+  "result": "PASS",
+  "already_published_when_invoked": false,
+  "record_id": "22229884",
+  "concept_record_id": "22229883",
+  "doi": "10.5281/zenodo.22229884",
+  "concept_doi": "10.5281/zenodo.22229883",
+  "public_url": "https://zenodo.org/records/22229884",
+  "metadata": {
+    "title": "Methods of Algebra, Volume 2: Linear Algebra - Independent English Edition",
+    "version": "complete-independent-english-edition-2026-09-01",
+    "language": "eng",
+    "access_right": "open",
+    "license": "cc-by-4.0",
+    "creator_count": 1,
+    "contributor_count": 1,
+    "defects": []
+  },
+  "public_files": [
+    {
+      "filename": "00_methods-of-algebra-volume-2-independent-english-edition.pdf",
+      "url": "https://zenodo.org/api/records/22229884/files/00_methods-of-algebra-volume-2-independent-english-edition.pdf/content",
+      "http_status": 200,
+      "expected_bytes": 3891627,
+      "bytes": 3891627,
+      "expected_sha256": "88114c09af3313d1e93d7b66da67c277aae21727fec60c0643b10a1f2b1d6448",
+      "sha256": "88114c09af3313d1e93d7b66da67c277aae21727fec60c0643b10a1f2b1d6448",
+      "pass": true
+    },
+    {
+      "filename": "01_complete-xelatex-source.zip",
+      "url": "https://zenodo.org/api/records/22229884/files/01_complete-xelatex-source.zip/content",
+      "http_status": 200,
+      "expected_bytes": 1138827,
+      "bytes": 1138827,
+      "expected_sha256": "6df3c57f2954e464d55ef52ac757ae473f3841fd775839de485c4ac1c374da5e",
+      "sha256": "6df3c57f2954e464d55ef52ac757ae473f3841fd775839de485c4ac1c374da5e",
+      "pass": true
+    },
+    {
+      "filename": "02_semantic-backend.zip",
+      "url": "https://zenodo.org/api/records/22229884/files/02_semantic-backend.zip/content",
+      "http_status": 200,
+      "expected_bytes": 298496,
+      "bytes": 298496,
+      "expected_sha256": "84aa2df5d4656bb7f50e0a5859cd57d31ee667ae579ed39b6f972819d5e4a1ce",
+      "sha256": "84aa2df5d4656bb7f50e0a5859cd57d31ee667ae579ed39b6f972819d5e4a1ce",
+      "pass": true
+    },
+    {
+      "filename": "03_offline-html-reader.zip",
+      "url": "https://zenodo.org/api/records/22229884/files/03_offline-html-reader.zip/content",
+      "http_status": 200,
+      "expected_bytes": 1424857,
+      "bytes": 1424857,
+      "expected_sha256": "38307525361f530d60cf9e3c56ed5fa7f1deadf93d62ae05bc6e225a095d647c",
+      "sha256": "38307525361f530d60cf9e3c56ed5fa7f1deadf93d62ae05bc6e225a095d647c",
+      "pass": true
+    },
+    {
+      "filename": "04_provenance-and-reproducibility.zip",
+      "url": "https://zenodo.org/api/records/22229884/files/04_provenance-and-reproducibility.zip/content",
+      "http_status": 200,
+      "expected_bytes": 263128,
+      "bytes": 263128,
+      "expected_sha256": "9cfae5ca0eb8b3c2ef5b97b0eba1cce8c48e8712f49f7a1f33d663720fd897ff",
+      "sha256": "9cfae5ca0eb8b3c2ef5b97b0eba1cce8c48e8712f49f7a1f33d663720fd897ff",
+      "pass": true
+    },
+    {
+      "filename": "LICENSE",
+      "url": "https://zenodo.org/api/records/22229884/files/LICENSE/content",
+      "http_status": 200,
+      "expected_bytes": 19045,
+      "bytes": 19045,
+      "expected_sha256": "48a83a6e39f7b2f166763b30776132c9a99aa816f17cb06f87ad5b8542a7b71f",
+      "sha256": "48a83a6e39f7b2f166763b30776132c9a99aa816f17cb06f87ad5b8542a7b71f",
+      "pass": true
+    },
+    {
+      "filename": "MANIFEST.csv",
+      "url": "https://zenodo.org/api/records/22229884/files/MANIFEST.csv/content",
+      "http_status": 200,
+      "expected_bytes": 964,
+      "bytes": 964,
+      "expected_sha256": "be1d6f80552f472d6d6ec7e947ee7347d35d2e1277d00fb86b95090c79e607d0",
+      "sha256": "be1d6f80552f472d6d6ec7e947ee7347d35d2e1277d00fb86b95090c79e607d0",
+      "pass": true
+    },
+    {
+      "filename": "README.txt",
+      "url": "https://zenodo.org/api/records/22229884/files/README.txt/content",
+      "http_status": 200,
+      "expected_bytes": 1066,
+      "bytes": 1066,
+      "expected_sha256": "2abeab4c72692f3b99dad3b4825db553e647419c75b4c51a34c80319f8f095ea",
+      "sha256": "2abeab4c72692f3b99dad3b4825db553e647419c75b4c51a34c80319f8f095ea",
+      "pass": true
+    },
+    {
+      "filename": "SHA256SUMS.txt",
+      "url": "https://zenodo.org/api/records/22229884/files/SHA256SUMS.txt/content",
+      "http_status": 200,
+      "expected_bytes": 743,
+      "bytes": 743,
+      "expected_sha256": "a33f28b5790d634fa4dd2d1d0799242de846fef878d0a65f8582f1fe2727f375",
+      "sha256": "a33f28b5790d634fa4dd2d1d0799242de846fef878d0a65f8582f1fe2727f375",
+      "pass": true
+    }
+  ],
+  "total_files": 9,
+  "total_bytes": 7038753,
+  "package_receipt_sha256": "d5854156fa5085e838c26ebdae7732e392e00fc7a5096de4611ffc3fb94d6266",
+  "source_commit": "9a5803ff77dd3257484cb177f851a73770a59dd3",
+  "source_tree": "23bd05c2fb8434278df4fdfb636559a6a2b0d2ff",
+  "credential_material_present": false
+}
