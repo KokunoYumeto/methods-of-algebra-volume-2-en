@@ -1,13 +1,13 @@
 {
   "schema": "o014-english-github-publication-v2",
-  "published_at_utc": "2026-09-01T11:37:33.016329+00:00",
+  "published_at_utc": "2026-09-01T11:46:24.583276+00:00",
   "result": "PUSHED_PENDING_ANONYMOUS_READBACK",
   "repository": "https://github.com/KokunoYumeto/methods-of-algebra-volume-2-en",
   "pages_url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/",
   "visibility": "public",
   "publication_scope": "complete_pdf_html_source_backend_release",
-  "main_content_commit": "7f7b8b161f73368abb9448fddcff8f51efa863d1",
-  "main_content_tree": "20257ccf7bf418c60c69fba81d295e91a3d224e8",
+  "main_content_commit": "2bfb849c4b7b3a6921b6ccf821161cb6d8fcac74",
+  "main_content_tree": "2eb6819022dd344f295b52b6b2a88f73b45ebffe",
   "pages_commit": "81b9a58f16aec0f0c22b3708ef52c7d36d15e009",
   "pages_previous_commit": "81b9a58f16aec0f0c22b3708ef52c7d36d15e009",
   "source_commit": "9a5803ff77dd3257484cb177f851a73770a59dd3",
@@ -97,8 +97,8 @@
     },
     {
       "path": "controls/CURRENT_STATE.json",
-      "bytes": 1670,
-      "sha256": "010de365c4ae4284425840bbc186884a5c8e314b251326aa4551c17de4e8e8b9"
+      "bytes": 2384,
+      "sha256": "692fadd7064c90f4dbe7d849e365ad5fbe0ede8048b7b7a34a459a67fa4a34a9"
     },
     {
       "path": "controls/ENGLISH_EDITION_SCOPE.md",
@@ -107,8 +107,8 @@
     },
     {
       "path": "controls/PRODUCTION_LOG.md",
-      "bytes": 21230,
-      "sha256": "039e0e9097f185ea617f26c7efa10426410402adc9f1b77c571dd9a8f28a8fa4"
+      "bytes": 23162,
+      "sha256": "f4e7c5f9488b0fd0f7628b9b5187ffcb0fd6c2489a4698b15d0f4c0d039d3e2f"
     },
     {
       "path": "controls/SOURCE_FREEZE.json",
@@ -612,8 +612,8 @@
     },
     {
       "path": "release/verify_github_public.py",
-      "bytes": 14156,
-      "sha256": "01cc3999c49ae91e3821128829c0ac90e8a6b39245b6bc466262c710f33a9733"
+      "bytes": 17321,
+      "sha256": "218d5c7d8ff2c0683945deb8f72bef5fdd36427fe129a0cbdc47e3c2b9cee8ab"
     },
     {
       "path": "source/en/AJbook2.cls",
