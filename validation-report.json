@@ -3,7 +3,7 @@
   "html_files": 2,
   "units_and_bridges": 148,
   "mathml_elements": 0,
-  "mathjax_source_elements": 28449,
+  "mathjax_source_elements": 28450,
   "images": 0,
   "diagram_alt_texts_applied": 907,
   "ledger_diagrams": 907,
@@ -11,6 +11,73 @@
   "logical_sections": 149,
   "unsupported_math_residue": [],
   "unsupported_raw_residue": [],
+  "raw_hypertarget_residue": [],
+  "misplaced_anchor_fallbacks": [],
+  "configured_mathjax_macros": {
+    "ensuremath": [
+      "#1",
+      1
+    ],
+    "bm": [
+      "\\boldsymbol{#1}",
+      1
+    ],
+    "EuScript": [
+      "\\mathcal{#1}",
+      1
+    ],
+    "mapsfrom": "\\mathrel{↤}",
+    "longmapsfrom": "\\mathrel{⟻}",
+    "llbracket": "\\mathopen{⟦}",
+    "rrbracket": "\\mathclose{⟧}",
+    "multicolumn": [
+      "#3",
+      3
+    ],
+    "index": [
+      "",
+      1
+    ],
+    "par": ""
+  },
+  "runtime_macro_occurrences": {
+    "bm": {
+      "html": 242,
+      "math": 242
+    },
+    "EuScript": {
+      "html": 106,
+      "math": 106
+    },
+    "mapsfrom": {
+      "html": 4,
+      "math": 4
+    },
+    "longmapsfrom": {
+      "html": 2,
+      "math": 2
+    },
+    "llbracket": {
+      "html": 3,
+      "math": 3
+    },
+    "rrbracket": {
+      "html": 3,
+      "math": 3
+    },
+    "multicolumn": {
+      "html": 1,
+      "math": 1
+    },
+    "index": {
+      "html": 0,
+      "math": 0
+    },
+    "par": {
+      "html": 0,
+      "math": 0
+    }
+  },
   "errors": [],
   "limitations": [
     "MathML pronunciation depends on the browser and assistive technology.",
