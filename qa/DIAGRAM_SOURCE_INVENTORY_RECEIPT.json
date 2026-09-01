@@ -1,20 +1,22 @@
 {
-  "schema": "o014-english-complete-diagram-inventory-v1",
-  "recorded_at_utc": "2026-08-31T18:11:34.803696+00:00",
+  "schema": "o014-english-complete-diagram-inventory-v2",
+  "recorded_at_utc": "2026-09-01T14:37:45.459048+00:00",
   "result": "PASS",
   "checks": {
     "inventory_907": true,
-    "reused_all_829": true,
-    "new_missing_78": true,
+    "recognized_inventory_transition": true,
+    "initial_829_to_907_expansion_or_complete_907_revalidation": true,
     "diagram_ids_unique": true,
     "alignment_failures_zero": true,
     "all_source_bodies_nonempty": true
   },
   "inventory_rows": 907,
-  "inherited_rows_aligned": 829,
-  "new_descriptions_required": 78,
+  "inherited_ledger_rows": 907,
+  "inherited_rows_aligned": 907,
+  "new_descriptions_required": 0,
+  "transition_mode": "complete_907_row_revalidation",
   "alignment_failures": [],
-  "inventory_bytes": 696546,
-  "inventory_sha256": "36f8d539bce4ce0a8990d5fe2e404195f963f8e2eae1afb82e9f7789677e6a03",
-  "inherited_ledger_sha256": "353bc8bfc747da4aac96380479bc913db60c2e00b770aa957775f32cd4f48451"
+  "inventory_bytes": 722764,
+  "inventory_sha256": "d1fc3f3477a7798e2a6987c2ae8545e3f348233cdefb438577434414b3a4da9e",
+  "inherited_ledger_sha256": "aa15c68e8e0f19ee58dc9329199c4ff84db1deb1df9bf58dd5a11105ff293937"
 }

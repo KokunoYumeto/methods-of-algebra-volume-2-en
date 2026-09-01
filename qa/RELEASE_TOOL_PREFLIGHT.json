@@ -1,110 +1,123 @@
 {
-  "schema": "o014-english-release-tool-preflight-v1",
-  "verified_at_utc": "2026-08-31T23:23:16.6479334Z",
+  "schema": "o014-english-release-tool-preflight-v2",
   "result": "PASS",
   "scope": {
-    "root": "C:/Users/Floris/Documents/interlanguage/04_mirrors/en/methods-of-algebra-volume-2-en",
+    "network_used": false,
+    "credentials_used": false,
+    "git_used": false,
+    "package_created": false,
     "publication_executed": false,
-    "authentication_attempted": false,
-    "git_executed": false,
-    "build_executed": false,
-    "unit_sources_touched": false,
-    "backend_touched": false,
-    "reader_builder_touched": false,
-    "build_outputs_touched": false
+    "qa_pass_receipts_modified": false
   },
-  "canonical_zenodo_payload": [
-    {"filename": "00_methods-of-algebra-volume-2-independent-english-edition.pdf", "role": "primary reader PDF"},
-    {"filename": "01_complete-xelatex-source.zip", "role": "complete editable XeLaTeX source"},
-    {"filename": "02_semantic-backend.zip", "role": "locale-linked semantic backend"},
-    {"filename": "03_offline-html-reader.zip", "role": "accessible reflowable offline HTML reader"},
-    {"filename": "04_provenance-and-reproducibility.zip", "role": "authority, workflow, QA, hashes, and build tools"},
-    {"filename": "LICENSE", "role": "CC BY 4.0 license text"},
-    {"filename": "README.txt", "role": "reader-first scope and use note"},
-    {"filename": "MANIFEST.csv", "role": "payload inventory"},
-    {"filename": "SHA256SUMS.txt", "role": "payload checksums excluding the checksum file itself"}
-  ],
-  "metadata_boundary": {
-    "title": "Methods of Algebra, Volume 2: Linear Algebra - Independent English Edition",
-    "version": "complete-independent-english-edition-2026-09-01",
-    "access_right": "open",
-    "license": "cc-by-4.0",
-    "language": "eng",
-    "source_creator": "Li, Wen-Wei",
-    "organization_contributors_maximum": 1,
-    "organization_label_absent_from_title_and_description": true,
-    "nonendorsement_required": true,
-    "frozen_source_commit": "9a5803ff77dd3257484cb177f851a73770a59dd3",
-    "frozen_source_tree": "23bd05c2fb8434278df4fdfb636559a6a2b0d2ff"
-  },
-  "findings": [
+  "tool_identities": [
     {
-      "id": "PREFLIGHT-001",
-      "severity": "high",
-      "status": "fixed",
-      "summary": "The package and Zenodo gates previously accepted any nine filenames instead of the canonical reader-first inventory.",
-      "resolution": "Both tools now enforce the same exact nine-name set, reject duplicates and extra entries, and verify every byte count and SHA-256 before authentication."
+      "path": "tools/release_visual_gates.py",
+      "bytes": 11370,
+      "sha256": "9b21a279f010a6a56327cb4ab19cbebfe33c2cf11e2259e80505c4336a61e0e5"
     },
     {
-      "id": "PREFLIGHT-002",
-      "severity": "medium",
-      "status": "fixed",
-      "summary": "Generated payload text and ZIP platform metadata were not fully cross-platform deterministic.",
-      "resolution": "Generated text now uses explicit UTF-8 bytes and LF records, and ZIP entries use a fixed timestamp, Unix creator system, fixed permissions, sorted entries, and fixed compression settings."
+      "path": "tools/preflight_release_visual_gates.py",
+      "bytes": 7434,
+      "sha256": "61287d403ba3cb758f1d88f508757677341f8d5d0110902086ba76474f5b71a2"
     },
     {
-      "id": "PREFLIGHT-003",
-      "severity": "high",
-      "status": "fixed",
-      "summary": "Zenodo reuse checked title and files before the full metadata, provenance, and nonendorsement boundary.",
-      "resolution": "Reuse and final publication now share one metadata validator; defective prior versions remain on their unambiguous existing concept and are corrected by a new version, while multiple exact-title concepts fail closed."
+      "path": "tools/package_english_release.py",
+      "bytes": 17540,
+      "sha256": "26f713099abf20628c02565407bbac3925d1f38050397480dd9cbbbfd00472c6"
     },
     {
-      "id": "PREFLIGHT-004",
-      "severity": "high",
-      "status": "fixed",
-      "summary": "The GitHub publisher used a dot-wide add/status/commit boundary.",
-      "resolution": "All staging, status, and commit operations now use an explicit publication pathspec; origin identity and public visibility are enforced before push."
+      "path": "release/publish_github.py",
+      "bytes": 26439,
+      "sha256": "7ce6613c4c6262b8b43552cfa7c2b2fdb449eecd8354fa484b40f73e3e84ba58"
     },
     {
-      "id": "PREFLIGHT-005",
-      "severity": "high",
-      "status": "fixed",
-      "summary": "The GitHub gate trusted PASS labels without binding the Zenodo anonymous readback to the current package.",
-      "resolution": "GitHub publication now requires an exact package-receipt hash match and identical nine-file byte/hash inventories from the Zenodo public receipt."
+      "path": "release/publish_zenodo.py",
+      "bytes": 43060,
+      "sha256": "25379087cb022676b85ad2e2d3df83a3289735a3652a32d19db7357a5e620bb5"
     },
     {
-      "id": "PREFLIGHT-006",
-      "severity": "medium",
-      "status": "fixed",
-      "summary": "The GitHub public verifier did not verify the configured Pages branch and root path and did not URL-encode page paths.",
-      "resolution": "Anonymous verification now checks gh-pages at /, the canonical Pages URL, the main default branch, the publication boundary, and encoded per-file byte/hash readback."
-    },
-    {
-      "id": "PREFLIGHT-007",
-      "severity": "informational",
-      "status": "pass",
-      "summary": "Zenodo credential handling is secret-safe in the audited path.",
-      "evidence": "The token is read only after anonymous duplicate and payload checks, is sent only in an Authorization header, is never placed in a URL or receipt, and public readback uses a separate anonymous session."
+      "path": "release/verify_github_public.py",
+      "bytes": 17321,
+      "sha256": "218d5c7d8ff2c0683945deb8f72bef5fdd36427fe129a0cbdc47e3c2b9cee8ab"
     }
   ],
   "static_checks": {
-    "python_ast_parse": "PASS",
-    "shared_exact_payload_tuple": "PASS",
-    "payload_file_count": 9,
-    "metadata_validator_on_declared_metadata": "PASS",
-    "no_organization_label_in_title_or_description": "PASS",
-    "open_cc_by_4_0": "PASS",
-    "nonendorsement_present": "PASS",
-    "explicit_git_pathspec_count": 10,
-    "pages_source_root_check_present": "PASS"
+    "python_ast_parse_all_tools": true,
+    "entry_point_integration": {
+      "package_imports_shared_gate": true,
+      "package_calls_pdf_gate": true,
+      "package_calls_html_gate": true,
+      "github_imports_shared_gate": true,
+      "github_calls_pdf_gate": true,
+      "github_calls_html_gate": true,
+      "github_requires_pdf_visual_receipt": true,
+      "github_binds_package_visual_gates": true
+    },
+    "current_pdf_visual_gate": "PASS",
+    "current_pdf_binding": {
+      "receipt": {
+        "path": "qa/PDF_VISUAL_QA.json",
+        "bytes": 9435,
+        "sha256": "8ef3400c2728dc39c0a29d40c524fc8c0072074fc7ac2471403ab2203667438e"
+      },
+      "artifact": {
+        "path": "output/pdf/methods-of-algebra-volume-2-independent-english-edition.pdf",
+        "bytes": 3894743,
+        "sha256": "8193d44ef52c9c39807e769ad04507130f163481f82aa9cfaa0a1a3022ef7aa5"
+      },
+      "pages": 820,
+      "page_manifest": {
+        "path": "qa/PDF_VISUAL_QA_PAGE_MANIFEST.csv",
+        "bytes": 123351,
+        "sha256": "f81cf6f23c9f619e604c35d07cc4718f2de91a8c5640a8c88622546245fb0f79"
+      },
+      "all_page_metrics": {
+        "path": "qa/PDF_VISUAL_QA_ALL_PAGE_METRICS.json",
+        "bytes": 544616,
+        "sha256": "8c76c69803abf65a66a4ccf2ea11e3f99db727bbe04f5b5ab3b877410a9e73cf"
+      }
+    },
+    "synthetic_exact_current_html_gate": "PASS",
+    "synthetic_exact_current_html_binding": {
+      "receipt": {
+        "path": "qa/HTML_BROWSER_QA.json",
+        "bytes": 4443,
+        "sha256": "e37a2c3a9d264888e7cb1a8adeb2d20d55e6ec9a968fa38bb9ba9e7924411171"
+      },
+      "index": {
+        "path": "reader/dist/index.html",
+        "bytes": 4493910,
+        "sha256": "411fe6246743388ba9c5352732cc7958c02aa5dc578a54daecd4e6a5b317347e"
+      },
+      "html_build_receipt": {
+        "path": "qa/HTML_BUILD_RECEIPT.json",
+        "bytes": 34694,
+        "sha256": "1c9cee21a59708e5ba1c9799f70a3fcbfb392f7416cb10033c8e487032d8efe0"
+      },
+      "reader_build_report": {
+        "path": "reader/build/reader-build-report.json",
+        "bytes": 30824,
+        "sha256": "59458d06b7e8640ca6220688848bb861a38a9ef315a12fcc3a50f78636f9385a"
+      },
+      "manifest": {
+        "path": "reader/dist/SHA256SUMS.txt",
+        "bytes": 3897,
+        "sha256": "1d2071aa329dcedc1bafea6410fd785023e7e84365fcba9e26b5a5d74edc8f8c"
+      },
+      "static_validation": {
+        "path": "reader/dist/validation-report.json",
+        "bytes": 1771,
+        "sha256": "99ead324f5b8ca77eef3783a087af4ea5da40833975ea18c90400ae385310ed5"
+      }
+    },
+    "live_html_browser_gate": {
+      "status": "PASS_CURRENT_RECEIPT"
+    },
+    "fail_closed_rejections": {
+      "stale_pdf_artifact": "PDF visual QA is not bound to the current PDF build receipt",
+      "stale_html_index": "HTML browser QA is not bound to the current HTML build receipt",
+      "stale_html_build_receipt": "HTML browser-QA build receipt is stale: expected {'bytes': 34694, 'sha256': '0000000000000000000000000000000000000000000000000000000000000000'}, current bytes are {'bytes': 34694, 'sha256': '1c9cee21a59708e5ba1c9799f70a3fcbfb392f7416cb10033c8e487032d8efe0'}"
+    }
   },
-  "files": [
-    {"path": "tools/package_english_release.py", "bytes": 6344, "sha256": "eb14272e20a3e8a8655d0e0bc6b72d7c532cdf01c9e2d85d0137c2a0abe64521", "disposition": "modified"},
-    {"path": "release/publish_zenodo.py", "bytes": 16621, "sha256": "d133d19bbe7d0ab7793b5f8d7c5e79931d16e9ddb5526f33d88626e46a0738e7", "disposition": "modified"},
-    {"path": "release/publish_github.py", "bytes": 5800, "sha256": "f1c842084f5236d578d15fca2c21f3b008a62737c6e50b220e5381ab9216ec66", "disposition": "modified"},
-    {"path": "release/verify_github_public.py", "bytes": 3405, "sha256": "de19e83c155588aa5e6319df7a09ede02e4c971d46b9f17187d0ded138383105", "disposition": "modified"},
-    {"path": ".gitignore", "bytes": 156, "sha256": "afe7701e06064e36f3108732af2338598f782654e5337d5218bad9f45ea85f1c", "disposition": "inspected_only"},
-    {"path": "README.md", "bytes": 3097, "sha256": "62666ca18fe7f85cf6345a072c09d2f49503f56a5aa97ca5a31b8e2bb96cb3d9", "disposition": "inspected_only"}
-  ]
+  "interpretation": "The in-memory HTML candidate proves the validator accepts an exactly bound receipt; it is not a browser-QA result and was not written to qa/HTML_BROWSER_QA.json. A current stale browser receipt remains a hard release stop until browser QA is rerun."
 }

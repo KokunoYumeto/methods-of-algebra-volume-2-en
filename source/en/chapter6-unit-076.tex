@@ -90,16 +90,18 @@ property of right-derived functors (see
 Remark~\ref{rem:derived-can-morphism} and the preceding discussion), there is
 a unique $\Downarrow$ in the left-hand diagram below such that
 % segment-id: o014.li2.chapter6.change-of-group.g002
-\begin{equation}\label{eqn:change-of-groups-univ}
+	{\scriptsize
+	\begin{equation}\label{eqn:change-of-groups-univ}
 	\begin{tikzcd}[column sep=huge, row sep=large]
 		\cate{K}^+(G) \arrow[r, "{(\cdot)^G}"] \arrow[d] & \cate{K}^+(\Bbbk) \arrow[d] \arrow[Rightarrow, ld] \\
 		\cate{D}^+(G) \arrow[r, "{\mathrm{R}((\cdot)^G)}", ""' {name=D}] \arrow[r, bend right=60, "" {name=U}, "{\mathrm{R}((\cdot)^H) \circ \varphi^*}"'] & \cate{D}^+(\Bbbk) \arrow[Rightarrow, from=D, to=U, "{\exists!}"']
-	\end{tikzcd} \xlongequal{\text{vertical composite}} \;\text{the vertical composite of \eqref{eqn:grp-pullback-2-cell}}
+	\end{tikzcd} \xlongequal{\text{vertical composite}} \;\text{vertical composite of \eqref{eqn:grp-pullback-2-cell}}
 	\begin{tikzcd}[column sep=huge, row sep=large]
 		\cate{K}^+(G) \arrow[r, "{(\cdot)^G}"] \arrow[d] & \cate{K}^+(\Bbbk) \arrow[d] \arrow[Rightarrow, ld] \\
 		\cate{D}^+(G) \arrow[r, "{\mathrm{R}((\cdot)^H) \circ \varphi^*}"' inner sep=0.6em] & \cate{D}^+(\Bbbk)
 	\end{tikzcd}
-\end{equation}
+	\end{equation}
+	}
 The symbol \rotatebox[origin=c]{45}{$\Leftarrow$} in the left-hand diagram is
 part of the data of the right-derived functor
 $\mathrm{R}\left((\cdot)^G\right)$. This uniquely determines the morphism

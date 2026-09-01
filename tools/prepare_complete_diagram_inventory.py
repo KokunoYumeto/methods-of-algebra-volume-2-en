@@ -166,22 +166,39 @@ def main() -> None:
         for row in inventory:
             stream.write(json.dumps(row, ensure_ascii=False, separators=(",", ":")) + "\n")
     ids = [row["diagram_id"] for row in inventory]
+    initial_expansion = len(inherited) == 829 and reused == 829 and added == 78
+    complete_revalidation = (
+        len(inherited) == 907
+        and reused == 907
+        and added == 0
+        and all(str(row["description_en"]).strip() for row in inventory)
+    )
     checks = {
         "inventory_907": len(inventory) == 907,
-        "reused_all_829": reused == 829,
-        "new_missing_78": added == 78,
+        "recognized_inventory_transition": initial_expansion or complete_revalidation,
+        "initial_829_to_907_expansion_or_complete_907_revalidation": (
+            initial_expansion or complete_revalidation
+        ),
         "diagram_ids_unique": len(ids) == len(set(ids)),
         "alignment_failures_zero": not failures,
         "all_source_bodies_nonempty": all(str(row["tex_body"]).strip() for row in inventory),
     }
     receipt = {
-        "schema": "o014-english-complete-diagram-inventory-v1",
+        "schema": "o014-english-complete-diagram-inventory-v2",
         "recorded_at_utc": datetime.now(timezone.utc).isoformat(),
         "result": "PASS" if all(checks.values()) else "FAIL",
         "checks": checks,
         "inventory_rows": len(inventory),
+        "inherited_ledger_rows": len(inherited),
         "inherited_rows_aligned": reused,
         "new_descriptions_required": added,
+        "transition_mode": (
+            "initial_829_to_907_expansion"
+            if initial_expansion
+            else "complete_907_row_revalidation"
+            if complete_revalidation
+            else "unrecognized"
+        ),
         "alignment_failures": failures,
         "inventory_bytes": OUT.stat().st_size,
         "inventory_sha256": sha256(OUT),

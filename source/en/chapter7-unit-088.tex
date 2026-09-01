@@ -565,10 +565,13 @@ given by the unit constraints of $\mathcal{V}$.
 We have defined algebras, modules, and their morphisms. All these structures
 form categories, with notation
 % segment-id: o014.li2.chapter7.monoidal-algebras.t001
-\begin{center}\begin{tabular}{|c|c|c|c|c|c|} \hline
-	structure & algebra & commutative algebra & left $A$-module & right $B$-module & $(A,B)$-bimodule \\ \hline
-	category & $\cate{Alg}(\mathcal{V})$ & $\cate{CAlg}(\mathcal{V})$ & $A\dcate{Mod}$ & $\cated{Mod}B$ & $(A,B)\dcate{Mod}$ \\ \hline
-	condition & {\small $\mathcal{V}$: monoidal category} & {\small $\mathcal{V}$: braided monoidal category} & {\small $A$: algebra} & {\small $B$: algebra} & {\small $A, B$: algebras} \\ \hline
+\begin{center}\begin{tabular}{|l|c|p{0.48\textwidth}|} \hline
+	structure & category & condition \\ \hline
+	algebra & $\cate{Alg}(\mathcal{V})$ & $\mathcal{V}$ is a monoidal category \\ \hline
+	commutative algebra & $\cate{CAlg}(\mathcal{V})$ & $\mathcal{V}$ is a braided monoidal category \\ \hline
+	left $A$-module & $A\dcate{Mod}$ & $A$ is an algebra \\ \hline
+	right $B$-module & $\cated{Mod}B$ & $B$ is an algebra \\ \hline
+	$(A,B)$-bimodule & $(A,B)\dcate{Mod}$ & $A$ and $B$ are algebras \\ \hline
 \end{tabular}\end{center}
 \index[sym1]{Alg@$\cate{Alg}(\cdot)$}
 \index[sym1]{CAlg@$\cate{CAlg}(\cdot)$}
@@ -580,10 +583,12 @@ $\cate{CAlg}(\mathcal{V})$ generally have less structure than
 $\mathcal{V}$. Labeling the levels of structure by numbers, the situation can
 be represented schematically as
 % segment-id: o014.li2.chapter7.monoidal-algebras.g015
+{\scriptsize
 \[\begin{tikzcd}[row sep=small]
 	0 & 1 & 2 & \infty \\
 	\text{category} & \text{monoidal category} \arrow[l, "{\cate{Alg}}"'] & \text{braided monoidal category} \arrow[shift right, l, "{\cate{Alg}}"'] \arrow[shift left, bend left, ll, "{\cate{CAlg}}"'] & \text{symmetric monoidal category} \arrow[loop right, "{\cate{Alg}, \cate{CAlg}}"]
 \end{tikzcd}\]
+}
 Moreover, whenever $\cate{Alg}(\mathcal{V})$ or
 $\cate{CAlg}(\mathcal{V})$ becomes a monoidal category under $\otimes$, its
 unit is always $\munit$.

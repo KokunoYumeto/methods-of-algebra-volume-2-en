@@ -1,6 +1,6 @@
 {
   "schema": "o014-english-shared-source-validation-v1",
-  "recorded_at_utc": "2026-09-01T09:44:57.891730+00:00",
+  "recorded_at_utc": "2026-09-01T14:37:50.005577+00:00",
   "result": "PASS",
   "checks": {
     "source_map_146_units": true,
@@ -25,8 +25,8 @@
   "active_language_residue": {},
   "artifacts": {
     "source/en/Al-jabr-2-en-complete-draft.tex": {
-      "bytes": 12091,
-      "sha256": "996433468088ef7a709622726cd53c24eafcc28e975b1fcf5db1d3715d31ba27"
+      "bytes": 12928,
+      "sha256": "84ee07571db5eadd7d88783ce743ab510b044e176150f8f9d4d0ecbd39066572"
     },
     "source/en/coverpage-en.tex": {
       "bytes": 4867,

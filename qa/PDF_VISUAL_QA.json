@@ -1,14 +1,246 @@
 {
-  "schema": "o014-english-pdf-visual-qa-v1",
-  "recorded_at_utc": "2026-09-01T11:25:55.385439+00:00",
+  "schema": "o014-english-pdf-visual-qa-v2",
+  "recorded_at_utc": "2026-09-01T14:36:10.430076+00:00",
   "result": "PASS",
   "pdf": "output/pdf/methods-of-algebra-volume-2-independent-english-edition.pdf",
-  "pdf_bytes": 3891627,
-  "pdf_sha256": "88114c09af3313d1e93d7b66da67c277aae21727fec60c0643b10a1f2b1d6448",
+  "pdf_bytes": 3894743,
+  "pdf_sha256": "8193d44ef52c9c39807e769ad04507130f163481f82aa9cfaa0a1a3022ef7aa5",
   "pages": 820,
-  "page_size_points": [498.9, 708.66],
+  "page_size_points": [
+    498.9,
+    708.66
+  ],
+  "inspection": {
+    "mode": "all-page raster inspection using nine complete contact sheets, targeted contact sheets, and full-page review of every flagged and repaired surface",
+    "render_dpi": 110,
+    "rendered_page_count": 820,
+    "rendered_page_bytes": 126626631,
+    "all_pages_visually_inspected": true,
+    "complete_contact_sheet_count": 9,
+    "target_contact_sheet_count": 5,
+    "contact_sheets": [
+      {
+        "filename": "contact-01-pages-0001-0096.png",
+        "bytes": 794724,
+        "sha256": "d65bb0bacc85b3fe0f0f3819141600eca9e239dabc3b0a8c3683af626e3fb5fa"
+      },
+      {
+        "filename": "contact-02-pages-0097-0192.png",
+        "bytes": 834794,
+        "sha256": "16f02d2739056c6f30ed7de66a0999b6f4b2db8bf4c2e1fb983a015795725eb1"
+      },
+      {
+        "filename": "contact-03-pages-0193-0288.png",
+        "bytes": 819874,
+        "sha256": "f318a19008ca6070868bacaee89e8dda6239e3e285cd1b8e674ba2205b59d5e6"
+      },
+      {
+        "filename": "contact-04-pages-0289-0384.png",
+        "bytes": 857738,
+        "sha256": "3fc6384a6cff89887cae3e9c15cce3689f7afd1351925774b5311c31cbdde9be"
+      },
+      {
+        "filename": "contact-05-pages-0385-0480.png",
+        "bytes": 822457,
+        "sha256": "d105d0a59064a93f3ca7cf5fbf2b95ae5f1766becd6a9658618fd17bcfb587b9"
+      },
+      {
+        "filename": "contact-06-pages-0481-0576.png",
+        "bytes": 834883,
+        "sha256": "be70c48dc4f487017eb894c4308abcda39667deb9891cd1b6def27a49ab882be"
+      },
+      {
+        "filename": "contact-07-pages-0577-0672.png",
+        "bytes": 829732,
+        "sha256": "04d3cd582156656a75ab19af1b06a8b137d2d59fdd02c0c46cab171993a99b58"
+      },
+      {
+        "filename": "contact-08-pages-0673-0768.png",
+        "bytes": 821992,
+        "sha256": "cbeae4d8169457b101207026dfaefd7e66fbe7433d1ec3f5fe4a5e66d840ec82"
+      },
+      {
+        "filename": "contact-09-pages-0769-0820.png",
+        "bytes": 389767,
+        "sha256": "172e8a68d4078a2b91fdbad48835edb9eafe4b122b18c47511a022b8acbd579b"
+      },
+      {
+        "filename": "target-01.png",
+        "bytes": 364144,
+        "sha256": "bf583840322f90f193d59d3a6cc30e705dcc191cd29f04d5f5aac41250f7fd85"
+      },
+      {
+        "filename": "target-02.png",
+        "bytes": 464922,
+        "sha256": "24d927a15882b50e094168cc8befaf07f0f507d546d0ce5d6e8a281d45c05812"
+      },
+      {
+        "filename": "target-03.png",
+        "bytes": 489954,
+        "sha256": "94f2d8b2d21b1835955035cb234addcd40ef8bdd4d23706e5cf73bd80c9c0422"
+      },
+      {
+        "filename": "target-04.png",
+        "bytes": 535168,
+        "sha256": "8939779cdcae4cd8d6976e23edf5354af907ff2cefad50d647b0691b9ea10aee"
+      },
+      {
+        "filename": "target-05.png",
+        "bytes": 56464,
+        "sha256": "6e76d16e1255cfd3558509aebc3299b377f627fb027fb2c9a0065ac2cf4b7e35"
+      }
+    ],
+    "target_pages": [
+      8,
+      9,
+      10,
+      30,
+      33,
+      36,
+      79,
+      136,
+      180,
+      181,
+      237,
+      267,
+      280,
+      322,
+      333,
+      345,
+      346,
+      353,
+      356,
+      372,
+      393,
+      398,
+      402,
+      410,
+      412,
+      427,
+      428,
+      432,
+      443,
+      472,
+      499,
+      518,
+      545,
+      558,
+      571,
+      594,
+      598,
+      600,
+      616,
+      623,
+      643,
+      653,
+      654,
+      661,
+      678,
+      699,
+      700,
+      764,
+      784,
+      785,
+      804,
+      810,
+      814
+    ],
+    "automated_edge_candidates": [
+      9
+    ],
+    "edge_candidate_disposition": {
+      "9": "complete and readable; no clipping"
+    },
+    "blank_candidates": [
+      8,
+      10,
+      36,
+      280,
+      372,
+      410,
+      412,
+      518,
+      678,
+      784,
+      804,
+      810,
+      814
+    ],
+    "blank_candidate_disposition": "All are intentional blank, part-divider, or index-divider pages; none is missing content.",
+    "material_defects_found": 0,
+    "repaired_surfaces": [
+      {
+        "physical_page": 9,
+        "surface": "authority provenance commit/tree line",
+        "render_sha256": "8f8bf61db4a4252d47a06cb596896af2a2a661049187b1a6d03a56ab6e899e80",
+        "finding": "Automated near-edge candidate inspected at full-page scale; line is complete and readable, with no clipping."
+      },
+      {
+        "physical_page": 324,
+        "surface": "Unit 055 diagram and adjacent array",
+        "render_sha256": "59d23c727e0adcac281683cb6a8783d23c2caaf7e6ace63b59c0d83058a687ee",
+        "finding": "Complete, readable, and inside the page boundary after the source-preserving scale repair."
+      },
+      {
+        "physical_page": 445,
+        "surface": "Unit 076 paired categorical diagrams and equality",
+        "render_sha256": "94732f3d9e0eb8415b8ab57e58f31888de32ee0ad6808db608eb0220cbaa7b75",
+        "finding": "Both diagrams and the equality are complete and readable; no clipping or overlap."
+      },
+      {
+        "physical_page": 528,
+        "surface": "Unit 088 structure table and progression diagram",
+        "render_sha256": "93ee790a0978b4942eb0df240fe3bef458120535889f237fb8ddb1e8291fa94e",
+        "finding": "Reflowed table and preserved diagram are complete, readable, and unclipped."
+      },
+      {
+        "physical_page": 614,
+        "surface": "Unit 106 coface/codegeneracy table",
+        "render_sha256": "9c7bd694dadb93c096084b0f09ca8e3f8ad586ffe962ca18df2d78ffcf618011",
+        "finding": "Two-column reflow retains all mathematical content and is fully readable."
+      },
+      {
+        "physical_page": 733,
+        "surface": "Unit 133 Hopf-structure table",
+        "render_sha256": "8629ecba6fc0f9e11d78cd7bc48aafde5f7115cf869e741698b7601a24d4cfd4",
+        "finding": "Vertical reflow retains all five structure/formula pairs without clipping."
+      },
+      {
+        "physical_page": 761,
+        "surface": "Unit 140 aligned display",
+        "render_sha256": "17f1d6221e31c6d1daf255be52bab57fdb6fe55dd1cecbd4fbcb2e5ba67abdf9",
+        "finding": "All aligned formulas and annotations are complete and legible."
+      },
+      {
+        "physical_page": 794,
+        "surface": "Mastery Bridge 002 progression",
+        "render_sha256": "7d439a48acd6784740b59fd7120dbb0fd41b96aab32f81d46102de8b054531e5",
+        "finding": "Two-line aligned progression is complete, readable, and unclipped."
+      },
+      {
+        "physical_page": 805,
+        "surface": "bibliography opening",
+        "render_sha256": "edacda89879f3debdbcf6c42c910458fcb54ee65efeee9db6ab28ac4af7d9c16",
+        "finding": "References are readable; links and columns do not clip or overlap."
+      },
+      {
+        "physical_page": 811,
+        "surface": "symbol index opening",
+        "render_sha256": "a3fdcef1c7f21390c01e7830c435aa26e0177ef9cd70cafc073a10cc2ce0b096",
+        "finding": "Populated mathematical index is readable and unclipped."
+      },
+      {
+        "physical_page": 815,
+        "surface": "term index opening",
+        "render_sha256": "64669d9c622fe08585fc41750c6c66e149186826a637b5f7e28b599b6bc3de3c",
+        "finding": "Populated term index and sorting note are readable and unclipped."
+      }
+    ]
+  },
   "text_extraction": {
     "full_document_checked": true,
+    "bytes": 2366727,
+    "sha256": "477db6616d468c71008657ec80c92371b27742450a7346020c62375ec52d9280",
     "forbidden_visible_residue": [
       "目录",
       "目錄",
@@ -20,48 +252,37 @@
       "readingnote",
       "\\ensuremath"
     ],
-    "forbidden_hit_count": 0,
-    "poppler_warning_line_count": 204,
-    "poppler_warning_scope": "Adobe-GB1/CJK font mapping for retained source-language glyphs; not a PDF build or visual-render failure",
-    "contents_heading_present": true,
-    "index_of_symbols_heading_present": true,
-    "index_of_terms_heading_present": true
+    "forbidden_hit_counts": {
+      "目录": 0,
+      "目錄": 0,
+      "刊于": 0,
+      "刊於": 0,
+      "附录": 0,
+      "附錄": 0,
+      "qquad": 0,
+      "readingnote": 0,
+      "\\ensuremath": 0
+    },
+    "forbidden_hit_total": 0
   },
-  "inspected_pages": [
-    {
-      "physical_page": 7,
-      "surface": "final contents page",
-      "render_sha256": "b4a775de95f7b84a7fe40d4d6426497236704645a4805a4f3b5f67b17b23ade5",
-      "finding": "English running head; one Mastery Bridges part entry with two bridge children; references and both indexes listed once; no clipping or overlap"
-    },
-    {
-      "physical_page": 805,
-      "surface": "bibliography opening",
-      "render_sha256": "d69bf60750b391bd492dd57da942cdf9263155571586b02ff24cc369e70d389f",
-      "finding": "References heading and English bibliography relationship strings; readable links and columns; no clipping or overlap"
-    },
-    {
-      "physical_page": 811,
-      "surface": "symbol index opening",
-      "render_sha256": "1e637738c5d6c6c15efad3aeb7cbadbd0433d4a9e9e05b0c3f5990a876865484",
-      "finding": "Populated three-column Index of Symbols; readable mathematical entries; no clipping or overlap"
-    },
-    {
-      "physical_page": 815,
-      "surface": "term index opening",
-      "render_sha256": "6db7fc32919d1623137579c8c0bf1d7a81f1a66ff3f23841d4e4df4ba39bc2b8",
-      "finding": "Populated two-column Index of Terms with explicit English sorting note; no clipping or overlap"
-    }
-  ],
-  "ephemeral_renders_retained": false,
-  "replay": "Render the recorded physical pages from the exact PDF with pdftoppm -png -r 120 -singlefile.",
+  "durable_evidence": {
+    "page_manifest": "qa/PDF_VISUAL_QA_PAGE_MANIFEST.csv",
+    "page_manifest_bytes": 123351,
+    "page_manifest_sha256": "f81cf6f23c9f619e604c35d07cc4718f2de91a8c5640a8c88622546245fb0f79",
+    "all_page_metrics": "qa/PDF_VISUAL_QA_ALL_PAGE_METRICS.json",
+    "all_page_metrics_bytes": 544616,
+    "all_page_metrics_sha256": "8c76c69803abf65a66a4ccf2ea11e3f99db727bbe04f5b5ab3b877410a9e73cf",
+    "ephemeral_renders_retained": false,
+    "replay": "Render every physical page of the exact PDF at 110 dpi, recompute the manifest and metrics, then inspect complete contact sheets and every candidate surface."
+  },
   "checks": {
     "pdf_build_receipt_pass": true,
-    "page_count_exact": true,
-    "localized_front_and_back_matter": true,
-    "single_mastery_bridges_toc_entry": true,
-    "symbol_index_populated": true,
-    "term_index_populated": true,
-    "representative_pages_readable": true
+    "pdf_identity_exact": true,
+    "all_820_pages_rendered": true,
+    "all_820_pages_visually_inspected": true,
+    "all_flagged_pages_adjudicated": true,
+    "all_repaired_surfaces_readable": true,
+    "forbidden_visible_residue_absent": true,
+    "no_material_clipping_or_overlap": true
   }
 }

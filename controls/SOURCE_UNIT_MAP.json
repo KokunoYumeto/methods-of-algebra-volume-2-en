@@ -1319,7 +1319,7 @@
       "id_reference_path": "C:\\Users\\Floris\\Documents\\interlanguage\\04_mirrors\\id\\methods-of-algebra-volume-2-id\\source\\id-ID\\chapter4-unit-055.tex",
       "chinese_source_path": "C:\\Users\\Floris\\Documents\\interlanguage\\04_mirrors\\id\\methods-of-algebra-volume-2-id\\authority\\upstream\\AlJabr-2-9a5803ff77dd3257484cb177f851a73770a59dd3\\chapter4.tex",
       "id_reference_sha256": "b7676f5c30acae2ab5ccd6f4d3eb6593e3b0697c11ada11b9b4a700156b36acc",
-      "target_sha256": "1c10c315593fa7cec9bb0550e254907d9fc25ba100c08285f1839ffcdb77659d"
+      "target_sha256": "e8e26fa04e709b751abc6599cfcf8aa41d00be2ce81e7ec84332a1d01376b72f"
     },
     {
       "unit_id": "o014.aljabr2.chapter4.triangulated-functor-localization",
@@ -1823,7 +1823,7 @@
       "id_reference_path": "C:\\Users\\Floris\\Documents\\interlanguage\\04_mirrors\\id\\methods-of-algebra-volume-2-id\\source\\id-ID\\chapter6-unit-076.tex",
       "chinese_source_path": "C:\\Users\\Floris\\Documents\\interlanguage\\04_mirrors\\id\\methods-of-algebra-volume-2-id\\authority\\upstream\\AlJabr-2-9a5803ff77dd3257484cb177f851a73770a59dd3\\chapter6.tex",
       "id_reference_sha256": "527006822658acac0450545814ee99624be4c47e406a0bf84186dfa1cc4dd65b",
-      "target_sha256": "defd6dce94a1fa82cbfc8360a194ab57337d3c8fc3e719b226966146696166d3"
+      "target_sha256": "9b2e2f5b6768ad533fd104cde3329b10143a64bfa715c6e18c2cd5f23bb69b75"
     },
     {
       "unit_id": "o014.aljabr2.chapter6.group-extensions-revisited",
@@ -2111,7 +2111,7 @@
       "id_reference_path": "C:\\Users\\Floris\\Documents\\interlanguage\\04_mirrors\\id\\methods-of-algebra-volume-2-id\\source\\id-ID\\chapter7-unit-088.tex",
       "chinese_source_path": "C:\\Users\\Floris\\Documents\\interlanguage\\04_mirrors\\id\\methods-of-algebra-volume-2-id\\authority\\upstream\\AlJabr-2-9a5803ff77dd3257484cb177f851a73770a59dd3\\chapter7.tex",
       "id_reference_sha256": "392a372515916404f545efe8a49529a88e841365fa8b5f05a816610e4125df48",
-      "target_sha256": "a54579463b92a3d12f64ea5f2606e932590ca8655832e31ac60097faf5da91a8"
+      "target_sha256": "7a7a3806d0f2e037b120813d1ccd244fb8d5c398751fdd790c62797d92230f33"
     },
     {
       "unit_id": "o014.aljabr2.chapter7.differential-graded-structures",
@@ -2543,7 +2543,7 @@
       "id_reference_path": "C:\\Users\\Floris\\Documents\\interlanguage\\04_mirrors\\id\\methods-of-algebra-volume-2-id\\source\\id-ID\\chapter8-unit-106.tex",
       "chinese_source_path": "C:\\Users\\Floris\\Documents\\interlanguage\\04_mirrors\\id\\methods-of-algebra-volume-2-id\\authority\\upstream\\AlJabr-2-9a5803ff77dd3257484cb177f851a73770a59dd3\\chapter8.tex",
       "id_reference_sha256": "a310eab3cb8fab71a0557703412373f22bde6bb30c4d97b55787552eb06012bf",
-      "target_sha256": "f569c60fd700e40037b9d2c1876425ba0923a5eaba7094bef4ee967ae3c287f7"
+      "target_sha256": "08f9846d6496c79b4d916336a925e625549087832744b8cda636389054ccb919"
     },
     {
       "unit_id": "o014.aljabr2.chapter8.simplicial-sets",
@@ -3191,7 +3191,7 @@
       "id_reference_path": "C:\\Users\\Floris\\Documents\\interlanguage\\04_mirrors\\id\\methods-of-algebra-volume-2-id\\source\\id-ID\\chapter9-unit-133.tex",
       "chinese_source_path": "C:\\Users\\Floris\\Documents\\interlanguage\\04_mirrors\\id\\methods-of-algebra-volume-2-id\\authority\\upstream\\AlJabr-2-9a5803ff77dd3257484cb177f851a73770a59dd3\\chapter9.tex",
       "id_reference_sha256": "0f8a28099e026b80ce2d775cdcb030c79c9526ef470ca054bf637483ef4c329b",
-      "target_sha256": "a277c7e98b3abf84f297eaf9d149cd6598db87cca530ae84db03798a2e3c77bf"
+      "target_sha256": "ce92992e603d1288c4846a1e732fbc71cb047e67b6e3ef1d3b14b735e2f20fd0"
     },
     {
       "unit_id": "o014.aljabr2.chapter9.exercises",
@@ -3359,7 +3359,7 @@
       "id_reference_path": "C:\\Users\\Floris\\Documents\\interlanguage\\04_mirrors\\id\\methods-of-algebra-volume-2-id\\source\\id-ID\\appendix2-unit-140.tex",
       "chinese_source_path": "C:\\Users\\Floris\\Documents\\interlanguage\\04_mirrors\\id\\methods-of-algebra-volume-2-id\\authority\\upstream\\AlJabr-2-9a5803ff77dd3257484cb177f851a73770a59dd3\\appendix2.tex",
       "id_reference_sha256": "86125a323eb26f560c3a93a2471de82f66ac81c04829cf8644a940ce35a10dc2",
-      "target_sha256": "0e1cf5f82a8816f4e856ebe6ac147b0828cd16d85664fcb28e85465536006292"
+      "target_sha256": "1c3b170d85ab6a90b091d79cd8617f53ea5fe61936a70c812e3f5c34b957dc15"
     },
     {
       "unit_id": "o014.aljabr2.appendix-b.ind-pro-objects",
@@ -3514,5 +3514,5 @@
   "indonesian_root": "C:\\Users\\Floris\\Documents\\interlanguage\\04_mirrors\\id\\methods-of-algebra-volume-2-id",
   "upstream_readme_sha256": "b16c0b27d50c1820bc9590d85fbca5017bc0cd7e511821fd43cd363a09c16063",
   "upstream_license_sha256": "48a83a6e39f7b2f166763b30776132c9a99aa816f17cb06f87ad5b8542a7b71f",
-  "updated_at_utc": "2026-09-01T09:44:57.809741+00:00"
+  "updated_at_utc": "2026-09-01T14:36:08.923181+00:00"
 }

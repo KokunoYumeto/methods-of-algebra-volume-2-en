@@ -281,3 +281,49 @@
   recorded in `release/GITHUB_PUBLICATION_RECEIPT.json`, while the terminal
   byte replay is recorded in `release/GITHUB_PUBLIC_READBACK.json`, avoiding
   a self-referential receipt hash in this log entry.
+
+### Terminal GitHub identity
+
+- Final content commit: `2bfb849c4b7b3a6921b6ccf821161cb6d8fcac74`;
+  content tree: `2eb6819022dd344f295b52b6b2a88f73b45ebffe`.
+- Final main receipt commit: `3570dc77c5abe8fb1a3462999f2abbb553db5682`;
+  main tree: `3e3887187a498ea3cb15bf2c788a1a984ac2e373`.
+- Pages commit: `81b9a58f16aec0f0c22b3708ef52c7d36d15e009`.
+  Anonymous Git smart-HTTP fetch, immutable raw-file readback, and live Pages
+  readback passed all 288 main files (19,737,346 bytes) and 31 Pages files
+  (6,202,695 bytes), including stable refs, exact trees, exact inventories,
+  exact bytes/hashes, public access, default branch, and root reader.
+- Terminal local sanitized receipt: `release/GITHUB_PUBLIC_READBACK.json`,
+  220,405 bytes, SHA-256
+  `5d8a9b5d26a6fbf93547c8ff2ccfd557beb4ab1d46f92fe18d3fab5a6a5dd061`.
+  It contains no credential material. No mathematical, source, backend, PDF,
+  HTML, Zenodo, or Pages bytes changed during the verifier hardening.
+
+## 2026-09-01 — r2 clipping repair and reader-hardening boundary
+
+- Seven previously clipped layouts were reflowed without dropping mathematical
+  content: Units 055, 076, 088, 106, 133, 140, and mastery bridge 002. The
+  exact Unit 088 source correction from ill-typed `\mu_M` to `\mu_A` remains
+  separately documented and fail-closed. All 146 source units and both bridges
+  remain admitted; the backend passes at 6,347 segments, 511 terms, and 907
+  figures.
+- The final 820-page PDF is 3,894,743 bytes, SHA-256
+  `8193d44ef52c9c39807e769ad04507130f163481f82aa9cfaa0a1a3022ef7aa5`.
+  Every page was rendered and visually inspected; the durable all-page receipt
+  is `qa/PDF_VISUAL_QA.json`, SHA-256
+  `8ef3400c2728dc39c0a29d40c524fc8c0072074fc7ac2471403ab2203667438e`.
+- The reflowable reader preserves all 149 logical sections, 907 diagrams, 7,224
+  source targets, and 3,645 checked same-document links. Desktop and mobile
+  browser QA found zero MathJax errors, raw TeX residue, broken fragment links,
+  page-level overflow, or wide elements without local scrolling. The current
+  index is 4,493,910 bytes, SHA-256
+  `411fe6246743388ba9c5352732cc7958c02aa5dc578a54daecd4e6a5b317347e`;
+  `qa/HTML_BROWSER_QA.json` is 4,443 bytes, SHA-256
+  `e37a2c3a9d264888e7cb1a8adeb2d20d55e6ec9a968fa38bb9ba9e7924411171`.
+- The strengthened release preflight and package gate pass. The provisional r2
+  payload contains exactly nine reader-first files totaling 7,137,781 bytes;
+  its package receipt is SHA-256
+  `f4776bf78e559f06ccb0b701ee17e99f651fb68682abc15a7cc2065b7093ba6e`.
+  Publication must remain in Zenodo concept `22229883` as a new version and in
+  the existing GitHub repository/Pages lineage; no duplicate owner or concept
+  is permitted.

@@ -61,9 +61,13 @@ The results obtained in \S\ref{sec:Tannakian-cat} already bring us close to an a
 \end{definition}
 
 Identifying $C(G)\otimes C(G)$ with $C(G\times G)$, the space $C(G)$ has the following structure:
-\begin{center}\begin{tabular}{|c|c|c|c|c|} \hline
-	Multiplication & Comultiplication $\Delta$ & Unit & Counit $\epsilon$ & Antipode $S$ \\ \hline
-	Pointwise multiplication & $f \mapsto \left[ (g_1, g_2) \mapsto f(g_1 g_2) \right]$ & Constant function $1$ & $f \mapsto f(1_G)$ & $(Sf)(g) = f(g^{-1})$ \\ \hline
+\begin{center}\begin{tabular}{|l|p{0.68\textwidth}|} \hline
+	structure map & formula \\ \hline
+	Multiplication & Pointwise multiplication \\ \hline
+	Comultiplication $\Delta$ & $f\mapsto[(g_1,g_2)\mapsto f(g_1g_2)]$ \\ \hline
+	Unit & Constant function $1$ \\ \hline
+	Counit $\epsilon$ & $f\mapsto f(1_G)$ \\ \hline
+	Antipode $S$ & $(Sf)(g)=f(g^{-1})$ \\ \hline
 \end{tabular}\end{center}
 The reader is invited to give a brief verification that this is a commutative Hopf algebra. Consequently, Proposition \ref{prop:bialgebra-mod-symmetry} (ii) ensures that $\cated{Comod}C(G)$ is a symmetric monoidal category, while Proposition \ref{prop:Hopf-module-dual} makes $\catesubd{Comod}{\mathrm{f}}C(G)$ a rigid symmetric monoidal category; compare the big-picture part of the preceding proof.
 

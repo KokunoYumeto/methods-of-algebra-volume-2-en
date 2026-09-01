@@ -12,7 +12,7 @@ Reader links:
 
 - Reflowable HTML: <https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/>
 - Repository: <https://github.com/KokunoYumeto/methods-of-algebra-volume-2-en>
-- Archival DOI: <https://doi.org/10.5281/zenodo.22229884>
+- Archival DOI: <https://doi.org/10.5281/zenodo.22233942>
 
 ## Source authority
 

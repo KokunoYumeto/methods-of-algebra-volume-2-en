@@ -155,9 +155,9 @@
       "sequence": 106,
       "unit_id": "o014.aljabr2.chapter8.simplicial-objects",
       "target_path": "source/en/chapter8-unit-106.tex",
-      "target_sha256": "f569c60fd700e40037b9d2c1876425ba0923a5eaba7094bef4ee967ae3c287f7",
-      "bytes": 22762,
-      "lines": 401,
+      "target_sha256": "08f9846d6496c79b4d916336a925e625549087832744b8cda636389054ccb919",
+      "bytes": 22775,
+      "lines": 404,
       "chinese_source": {
         "path": "chapter8.tex",
         "start_line": 1,

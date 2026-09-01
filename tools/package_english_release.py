@@ -3,7 +3,12 @@
 from datetime import datetime, timezone
 import csv, hashlib, json
 from pathlib import Path, PurePosixPath
-import shutil, zipfile
+import shutil, sys, zipfile
+
+TOOLS=Path(__file__).resolve().parent
+if str(TOOLS) not in sys.path:
+    sys.path.insert(0,str(TOOLS))
+from release_visual_gates import validate_html_browser_gate, validate_pdf_visual_gate
 
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -208,7 +213,9 @@ def validate_html_distribution(report, entries):
 def validate_inputs():
     receipt_specs=(
         ("pdf",ROOT/"qa"/"PDF_BUILD_RECEIPT.json","o014-english-pdf-build-v1"),
+        ("pdf_visual",ROOT/"qa"/"PDF_VISUAL_QA.json","o014-english-pdf-visual-qa-v2"),
         ("html",ROOT/"qa"/"HTML_BUILD_RECEIPT.json","o014-english-html-build-v1"),
+        ("html_browser",ROOT/"qa"/"HTML_BROWSER_QA.json","o014-english-html-browser-qa-v2"),
         ("backend",ROOT/"backend"/"BACKEND_VALIDATION.json","o014-english-backend-validation-v1"),
     )
     reports={}
@@ -222,11 +229,13 @@ def validate_inputs():
     if reports["pdf"].get("pdf")!=pdf_relative:
         raise RuntimeError("PDF PASS receipt names a non-canonical artifact")
     pdf_record=bind_file(pdf,reports["pdf"].get("pdf_bytes"),reports["pdf"].get("pdf_sha256"),"PDF")
+    pdf_visual_binding=validate_pdf_visual_gate(ROOT,reports["pdf"],reports["pdf_visual"])
 
     source_entries=gather(ROOT/"source"/"en")
     backend_entries=gather(ROOT/"backend")
     reader_entries=gather(ROOT/"reader"/"dist")
     html_binding=validate_html_distribution(reports["html"],reader_entries)
+    html_browser_binding=validate_html_browser_gate(ROOT,reports["html"],reports["html_browser"])
 
     backend_report=reports["backend"]
     artifacts=backend_report.get("artifacts")
@@ -256,7 +265,8 @@ def validate_inputs():
             "reader_entries":reader_entries,"provenance":provenance,"license":license_path,
             "bindings":{"receipts":receipt_records,
                         "pdf":{"path":pdf_relative,**pdf_record},
-                        "html":html_binding,"backend":backend_binding}}
+                        "html":html_binding,"backend":backend_binding,
+                        "visual_qa":{"pdf":pdf_visual_binding,"html":html_browser_binding}}}
 
 
 def audit_tree(base):

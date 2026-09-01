@@ -218,8 +218,8 @@
       "sequence": 55,
       "unit_id": "o014.aljabr2.chapter4.morphisms-extensions",
       "target_path": "source/en/chapter4-unit-055.tex",
-      "bytes": 39225,
-      "sha256": "1c10c315593fa7cec9bb0550e254907d9fc25ba100c08285f1839ffcdb77659d",
+      "bytes": 39199,
+      "sha256": "e8e26fa04e709b751abc6599cfcf8aa41d00be2ce81e7ec84332a1d01376b72f",
       "evidence": {
         "source_slice_sha256": "5e876e9c88a08bde16f4b0973c0a4d6df45818e8534e0f0302cc34ab1edce4d4",
         "source_slice_hash_verified": true,

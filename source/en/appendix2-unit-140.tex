@@ -103,11 +103,13 @@ the topology inherited from the product space on the right, making it a closed s
 	$\Gal(E|F)=\varprojlim_{L|F}\Gal(L|F)$, where $L|F$ ranges over the finite Galois subextensions of $E|F$.
 
 	Consider profinite groups $G=\varprojlim_iG_i$ and $H=\varprojlim_jH_j$ presented as above. Since the subgroups $\Ker[G\to G_i]$ form a neighborhood basis at $1_G$, there are canonical isomorphisms
+	{\scriptsize
 	\begin{align*}
 		\Hom_{\cate{TopGrp}}(G, H) & = \Hom_{\cate{TopGrp}}\left(\varprojlim_i G_i, \varprojlim_j H_j \right) \\
-		& \simeq \varprojlim_j \Hom_{\cate{TopGrp}}\left( \varprojlim_i G_i, H_j \right) \quad \text{($\because\; \varprojlim$ has its universal property)} \\
-		& \simeq \varprojlim_j \varinjlim_i \Hom_{\cate{Grp}}(G_i, H_j) \quad \text{($\because$\; every continuous homomorphism factors through some $G_i$)};
+		& \simeq \varprojlim_j \Hom_{\cate{TopGrp}}\left( \varprojlim_i G_i, H_j \right) \quad \text{(by the universal property of inverse limits)} \\
+		& \simeq \varprojlim_j \varinjlim_i \Hom_{\cate{Grp}}(G_i,H_j) \quad \text{(every continuous homomorphism factors through some \(G_i\))};
 	\end{align*}
+	}
 	Thus profinite groups can also be handled algebraically; see Example~\ref{eg:profinite-group} below.
 \end{remark}
 

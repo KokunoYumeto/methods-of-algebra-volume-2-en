@@ -21,6 +21,34 @@ UNIT_RE = re.compile(
 EXPECTED_UNITS_AND_BRIDGES = 148
 EXPECTED_LOGICAL_SECTIONS = 149
 EXPECTED_DIAGRAMS = 907
+EXPECTED_MATHJAX_COMPATIBILITY_MACROS = {
+    "ensuremath": ["#1", 1],
+    "bm": [r"\boldsymbol{#1}", 1],
+    "EuScript": [r"\mathcal{#1}", 1],
+    "mapsfrom": r"\mathrel{↤}",
+    "longmapsfrom": r"\mathrel{⟻}",
+    "llbracket": r"\mathopen{⟦}",
+    "rrbracket": r"\mathclose{⟧}",
+    "multicolumn": ["#3", 3],
+    "index": ["", 1],
+    "par": "",
+}
+RUNTIME_RENDERED_MACROS = (
+    "bm", "EuScript", "mapsfrom", "longmapsfrom", "llbracket",
+    "rrbracket", "multicolumn",
+)
+RUNTIME_DISCARDED_MACROS = ("index", "par")
+EXPECTED_RUNTIME_MACRO_OCCURRENCES = {
+    "bm": 242,
+    "EuScript": 106,
+    "mapsfrom": 4,
+    "longmapsfrom": 2,
+    "llbracket": 3,
+    "rrbracket": 3,
+    "multicolumn": 1,
+    "index": 0,
+    "par": 0,
+}
 LEDGER_FIELDS = {
     "diagram_id", "unit_filename", "local_order", "alt_text_en", "provenance"
 }
@@ -58,6 +86,7 @@ UNSUPPORTED_RAW = {
     r"\textquotedblleft": "print-only opening quote macro",
     r"\textquotedblright": "print-only closing quote macro",
 }
+RAW_HYPERTARGET_RE = re.compile(r"\\hypertarget\s*\{")
 
 
 def sha256(path: Path) -> str:
@@ -150,10 +179,26 @@ def main() -> int:
     local_refs = 0
     unsupported_math: list[dict[str, str]] = []
     unsupported_raw: list[dict[str, str]] = []
+    raw_hypertarget_residue: list[dict[str, object]] = []
+    misplaced_anchor_fallbacks: list[dict[str, str]] = []
+    runtime_macro_occurrences = {
+        name: {"html": 0, "math": 0}
+        for name in (*RUNTIME_RENDERED_MACROS, *RUNTIME_DISCARDED_MACROS)
+    }
+    configured_mathjax_macros: dict[str, object] | None = None
     for path in html_files:
         serialized = path.read_text(encoding="utf-8")
         if "READERDIAGRAM" in serialized:
             errors.append(f"{path.name}: unresolved diagram placeholder token remains")
+        raw_hypertarget_matches = list(RAW_HYPERTARGET_RE.finditer(serialized))
+        if raw_hypertarget_matches:
+            raw_hypertarget_residue.append(
+                {"file": path.name, "occurrences": len(raw_hypertarget_matches)}
+            )
+        for name, counts in runtime_macro_occurrences.items():
+            counts["html"] += len(
+                re.findall(r"\\" + re.escape(name) + r"(?![A-Za-z])", serialized)
+            )
         for macro, meaning in UNSUPPORTED_RAW.items():
             count = serialized.count(macro)
             if count:
@@ -168,6 +213,20 @@ def main() -> int:
         if duplicate_ids:
             errors.append(f"{path.name}: duplicate ID: {duplicate_ids[:10]}")
         ids[path] = set(id_values)
+        for anchor in tree.xpath(
+            "//*[contains(concat(' ', normalize-space(@class), ' '), "
+            "' reader-anchor-fallback ')]"
+        ):
+            inside_math = any(
+                "math" in set((ancestor.get("class") or "").split())
+                or "mathjax-inline" in set((ancestor.get("class") or "").split())
+                or "mathjax-display" in set((ancestor.get("class") or "").split())
+                for ancestor in anchor.iterancestors()
+            )
+            if inside_math:
+                misplaced_anchor_fallbacks.append(
+                    {"file": path.name, "id": anchor.get("id") or ""}
+                )
         if tree.getroot().get("lang") != "en":
             errors.append(f"{path.name}: lang is not en")
         if len(tree.xpath("//title[normalize-space()]")) != 1:
@@ -186,6 +245,10 @@ def main() -> int:
             "//*[contains(concat(' ', normalize-space(@class), ' '), ' math ')]"
         ):
             source = node.text_content()
+            for name, counts in runtime_macro_occurrences.items():
+                counts["math"] += len(
+                    re.findall(r"\\" + re.escape(name) + r"(?![A-Za-z])", source)
+                )
             for macro, meaning in UNSUPPORTED_MATH.items():
                 if macro in source:
                     unsupported_math.append(
@@ -264,14 +327,62 @@ def main() -> int:
             errors.append("index.html: semantic math source not found")
         if not mathjax_scripts:
             errors.append("index.html: local MathJax bundle not referenced")
-        if 'ensuremath:["#1",1]' not in mathjax_config:
-            errors.append("index.html: MathJax ensuremath compatibility macro is missing")
+        macro_config_match = re.search(
+            r"macros:(\{.*?\})\},options:", mathjax_config, flags=re.DOTALL
+        )
+        if macro_config_match is None:
+            errors.append("index.html: MathJax compatibility macro object is missing")
+        else:
+            try:
+                configured_mathjax_macros = json.loads(macro_config_match.group(1))
+            except json.JSONDecodeError:
+                errors.append("index.html: MathJax compatibility macro object is not valid JSON")
+            else:
+                if configured_mathjax_macros != EXPECTED_MATHJAX_COMPATIBILITY_MACROS:
+                    errors.append(
+                        "index.html: MathJax compatibility macro set does not exactly cover "
+                        "the audited runtime family"
+                    )
         if unsupported_math:
             summary = sorted({row["macro"] for row in unsupported_math})
             errors.append(f"index.html: unsupported HTML math macros remain: {summary}")
         if unsupported_raw:
             summary = sorted({row["macro"] for row in unsupported_raw})
             errors.append(f"index.html: raw TeX/PGF implementation tokens remain: {summary}")
+        if raw_hypertarget_residue:
+            errors.append(
+                "index.html: literal \\hypertarget commands remain in visible/raw HTML "
+                f"({sum(int(row['occurrences']) for row in raw_hypertarget_residue)})"
+            )
+        if misplaced_anchor_fallbacks:
+            errors.append(
+                "index.html: lifted hypertarget anchors remain inside math source "
+                f"({len(misplaced_anchor_fallbacks)})"
+            )
+        for name in RUNTIME_RENDERED_MACROS:
+            counts = runtime_macro_occurrences[name]
+            if counts["html"] != EXPECTED_RUNTIME_MACRO_OCCURRENCES[name]:
+                errors.append(
+                    f"index.html: audited \\{name} occurrence count changed "
+                    f"({counts['html']} != {EXPECTED_RUNTIME_MACRO_OCCURRENCES[name]})"
+                )
+            if counts["html"] != counts["math"]:
+                errors.append(
+                    f"index.html: \\{name} occurs outside MathJax source "
+                    f"({counts['html'] - counts['math']})"
+                )
+        for name in RUNTIME_DISCARDED_MACROS:
+            counts = runtime_macro_occurrences[name]
+            if counts["html"] != EXPECTED_RUNTIME_MACRO_OCCURRENCES[name]:
+                errors.append(
+                    f"index.html: audited \\{name} occurrence count changed "
+                    f"({counts['html']} != {EXPECTED_RUNTIME_MACRO_OCCURRENCES[name]})"
+                )
+            if counts["html"]:
+                errors.append(
+                    f"index.html: print-only \\{name} remains visible/raw "
+                    f"({counts['html']})"
+                )
 
         required_mathjax = [
             args.dist / "vendor" / "mathjax-3.2.2" / "tex-chtml-full.js",
@@ -350,6 +461,10 @@ def main() -> int:
         ) else None,
         "unsupported_math_residue": unsupported_math,
         "unsupported_raw_residue": unsupported_raw,
+        "raw_hypertarget_residue": raw_hypertarget_residue,
+        "misplaced_anchor_fallbacks": misplaced_anchor_fallbacks,
+        "configured_mathjax_macros": configured_mathjax_macros,
+        "runtime_macro_occurrences": runtime_macro_occurrences,
         "errors": errors,
         "limitations": [
             "MathML pronunciation depends on the browser and assistive technology.",
@@ -364,7 +479,9 @@ def main() -> int:
     lines = [f"{sha256(path)}  {path.relative_to(args.dist).as_posix()}" for path in files]
     manifest_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
-    print(json.dumps(report, ensure_ascii=False))
+    # Keep the command receipt portable on Windows consoles whose active code
+    # page cannot encode the audited Unicode arrow/bracket compatibility data.
+    print(json.dumps(report, ensure_ascii=True))
     return 0 if not errors else 1
 
 

@@ -71,9 +71,9 @@
       "sequence": 76,
       "unit_id": "o014.aljabr2.chapter6.change-of-group",
       "target_path": "source/en/chapter6-unit-076.tex",
-      "target_sha256": "defd6dce94a1fa82cbfc8360a194ab57337d3c8fc3e719b226966146696166d3",
-      "bytes": 26876,
-      "lines": 488,
+      "target_sha256": "9b2e2f5b6768ad533fd104cde3329b10143a64bfa715c6e18c2cd5f23bb69b75",
+      "bytes": 26891,
+      "lines": 490,
       "chinese_source": {
         "path": "chapter6.tex",
         "start_line": 869,

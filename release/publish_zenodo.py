@@ -27,8 +27,10 @@ README = ROOT / "README.md"
 TOKEN_PATH = Path(r"C:\Users\Floris\Documents\Obsidian notes\New zenodo token.md")
 API = "https://zenodo.org/api"
 TITLE = "Methods of Algebra, Volume 2: Linear Algebra - Independent English Edition"
-VERSION = "complete-independent-english-edition-2026-09-01"
+VERSION = "complete-independent-english-edition-2026-09-01-r2"
 DATE = "2026-09-01"
+EXPECTED_CONCEPT_RECORD_ID = "22229883"
+EXPECTED_PARENT_RECORD_ID = "22229884"
 PAYLOAD_NAMES = (
     "00_methods-of-algebra-volume-2-independent-english-edition.pdf",
     "01_complete-xelatex-source.zip",
@@ -153,7 +155,16 @@ def expected_inventory():
     return expected, package
 
 
-def metadata():
+def metadata(inherited=None):
+    if inherited is None:
+        merged = {}
+    elif isinstance(inherited, dict):
+        # A Zenodo new-version draft inherits its parent's metadata.  Start
+        # from that complete object so fields not owned by this release lane
+        # (including structured subjects and future Zenodo fields) survive.
+        merged = dict(inherited)
+    else:
+        raise RuntimeError("Inherited draft metadata is not a JSON object")
     description = (
         "<p>Complete independent English-access derivative of Wen-Wei Li's 2024 Chinese textbook "
         "<em>Methods of Algebra</em>, Volume 2: Linear Algebra. This release contains all 146 mapped "
@@ -172,15 +183,31 @@ def metadata():
     )
     if "ttp" in TITLE.casefold() or "ttp" in description.casefold():
         raise RuntimeError("Organization label is forbidden in title/description")
-    return {"upload_type": "publication", "publication_type": "book", "title": TITLE,
-            "creators": [{"name": "Li, Wen-Wei"}],
-            "contributors": [{"name": "TTP", "type": "Other"}],
-            "description": description,
-            "access_right": "open", "license": "cc-by-4.0", "language": "eng",
-            "publication_date": DATE, "version": VERSION,
-            "keywords": ["linear algebra", "homological algebra", "category theory", "English translation", "open textbook"],
-            "related_identifiers": [{"identifier": "https://github.com/wenweili/AlJabr-2/tree/9a5803ff77dd3257484cb177f851a73770a59dd3",
-                                      "relation": "isDerivedFrom", "scheme": "url"}]}
+    # The legacy deposition API expresses resource type through upload_type
+    # and publication_type.  These are the only inherited fields deliberately
+    # replaced, together with the other release-owned values below.  In
+    # particular, an inherited subjects field is retained because this release
+    # does not declare a replacement for it.
+    merged.update({
+        "upload_type": "publication",
+        "publication_type": "book",
+        "title": TITLE,
+        "creators": [{"name": "Li, Wen-Wei"}],
+        "contributors": [{"name": "TTP", "type": "Other"}],
+        "description": description,
+        "access_right": "open",
+        "license": "cc-by-4.0",
+        "language": "eng",
+        "publication_date": DATE,
+        "version": VERSION,
+        "keywords": ["linear algebra", "homological algebra", "category theory", "English translation", "open textbook"],
+        "related_identifiers": [{
+            "identifier": "https://github.com/wenweili/AlJabr-2/tree/9a5803ff77dd3257484cb177f851a73770a59dd3",
+            "relation": "isDerivedFrom",
+            "scheme": "url",
+        }],
+    })
+    return merged
 
 
 def metadata_defects(md):
@@ -584,6 +611,11 @@ def main():
     published_id=record_id(state.get("published_record_id"), "state published record ID")
     draft_id=record_id(state.get("draft_id"), "state draft ID")
     state_concept=record_id(state.get("concept_record_id"), "state concept record ID")
+    if state_concept != EXPECTED_CONCEPT_RECORD_ID:
+        raise RuntimeError(
+            f"V2 durable cursor must name concept {EXPECTED_CONCEPT_RECORD_ID}; "
+            f"found {state_concept or '<missing>'}"
+        )
     if published_id:
         record=wait_for_public_record(anon,published_id,expected,"read recorded public record",state_concept)
         matched,reads=public_matches(anon,record,expected,propagating=True)
@@ -601,6 +633,10 @@ def main():
     if "" in concepts: raise RuntimeError("A matching public record lacks a concept ID")
     if len(concepts)>1:raise RuntimeError("Multiple public concepts have the exact release title; refusing duplication")
     existing_concept=next(iter(concepts), "")
+    if existing_concept != EXPECTED_CONCEPT_RECORD_ID:
+        raise RuntimeError(
+            f"Exact-title duplicate check did not prove intended concept {EXPECTED_CONCEPT_RECORD_ID}"
+        )
     if state_concept and existing_concept and state_concept != existing_concept:
         raise RuntimeError("Durable cursor conflicts with the existing public concept")
     if state_concept and not existing_concept and not draft_id:
@@ -655,7 +691,8 @@ def main():
         if latest: parent_version=require_distinct_target_version(latest)
         else: parent_version=""
         if needs_identity_metadata:
-            draft=response_object(require(auth.put(f"{API}/deposit/depositions/{draft_id}",json={"metadata":metadata()},timeout=60),
+            draft=response_object(require(auth.put(f"{API}/deposit/depositions/{draft_id}",
+                                                   json={"metadata":metadata(draft.get("metadata"))},timeout=60),
                                           {200},"identify recovered blank draft"), "identify recovered blank draft")
     else:
         owned_response=require(auth.get(f"{API}/deposit/depositions",params={"q":f'title:\"{TITLE}\"',"size":100},timeout=60),
@@ -674,6 +711,18 @@ def main():
                        concept_record_id=record_concept_id(draft) or None,target_version=VERSION,published=False)
         elif latest:
             parent_id=record_id(latest.get("id"),"latest parent record ID",required=True)
+            recorded_parent_id=record_id(state.get("parent_record_id"),
+                                         "state parent record ID",required=True)
+            if recorded_parent_id != EXPECTED_PARENT_RECORD_ID:
+                raise RuntimeError(
+                    f"V2 durable cursor must name parent {EXPECTED_PARENT_RECORD_ID}; "
+                    f"found {recorded_parent_id}"
+                )
+            if parent_id != recorded_parent_id:
+                raise RuntimeError(
+                    f"Live latest record {parent_id} does not equal recorded parent {recorded_parent_id}; "
+                    "refusing to create a new-version draft"
+                )
             parent_version=require_distinct_target_version(latest)
             response=require(auth.post(f"{API}/deposit/depositions/{parent_id}/actions/newversion",timeout=60),
                              {201,202},"create corrected version")
@@ -696,7 +745,8 @@ def main():
         else: parent_version=""
 
     draft=reconcile_draft_inventory(auth,draft_id,draft,expected)
-    draft=response_object(require(auth.put(f"{API}/deposit/depositions/{draft_id}",json={"metadata":metadata()},timeout=60),
+    draft=response_object(require(auth.put(f"{API}/deposit/depositions/{draft_id}",
+                                           json={"metadata":metadata(draft.get("metadata"))},timeout=60),
                                   {200},"write metadata"), "write metadata")
     draft=wait_for_verified_draft_inventory(auth,draft_id,expected)
     md=draft.get("metadata",{})

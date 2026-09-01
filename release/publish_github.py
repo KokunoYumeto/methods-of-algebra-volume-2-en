@@ -11,9 +11,15 @@ import json
 from pathlib import Path
 import re
 import subprocess
+import sys
 
 
 ROOT = Path(__file__).resolve().parents[1]
+TOOLS = ROOT / "tools"
+if str(TOOLS) not in sys.path:
+    sys.path.insert(0, str(TOOLS))
+from release_visual_gates import validate_html_browser_gate, validate_pdf_visual_gate
+
 OWNER = "KokunoYumeto"
 REPO = "methods-of-algebra-volume-2-en"
 SLUG = f"{OWNER}/{REPO}"
@@ -25,6 +31,7 @@ SOURCE_TREE = "23bd05c2fb8434278df4fdfb636559a6a2b0d2ff"
 
 GATE_PATHS = (
     "qa/PDF_BUILD_RECEIPT.json",
+    "qa/PDF_VISUAL_QA.json",
     "qa/HTML_BUILD_RECEIPT.json",
     "qa/HTML_BROWSER_QA.json",
     "backend/BACKEND_VALIDATION.json",
@@ -175,6 +182,7 @@ def validate_html_dist(html: dict) -> dict[str, tuple[int, str]]:
 
 def validate_publication_boundary(gates: dict[str, dict]) -> dict[str, dict]:
     pdf = gates["qa/PDF_BUILD_RECEIPT.json"]
+    pdf_visual = gates["qa/PDF_VISUAL_QA.json"]
     html = gates["qa/HTML_BUILD_RECEIPT.json"]
     browser = gates["qa/HTML_BROWSER_QA.json"]
     backend = gates["backend/BACKEND_VALIDATION.json"]
@@ -193,11 +201,13 @@ def validate_publication_boundary(gates: dict[str, dict]) -> dict[str, dict]:
     require_identity(PDF_REL, pdf.get("pdf_bytes"), pdf.get("pdf_sha256"), "PDF")
     master = repo_file(pdf.get("master"), "PDF master")
     require_identity(pdf.get("master"), master.stat().st_size, pdf.get("master_sha256"), "PDF master")
+    pdf_visual_binding = validate_pdf_visual_gate(ROOT, pdf, pdf_visual)
 
     if html.get("validation", {}).get("status") != "pass" or html.get("validation", {}).get("errors"):
         raise RuntimeError("HTML static validation is not a clean pass")
     require_identity("reader/dist/index.html", html.get("index_bytes"), html.get("index_sha256"), "HTML index")
     validate_html_dist(html)
+    html_browser_binding = validate_html_browser_gate(ROOT, html, browser)
 
     if browser.get("target") != "reader/dist/index.html":
         raise RuntimeError("Browser QA targets an unexpected reader")
@@ -243,6 +253,13 @@ def validate_publication_boundary(gates: dict[str, dict]) -> dict[str, dict]:
         expected[name] = (int(row["bytes"]), row["sha256"].lower())
     if set(expected) != set(PAYLOAD_NAMES):
         raise RuntimeError("Package receipt inventory is non-canonical")
+    visual_qa = package.get("validated_inputs", {}).get("visual_qa")
+    current_visual_qa = {"pdf": pdf_visual_binding, "html": html_browser_binding}
+    if visual_qa != current_visual_qa:
+        raise RuntimeError("Package receipt does not bind the current PDF and HTML visual-QA gates")
+    primary = expected["00_methods-of-algebra-volume-2-independent-english-edition.pdf"]
+    if primary != (pdf_visual_binding["artifact"]["bytes"], pdf_visual_binding["artifact"]["sha256"]):
+        raise RuntimeError("Packaged primary PDF differs from the all-page visual-QA artifact")
 
     package_path = repo_file("release/staging/PACKAGE_RECEIPT.json", "package receipt")
     if zenodo.get("package_receipt_sha256") != sha(package_path):

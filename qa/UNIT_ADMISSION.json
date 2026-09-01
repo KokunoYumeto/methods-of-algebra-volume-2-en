@@ -1,6 +1,6 @@
 {
   "schema": "o014-english-unit-admission-v1",
-  "recorded_at_utc": "2026-09-01T09:44:57.809741+00:00",
+  "recorded_at_utc": "2026-09-01T14:36:08.923181+00:00",
   "translated_units": 146,
   "admitted_units": 146,
   "next_sequence": null,
@@ -1704,8 +1704,8 @@
         "substantive_length": true,
         "indonesian_residue_bounded": true
       },
-      "bytes": 39225,
-      "sha256": "1c10c315593fa7cec9bb0550e254907d9fc25ba100c08285f1839ffcdb77659d",
+      "bytes": 39199,
+      "sha256": "e8e26fa04e709b751abc6599cfcf8aa41d00be2ce81e7ec84332a1d01376b72f",
       "receipt_true_check_count": 24,
       "indonesian_residue_hits": 0,
       "pass": true
@@ -2355,8 +2355,8 @@
         "substantive_length": true,
         "indonesian_residue_bounded": true
       },
-      "bytes": 26876,
-      "sha256": "defd6dce94a1fa82cbfc8360a194ab57337d3c8fc3e719b226966146696166d3",
+      "bytes": 26891,
+      "sha256": "9b2e2f5b6768ad533fd104cde3329b10143a64bfa715c6e18c2cd5f23bb69b75",
       "receipt_true_check_count": 12,
       "indonesian_residue_hits": 0,
       "pass": true
@@ -2727,8 +2727,8 @@
         "substantive_length": true,
         "indonesian_residue_bounded": true
       },
-      "bytes": 48902,
-      "sha256": "a54579463b92a3d12f64ea5f2606e932590ca8655832e31ac60097faf5da91a8",
+      "bytes": 48935,
+      "sha256": "7a7a3806d0f2e037b120813d1ccd244fb8d5c398751fdd790c62797d92230f33",
       "receipt_true_check_count": 20,
       "indonesian_residue_hits": 0,
       "pass": true
@@ -3285,8 +3285,8 @@
         "substantive_length": true,
         "indonesian_residue_bounded": true
       },
-      "bytes": 22762,
-      "sha256": "f569c60fd700e40037b9d2c1876425ba0923a5eaba7094bef4ee967ae3c287f7",
+      "bytes": 22775,
+      "sha256": "08f9846d6496c79b4d916336a925e625549087832744b8cda636389054ccb919",
       "receipt_true_check_count": 12,
       "indonesian_residue_hits": 0,
       "pass": true
@@ -4122,8 +4122,8 @@
         "substantive_length": true,
         "indonesian_residue_bounded": true
       },
-      "bytes": 14044,
-      "sha256": "a277c7e98b3abf84f297eaf9d149cd6598db87cca530ae84db03798a2e3c77bf",
+      "bytes": 14095,
+      "sha256": "ce92992e603d1288c4846a1e732fbc71cb047e67b6e3ef1d3b14b735e2f20fd0",
       "receipt_true_check_count": 12,
       "indonesian_residue_hits": 0,
       "pass": true
@@ -4339,8 +4339,8 @@
         "substantive_length": true,
         "indonesian_residue_bounded": true
       },
-      "bytes": 14627,
-      "sha256": "0e1cf5f82a8816f4e856ebe6ac147b0828cd16d85664fcb28e85465536006292",
+      "bytes": 14624,
+      "sha256": "1c3b170d85ab6a90b091d79cd8617f53ea5fe61936a70c812e3f5c34b957dc15",
       "receipt_true_check_count": 12,
       "indonesian_residue_hits": 0,
       "pass": true

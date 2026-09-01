@@ -1,11 +1,11 @@
 {
-  "schema": "o014-english-html-browser-qa-v1",
-  "recorded_at_utc": "2026-09-01T09:50:08.5236858Z",
+  "schema": "o014-english-html-browser-qa-v2",
+  "recorded_at_utc": "2026-09-01T15:12:52.1941879Z",
   "result": "PASS",
   "target": "reader/dist/index.html",
-  "target_bytes": 4501242,
-  "target_sha256": "15c5ce147ecbff02fe8d95416029e57f0ecbd9af1fcfa16f1857b183f21ce824",
-  "runtime": "Chromium-based Codex in-app browser against an HTTP localhost origin",
+  "target_bytes": 4493910,
+  "target_sha256": "411fe6246743388ba9c5352732cc7958c02aa5dc578a54daecd4e6a5b317347e",
+  "runtime": "Chromium-based Codex in-app browser against a task-local HTTP origin",
   "coverage": {
     "logical_sections": 149,
     "source_units": 146,
@@ -13,67 +13,115 @@
     "bibliography_sections": 1,
     "diagram_fallbacks": 907,
     "diagram_captions": 907,
-    "rendered_mathjax_containers": 28458,
-    "chapter3_reading_guide_rendered": true,
-    "unit134_authoritative_quad_rendered": true
+    "rendered_mathjax_containers": 28459,
+    "changed_sections_inspected_at_both_viewports": [
+      "unit-chapter4-unit-055",
+      "unit-chapter6-unit-076",
+      "unit-chapter7-unit-088",
+      "unit-chapter8-unit-106",
+      "unit-chapter9-unit-133",
+      "unit-appendix2-unit-140",
+      "unit-mastery-bridge-002-derived-functors-spectral-sequences"
+    ]
   },
   "desktop": {
-    "viewport_css_px": {"width": 1440, "height": 900},
-    "layout_client_css_px": {"width": 1425, "height": 900},
+    "viewport_css_px": {
+      "width": 1440,
+      "height": 900
+    },
+    "layout_client_css_px": {
+      "width": 1425,
+      "height": 900
+    },
     "mjx_merror_nodes": 0,
+    "visible_raw_tex_command_tokens": 0,
+    "visible_hypertarget_tokens": 0,
     "visible_ensuremath_tokens": 0,
-    "unsupported_raw_tex_pgf_tikz_print_tokens": 0,
     "diagram_captions_with_raw_tex_commands": 0,
     "known_indonesian_caption_residue": 0,
     "page_level_horizontal_overflow": false,
     "page_scroll_width_css_px": 1425,
-    "wide_candidates": 50,
+    "wide_candidates": 6,
     "wide_candidates_without_local_scroller": 0,
-    "main_column_css_px": {"left": 104.44444274902344, "right": 1320.4444427490234, "width": 1216},
+    "main_column_css_px": {
+      "left": 104.44444274902344,
+      "right": 1320.4444427490234,
+      "width": 1216
+    },
     "centered_margin_delta_css_px": 0.111114501953125,
-    "visual_inspection": "PASS: centered reader cover, navigation, and body text are legible without clipping or unresolved macro text."
+    "visual_inspection": "PASS: centered reader cover and body, seven repaired sections, equations, diagram descriptions, and mastery bridge are readable without clipping, overlap, raw anchor commands, or unsupported red macro text."
   },
   "mobile": {
-    "viewport_css_px": {"width": 390, "height": 844},
-    "layout_client_css_px": {"width": 375, "height": 844},
+    "viewport_css_px": {
+      "width": 390,
+      "height": 844
+    },
+    "layout_client_css_px": {
+      "width": 375,
+      "height": 844
+    },
     "mjx_merror_nodes": 0,
+    "visible_raw_tex_command_tokens": 0,
+    "visible_hypertarget_tokens": 0,
     "visible_ensuremath_tokens": 0,
-    "unsupported_raw_tex_pgf_tikz_print_tokens": 0,
     "diagram_captions_with_raw_tex_commands": 0,
     "known_indonesian_caption_residue": 0,
     "page_level_horizontal_overflow": false,
     "page_scroll_width_css_px": 375,
-    "wide_candidates": 1379,
+    "wide_candidates": 1351,
     "wide_candidates_without_local_scroller": 0,
-    "main_column_css_px": {"left": 8, "right": 367.1111145019531, "width": 359.1111145019531},
-    "visual_inspection": "PASS: cover, navigation, body prose, formulas, and source-traced diagram descriptions reflow at 390 px; wide mathematics remains locally scrollable."
+    "main_column_css_px": {
+      "left": 8,
+      "right": 367.1111145019531,
+      "width": 359.1111145019531
+    },
+    "visual_inspection": "PASS: the reader fills and reflows within the mobile viewport; prose and headings remain legible, and intrinsically wide mathematics is contained by local horizontal scrollers."
+  },
+  "anchor_and_macro_repairs": {
+    "raw_hypertarget_commands_lifted_to_dom_anchors": 240,
+    "additional_segment_anchors_recovered": 12,
+    "source_targets_preserved": 7224,
+    "unique_source_markers_and_labels": 7074,
+    "missing_source_targets": 0,
+    "mathjax_compatibility_occurrences": {
+      "bm": 242,
+      "EuScript": 106,
+      "mapsfrom": 4,
+      "longmapsfrom": 2,
+      "llbracket": 3,
+      "rrbracket": 3,
+      "multicolumn": 1
+    },
+    "active_index_metadata_removed_before_conversion": 754,
+    "raw_index_or_par_residue": 0,
+    "fallback_anchors_inside_math": 0
   },
   "local_links_and_assets": {
-    "same_origin_links_checked": 3645,
+    "same_document_links_checked": 3645,
     "broken_same_document_targets": 0,
     "manifest_files_http_read_back": 31,
-    "manifest_files_http_read_back_bytes": 6202695,
+    "manifest_files_http_read_back_bytes": 6196502,
     "http_failures": 0,
     "byte_or_sha256_mismatches": 0,
     "manifest_path": "reader/dist/SHA256SUMS.txt",
     "manifest_bytes": 3897,
-    "manifest_sha256": "4475669070524617dfc671e5091fac14000f8864d27338e5402e0b0a6369d864",
+    "manifest_sha256": "1d2071aa329dcedc1bafea6410fd785023e7e84365fcba9e26b5a5d74edc8f8c",
     "browser_console_warnings_or_errors": 0
-  },
-  "representative_diagram": {
-    "diagram_id": "chapter4-unit-055-d012",
-    "visible_description": "Category diagram: … 0 → 0; 0 → 0; 0 → …; … → X; X → 0 …; … 0 → Z^-n; Z^-n → Z^-n+1; Z^-n → Y; and 11 other arrows.",
-    "raw_tex_exposed": false
   },
   "build_receipt": {
     "path": "qa/HTML_BUILD_RECEIPT.json",
-    "bytes": 32563,
-    "sha256": "dd5c3eaf230c24ff79fa86dd6b780abb5a2fca47356bcfaee03391a5f6cce7d3"
+    "bytes": 34694,
+    "sha256": "1c9cee21a59708e5ba1c9799f70a3fcbfb392f7416cb10033c8e487032d8efe0"
+  },
+  "reader_build_report": {
+    "path": "reader/build/reader-build-report.json",
+    "bytes": 30824,
+    "sha256": "59458d06b7e8640ca6220688848bb861a38a9ef315a12fcc3a50f78636f9385a"
   },
   "static_validation": {
     "path": "reader/dist/validation-report.json",
-    "bytes": 632,
-    "sha256": "f5b97ecbfbdffe9396e6c6d12baf25efe636b91d858944f14951a838292fc9dc",
+    "bytes": 1771,
+    "sha256": "99ead324f5b8ca77eef3783a087af4ea5da40833975ea18c90400ae385310ed5",
     "local_references_checked": 3620,
     "errors": 0
   }

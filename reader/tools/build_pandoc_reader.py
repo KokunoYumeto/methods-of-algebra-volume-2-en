@@ -30,12 +30,25 @@ UNIT_RE = re.compile(
 EXPECTED_UNITS_AND_BRIDGES = 148
 EXPECTED_LOGICAL_SECTIONS = 149
 EXPECTED_DIAGRAMS = 907
+MATHJAX_COMPATIBILITY_MACROS = {
+    "ensuremath": ["#1", 1],
+    "bm": [r"\boldsymbol{#1}", 1],
+    "EuScript": [r"\mathcal{#1}", 1],
+    "mapsfrom": r"\mathrel{↤}",
+    "longmapsfrom": r"\mathrel{⟻}",
+    "llbracket": r"\mathopen{⟦}",
+    "rrbracket": r"\mathclose{⟧}",
+    "multicolumn": ["#3", 3],
+    "index": ["", 1],
+    "par": "",
+}
 LEDGER_FIELDS = {
     "diagram_id", "unit_filename", "local_order", "alt_text_en", "provenance"
 }
 DIAGRAM_RE = re.compile(
     r"\\begin\{(tikzcd|tikzpicture)\}(.*?)\\end\{\1\}", re.DOTALL
 )
+RAW_HYPERTARGET_RE = re.compile(r"\\hypertarget\{([^{}]+)\}\{\}")
 ENV_NAMES = {
     "theorem": "Theorem", "teorema": "Theorem", "corollary": "Corollary",
     "korolari": "Corollary", "lemma": "Lemma", "lema": "Lemma",
@@ -199,6 +212,49 @@ def strip_tex_comments(text: str) -> str:
     return "".join(output)
 
 
+def strip_index_commands(text: str) -> tuple[str, int]:
+    """Remove active makeindex metadata without exposing it as reader prose."""
+    output: list[str] = []
+    cursor = 0
+    removed = 0
+    command = re.compile(r"\\index(?![A-Za-z])")
+
+    def consume_group(start: int, opener: str, closer: str) -> int:
+        if start >= len(text) or text[start] != opener:
+            raise ValueError(f"Malformed \\index command near byte {start}")
+        depth = 0
+        position = start
+        while position < len(text):
+            char = text[position]
+            escaped = position > 0 and text[position - 1] == "\\"
+            if not escaped and char == opener:
+                depth += 1
+            elif not escaped and char == closer:
+                depth -= 1
+                if depth == 0:
+                    return position + 1
+            position += 1
+        raise ValueError(f"Unclosed \\index argument near byte {start}")
+
+    while True:
+        match = command.search(text, cursor)
+        if match is None:
+            output.append(text[cursor:])
+            break
+        output.append(text[cursor:match.start()])
+        position = match.end()
+        while position < len(text) and text[position].isspace():
+            position += 1
+        if position < len(text) and text[position] == "[":
+            position = consume_group(position, "[", "]")
+            while position < len(text) and text[position].isspace():
+                position += 1
+        position = consume_group(position, "{", "}")
+        cursor = position
+        removed += 1
+    return "".join(output), removed
+
+
 def load_diagram_overrides(path: Path, ledger_rows: list[dict[str, str]]) -> dict[str, dict[str, str]]:
     """Load audited reader-only descriptions for malformed ledger summaries."""
     payload = json.loads(path.read_text(encoding="utf-8"))
@@ -267,7 +323,7 @@ def validate_ledger(
             )
 
 
-def preprocess(text: str, rows: list[dict[str, str]]) -> tuple[str, list[str]]:
+def preprocess(text: str, rows: list[dict[str, str]]) -> tuple[str, list[str], int]:
     # One source-primary correction keeps an inherited literal ``qquad`` token
     # byte-for-byte by making ``q`` active locally for print TeX. Pandoc cannot
     # parse that active-character shim. Replace only that exact scoped construct
@@ -286,6 +342,7 @@ def preprocess(text: str, rows: list[dict[str, str]]) -> tuple[str, list[str]]:
     # Preserve every durable segment and LaTeX label as an HTML anchor.
     text = re.sub(r"(?m)^\s*%\s*segment-id:\s*([^\s]+)\s*$", r"\\hypertarget{\1}{}", text)
     text = strip_tex_comments(text)
+    text, index_commands_removed = strip_index_commands(text)
     text = re.sub(r"\\label\{([^}]+)\}", r"\\hypertarget{\1}{}", text)
     text = re.sub(
         r"\\sourcecrossref\{([^}]+)\}\{([^}]*)\}",
@@ -351,9 +408,25 @@ def preprocess(text: str, rows: list[dict[str, str]]) -> tuple[str, list[str]]:
         tokens.append(token)
         kind = match.group(1)
         index += 1
-        return (r"\text{" + token + "}" if kind == "tikzcd" else r"\par\textbf{" + token + r"}\par")
+        # A small number of durable segment markers occur inside TikZ source.
+        # Keep their generated anchors adjacent to the diagram placeholder;
+        # replacing the whole environment must not delete those targets.
+        internal_anchors = "".join(
+            rf"\hypertarget{{{anchor_id}}}{{}}"
+            for anchor_id in RAW_HYPERTARGET_RE.findall(match.group(0))
+        )
+        # The placeholder is temporary and later replaced by an accessible
+        # figure.  TikZ pictures need a prose-safe wrapper when they occur
+        # outside math, but neither wrapper needs the print-only ``\par`` that
+        # previously leaked into MathJax source.
+        placeholder = (
+            r"\text{" + token + "}"
+            if kind == "tikzcd"
+            else r"\textbf{" + token + "}"
+        )
+        return internal_anchors + placeholder
     text = DIAGRAM_RE.sub(diagram_sub, text)
-    return text, tokens
+    return text, tokens, index_commands_removed
 
 
 def diagram_figure(row: dict[str, str]) -> etree._Element:
@@ -410,10 +483,80 @@ def placeholder_host(wrapper: etree._Element, token: str) -> etree._Element | No
     return target
 
 
+def remove_raw_hypertargets(
+    wrapper: etree._Element, known_ids: set[str]
+) -> int:
+    """Lift Pandoc-preserved TeX anchors out of math and into the DOM.
+
+    Pandoc correctly emits ``\\hypertarget`` as an HTML anchor in ordinary
+    prose, but preserves the literal command when it occurs inside display
+    math.  MathJax then sees an unsupported command and can expose it as a red
+    error.  Remove only the empty anchor commands introduced by ``preprocess``
+    and insert equivalent HTML anchors immediately before their math host (or
+    at the corresponding prose position).  The canonical source is untouched.
+    """
+    occurrences: list[tuple[str, etree._Element, str]] = []
+    for node in wrapper.iter():
+        for field in ("text", "tail"):
+            value = getattr(node, field)
+            if not value:
+                continue
+            matches = list(RAW_HYPERTARGET_RE.finditer(value))
+            if not matches:
+                continue
+            for match in matches:
+                anchor_id = match.group(1)
+                if anchor_id not in known_ids:
+                    raise ValueError(
+                        f"Pandoc preserved an unregistered hypertarget: {anchor_id}"
+                    )
+                occurrences.append((anchor_id, node, field))
+            setattr(node, field, RAW_HYPERTARGET_RE.sub("", value))
+
+    present_ids = set(wrapper.xpath(".//*[@id]/@id"))
+    for anchor_id, node, field in occurrences:
+        if anchor_id in present_ids:
+            continue
+        anchor = etree.Element(
+            "span", {"id": anchor_id, "class": "reader-anchor-fallback"}
+        )
+
+        # A raw command in MathJax source must become a sibling before the
+        # complete math host, never a child of the math source element.
+        math_host = None
+        cursor = node
+        while cursor is not None and cursor is not wrapper:
+            classes = set((cursor.get("class") or "").split())
+            if "math" in classes or "mathjax-inline" in classes or "mathjax-display" in classes:
+                math_host = cursor
+                break
+            cursor = cursor.getparent()
+
+        if math_host is not None and math_host.getparent() is not None:
+            parent = math_host.getparent()
+            parent.insert(parent.index(math_host), anchor)
+        elif field == "tail" and node.getparent() is not None:
+            parent = node.getparent()
+            parent.insert(parent.index(node) + 1, anchor)
+        elif node is not wrapper and node.getparent() is not None:
+            parent = node.getparent()
+            parent.insert(parent.index(node), anchor)
+        else:
+            wrapper.insert(0, anchor)
+        present_ids.add(anchor_id)
+
+    rendered = html.tostring(wrapper, encoding="unicode")
+    if RAW_HYPERTARGET_RE.search(rendered) or r"\hypertarget" in rendered:
+        raise ValueError("Raw hypertarget command remains after DOM anchor lifting")
+    return len(occurrences)
+
+
 def convert_one(args: tuple[int, str, Path, str, list[dict[str, str]], Path]) -> dict[str, object]:
     order, stem, source_path, macros, rows, pandoc = args
     source_bytes = source_path.read_bytes()
-    source, tokens = preprocess(source_bytes.decode("utf-8"), rows)
+    source, tokens, index_commands_removed = preprocess(
+        source_bytes.decode("utf-8"), rows
+    )
     if len(tokens) != len(rows):
         raise ValueError(
             f"Diagram ledger closure failed for {source_path.name}: "
@@ -436,6 +579,7 @@ def convert_one(args: tuple[int, str, Path, str, list[dict[str, str]], Path]) ->
             wrapper.append(fragment)
 
     known_ids = set(re.findall(r"\\hypertarget\{([^}]+)\}", source))
+    raw_hypertargets_removed = remove_raw_hypertargets(wrapper, known_ids)
     renamed: dict[str, str] = {}
     for node in wrapper.xpath(".//*[@id]"):
         old = node.get("id")
@@ -507,6 +651,13 @@ def convert_one(args: tuple[int, str, Path, str, list[dict[str, str]], Path]) ->
         raise ValueError(
             f"Unplaced diagram placeholders in {source_path.name}: {sorted(pending)}"
         )
+    final_ids = set(wrapper.xpath(".//*[@id]/@id"))
+    missing_anchor_targets = sorted(known_ids - final_ids)
+    if missing_anchor_targets:
+        raise ValueError(
+            f"Reader lost {len(missing_anchor_targets)} durable anchor targets in "
+            f"{source_path.name}: {missing_anchor_targets[:10]}"
+        )
     rendered = html.tostring(wrapper, encoding="unicode")
     if "READERDIAGRAM" in rendered:
         raise ValueError(f"Unresolved diagram placeholder remains in {source_path.name}")
@@ -516,6 +667,9 @@ def convert_one(args: tuple[int, str, Path, str, list[dict[str, str]], Path]) ->
         label = stem.replace("-", " ")
     return {"order": order, "stem": stem, "label": label, "html": rendered,
             "stderr": completed.stderr, "diagrams": applied,
+            "raw_hypertargets_removed": raw_hypertargets_removed,
+            "source_anchor_targets": len(known_ids),
+            "index_commands_removed": index_commands_removed,
             "source_sha256": hashlib.sha256(source_bytes).hexdigest()}
 
 
@@ -573,6 +727,11 @@ def main() -> int:
         rows.sort(key=lambda row: int(row["local_order"]))
     macros = macro_preamble(source_dir)
     css_version = hashlib.sha256((reader / "reader.css").read_bytes()).hexdigest()[:16]
+    mathjax_macros_json = json.dumps(
+        MATHJAX_COMPATIBILITY_MACROS,
+        ensure_ascii=False,
+        separators=(",", ":"),
+    )
     jobs = [
         (i, stem, source_dir / f"{stem}.tex", macros, ledger.get(f"{stem}.tex", []), pandoc)
         for i, stem in enumerate(stems)
@@ -602,7 +761,7 @@ def main() -> int:
 <meta name="description" content="Methods of Algebra, Volume 2 — complete independent English edition.">
 <title>Methods of Algebra, Volume 2: Linear Algebra — Independent English Edition</title>
 <link rel="stylesheet" href="reader.css?v={css_version}">
-<script>window.MathJax={{tex:{{tags:"ams",macros:{{ensuremath:["#1",1]}}}},options:{{enableAssistiveMml:true,ignoreHtmlClass:"tex2jax_ignore"}},chtml:{{fontURL:"vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2"}}}};</script>
+<script>window.MathJax={{tex:{{tags:"ams",macros:{mathjax_macros_json}}},options:{{enableAssistiveMml:true,ignoreHtmlClass:"tex2jax_ignore"}},chtml:{{fontURL:"vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2"}}}};</script>
 <script defer src="vendor/mathjax-3.2.2/tex-chtml-full.js"></script></head><body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <header class="reader-header"><a class="reader-home" href="index.html">Methods of Algebra II</a><span class="reader-edition">Independent English Edition</span></header>
@@ -623,6 +782,16 @@ def main() -> int:
         "logical_sections": EXPECTED_LOGICAL_SECTIONS,
         "ledger_diagrams": len(ledger_rows),
         "diagram_descriptions_embedded": sum(int(r["diagrams"]) for r in results),
+        "raw_hypertarget_commands_lifted_to_dom_anchors": sum(
+            int(r["raw_hypertargets_removed"]) for r in results
+        ),
+        "source_anchor_targets_preserved": sum(
+            int(r["source_anchor_targets"]) for r in results
+        ),
+        "index_commands_removed_from_reader_surface": sum(
+            int(r["index_commands_removed"]) for r in results
+        ),
+        "mathjax_compatibility_macros": MATHJAX_COMPATIBILITY_MACROS,
         "diagram_description_overrides": len(diagram_overrides),
         "diagram_description_override_file": override_path.name,
         "reader_css_version": css_version,

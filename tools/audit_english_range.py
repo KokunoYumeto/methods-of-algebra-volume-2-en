@@ -52,6 +52,18 @@ PLACEHOLDER = re.compile(
 )
 HAN = re.compile(r"[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]")
 
+# Fail-closed mathematical corrections already proved and recorded in the
+# signed range receipts.  The replacement is applied only to the in-memory
+# structural witness used for strict math comparison; source files are never
+# changed by this read-only auditor.  Each exact token must occur once on the
+# prescribed side, so this cannot hide unrelated formula drift.
+APPROVED_WITNESS_MATH_CORRECTIONS = {
+    "o014.aljabr2.chapter7.monoidal-algebras": (
+        "\\arrow[d, \"{\\mu_M \\otimes \\identity}\"']",
+        "\\arrow[d, \"{\\mu_A \\otimes \\identity}\"']",
+    ),
+}
+
 
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -251,8 +263,20 @@ def audit(row: dict) -> dict:
     ]
     han_hits = HAN.findall(active_target)
     placeholder_hits = PLACEHOLDER.findall(active_target)
+    math_witness_text = witness_text
+    approved_source_math_correction_exact = True
+    correction = APPROVED_WITNESS_MATH_CORRECTIONS.get(row["unit_id"])
+    if correction is not None:
+        witness_token, target_token = correction
+        approved_source_math_correction_exact = (
+            witness_text.count(witness_token) == 1
+            and target_text.count(target_token) == 1
+            and target_text.count(witness_token) == 0
+        )
+        if approved_source_math_correction_exact:
+            math_witness_text = witness_text.replace(witness_token, target_token, 1)
     target_math = normalized_display_math(target_text)
-    witness_math = normalized_display_math(witness_text)
+    witness_math = normalized_display_math(math_witness_text)
 
     checks = result["checks"]
     checks.update(
@@ -275,6 +299,8 @@ def audit(row: dict) -> dict:
             == len(re.findall(r"\\index\{", witness_text)),
             "diagram_count_exact": diagram_count(target_text)
             == diagram_count(witness_text),
+            "approved_source_math_correction_exact":
+            approved_source_math_correction_exact,
             "normalized_display_math_counter_exact": target_math == witness_math,
             "balanced_braces": braces_ok(active_target),
             "balanced_environment_stack": env_stack_ok(active_target),

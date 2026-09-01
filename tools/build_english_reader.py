@@ -81,6 +81,9 @@ def main():
     validation_ok = validation_ok and not validation.get("errors")
     validation_ok = validation_ok and not validation.get("unsupported_math_residue")
     validation_ok = validation_ok and not validation.get("unsupported_raw_residue")
+    validation_ok = validation_ok and not validation.get("raw_hypertarget_residue")
+    validation_ok = validation_ok and not validation.get("misplaced_anchor_fallbacks")
+    validation_ok = validation_ok and validation.get("configured_mathjax_macros") is not None
     index = DIST / "index.html"
     receipt = {"schema": "o014-english-html-build-v1", "built_at_utc": datetime.now(timezone.utc).isoformat(),
                "result": "PASS" if validation_ok else "FAIL",

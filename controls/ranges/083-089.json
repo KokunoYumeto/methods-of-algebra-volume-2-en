@@ -43,11 +43,11 @@
     "command": "python -B tools\\audit_english_range.py --start 83 --end 89 --pretty",
     "schema": "o014-english-range-audit-v1",
     "result": "FAIL",
-    "result_disposition": "Expected: the strict witness comparison reports only five intentional formula corrections across four units, exhaustively documented below.",
+    "result_disposition": "Expected: the strict witness comparison reports only four unnormalized intentional formula corrections across three units; the separately approved exact Unit 88 source correction is normalized by the fail-closed audit and remains documented below.",
     "units_expected": 7,
     "units_audited": 7,
-    "units_passing_every_strict_check": 3,
-    "units_failing_only_normalized_display_math_counter_exact": 4,
+    "units_passing_every_strict_check": 4,
+    "units_failing_only_normalized_display_math_counter_exact": 3,
     "units_failing_any_other_check": 0
   },
   "intentional_strict_math_deviations": [
@@ -256,9 +256,9 @@
       "sequence": 88,
       "unit_id": "o014.aljabr2.chapter7.monoidal-algebras",
       "target_path": "source/en/chapter7-unit-088.tex",
-      "target_sha256": "a54579463b92a3d12f64ea5f2606e932590ca8655832e31ac60097faf5da91a8",
-      "bytes": 48902,
-      "lines": 907,
+      "target_sha256": "7a7a3806d0f2e037b120813d1ccd244fb8d5c398751fdd790c62797d92230f33",
+      "bytes": 48935,
+      "lines": 912,
       "chinese_source": {
         "path": "chapter7.tex",
         "start_line": 1,
