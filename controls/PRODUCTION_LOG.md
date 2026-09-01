@@ -250,3 +250,34 @@
   the class already inserts that unnumbered part. The single duplicate
   `\addcontentsline` was removed, and one final mutex-serialized replay is in
   progress. The earlier PDF candidate is therefore not a release artifact.
+
+## 2026-09-01 — complete English edition release boundary
+
+- The final mutex-serialized XeLaTeX/Biber/Xindy replay passes at 820 pages.
+  Release PDF: `output/pdf/methods-of-algebra-volume-2-independent-english-edition.pdf`,
+  3,891,627 bytes, SHA-256
+  `88114c09af3313d1e93d7b66da67c277aae21727fec60c0643b10a1f2b1d6448`.
+  Build receipt: `qa/PDF_BUILD_RECEIPT.json`, SHA-256
+  `cb63fc0bf94f1e564ceb31a65eabc80f68a78e6a27689a20843e13818be01795`.
+  Full-text residue checks and representative Contents/References/symbol-index/
+  term-index inspection pass in `qa/PDF_VISUAL_QA.json`, SHA-256
+  `d55fe8d4a00368ce0e26b349cd22a2c8e261e96b77f09ee00bdb619e1513af81`.
+- The reader-first release package has exactly nine files and 7,038,753 bytes.
+  `release/staging/PACKAGE_RECEIPT.json` has SHA-256
+  `d5854156fa5085e838c26ebdae7732e392e00fc7a5096de4611ffc3fb94d6266`;
+  its inventory binds the PDF, complete XeLaTeX source, semantic backend,
+  offline HTML reader, provenance/reproducibility archive, license, README,
+  manifest, and checksums.
+- Zenodo record `22229884` in concept `22229883` is public at DOI
+  `10.5281/zenodo.22229884`. Anonymous readback passes all nine files and all
+  7,038,753 bytes with exact SHA-256 identity, open access, CC BY 4.0,
+  preserved source attribution/non-endorsement, and no metadata defects.
+  Receipt: `release/ZENODO_PUBLICATION_RECEIPT.json`, SHA-256
+  `3ed0ba5a089582c17e2f4769a8081dddf100577ebbea78c744a97b29cc578b37`.
+- GitHub Pages is fixed at commit
+  `81b9a58f16aec0f0c22b3708ef52c7d36d15e009`; its 31 files total 6,202,695
+  bytes. A complete anonymous public replay passed 288 main-tree files plus all
+  31 Pages files. The final main content/head identities are deliberately
+  recorded in `release/GITHUB_PUBLICATION_RECEIPT.json`, while the terminal
+  byte replay is recorded in `release/GITHUB_PUBLIC_READBACK.json`, avoiding
+  a self-referential receipt hash in this log entry.

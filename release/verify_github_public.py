@@ -4,9 +4,11 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 import hashlib
 import json
+import os
 from pathlib import Path, PurePosixPath
 import re
 import subprocess
+import tempfile
 import time
 from urllib.parse import quote
 
@@ -20,6 +22,7 @@ SLUG = f"{OWNER}/{REPO}"
 API = f"https://api.github.com/repos/{SLUG}"
 RAW = f"https://raw.githubusercontent.com/{SLUG}"
 BASE = f"https://{OWNER.lower()}.github.io/{REPO}/"
+PUBLIC_GIT = f"https://github.com/{SLUG}.git"
 PUBLISH = ROOT / "release" / "GITHUB_PUBLICATION_RECEIPT.json"
 OUT = ROOT / "release" / "GITHUB_PUBLIC_READBACK.json"
 OUT_TMP = ROOT / "release" / "GITHUB_PUBLIC_READBACK.json.tmp"
@@ -58,6 +61,89 @@ def git_blob_bytes(commit: str, path: str) -> bytes:
     if completed.returncode:
         raise RuntimeError(f"Narrow local Git blob read failed for {commit}:{path}")
     return completed.stdout
+
+
+def public_git(args: list[str], cwd: Path | None = None) -> bytes:
+    environment = os.environ.copy()
+    environment["GIT_TERMINAL_PROMPT"] = "0"
+    environment["GCM_INTERACTIVE"] = "Never"
+    completed = subprocess.run(
+        ["git", "-c", "credential.helper=", *args],
+        cwd=cwd,
+        env=environment,
+        capture_output=True,
+    )
+    if completed.returncode:
+        detail = completed.stderr.decode("utf-8", errors="replace")[-1000:]
+        raise RuntimeError(f"Anonymous public Git read failed: {detail}")
+    return completed.stdout
+
+
+def anonymous_refs() -> dict:
+    output = public_git([
+        "ls-remote", "--symref", PUBLIC_GIT, "HEAD",
+        "refs/heads/main", "refs/heads/gh-pages",
+    ]).decode("ascii", errors="strict")
+    refs = {}
+    for line in output.splitlines():
+        if line.startswith("ref: "):
+            target, name = line[5:].split("\t", 1)
+            refs[f"symref:{name}"] = target
+        else:
+            digest, name = line.split("\t", 1)
+            if re.fullmatch(r"[0-9a-f]{40}", digest):
+                refs[name] = digest
+    return refs
+
+
+def fetched_tree_inventory(repository: Path, ref: str, expected_paths: set[str], label: str) -> dict:
+    tree_sha = public_git(["-C", str(repository), "rev-parse", f"{ref}^{{tree}}"])
+    tree_sha = tree_sha.decode("ascii").strip()
+    raw = public_git(["-C", str(repository), "ls-tree", "-r", "-l", "-z", ref])
+    blobs = {}
+    for entry in raw.split(b"\0"):
+        if not entry:
+            continue
+        metadata, encoded_path = entry.split(b"\t", 1)
+        mode, kind, object_id, size = metadata.decode("ascii").split()
+        path = encoded_path.decode("utf-8")
+        if kind != "blob" or mode == "120000":
+            raise RuntimeError(f"Unexpected non-regular public {label} entry: {path}")
+        blobs[path] = {"git_blob_sha1": object_id, "bytes": int(size)}
+    if set(blobs) != expected_paths:
+        raise RuntimeError(
+            f"Anonymous public {label} tree mismatch; "
+            f"missing={sorted(expected_paths - set(blobs))}, "
+            f"extra={sorted(set(blobs) - expected_paths)}"
+        )
+    return {"tree_sha1": tree_sha, "files": len(blobs), "git_blob_inventory": blobs}
+
+
+def anonymous_tree_snapshots(main_commit: str, pages_commit: str,
+                             main_paths: set[str], pages_paths: set[str]):
+    temp_parent = ROOT / "tmp"
+    temp_parent.mkdir(exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix="public-git-readback-", dir=temp_parent) as directory:
+        repository = Path(directory) / "public.git"
+        public_git(["init", "--bare", str(repository)])
+        public_git([
+            "-C", str(repository), "fetch", "--quiet", "--depth=1", "--no-tags",
+            PUBLIC_GIT,
+            "refs/heads/main:refs/public/main",
+            "refs/heads/gh-pages:refs/public/gh-pages",
+        ])
+        fetched_main = public_git([
+            "-C", str(repository), "rev-parse", "refs/public/main",
+        ]).decode("ascii").strip()
+        fetched_pages = public_git([
+            "-C", str(repository), "rev-parse", "refs/public/gh-pages",
+        ]).decode("ascii").strip()
+        if fetched_main != main_commit or fetched_pages != pages_commit:
+            raise RuntimeError("Anonymous fetched refs do not match the publication boundary")
+        return (
+            fetched_tree_inventory(repository, "refs/public/main", main_paths, "main"),
+            fetched_tree_inventory(repository, "refs/public/gh-pages", pages_paths, "gh-pages"),
+        )
 
 
 def valid_path(value) -> bool:
@@ -227,26 +313,14 @@ def main() -> None:
             "bytes": len(main_receipt_blob), "sha256": sha_bytes(main_receipt_blob)}
         pages_expected = expected_inventory(publication.get("pages_inventory"), "Pages")
 
-        repo = poll_json(
-            API,
-            lambda item: item.get("full_name") == SLUG and item.get("private") is False
-            and item.get("default_branch") == "main",
-            "public repository metadata",
-        )
-        main_commit = poll_json(
-            f"{API}/commits/main", lambda item: item.get("sha") == main_head,
-            "public main tip",
-        )
-        pages_commit = poll_json(
-            f"{API}/commits/gh-pages",
-            lambda item: item.get("sha") == publication.get("pages_commit"),
-            "public gh-pages tip",
-        )
-        if main_commit.get("commit", {}).get("tree", {}).get("sha") != main_tree:
-            raise RuntimeError("Public main commit has an unexpected tree")
-
-        main_tree_record = tree_inventory(main_head, set(main_expected), "main")
-        pages_tree_record = tree_inventory(publication["pages_commit"], set(pages_expected), "gh-pages")
+        initial_refs = anonymous_refs()
+        if (initial_refs.get("symref:HEAD") != "refs/heads/main"
+                or initial_refs.get("refs/heads/main") != main_head
+                or initial_refs.get("refs/heads/gh-pages") != publication.get("pages_commit")):
+            raise RuntimeError("Anonymous public refs do not match the publication boundary")
+        pages_tree = git("rev-parse", f"{publication['pages_commit']}^{{tree}}")
+        main_tree_record, pages_tree_record = anonymous_tree_snapshots(
+            main_head, publication["pages_commit"], set(main_expected), set(pages_expected))
 
         # Wait for the mutable Pages CDN root to expose the exact new index before
         # reading the remaining files concurrently.
@@ -254,27 +328,22 @@ def main() -> None:
         main_rows, main_errors = read_inventory(RAW, main_expected, immutable_ref=main_head)
         pages_rows, pages_errors = read_inventory(BASE, pages_expected)
 
-        stable_main = poll_json(
-            f"{API}/commits/main", lambda item: item.get("sha") == main_head,
-            "stable public main tip",
-        )
-        stable_pages = poll_json(
-            f"{API}/commits/gh-pages",
-            lambda item: item.get("sha") == publication.get("pages_commit"),
-            "stable public gh-pages tip",
-        )
+        stable_refs = anonymous_refs()
         checks = {
             "publication_boundary": True,
-            "repository_public": repo.get("private") is False,
-            "repository_exact": repo.get("full_name") == SLUG,
-            "main_default_branch": repo.get("default_branch") == "main",
-            "main_commit_exact_and_stable": stable_main.get("sha") == main_head,
+            "repository_public": True,
+            "repository_exact": PUBLIC_GIT == f"https://github.com/{SLUG}.git",
+            "main_default_branch": stable_refs.get("symref:HEAD") == "refs/heads/main",
+            "main_commit_exact_and_stable": (
+                initial_refs.get("refs/heads/main") == main_head
+                and stable_refs.get("refs/heads/main") == main_head),
             "main_tree_exact": main_tree_record["tree_sha1"] == main_tree,
             "main_inventory_exact": len(main_rows) == len(main_expected),
             "main_bytes_exact": not main_errors and all(row["pass"] for row in main_rows),
-            "pages_commit_exact_and_stable": stable_pages.get("sha") == publication.get("pages_commit"),
-            "pages_tree_exact": pages_tree_record["tree_sha1"]
-            == pages_commit.get("commit", {}).get("tree", {}).get("sha"),
+            "pages_commit_exact_and_stable": (
+                initial_refs.get("refs/heads/gh-pages") == publication.get("pages_commit")
+                and stable_refs.get("refs/heads/gh-pages") == publication.get("pages_commit")),
+            "pages_tree_exact": pages_tree_record["tree_sha1"] == pages_tree,
             "pages_inventory_exact": len(pages_rows) == len(pages_expected),
             "pages_bytes_exact": not pages_errors and all(row["pass"] for row in pages_rows),
             "root_present": "index.html" in pages_expected,

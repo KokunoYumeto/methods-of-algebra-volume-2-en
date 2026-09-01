@@ -5,8 +5,8 @@
   "translated_units": 146,
   "admitted_units": 146,
   "next_sequence": null,
-  "status": "unit_translation_complete",
-  "build_status": "backend_and_offline_html_passed_pdf_waiting_for_global_tex_slot",
+  "status": "complete_public_release",
+  "build_status": "pdf_html_backend_source_and_provenance_passed",
   "backend": {
     "units": 146,
     "segments": 6347,
@@ -24,22 +24,41 @@
     "browser_receipt": "qa/HTML_BROWSER_QA.json"
   },
   "pdf": {
-    "status": "mutex_safe_build_waiting",
-    "command": "python -B tools/build_english_pdf.py"
+    "status": "complete",
+    "path": "output/pdf/methods-of-algebra-volume-2-independent-english-edition.pdf",
+    "pages": 820,
+    "bytes": 3891627,
+    "sha256": "88114c09af3313d1e93d7b66da67c277aae21727fec60c0643b10a1f2b1d6448",
+    "build_receipt": "qa/PDF_BUILD_RECEIPT.json",
+    "visual_receipt": "qa/PDF_VISUAL_QA.json"
   },
   "published": true,
-  "publication_status": "complete_html_checkpoint_public_pdf_and_zenodo_pending",
+  "publication_status": "complete_pdf_html_source_backend_and_provenance_public",
   "github": {
     "repository": "https://github.com/KokunoYumeto/methods-of-algebra-volume-2-en",
     "pages_url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/",
-    "main_content_commit": "5e76c3454625afd6227e1762d9d65ba2c6c4b906",
-    "pages_commit": "ffe5fd72a87a4de894a7fa09861d415406544278",
-    "public_files": 31,
-    "public_bytes": 6200748,
-    "readback_receipt": "release/GITHUB_PUBLIC_READBACK.json"
+    "pages_commit": "81b9a58f16aec0f0c22b3708ef52c7d36d15e009",
+    "publication_receipt": "release/GITHUB_PUBLICATION_RECEIPT.json",
+    "readback_receipt_local": "release/GITHUB_PUBLIC_READBACK.json"
+  },
+  "zenodo": {
+    "record_id": "22229884",
+    "concept_record_id": "22229883",
+    "doi": "10.5281/zenodo.22229884",
+    "concept_doi": "10.5281/zenodo.22229883",
+    "public_files": 9,
+    "public_bytes": 7038753,
+    "readback_receipt": "release/ZENODO_PUBLICATION_RECEIPT.json"
+  },
+  "release_package": {
+    "files": 9,
+    "bytes": 7038753,
+    "receipt": "release/staging/PACKAGE_RECEIPT.json",
+    "receipt_sha256": "d5854156fa5085e838c26ebdae7732e392e00fc7a5096de4611ffc3fb94d6266"
   },
   "source_map": "controls/SOURCE_UNIT_MAP.json",
   "workflow": "controls/ENGLISH_EDITION_SCOPE.md",
   "last_admission_utc": "2026-09-01T09:44:57.809741+00:00",
-  "admission_receipt": "qa/UNIT_ADMISSION.json"
+  "admission_receipt": "qa/UNIT_ADMISSION.json",
+  "last_updated_utc": "2026-09-01T11:45:00+00:00"
 }
