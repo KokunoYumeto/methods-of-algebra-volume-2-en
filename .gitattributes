@@ -1,0 +1,2 @@
+# Published reader bytes are release artifacts; never normalize their EOLs.
+/reader/dist/** -text

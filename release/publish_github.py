@@ -14,10 +14,10 @@ import subprocess
 ROOT=Path(__file__).resolve().parents[1]
 OWNER="KokunoYumeto";REPO="methods-of-algebra-volume-2-en";SLUG=f"{OWNER}/{REPO}"
 RECEIPT=ROOT/"release"/"GITHUB_PUBLICATION_RECEIPT.json"
-PUBLISH_PATHS=(".gitignore","README.md","backend","controls",
+PUBLISH_PATHS=(".gitattributes",".gitignore","README.md","backend","controls",
                "output/pdf/methods-of-algebra-volume-2-independent-english-edition.pdf",
                "qa","reader","release","source/en","tools")
-CHECKPOINT_PATHS=(".gitignore","README.md","backend","controls","qa","reader",
+CHECKPOINT_PATHS=(".gitattributes",".gitignore","README.md","backend","controls","qa","reader",
                   "release","source/en","tools")
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def run(args,check=True):

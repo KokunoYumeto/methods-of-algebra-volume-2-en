@@ -1,0 +1,337 @@
+{
+  "schema": "o014-english-github-public-readback-v1",
+  "verified_at_utc": "2026-09-01T01:42:28.724682+00:00",
+  "result": "FAIL",
+  "repository": "https://github.com/KokunoYumeto/methods-of-algebra-volume-2-en",
+  "pages_url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/",
+  "main_default_branch": "main",
+  "pages_commit": "1e186f21e91e04b6e289b94780778d3696c73eec",
+  "checks": {
+    "publication_boundary": true,
+    "repository_public": true,
+    "repository_name": true,
+    "main_default_branch": true,
+    "public_gh_pages_branch": true,
+    "pages_commit_exact": true,
+    "all_files_read": true,
+    "all_bytes_exact": false,
+    "root_present": true
+  },
+  "files": [
+    {
+      "path": "LICENSE.txt",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/LICENSE.txt",
+      "http_status": 200,
+      "expected_bytes": 905,
+      "bytes": 885,
+      "expected_sha256": "a78e7b7f602eb4fc94f1b71bc89a531d4a0ad20bf364e530131f5ce1472ea6d7",
+      "sha256": "4c02eff56ccbdb12f2f8179f71608283d01853692d94eaf128f05dbdbbe1d91e",
+      "pass": false
+    },
+    {
+      "path": "SHA256SUMS.txt",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/SHA256SUMS.txt",
+      "http_status": 200,
+      "expected_bytes": 3897,
+      "bytes": 3867,
+      "expected_sha256": "c6df455b6e0203e69165dd1d2d9279d5af2f947147f80b5bd14b89a0efa246db",
+      "sha256": "0745b3c021e247dc0062eb1ec45c5ea8f1ea560c7062adf63c7bbddc4d69becc",
+      "pass": false
+    },
+    {
+      "path": "accessibility.html",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/accessibility.html",
+      "http_status": 200,
+      "expected_bytes": 2398,
+      "bytes": 2364,
+      "expected_sha256": "a69e06aaa543262a13a94d3e48caa8789bcdba4894bb661f2e2baef50b721faf",
+      "sha256": "7a23ffe099ef1387d1ad54d5dff1b1d7b67fd91a6019d26013d4a7fae0e3e2d8",
+      "pass": false
+    },
+    {
+      "path": "index.html",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/index.html",
+      "http_status": 200,
+      "expected_bytes": 4499295,
+      "bytes": 4482120,
+      "expected_sha256": "894749f6fc9e19d37ff981a0e5a2681539d2dc04b33952967ac989b3d70abff3",
+      "sha256": "8886fd7752a0cf5417983b99c5939208f2149826f8708e08241339107db0e7c9",
+      "pass": false
+    },
+    {
+      "path": "reader.css",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/reader.css",
+      "http_status": 200,
+      "expected_bytes": 6769,
+      "bytes": 6769,
+      "expected_sha256": "fd9b89f0a29aa64ee452707d1220f4038658d3ade179079ea4f4ba16662d04a6",
+      "sha256": "fd9b89f0a29aa64ee452707d1220f4038658d3ade179079ea4f4ba16662d04a6",
+      "pass": true
+    },
+    {
+      "path": "validation-report.json",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/validation-report.json",
+      "http_status": 200,
+      "expected_bytes": 632,
+      "bytes": 612,
+      "expected_sha256": "2c4eddec8daa988eee2067fe67e6d875368001bc8ae2a1c27a6330438cc72c54",
+      "sha256": "00fd2598e338d47b28b8c00db7dedd4697cb1fdd111561b81adc05f1bc0b6c59",
+      "pass": false
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/LICENSE-MathJax.txt",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/LICENSE-MathJax.txt",
+      "http_status": 200,
+      "expected_bytes": 11358,
+      "bytes": 11358,
+      "expected_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff",
+      "http_status": 200,
+      "expected_bytes": 40808,
+      "bytes": 40808,
+      "expected_sha256": "3de784d07b9fa8f104c10928a878ee879cf3305cae5195cba663c9c2bb0195eb",
+      "sha256": "3de784d07b9fa8f104c10928a878ee879cf3305cae5195cba663c9c2bb0195eb",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff",
+      "http_status": 200,
+      "expected_bytes": 9908,
+      "bytes": 9908,
+      "expected_sha256": "af04542b29eaac04550a140c5f1760a649783989426f2540855bf4157819367d",
+      "sha256": "af04542b29eaac04550a140c5f1760a649783989426f2540855bf4157819367d",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff",
+      "http_status": 200,
+      "expected_bytes": 9600,
+      "bytes": 9600,
+      "expected_sha256": "26683bf201fb258a2237d9754616de9d4ecf4cc1cd39dd1902476df7d75f1d16",
+      "sha256": "26683bf201fb258a2237d9754616de9d4ecf4cc1cd39dd1902476df7d75f1d16",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff",
+      "http_status": 200,
+      "expected_bytes": 22340,
+      "bytes": 22340,
+      "expected_sha256": "721921bab0d001ebff0206c24cb5de6ca136467bf1843a7aa32030ba061d1e92",
+      "sha256": "721921bab0d001ebff0206c24cb5de6ca136467bf1843a7aa32030ba061d1e92",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff",
+      "http_status": 200,
+      "expected_bytes": 21480,
+      "bytes": 21480,
+      "expected_sha256": "870673df72e70f87c91a5a317d558c2c3b54392264ad79bbadc6d424ae8765fe",
+      "sha256": "870673df72e70f87c91a5a317d558c2c3b54392264ad79bbadc6d424ae8765fe",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff",
+      "http_status": 200,
+      "expected_bytes": 34464,
+      "bytes": 34464,
+      "expected_sha256": "88b98cad3688915e50da55553ff6ad185e0dce134b47f176e91b100f8a9b175c",
+      "sha256": "88b98cad3688915e50da55553ff6ad185e0dce134b47f176e91b100f8a9b175c",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff",
+      "http_status": 200,
+      "expected_bytes": 20832,
+      "bytes": 20832,
+      "expected_sha256": "355254db9ca10a09a3b5f0929d74eb4670f44fbe864c07526a06213e0a0caf6c",
+      "sha256": "355254db9ca10a09a3b5f0929d74eb4670f44fbe864c07526a06213e0a0caf6c",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff",
+      "http_status": 200,
+      "expected_bytes": 34160,
+      "bytes": 34160,
+      "expected_sha256": "1cb1c39ea642f26a4dfed230b4aea1c3c218689421f6e9c0a7c1811693c4fa07",
+      "sha256": "1cb1c39ea642f26a4dfed230b4aea1c3c218689421f6e9c0a7c1811693c4fa07",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff",
+      "http_status": 200,
+      "expected_bytes": 19776,
+      "bytes": 19776,
+      "expected_sha256": "8ea8dbb1b02e6f730f55b4cb5d413b785b9f5c39807d0a0fa7da206a0824a457",
+      "sha256": "8ea8dbb1b02e6f730f55b4cb5d413b785b9f5c39807d0a0fa7da206a0824a457",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff",
+      "http_status": 200,
+      "expected_bytes": 19360,
+      "bytes": 19360,
+      "expected_sha256": "a009bea404f7a500ded48f8b9ad9cf16e12504b3195dd9e25975289b8256b0f0",
+      "sha256": "a009bea404f7a500ded48f8b9ad9cf16e12504b3195dd9e25975289b8256b0f0",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Regular.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Regular.woff",
+      "http_status": 200,
+      "expected_bytes": 19288,
+      "bytes": 19288,
+      "expected_sha256": "c01d3321e89b403c4b811aa153c4e618eda3421f92d8a072a02c8d190782a191",
+      "sha256": "c01d3321e89b403c4b811aa153c4e618eda3421f92d8a072a02c8d190782a191",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff",
+      "http_status": 200,
+      "expected_bytes": 15944,
+      "bytes": 15944,
+      "expected_sha256": "32792104b5ef69eded905b6d1598ed05d8087684d38e7a94d52e3c38ba16f47e",
+      "sha256": "32792104b5ef69eded905b6d1598ed05d8087684d38e7a94d52e3c38ba16f47e",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff",
+      "http_status": 200,
+      "expected_bytes": 14628,
+      "bytes": 14628,
+      "expected_sha256": "fc6ddf5df402b263cfb158aed8e89972542c34b719cd87b1db30461985f7bd5b",
+      "sha256": "fc6ddf5df402b263cfb158aed8e89972542c34b719cd87b1db30461985f7bd5b",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff",
+      "http_status": 200,
+      "expected_bytes": 12660,
+      "bytes": 12660,
+      "expected_sha256": "b418136e3b384baaadecb70bd3c48a8da9825210130b2897db808c44efc883cb",
+      "sha256": "b418136e3b384baaadecb70bd3c48a8da9825210130b2897db808c44efc883cb",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff",
+      "http_status": 200,
+      "expected_bytes": 11852,
+      "bytes": 11852,
+      "expected_sha256": "af96f67d7accf5fd2a4a682d0b9f8b339f8ea6fe34c310c1694c8ba7f6ddc96f",
+      "sha256": "af96f67d7accf5fd2a4a682d0b9f8b339f8ea6fe34c310c1694c8ba7f6ddc96f",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff",
+      "http_status": 200,
+      "expected_bytes": 5792,
+      "bytes": 5792,
+      "expected_sha256": "c49810b53ecc0d87d8028762c518924197dd9d3f905b08f99ea241301085b9cb",
+      "sha256": "c49810b53ecc0d87d8028762c518924197dd9d3f905b08f99ea241301085b9cb",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff",
+      "http_status": 200,
+      "expected_bytes": 5464,
+      "bytes": 5464,
+      "expected_sha256": "30e889b58cbc51adfbb038ab1a96dc4025aa3542a3cff7712fc55ece510675e2",
+      "sha256": "30e889b58cbc51adfbb038ab1a96dc4025aa3542a3cff7712fc55ece510675e2",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff",
+      "http_status": 200,
+      "expected_bytes": 3244,
+      "bytes": 3244,
+      "expected_sha256": "5cda41563a095bd70c78e2dda13d0f8cb922c71c90fffd0a0044c65173a66e83",
+      "sha256": "5cda41563a095bd70c78e2dda13d0f8cb922c71c90fffd0a0044c65173a66e83",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff",
+      "http_status": 200,
+      "expected_bytes": 5148,
+      "bytes": 5148,
+      "expected_sha256": "3bc6ecaae7ecf6f8d7f8ea07bddbaca8601e2cb6e89d6aef58e78d9f6d8a398f",
+      "sha256": "3bc6ecaae7ecf6f8d7f8ea07bddbaca8601e2cb6e89d6aef58e78d9f6d8a398f",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff",
+      "http_status": 200,
+      "expected_bytes": 17604,
+      "bytes": 17604,
+      "expected_sha256": "c56da8d69f1a0208b8e0703656c3264b6dd748bd452524c82b0385b60f6a68c1",
+      "sha256": "c56da8d69f1a0208b8e0703656c3264b6dd748bd452524c82b0385b60f6a68c1",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff",
+      "http_status": 200,
+      "expected_bytes": 1116,
+      "bytes": 1116,
+      "expected_sha256": "36e0d72d8a7afc696a3e7a5c7369807634640de9b02257bca447bdf126221a27",
+      "sha256": "36e0d72d8a7afc696a3e7a5c7369807634640de9b02257bca447bdf126221a27",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff",
+      "http_status": 200,
+      "expected_bytes": 1136,
+      "bytes": 1136,
+      "expected_sha256": "72bc573386dd1d48c5bbd286302ca9e3400c5eb0f298e7cfbf945b9d08fc688f",
+      "sha256": "72bc573386dd1d48c5bbd286302ca9e3400c5eb0f298e7cfbf945b9d08fc688f",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Zero.woff",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Zero.woff",
+      "http_status": 200,
+      "expected_bytes": 1368,
+      "bytes": 1368,
+      "expected_sha256": "481e39042508ae313a60618af1e37146ab93e9324c98e4c78b8f17fe55d41e0b",
+      "sha256": "481e39042508ae313a60618af1e37146ab93e9324c98e4c78b8f17fe55d41e0b",
+      "pass": true
+    },
+    {
+      "path": "vendor/mathjax-3.2.2/tex-chtml-full.js",
+      "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/vendor/mathjax-3.2.2/tex-chtml-full.js",
+      "http_status": 200,
+      "expected_bytes": 1327522,
+      "bytes": 1327522,
+      "expected_sha256": "91b005503c5d1f0958bf4d73ada1a3be33596b2c4ab5da22277f1b0d3149b5a4",
+      "sha256": "91b005503c5d1f0958bf4d73ada1a3be33596b2c4ab5da22277f1b0d3149b5a4",
+      "pass": true
+    }
+  ],
+  "file_count": 31,
+  "total_bytes": 6183469,
+  "errors": [],
+  "credentials_used": false,
+  "note": "GitHub's Pages-configuration API requires authentication; anonymous proof uses the public gh-pages commit plus exact HTTPS Pages bytes."
+}
