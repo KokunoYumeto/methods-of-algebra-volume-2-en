@@ -160,6 +160,27 @@
   text is unchanged. The exact mutex-safe PDF command is being replayed once
   from this corrected source.
 
+## 2026-09-01 — complete HTML reader published and anonymously read back
+
+- The complete 149-section English HTML reader, editable English source,
+  backend, controls, and QA evidence were published as an explicitly labelled
+  HTML-first checkpoint in the permanent public repository. PDF and Zenodo
+  remain truthfully marked pending while the machine-wide TeX slot is occupied.
+- Repository: `https://github.com/KokunoYumeto/methods-of-algebra-volume-2-en`.
+  Content commit: `5e76c3454625afd6227e1762d9d65ba2c6c4b906`.
+  Pages commit: `ffe5fd72a87a4de894a7fa09861d415406544278`.
+  Reader: `https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/`.
+- The first anonymous byte comparison detected Git EOL normalization in five
+  text artifacts. `.gitattributes` now marks `reader/dist/** -text`; a narrow
+  `git add --renormalize -- reader/dist` republished their exact verified bytes.
+  Final anonymous readback passes all 31 files and 6,200,748 bytes with exact
+  SHA-256 identity. Receipt: `release/GITHUB_PUBLIC_READBACK.json`, SHA-256
+  `e7658a6e688cda2d1cd0e10ef3c4d20845c54fd05b0ff0acfa9df301b8d1e618`.
+- Next executable action: when `Global\\InterlanguageTeXSlotV1` is observed
+  free, run the corrected PDF build once, inspect representative pages, package
+  the nine-file Zenodo release, publish/read it back, then update the same
+  GitHub lineage from checkpoint to the complete PDF+HTML release.
+
 ## 2026-09-01 — refreshed reader runtime QA after deterministic ledger replay
 
 - Fresh localhost browser QA closed against `reader/dist/index.html`, 4,499,295

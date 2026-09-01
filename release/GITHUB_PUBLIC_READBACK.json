@@ -1,11 +1,11 @@
 {
   "schema": "o014-english-github-public-readback-v1",
-  "verified_at_utc": "2026-09-01T01:42:28.724682+00:00",
-  "result": "FAIL",
+  "verified_at_utc": "2026-09-01T01:45:06.127110+00:00",
+  "result": "PASS",
   "repository": "https://github.com/KokunoYumeto/methods-of-algebra-volume-2-en",
   "pages_url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/",
   "main_default_branch": "main",
-  "pages_commit": "1e186f21e91e04b6e289b94780778d3696c73eec",
+  "pages_commit": "ffe5fd72a87a4de894a7fa09861d415406544278",
   "checks": {
     "publication_boundary": true,
     "repository_public": true,
@@ -14,7 +14,7 @@
     "public_gh_pages_branch": true,
     "pages_commit_exact": true,
     "all_files_read": true,
-    "all_bytes_exact": false,
+    "all_bytes_exact": true,
     "root_present": true
   },
   "files": [
@@ -23,40 +23,40 @@
       "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/LICENSE.txt",
       "http_status": 200,
       "expected_bytes": 905,
-      "bytes": 885,
+      "bytes": 905,
       "expected_sha256": "a78e7b7f602eb4fc94f1b71bc89a531d4a0ad20bf364e530131f5ce1472ea6d7",
-      "sha256": "4c02eff56ccbdb12f2f8179f71608283d01853692d94eaf128f05dbdbbe1d91e",
-      "pass": false
+      "sha256": "a78e7b7f602eb4fc94f1b71bc89a531d4a0ad20bf364e530131f5ce1472ea6d7",
+      "pass": true
     },
     {
       "path": "SHA256SUMS.txt",
       "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/SHA256SUMS.txt",
       "http_status": 200,
       "expected_bytes": 3897,
-      "bytes": 3867,
+      "bytes": 3897,
       "expected_sha256": "c6df455b6e0203e69165dd1d2d9279d5af2f947147f80b5bd14b89a0efa246db",
-      "sha256": "0745b3c021e247dc0062eb1ec45c5ea8f1ea560c7062adf63c7bbddc4d69becc",
-      "pass": false
+      "sha256": "c6df455b6e0203e69165dd1d2d9279d5af2f947147f80b5bd14b89a0efa246db",
+      "pass": true
     },
     {
       "path": "accessibility.html",
       "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/accessibility.html",
       "http_status": 200,
       "expected_bytes": 2398,
-      "bytes": 2364,
+      "bytes": 2398,
       "expected_sha256": "a69e06aaa543262a13a94d3e48caa8789bcdba4894bb661f2e2baef50b721faf",
-      "sha256": "7a23ffe099ef1387d1ad54d5dff1b1d7b67fd91a6019d26013d4a7fae0e3e2d8",
-      "pass": false
+      "sha256": "a69e06aaa543262a13a94d3e48caa8789bcdba4894bb661f2e2baef50b721faf",
+      "pass": true
     },
     {
       "path": "index.html",
       "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/index.html",
       "http_status": 200,
       "expected_bytes": 4499295,
-      "bytes": 4482120,
+      "bytes": 4499295,
       "expected_sha256": "894749f6fc9e19d37ff981a0e5a2681539d2dc04b33952967ac989b3d70abff3",
-      "sha256": "8886fd7752a0cf5417983b99c5939208f2149826f8708e08241339107db0e7c9",
-      "pass": false
+      "sha256": "894749f6fc9e19d37ff981a0e5a2681539d2dc04b33952967ac989b3d70abff3",
+      "pass": true
     },
     {
       "path": "reader.css",
@@ -73,10 +73,10 @@
       "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/validation-report.json",
       "http_status": 200,
       "expected_bytes": 632,
-      "bytes": 612,
+      "bytes": 632,
       "expected_sha256": "2c4eddec8daa988eee2067fe67e6d875368001bc8ae2a1c27a6330438cc72c54",
-      "sha256": "00fd2598e338d47b28b8c00db7dedd4697cb1fdd111561b81adc05f1bc0b6c59",
-      "pass": false
+      "sha256": "2c4eddec8daa988eee2067fe67e6d875368001bc8ae2a1c27a6330438cc72c54",
+      "pass": true
     },
     {
       "path": "vendor/mathjax-3.2.2/LICENSE-MathJax.txt",
@@ -330,7 +330,7 @@
     }
   ],
   "file_count": 31,
-  "total_bytes": 6183469,
+  "total_bytes": 6200748,
   "errors": [],
   "credentials_used": false,
   "note": "GitHub's Pages-configuration API requires authentication; anonymous proof uses the public gh-pages commit plus exact HTTPS Pages bytes."

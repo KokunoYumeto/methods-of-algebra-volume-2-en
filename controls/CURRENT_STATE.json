@@ -27,7 +27,17 @@
     "status": "mutex_safe_build_waiting",
     "command": "python -B tools/build_english_pdf.py"
   },
-  "published": false,
+  "published": true,
+  "publication_status": "complete_html_checkpoint_public_pdf_and_zenodo_pending",
+  "github": {
+    "repository": "https://github.com/KokunoYumeto/methods-of-algebra-volume-2-en",
+    "pages_url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/",
+    "main_content_commit": "5e76c3454625afd6227e1762d9d65ba2c6c4b906",
+    "pages_commit": "ffe5fd72a87a4de894a7fa09861d415406544278",
+    "public_files": 31,
+    "public_bytes": 6200748,
+    "readback_receipt": "release/GITHUB_PUBLIC_READBACK.json"
+  },
   "source_map": "controls/SOURCE_UNIT_MAP.json",
   "workflow": "controls/ENGLISH_EDITION_SCOPE.md",
   "last_admission_utc": "2026-08-31T23:22:09.423465+00:00",
