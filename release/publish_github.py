@@ -104,8 +104,14 @@ def main():
     git("push",lease,"origin",f"{pages_commit}:refs/heads/gh-pages")
     get=run(["gh","api",f"repos/{SLUG}/pages"],check=False)
     method="PUT" if get.returncode==0 else "POST"
-    run(["gh","api","--method",method,f"repos/{SLUG}/pages","-f","build_type=legacy",
-         "-f","source[branch]=gh-pages","-f","source[path]=/"])
+    configured=run(["gh","api","--method",method,f"repos/{SLUG}/pages","-f","build_type=legacy",
+                    "-f","source[branch]=gh-pages","-f","source[path]=/"],check=False)
+    if configured.returncode:
+        current=run(["gh","api",f"repos/{SLUG}/pages"])
+        page=json.loads(current.stdout);source=page.get("source",{})
+        if not (page.get("public") is True and page.get("build_type")=="legacy" and
+                source.get("branch")=="gh-pages" and source.get("path")=="/"):
+            raise RuntimeError(f"GitHub Pages configuration failed: {configured.stderr[-1000:]}")
     receipt={"schema":"o014-english-github-publication-v1","published_at_utc":datetime.now(timezone.utc).isoformat(),
       "result":"PUSHED_PENDING_ANONYMOUS_READBACK","repository":f"https://github.com/{SLUG}",
       "pages_url":f"https://{OWNER.lower()}.github.io/{REPO}/","visibility":"public",
