@@ -1,0 +1,690 @@
+% Unit 039 English translation of chapter3.tex lines 1293--1586.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter3.exercises-hochschild-homology-and-cohomology
+% Coverage: Section 3.8 in full.
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.h001
+\section{Exercises: Hochschild Homology and Cohomology}\label{sec:HH}
+\hypertarget{o014.aljabr2.chapter3.exercises-hochschild-homology-and-cohomology}{ }
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.p001
+This section returns to concrete mathematics. Let $\Bbbk$ be a commutative
+ring. Tensor products $\dotimes{\Bbbk}$ of $\Bbbk$-modules will be abbreviated
+to $\otimes$, the $n$-th tensor power of a $\Bbbk$-module $M$ will be written
+$M^{\otimes n}$, and we set $M^{\otimes 0}:=\Bbbk$. For a $\Bbbk$-algebra
+$R$, as usual, the left and right actions of $\Bbbk$ on every $(R,R)$-bimodule
+are assumed to agree. Thus an $(R,R)$-bimodule is also identified with a left
+$R\otimes R^{\opp}$-module.
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.de001
+\begin{definition}[Bar complex]\label{def:bar-Hochschild}
+	\index{bar complex}
+	\index[sym1]{BR@$\mathsf{B}R$}
+	Let $R$ be a $\Bbbk$-algebra. For every $n\in\Z_{\geq 0}$, define the
+	$(R,R)$-bimodule
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q001
+	\begin{gather*}
+		\mathsf{B}_n R := R \otimes R^{\otimes n} \otimes R = R^{\otimes (n+2)}, \\
+		r(r_0 \otimes \cdots \otimes r_{n+1})r'
+		= rr_0 \otimes \cdots \otimes r_{n+1} r',
+	\end{gather*}
+	where $r,r',r_0,\ldots,r_{n+1}\in R$. For every $n\geq1$, define the
+	bimodule homomorphism
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q002
+	\begin{equation*}\begin{split}
+		b_n: \mathsf{B}_n R & \to \mathsf{B}_{n-1} R, \\
+		b_n \left( r_0 \otimes \cdots \otimes r_{n+1} \right)
+		& := \sum_{k=0}^n (-1)^k
+		\cdots \otimes r_k r_{k+1} \otimes \cdots .
+	\end{split}\end{equation*}
+	We call $\mathsf{B}R:=\left(\mathsf{B}_nR,b_n\right)_{n\geq0}$ the
+	\emph{bar complex} of $R$; it is a chain complex in the sense of
+	Remark~\ref{rem:cochain-vs-chain}.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.p002
+The classical notation for
+$r_0\otimes\cdots\otimes r_{n+1}\in\mathsf{B}_nR$ is
+$(r_0|\cdots|r_{n+1})$; this is the origin of the name ``bar.'' The
+homomorphism $b$ acts by deleting one separator in every possible way and
+then summing the results with alternating signs. From this it is easy to see
+that $b^2=0$. Indeed, $b^2(r_0|\cdots|r_{n+1})$ is a linear combination of
+elements of the form
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q003
+\begin{gather*}
+	(\cdots |r_{h-1} r_h| \cdots |r_{k-1} r_k| \cdots )
+	\quad \text{or} \quad
+	( \cdots | r_{h-1} r_h r_{h+1} | \cdots ).
+\end{gather*}
+There are exactly two ways to obtain any such term from
+$(\cdots|r_{h-1}|\cdots|r_k|\cdots)$ by deleting separators, and their signs
+cancel. Thus $\mathsf{B}R$ is indeed a chain complex.
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.p003
+Now augment the bar complex as in the following diagram and denote the result
+by $\mathsf{B}'R$. The morphism $b_0$ in the diagram is also called the
+augmentation homomorphism.
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.g001
+\[\begin{tikzcd}[row sep=small]
+	\cdots \arrow[r, "b_2"] & \mathsf{B}_1 R \arrow[r, "b_1"]
+	& \mathsf{B}_0 R \arrow[r, "b_0"] & (\mathsf{B}_{-1} R := R) \arrow[r] & 0 \\
+	& & (r_0 | r_1) \arrow[mapsto, r]
+	\arrow[phantom, u, "\in" description, sloped]
+	& r_0 r_1 \arrow[phantom, u, "\in" description, sloped] &
+\end{tikzcd}\]\index[sym1]{B'R@$\mathsf{B}'R$}
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.le001
+\begin{lemma}\label{prop:HH-bar-exactness}
+	The augmented chain complex $\mathsf{B}'R$ is exact. More precisely, if
+	$\mathsf{B}'R$ is regarded as a chain complex of $\Bbbk$-modules, then
+	$\identity_{\mathsf{B}'R}$ is null-homotopic.
+\end{lemma}
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.pf001
+\begin{proof}
+	We construct a family of $\Bbbk$-module homomorphisms
+	$h_n:\mathsf{B}'_nR\to\mathsf{B}'_{n+1}R$, for $n\geq-1$, such that
+	$b_{n+1}h_n+h_{n-1}b_n=\identity_{\mathsf{B}'_nR}$ (with, of course, the
+	conventions $h_{-2}=0$ and $b_{-1}=0$). This will prove that
+	$\identity_{\mathsf{B}'R}$ is null-homotopic. Concretely, take
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q004
+	\[ h_n(r_0 | \cdots | r_{n+1})
+		= (1_R | r_0 | \cdots | r_{n+1}), \]
+	and extend linearly on $\mathsf{B}'_nR$. For every $n\geq0$ and
+	$r_0,\ldots,r_{n+1}\in R$, we obtain
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q005
+	\begin{align*}
+		b_{n+1} h_n \left(r_0 | \cdots | r_{n+1} \right)
+		& = (r_0 | \cdots | r_{n+1})
+		+ \sum_{k=0}^n (-1)^{k+1}
+		(1_R | \cdots | r_k r_{k+1} | \cdots), \\
+		h_{n-1} b_n \left(r_0 | \cdots | r_{n+1} \right)
+		& = \sum_{k=0}^n (-1)^k
+		(1_R | \cdots | r_k r_{k+1} | \cdots).
+	\end{align*}
+	It follows immediately that
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q006
+	\[ (b_{n+1} h_n + h_{n-1} b_n)(r_0 | \cdots | r_{n+1})
+		= (r_0 | \cdots | r_{n+1}). \]
+	Since $b_0h_{-1}(r)=b_0(1_R|r)=r$, the equality also holds directly for
+	$n=-1$.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.p004
+At first sight, the definitions of $\mathsf{B}R$ and $\mathsf{B}'R$ may seem
+like unexpected inventions. Example~\sourcecrossref{eg:HH-comonad}{in the
+discussion of Chapter~8} will later view these chain complexes from the
+perspective of comonads and give a natural explanation.
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.cn001
+\begin{convention}\label{con:Re-R-R}
+	\index[sym1]{R-e@$R^e$}
+	Define $R^e:=R\otimes R^{\opp}$. For every $(R,R)$-bimodule $M$,
+	including the special case $M=R$, henceforth:
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.l001
+	\begin{compactitem}
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.i001
+		\item regard $M$ as a left $R^e$-module through
+		$(r\otimes r')m=rmr'$;
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.i002
+		\item regard $M$ as a right $R^e$-module through
+		$m(r\otimes r'):=r'mr$.
+	\end{compactitem}
+\end{convention}
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.p005
+With this convention, for every $M$ we can define the chain complex of
+$\Bbbk$-modules $M\dotimes{R^e}\mathsf{B}R$ and the complex
+$\Hom_{R^e}\left(\mathsf{B}R,M\right)$.
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.de002
+\begin{definition}[G.\ Hochschild]\label{def:HH}
+	\index{Hochschild homology and cohomology}
+	\index[sym1]{HH@$\HHm_n$, $\HHm^n$}
+	For every $n$, define the $\Bbbk$-linear functors
+	$\HHm_n,\HHm^n:(R,R)\dcate{Mod}\rightrightarrows\Bbbk\dcate{Mod}$ as
+	follows:
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q007
+	\[\begin{array}{cl}
+		\text{Hochschild homology}
+		& \HHm_n(M) := \Hm_n\left(M\dotimes{R^e}\mathsf{B}R\right), \\
+		\text{Hochschild cohomology}
+		& \HHm^n(M) := \Hm^n\left(\Hom_{R^e}(\mathsf{B}R,M)\right).
+	\end{array}\]
+	In the special case $M=R$, these objects are called respectively the
+	\emph{Hochschild homology} $\HHm_n(R)$ and \emph{Hochschild cohomology}
+	$\HHm^n(R)$ of $R$.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.p006
+To simplify the descriptions of $\HHm_n(M)$ and $\HHm^n(M)$, introduce the
+following two Hochschild complexes:
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q008
+\begin{equation}\label{eqn:HH-cplx}\begin{aligned}
+	\index[sym1]{CRM@$C_\bullet(R, M)$, $C^\bullet(R, M)$}
+	C_\bullet(R,M) & := \left[
+	\cdots \to M \otimes R^{\otimes n} \xrightarrow{d_n} \cdots
+	\xrightarrow{d_2} M \otimes R \xrightarrow{d_1} M \right], \\
+	C^\bullet(R,M) & := \left[
+	M \xrightarrow{d^0} \Hom_{\Bbbk}(R, M) \xrightarrow{d^1} \cdots
+	\to \Hom_{\Bbbk}(R^{\otimes n}, M) \xrightarrow{d^n} \cdots \right].
+\end{aligned}\end{equation}
+\index{Hochschild complex}
+Their degrees are respectively $\ldots,2,1,0$ and $0,1,2,\ldots$; all other
+terms are set equal to $0$. The homomorphisms $d_n$ and $d^n$ are defined as
+follows.
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.l002
+\begin{enumerate}
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.i003
+	\item In bar notation, continue to write an element
+	$m\otimes r_1\otimes\cdots\otimes r_n$ of $M\otimes R^{\otimes n}$ as
+	$(m|r_1|\cdots|r_n)$. Define
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q009
+	\begin{multline}\label{eqn:HH-cplx-d}
+		d_n(m|r_1|\cdots|r_n)=\\
+		\underbracket{(mr_1|r_2|\cdots|r_n)
+		+\sum_{k=1}^{n-1}(-1)^k
+		(m|\cdots|r_kr_{k+1}|\cdots)}_{=:d'_n(m|r_1|\cdots|r_n)}
+		+(-1)^n(r_nm|r_1|\cdots|r_{n-1}).
+	\end{multline}
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.i004
+	\item Identify an element of $\Hom_{\Bbbk}(R^{\otimes n},M)$ with a
+	$\Bbbk$-multilinear map $R^n\to M$ (see \cite[\S 7.5]{Li1}). Define
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q010
+	\begin{multline*}
+		(d^nf)(r_1,\ldots,r_{n+1})=\\
+		r_1f(r_2,\ldots,r_{n+1})
+		+\sum_{k=1}^n(-1)^kf(\ldots,r_kr_{k+1},\ldots)
+		+(-1)^{n+1}f(r_1,\ldots,r_n)r_{n+1}.
+	\end{multline*}
+\end{enumerate}
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.p007
+For every $n\in\Z_{\geq0}$, there are isomorphisms
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.g002
+\[\begin{tikzcd}[row sep=tiny]
+	M \dotimes{R^e} \mathsf{B}_n R \arrow[leftrightarrow, r, "\sim"]
+	& M \otimes R^{\otimes n} \\
+	m \otimes (r_0 \otimes \cdots \otimes r_{n+1}) \arrow[mapsto, r]
+	& (r_{n+1} m r_0 | r_1 | \cdots | r_n) \\
+	m \otimes (1_R \otimes r_1 \otimes \cdots \otimes r_n \otimes 1_R )
+	& (m | r_1 | \cdots | r_n) \arrow[mapsto, l]
+\end{tikzcd}\]
+\footnote{Translator's note (O014-C044): the source appends a final
+$|1_R$ to the image in the middle row, even though the codomain is
+$M\otimes R^{\otimes n}$; that surplus component is removed here.}
+and
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.g003
+\[\begin{tikzcd}[row sep=tiny, column sep=small]
+	\Hom_{R^e}(\mathsf{B}_nR, M) \arrow[leftrightarrow, r, "\sim"]
+	& \Hom_{\Bbbk}(R^{\otimes n}, M) \\
+	\varphi \arrow[mapsto, r]
+	& {\left[(r_1,\ldots,r_n)\mapsto
+		\varphi(1_R,r_1,\ldots,r_n,1_R)\right]} \\
+	{\left[r_0\otimes\cdots\otimes r_{n+1}\mapsto
+		r_0f(r_1,\ldots,r_n)r_{n+1}\right]}
+	& f \arrow[mapsto, l] .
+\end{tikzcd}\]
+A short calculation shows that, through these isomorphisms,
+$\identity_M\otimes b_n$ corresponds to $d_n$, while $b_{n+1}^*$
+corresponds to $d^n$.\footnote{Translator's note (O014-C045): the source
+writes $b_n^*$, which starts at $\Hom_{R^e}(\mathsf{B}_{n-1}R,M)$; the
+degree-$n$ differential comes from
+$b_{n+1}:\mathsf{B}_{n+1}R\to\mathsf{B}_nR$.}
+Thus the isomorphisms above are isomorphisms of complexes and give the
+following result. To display the parameter $R$ explicitly once again, write
+$\HHm_n(R,M):=\HHm_n(M)$ and $\HHm^n(R,M):=\HHm^n(M)$.
+\footnote{Translator's note (O014-C046): in the formula below, the source
+switches to two-argument notation without defining it; these two
+abbreviations make that transition explicit.} With this notation,
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q011
+\[ \HHm^n(R, M) \simeq \Hm^n(C^\bullet(R, M)), \quad
+	\HHm_n(R, M) \simeq \Hm_n(C_\bullet(R, M)). \]
+Readers new to the subject are encouraged to check the calculation in
+detail.
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.re001
+\begin{remark}
+	Suppose that $R$ is commutative. Every $R$-module $M$ becomes an
+	$(R,R)$-bimodule by $rmr':=rr'm$. In this case, the complex
+	$C_\bullet(R,M)$ (or $C^\bullet(R,M)$)\footnote{Translator's note
+	(O014-C047): the source reverses the two arguments as $C_\bullet(M,R)$
+	and $C^\bullet(M,R)$ in this sentence; the notation here is aligned with
+	the preceding definitions.}
+	is a complex of $R$-modules if we set
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q012
+	\[ r\cdot(m|r_1|\cdots|r_n)=(rm|r_1|\cdots|r_n)
+		\quad\text{or}\quad
+		(r\cdot f)(r_1,\ldots,r_n)=rf(r_1,\ldots,r_n). \]
+	Consequently, $\HHm_n(M)$ and $\HHm^n(M)$ both acquire $R$-module
+	structures. This can of course also be proved at the level of the bar
+	complex.
+\end{remark}
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.ex001
+\begin{example}
+	Take $M=R=\Bbbk$. It follows immediately from the construction above that
+	$d_1,d_2,\ldots$ are successively $0,\identity,0,\identity,\ldots$.
+	Thus $\HHm_0(\Bbbk)=\Bbbk$ and $\HHm_{\geq1}(\Bbbk)=0$. A similar
+	argument gives $\HHm^0(\Bbbk)=\Bbbk$ and
+	$\HHm^{\geq1}(\Bbbk)=0$.
+\end{example}
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.p008
+In higher degrees $n$, computing $\HHm^n(M)$ and $\HHm_n(M)$ from the
+original definition is generally difficult.
+Example~\sourcecrossref{eg:HH-Tor}{in \S~3.14} and
+\sourcecrossref{eg:HH-Ext}{in \S~3.14} will later show respectively that
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q013
+\[ \HHm_n(M) \simeq \Tor^{R^e}_n(M, R), \quad
+	\HHm^n(M) \simeq \Ext_{R^e}^n(R, M), \]
+provided that $R$, as a $\Bbbk$-module, is respectively flat and projective.
+At that point, some special cases of $\HHm_n$ and $\HHm^n$ can be computed
+with simpler complexes. For general $R$, in the exercises of
+\sourcecrossref{sec:simplicial}{Chapter~8} we will explain $\HHm_n$ and
+$\HHm^n$ as relative $\Tor$ and relative $\Ext$.
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.ex002
+\begin{example}[Degree zero: center and cocenter]
+	\index{center}
+	\index{cocenter}
+	First consider $\HHm^0(M)$. By definition,
+	$d^0:M=C^0(R,M)\to C^1(R,M)=\Hom_{\Bbbk}(R,M)$ maps $m$ to
+	$[r\mapsto rm-mr]$. Therefore
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q014
+	\[ \HHm^0(M)=\left\{m\in M:\forall r\in R,\;rm=mr\right\}. \]
+	The right-hand side may naturally be called the \emph{center} of $M$;
+	when $M=R$, this is precisely the center in the sense of ring theory.
+
+	Next consider $\HHm_0(M)$. Write $[M,R]$ for the $\Bbbk$-submodule of
+	$M$ generated by all elements of the form $mr-rm$, with $m\in M$ and
+	$r\in R$. Since $d_1(m|r)=mr-rm$, we obtain
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q015
+	\[ \Image\left[d_1:M\otimes R\to M\right]=[M,R],
+		\quad \HHm_0(M)=M/[M,R]. \]
+	In particular, the case $M=R$ gives the submodule $[R,R]$ of $R$
+	generated by all $[r',r]:=r'r-rr'$. The corresponding $\Bbbk$-module
+	$R/[R,R]$ is called the \emph{cocenter} of $R$. Every $\Bbbk$-module
+	homomorphism $\varphi:R\to N$ satisfying $\varphi(rr')=\varphi(r'r)$,
+	that is, having a ``trace-like'' property, factors uniquely through
+	$R/[R,R]=\HHm_0(R)$.
+\end{example}
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.ex003
+\begin{example}[Degree one: derivations]\label{eg:HH1}
+	\index[sym1]{Der@$\mathrm{Der}_{\Bbbk}(R, M)$}
+	\index[sym1]{InnDer@$\mathrm{Inn}_{\Bbbk}(R, M)$}
+	Now consider $\HHm^1(M)$. Write $[r,m]:=rm-mr$. Then
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q016
+	\begin{align*}
+		\Ker(d^1)
+		&=\left\{D\in\Hom_{\Bbbk}(R,M):
+		\forall r_1,r_2\in R,\;
+		r_1D(r_2)-D(r_1r_2)+D(r_1)r_2=0\right\},\\
+		\Image(d^0)
+		&=\left\{[\mathord{\cdot},m]\in\Hom_{\Bbbk}(R,M):m\in M\right\}.
+	\end{align*}
+	The condition defining $\Ker(d^1)$ may be rewritten as the Leibniz rule
+	$D(r_1r_2)=r_1D(r_2)+D(r_1)r_2$. A $\Bbbk$-module homomorphism $D$ with
+	this property is regarded as a derivation on $R$ with values in $M$. The
+	$\Bbbk$-module formed by these homomorphisms is denoted by
+	$\Der_{\Bbbk}(R,M)$, while the elements of the form
+	$[\mathord{\cdot},m]$ form the submodule
+	$\mathrm{Inn}_{\Bbbk}(R,M)$. Thus the quotient module
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q017
+	\[ \HHm^1(M)=\Der_{\Bbbk}(R,M)/\mathrm{Inn}_{\Bbbk}(R,M) \]
+	classifies all derivations on $R$ with values in $M$, modulo
+	$\mathrm{Inn}_{\Bbbk}(R,M)$.
+
+	Now suppose that $R$ is commutative, in order to interpret $\HHm_1(M)$.
+	We need a little preparation. Define the free $R$-module
+	$\bigoplus_{r\in R}R\widetilde{\dd r}$ with basis the symbols
+	$\widetilde{\dd r}$, and define the submodule $N$ generated by the
+	following elements:
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q018
+	\[ \widetilde{\dd(r+r')}-\widetilde{\dd r}-\widetilde{\dd r'},
+		\quad \widetilde{\dd tr}-t\widetilde{\dd r},
+		\quad \widetilde{\dd rr'}-r\widetilde{\dd r'}-r'\widetilde{\dd r}, \]
+	where $r,r'\in R$ and $t\in\Bbbk$. Thus define the $R$-module
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q019
+	\begin{align*}
+		\Omega_{R|\Bbbk}
+		&:=\bigoplus_{r\in R}R\widetilde{\dd r}\bigg/N\\
+		&=\sum_{r\in R}R\dd r,\qquad
+		\dd r:=\text{the image of }\widetilde{\dd r}.
+	\end{align*}
+	\index{Kähler differentials}
+	\index[sym1]{OmegaRk@$\Omega_{R\vert\Bbbk}$}
+	This is called the \emph{module of Kähler differentials} of the
+	$\Bbbk$-algebra $R$ and is characterized by the following universal
+	property:
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.g004
+	\[\begin{tikzcd}[row sep=tiny]
+		\Hom_R(\Omega_{R|\Bbbk}, M) \arrow[leftrightarrow, r, "\sim"]
+		& \Der_{\Bbbk}(R, M) \\
+		\varphi \arrow[mapsto, r] & {\left[r\mapsto\varphi(\dd r)\right]} \\
+		{\left[\dd r\mapsto D(r)\right]} & D \arrow[mapsto, l].
+	\end{tikzcd}
+	\qquad M:\text{an $R$-module}. \]
+	The reader is asked to verify this directly. This isomorphism shows that
+	$R\to\Omega_{R|\Bbbk}$ given by $r\mapsto\dd r$ (corresponding to
+	$\varphi=\identity$) is a ``universal derivation.'' Topics related to
+	this properly belong to the theory of commutative rings; we merely record
+	the result here.
+
+	Return to $\HHm_1(M)$, still assuming that $R$ is commutative. Let $M$ be
+	an $R$-module made into an $(R,R)$-bimodule by $rmr':=(rr')m$. It is
+	immediate that $d_1:M\otimes R\to M$ is $0$, while the image of
+	$d_2:M\otimes R^{\otimes2}\to M\otimes R$ is generated by elements of
+	the form $(rm|r')-(m|rr')+(r'm|r)$. We therefore obtain homomorphisms of
+	$\Bbbk$-modules in both directions
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.g005
+	\[\begin{tikzcd}[row sep=tiny]
+		(M \otimes R) / \Image(d_2) \arrow[shift right, r]
+		& M \dotimes{R} \Omega_{R|\Bbbk} \arrow[shift right, l] \\
+		(m|r) + \Image(d_2) \arrow[mapsto, r] & m \otimes \dd r \\
+		(r'm|r) + \Image(d_2)
+		& m \otimes r' \dd r \arrow[mapsto, l] .
+	\end{tikzcd}\]
+	From the descriptions of $\Image(d_2)$ and $\Omega_{R|\Bbbk}$, a routine
+	check shows that these homomorphisms are well defined and mutually
+	inverse. In fact, both are isomorphisms of $R$-modules. Thus, when $R$ is
+	commutative, we obtain
+	$\HHm_1(M)\simeq M\dotimes{R}\Omega_{R|\Bbbk}$. In particular,
+	$\HHm_1(R)\simeq\Omega_{R|\Bbbk}$.
+\end{example}
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.p009
+Hochschild homology and cohomology contain a wealth of information; their
+connection with derivations and differential forms is no accident. The
+exercises will give further interpretations of Hochschild cohomology.
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.p010
+Return to the Hochschild chain complex. Keeping the actions of $R^e$ on
+$\mathsf{B}_nR$ and on $M$ in mind, the intuitive idea is to arrange an
+element $(m|r_1|\cdots|r_n)$ of $C_n(R,M)$ in a circle:
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.f001
+\begin{center}\begin{tikzpicture}[scale=1.2]
+		\node[rotate=30] at (120:1) {$r_n$};
+		\node[rotate = 0]  at (90:1) {$m$};
+		\node[rotate=-15] at (60:1) {$r_1$};
+		\node[rotate=-45]  at (30:1) {$r_2$};
+		\draw (135:0.8) -- (135:1.2);
+		\draw (105:0.8) -- (105:1.2);
+		\draw (75:0.8) -- (75:1.2);
+		\draw(45:0.8) -- (45:1.2);
+		\draw[loosely dotted, thick]
+		(10:1) arc [start angle=10, end angle=-210, radius=1];
+\end{tikzpicture}\end{center}
+Thus $d_n(m|r_1|\cdots|r_n)$ is obtained by deleting a separator in $n+1$
+ways and summing the results with alternating signs. In the special case
+$M=R$, the picture has an evident rotational symmetry. Algebraically, for
+every $n\in\Z_{\geq0}$ define the $\Bbbk$-module homomorphism
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.g006
+\[\begin{tikzcd}[row sep=tiny]
+	t_n: R^{\otimes (n+1)} \arrow[r] & R^{\otimes (n+1)} \\
+	(r_0 | \cdots | r_n) \arrow[mapsto, r]
+	& (-1)^n \cdot (r_n | r_0 | \cdots | r_{n-1}) ;
+\end{tikzcd}\]
+then $t_n^{n+1}=\identity$. This homomorphism realizes the symmetry.
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.p011
+Rotational symmetry leads to the theory of \emph{cyclic homology}.
+Historically, there have been at least two motivations for studying cyclic
+homology. The first is to seek an analogue of de Rham theory in the
+noncommutative setting. The second is to study and apply K-theory, including
+various generalizations of the index theorem. This section uses Hochschild
+homology and cohomology and cyclic homology only as a light vehicle for
+familiarizing the reader with operations on complexes; the treatment is
+merely introductory. Readers wishing to go further may consult monographs
+such as \cite{Lo98, Wi19}.
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.p012
+All complexes (or double complexes) mentioned below are understood to be
+chain complexes (or chain double complexes).
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.p013
+For every $n\geq0$, define
+$N_n:=\identity+t_n+\cdots+(t_n)^n
+\in\End_{\Bbbk}(R^{\otimes(n+1)})$. Define the \emph{cyclic double complex}
+$\mathrm{CC}(R)=(\mathrm{CC}(R)_{p,q})_{(p,q)\in\Z^2}$ to be the following
+double complex.
+\index{cyclic double complex}
+\index[sym1]{CCR@$\mathrm{CC}(R)$}
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.g007
+\[\begin{tikzcd}[
+	/tikz/execute at end picture={
+		\node[rectangle, draw, fit=(NW) (SE),
+		inner xsep=1.5em, inner ysep=1.5em] {};
+	}]
+	\vdots & |[alias=NW]| & \vdots \arrow[d, "{d_{q+1}}"]
+	& \vdots \arrow[d, "{d'_{q+1}}"] & \\
+	q & \cdots & R^{\otimes (q+1)} \arrow[d, "{d_q}"] \arrow[l, "{N_q}"]
+	& R^{\otimes (q+1)} \arrow[d, "{d'_q}"]
+	\arrow[l, "{\identity - t_q}"] & \cdots \arrow[l] \\
+	q-1 & \cdots & R^{\otimes q} \arrow[d] \arrow[l, "{N_{q-1}}"]
+	& R^{\otimes q} \arrow[d] \arrow[l, "{\identity - t_{q-1}}"]
+	& \cdots \arrow[l] \\
+	\vdots & & \vdots & \vdots & |[alias=SE]| \\
+	& \cdots & p: \text{even} & p+1: \text{odd} & \cdots
+\end{tikzcd}\]
+All its terms are $\Bbbk$-modules, and all terms with $q<0$ are defined to
+be $0$. The morphisms $d_q$ and $d'_q$ are defined in
+\eqref{eqn:HH-cplx-d}. Notice that:
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.l003
+\begin{compactitem}
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.i005
+	\item the even columns are the Hochschild chain complex $C_\bullet(R,R)$
+	of \eqref{eqn:HH-cplx};
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.i006
+	\item it is easy to prove that the odd columns are the augmented bar
+	complex $\mathsf{B}'R$, with the indices shifted so that it begins in
+	degree $0$. Hence Lemma~\ref{prop:HH-bar-exactness} implies that all odd
+	columns are exact; in fact, they are $0$ in
+	$\cate{K}(\Bbbk\dcate{Mod})$.
+\end{compactitem}
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.p014
+To show that $\mathrm{CC}(R)$ is indeed a double complex, we need the
+following observation. Its proof is elementary and interesting, with no
+essential difficulty, so it is left as an exercise in this chapter.
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.le002
+\begin{lemma}\label{prop:CC-cplx}
+	Let $R$ be a $\Bbbk$-algebra. For every $q\in\Z_{\geq1}$, the following
+	equalities hold in
+	$\Hom_{\Bbbk}\left(R^{\otimes(q+1)},R^{\otimes q}\right)$:
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q020
+	\[ d_q(\identity-t_q)=(\identity-t_{q-1})d'_q,
+		\quad d'_qN_q=N_{q-1}d_q. \]
+\end{lemma}
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.p015
+For every double complex $C=(C_{i,j})_{(i,j)\in\Z^2}$ and $m\in\Z$,
+define its horizontal shift\footnote{This book's convention uses the
+subscript $\mathrm{I}$ for horizontal operations and $\mathrm{II}$ for
+vertical operations.} $C_{\mathrm{I}}[m]$ to be the double complex
+$(C_{m+i,j})_{i,j}$. For every $p\in\Z$, define the horizontal brutal
+truncation functor $\sigma_{\mathrm{I},\leq p}C$ (or
+$\sigma_{\mathrm{I},\geq p}C$) by replacing with $0$ every $C_{i,j}$ for
+which $i>p$ (or $i<p$) and leaving all other terms unchanged. This gives a
+short exact sequence of double complexes (note the order):
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q021
+\begin{equation}\label{eqn:homology-I-brute-truncation}
+	0 \to \sigma_{\mathrm{I}, \leq p} C \to C
+	\to \sigma_{\mathrm{I}, \geq p+1} C \to 0.
+\end{equation}
+Moreover, for every $a\leq b$, define
+$\sigma_{\mathrm{I},[a,b]}:=
+\sigma_{\mathrm{I},\leq b}\sigma_{\mathrm{I},\geq a}
+=\sigma_{\mathrm{I},\geq a}\sigma_{\mathrm{I},\leq b}$.
+
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.p016
+Apply these functors to $\mathrm{CC}(R)$ and then take the total complex
+$\tot_{\Pi}$ (Definition~\ref{def:total-cplx}); this leads to the following
+definition.
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.de003
+\begin{definition}[B.\ Feigin, B.\ Tsygan; A.\ Connes]\label{def:HC}
+	\index{cyclic homology}
+	\index{periodic cyclic homology}
+	\index[sym1]{HPHC@$\mathrm{HP}_n$, $\mathrm{HC}_n$, $\mathrm{HP}^n$, $\mathrm{HC}^n$}
+	For a $\Bbbk$-algebra $R$ and every $n\in\Z$, define
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q022
+	\begin{align*}
+		\mathrm{HP}_n(R)
+		&:=\Hm_n\left(\tot_{\Pi}(\mathrm{CC}(R))\right)
+		&\text{(periodic cyclic homology)},\\
+		\mathrm{HC}_n(R)
+		&:=\Hm_n\left(
+		\tot\left(\sigma_{\mathrm{I},\geq0}\mathrm{CC}(R)\right)\right)
+		&\text{(cyclic homology)}.
+%		\mathrm{HC}^-_n(R) & := \Hm_n\left( \tot_{\Pi}\left(\sigma_{\mathrm{I}, \leq 1} \mathrm{CC}(R)\right) \right) & \text{(negative cyclic homology)}
+	\end{align*}
+	Both are functors $\Bbbk\dcate{Alg}\to\Bbbk\dcate{Mod}$.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.p017
+Since $\sigma_{\mathrm{I},\geq0}\mathrm{CC}(R)$ lies in the first quadrant,
+its total complex involves only the finite direct sums
+$\bigoplus_{\substack{p+q=n\\p,q\geq0}}\mathrm{CC}_{p,q}(R)$. The subscript
+on $\tot$ is therefore unnecessary.
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.p018
+The definition immediately gives $\mathrm{HC}_{<0}(R)=0$, while
+$\mathrm{HC}_0(R)$ is the quotient of $R$ by
+$\Image[d_1:R^{\otimes2}\to R]$ and $\Image[\identity-t_0]=0$, namely
+$R/[R,R]$. The exercises will give computations in more special cases.
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.p019
+The cyclic complex has the periodicity
+$\mathrm{CC}(R)=\mathrm{CC}(R)_{\mathrm{I}}[-2]$, which yields an
+isomorphism $\mathrm{HP}_n(R)\rightiso\mathrm{HP}_{n-2}(R)$. For cyclic
+homology, the corresponding construction is the epimorphism ``shift two
+columns to the left''
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q023
+\begin{align*}
+	\sigma_{\mathrm{I},\geq0}\mathrm{CC}(R)
+	&\to\left(\sigma_{\mathrm{I},\geq0}\mathrm{CC}(R)\right)_{\mathrm{I}}[-2]\\
+	\mathrm{CC}(R)_{p,q}
+	&\to\begin{cases}
+		\mathrm{CC}(R)_{p-2,q}\;\text{(identity)},&p\geq2,\\
+		0,&0\leq p<2.
+	\end{cases}
+\end{align*}
+Its kernel is given by columns $0$ and $1$ of $\mathrm{CC}(R)$, namely the
+sub-double-complex $\sigma_{\mathrm{I},[0,1]}\mathrm{CC}(R)$. This defines
+Connes's periodicity operator
+$S:\mathrm{HC}_n(R)\to\mathrm{HC}_{n-2}(R)$ on cyclic homology.
+\index{Connes periodicity operator}
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.th001
+\begin{theorem}[A.\ Connes]\label{prop:Connes-exact}
+	Let $R$ be a $\Bbbk$-algebra. There is a canonical long exact sequence
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q024
+	\[ \cdots \xrightarrow{S} \mathrm{HC}_{n-1}(R)
+		\xrightarrow{B} \HHm_n(R) \xrightarrow{I} \mathrm{HC}_n(R)
+		\xrightarrow{S} \mathrm{HC}_{n-2}(R) \to \cdots, \]
+	where $S$ is Connes's periodicity operator and $I$ is induced by the
+	inclusion
+	\[
+		C_\bullet(R,R)\xrightarrow{\text{column $0$}}
+		\sigma_{\mathrm{I},\geq0}\mathrm{CC}(R).
+	\]
+	The map $B$ is the corresponding connecting homomorphism.
+\end{theorem}
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.pf002
+\begin{proof}
+	The first step is to apply \eqref{eqn:homology-I-brute-truncation} to
+	obtain the short exact sequence of double complexes
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.g008
+	\[\begin{tikzcd}
+		0 \arrow[r] & \text{column $0$} \arrow[r]
+		& \sigma_{\mathrm{I},[0,1]}\mathrm{CC}(R) \arrow[r]
+		& \text{column $1$} \arrow[r] & 0 .
+	\end{tikzcd}\]
+	Taking total complexes involves only finite direct sums. Checking degree
+	by degree shows that the result remains a short exact sequence
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.g009
+	\[\begin{tikzcd}
+		0 \arrow[r] & \text{column $0$} \arrow[r]
+		& \tot\left(\sigma_{\mathrm{I},[0,1]}\mathrm{CC}(R)\right)
+		\arrow[r] & \text{column $1$} \arrow[r] & 0.\\
+		& C_\bullet(R,R) \arrow[u,"\sim" sloped]
+		& & \mathsf{B}'R \arrow[u,"\sim" sloped] &
+	\end{tikzcd}\]
+	We already know that $\mathsf{B}'R$ is exact. Applying the long exact
+	sequence of Proposition~\ref{prop:long-exact-sequence-ses} shows that
+	$C_\bullet(R,R)\to
+	\tot\left(\sigma_{\mathrm{I},[0,1]}\mathrm{CC}(R)\right)$ is a
+	quasi-isomorphism of complexes.
+
+	Next consider the short exact sequence mentioned when defining $S$:
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.g010
+	\[\begin{tikzcd}
+		0 \arrow[r] & \sigma_{\mathrm{I},[0,1]}\mathrm{CC}(R) \arrow[r]
+		& \sigma_{\mathrm{I},\geq0}\mathrm{CC}(R) \arrow[r]
+		& \left(\sigma_{\mathrm{I},\geq0}\mathrm{CC}(R)\right)_{\mathrm{I}}[-2]
+		\arrow[r] & 0 .
+	\end{tikzcd}\]
+	After taking total complexes, this remains a short exact sequence. By the
+	preceding step, the degree-$n$ homology groups of the three total complexes
+	are identified respectively with $\HHm_n(R)$, $\mathrm{HC}_n(R)$, and
+	$\mathrm{HC}_{n-2}(R)$.\footnote{Translator's note (O014-C048): the
+	source says ``degree-$n$ cohomology'' in this sentence, but all three
+	objects are chain complexes and the formulas use homological subscripts;
+	``homology'' is used here.} This proves the theorem.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.re002
+\begin{remark}
+	\index{cyclic double complex}
+	\index{periodic cyclic cohomology}
+	\index{cyclic cohomology}
+	\index[sym1]{HPHC}
+	Define the cyclic double complex in the cochain sense,
+	$\mathrm{CC}'(R)$, by
+	$\mathrm{CC}'(R)^{p,q}:=
+	\Hom_{\Bbbk}\left(\mathrm{CC}(R)_{p,q},\Bbbk\right)$. In analogy with
+	Definition~\ref{def:HC}, define
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q025
+	\begin{align*}
+		\mathrm{HP}^n(R)
+		&:=\Hm^n\left(\tot_{\oplus}(\mathrm{CC}'(R))\right)
+		&\text{(periodic cyclic cohomology)},\\
+		\mathrm{HC}^n(R)
+		&:=\Hm^n\left(
+		\tot\left(\sigma_{\mathrm{I}}^{\geq0}\mathrm{CC}'(R)\right)\right)
+		&\text{(cyclic cohomology)}
+	\end{align*}
+	and so forth, where $\sigma_{\mathrm{I}}^{\geq0}$ still denotes the
+	horizontal brutal-truncation functor.
+
+	Write $R^\vee:=\Hom_{\Bbbk}(R,\Bbbk)$ and make it an $(R,R)$-bimodule by
+	\[ (r\varphi r')(x):=\varphi(r'xr). \]
+	By currying, the $\Bbbk$-linear dual of the Hochschild column is identified
+	with $C^\bullet(R,R^\vee)$; this identification requires no finiteness
+	hypothesis. Consequently, the long exact sequence in
+	Theorem~\ref{prop:Connes-exact} has a cohomological version
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q026
+	\[ \cdots \xrightarrow{S} \mathrm{HC}^{n+1}(R)
+		\xrightarrow{I} \HHm^{n+1}(R,R^\vee) \xrightarrow{B}
+		\mathrm{HC}^n(R) \xrightarrow{S} \mathrm{HC}^{n+2}(R) \to \cdots. \]
+	\footnote{Translator's note (O014-C049): the source prints
+	$\HHm^{n+1}(R)=\HHm^{n+1}(R,R)$ as the middle term. However, the
+	$\Bbbk$-linear dual of $C_\bullet(R,R)$ has coefficients in $R^\vee$,
+	not in the regular bimodule $R$, unless an additional identification
+	$R^\vee\simeq R$ is supplied.}
+	The corresponding Connes periodicity operator $S$ comes from the
+	monomorphism ``shift two columns to the right,'' namely
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.q027
+	\[ \sigma_{\mathrm{I}}^{\geq0}\mathrm{CC}'(R)
+		\to\left(\sigma_{\mathrm{I}}^{\geq0}\mathrm{CC}'(R)\right)_{\mathrm{I}}[2]. \]
+\end{remark}
+
+% segment-id: o014.li2.chapter3.exercises-hochschild-homology-and-cohomology.p020
+As our toolkit grows, we will return repeatedly to Hochschild homology and
+cohomology and to cyclic homology and cohomology.

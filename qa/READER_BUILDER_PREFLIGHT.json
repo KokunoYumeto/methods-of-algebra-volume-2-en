@@ -1,0 +1,132 @@
+{
+  "schema": "o014-reader-builder-preflight-v1",
+  "checked_at_utc": "2026-08-31T23:26:58.0106563Z",
+  "result": "PASS",
+  "scope": "Offline HTML reader build layer only; static preflight without a full build, browser, Git, TeX, publication, or build/dist mutation.",
+  "edited_files": [
+    "tools/build_english_reader.py",
+    "reader/tools/build_pandoc_reader.py",
+    "reader/tools/validate_reader.py",
+    "reader/reader.css"
+  ],
+  "checks": {
+    "python_ast_parse": "PASS",
+    "planned_closure": {
+      "result": "PASS",
+      "master_inputs": 148,
+      "unique_master_inputs": 148,
+      "planned_logical_sections_including_bibliography": 149
+    },
+    "diagram_fallback_closure": {
+      "result": "PASS",
+      "ledger_rows": 907,
+      "unique_diagram_ids": 907,
+      "active_diagrams_after_comment_stripping": 907,
+      "per_unit_count_mismatches": 0,
+      "descriptions_with_source_trace": 907,
+      "reader_description_overrides": 13,
+      "unsupported_raw_tex_or_tikz_denylist_hits_after_preprocessing": 0
+    },
+    "offline_assets": {
+      "result": "PASS",
+      "network_asset_references": 0,
+      "mathjax_files": 25,
+      "mathjax_woff_fonts": 23,
+      "mathjax_core_present": true,
+      "mathjax_license_present": true,
+      "css_url_references": 0,
+      "note": "The CC BY license URL is a navigational hyperlink, not a loaded asset."
+    },
+    "accessibility_semantics": {
+      "result": "PASS",
+      "language_and_document_title_gates": true,
+      "skip_link_and_focusable_main_gates": true,
+      "unit_accessible_label_gate": true,
+      "diagram_figure_caption_and_provenance_gates": true,
+      "duplicate_id_and_fragment_target_gates": true
+    },
+    "responsive_layout": {
+      "result": "PASS",
+      "centered_reader_container": true,
+      "mobile_reflow_rule": true,
+      "local_table_and_math_horizontal_scrollers": true,
+      "scroll_chaining_containment": true
+    },
+    "deterministic_traceability": {
+      "result": "PASS",
+      "unit_source_hash_manifest_recorded_by_builder": true,
+      "master_bibliography_macro_ledger_and_reader_input_hashes_recorded": true,
+      "source_freeze_commit_and_tree_loaded_from_frozen control": true,
+      "private_absolute_command_paths_removed_from_build_receipt": true
+    },
+    "exact_path_handling": {
+      "result": "PASS",
+      "builder_rejected_redirected_reader_path": true,
+      "validator_rejected_redirected_dist_path": true,
+      "dist_reference_escape_and_absolute_path_gates": true
+    }
+  },
+  "checked_artifacts": {
+    "tools/build_english_reader.py": {
+      "bytes": 5397,
+      "sha256": "3ddb110903bf206a273559eeff6c98c8e16def3f285ccb7f4ab8fbc2ed55d2b2"
+    },
+    "reader/tools/build_pandoc_reader.py": {
+      "bytes": 22711,
+      "sha256": "2cfe71bccf16f8a7eadb5f0a46e8e1ad5ac68f5e0636d77cdc72825b4652db1f"
+    },
+    "reader/tools/validate_reader.py": {
+      "bytes": 17208,
+      "sha256": "60ffbc06284b3c83fae987054ee92cfbe5acc111a631caa9e9d80ca63a850a75"
+    },
+    "reader/reader.css": {
+      "bytes": 6769,
+      "sha256": "fd9b89f0a29aa64ee452707d1220f4038658d3ade179079ea4f4ba16662d04a6"
+    },
+    "reader/accessibility.html": {
+      "bytes": 2398,
+      "sha256": "a69e06aaa543262a13a94d3e48caa8789bcdba4894bb661f2e2baef50b721faf"
+    },
+    "reader/diagram-description-overrides-en.json": {
+      "bytes": 4739,
+      "sha256": "9add81ab178d6c523387ae648b50e28ff6b42bf449e8faa6624eeee8cb46cd42"
+    },
+    "source/en/Al-jabr-2-en-complete-draft.tex": {
+      "bytes": 11831,
+      "sha256": "a51b13e91fd9511f3bb400775e318dc83f67594f5d44bccf1b19005291805f89"
+    },
+    "backend/figure-alt-text-en.csv": {
+      "bytes": 336871,
+      "sha256": "ce9a100f549a26653488dfe3e1c270104ddb3c24b9f696bf410c38c5dabb87b9"
+    },
+    "controls/SOURCE_FREEZE.json": {
+      "bytes": 5312,
+      "sha256": "468b07a489f4bfef79a799b19fbe2b948f8fc3503e48aee16e7f669f8778974f"
+    },
+    "planned_unit_sources": {
+      "files": 148,
+      "bytes": 2673905,
+      "manifest_sha256": "1f40cc4f744c982fd6bf3f3ceb2e0796653078810a05a73717939e61fb4e974b"
+    },
+    "reader/vendor/mathjax-3.2.2": {
+      "files": 25,
+      "bytes": 1686852,
+      "manifest_sha256": "663fedf9d885adf586e9738c0d42a6060439bd4070850002e5f1d2dad4b82f80"
+    }
+  },
+  "execution_prerequisites_observed": {
+    "qa/UNIT_ADMISSION.json_result": "PASS",
+    "backend/BACKEND_VALIDATION.json_present": false,
+    "interpretation": "The missing backend validation receipt prevents an authorized full build at this instant but is outside this static reader-builder preflight and does not invalidate the reader-layer result."
+  },
+  "constraints_observed": {
+    "full_build_run": false,
+    "browser_run": false,
+    "git_run": false,
+    "tex_run": false,
+    "publication_run": false,
+    "build_or_dist_outputs_modified": false,
+    "forbidden_source_or_backend_files_modified": false,
+    "subagents_used": false
+  }
+}

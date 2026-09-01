@@ -1,0 +1,241 @@
+{
+  "schema": "o014-english-range-pass-v1",
+  "status": "PASS",
+  "range": {
+    "start": 47,
+    "end": 55
+  },
+  "verified_at": "2026-08-31T20:07:55.0027040+02:00",
+  "scope": {
+    "map_sequences": [47, 48, 49, 50, 51, 52, 53, 54, 55],
+    "target_root": "source/en",
+    "witnesses": ["mapped Chinese source slices", "mapped Indonesian unit references"],
+    "tex_invoked": false,
+    "git_invoked": false
+  },
+  "checks": {
+    "all_targets_present": true,
+    "all_chinese_source_slice_hashes_verified": true,
+    "all_indonesian_reference_hashes_verified": true,
+    "all_segment_id_sequences_exact_and_unique": true,
+    "all_label_sequences_exact": true,
+    "all_semantic_environment_roles_exact_after_localized_to_english_canonicalization": true,
+    "all_environment_stacks_balanced": true,
+    "all_citation_key_sequences_exact": true,
+    "all_index_counts_exact": true,
+    "all_item_counts_exact": true,
+    "all_tikzcd_counts_exact": true,
+    "all_math_delimiters_balanced": true,
+    "language_residue_hits": 0,
+    "placeholder_hits": 0
+  },
+  "units": [
+    {
+      "sequence": 47,
+      "unit_id": "o014.aljabr2.chapter3.exercises",
+      "target_path": "source/en/chapter3-unit-047.tex",
+      "bytes": 26056,
+      "sha256": "ef16a9060d5ada2f4f0272bb9fd314d03d7df9b1312a1c743d9bff7617ed94c7",
+      "evidence": {
+        "source_slice_sha256": "831dd2a9e3ddacc3ece25aaae474487678f93aa4731660ae07e81aa69e5cb4a0",
+        "source_slice_hash_verified": true,
+        "id_reference_sha256": "7a3c246a544c8fd9e9c6e83b4d5aa299b32550eee2d2be3c1eb37081e58ece19",
+        "id_reference_hash_verified": true,
+        "segment_ids": {"count": 95, "exact_order": true, "unique": true},
+        "labels": {"count": 0, "exact_order": true},
+        "semantic_environments": {"count": 40, "canonical_roles_exact_order": true, "balanced": true},
+        "citations": {"count": 2, "keys_exact_order": true},
+        "indices": {"count": 2, "count_matches": true},
+        "items": {"count": 50, "count_matches": true},
+        "tikzcd": {"count": 4, "count_matches": true},
+        "math_delimiters_balanced": true,
+        "language_residue_hits": 0,
+        "placeholder_hits": 0
+      }
+    },
+    {
+      "sequence": 48,
+      "unit_id": "o014.aljabr2.chapter4.overview",
+      "target_path": "source/en/chapter4-unit-048.tex",
+      "bytes": 13683,
+      "sha256": "ead325be1b1d04a2dcb941c8916170dc668cd2e26f5c1a2501a2e0d8b366bda3",
+      "evidence": {
+        "source_slice_sha256": "800e4d6242edc127ed4db7fa45f98259cea386773d9333055ad170e9b9d971ed",
+        "source_slice_hash_verified": true,
+        "id_reference_sha256": "8e57236b37c0aa89f841abf418ded72d1749427fd7bf6b1fab86d37eb9404785",
+        "id_reference_hash_verified": true,
+        "segment_ids": {"count": 27, "exact_order": true, "unique": true},
+        "labels": {"count": 1, "exact_order": true},
+        "semantic_environments": {"count": 5, "canonical_roles_exact_order": true, "balanced": true},
+        "citations": {"count": 0, "keys_exact_order": true},
+        "indices": {"count": 0, "count_matches": true},
+        "items": {"count": 5, "count_matches": true},
+        "tikzcd": {"count": 2, "count_matches": true},
+        "math_delimiters_balanced": true,
+        "language_residue_hits": 0,
+        "placeholder_hits": 0
+      }
+    },
+    {
+      "sequence": 49,
+      "unit_id": "o014.aljabr2.chapter4.triangulated-category-definition",
+      "target_path": "source/en/chapter4-unit-049.tex",
+      "bytes": 17057,
+      "sha256": "21427c6a7c49183a9cab28157816b2d8199041cb22eb4cd16903c53aca968708",
+      "evidence": {
+        "source_slice_sha256": "e61a3898512072a4df18f5c7e3255fb009d274fd327dd91b781c22fea58e2516",
+        "source_slice_hash_verified": true,
+        "id_reference_sha256": "8c4f089c5fcfd7db95ba7e62ccf139bb8fcc8e0ee0f88e08f65997ee21818a53",
+        "id_reference_hash_verified": true,
+        "segment_ids": {"count": 47, "exact_order": true, "unique": true},
+        "labels": {"count": 8, "exact_order": true},
+        "semantic_environments": {"count": 21, "canonical_roles_exact_order": true, "balanced": true},
+        "citations": {"count": 1, "keys_exact_order": true},
+        "indices": {"count": 11, "count_matches": true},
+        "items": {"count": 9, "count_matches": true},
+        "tikzcd": {"count": 9, "count_matches": true},
+        "math_delimiters_balanced": true,
+        "language_residue_hits": 0,
+        "placeholder_hits": 0
+      }
+    },
+    {
+      "sequence": 50,
+      "unit_id": "o014.aljabr2.chapter4.cohomological-functors",
+      "target_path": "source/en/chapter4-unit-050.tex",
+      "bytes": 5180,
+      "sha256": "5c5087f9f7a983c1e9aabf58de88dab3f75e76e0866e81ae11bec9e8c817f332",
+      "evidence": {
+        "source_slice_sha256": "62fa567b35e1544072e5983e982bc8f87e2c606428496b69f99e165fb7548cdc",
+        "source_slice_hash_verified": true,
+        "id_reference_sha256": "795436aa1cdc9a8ce130beba4d1fc4647f64465d3ac4e425aef17a0d08a711a6",
+        "id_reference_hash_verified": true,
+        "segment_ids": {"count": 14, "exact_order": true, "unique": true},
+        "labels": {"count": 5, "exact_order": true},
+        "semantic_environments": {"count": 10, "canonical_roles_exact_order": true, "balanced": true},
+        "citations": {"count": 0, "keys_exact_order": true},
+        "indices": {"count": 2, "count_matches": true},
+        "items": {"count": 0, "count_matches": true},
+        "tikzcd": {"count": 2, "count_matches": true},
+        "math_delimiters_balanced": true,
+        "language_residue_hits": 0,
+        "placeholder_hits": 0
+      }
+    },
+    {
+      "sequence": 51,
+      "unit_id": "o014.aljabr2.chapter4.triangulated-basics",
+      "target_path": "source/en/chapter4-unit-051.tex",
+      "bytes": 34556,
+      "sha256": "9d58170a6f35ca29c97a230fdb9627fdae112f5c06163b4d99c0f419cda56814",
+      "evidence": {
+        "source_slice_sha256": "020f161ea22eacc84e0e37471baf36dffe891ff73e8cbf7ae7afa066a192e1ef",
+        "source_slice_hash_verified": true,
+        "id_reference_sha256": "d32d4325e3cc92d74a981894f08b7dd1b31eb9a6e4c09cec9a01fc92230285d0",
+        "id_reference_hash_verified": true,
+        "segment_ids": {"count": 82, "exact_order": true, "unique": true},
+        "labels": {"count": 20, "exact_order": true},
+        "semantic_environments": {"count": 60, "canonical_roles_exact_order": true, "balanced": true},
+        "citations": {"count": 4, "keys_exact_order": true},
+        "indices": {"count": 7, "count_matches": true},
+        "items": {"count": 9, "count_matches": true},
+        "tikzcd": {"count": 22, "count_matches": true},
+        "math_delimiters_balanced": true,
+        "language_residue_hits": 0,
+        "placeholder_hits": 0
+      }
+    },
+    {
+      "sequence": 52,
+      "unit_id": "o014.aljabr2.chapter4.triangulated-localization",
+      "target_path": "source/en/chapter4-unit-052.tex",
+      "bytes": 7975,
+      "sha256": "cb362b021765bf96b2ffb8ad9fc8ab267b1574420c034f826b34a989ced0889c",
+      "evidence": {
+        "source_slice_sha256": "ed5059ac0d88f53e232f4c30d3f8bc78ff091a46504f50ea32bb311c6381f5b8",
+        "source_slice_hash_verified": true,
+        "id_reference_sha256": "5bbe74c9057827b99c31302cc3110afd5e73e5a68638abbeb1d76cc2519952d5",
+        "id_reference_hash_verified": true,
+        "segment_ids": {"count": 12, "exact_order": true, "unique": true},
+        "labels": {"count": 3, "exact_order": true},
+        "semantic_environments": {"count": 11, "canonical_roles_exact_order": true, "balanced": true},
+        "citations": {"count": 0, "keys_exact_order": true},
+        "indices": {"count": 1, "count_matches": true},
+        "items": {"count": 4, "count_matches": true},
+        "tikzcd": {"count": 5, "count_matches": true},
+        "math_delimiters_balanced": true,
+        "language_residue_hits": 0,
+        "placeholder_hits": 0
+      }
+    },
+    {
+      "sequence": 53,
+      "unit_id": "o014.aljabr2.chapter4.verdier-localization",
+      "target_path": "source/en/chapter4-unit-053.tex",
+      "bytes": 13873,
+      "sha256": "34c18e43c2aa2c4bedda7e7bd65f2393a4493f12f97f691ca3db7bbcac386a21",
+      "evidence": {
+        "source_slice_sha256": "e3f59fb45617ee6d187f4ef472148f8de8036810b5f64d65b979fab1bcd80e29",
+        "source_slice_hash_verified": true,
+        "id_reference_sha256": "af754c51ec28f78f28293fa1953c3b6a077558b6cd8197b6e2dbdc5df4c23e16",
+        "id_reference_hash_verified": true,
+        "segment_ids": {"count": 24, "exact_order": true, "unique": true},
+        "labels": {"count": 5, "exact_order": true},
+        "semantic_environments": {"count": 16, "canonical_roles_exact_order": true, "balanced": true},
+        "citations": {"count": 0, "keys_exact_order": true},
+        "indices": {"count": 5, "count_matches": true},
+        "items": {"count": 3, "count_matches": true},
+        "tikzcd": {"count": 4, "count_matches": true},
+        "math_delimiters_balanced": true,
+        "language_residue_hits": 0,
+        "placeholder_hits": 0
+      }
+    },
+    {
+      "sequence": 54,
+      "unit_id": "o014.aljabr2.chapter4.derived-categories",
+      "target_path": "source/en/chapter4-unit-054.tex",
+      "bytes": 32273,
+      "sha256": "7ccf18cd2884cb94d1937269e55f5a2ecbacae5cc733d715d1a30ceb062105d4",
+      "evidence": {
+        "source_slice_sha256": "48b043fbae2deea870e3d37ed130ece3af123f25b1091662dfbe20d7ce57ec22",
+        "source_slice_hash_verified": true,
+        "id_reference_sha256": "70fcd1982b4916aacc156bdea7af3aad18368dd71a2d601ef4a07426f190f583",
+        "id_reference_hash_verified": true,
+        "segment_ids": {"count": 71, "exact_order": true, "unique": true},
+        "labels": {"count": 12, "exact_order": true},
+        "semantic_environments": {"count": 55, "canonical_roles_exact_order": true, "balanced": true},
+        "citations": {"count": 0, "keys_exact_order": true},
+        "indices": {"count": 9, "count_matches": true},
+        "items": {"count": 2, "count_matches": true},
+        "tikzcd": {"count": 9, "count_matches": true},
+        "math_delimiters_balanced": true,
+        "language_residue_hits": 0,
+        "placeholder_hits": 0
+      }
+    },
+    {
+      "sequence": 55,
+      "unit_id": "o014.aljabr2.chapter4.morphisms-extensions",
+      "target_path": "source/en/chapter4-unit-055.tex",
+      "bytes": 39225,
+      "sha256": "1c10c315593fa7cec9bb0550e254907d9fc25ba100c08285f1839ffcdb77659d",
+      "evidence": {
+        "source_slice_sha256": "5e876e9c88a08bde16f4b0973c0a4d6df45818e8534e0f0302cc34ab1edce4d4",
+        "source_slice_hash_verified": true,
+        "id_reference_sha256": "b7676f5c30acae2ab5ccd6f4d3eb6593e3b0697c11ada11b9b4a700156b36acc",
+        "id_reference_hash_verified": true,
+        "segment_ids": {"count": 95, "exact_order": true, "unique": true},
+        "labels": {"count": 18, "exact_order": true},
+        "semantic_environments": {"count": 54, "canonical_roles_exact_order": true, "balanced": true},
+        "citations": {"count": 2, "keys_exact_order": true},
+        "indices": {"count": 10, "count_matches": true},
+        "items": {"count": 19, "count_matches": true},
+        "tikzcd": {"count": 14, "count_matches": true},
+        "math_delimiters_balanced": true,
+        "language_residue_hits": 0,
+        "placeholder_hits": 0
+      }
+    }
+  ]
+}

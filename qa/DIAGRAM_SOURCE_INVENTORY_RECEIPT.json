@@ -1,0 +1,20 @@
+{
+  "schema": "o014-english-complete-diagram-inventory-v1",
+  "recorded_at_utc": "2026-08-31T18:11:34.803696+00:00",
+  "result": "PASS",
+  "checks": {
+    "inventory_907": true,
+    "reused_all_829": true,
+    "new_missing_78": true,
+    "diagram_ids_unique": true,
+    "alignment_failures_zero": true,
+    "all_source_bodies_nonempty": true
+  },
+  "inventory_rows": 907,
+  "inherited_rows_aligned": 829,
+  "new_descriptions_required": 78,
+  "alignment_failures": [],
+  "inventory_bytes": 696546,
+  "inventory_sha256": "36f8d539bce4ce0a8990d5fe2e404195f963f8e2eae1afb82e9f7789677e6a03",
+  "inherited_ledger_sha256": "353bc8bfc747da4aac96380479bc913db60c2e00b770aa957775f32cd4f48451"
+}

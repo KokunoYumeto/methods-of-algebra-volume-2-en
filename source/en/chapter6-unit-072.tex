@@ -1,0 +1,732 @@
+% Unit 072 English translation of chapter6.tex lines 1--320.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter6.overview-g-modules-resolutions
+% Coverage: Chapter 6 opening and complete Section 6.1 on G-modules and the
+% standard and normalized free resolutions; stops before Section 6.2 at line 321.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.h001
+\chapter{Group Homology and Cohomology}\label{sec:group-coh}
+\hypertarget{o014.aljabr2.chapter6.overview-g-modules-resolutions}{ }
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p001
+Let $G$ be a group and let $\Bbbk$ be a commutative ring. A $G$-module means
+a $\Bbbk$-module equipped with a linear left action of $G$, written as left
+multiplication; in many situations $\Bbbk$ is usually taken to be $\Z$. All
+$G$-modules form an Abelian category $G\dcate{Mod}$, isomorphic to
+$\Bbbk[G]\dcate{Mod}$, where $\Bbbk[G]$ is the group algebra of $G$. For a
+$G$-module $M$, define the $\Bbbk$-modules
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q001
+\begin{align*}
+	\text{invariants} \quad M^G & := \left\{x \in M: \forall g \in G, \; gx=x \right\}, \\
+	\text{coinvariants} \quad M_G & := M / \lrangle{gx-x: g \in G, x \in M}.
+\end{align*}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p002
+From the algebraic point of view, the cohomology $\Hm^n(G,M)$ and homology
+$\Hm_n(G,M)$ of a $G$-module $M$ are, respectively, the values at $M$ of the
+right-derived functors of $(\cdot)^G$ and the left-derived functors of
+$(\cdot)_G$, where $n\in\Z_{\geq0}$.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p003
+Group homology and cohomology have a long history. Around 1935, W.\ Hurewicz
+studied path-connected topological spaces $E$ whose higher homotopy groups
+satisfy $n>1\implies\pi_n(E)=0$. He proved that their homology and cohomology
+groups are completely determined by the fundamental group $\pi_1(E)$; this is
+perhaps the earliest documented formulation of group cohomology. As
+homological algebra advanced rapidly during the twentieth century, group
+cohomology and homology soon acquired purely algebraic formulations and were
+used to address problems within algebra itself. Today they are basic tools in
+number theory, topology, and geometry.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p004
+On the other hand, $\Hm^n(G,M)$ and $\Hm_n(G,M)$ can also be identified with
+$\Ext^n(\Bbbk,M)$ and $\Tor_n(\Bbbk,M)$, respectively, in
+$\Bbbk[G]\dcate{Mod}$, with $\Bbbk$ regarded as a trivial $G$-module.
+Computing $\Ext$ and $\Tor$ from a projective resolution of $\Bbbk$ gives
+another description of $\Hm^n(G,M)$ and $\Hm_n(G,M)$. In fact, we shall give
+a canonical resolution $\mathsf{L}\to\Bbbk$ of $\Bbbk$ as a left (or right)
+$\Bbbk[G]$-module. It yields the standard cochain complex
+$(C^n(G,M))_n$ (or chain complex $(C_n(G,M))_n$) representing $\Hm^n(G,M)$
+(or $\Hm_n(G,M)$); see Propositions~\ref{prop:groupcoh-cochain} and
+\ref{prop:grouph-chain}. Later, \S\S\ref{sec:homology-computation}---
+\ref{sec:bar-resolution} will interpret these canonical resolutions from the
+viewpoint of simplicial theory.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p005
+The preceding material constitutes the main content of
+\S\S\ref{sec:G-mod}---\ref{sec:group-coh-sub}. This chapter adopts two
+viewpoints at once: the classical theory of derived functors, especially
+universal $\delta$-functors and their characterization, and derived categories.
+The classical theory has the advantage of being operational, whereas derived
+categories provide finer information than the individual cohomology or
+homology groups and often offer a clearer line of thought. The standard
+cochain or chain complexes provide the most detailed and canonical
+information, since they operate at the level of complexes.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p006
+In \S\ref{sec:grp-low-degree}, we shall give concrete interpretations of
+$\Hm^1$ and $\Hm^2$: they correspond, respectively, to crossed homomorphisms
+and equivalence classes of extensions of $G$ by an Abelian group. The precise
+meaning of a group extension is given in Definition~\ref{def:group-ext}. In
+fact, if all extensions of $G$ by $M$ are organized into a 2-category
+$\cate{Ext}(G,M)$, then the truncation
+$\tau^{\leq2}\overline{C}(G,M)$ of the normalized standard complex is exactly
+a linear incarnation of $\cate{Ext}(G,M)$; this is the content of
+Remark~\ref{rem:Ext-incarnation}.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p007
+For any group homomorphism $\varphi:H\to G$ and any $G$-module $M$, its
+pullback $\varphi^*M$ can be defined as an $H$-module. General constructions
+from module theory give simple descriptions of both the right and left
+adjoints of $\varphi^*$. When $\varphi$ is the inclusion of a subgroup,
+$\varphi^*$ is called the restriction functor on $G$-modules and is also
+written $\Res^G_H$, while its right (respectively left) adjoint is written
+$\Ind^G_H$ (respectively $\iInd^G_H$); both are called induction functors.
+Their properties are the subject of \S\ref{sec:induced-module}. In particular,
+we shall prove the so-called Shapiro lemma (Theorem~\ref{prop:Shapiro}):
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q002
+\[ \Hm^n\left(G, \Ind^G_H(N)\right) \simeq \Hm^n(H, N), \quad \Hm_n\left(G, \iInd^G_H(N)\right) \simeq \Hm_n(H, N). \]
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p008
+Continuing the general discussion of $\varphi^*$,
+\S\ref{sec:change-of-group} will define families of canonical homomorphisms
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q003
+\[ \Hm^n(G, M) \to \Hm^n(H, \varphi^* M), \quad \Hm_n(H, \varphi^* M) \to \Hm_n(G, M). \]
+These homomorphisms can be combined with the functoriality of cohomology or
+homology. Thus every equivariant homomorphism $f:M\to N$ (or $f:N\to M$)
+induces the corresponding canonical homomorphism $\Hm^n(f)$ (or $\Hm_n(f)$),
+where $M$ is a $G$-module and $N$ an $H$-module; see
+Definition~\ref{def:change-of-group-equiv}. In the special case $n=2$,
+\S\ref{sec:group-ext-revisited} will interpret these canonical homomorphisms
+in terms of group extensions.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p009
+For concrete illustrations, \S\ref{sec:coh-cyclic-free} discusses finite
+cyclic groups and free groups. The arguments harmoniously combine techniques
+from group theory and cohomology. The cohomological and homological dimensions
+of groups (Definition~\ref{def:group-dim}) will also enter at the appropriate
+point.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p010
+The concrete flavor of group theory continues in
+\S\ref{sec:group-finite-index}. When $(G:H)$ is finite, we shall state further
+properties of the restriction and induction functors; indeed, in this case
+$\Ind^G_H=\iInd^G_H$. Definition--Proposition~\ref{def:cor} will give
+families of canonical homomorphisms
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q004
+\[ \mathrm{cor}^n: \Hm^n(H, M) \to \Hm^n(G, M), \quad \mathrm{cor}_n: \Hm_n(G, M) \to \Hm_n(H, M), \]
+where $M$ is a $G$-module and $\Res^G_HM$ is abbreviated to $M$ to save
+notation. These are called corestriction homomorphisms, and their direction is
+opposite to that of the canonical homomorphisms induced by $H\hookrightarrow
+G$ (namely restriction, written $\mathrm{res}^n$ and $\mathrm{res}_n$). They
+satisfy the fundamental identities
+$\mathrm{cor}^n\mathrm{res}^n=(G:H)$ and
+$\mathrm{res}_n\mathrm{cor}_n=(G:H)$
+(Proposition~\ref{prop:res-cor}), while the special case
+$\mathrm{cor}_1:\Hm_1(G,\Z)\to\Hm_1(H,\Z)$ becomes the classical transfer
+homomorphism in group theory,
+$\mathrm{Ver}_{G|H}:G_{\mathrm{ab}}\to H_{\mathrm{ab}}$.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p011
+Let $H$ be a normal subgroup of $G$ and let $M$ be a $G$-module. Then
+$\Hm^q(H,M)$ and $\Hm_q(H,M)$ become $(G/H)$-modules. The
+Lyndon--Hochschild--Serre spectral sequences discussed in \S\ref{sec:LHS-SS},
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q005
+\begin{align*}
+	E_2^{p, q} = \Hm^p(G/H, \Hm^q(H, M)) & \Rightarrow \Hm^{p+q}(G, M), \\
+	E^2_{p, q} = \Hm_p(G/H, \Hm_q(H, M)) & \Rightarrow \Hm_{p+q}(G, M),
+\end{align*}
+are indispensable advanced tools in the theory of group cohomology and
+homology; see Theorem~\ref{prop:LHS-SS}. The information in the exact sequence
+of their low-degree terms is extremely useful. The
+Lyndon--Hochschild--Serre spectral sequence is at once an application of the
+Grothendieck spectral sequence and the result of a canonical filtration on the
+standard complex. The latter description gives finer information, such as the
+multiplicative structure mentioned in Remark~\ref{rem:LHS-SS-mult}.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p012
+More precisely, the multiplicative operation on group cohomology is the cup
+product, which originates in topology. In \S\ref{sec:cup-product}, we shall
+approach it from two viewpoints. First, the cup product is understood as a
+natural reflection of the tensor-product operation on $G$-modules; the
+language of derived categories is useful here. Second, its formula is written
+directly at the level of the standard complex
+(Definition--Proposition~\ref{def:group-cup-3}). The second description is, of
+course, an explicit realization of the first. The key to deriving it is to
+lift $\Bbbk\rightiso\Bbbk\otimes\Bbbk$ appropriately to a ``diagonal
+embedding'' $\Delta:\mathsf{L}\to\mathsf{L}\otimes\mathsf{L}$; several signs
+in the argument require careful handling.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p013
+If $G$ is finite, the Tate cohomology $\TaHm^n(G,M)$ introduced in
+\S\ref{sec:Tate-coh} combines cohomology and homology. Its construction
+depends on the canonical homomorphism peculiar to finite groups,
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q006
+\[ \nu: M_G \to M^G, \quad (\text{the image of }x \in M) \mapsto \sum_{g \in G} gx. \]
+For $n\geq1$ (respectively $n\leq-2$), Tate cohomology equals $\Hm^n(G,M)$
+(respectively $\Hm_{-n-1}(G,M)$), while for $n=0$ (respectively $n=-1$) it
+equals $\Coker(\nu)$ (respectively $\Ker(\nu)$). Tate cohomology continues to
+satisfy such properties as long exact sequences and Shapiro's lemma. In many
+respects it is even easier to work with than cohomology or homology, and it has
+especially prominent applications in number theory.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p014
+The preceding theory concerns only discrete groups; groups equipped with a
+topology present a much more intricate case. Profinite groups $G$ and smooth
+$G$-modules, discussed in \S\ref{sec:profinite-cohomology}, form a special case
+that is both simple and useful; the necessary background is given in
+\S\ref{sec:profinite-groups}. The theory remains essentially algebraic. The
+corresponding cohomology can be understood as a right-derived functor or,
+equivalently, defined as a $\varinjlim$ of the cohomology of finite groups; the
+continuous version of the standard complex provides another method of
+calculation. In number theory, the main cases of interest are those in which
+$G$ is a Galois group or an arithmetic fundamental group.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p015
+Finally, \S\ref{sec:nonabelian-coh} introduces non-Abelian group cohomology.
+For a non-Abelian group, usually only $\Hm^0$ and $\Hm^1$ can be defined, so
+its long exact sequence is correspondingly limited
+(Theorem~\ref{prop:nonabelian-long}). This theory is particularly well suited
+to classifying geometric or algebraic objects, because the symmetry groups of
+such objects are often non-Abelian. Several examples will be discussed later
+in \S\ref{sec:Galois-H1}. These constructions also apply to profinite groups.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.n001
+\begin{petunjukbacaan}
+	The role of the coefficient ring $\Bbbk$ in this chapter is secondary, and
+	it is often taken to be $\Z$; see the explanation in
+	Remark~\ref{rem:Gmod-k}. Readers may adapt the material to their needs and
+	skip arguments involving derived categories; doing so will not interfere
+	with most classical applications. In particular, the cup product on
+	cohomology may be treated entirely through the explicit operations in
+	Definition--Proposition~\ref{def:group-cup-3}. The notion of a $G$-module
+	(see \S\ref{sec:G-mod}) occasionally appears as an example or exercise in
+	later chapters and usually involves only the basic definitions. The
+	exceptions are \S\ref{sec:descent-Galois} and \S\ref{sec:Galois-H1}, which
+	use smooth $G$-modules for profinite groups and their cohomology. Readers
+	interested in number theory should in addition master
+	\S\S\ref{sec:Tate-coh}---\ref{sec:nonabelian-coh}.
+\end{petunjukbacaan}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.h002
+\section{\texorpdfstring{$G$}{G}-Modules and Their Resolutions}\label{sec:G-mod}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p016
+Unless otherwise stated, throughout this section $\Bbbk$ is a commutative ring
+and $G$ a group. Write the identity element of $G$ as $1_G$.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.d001
+\begin{definition}\label{def:G-mod}
+	\index{$G$-module}
+	\index[sym1]{G-Mod@$G\dcate{Mod}$}
+	A \emph{$G$-module} with coefficients in $\Bbbk$ is a $\Bbbk$-module $M$
+	equipped with a left action of $G$. The action $G\times M\to M$ is written
+	as multiplication and satisfies
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q007
+	\begin{align*}
+		g(m + m') & = gm + gm', \\
+		g(tm) & = t(gm),
+	\end{align*}
+	for all $g\in G$, $t\in\Bbbk$, and $m,m'\in M$. In other words, $M$ is
+	equipped with a linear action of $G$.
+
+	A homomorphism $f:M_1\to M_2$ between two $G$-modules is defined to be a
+	$\Bbbk$-module homomorphism satisfying the equivariance property
+	$f(gm_1)=gf(m_1)$ for all $g\in G$ and $m_1\in M_1$.
+\end{definition}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p017
+Strictly speaking, the structure above should be called a left $G$-module. A
+right $G$-module is defined in an entirely similar way and is equivalent to a
+left $G^{\opp}$-module. When there is no danger of confusion, the coefficient
+ring $\Bbbk$ is suppressed from the notation, and the category of all
+$G$-modules is written $G\dcate{Mod}$. This category is $\Bbbk$-linear
+(Definition~\ref{def:k-linear-cat}).
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.ex001
+\begin{example}\label{eg:trivial-G-mod}
+	\index{$G$-module!trivial}
+	Equip $\Bbbk$ with the trivial action of $G$, namely $gm=m$. The resulting
+	object is called the \emph{trivial $G$-module} and is denoted simply by
+	$\Bbbk$.
+\end{example}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.d002
+\begin{definition}
+	Let $M$ be a $G$-module. If a $\Bbbk$-submodule $N\subset M$ is closed
+	under the action of $G$, then $N$ is called a $G$-submodule. Equip the
+	quotient $\Bbbk$-module $M/N$ with the action $g(m+N)=gm+N$; this is called
+	the corresponding quotient $G$-module.
+\end{definition}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p018
+The group algebra $\Bbbk[G]$ can be constructed from $G$; see
+\cite[Definition 5.6.3]{Li1}. Each of its elements has a unique expression of
+the form $\sum_{g\in G}a_gg$, with only finitely many nonzero coefficients
+$a_g\in\Bbbk$. From now on, we regard $G$ as a subset of $\Bbbk[G]$.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.pr001
+\begin{proposition}\label{prop:G-mod-kG}
+	There is an isomorphism of categories
+	$G\dcate{Mod}\rightiso\Bbbk[G]\dcate{Mod}$ as follows. It preserves the
+	underlying $\Bbbk$-module. If $M$ is a $G$-module, its scalar
+	multiplication as a left $\Bbbk[G]$-module comes from the homomorphism
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q008
+	\[ \Bbbk[G] \dotimes{\Bbbk} M \to M, \quad (\sum_g a_g g) \otimes m \mapsto \sum_g a_g (gm), \]
+	while $G$-module homomorphisms correspond to $\Bbbk[G]$-module
+	homomorphisms.
+\end{proposition}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.pf001
+\begin{proof}
+	The inverse functor is determined as follows. For a left $\Bbbk[G]$-module
+	$M$, use the embedding of multiplicative monoids
+	$G\hookrightarrow\Bbbk[G]$ to let $G$ act on $M$ from the left, thereby
+	making $M$ a $G$-module. It is straightforward to verify that both
+	directions are well defined and inverse to each other.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p019
+Consequently, $G\dcate{Mod}$ is a $\Bbbk$-linear Abelian category, since
+$\Bbbk[G]\dcate{Mod}$ is one. Properties of $G$-submodules and quotient
+$G$-modules translate directly into properties of $\Bbbk[G]$-modules.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.d003
+\begin{definition}\label{def:HomG}
+	\index[sym1]{HomG@$\Hom_G$}
+	Write $\Hom$ in $G\dcate{Mod}$ as $\Hom_G$. Under the correspondence of
+	Proposition~\ref{prop:G-mod-kG}, this is also $\Hom_{\Bbbk[G]}$ in
+	$\Bbbk[G]\dcate{Mod}$.
+\end{definition}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p020
+Several basic operations on $\Bbbk$-modules extend readily to $G$-modules:
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.l001
+\begin{description}
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.i001
+	\item[Direct sums and direct products] For a family of $G$-modules
+	$(M_i)_{i\in I}$, equip the $\Bbbk$-modules $\prod_{i\in I}M_i$ and
+	$\bigoplus_{i\in I}M_i$ with the left $G$-action
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q009
+	\[ g (m_i)_{i \in I} := (gm_i)_{i \in I}, \]
+	called the diagonal action. With this action, $\prod_{i\in I}M_i$ and
+	$\bigoplus_{i\in I}M_i$ are $G$-modules.
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.i002
+	\item[Tensor products] For $G$-modules $M$ and $N$, equip
+	$M\otimes N:=M\dotimes{\Bbbk}N$ with the diagonal left $G$-action
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q010
+	\[ g (x \otimes y) = gx \otimes gy, \quad x \in M, \quad y \in N ; \]
+	since $(x,y)\mapsto gx\otimes gy$ is bilinear, this formula is well
+	defined. Plainly $x\otimes y\mapsto y\otimes x$ defines an isomorphism of
+	$G$-modules $M\otimes N\simeq N\otimes M$.
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.i003
+	\item[$\Hom$ modules] For $G$-modules $M$ and $N$, the $\Bbbk$-module
+	homomorphisms between them form the $\Bbbk$-module
+	$\Hom(M,N):=\Hom_{\Bbbk}(M,N)$. Equip $\Hom(M,N)$ with the left
+	$G$-action
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q011
+	\[ ({}^g f)(x) = g(f(g^{-1} x)), \quad f \in \Hom(M, N), \quad x \in M, \]
+	where $g^{-1}$ and $g$ on the right arise from the left $G$-actions on $M$
+	and $N$, respectively. As a composite of three $\Bbbk$-module
+	homomorphisms, ${}^gf$ belongs to $\Hom(M,N)$. Thus ${}^gf$ can be viewed
+	as the ``conjugate'' $gfg^{-1}$, making the properties required for a
+	$G$-module structure evident.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.i004
+	\item[Contragredient modules] In the construction of the $\Hom$ module,
+	take $N=\Bbbk$ with its trivial $G$-action. Then $\Hom(M,\Bbbk)$ becomes a
+	$G$-module, called the contragredient module of $M$. Its $G$-action is
+	given by ${}^gf=f\circ g^{-1}$.
+	\index{$G$-module!contragredient}
+\end{description}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p021
+All these constructions are functorial in $M$ and $N$. The definitions
+immediately give
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q012
+\begin{align*}
+	\Hom_G(M, N) & = \Hom(M, N)^G \\
+	& := \left\{f \in \Hom(M, N): \forall g \in G, \; {}^g f = f \right\}.
+\end{align*}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p022
+Under the isomorphism of categories in Proposition~\ref{prop:G-mod-kG}, direct
+sums and direct products of $G$-modules are, respectively, the direct sums and
+direct products of $\Bbbk[G]$-modules. The $G$-module structures on tensor
+products and $\Hom$ modules are slightly subtler; from the viewpoint of module
+theory, they in fact correspond to the Hopf-algebra structure on $\Bbbk[G]$
+(Example~\ref{eg:group-Hopf-algebra}). Interested readers may compare the
+related discussions in \S\ref{sec:bialgebra} and
+\S\ref{sec:duality-examples}; we shall not elaborate here.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.pr002
+\begin{proposition}\label{prop:Gmod-monoidal}
+	With respect to the tensor-product operation, $G\dcate{Mod}$ is a symmetric
+	monoidal category whose unit object is the trivial $G$-module $\Bbbk$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.pf002
+\begin{proof}
+	This follows directly from the definitions above.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p023
+Moreover, the usual canonical isomorphism in $\Bbbk\dcate{Mod}$,
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.g001
+\begin{equation*}
+	\begin{tikzcd}[row sep=tiny]
+		\Hom(L \otimes M, N) \arrow[leftrightarrow, r, "\sim"] & \Hom(L, \Hom(M, N)) \\
+		\varphi \arrow[mapsto, r] & {\left[ w \mapsto \varphi(w \otimes (\cdot)) \right]} \\
+		{\left[ w \otimes x \mapsto \psi(w)(x) \right]} & \psi \arrow[mapsto, l]
+	\end{tikzcd}
+\end{equation*}
+also lifts to the level of $G$-modules. If $L$, $M$, and $N$ are $G$-modules
+and the tensor product and $\Hom$ above carry the $G$-module structures just
+defined, then both directions are isomorphisms of $G$-modules; readers are
+invited to verify this carefully.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p024
+Consequently, ${}^g\varphi=\varphi$ is equivalent to ${}^g\psi=\psi$, giving
+the adjunction
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.e001
+\begin{equation}\label{eqn:G-mod-tensor-Hom}
+	\begin{tikzcd}
+		\Hom_G(L \otimes M, N) \arrow[leftrightarrow, r, "\sim"] & \Hom_G(L, \Hom(M, N)),
+	\end{tikzcd}
+\end{equation}
+where $L$, $M$, and $N$ are all $G$-modules. Here is a simple application.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.pr003
+\begin{proposition}\label{prop:group-tensor-proj}
+	Let $L$ and $M$ be $G$-modules, with $L$ projective as a $G$-module and
+	$M$ projective as a $\Bbbk$-module. Then $L\otimes M$ is projective as a
+	$G$-module.
+\end{proposition}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.pf003
+\begin{proof}
+	The adjunction \eqref{eqn:G-mod-tensor-Hom} shows that the functor
+	$(\cdot)\otimes M:G\dcate{Mod}\to G\dcate{Mod}$ has the exact right
+	adjoint $\Hom(M,\cdot)$. Proposition~\ref{prop:adjoint-injective-projective}
+	therefore implies that $(\cdot)\otimes M$ preserves projective objects.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.d004
+\begin{definition}[Restriction and inflation]\label{def:Res-Infl}
+	\index{$G$-module!restriction/inflation}
+	\index[sym1]{ResGH@$\Res^G_H$}
+	\index[sym1]{InflGH@$\mathrm{Infl}^G_{G/H}$}
+	For every group homomorphism $\varphi:H\to G$, there is a corresponding
+	functor
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q013
+	\[ \varphi^*: G\dcate{Mod} \to H\dcate{Mod}; \]
+	for a $G$-module $M$, its image under $\varphi^*$ is the same
+	$\Bbbk$-module $M$, with the $H$-action given by $hm:=\varphi(h)m$. Two
+	important cases of the functor $\varphi^*$ are:
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.l002
+	\begin{description}
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.i005
+		\item[Restriction] For a subgroup $H\subset G$, take
+		$\varphi:H\hookrightarrow G$. The corresponding functor
+		$\Res^G_H:G\dcate{Mod}\to H\dcate{Mod}$ restricts the group action to
+		$H$.
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.i006
+		\item[Inflation] For a normal subgroup $H\lhd G$, take
+		$\varphi:G\twoheadrightarrow G/H$. The corresponding functor
+		$\mathrm{Infl}^G_{G/H}:(G/H)\dcate{Mod}\to G\dcate{Mod}$ pulls the
+		group action back to $G$.
+	\end{description}
+\end{definition}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p025
+Notice that if there is a sequence of group homomorphisms
+$H\xrightarrow{\varphi}G\xrightarrow{\psi}F$, then the corresponding functors
+satisfy $\varphi^*\psi^*=(\psi\varphi)^*$.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p026
+From the group-algebra viewpoint, the homomorphism $\varphi:H\to G$ extends to
+a $\Bbbk$-algebra homomorphism $\Bbbk[H]\to\Bbbk[G]$, and the corresponding
+functor $\Bbbk[G]\dcate{Mod}\to\Bbbk[H]\dcate{Mod}$ is precisely
+$\varphi^*$. This functor can also be expressed by a tensor product as
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.e002
+\begin{equation}\label{eqn:G-module-pullback-tensor}
+	\varphi^* M \simeq \Bbbk[G] \dotimes{\Bbbk[G]} M, \quad \Bbbk[G] \;\text{regarded via $\varphi$ as a bimodule}\; (\Bbbk[H], \Bbbk[G]).
+\end{equation}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p027
+The left and right adjoints of $\varphi^*$, together with the corresponding
+adjunction isomorphisms, can be written explicitly.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.pr004
+\begin{proposition}\label{prop:pullback-two-adjoint}
+	Use the notation above. For a group homomorphism $\varphi:H\to G$, any
+	$G$-module $M$, and any $H$-module $N$, there are canonical isomorphisms of
+	$\Bbbk$-modules
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.g002
+	\[\begin{tikzcd}[row sep=tiny]
+		\Hom_H(\varphi^* M, N) \arrow[leftrightarrow, r, "\sim"] & \Hom_G\left( M, \Hom_H(\Bbbk[G], N) \right) \\
+		\theta \arrow[mapsto, r] & {[x \mapsto [G \ni g \mapsto \theta(gx)] ]} \\
+		{[x \mapsto \xi(x)(1_G)]} & \xi, \arrow[mapsto, l] \\
+		\Hom_H(N, \varphi^* M) \arrow[leftrightarrow, r, "\sim"] & \Hom_G\left( \Bbbk[G] \dotimes{\Bbbk[H]} N, M \right) \\
+		\psi \arrow[mapsto, r] & {[g \otimes y \mapsto g\psi(y)]} \\
+		{[y \mapsto \eta(1_G \otimes y) ]} & \eta \arrow[mapsto, l].
+	 \end{tikzcd}\]
+	Here $\Bbbk[G]$ is regarded both as a
+	$(\Bbbk[H],\Bbbk[G])$-bimodule and as a
+	$(\Bbbk[G],\Bbbk[H])$-bimodule. In this way,
+	$\Hom_H(\Bbbk[G],N)$ and $\Bbbk[G]\dotimes{\Bbbk[H]}N$ acquire
+	$G$-module structures.
+\end{proposition}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.pf004
+\begin{proof}
+	Expand the definitions directly to verify that both pairs of maps are
+	well-defined $\Bbbk$-module homomorphisms; the calculation is not
+	difficult. Once this has been checked, it is clear that the maps are
+	mutually inverse. Alternatively, apply the general theory in
+	\cite[Corollary 6.6.8]{Li1}.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p028
+Since $G\dcate{Mod}$ is an Abelian category, projective and injective
+resolutions of $G$-modules can be considered in the usual way. For the subject
+of this chapter, the most important are projective resolutions of the trivial
+$G$-module $\Bbbk$. Such resolutions not only exist; they also admit a
+canonical, explicit choice.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.d005
+\begin{definition}\label{def:resolution-trivial-module}
+	Let $G$ be a group. For each $n\in\Z_{\geq0}$, define
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q014
+	\[ \mathsf{L}_n := \text{the free $\Bbbk$-module with basis $G^{n+1}$}, \]
+	whose elements are written as $\Bbbk$-linear combinations of
+	$(g_0,\ldots,g_n)\in G^{n+1}$. For every $n\geq1$, define homomorphisms
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q015
+	\begin{align*}
+		\partial_n, \partial'_n: \mathsf{L}_n & \to \mathsf{L}_{n-1}, \\
+		\partial_n\left( g_0, \ldots, g_n \right) & = \sum_{k=0}^n (-1)^{n-k} (\ldots, \widehat{g_k}, \ldots), \\
+		\partial'_n\left( g_0, \ldots, g_n \right) & = \sum_{k=0}^n (-1)^k (\ldots, \widehat{g_k}, \ldots),
+	\end{align*}
+	where $\widehat{g_k}$ indicates that the term is omitted; thus
+	$\partial'_n=(-1)^n\partial_n$. Also define the homomorphism
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q016
+	\[ \partial_0 = \partial'_0: \mathsf{L}_0 \to \Bbbk, \quad (g_0) \mapsto 1. \]
+
+	Define the action
+	$g(g_0,\ldots,g_n)=(gg_0,\ldots,gg_n)$ (respectively
+	$(g_0,\ldots,g_n)g=(g_0g,\ldots,g_ng)$) so that $\mathsf{L}_n$ becomes a
+	left (respectively right) $G$-module, and equip $\Bbbk$ with the trivial
+	$G$-action. Then every $\partial_n$ and $\partial'_n$ is a homomorphism of
+	left (respectively right) $G$-modules.
+\end{definition}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p029
+Plainly $(\mathsf{L}_n,\partial_n)_n$ and
+$(\mathsf{L}_n,\partial'_n)_n$ differ only by the reversal
+$(g_0,\ldots,g_n)\mapsto(g_n,\ldots,g_0)$. This reversal commutes with both the
+left and the right $G$-actions, so for all the properties below it suffices to
+treat either $\partial_n$ or $\partial'_n$.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.r001
+\begin{remark}\label{rem:augmentation-kG}
+	\index{augmentation homomorphism}
+	If $\mathsf{L}_0$ is identified with $\Bbbk[G]$, then
+	$\partial_0=\partial'_0:\mathsf{L}_0\to\Bbbk$ is identified with the map
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q017
+	\[ \Bbbk[G] \to \Bbbk, \quad \sum_g a_g g \mapsto \sum_g a_g; \]
+	this is plainly also a surjective $\Bbbk$-algebra homomorphism. It is called
+	the \emph{augmentation homomorphism} of $\Bbbk[G]$, and its kernel
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q018
+	\[ \mathfrak{I} := \left\{ \sum_g a_g g : \sum_g a_g = 0 \right\} \]
+	is called the \emph{augmentation ideal} of $\Bbbk[G]$. As a $\Bbbk$-module,
+	$\mathfrak{I}$ plainly decomposes with respect to the following basis:
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q019
+	\[ \mathfrak{I} = \bigoplus_{\substack{g \in G \\ g \neq 1_G}} \Bbbk (g - 1_G). \]
+	\index{augmentation ideal}
+	\index[sym1]{I-aug@$\mathfrak{I}$}
+\end{remark}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.le001
+\begin{lemma}\label{prop:L-acyclic}
+	The complex
+	$\cdots\to\mathsf{L}_n\xrightarrow{\partial_n}\cdots
+	\xrightarrow{\partial_0}\Bbbk\to0$ defined above is exact. Regarded as a
+	complex of $\Bbbk$-modules, its identity morphism is null-homotopic. The
+	same assertions hold when $\partial_n$ is replaced by $\partial'_n$.
+\end{lemma}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.pf005
+\begin{proof}
+	It suffices to discuss the $\partial'_n$ version. For every $n\geq1$,
+	observe that $\partial'_{n-1}\partial'_n$ sends $(g_0,\ldots,g_n)$ to a
+	sum of elements of the form
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q020
+	\[ \pm (\ldots, \widehat{g_p}, \ldots, \widehat{g_q}, \ldots), \quad 0 \leq p < q \leq n. \]
+	The signs cancel in pairs, giving a complex; the elementary verification is
+	left to the reader.
+
+	Next, for every $n\geq0$, define a $\Bbbk$-module homomorphism
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q021
+	\[ s_n: \mathsf{L}_n \to \mathsf{L}_{n+1}, \quad (g_0, \ldots, g_n) \mapsto (1_G, g_0, \ldots, g_n), \]
+	and define $s_{-1}:\Bbbk\to\mathsf{L}_0$ by sending $1\in\Bbbk$ to
+	$1_G\in\mathsf{L}_0$. It is easy to see that
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q022
+	\[ \partial'_{n+1} s_n + s_{n-1} \partial'_n = \identity_{\mathsf{L}_n} \]
+	for every $n\geq-1$, with the conventions $\mathsf{L}_{-1}:=\Bbbk$ and
+	$\partial'_{-1}:=0$. This shows that
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q023
+	\[ \cdots \to \mathsf{L}_n \xrightarrow{\partial'_n} \cdots \xrightarrow{\partial'_0} \Bbbk \to 0 \]
+	has a null-homotopic identity morphism as a complex of $\Bbbk$-modules and
+	is therefore exact.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.x001
+\index[sym1]{L-cplx@$\mathsf{L}$, $\overline{\mathsf{L}}$}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p030
+Write the complex
+$\cdots\to\mathsf{L}_n\xrightarrow{\partial_n}\cdots\to\mathsf{L}_0\to0$
+as $\mathsf{L}$. It may be viewed either as a complex in degrees
+$\ldots,-n,\ldots,0$ or as a chain complex in degrees
+$\ldots,n,\ldots,0$. In either interpretation, $\partial_0=\partial'_0$
+gives a morphism $\mathsf{L}\to\Bbbk$.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p031
+This complex and morphism can be understood either as a complex of left
+$G$-modules or as a complex of right $G$-modules. By symmetry, we shall mainly
+state the left-handed version.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.pr005
+\begin{proposition}\label{prop:trivial-mod-resolution}
+	The morphism $\mathsf{L}\to\Bbbk$ defined above gives a free resolution of
+	the trivial $G$-module $\Bbbk$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.pf006
+\begin{proof}
+	As $(h_1,\ldots,h_n)\in G^n$ varies,
+	$(1_G,h_1,\ldots,h_n)$ spans a basis of $\mathsf{L}^n$ as a left
+	$\Bbbk[G]$-module.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p032
+There is also a canonical free resolution of $\Bbbk$ that is more concise and
+sometimes more practical than $\mathsf{L}$.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.dp001
+\begin{definition-proposition}[Normalized complex]
+	For every $n>0$, define $\mathrm{Triv}_n\subset\mathsf{L}_n$ to be the
+	$G$-submodule generated by the elements
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q024
+	\[ (g_0, \ldots, g_n) \in G^{n+1}, \quad \exists\, 0 \leq k < n, \; g_k = g_{k+1}. \]
+	Also define $\mathrm{Triv}_0=0$. With respect to either $\partial_n$ or
+	$\partial'_n$, these objects form a subcomplex $\mathrm{Triv}$ of
+	$\mathsf{L}$. The normalization of $\mathsf{L}$ is then defined to be the
+	quotient complex
+	$\overline{\mathsf{L}}:=\mathsf{L}/\mathrm{Triv}$. Regarded as a complex of
+	$\Bbbk$-modules, the identity morphism on $\mathrm{Triv}$ is
+	null-homotopic.
+\end{definition-proposition}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.pf007
+\begin{proof}
+	Plainly $\mathrm{Triv}_n$ is invariant under
+	$(g_0,\ldots,g_n)\mapsto(g_n,\ldots,g_0)$, so the $\partial_n$ and
+	$\partial'_n$ versions do not differ; it suffices to treat the latter. If
+	$(g_0,\ldots,g_n)$ satisfies $g_k=g_{k+1}$, then in
+	$\partial'_n(g_0,\ldots,g_n)=
+	\sum_i(-1)^i(\ldots,\widehat{g_i},\ldots)$, the terms corresponding to
+	$i=k,k+1$ cancel, while the remaining terms lie in
+	$\mathrm{Triv}_{n-1}$. This proves that the objects form a subcomplex.
+
+	To show that the identity morphism of $\mathrm{Triv}$ is null-homotopic as
+	a complex of $\Bbbk$-modules, simply restrict the homotopy
+	$s_n:\mathsf{L}_n\to\mathsf{L}_{n+1}$ in the proof of
+	Lemma~\ref{prop:L-acyclic} to $\mathrm{Triv}_n$, for $n\geq0$.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p033
+By construction, $\mathsf{L}\to\Bbbk$ vanishes on $\mathrm{Triv}$ and hence
+factors through $\overline{\mathsf{L}}\to\Bbbk$.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.pr006
+\begin{proposition}\label{prop:trivial-mod-nor-resolution}
+	The morphism $\overline{\mathsf{L}}\to\Bbbk$ defined above gives a free
+	resolution of the trivial $G$-module $\Bbbk$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.pf008
+\begin{proof}
+	First, every
+	$\overline{\mathsf{L}}_n=\mathsf{L}_n/\mathrm{Triv}_n$ is a free
+	$G$-module: a basis is given by the images of
+	$(1_G,h_1,\ldots,h_n)\in G^{n+1}$ with $h_1\neq1_G$ and
+	$h_k\neq h_{k+1}$ for $1\leq k<n$.
+
+	Second, the acyclicity of $\mathrm{Triv}$ implies that
+	$\mathsf{L}\to\overline{\mathsf{L}}$ is a quasi-isomorphism. Hence
+	Proposition~\ref{prop:trivial-mod-resolution} implies that
+	$\overline{\mathsf{L}}\to\Bbbk$ is a quasi-isomorphism.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p034
+For later applications, it is more convenient to express the basis in the
+following ``bar'' notation. First, for integers $a\leq b$ and a sequence of
+elements $(g_a,\ldots,g_b)\in G^{b-a+1}$, introduce the abbreviation
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.q025
+\[ g_{[a, b]} := g_a g_{a+1} \cdots g_b. \]
+As a left $G$-module, a basis of $\mathsf{L}_n$ may be taken to be
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.e003
+\begin{equation}\label{eqn:L-basis}
+	(g_1 | \cdots | g_n) := \left( 1_G, g_{[1, 1]}, g_{[1, 2]}, \ldots, g_{[1, n]} \right), \quad (g_1, \ldots, g_n) \in G^n.
+\end{equation}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p035
+Observe that
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.e004
+\begin{equation}\label{eqn:L-basis-partial}\begin{aligned}
+	\partial_n (g_1 | \ldots | g_n) & = (-1)^n \left( g_{[1, 1]}, \ldots, g_{[1, n]}\right) + (-1)^{n-1} \left(1_G, g_{[1, 2]}, \ldots, g_{[1, n]}\right) \\
+	& \quad + \cdots + \left( 1_G, g_{[1, 1]}, \ldots, g_{[1, n-1]}\right) \\
+	& = (-1)^n g_1 (g_2 | \cdots | g_n) + \sum_{k=1}^{n-1} (-1)^{n-k} (\cdots | g_k g_{k+1}| \cdots) \\
+	& \quad + (g_1 | \cdots |g_{n-1}), \\
+	\partial'_n(g_1 | \cdots | g_n) & = g_1 (g_2 | \cdots | g_n) + \sum_{k=1}^{n-1} (-1)^k (\cdots | g_k g_{k+1}| \cdots) \\
+	& \quad + (-1)^n (g_1 | \cdots |g_{n-1}).
+\end{aligned}\end{equation}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p036
+Now consider the mirror image of \eqref{eqn:L-basis}. Take as a basis of
+$\mathsf{L}_n$ as a right $G$-module
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.e005
+\begin{equation}\label{eqn:L-basis-right}
+	(g_1 | \cdots | g_n)^\dagger := \left( g_{[1, n]}, \ldots, g_{[n-1, n]} , g_{[n, n]}, 1_G \right), \quad (g_1, \ldots, g_n) \in G^n.
+\end{equation}
+Then
+$\partial'_n(g_1|\cdots|g_n)^\dagger=
+(-1)^n\partial_n(g_1|\cdots|g_n)^\dagger$ equals
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.e006
+\begin{multline}\label{eqn:L-basis-partial-right}
+	\left( g_{[2, n]}, \ldots, g_{[n, n]}, 1_G \right) - \left( g_{[1, n]}, g_{[3, n]}, \ldots, g_{[n, n]}, 1_G \right) + \cdots \\
+	+ (-1)^n \left( g_{[1, n-1]}, \ldots, g_{[n-1, n-1]} \right) g_n  \\
+	= (g_2 | \cdots | g_n)^\dagger + \sum_{k=1}^{n-1} (-1)^k (\cdots | g_k g_{k+1} | \cdots)^\dagger \\
+	+ (-1)^n (g_1 | \cdots | g_{n-1})^\dagger g_n.
+\end{multline}
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.p037
+The normalized complex is handled in the same way: bases of
+$\overline{\mathsf{L}}_n$ as a left or right $G$-module may be taken,
+respectively, to be
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.e007
+\begin{equation}\label{eqn:nor-cochain}
+	(g_1| \cdots | g_n) \quad \text{or} \quad (g_1 | \cdots | g_n)^\dagger \quad \bmod \mathrm{Triv}_n,
+\end{equation}
+subject to $g_k\neq1_G$ for every $1\leq k\leq n$.
+
+% segment-id: o014.li2.chapter6.overview-g-modules-resolutions.r002
+\begin{remark}
+	The resolutions above have a profound topological interpretation:
+	$\mathsf{L}$ is the chain complex supplied by the universal torsor
+	$\mathrm{E}G$ over the classifying space $\mathrm{B}G$; see
+	Examples~\ref{eg:classifying-space-std-cplx} and
+	\ref{eg:classifying-contractible}.
+\end{remark}

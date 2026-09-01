@@ -1,0 +1,174 @@
+% O014 / D80 -- Methods of Algebra, Volume 2 -- en
+% Source: appendix2.tex, lines 138--286 inclusive.
+% Stable unit ID: o014.aljabr2.appendix-b.ind-pro-objects
+\section{Ind-Objects and Pro-Objects}\label{sec:ind-pro}
+From this section onward, fix a Grothendieck universe $\mathcal{U}$; the terms small category and small set refer to this choice. Unless stated otherwise, an unqualified category is understood to be a $\mathcal{U}$-category; otherwise it is called a large category. Recall that $\cate{Set}$ denotes the category of small sets.
+
+Let $\mathcal{C}$ be a category. In \S\ref{sec:Yoneda} we recalled the two Yoneda embeddings
+\[ h_{\mathcal{C}}: \mathcal{C}\to \mathcal{C}^\wedge, \quad k_{\mathcal{C}}: \mathcal{C} \to \mathcal{C}^\vee. \]
+They are of course dual to each other. Note that unless $\mathcal{C}$ is small, $\mathcal{C}^\wedge$ and $\mathcal{C}^\vee$ are generally large categories. When no confusion can arise, we shall often omit the functors $h_{\mathcal{C}}$ and $k_{\mathcal{C}}$ from the notation.
+
+Recall the lessons of \cite[Propositions 2.7.8, 2.7.9]{Li1}:
+\begin{itemize}
+	\item $\mathcal{C}^\wedge$ has all small $\varinjlim$ and small $\varprojlim$, constructed pointwise in $\cate{Set}$;
+	\item in general, the Yoneda embedding $\mathcal{C}\to\mathcal{C}^\wedge$ preserves $\varprojlim$ but not $\varinjlim$.
+\end{itemize}
+Following the convention there,\footnote{This notation was introduced by P.\ Deligne.} in this section the $\varinjlim$ of $\alpha:I\to\mathcal{C}^\wedge$ will be written separately as
+\[ \Yinjlim \alpha \;\text{or}\; \Yinjlim \alpha(i), \]
+where $i$ ranges over $\Obj(I)$. This distinguishes it from $\varinjlim$ in $\mathcal{C}$.
+\index[sym1]{lim-quot@$\Yinjlim$, $\Yprojlim$}
+
+Dually, we write $\Yprojlim$ for the $\varprojlim$ in $\mathcal{C}^\vee$ obtained by the pointwise construction, since in general $\mathcal{C}\to\mathcal{C}^\vee$ preserves $\varinjlim$ but not $\varprojlim$.
+
+The density theorem \ref{prop:Yoneda-density} says that every object of $\mathcal{C}^\wedge$ can be expressed as a $\Yinjlim$ of objects of $\mathcal{C}$. The ind-objects are those which can be so expressed using a filtered $\Yinjlim$; the dual objects in $\mathcal{C}^\vee$ are called pro-objects.
+
+\begin{definition}
+	\index{ind-object}
+	\index{pro-object}
+	\index[sym1]{IndC@$\IndC\mathcal{C}$}
+	\index[sym1]{ProC@$\ProC\mathcal{C}$}
+	Let $\mathcal{C}$ be a category.
+	\begin{itemize}
+		\item If $X\in\Obj(\mathcal{C}^\wedge)$ can be written as $\Yinjlim X_i$, where the index ranges over a small filtered category $I$ and $X_i\in\Obj(\mathcal{C})$ (equivalently, the data define a functor $I\to\mathcal{C}$), then $X$ is called an \emph{ind-object} over $\mathcal{C}$.
+
+		\item If $X\in\Obj(\mathcal{C}^\vee)$ can be written as $\Yprojlim X_i$, where the index ranges over a small filtered category $I$ and $X_i\in\Obj(\mathcal{C})$ (equivalently, the data define a functor $I^{\opp}\to\mathcal{C}$), then $X$ is called a \emph{pro-object} over $\mathcal{C}$.
+	\end{itemize}
+
+	All ind-objects form a category $\IndC\mathcal{C}$ and all pro-objects form a category $\ProC\mathcal{C}$; they are respectively full subcategories of $\mathcal{C}^\wedge$ and $\mathcal{C}^\vee$.
+\end{definition}
+
+We therefore have fully faithful functors
+$\mathcal{C}\to\IndC\mathcal{C}$ and
+$\mathcal{C}\to\ProC\mathcal{C}$. Corollary~\ref{prop:Ind-Pro-size} will control the sizes of $\IndC\mathcal{C}$ and $\ProC\mathcal{C}$ and show that they are not large categories.
+
+It is immediate from the definition that
+$(\IndC\mathcal{C})^{\opp}\simeq\ProC(\mathcal{C}^{\opp})$.
+Henceforth we write ind-objects (respectively pro-objects) as $\Yinjlim X_i$ (respectively $\Yprojlim Y_i$) without further comment; remember that such presentations are not unique.
+
+\begin{proposition}\label{prop:Ind-Hom}
+	Let $X=\Yinjlim X_i$ and $Y=\Yinjlim Y_j$ be ind-objects over $\mathcal{C}$. There is a canonical bijection
+	\[ \Hom_{\IndC \mathcal{C}}(X, Y) \simeq \varprojlim_i \varinjlim_j \Hom_{\mathcal{C}}(X_i, Y_j). \]
+	Similarly, for pro-objects $X=\Yprojlim X_i$ and $Y=\Yprojlim Y_j$, there is a canonical bijection
+	\[ \Hom_{\ProC \mathcal{C}}(X, Y) \simeq \varprojlim_j \varinjlim_i \Hom_{\mathcal{C}}(X_i, Y_j). \]
+	The limits on the right are all understood to be taken in $\cate{Set}$.
+\end{proposition}
+\begin{proof}
+	For ind-objects,
+	\begin{align*}
+		\Hom_{\mathcal{C}^\wedge}\left(\Yinjlim X_i, \Yinjlim Y_j \right) & = \varprojlim_i \Hom_{\mathcal{C}^\wedge}\left( X_i, \Yinjlim Y_j \right) & (\because\; \varinjlim \; \text{in $\mathcal{C}^{\wedge}$}) \\
+		& = \varprojlim_i \left[ \left( \Yinjlim Y_j \right)(X_i) \right] & (\because\; \text{Theorem \ref{prop:Yoneda}}) \\
+		& = \varprojlim_i \varinjlim_j \Hom_{\mathcal{C}}(X_i, Y_j) & (\because\; \text{the construction of }\Yinjlim).
+	\end{align*}
+	The last two equalities can also be viewed as an expression of the compactness of $X_i$ in $\mathcal{C}^\wedge$ (Proposition~\ref{prop:Ind-cpt}). The pro-object case is dual.
+\end{proof}
+
+\begin{corollary}\label{prop:Ind-Pro-size}
+	The categories $\IndC\mathcal{C}$ and $\ProC\mathcal{C}$ constructed above are $\mathcal{U}$-categories, just as $\mathcal{C}$ is.
+\end{corollary}
+\begin{proof}
+	Every $\Hom_{\mathcal{C}}(X_i,Y_j)$ in Proposition~\ref{prop:Ind-Hom} is a $\mathcal{U}$-small set, and the $\varprojlim$ and $\varinjlim$ are also taken over small categories.
+\end{proof}
+
+Notice that the definitions of $\IndC\mathcal{C}$ and $\ProC\mathcal{C}$ depend on the choice of universe $\mathcal{U}$. For their precise relation to $\mathcal{U}$, see \cite[Proposition 6.1.21]{KS06}; we shall not pursue this point here.
+
+All algebraic structures in the following examples are understood to be realized on small sets.
+
+\begin{example}\label{eg:Ind-Vect}
+	Let $\Bbbk$ be a field. Denote the category of finite-dimensional $\Bbbk$-vector spaces by $\cate{Vect}_{\mathrm{f}}(\Bbbk)$ and the category of all $\Bbbk$-vector spaces by $\cate{Vect}(\Bbbk)$. We shall show that
+	\[ \IndC \cate{Vect}_{\mathrm{f}}(\Bbbk) \;\text{is equivalent to}\; \cate{Vect}(\Bbbk). \]
+
+	Define a functor $\IndC\cate{Vect}_{\mathrm{f}}(\Bbbk)\to\cate{Vect}(\Bbbk)$ by sending $\Yinjlim V_i$ to $V:=\varinjlim_iV_i$ in $\cate{Vect}(\Bbbk)$. The key to showing that it is fully faithful is
+	\[ \Hom_{\Bbbk}(V, W) \simeq \varprojlim_i \varinjlim_j \Hom_{\Bbbk}(V_i, W_j). \]
+	Indeed, specifying a linear map $f:V\to W$ is equivalent to specifying a compatible family of linear maps $f_i:V_i\to W$, while the concrete description of filtered $\varinjlim$ in $\cate{Vect}(\Bbbk)$ shows that each $f_i$ factors through some $W_j$.
+
+	The functor $\IndC\cate{Vect}_{\mathrm{f}}(\Bbbk)\to\cate{Vect}(\Bbbk)$ is also essentially surjective. For any $\Bbbk$-vector space $V$, its finite-dimensional subspaces $V^\flat$ form a filtered partially ordered set under inclusion, and there is a canonical isomorphism
+	$\varinjlim V^\flat\rightiso V$ in $\cate{Vect}(\Bbbk)$.
+\end{example}
+
+A similar and even simpler argument shows that $\cate{Set}$ is equivalent to $\IndC\cate{FinSet}$, where $\cate{FinSet}$ denotes the category of finite small sets. Observe that $\cate{FinSet}$ and $\cate{Vect}_{\mathrm{f}}(\Bbbk)$ are both essentially small: the isomorphism classes of their objects form a small set. Thus ind-objects are a construction that obtains the large from the small.
+
+There is no shortage of such examples; Proposition~\ref{prop:recognition-Ind} will give a unified criterion for recognizing the Ind-completion of a category.
+
+\begin{example}\label{eg:profinite-group}
+	Let $\cate{FinGrp}$ denote the category of finite groups and let $\cate{proFinGrp}$ denote the category of profinite groups from Definition~\ref{def:profinite-group}. We shall show that $\cate{proFinGrp}$ is equivalent to $\ProC\cate{FinGrp}$.
+
+	Define a functor $\ProC\cate{FinGrp}\to\cate{proFinGrp}$ by sending $\Yprojlim G_i$ to $G:=\varprojlim_iG_i$ in the category $\cate{TopGrp}$ of topological groups, giving each $G_i$ the discrete topology. By definition, the data $(G_i)_i$ come from a functor $I^{\opp}\to\cate{TopGrp}$, where $I$ is a small filtered category; Remark~\ref{rem:filtered-poset} shows, however, that $I$ may also be taken to be a filtered partially ordered set. As in Example~\ref{eg:Ind-Vect}, the equivalence reduces to proving that
+	\begin{compactitem}
+		\item the group $G$ above is profinite;
+		\item $\Hom_{\cate{TopGrp}}(G,H)\simeq\varprojlim_j\varinjlim_i\Hom_{\cate{FinGrp}}(G_i,H_j)$;
+		\item every profinite group can be expressed as a small filtered $\varprojlim$ of finite groups.
+	\end{compactitem}
+	But these are precisely the contents of Remark~\ref{rem:profinite-group-lim}.
+\end{example}
+
+When $\mathcal{C}$ itself already has small filtered $\varinjlim$, there is also a relation in the reverse direction between $\IndC\mathcal{C}$ and $\mathcal{C}$. We give the dual statement for pro-objects at the same time.
+
+\begin{proposition}\label{prop:Ind-adjunction}
+	Suppose that for every small filtered category $I$ and every functor $\alpha:I\to\mathcal{C}$ (respectively $\beta:I^{\opp}\to\mathcal{C}$), the object $\varinjlim\alpha$ (respectively $\varprojlim\beta$) always exists. Then the embedding
+	$\iota:\mathcal{C}\to\IndC\mathcal{C}$ (respectively
+	$\mathcal{C}\to\ProC\mathcal{C}$) has a left adjoint
+	$\sigma:\IndC\mathcal{C}\to\mathcal{C}$ (respectively a right adjoint
+	$\tau:\ProC\mathcal{C}\to\mathcal{C}$), with
+	$\sigma\iota\simeq\identity_{\mathcal{C}}$ (respectively
+	$\tau\iota\simeq\identity_{\mathcal{C}}$).
+
+	More concretely, if $X=\Yinjlim X_i$ (respectively $X=\Yprojlim X_i$), then there is a canonical isomorphism
+	$\sigma(X)\simeq\varinjlim_iX_i$ (respectively
+	$\tau(X)\simeq\varprojlim_iX_i$).
+\end{proposition}
+\begin{proof}
+	It suffices to treat the ind-version. By \cite[Proposition 2.6.9]{Li1}, the existence of a left adjoint $\sigma$ is equivalent to the representability, for every ind-object $X$, of the functor
+	\[ \Hom_{\mathcal{C}^\wedge}(X, \cdot): \mathcal{C} \to \cate{Set} \]
+	Write $X=\Yinjlim X_i$. This functor is isomorphic to
+	\[ \varprojlim_i \Hom_{\mathcal{C}}(X_i, \cdot) \simeq \Hom_{\mathcal{C}}\left( \varinjlim_i X_i, \cdot\right). \]
+	This proves both the existence of the left adjoint $\sigma$ and the asserted description.
+\end{proof}
+
+For theoretical purposes, we often wish to align morphisms in $\IndC\mathcal{C}$ or $\ProC\mathcal{C}$. The following result does this.
+
+\begin{lemma}\label{prop:ind-object-morphism}
+	Let $X$ and $Y$ be ind-objects (respectively pro-objects) over $\mathcal{C}$.
+	\begin{enumerate}[(i)]
+		\item There are a small filtered category $K$ and functors
+		$\gamma,\delta:K\to\mathcal{C}$ (respectively
+		$K^{\opp}\to\mathcal{C}$) such that
+		$X=\Yinjlim\gamma$ and $Y=\Yinjlim\delta$ (respectively
+		$X=\Yprojlim\gamma$ and $Y=\Yprojlim\delta$).
+		\item Given a morphism $f:X\to Y$, the data in (i) may be chosen together with a morphism of functors $\varphi:\gamma\to\delta$ such that $f$ equals $\Yinjlim\varphi$ (respectively $\Yprojlim\varphi$).
+		\item More generally, given two morphisms $f,g:X\rightrightarrows Y$, the data may be chosen so that they are represented by the $\Yinjlim$ (respectively $\Yprojlim$) of two morphisms $\varphi,\psi:\gamma\to\delta$.
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	It suffices to treat the ind-version. For (i), first suppose that $X$ and $Y$ arise respectively from functors $\alpha:I\to\mathcal{C}$ and $\beta:J\to\mathcal{C}$. Define $K$ to be the product category $I\times J$; recall that its objects are pairs $(i,j)\in\Obj(I)\times\Obj(J)$ and that
+	$\Hom_K((i,j),(i',j')):=\Hom_I(i,i')\times\Hom_J(j,j')$.
+	It is easy to see that $K$ is small and filtered, and that both projection functors
+	\[ I \leftarrow K \rightarrow J, \quad i \mapsfrom (i, j) \mapsto j \]
+	are cofinal (Definition~\ref{def:cofinal}); this follows by expanding the definitions. Define $\gamma$ and $\delta$ by composing these projections with $\alpha$ and $\beta$, respectively. Proposition~\ref{prop:cofinal-lim} then gives
+	$\Yinjlim\alpha=\Yinjlim\gamma$ and
+	$\Yinjlim\beta=\Yinjlim\delta$.
+
+	For (ii), modify the construction as follows. This time, let $K$ be the category whose objects are triples $(i,j,t)$ forming a commutative diagram
+	\[\begin{tikzcd}
+		\alpha(i) \arrow[d, "\text{canonical}"'] \arrow[r, "t"] & \beta(j) \arrow[d, "\text{canonical}"] \\
+		X \arrow[r, "f"'] & Y,
+	\end{tikzcd}\]
+	with morphisms defined by the evident commutative triangular diagrams. There are functors $I\leftarrow K\rightarrow J$ given on objects by
+	$i\mapsfrom(i,j,t)\mapsto j$. Again define $\gamma$ and $\delta$ by composing these functors with $\alpha$ and $\beta$. The reader is asked to verify that
+	\begin{compactitem}
+		\item $K$ is a small filtered category;
+		\item both functors $I\leftarrow K\rightarrow J$ are cofinal;
+		\item the data $t$ define a morphism $\varphi:\gamma\to\delta$.
+	\end{compactitem}
+
+	These facts give the required commutative diagram
+	\[\begin{tikzcd}[column sep=large]
+		\Yinjlim \gamma \arrow[r, "{\Yinjlim \varphi}"] \arrow[d, "\sim"' sloped] & \Yinjlim \delta \arrow[d, "\sim" sloped] \\
+		X \arrow[r, "f"'] & Y.
+	\end{tikzcd}\]
+
+	For the pair of morphisms $f,g:X\rightrightarrows Y$ in (iii), the argument is similar: define the objects of $K$ to be quadruples $(i,j,s,t)$ with
+	$s,t:\alpha(i)\rightrightarrows\beta(j)$.\footnote{Translator's note: the source prints $\alpha(j)$ as the target, but $j$ indexes $\beta$ and the maps represent morphisms to $Y$; the type-correct target is $\beta(j)$.} The details are left to the reader.
+\end{proof}
+
+The result above generalizes naturally to any finite collection of morphisms
+$f,g,\ldots\in\Hom_{\IndC\mathcal{C}}(X,Y)$.

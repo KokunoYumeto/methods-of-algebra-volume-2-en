@@ -1,0 +1,169 @@
+% English translation of chapter1.tex, lines 568--629.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter1.linear-categories-over-commutative-rings
+
+% segment-id: o014.li2.chapter1.linear-categories-over-commutative-rings.h001
+\section{Generalization: Linear Categories over a Commutative Ring}\label{sec:linear-cat}
+\hypertarget{o014.aljabr2.chapter1.linear-categories-over-commutative-rings}{ }
+
+% segment-id: o014.li2.chapter1.linear-categories-over-commutative-rings.p001
+The $\Hom$ sets of an additive category have the structure of abelian groups.
+In many situations they also carry scalar multiplication by some commutative
+ring $\Bbbk$. For example, every $\Hom$ set in $\Bbbk\dcate{Mod}$ is naturally
+a $\Bbbk$-module, and composition of morphisms is $\Bbbk$-bilinear.
+
+% segment-id: o014.li2.chapter1.linear-categories-over-commutative-rings.d001
+\begin{definition}\label{def:cat-k-linear}
+	\index{category!$\Bbbk\dcate{Mod}$-}
+	\index{linear!$\Bbbk$- ($\Bbbk$-linear)}
+	Let $\Bbbk$ be a commutative ring. Suppose that every $\Hom$ set in a
+	category $\mathcal{A}$ is equipped with a $\Bbbk$-module structure such that
+	composition of morphisms
+	$\Hom(Y, Z) \times \Hom(X, Y) \to \Hom(X, Z)$ is a $\Bbbk$-bilinear map
+	for all objects $X,Y,Z$; in other words, the following diagram commutes:
+	% segment-id: o014.li2.chapter1.linear-categories-over-commutative-rings.g001
+	\[\begin{tikzcd}
+		\Hom(Y, Z) \times \Hom(X, Y) \arrow[d] \arrow[r, "\text{composition}"] & \Hom(X, Z) \\
+		\Hom(Y, Z) \dotimes{\Bbbk} \Hom(X, Y) \arrow[ru, bend right, start anchor=east, "{\exists! \; \text{$\Bbbk$-module homomorphism}}"']
+	\end{tikzcd}  \]
+	With these data, $\mathcal{A}$ is called a \emph{$\Bbbk\dcate{Mod}$-category}.
+
+	Let $F: \mathcal{A} \to \mathcal{A}'$ be a functor between
+	$\Bbbk\dcate{Mod}$-categories. If the map
+	$\Hom(X,Y) \to \Hom(FX,FY)$ is a $\Bbbk$-module homomorphism for every
+	$X,Y \in \Obj(\mathcal{A})$, then $F$ is called a
+	\emph{$\Bbbk$-linear functor}.
+\end{definition}
+
+% segment-id: o014.li2.chapter1.linear-categories-over-commutative-rings.p002
+Observe that $\Bbbk\dcate{Mod}$ is a monoidal category under the tensor product
+$\otimes := \dotimes{\Bbbk}$. Thus the term ``$\Bbbk\dcate{Mod}$-category''
+agrees with the terminology for enriched categories in \cite[\S 3.4]{Li1}.
+The $\cate{Ab}$-categories introduced earlier are precisely the
+$\Z\dcate{Mod}$-categories. Conversely, forgetting scalar multiplication on a
+$\Bbbk\dcate{Mod}$-category leaves an $\cate{Ab}$-category.
+
+% segment-id: o014.li2.chapter1.linear-categories-over-commutative-rings.e001
+\begin{example}
+	A $\Bbbk\dcate{Mod}$-category with a single object is nothing but a
+	$\Bbbk$-algebra. The correspondence is given by
+	$\mathcal{A} \mapsto \End_{\mathcal{A}}(\star)$, where
+	$\Obj(\mathcal{A}) = \{\star\}$.
+\end{example}
+
+% segment-id: o014.li2.chapter1.linear-categories-over-commutative-rings.p003
+The argument of Proposition~\ref{prop:automatic-Ab-morphism} carries over
+verbatim and gives the following result.
+
+% segment-id: o014.li2.chapter1.linear-categories-over-commutative-rings.pr001
+\begin{proposition}\label{prop:automatic-k-morphism}
+	Let $\mathcal{A}$ and $\mathcal{A}'$ be $\Bbbk\dcate{Mod}$-categories.
+	% segment-id: o014.li2.chapter1.linear-categories-over-commutative-rings.l001
+	\begin{enumerate}
+		% segment-id: o014.li2.chapter1.linear-categories-over-commutative-rings.i001
+		\item Given a pair of adjoint functors
+		% The originally inline source adjunction diagram was reflowed as a
+		% centered display so that it neither crowds nor overruns the reader width.
+		% The long chain of equivalences in the proof was likewise reflowed.
+		% segment-id: o014.li2.chapter1.linear-categories-over-commutative-rings.g002
+		\[
+		\begin{tikzcd}
+			F: \mathcal{A} \arrow[shift left, r] & \mathcal{A}' \arrow[shift left, l] : G
+		\end{tikzcd},
+		\]
+		with both $F$ and $G$ $\Bbbk$-linear, the adjunction isomorphism
+		$\Hom_{\mathcal{A}'}(F(\cdot),\cdot) \rightiso
+		\Hom_{\mathcal{A}}(\cdot,G(\cdot))$ is $\Bbbk$-linear.
+		% segment-id: o014.li2.chapter1.linear-categories-over-commutative-rings.i002
+		\item For every $\alpha: I \to \mathcal{A}$, the bijection
+		% segment-id: o014.li2.chapter1.linear-categories-over-commutative-rings.q001
+		\[
+			\Hom_{\mathcal{A}}\left(\varinjlim \alpha,T\right)
+			\simeq \varprojlim_{i \in \Obj(I)}
+			\Hom_{\mathcal{A}}(\alpha(i),T),
+			\quad T \in \Obj(\mathcal{A})
+		\]
+		is $\Bbbk$-linear whenever $\varinjlim \alpha$ exists. The same statement
+		holds for $\varprojlim$.
+	\end{enumerate}
+\end{proposition}
+
+% segment-id: o014.li2.chapter1.linear-categories-over-commutative-rings.p004
+Unless otherwise specified, all functors and equivalences between
+$\Bbbk\dcate{Mod}$-categories will henceforth be understood to be
+$\Bbbk$-linear.
+
+% segment-id: o014.li2.chapter1.linear-categories-over-commutative-rings.d002
+\begin{definition}\label{def:k-linear-cat}
+	\index{category!$\Bbbk$-linear ($\Bbbk$-linear)}
+	If an additive category $\mathcal{A}$ is equipped with a $\Bbbk$-linear
+	structure compatible with its existing $\cate{Ab}$-category structure, then
+	$\mathcal{A}$ together with these data is called a
+	\emph{$\Bbbk$-linear category}.
+\end{definition}
+
+% segment-id: o014.li2.chapter1.linear-categories-over-commutative-rings.p005
+This amounts to replacing the $\cate{Ab}$-category by a
+$\Bbbk\dcate{Mod}$-category in the discussion of \S\ref{sec:Ker-Coker}. Most
+results about additive categories in this chapter extend to the $\Bbbk$-linear
+setting by exactly the same arguments. The sole exception concerns
+Corollary~\ref{prop:automatic-additivity}: in an additive category, addition on
+the $\Hom$ sets can be characterized by properties of the category itself, but
+this is not true of scalar multiplication by $\Bbbk$. Consequently,
+functors---and even equivalences---between $\Bbbk$-linear categories are not
+automatically $\Bbbk$-linear.
+
+% segment-id: o014.li2.chapter1.linear-categories-over-commutative-rings.p006
+We next collect a few results concerning $\Bbbk$-linearity. Recall that the
+\emph{center} of a category $\mathcal{A}$ is defined by
+\index{center} \index[sym1]{ZA@$Z(\mathcal{A})$}
+$Z(\mathcal{A}) := \End(\identity_{\mathcal{A}})$. Its elements are
+endomorphisms of the identity functor $\identity_{\mathcal{A}}$, written as
+$(a_X)_{X \in \Obj(\mathcal{A})}$ with
+$a_X \in \End_{\mathcal{A}}(X)$. Composition makes the center a commutative
+monoid; see \cite[Definition 2.3.8,
+Proposition 2.3.9]{Li1}. If $\mathcal{A}$ is an $\cate{Ab}$-category, then
+$Z(\mathcal{A})$ becomes a commutative ring under composition and addition
+$(a_X)_X + (b_X)_X := (a_X+b_X)_X$.
+
+% segment-id: o014.li2.chapter1.linear-categories-over-commutative-rings.pr002
+\begin{proposition}\label{prop:k-linear-center}
+	Let $\mathcal{A}$ be an $\cate{Ab}$-category. Then there is a bijection
+	% segment-id: o014.li2.chapter1.linear-categories-over-commutative-rings.q002
+	\[
+		\left\{\text{$\Bbbk\dcate{Mod}$-category structures on $\mathcal{A}$}\right\}
+		\stackrel{1:1}{\longleftrightarrow}
+		\Hom_{\text{rings}}(\Bbbk,Z(\mathcal{A})).
+	\]
+	The map is given as follows. If a $\Bbbk\dcate{Mod}$-category structure on
+	$\mathcal{A}$ has been fixed, define, for every $a \in \Bbbk$ and
+	$X \in \Obj(\mathcal{A})$,
+	$a_X := a \cdot \identity_X \in \End_{\mathcal{A}}(X)$. Then
+	$a \mapsto (a_X)_{X \in \Obj(\mathcal{A})} \in Z(\mathcal{A})$ is a ring
+	homomorphism. Conversely, given a ring homomorphism on the right,
+	$a \mapsto (a_X)_{X \in \Obj(\mathcal{A})}$, define a
+	$\Bbbk\dcate{Mod}$-category structure on $\mathcal{A}$ by
+	$a \cdot f := f \circ a_X = a_Y \circ f$, for $f \in \Hom(X,Y)$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter1.linear-categories-over-commutative-rings.pf001
+\begin{proof}
+	The condition for $(a_X)_{X \in \Obj(\mathcal{A})}$ to belong to
+	$Z(\mathcal{A})$ is precisely
+	$f \circ a_X = a_Y \circ f$ for every $f \in \Hom(X,Y)$. If
+	$\mathcal{A}$ is equipped with a $\Bbbk\dcate{Mod}$-category structure,
+	define $a_X := a \cdot \identity_X$. Bilinearity gives
+	\[
+		f \circ a_X = f \circ (a \cdot \identity_X)
+		= (a f) \circ \identity_X
+		= (a \cdot \identity_Y) \circ f
+		= a_Y \circ f,
+	\]
+	so $(a_X)_{X \in \Obj(\mathcal{A})} \in Z(\mathcal{A})$.
+	The remaining verifications are immediate.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.linear-categories-over-commutative-rings.p007
+Consequently, the $\cate{Ab}$-category $\mathcal{A}$ is naturally a
+$Z(\mathcal{A})\dcate{Mod}$-category.

@@ -1,0 +1,434 @@
+% English translation of chapter1.tex, lines 926--1140.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter1.kan-extensions
+
+% segment-id: o014.li2.chapter1.kan-extensions.h001
+\section{Kan Extensions}\label{sec:Kan-extension}
+\hypertarget{o014.aljabr2.chapter1.kan-extensions}{ }
+
+% segment-id: o014.li2.chapter1.kan-extensions.p001
+This section begins with the problem of extending a functor. Consider
+categories $\mathcal{C}$, $\mathcal{D}$, $\mathcal{E}$ and functors $K$ and
+$F$ as in the following diagram:
+% segment-id: o014.li2.chapter1.kan-extensions.g001
+\[\begin{tikzcd}
+	\mathcal{C} \arrow[d, "K"'] \arrow[rd, bend left, "F"] & \\
+	\mathcal{D} \arrow[dashed, r, "{\exists ? \; L}"'] & \mathcal{E}
+\end{tikzcd}\]
+In the basic spirit of category theory, we would like to find a functor $L$
+indicated by the dashed arrow, together with a natural isomorphism
+$F \simeq LK$. This problem generally has no solution: for example, there may
+be $f \in \Mor(\mathcal{C})$ such that $Kf$ is an isomorphism while $Ff$ is
+not. Failing that, we may at least ask whether there is a best approximation.
+The answer is characterized by a universal property, with left and right
+versions.
+
+% segment-id: o014.li2.chapter1.kan-extensions.d001
+\begin{definition}[D.\ Kan]\label{def:Kan-extension}
+	\index{Kan extension}
+	\index[sym1]{LanKF@$\Lan_K F$}
+	\index[sym1]{RanKF@$\Ran_K F$}
+	Consider categories $\mathcal{C}$, $\mathcal{D}$, $\mathcal{E}$ and
+	functors $K: \mathcal{C} \to \mathcal{D}$ and
+	$F: \mathcal{C} \to \mathcal{E}$.
+% segment-id: o014.li2.chapter1.kan-extensions.l001
+	\begin{itemize}
+% segment-id: o014.li2.chapter1.kan-extensions.i001
+		\item A \emph{left Kan extension} of the functor $F$ along $K$ is the
+		following data $(\Lan_K F, \eta)$:
+% segment-id: o014.li2.chapter1.kan-extensions.l002
+		\begin{compactitem}
+% segment-id: o014.li2.chapter1.kan-extensions.i002
+			\item $\Lan_K F: \mathcal{D} \to \mathcal{E}$ is a functor;
+% segment-id: o014.li2.chapter1.kan-extensions.i003
+			\item $\eta: F \to (\Lan_K F) K$ is a natural transformation.
+		\end{compactitem}
+		These data must satisfy the following universal property: for every
+		$L: \mathcal{D} \to \mathcal{E}$ and $\xi: F \to LK$, there is a unique
+		natural transformation $\chi: \Lan_K F \to L$ such that
+		$\xi = (\chi K) \eta$ (using vertical and horizontal composition of
+		natural transformations), or, in $2$-cell diagrams:
+% segment-id: o014.li2.chapter1.kan-extensions.g002
+		\[\begin{tikzcd}[column sep=large]
+			\mathcal{C} \arrow[d, "K"'] \arrow[rd, bend left, "F", ""' {name=F}] & \\
+			\mathcal{D} \arrow[r, "L"'] \arrow[Rightarrow, from=F, "\xi" description] & \mathcal{E}
+% segment-id: o014.li2.chapter1.kan-extensions.g003
+		\end{tikzcd} = \begin{tikzcd}[column sep=large]
+			\mathcal{C} \arrow[d, "K"'] \arrow[rd, bend left, "F", ""' {name=F}] & \\
+			\mathcal{D} \arrow[r, "{\Lan_K F}"' name=A] \arrow[Rightarrow, from=F, "\eta" description] \arrow[r, "L"{below, name=B}, rounded corners, to path={-- ([yshift=-2em]\tikztostart.south) -- ([yshift=-2em] \tikztotarget.south) [midway]\tikztonodes -- (\tikztotarget) }] & \mathcal{E} \arrow[Rightarrow, from=A, to=B, "\chi"]
+		\end{tikzcd}. \]
+
+% segment-id: o014.li2.chapter1.kan-extensions.i004
+		\item A \emph{right Kan extension} of the functor $F$ along $K$ is the
+		following data $(\Ran_K F, \varepsilon)$:
+% segment-id: o014.li2.chapter1.kan-extensions.l003
+		\begin{compactitem}
+% segment-id: o014.li2.chapter1.kan-extensions.i005
+			\item $\Ran_K F: \mathcal{D} \to \mathcal{E}$ is a functor;
+% segment-id: o014.li2.chapter1.kan-extensions.i006
+			\item $\varepsilon: (\Ran_K  F)K \to F$ is a natural transformation.
+		\end{compactitem}
+		These data must satisfy the following universal property: for every
+		$R: \mathcal{D} \to \mathcal{E}$ and $\delta: RK \to F$, there is a unique
+		natural transformation $\theta: R \to \Ran_K F$ such that
+		$\delta = \varepsilon (\theta K)$, or, in $2$-cell diagrams:
+% segment-id: o014.li2.chapter1.kan-extensions.g004
+		\[\begin{tikzcd}[column sep=large]
+			\mathcal{C} \arrow[d, "K"'] \arrow[rd, bend left, "F", ""' {name=F}] & \\
+			\mathcal{D} \arrow[r, "R"'] \arrow[Rightarrow, to=F, "\delta" description] & \mathcal{E}
+% segment-id: o014.li2.chapter1.kan-extensions.g005
+		\end{tikzcd} = \begin{tikzcd}[column sep=large]
+			\mathcal{C} \arrow[d, "K"'] \arrow[rd, bend left, "F", ""' {name=F}] & \\
+			\mathcal{D} \arrow[r, "{\Ran_K F}"' name=A] \arrow[Rightarrow, to=F, "\varepsilon" description] \arrow[r, "R"{below, name=B}, rounded corners, to path={-- ([yshift=-2em]\tikztostart.south) -- ([yshift=-2em] \tikztotarget.south) [midway]\tikztonodes -- (\tikztotarget) }] & \mathcal{E} \arrow[Rightarrow, from=B, to=A, "\theta"]
+		\end{tikzcd}. \]
+	\end{itemize}
+\end{definition}
+
+
+% segment-id: o014.li2.chapter1.kan-extensions.p002
+If $\mathcal{C}$, $\mathcal{D}$, and $\mathcal{E}$ in the definition are
+replaced respectively by $\mathcal{C}^{\opp}$, $\mathcal{D}^{\opp}$, and
+$\mathcal{E}^{\opp}$, the pattern of directions of the functors remains the
+same, while the natural transformations reverse direction. Thus left and
+right Kan extensions are dual notions.
+
+% segment-id: o014.li2.chapter1.kan-extensions.p003
+Using the functor categories $\mathcal{E}^{\mathcal{C}}$ and
+$\mathcal{E}^{\mathcal{D}}$, the universal properties of left and right Kan
+extensions state, respectively, the bijections
+% segment-id: o014.li2.chapter1.kan-extensions.q001
+\begin{equation}\label{eqn:Kan-univ}\begin{aligned}
+	\Hom_{\mathcal{E}^{\mathcal{D}}}\left( \Lan_K F, L \right) & \xrightarrow{1:1} \Hom_{\mathcal{E}^{\mathcal{C}}}\left( F, LK \right) \\
+	\chi & \longmapsto (\chi K)\eta , \\
+	\Hom_{\mathcal{E}^{\mathcal{D}}}\left( R, \Ran_K F \right) & \xrightarrow{1:1} \Hom_{\mathcal{E}^{\mathcal{C}}}\left( RK, F \right) \\
+	\theta & \longmapsto \varepsilon (\theta K);
+\end{aligned}\end{equation}
+their inverses are the maps $(L, \xi) \mapsto \chi$ and
+$(R, \delta) \mapsto \theta$, respectively, from
+Definition~\ref{def:Kan-extension}.
+
+% segment-id: o014.li2.chapter1.kan-extensions.pr001
+\begin{proposition}\label{prop:Kan-uniqueness}
+	Given categories $\mathcal{C}$, $\mathcal{D}$, $\mathcal{E}$ and functors
+	$K: \mathcal{C} \to \mathcal{D}$ and $F: \mathcal{C} \to \mathcal{E}$,
+	consider the pullback (that is, precomposition) functor
+	$K^*: \mathcal{E}^{\mathcal{D}} \to \mathcal{E}^{\mathcal{C}}$ between
+	the functor categories.
+% segment-id: o014.li2.chapter1.kan-extensions.l004
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter1.kan-extensions.i007
+		\item If it exists, a left Kan extension $(\Lan_K F, \eta)$ is unique up
+		to a unique isomorphism in $\mathcal{E}^{\mathcal{D}}$; the same holds for
+		a right Kan extension.
+% segment-id: o014.li2.chapter1.kan-extensions.i008
+		\item If the left Kan extension (or right Kan extension) along $K$ exists
+		for every $F$, these extensions assemble into a left adjoint to $K^*$,
+		$\Lan_K: \mathcal{E}^{\mathcal{C}} \to \mathcal{E}^{\mathcal{D}}$
+		(or a right adjoint
+		$\Ran_K: \mathcal{E}^{\mathcal{C}} \to \mathcal{E}^{\mathcal{D}}$);
+		the family of natural transformations assembled from $\eta$ (or
+		$\varepsilon$) in Definition~\ref{def:Kan-extension} is exactly the unit
+		(or counit) of this adjunction.
+	\end{enumerate}
+\end{proposition}
+% segment-id: o014.li2.chapter1.kan-extensions.pf001
+\begin{proof}
+	For (i), simply apply the universal property in
+	Definition~\ref{def:Kan-extension} in the usual way.
+
+	For (ii), observe that $LK = K^*(L)$ and $RK = K^*(R)$; the desired
+	adjunction is precisely the content of \eqref{eqn:Kan-univ}. The assertion
+	about the unit or counit follows similarly; see
+	\cite[Proposition 2.6.5]{Li1}.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.kan-extensions.p004
+By convention, the data $\eta$ or $\varepsilon$ in a Kan extension are often
+omitted from the notation. If the left Kan extension (or right Kan extension)
+along $K$ exists for every $F$, the functor $\Lan_K$ (or $\Ran_K$) obtained
+in (ii) also has the corresponding uniqueness property, by uniqueness of
+adjoints \cite[Proposition 2.6.10]{Li1}.
+
+% segment-id: o014.li2.chapter1.kan-extensions.r001
+\begin{remark}
+	Since the definition of a Kan extension involves only composition of
+	$2$-cells, it extends to general $2$-categories; the present situation is
+	the special case of the $2$-category $\cate{Cat}$. See
+	\cite[\S 3.5]{Li1} for details.
+\end{remark}
+
+% segment-id: o014.li2.chapter1.kan-extensions.p005
+For every category $\mathcal{C}$, denote the unique functor
+$\mathcal{C} \to \mathbf{1}$ by $!$; specifying a functor
+$\mathbf{1} \to \mathcal{C}$ is equivalent to specifying an object of
+$\mathcal{C}$. For every category $\mathcal{E}$ and object $X$ in it, write
+$\Delta(X): \mathcal{C} \to \mathcal{E}$ for the composite
+$\mathcal{C} \xrightarrow{!} \mathbf{1} \xrightarrow{\text{constant}\; X}
+\mathcal{E}$; this is the constant functor that sends every object to $X$ and
+every morphism to $\identity_X$.
+
+% segment-id: o014.li2.chapter1.kan-extensions.e001
+\begin{example}[Limits as Kan extensions]\label{eg:limit-as-Kan}
+	Let $F: \mathcal{C} \to \mathcal{E}$ be a functor. Consider the diagram
+% segment-id: o014.li2.chapter1.kan-extensions.g006
+	\[\begin{tikzcd}
+		\mathcal{C} \arrow[d, "!"'] \arrow[rd, bend left, "F"] & \\
+		\mathbf{1} & \mathcal{E}
+	\end{tikzcd}\]
+	Then $\Lan_! F$ (or $\Ran_! F$) exists if and only if $\varinjlim F$ (or
+	$\varprojlim F$) exists in $\mathcal{E}$, and in that case the Kan
+	extension is precisely the limit in question.
+
+	For example, consider $(\Lan_! F, \eta)$. The functor
+	$\Lan_! F: \mathbf{1} \to \mathcal{E}$ may be viewed as an object of
+	$\mathcal{E}$, while $\eta$ is a natural transformation
+	$F \to \Delta(\Lan_! F)$ in $\mathcal{E}^{\mathcal{C}}$. Its universal
+	property is equivalent to the assertion that the data $(\Lan_! F, \eta)$
+	give an initial object of the category $(F/\Delta)$; this is precisely the
+	description of $\varinjlim F$ in \S\ref{sec:limit-functor}.
+\end{example}
+
+% segment-id: o014.li2.chapter1.kan-extensions.e002
+\begin{example}[Adjunctions as Kan extensions]
+	Consider a pair of functors:
+% segment-id: o014.li2.chapter1.kan-extensions.g007
+	\[\begin{tikzcd}
+		F: \mathcal{C} \arrow[r, shift left] & \mathcal{D}: G \arrow[l, shift left]
+	\end{tikzcd}\]
+	If $(F, G)$ is equipped with the structure of an adjunction with unit
+	$\eta: \identity_{\mathcal{C}} \to GF$ and counit
+	$\varepsilon: FG \to \identity_{\mathcal{D}}$, then $(G, \eta)$ gives
+	$\Lan_F (\identity_{\mathcal{C}})$ and $(F, \varepsilon)$ gives
+	$\Ran_G (\identity_{\mathcal{D}})$.
+
+	To explain this, first we show that the following pullback functors
+% segment-id: o014.li2.chapter1.kan-extensions.g008
+	\[\begin{tikzcd}
+		G^*: \mathcal{C}^{\mathcal{C}} \arrow[r, shift left] &
+		\mathcal{C}^{\mathcal{D}}: F^* \arrow[l, shift left]
+	\end{tikzcd}\]
+	themselves form a natural adjoint pair. Observe that $\eta$
+	induces
+	$\identity_{\mathcal{C}}^* = \identity_{\mathcal{C}^{\mathcal{C}}}
+	\to F^* G^* = (GF)^*$, and similarly $\varepsilon$ induces
+	$G^* F^* \to \identity_{\mathcal{C}^{\mathcal{D}}}$; we continue to denote
+	both by $\eta$ and $\varepsilon$. We must check the triangle identities
+	characterizing the adjunction $(G^*, F^*, \eta, \varepsilon)$. In brief,
+	these identities follow formally by applying pullback $(-)^*$ in functor
+	categories to the triangle identities for $(F, G, \eta, \varepsilon)$;
+	the details are left to the reader.
+
+	This adjunction gives a canonical bijection
+	$\Hom_{\mathcal{C}^{\mathcal{D}}}(\underbracket{G^* \identity_{\mathcal{C}}}_{= G}, L) \rightiso \Hom_{\mathcal{C}^{\mathcal{C}}}(\identity_{\mathcal{C}} , \underbracket{F^* L}_{=LF})$,
+	for arbitrary $L: \mathcal{D} \to \mathcal{C}$; when $L = G$,
+	$\identity_G$ maps to $\eta$. Writing the universal property of
+	$\Lan_F (\identity_{\mathcal{C}})$ as the bijection in
+	\eqref{eqn:Kan-univ}, one sees at once that $(G, \eta)$ gives
+	$\Lan_F (\identity_{\mathcal{C}})$. The argument for
+	$\Ran_G (\identity_{\mathcal{D}})$ is entirely similar.\footnote{Translator's
+	note: the source writes $\Ran_F(\identity_{\mathcal{C}})$ in the final
+	sentence, contrary to the preceding assertion concerning
+	$(F,\varepsilon)$. The target corrects this to
+	$\Ran_G(\identity_{\mathcal{D}})$ (O014-C014).}
+\end{example}
+
+% segment-id: o014.li2.chapter1.kan-extensions.p006
+In practice, some situations require a further strengthening of the notion of
+Kan extension\footnote{One common strengthening is called a pointwise Kan
+extension; it is not discussed here.}, especially in the later treatment of
+derived functors.
+
+% segment-id: o014.li2.chapter1.kan-extensions.d002
+\begin{definition}\label{def:absolute-Kan}
+	Consider categories $\mathcal{C}$, $\mathcal{D}$, $\mathcal{E}$,
+	$\mathcal{F}$ and functors $K: \mathcal{C} \to \mathcal{D}$ and
+	$F: \mathcal{C} \to \mathcal{E}$.\footnote{Translator's note: the source
+	does not include the category $\mathcal{F}$ in the initial list, even though
+	it is used as the codomain of $M$. The target adds it (O014-C015).}
+% segment-id: o014.li2.chapter1.kan-extensions.l005
+	\begin{itemize}
+% segment-id: o014.li2.chapter1.kan-extensions.i009
+		\item Suppose the right Kan extension $(\Ran_K F, \varepsilon)$ exists.
+		A functor $M: \mathcal{E} \to \mathcal{F}$ is said to
+		\emph{preserve} $\Ran_K F$ if the composite $2$-cell
+% segment-id: o014.li2.chapter1.kan-extensions.g009
+		\[\begin{tikzcd}[column sep=large]
+			\mathcal{C} \arrow[d, "K"'] \arrow[rd, bend left, "F", ""' {name=F}] & & \\
+			\mathcal{D} \arrow[r, "{\Ran_K F}"'] \arrow[Rightarrow, to=F, "\varepsilon" description] & \mathcal{E} \arrow[r, "M"'] & \mathcal{F}
+% segment-id: o014.li2.chapter1.kan-extensions.g010
+		\end{tikzcd} =: \begin{tikzcd}
+			\mathcal{C} \arrow[rr, "MF", ""{name=MF}] \arrow[rd, "K"'] & & \mathcal{F}  \\
+			& \mathcal{D} \arrow[ru, "{M \Ran_K F}"'] \arrow[Rightarrow, to=MF, "M\varepsilon" description] &
+		\end{tikzcd}\]
+		gives a right Kan extension of $MF$ along $K$.
+% segment-id: o014.li2.chapter1.kan-extensions.i010
+		\item Suppose the left Kan extension $(\Lan_K F, \eta)$ exists. A functor
+		$M: \mathcal{E} \to \mathcal{F}$ is said to
+		\emph{preserve} $\Lan_K F$ if the composite $2$-cell
+% segment-id: o014.li2.chapter1.kan-extensions.g011
+		\[\begin{tikzcd}[column sep=large]
+			\mathcal{C} \arrow[d, "K"'] \arrow[rd, bend left, "F", ""' {name=F}] & & \\
+			\mathcal{D} \arrow[r, "{\Lan_K F}"'] \arrow[Rightarrow, from=F, "\eta" description] & \mathcal{E} \arrow[r, "M"'] & \mathcal{F}
+% segment-id: o014.li2.chapter1.kan-extensions.g012
+		\end{tikzcd} =: \begin{tikzcd}
+			\mathcal{C} \arrow[rr, "MF", ""{name=MF}] \arrow[rd, "K"'] & & \mathcal{F}  \\
+			& \mathcal{D} \arrow[ru, "{M \Lan_K F}"'] \arrow[Rightarrow, from=MF, "M\eta" description] &
+		\end{tikzcd}\]
+		gives a left Kan extension of $MF$ along $K$.
+% segment-id: o014.li2.chapter1.kan-extensions.i011
+		\item If a left Kan extension $(\Lan_K F, \eta)$ (or a right Kan
+		extension $(\Ran_K F, \varepsilon)$) is preserved by every functor whose
+		domain is $\mathcal{E}$, the Kan extension is called \emph{absolute}.
+		\index{Kan extension!absolute}
+	\end{itemize}
+\end{definition}
+
+% segment-id: o014.li2.chapter1.kan-extensions.p007
+The next step is to explain the relationship between adjunctions and absolute
+Kan extensions. The result is extremely useful in the later study of derived
+functors; studying its proof also helps one become accustomed to Kan
+extensions and the manipulation of $2$-cells. Consider a pair of adjoint
+functors
+% segment-id: o014.li2.chapter1.kan-extensions.g013
+$\begin{tikzcd}
+	F: \mathcal{C} \arrow[r, shift left] & \mathcal{C}' \arrow[l, shift left] : G
+\end{tikzcd}$,
+specified by a unit $\eta: \identity_{\mathcal{C}} \to GF$ and a counit
+$\varepsilon: FG \to \identity_{\mathcal{C}'}$. Also given are functors
+% segment-id: o014.li2.chapter1.kan-extensions.q002
+\[ K: \mathcal{C} \to \mathcal{D}, \quad K': \mathcal{C}' \to \mathcal{D}'. \]
+We shall now use $2$-cell diagrams systematically to represent functors,
+natural transformations between them, and their composites, making the
+argument more concise. In manipulating $2$-cells, we interchange vertical and
+horizontal composition without further comment; this is valid, as explained
+in \cite[Lemma 2.2.7]{Li1}.
+
+% segment-id: o014.li2.chapter1.kan-extensions.th001
+\begin{theorem}[{G.\ Maltsiniotis \cite{Ma07}}]\label{prop:Quillen-adjunction-gen}
+	Suppose $K'F$ has an absolute right Kan extension along $K$, denoted
+	$\mathrm{L}F$, while $KG$ has an absolute left Kan extension along $K'$,
+	denoted $\mathrm{R}G$. The associated data are displayed in the following
+	diagrams:
+% segment-id: o014.li2.chapter1.kan-extensions.g014
+	\[\begin{tikzcd}
+		\mathcal{C} \arrow[r, "F"] \arrow[d, "K"'] & \mathcal{C}' \arrow[d, "{K'}"] \\
+		\mathcal{D} \arrow[r, "{\mathrm{L}F}"'] \arrow[Rightarrow, ru, "\alpha" description] & \mathcal{D}'
+% segment-id: o014.li2.chapter1.kan-extensions.g015
+	\end{tikzcd} \quad \begin{tikzcd}
+		\mathcal{C}' \arrow[r, "G"] \arrow[d, "{K'}"'] & \mathcal{C} \arrow[d, "K"] \arrow[Rightarrow, ld, "\beta" description] \\
+		\mathcal{D}' \arrow[r, "{\mathrm{R}G}"'] & \mathcal{D} .
+	\end{tikzcd} \]
+	In this situation, there are unique transformations
+	$\underline{\eta}: \identity_{\mathcal{D}} \to \mathrm{R}G \circ \mathrm{L}F$
+	and
+	$\underline{\varepsilon}: \mathrm{L}F \circ \mathrm{R}G \to
+	\identity_{\mathcal{D}'}$ such that the following equations of composite
+	$2$-cells hold:
+% segment-id: o014.li2.chapter1.kan-extensions.q003
+	\begin{equation*}\begin{gathered}
+% segment-id: o014.li2.chapter1.kan-extensions.g016
+		\begin{tikzcd}[every cell/.append style = {font = \small}]
+			\mathcal{C} \arrow[r] \arrow[rr, bend left=75, "{\identity_{\mathcal{C}}}", ""' {name=I}] & \mathcal{C}' \arrow[r] \arrow[d] \arrow[Rightarrow, from=I, "\eta" description] & \mathcal{C} \arrow[d] \arrow[Rightarrow, ld, "\beta" description] \\
+			& \mathcal{D}' \arrow[r, "{\mathrm{R}G}"'] & \mathcal{D}
+% segment-id: o014.li2.chapter1.kan-extensions.g017
+		\end{tikzcd} = \begin{tikzcd}[every cell/.append style = {font = \small}]
+			\mathcal{C} \arrow[r] \arrow[d] & \mathcal{C}' \arrow[d] & \\
+			\mathcal{D} \arrow[r, "{\mathrm{L}F}"'] \arrow[rr, bend right=75, "{\identity_{\mathcal{D}}}"', "" {name=I}] \arrow[Rightarrow, ru, "\alpha" description] & \mathcal{D}' \arrow[r, "{\mathrm{R}G}"'] \arrow[Rightarrow, from=I, "\underline{\eta}" description] & \mathcal{D}
+		\end{tikzcd} \\
+% segment-id: o014.li2.chapter1.kan-extensions.g018
+		\begin{tikzcd}[every cell/.append style = {font = \small}]
+			\mathcal{C}' \arrow[r] \arrow[bend left=75, rr, "{\identity_{\mathcal{C}'}}", ""' {name=I}] & \mathcal{C} \arrow[r] \arrow[d] \arrow[Rightarrow, to=I, "\varepsilon" description] & \mathcal{C}' \arrow[d] \\
+			& \mathcal{D} \arrow[r, "{\mathrm{L}F}"'] \arrow[Rightarrow, ru, "\alpha" description] & \mathcal{D}'
+% segment-id: o014.li2.chapter1.kan-extensions.g019
+		\end{tikzcd} = \begin{tikzcd}
+			\mathcal{C}' \arrow[r] \arrow[d] & \mathcal{C} \arrow[d] \arrow[Rightarrow, ld, "\beta" description] & \\
+			\mathcal{D}' \arrow[r, "{\mathrm{R}G}"'] \arrow[rr, bend right=75, "{\identity_{\mathcal{D}'}}"', "" {name=I}] & \mathcal{D} \arrow[r, "{\mathrm{L}F}"'] \arrow[Rightarrow, to=I, "\underline{\varepsilon}" description] & \mathcal{D}'
+		\end{tikzcd}
+	\end{gathered}\end{equation*}
+	Moreover, $\underline{\eta}$ and $\underline{\varepsilon}$ make
+	$(\mathrm{L}F, \mathrm{R}G)$ an adjunction.
+\end{theorem}
+% segment-id: o014.li2.chapter1.kan-extensions.pf002
+\begin{proof}
+	%%%%%%%%%%%%%%%%%%%%%%%%%
+	The first task is to prove the existence and uniqueness of
+	$\underline{\eta}$ and $\underline{\varepsilon}$. Since $\mathrm{R}G$ is
+	an absolute left Kan extension, the $2$-cell
+% segment-id: o014.li2.chapter1.kan-extensions.g020
+	\[\begin{tikzcd}
+		\mathcal{C}' \arrow[r, "G"] \arrow[d, "{K'}"'] & \mathcal{C} \arrow[d, "K"] \arrow[Rightarrow, ld, "\beta" description] & \\
+		\mathcal{D}' \arrow[r, "{\mathrm{R}G}"'] & \mathcal{D} \arrow[r, "{\mathrm{L}F}"'] & \mathcal{D}'
+	\end{tikzcd} = (\mathrm{L}F)\beta : \mathrm{L}F \circ K \circ G \to \mathrm{L}F \circ \mathrm{R}G \circ K' \]
+	makes $\mathrm{L}F \circ \mathrm{R}G$ a left Kan extension of
+	$\mathrm{L}F \circ K \circ G$ along $K'$. On the other hand, we also have
+% segment-id: o014.li2.chapter1.kan-extensions.g021
+	\[\begin{tikzcd}[every cell/.append style = {font = \small}]
+		\mathcal{C}' \arrow[r, "G"] \arrow[bend left=75, rr, "{\identity_{\mathcal{C}'}}", ""' {name=I}] & \mathcal{C} \arrow[r, "F"] \arrow[d, "K"'] \arrow[Rightarrow, to=I, "\varepsilon" description] & \mathcal{C}' \arrow[d, "{K'}"] \\
+		& \mathcal{D} \arrow[r, "{\mathrm{L}F}"'] \arrow[Rightarrow, ru, "\alpha" description] & \mathcal{D}'
+	\end{tikzcd} = \varepsilon(\alpha G) : \mathrm{L}F \circ K \circ G \to K' \circ \identity_{\mathcal{C}'} = K' . \]
+	Thus the universal property of the left Kan extension determines a unique
+	$\underline{\varepsilon}$ satisfying the equation of composite $2$-cells
+	in the statement of the theorem.
+	%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	The case of $\underline{\eta}$ is dual. It suffices to observe that
+	$(\mathrm{R}G)\alpha:
+	\mathrm{R}G \circ \mathrm{L}F \circ K \to
+	\mathrm{R}G \circ K' \circ F$ also makes
+	$\mathrm{R}G \circ \mathrm{L}F$ a right Kan extension, because
+	$\mathrm{L}F$ is an absolute right Kan extension.
+
+	It remains to verify the triangle identities for the unit
+	$\underline{\eta}$ and counit $\underline{\varepsilon}$, namely the
+	following equations of composite $2$-cells:
+% segment-id: o014.li2.chapter1.kan-extensions.q004
+	\begin{equation*}\begin{gathered}
+% segment-id: o014.li2.chapter1.kan-extensions.g022
+		\begin{tikzcd}[column sep=small, every cell/.append style = {font = \small}]
+			\mathcal{D}' \arrow[r] \arrow[bend right=60, rr, "\identity"', "" {name=I}] & \mathcal{D} \arrow[r] \arrow[rr, bend left=60, "\identity", "" {name=J}] \arrow[Rightarrow, to=I] & \mathcal{D}' \arrow[r] \arrow[Rightarrow, from=J] & \mathcal{D}
+% segment-id: o014.li2.chapter1.kan-extensions.g023
+		\end{tikzcd} = \begin{tikzcd}[every cell/.append style = {font = \small}]
+			\mathcal{D}' \arrow[r, bend left=60, "{\mathrm{R}G}", ""' {name=A}] \arrow[r, bend right=60, "{\mathrm{R}G}"', "" {name=B}] & \mathcal{D} \arrow[Rightarrow, from=A, to=B, "\identity" description]
+		\end{tikzcd} , \quad
+% segment-id: o014.li2.chapter1.kan-extensions.g024
+		\begin{tikzcd}[column sep=small, every cell/.append style = {font = \small}]
+			\mathcal{D} \arrow[r] \arrow[bend left=60, rr, "\identity", ""' {name=I}] & \mathcal{D}' \arrow[r] \arrow[Rightarrow, from=I] \arrow[bend right=60, rr, "\identity"', "" {name=J}] & \mathcal{D} \arrow[r] \arrow[Rightarrow, to=J] & \mathcal{D}'
+% segment-id: o014.li2.chapter1.kan-extensions.g025
+		\end{tikzcd} = \begin{tikzcd}[every cell/.append style = {font = \small}]
+			\mathcal{D} \arrow[r, bend left=60, "{\mathrm{L}F}", ""' {name=A}] \arrow[r, bend right=60, "{\mathrm{L}F}"', "" {name=B}] & \mathcal{D}' \arrow[Rightarrow, from=A, to=B, "\identity" description]
+		\end{tikzcd},
+	\end{gathered}\end{equation*}
+	where unambiguous arrow labels have been omitted. We prove the first
+	equation. By the universal property of $(\mathrm{R}G, \beta)$ as a left Kan
+	extension, it suffices to show that the $2$-cells obtained by composing both
+	sides with $\beta$ are equal. For the left side of the first equation, begin
+	with
+% segment-id: o014.li2.chapter1.kan-extensions.g026
+	\[\begin{tikzcd}[every cell/.append style = {font = \small}]
+		\mathcal{C}' \arrow[r] \arrow[d] & \mathcal{C} \arrow[d] \arrow[Rightarrow, ld] & & \\
+		\mathcal{D}' \arrow[r] \arrow[bend right=60, rr, "\identity"', "" {name=I}] & \mathcal{D} \arrow[r] \arrow[rr, bend left=60, "\identity", "" {name=J}] \arrow[Rightarrow, to=I, "\underline{\varepsilon}"] & \mathcal{D}' \arrow[r] \arrow[Rightarrow, from=J, "\underline{\eta}"] & \mathcal{D}
+% segment-id: o014.li2.chapter1.kan-extensions.g027
+	\end{tikzcd} = \begin{tikzcd}[every cell/.append style = {font = \small}]
+		\mathcal{C}' \arrow[r] \arrow[rr, bend left=40, "\identity", ""' {name=T}] & \mathcal{C} \arrow[r] \arrow[d] \arrow[Rightarrow, to=T, "\varepsilon" inner sep=0.4em] & \mathcal{C}' \arrow[d] & \\
+ 		& \mathcal{D} \arrow[r] \arrow[rr, bend right=60, "\identity"', "" {name=I}] \arrow[Rightarrow, ru] & \mathcal{D}' \arrow[r] \arrow[Rightarrow, from=I, "\underline{\eta}"'] & \mathcal{D}
+	\end{tikzcd}\]
+	where we used the characterization of $\underline{\varepsilon}$. Next,
+	using the characterization of $\underline{\eta}$ and the triangle
+	identities satisfied by $\eta$ and $\varepsilon$, the right-hand side above
+	becomes
+% segment-id: o014.li2.chapter1.kan-extensions.g028
+	\[\begin{tikzcd}[every cell/.append style = {font = \small}]
+		\mathcal{C}' \arrow[r] \arrow[rr, bend right=75, "\identity"', "" {name=A}] & \mathcal{C} \arrow[r] \arrow[rr, bend left=75, "\identity", ""' {name=B}] \arrow[Rightarrow, to=A, "\varepsilon"] & \mathcal{C}' \arrow[r] \arrow[d] \arrow[Rightarrow, from=B, "\eta"] & \mathcal{C} \arrow[d] \arrow[Rightarrow, ld, "\beta" description] \\
+		& & \mathcal{D}' \arrow[r] & \mathcal{D}
+% segment-id: o014.li2.chapter1.kan-extensions.g029
+	\end{tikzcd} = \begin{tikzcd}[column sep=large, every cell/.append style = {font = \small}]
+		\mathcal{C}' \arrow[r] \arrow[bend left=75, r, ""' {name=T}] \arrow[r, "" {name=B}] \arrow[d] & \mathcal{C} \arrow[d] \arrow[Rightarrow, ld, "\beta" description] \\
+		\mathcal{D}' \arrow[r] & \mathcal{D} \arrow[Rightarrow, from=T, to=B, "\identity"]
+% segment-id: o014.li2.chapter1.kan-extensions.g030
+	\end{tikzcd} = \begin{tikzcd}[column sep=large, every cell/.append style = {font = \small}]
+		\mathcal{C}' \arrow[r] \arrow[d] & \mathcal{C} \arrow[d]  \arrow[Rightarrow, ld, "\beta" description] \\
+		\mathcal{D}' \arrow[r, ""' {name=T}] \arrow[r, bend right=75, "" {name=B}] & \mathcal{D} \arrow[Rightarrow, from=T, to=B, "\identity"]
+	\end{tikzcd}\]
+	This is the first triangle identity. The proof of the second is dual.
+\end{proof}

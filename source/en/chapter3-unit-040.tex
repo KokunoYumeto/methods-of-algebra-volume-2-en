@@ -1,0 +1,261 @@
+% Unit 040 English translation of chapter3.tex lines 1587--1709.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter3.truncation-functors
+% Coverage: Section 3.9 in full.
+
+% segment-id: o014.li2.chapter3.truncation-functors.h001
+\section{Truncation Functors}\label{sec:truncation-functors}
+\hypertarget{o014.aljabr2.chapter3.truncation-functors}{ }
+
+% segment-id: o014.li2.chapter3.truncation-functors.p001
+At the beginning of this section, let $\mathcal{A}$ be an additive category.
+
+% segment-id: o014.li2.chapter3.truncation-functors.de001
+\begin{definition}\label{def:cplx-cat-variant}
+	\index{complex!bounded above, bounded below, bounded}
+	\index[sym1]{CbA@$\cate{C}^+(\mathcal{A})$, $\cate{C}^-(\mathcal{A})$, $\cate{C}^{\bdd}(\mathcal{A})$}
+	\index[sym1]{CstA@$\cate{C}^{[s,t]}(\mathcal{A})$, $\cate{C}^{\geq s}(\mathcal{A})$, $\cate{C}^{\leq t}(\mathcal{A})$}
+	For a complex $X \in \Obj(\cate{C}(\mathcal{A}))$, use the following
+	terms and corresponding full subcategories:
+% segment-id: o014.li2.chapter3.truncation-functors.q001
+	\begin{center}\small\setlength{\tabcolsep}{3pt}\begin{tabular}{|c|c|c|c|}\hline
+		Term & bounded & bounded below & bounded above \\
+		Condition & $|n| \gg 0 \implies X^n = 0 $ & $n \ll 0 \implies X^n = 0$ & $n \gg 0 \implies X^n = 0$ \\
+		Full subcategory & $\cate{C}^{\bdd}(\mathcal{A})$ & $\cate{C}^+(\mathcal{A})$ & $\cate{C}^-(\mathcal{A})$ \\ \hline
+	\end{tabular}\end{center}
+
+	More generally, for $-\infty \leq s \leq t \leq +\infty$, let
+	$\cate{C}^{[s,t]}(\mathcal{A})$ denote the full subcategory consisting of
+	complexes satisfying $n \notin [s, t] \implies X^n = 0$, and define
+% segment-id: o014.li2.chapter3.truncation-functors.q002
+	\[ \cate{C}^{\geq s}(\mathcal{A}) := \cate{C}^{[s, +\infty]}(\mathcal{A}), \quad \cate{C}^{\leq t}(\mathcal{A}) := \cate{C}^{[-\infty, t]}(\mathcal{A}). \]
+\end{definition}
+
+% segment-id: o014.li2.chapter3.truncation-functors.p002
+All these full subcategories are additive categories. If $\mathcal{A}$ is an
+abelian category, then $\cate{C}^+(\mathcal{A})$,
+$\cate{C}^-(\mathcal{A})$, and
+$\cate{C}^{\bdd}(\mathcal{A}) = \cate{C}^+(\mathcal{A}) \cap
+\cate{C}^-(\mathcal{A})$ are abelian subcategories.\footnote{Translator's
+note (O014-C050): the source states the second assertion without requiring
+$\mathcal{A}$ to be abelian, although at this point $\mathcal{A}$ has only
+been assumed additive. The assertion is made conditional here.} The shift
+functor $[n]$ preserves $\cate{C}^+(\mathcal{A})$,
+$\cate{C}^-(\mathcal{A})$, and $\cate{C}^{\bdd}(\mathcal{A})$, but maps
+$\cate{C}^{[a,b]}(\mathcal{A})$ to
+$\cate{C}^{[a-n, b-n]}(\mathcal{A})$.
+
+% segment-id: o014.li2.chapter3.truncation-functors.p003
+Moreover, $\mathcal{A}$ is naturally identified with
+$\cate{C}^{\geq 0}(\mathcal{A}) \cap \cate{C}^{\leq 0}(\mathcal{A})$.
+
+% segment-id: o014.li2.chapter3.truncation-functors.p004
+For every $\star \in \{+, -, \bdd\}$, the notion of homotopy between
+morphisms (Definition~\ref{def:homotopy}) restricts to
+$\cate{C}^{\star}(\mathcal{A})$. Thus
+Definition~\ref{def:cplx-homotopy-cat} has the following variant.
+
+% segment-id: o014.li2.chapter3.truncation-functors.de002
+\begin{definition}\label{def:cplx-homotopy-cat-variant}
+	\index[sym1]{KbA@$\cate{K}^+(\mathcal{A})$, $\cate{K}^-(\mathcal{A})$, $\cate{K}^{\bdd}(\mathcal{A})$}
+	For $\star \in \{+, -, \bdd\}$, $\cate{K}(\mathcal{A})$ has a full
+	additive subcategory $\cate{K}^\star(\mathcal{A})$ that is closed under
+	the shift functors.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.truncation-functors.p005
+From now on, we require $\mathcal{A}$ to be an abelian category. We study how
+to truncate the part of a complex $X$ in degrees $<n$ (or $>n$). The naive
+idea is to replace every term in that part by $0$. Although simple, this
+disrupts cohomology, so we introduce a more refined version.
+
+% segment-id: o014.li2.chapter3.truncation-functors.de003
+\begin{definition}[Truncation functors]\label{def:truncation-cplx}
+	\index{truncation functor}
+	\index[sym1]{taun@$\tau^{\leq n}$, $\tau^{\geq n}$}
+	\index[sym1]{tautilden@$\tilde{\tau}^{\leq n}$, $\tilde{\tau}^{\geq n}$}
+	Let $\mathcal{A}$ be an abelian category and let $n \in \Z$. For a
+	complex $X$, define
+% segment-id: o014.li2.chapter3.truncation-functors.g001
+	\[\begin{tikzcd}
+		[column sep=small, every cell/.append style = {font = \small}]
+		\tau^{\leq n} X \arrow[phantom, r, "" {name=A, yshift=2ex}] \arrow[hookrightarrow, d] & \cdots \arrow[r] & X^{n-2} \arrow[r] & X^{n-1} \arrow[r] & \Ker(d^n) \arrow[r] \arrow[hookrightarrow, d] & 0 \arrow[r] & 0 \arrow[r] & \cdots \\
+		\tilde{\tau}^{\leq n} X \arrow[hookrightarrow, d] & \cdots \arrow[r] & X^{n-2} \arrow[r] & X^{n-1} \arrow[r] & X^n \arrow[r] & \Coim(d^n) \arrow[r] \arrow[hookrightarrow, d] & 0 \arrow[r] & \cdots \\
+		X \arrow[twoheadrightarrow, d] & \cdots \arrow[r] & X^{n-2} \arrow[r] & X^{n-1} \arrow[r] \arrow[twoheadrightarrow, d] & X^n \arrow[r] & X^{n+1} \arrow[r] & X^{n+2} \arrow[r] & \cdots \\
+		\tilde{\tau}^{\geq n} X \arrow[twoheadrightarrow, d] & \cdots \arrow[r] & 0 \arrow[r] & \Image(d^{n-1}) \arrow[r] & X^n \arrow[r] \arrow[twoheadrightarrow, d] & X^{n+1} \arrow[r] & X^{n+2} \arrow[r] & \cdots \\
+		\tau^{\geq n} X \arrow[phantom, r, "" {name=B, yshift=-2ex}] & \cdots \arrow[r] & 0 \arrow[r] & 0 \arrow[r] & \Coker(d^{n-1}) \arrow[r] & X^{n+1} \arrow[r] & X^{n+2} \arrow[r] & \cdots
+		\arrow[dash, thick, from=A, to=B]
+	\end{tikzcd}\]
+	The omitted terms are clear, and in the vertical direction only morphisms
+	other than $\identity$ and $0$ are marked. We thus obtain morphisms between
+	the complexes listed on the left; in this notation, every $\Coim(d^i)$ is
+	identified with $\Image(d^i)$ through the canonical comparison
+	isomorphism.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.truncation-functors.p006
+It is clear that $\tau^{\leq n}$, $\tilde{\tau}^{\leq n}$,
+$\tau^{\geq n}$, and $\tilde{\tau}^{\geq n}$ are all additive functors.
+We have $\tau^{\leq n} = [-n] \circ \tau^{\leq 0} \circ [n]$; the same
+holds for $\tilde{\tau}^{\leq n}$, $\tau^{\geq n}$, and
+$\tilde{\tau}^{\geq n}$.
+
+% segment-id: o014.li2.chapter3.truncation-functors.p007
+Moreover, if $m \leq n$, there are evident epimorphisms
+$\tau^{\geq m} X \twoheadrightarrow \tau^{\geq n} X$ and
+$\tilde{\tau}^{\geq m} X \twoheadrightarrow \tilde{\tau}^{\geq n} X$,
+and evident monomorphisms
+$\tau^{\leq m} X \hookrightarrow \tau^{\leq n} X$ and
+$\tilde{\tau}^{\leq m} X \hookrightarrow \tilde{\tau}^{\leq n} X$.
+
+% segment-id: o014.li2.chapter3.truncation-functors.le001
+\begin{lemma}\label{prop:truncation-ses}
+	For every $k \in \Z$, the comparison morphisms
+	$\tau^{\leq n}X \to \tilde{\tau}^{\leq n}X$ and
+	$\tilde{\tau}^{\geq n}X \to \tau^{\geq n}X$ in the diagram above
+	induce the following isomorphisms in $\mathcal{A}$\footnote{Translator's
+	note (O014-C051): the source refers to ``the morphisms above,'' which could
+	be read as the transition morphisms for $m\leq n$ in the immediately
+	preceding paragraph; only the two comparison morphisms displayed here
+	induce these cohomology isomorphisms.}
+% segment-id: o014.li2.chapter3.truncation-functors.q003
+	\begin{align*}
+		\Hm^k\left( \tau^{\leq n} X\right) & \rightiso \Hm^k\left( \tilde{\tau}^{\leq n} X\right) \simeq \begin{cases} \Hm^k(X), & k \leq n \\ 0, & k > n \end{cases}, \\
+		\Hm^k\left( \tilde{\tau}^{\geq n} X\right) & \rightiso \Hm^k\left( \tau^{\geq n} X\right) \simeq \begin{cases} \Hm^k(X), & k \geq n \\ 0, & k < n \end{cases},
+	\end{align*}
+	and the following short exact sequences in $\cate{C}(\mathcal{A})$:
+% segment-id: o014.li2.chapter3.truncation-functors.q004
+	\begin{equation*}\begin{gathered}
+		0 \to \tilde{\tau}^{\leq n-1} X \to \tau^{\leq n} X \to \Hm^n(X)[-n] \to 0, \\
+		0 \to \Hm^n(X)[-n] \to \tau^{\geq n} X \to \tilde{\tau}^{\geq n+1} X \to 0, \\
+		0 \to \tau^{\leq n} X \to X \to \tilde{\tau}^{\geq n+1} X \to 0, \\
+		0 \to \tilde{\tau}^{\leq n-1} X \to X \to \tau^{\geq n} X \to 0, \\
+		0 \to \tau^{\leq n} X \to \tilde{\tau}^{\leq n} X \to \Cone\left(\identity_{\Image(d_X^n) [-n-1]} \right) \to 0.
+	\end{gathered}\end{equation*}
+	Here $\Hm^n(X)[-n]$ is understood according to
+	Convention~\ref{con:concentrated-cplx}. All these morphisms are functorial
+	in $X$.
+\end{lemma}
+% segment-id: o014.li2.chapter3.truncation-functors.pf001
+\begin{proof}
+	The degree-$n$ component of the morphism
+	$\tilde{\tau}^{\leq n-1} X \to \tau^{\leq n} X$ is
+	$\Coim(d^{n-1}) \xrightarrow{\sim}
+	\Image(d^{n-1}) \hookrightarrow \Ker(d^n)$,\footnote{Translator's note
+	(O014-C052): the source writes $\Image(d^{n-1})$ directly as the
+	degree-$n$ term of $\tilde{\tau}^{\leq n-1}X$; that term is actually
+	$\Coim(d^{n-1})$, canonically identified with its image.}
+	and every other component is $\identity$. The degree-$n$ component of the
+	morphism $\tau^{\leq n} X \to \Hm^n(X)[-n]$ is
+% segment-id: o014.li2.chapter3.truncation-functors.q005
+	\[ \Ker(d^n) \twoheadrightarrow \Ker(d^n)/\Image(d^{n-1}) = \Hm^n(X). \]
+
+	The degree-$n$ component of the morphism
+	$\tau^{\geq n} X \to \tilde{\tau}^{\geq n+1} X$ is the epimorphism
+	induced by $d^n$, $\Coker(d^{n-1}) \twoheadrightarrow \Image(d^n)$, and
+	every other component is $\identity$. The degree-$n$ component of the
+	morphism $\Hm^n(X)[-n] \to \tau^{\geq n} X$ is
+% segment-id: o014.li2.chapter3.truncation-functors.q006
+	\[ \Ker(d^n)/\Image(d^{n-1}) \hookrightarrow X^n/\Image(d^{n-1}) = \Coker(d^{n-1}). \]
+
+	All remaining verifications are routine and are left to the reader as
+	exercises.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.truncation-functors.p008
+Thus $\tau^{\leq n}$ and $\tilde{\tau}^{\leq n}$ (or $\tau^{\geq n}$ and
+$\tilde{\tau}^{\geq n}$) do indeed truncate cohomology in degrees $>n$
+(or $<n$).
+
+% segment-id: o014.li2.chapter3.truncation-functors.re001
+\begin{remark}\label{rem:truncation-sigma}
+	For a complex $X \in \Obj(\cate{C}(\mathcal{A}))$, applying the functor
+	$\sigma$ of Definition--Proposition~\ref{def:sigma} gives
+	\[
+	\sigma X \in \Obj(\cate{C}(\mathcal{A}^{\opp})) =
+	\Obj(\cate{C}(\mathcal{A}^{\opp})^{\opp}).
+	\]
+	Ignoring some $\pm$ signs that have no effect in this context, this
+	operation amounts to reversing the arrows in the complex and then
+	reversing the degree indices. By the duality between $\Ker$ and $\Coker$,
+	under this operation $\tau^{\geq n}(X)$ corresponds to
+	$\tau^{\leq -n}(\sigma X) \in
+	\Obj(\cate{C}(\mathcal{A}^{\opp}))$, and so forth. Similarly, because
+	$\Image$ and $\Coim$ are dual to each other,
+	$\tilde{\tau}^{\geq n}(X) \in \Obj(\cate{C}(\mathcal{A}))$ corresponds
+	to $\tilde{\tau}^{\leq -n}(\sigma X) \in
+	\Obj(\cate{C}(\mathcal{A}^{\opp}))$.
+\end{remark}
+
+% segment-id: o014.li2.chapter3.truncation-functors.p009
+Compared with $\tilde{\tau}^{\leq n}$ and $\tilde{\tau}^{\geq n}$, the
+functors $\tau^{\leq n}$ and $\tau^{\geq n}$ have some properties that are
+easier to use. The first is adjunction.
+
+% segment-id: o014.li2.chapter3.truncation-functors.pr001
+\begin{proposition}\label{prop:truncation-adjunction}
+	For every $n \in \Z$, there are the following adjunctions:
+% segment-id: o014.li2.chapter3.truncation-functors.q007
+	\begin{gather*}
+		\Hom_{\cate{C}(\mathcal{A})}(X, Y) \simeq \Hom_{\cate{C}^{\leq n}(\mathcal{A})}\left(X, \tau^{\leq n} Y \right), \quad X \in \Obj(\cate{C}^{\leq n}(\mathcal{A})) \\ \Hom_{\cate{C}(\mathcal{A})}(X, Y) \simeq \Hom_{\cate{C}^{\geq n}(\mathcal{A})}\left(\tau^{\geq n} X, Y \right), \quad Y \in \Obj(\cate{C}^{\geq n}(\mathcal{A})).
+	\end{gather*}
+\end{proposition}
+% segment-id: o014.li2.chapter3.truncation-functors.pf002
+\begin{proof}
+	This is clear from the definition of truncation. The reader may write down
+	the corresponding unit and counit morphisms: they are the morphisms shown
+	in Definition~\ref{def:truncation-cplx}, or $\identity$.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.truncation-functors.p010
+Next, $\tau^{\leq n}$ and $\tau^{\geq n}$ descend to
+$\cate{K}(\mathcal{A})$.
+
+% segment-id: o014.li2.chapter3.truncation-functors.dp001
+\begin{definition-proposition}\label{def:K-truncation-functors}
+	\index[sym1]{taun}
+	For every $n \in \Z$, the functor $\tau^{\leq n}$ (or
+	$\tau^{\geq n}$) naturally induces a functor from
+	$\cate{K}(\mathcal{A})$ to itself, still denoted by $\tau^{\leq n}$ (or
+	$\tau^{\geq n}$).
+\end{definition-proposition}
+% segment-id: o014.li2.chapter3.truncation-functors.pf003
+\begin{proof}
+	Let $h \in \Hom^{-1}(X, Y)$. For the case of $\tau^{\leq n}$, define
+	$\overline{h}^n := h^n \circ \bigl(\Ker(d_X^n) \hookrightarrow X^n\bigr)$.
+	Define $\overline{h} \in
+	\Hom^{-1}\left( \tau^{\leq n} X, \tau^{\leq n} Y \right)$ by the
+	following diagram:
+% segment-id: o014.li2.chapter3.truncation-functors.g002
+	\[\begin{tikzcd}
+		\cdots \arrow[r] & X^{n-2} \arrow[r] \arrow[ld, "h^{n-2}" description] & X^{n-1} \arrow[r] \arrow[ld, "{h^{n-1}}" description] & \Ker(d_X^n) \arrow[r] \arrow[ld, "{\overline{h}^n}" description] & 0 \arrow[r] \arrow[ld] & 0 \arrow[r] \arrow[ld] & \cdots \\
+		\cdots \arrow[r] & Y^{n-2} \arrow[r] & Y^{n-1} \arrow[r] & \Ker(d_Y^n) \arrow[r] & 0 \arrow[r] & 0 \arrow[r] & \cdots ;
+	\end{tikzcd}\]
+	It is easy to see that
+	$\tau^{\leq n}\left( d^{-1} h \right) = d^{-1} \overline{h}$.
+
+	For the case of $\tau^{\geq n}$, instead define
+	$\underline{h}^{n+1} := \bigl(Y^n \twoheadrightarrow
+	\Coker(d_Y^{n-1})\bigr) \circ h^{n+1}$ and use this to define
+	$\underline{h} \in
+	\Hom^{-1}\left( \tau^{\geq n} X, \tau^{\geq n} Y \right)$; the
+	remainder is similar. The two cases are of course dual.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.truncation-functors.p011
+The following simple but important property follows immediately from
+Definition~\ref{def:truncation-cplx}.
+
+% segment-id: o014.li2.chapter3.truncation-functors.pr002
+\begin{proposition}\label{prop:truncate-twice}
+	For all integers $a<b$ and $n$, and
+	$X \in \Obj(\cate{C}(\mathcal{A}))$, we have\footnote{Translator's note
+	(O014-C053): the source writes $X \in \Obj(\mathcal{A})$, but the
+	truncation functors and $\Hm^n$ in this proposition act on complexes.}
+% segment-id: o014.li2.chapter3.truncation-functors.q008
+	\begin{gather*}
+		\tau^{\leq a} \tau^{\geq b}(X) = 0 = \tau^{\geq b} \tau^{\leq a}(X), \\
+		\tau^{\leq n }\tau^{\geq n}(X) \simeq \Hm^n(X)[-n] \simeq \tau^{\geq n} \tau^{\leq n}(X) \quad \text{(canonical isomorphisms).}
+	\end{gather*}
+\end{proposition}

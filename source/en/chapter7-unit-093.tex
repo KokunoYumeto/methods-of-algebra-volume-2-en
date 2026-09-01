@@ -1,0 +1,335 @@
+% English translation of chapter7.tex lines 1130--1279.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b
+% Coverage: the remainder of Section 7.5, from after the proof of the
+% monoidal structure on a bialgebra's module category to line 1279.
+
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.p001
+For a bialgebra $A$, one can still ask whether the monoidal category
+$A\dcate{Mod}$ has a braiding and whether that braiding is symmetric. A
+natural first idea is to use the braiding $c(M_1,M_2)$ of $\mathcal{V}$, but
+in general this is not a morphism in $A\dcate{Mod}$. Even in the special case
+$\mathcal{V}=\Bbbk\dcate{Mod}$, the answer already involves the concept of a
+\emph{quasitriangular bialgebra}, which cannot be explained briefly. We give
+only the following example, which is so simple as to be somewhat misleading.
+
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.pr001
+\begin{proposition}\label{prop:bialgebra-mod-symmetry}
+	Let $\mathcal{V}$ be a symmetric monoidal category.
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.l001
+	\begin{enumerate}[(i)]
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.i001
+		\item If $A$ is a cocommutative bialgebra over $\mathcal{V}$, then the
+		monoidal categories $A\dcate{Mod}$ and $\cated{Mod}A$ become symmetric
+		monoidal categories with respect to
+		$c(M_1,M_2):M_1\otimes M_2\rightiso M_2\otimes M_1$.
+
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.i002
+		\item Dually, if $A$ is a commutative bialgebra over $\mathcal{V}$,
+		then $A\dcate{Comod}$ and $\cated{Comod}A$ are symmetric monoidal
+		categories.
+	\end{enumerate}
+\end{proposition}
+
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.pf001
+\begin{proof}
+	It is enough to treat the cocommutative case. Using the preceding notation,
+	the assertion that $c(M_1,M_2)$ is a morphism in $A\dcate{Mod}$ is
+	equivalent to proving that the outer boundary of the following diagram
+	commutes:
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.g001
+	\[\begin{tikzcd}[row sep=large]
+		A \otimes M_1 \otimes M_2 \arrow[r, "{\Delta \otimes \identity \otimes \identity}" inner sep=0.6em] \arrow[d, "{\identity \otimes c(M_1, M_2)}" description] & A \otimes A \otimes M_1 \otimes M_2 \arrow[r, "{\identity \otimes c(A, M_1) \otimes \identity}" inner sep=0.6em] \arrow[d, "{c(A, A) \otimes c(M_1, M_2)}" description] & A \otimes M_1 \otimes A \otimes M_2 \arrow[r, "{\mu_1 \otimes \mu_2}" inner sep=0.6em] \arrow[d, "{c(A \otimes M_1, A \otimes M_2)}" description] & M_1 \otimes M_2 \arrow[d, "{c(M_1, M_2)}" description] \\
+		A \otimes M_2 \otimes M_1 \arrow[r, "{\Delta \otimes \identity \otimes \identity}"' inner sep=0.6em] & A \otimes A \otimes M_2 \otimes M_2 \arrow[r, "{\identity \otimes c(A, M_2) \otimes \identity}"' inner sep=0.6em] & A \otimes M_2 \otimes A \otimes M_1 \arrow[r, "{\mu_2 \otimes \mu_1}"' inner sep=0.6em] & M_2 \otimes M_1 .
+	\end{tikzcd}\]
+
+	The square on the left commutes because $A$ is cocommutative, while the
+	square on the right commutes by functoriality of $c$. Drawing the braid
+	diagram shows that
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.g002
+	\begin{multline*}
+		c(A \otimes M_1, A \otimes M_2) = \\
+		(\identity_A \otimes c(A, M_2) \otimes \identity_{M_1}) (c(A, A) \otimes c(M_1, M_2)) (\identity_A \otimes c(A, M_1) \otimes \identity_{M_2}),
+	\end{multline*}
+	and since $\mathcal{V}$ is a symmetric monoidal category, the middle
+	square also commutes. All other properties of the symmetric monoidal
+	structure on $A\dcate{Mod}$ reduce to verifications in $\mathcal{V}$.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.p002
+We now introduce the concept of a Hopf algebra. Let $\mathcal{V}$ be a
+braided monoidal category.
+
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.d001
+\begin{definition}\label{def:Hopf-algebra}
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.x001
+	\index{Hopf algebra}
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.x002
+	\index{antipode}
+	Let the data $(A,\mu,\eta,\Delta,\epsilon)$ form a bialgebra $A$ over
+	$\mathcal{V}$. If an isomorphism $S:A\rightiso A$ in $\mathcal{V}$ makes
+	the following diagram commute,
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.g003
+	\[\begin{tikzcd}
+		A \otimes A \arrow[d, "\mu"'] & A \otimes A \arrow[r, "{S \otimes \identity_A}"] \arrow[l, "{\identity_A \otimes S}"'] & A \otimes A \arrow[d, "\mu"] \\
+		A & A \arrow[u, "\Delta"] \arrow[r, "\eta\epsilon"'] \arrow[l, "\eta\epsilon"] & A ,
+	\end{tikzcd}\]
+	that is,
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.q001
+	\[ \mu (\identity_A \otimes S) \Delta = \eta\epsilon = \mu (S \otimes \identity_A) \Delta, \]
+	then $S$ is called an \emph{antipode} of $A$. A bialgebra equipped with an
+	antipode is called a \emph{Hopf algebra}. Morphisms between Hopf algebras
+	are defined to be morphisms between their underlying bialgebras.
+\end{definition}
+
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.p003
+For example, $\munit$ is a Hopf algebra with antipode
+$\identity_{\munit}$.
+
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.p004
+Interpreted using the convolution in
+Remark~\ref{rem:coalgebra-convolution}, an antipode $S$ is precisely a
+two-sided inverse of $\identity_A\in\End(A)$ with respect to $\star$. The
+antipode in the definition of a Hopf algebra, if it exists, is unique. This
+follows immediately by applying the next result to $f=\identity_A$; the
+result also shows that morphisms always preserve antipodes.
+
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.pr002
+\begin{proposition}\label{prop:antipode-homo}
+	Let $A$ and $A'$ be Hopf algebras over $\mathcal{V}$ with antipodes $S$
+	and $S'$, respectively. For every Hopf algebra morphism $f:A\to A'$, one
+	has $S'f=fS$.
+\end{proposition}
+
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.pf002
+\begin{proof}
+	By the functoriality of convolution $\star$ in
+	\eqref{eqn:convolution-functorial}, both maps
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.g004
+	\[\begin{tikzcd}
+		\Hom(A', A') \arrow[r, "{g \mapsto gf}"] & \Hom(A, A')
+	\end{tikzcd}, \quad \begin{tikzcd}
+		\Hom(A, A) \arrow[r, "{h \mapsto fh}"] & \Hom(A, A')
+	\end{tikzcd}\]
+	are homomorphisms of convolution monoids. Thus $S'f$ and $fS$ are both
+	convolution inverses of $f\in\Hom(A,A')$.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.p005
+Because the braiding on $\mathcal{V}$ gives a braiding on
+$\mathcal{V}^{\opp}$, the concept of a bialgebra is plainly self-dual. The
+next result shows that the definition of an antipode is self-dual as well.
+
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.pr003
+\begin{proposition}\label{prop:bialgebra-duality}
+	If $(A,\mu,\eta,\Delta,\epsilon)$ is a bialgebra over $\mathcal{V}$, then
+	$(A,\eta,\mu,\epsilon,\Delta)$ is a bialgebra over
+	$\mathcal{V}^{\opp}$. If the Hopf algebra
+	$(A,\mu,\eta,\Delta,\epsilon)$ has antipode $S$, then $S^{-1}$ is an
+	antipode of $(A,\eta,\mu,\epsilon,\Delta)$ as a bialgebra over
+	$\mathcal{V}^{\opp}$; in particular, the latter object is a Hopf algebra
+	over $\mathcal{V}^{\opp}$.
+\end{proposition}
+
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.pf003
+\begin{proof}
+	The diagram in Definition~\ref{def:Hopf-algebra} is self-dual, but the
+	direction of $S$ is reversed.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.pr004
+\begin{proposition}\label{prop:Hopf-antiautomorphism}
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.x003
+	\index[sym1]{Acop@$A_{\mathrm{cop}}, A^{\mathrm{op}}_{\mathrm{cop}}$}
+	For a bialgebra $A$, in accordance with
+	Definition~\ref{def:opposite-braided-algebra},
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.l002
+	\begin{compactitem}
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.i003
+		\item reversing the multiplication of $A$ using the braiding $c(A,A)$
+		produces an algebra $A^{\mathrm{op}}$;
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.i004
+		\item reversing the comultiplication of $A$ using $c(A,A)^{-1}$
+		produces a coalgebra $A_{\mathrm{cop}}$.
+	\end{compactitem}
+	Together, these two operations produce a bialgebra
+	$A^{\mathrm{op}}_{\mathrm{cop}}$. If $A$ has an antipode $S$, then $S$ is
+	also an antipode of $A^{\mathrm{op}}_{\mathrm{cop}}$, and in this case
+	$S:A\rightiso A^{\mathrm{op}}_{\mathrm{cop}}$ is an isomorphism of
+	bialgebras.
+\end{proposition}
+
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.pf004
+\begin{proof}
+	A routine verification shows that $A^{\mathrm{op}}_{\mathrm{cop}}$ is
+	indeed a bialgebra with antipode $S$; we omit the details. The remaining
+	assertion has two parts. First, $S$ preserves the unit and counit. This is
+	easy: in Proposition~\ref{prop:antipode-homo}, take $A=\munit$ and
+	$A'=\munit$, respectively.
+
+	Second, $S$ preserves the multiplication and comultiplication. The proof
+	in general is more involved; see \cite[\S 9, Proposition 2]{JS91} or
+	\cite[Proposition 1.22]{AM10}. Here we only sketch the special case
+	$\mathcal{V}=\Bbbk\dcate{Mod}$, $\otimes=\otimes_{\Bbbk}$ with its
+	standard braiding. This is the only case that will be needed later.
+
+	Recall from \S\ref{sec:alg-in-monoidal-cat} that $A\otimes A$ is naturally
+	a coalgebra. Equip $\Hom(A\otimes A,A)$ with the convolution from
+	Remark~\ref{rem:coalgebra-convolution}, denoted by $\ast$, and consider the
+	elements
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.q002
+	\[ f := \mu, \quad g := \mu c(A, A) (S \otimes S), \quad h := S \mu. 
+	\]
+	It is enough to prove that
+	$h\ast f=\eta_A\epsilon_{A\otimes A}=f\ast g$. This equality will show
+	that $f$ is invertible in the monoid
+	$(\Hom(A\otimes A,A),\ast)$, and hence that $h=g$. Let $a,b\in A$ and
+	write the expansions
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.g005
+	\begin{gather*}
+		\Delta(a) = \sum_i a_i^{(1)} \otimes a_i^{(2)}, \quad
+		\Delta(b) = \sum_j b_j^{(1)} \otimes b_j^{(2)}.
+	\end{gather*}
+	Write $\mu$ simply as multiplication. From the standard braiding on
+	$\Bbbk\dcate{Mod}$, one obtains
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.g006
+	\begin{align*}
+		(h \ast f)(a \otimes b) & = \sum_{i, j} h\left(a^{(1)}_i \otimes b^{(1)}_j\right) f\left(a^{(2)}_i \otimes b^{(2)}_j\right) \\
+		& = \sum_{i, j} S\left( a^{(1)}_i b^{(1)}_j \right) a^{(2)}_i b^{(2)}_j \\
+		& = (\underbracket{S \star \identity_A}_{\text{convolution on }\End(A)})(ab) = \eta_A \epsilon_A (ab), \\
+		(f \ast g)(a \otimes b) & = \cdots = \sum_{i, j} a^{(1)}_i b^{(1)}_j S\left( b^{(2)}_j \right) S\left( a^{(2)}_i \right) \\
+		& = \sum_i a^{(1)}_i \eta_A \epsilon_A(b) S\left( a^{(2)}_i \right) \\
+		& = \eta_A \epsilon_A (a) \cdot \eta_A \epsilon_A (b) = \eta_A \epsilon_A(ab), \\
+		\eta_A \epsilon_{A \otimes A}(a \otimes b) & = \eta_A\left( \epsilon_A(a)\epsilon_A(b) \right) = \eta_A \epsilon_A(ab),
+	\end{align*}
+	as claimed. Thus $S$ preserves the multiplication of the bialgebra. A
+	similar argument shows that $S$ preserves the comultiplication.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.p006
+In particular, if $\mathcal{V}$ is a symmetric monoidal category, then $S^2$
+is an automorphism of $A$.
+
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.c001
+\begin{corollary}\label{prop:Hopf-involution}
+	Let the Hopf algebra $A$ have antipode $S$. If $A$ is commutative or
+	cocommutative, then $S^2=\identity$.
+\end{corollary}
+
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.pf005
+\begin{proof}
+	With respect to the convolution $\star$ on $\End(A)$
+	(Remark~\ref{rem:coalgebra-convolution}), we have
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.q003
+	\[ S \star S^2 = \mu (S \otimes S^2) \Delta = \mu (S \otimes S)(\identity \otimes S) \Delta. \]
+
+	If $A$ is commutative, then $\mu c(A,A)=\mu$, and
+	Proposition~\ref{prop:Hopf-antiautomorphism} transforms the right-hand side
+	above into
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.q004
+	\[ \mu c(A, A) (S \otimes S) (\identity \otimes S)\Delta = S\mu (\identity \otimes S)\Delta = S(\identity \star S). \]
+	The definition of an antipode says that
+	$\identity\star S=\eta\epsilon$, while the same proposition gives
+	$S\eta=\eta$; the result is $\eta\epsilon$.
+
+	If $A$ is cocommutative, then $c(A,A)\Delta=\Delta$, and functoriality of
+	the braiding transforms $S\star S^2$ into
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.q005
+	\[ \mu (S \otimes S)(\identity \otimes S) c(A, A) \Delta = \mu c(A, A) (S \otimes S)(S \otimes \identity)\Delta, \]
+	which the same argument then transforms into
+	$S(S\star\identity)=\eta\epsilon$.
+
+	Thus $S^2$ is a convolution inverse of $S$, so $S^2=\identity$.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.p007
+All the following examples take $\mathcal{V}=\Bbbk\dcate{Mod}$ and
+$\otimes=\otimes_{\Bbbk}$, where $\Bbbk$ is a commutative ring.
+
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.ex001
+\begin{example}\label{eg:group-Hopf-algebra}
+	Let $G$ be a group. Form the group $\Bbbk$-algebra $\Bbbk[G]$.
+	Example~\ref{eg:monoid-bialgebra} gives $\Bbbk[G]$ a bialgebra structure.
+	Define the $\Bbbk$-module automorphism $S:\Bbbk[G]\to\Bbbk[G]$ by
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.q006
+	\[ S(g) = g^{-1}, \quad g \in G. \]
+	It is easy to verify that $S$ satisfies the commutative diagram required
+	of an antipode. Thus $\Bbbk[G]$ is a Hopf algebra.
+\end{example}
+
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.ex002
+\begin{example}[H.\ Hopf]
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.x004
+	\index{H-space, H-group}
+	Write $\{\mathrm{pt}\}$ for a one-point set. Let a topological space $X$
+	be equipped with continuous maps $m:X\times X\to X$ (multiplication) and
+	$e:\{\mathrm{pt}\}\to X$ (equivalently, a choice of an element of $X$,
+	the unit, also denoted by $e$), such that the two maps satisfy, up to
+	homotopy, the properties required for associativity of multiplication and
+	for a unit. Then $(X,m,e)$ is called an \emph{H-space}. If a continuous map
+	$i:X\to X$ (taking inverses) is also chosen and satisfies, up to homotopy,
+	the properties required of inverses, then $(X,m,e,i)$ is called an
+	\emph{H-group}.
+
+	A topological monoid (or topological group) is of course an H-space (or
+	H-group), but the H-space and H-group conditions are much weaker. A natural
+	example is a loop space. For a topological space $M$ with a chosen base
+	point $x_0\in M$, a continuous map $\gamma:[0,1]\to M$ satisfying
+	$\gamma(0)=x_0=\gamma(1)$ is called a \emph{loop} in $M$. All loops
+	naturally form a topological space $\Omega(M,x_0)$. If $m$ is taken to be
+	end-to-start concatenation of two loops, $e$ the constant map at $x_0$,
+	and $i$ reversal of the direction of a loop, then intuitively
+	$\Omega(M,x_0)$ forms an H-group. The key point is that associativity and
+	the inverse properties hold only up to homotopy.
+
+	Next, consider the full subcategory $\cate{S}$ of $\cate{Top}$ consisting
+	of all CW complexes\footnote{This is a topological term, somewhat different
+	from the complexes defined in linear algebra.}; it contains spaces commonly
+	encountered in geometry, such as manifolds. Let $\Bbbk$ be a field. The
+	cohomology functor with coefficients in $\Bbbk$, namely $\Hm^\bullet$, is a
+	functor from $\cate{S}^{\opp}$ to the category of graded $\Bbbk$-vector
+	spaces $\cate{Vect}(\Bbbk)^{\Z_{\geq0}}$. Equip
+	$\cate{Vect}(\Bbbk)^{\Z_{\geq0}}$ with the braiding determined by the
+	Koszul sign rule \eqref{eqn:Koszul-braiding} (in the notation there, take
+	$\epsilon(a)=a\bmod\;2$). The cup product $\mu:=\cup$ on cohomology makes
+	the functor $\Hm^\bullet$ factor through
+	$\cate{CAlg}\left(\cate{Vect}(\Bbbk)^{\Z_{\geq0}}\right)$; in short,
+	cohomology is a commutative algebra over
+	$\cate{Vect}(\Bbbk)^{\Z_{\geq0}}$.
+
+	On the other hand, give $\cate{S}$ the monoidal structure determined by
+	the product of spaces, with $\{\mathrm{pt}\}$ as unit. The Künneth formula
+	in topology shows that $\Hm^\bullet$ is a monoidal functor. Moreover,
+	homotopic maps induce the same map on cohomology. Consequently, if
+	$X\in\Obj(\cate{S})$ is an H-space, then $\Hm^\bullet(X)$ is also a
+	coalgebra over $\cate{Vect}(\Bbbk)^{\Z_{\geq0}}$.
+
+	Readers familiar with algebraic topology will readily conclude that the
+	algebra and coalgebra structures on $\Hm^\bullet(X)$ are compatible and
+	hence give a bialgebra over
+	$\cate{Vect}(\Bbbk)^{\Z_{\geq0}}$. If, in addition, $X$ is an H-group and
+	the automorphism induced by the map $i$ is denoted by
+	$S\in\Aut(\Hm^\bullet(X))$, then $\Hm^\bullet(X)$ becomes a Hopf algebra.
+
+	In fact, the multiplication (cup product) on $\Hm^\bullet(X)$ is precisely
+	the image of the diagonal embedding $\mathrm{diag}:X\to X\times X$ under
+	the Künneth formula, while its unit is the image of
+	$X\to\{\mathrm{pt}\}$. Thus all the properties required of the bialgebra
+	and antipode can be verified at the level of topological spaces, up to
+	homotopy. For example, the antipode identity
+	$\mu(S\otimes\identity)\Delta=\eta\epsilon$ comes from
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.q007
+	\[ \left[ X \xrightarrow{\mathrm{diag}} X \times X \xrightarrow{(i, \identity)} X \times X \xrightarrow{m} X\right] \;\text{being homotopy equivalent to}\; \left[ X \to \{\mathrm{pt}\} \xrightarrow{e} X \right]. \]
+
+	Thus the cohomology of an H-group is naturally a commutative Hopf algebra
+	with a rich structure. This was Hopf's original motivation for studying
+	such algebras.
+\end{example}
+
+% segment-id: o014.aljabr2.chapter7.coalgebra-to-hopf-b.p008
+The exercises will provide more examples of Hopf algebras. Most are
+commutative or cocommutative, but there are also many Hopf algebras having
+neither property. The most important class among them is that of
+\emph{quantum groups}. The relevant discussion requires a foundation in Lie
+theory and is not treated in this book.

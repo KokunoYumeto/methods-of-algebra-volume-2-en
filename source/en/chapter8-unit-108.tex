@@ -1,0 +1,303 @@
+% Unit 108 English translation of chapter8.tex lines 282--453.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter8.nerves-of-categories
+% Coverage: complete Section 8.3, ``Example: Nerves of Categories'';
+% stops immediately before Section 8.4 at line 454.
+
+% segment-id: o014.li2.chapter8.nerves-of-categories.h001
+\section{Example: Nerves of Categories}\label{sec:nerves}
+\hypertarget{o014.aljabr2.chapter8.nerves-of-categories}{ }
+% segment-id: o014.li2.chapter8.nerves-of-categories.p001
+This section introduces the nerves of categories and, through them, the
+classifying spaces of groups. Both are important examples of simplicial sets.
+
+% segment-id: o014.li2.chapter8.nerves-of-categories.eg001
+\begin{example}[Nerve of a category]\label{eg:nerve-cat}
+	\index{nerve}
+	\index[sym1]{NC@$\mathrm{N}\mathcal{C}$}
+	Let $\mathcal{C}$ be a small category. Define the functor
+	% segment-id: o014.li2.chapter8.nerves-of-categories.q001
+	\[ \simpDelta^{\opp} \to \cate{Set}, \quad [n] \mapsto \left\{ \text{all functors } [n] \to \mathcal{C} \right\}. \]
+	As a simplicial set it is denoted by $\mathrm{N}\mathcal{C}$ and called
+	the \emph{nerve} of $\mathcal{C}$. Specifying an element of
+	$\mathrm{N}\mathcal{C}_n$ is equivalent to specifying a functor
+	$[n]\to\mathcal{C}$, that is, a chain of morphisms in $\mathcal{C}$
+	% segment-id: o014.li2.chapter8.nerves-of-categories.q002
+	\[ (f_1, \ldots, f_n): C_0 \xrightarrow{f_1} C_1 \xrightarrow{f_2} \cdots \xrightarrow{f_n} C_n. \]
+	Thus $\mathrm{N}\mathcal{C}_0$ may be identified with
+	$\Obj(\mathcal{C})$, and $\mathrm{N}\mathcal{C}_1$ with
+	$\Mor(\mathcal{C})$.
+
+	The face morphisms $d_i:\mathrm{N}\mathcal{C}_n\to
+	\mathrm{N}\mathcal{C}_{n-1}$ and degeneracy morphisms
+	$s_j:\mathrm{N}\mathcal{C}_n\to\mathrm{N}\mathcal{C}_{n+1}$ are given
+	by
+	% segment-id: o014.li2.chapter8.nerves-of-categories.q003
+	\begin{align*}
+		d_i(f_1, \ldots, f_n) & = \begin{cases}
+			(f_2, \cdots, f_n), & i = 0 \\
+			(\ldots, f_{i+1} f_i, \ldots), & 0 < i < n, \\
+			(f_1, \ldots, f_{n-1}), & i = n,
+		\end{cases} \\
+		s_j(f_1, \ldots, f_n) & = \begin{cases}
+			\left( \identity_{C_0}, f_1, \ldots, f_n \right), & j = 0 \\
+			(\ldots, f_j, \identity_{C_j}, f_{j+1}, \ldots ), & 0 < j < n \\
+			(f_1, \ldots, f_n, \identity_{C_n}), & j = n.
+		\end{cases}
+	\end{align*}
+\end{example}
+
+% segment-id: o014.li2.chapter8.nerves-of-categories.r001
+\begin{remark}
+	Unfolding the definitions shows that the simplicial sets
+	$\mathrm{N}(\mathcal{C}^{\opp})$ and $\mathrm{N}\mathcal{C}$ are related
+	by the order-reversing duality of
+	Remark~\ref{rem:simpDelta-order-reversal}. The details are left to the
+	reader.
+\end{remark}
+
+% segment-id: o014.li2.chapter8.nerves-of-categories.p002
+The nerve realizes a category concretely through combinatorial/topological
+data and contains all the information of the original category. This is the
+content of Proposition~\ref{prop:nerve-ff}, which will soon be proved. We
+first characterize which simplicial sets are nerves; the argument is
+instructive.
+
+% segment-id: o014.li2.chapter8.nerves-of-categories.pr001
+\begin{proposition}[Characterization of nerves]\label{prop:inner-horn-filling}
+	Let $X$ be a simplicial set. The following statements are equivalent.
+	\begin{enumerate}[(i)]
+		\item There is a small category $\mathcal{C}$ such that
+		$\mathrm{N}\mathcal{C}\simeq X$.
+		\item $X$ has the unique inner horn-filling property: for every integer
+		$0<i<n$ and every morphism $\sigma':\Lambda^n_i\to X$ in
+		$\cate{sSet}$ (such a $\Lambda^n_i$ is called an inner horn), there is
+		a unique $\sigma:\Delta^n\to X$ extending $\sigma'$.
+	\end{enumerate}
+\end{proposition}
+% segment-id: o014.li2.chapter8.nerves-of-categories.pf001
+\begin{proof}
+	First prove (i) $\implies$ (ii). Let $X=\mathrm{N}\mathcal{C}$ and
+	$0<i<n$; we wish to extend $\sigma':\Lambda^n_i\to X$ to $\Delta^n$.
+	For every $0\leq k\leq n$ (or $0<k\leq n$), the morphism
+	$\Delta^0\xrightarrow{\{k\}}\Delta^n$ (or
+	$\Delta^1\xrightarrow{\{k-1,k\}}\Delta^n$) factors through
+	$\Lambda^n_i$. Denote its image under $\sigma'$ by
+	$C_k\in X_0=\Obj(\mathcal{C})$ (or
+	$[g_k:C_{k-1}\to C_k]\in X_1=\Mor(\mathcal{C})$). This gives an element
+	of $X_n$,
+	% segment-id: o014.li2.chapter8.nerves-of-categories.q004
+	\[ C_0 \xrightarrow{g_1} C_1 \xrightarrow{g_2} \cdots \xrightarrow{g_n} C_n. \]
+	Write $\sigma$ for the corresponding morphism $\Delta^n\to X$. The
+	construction also shows that $\sigma$ is the only possible extension of
+	$\sigma'$. Since
+	$\Lambda^n_i=\bigcup_{j\neq i}\Image[\mathrm{d}^j:
+	\Delta^{n-1}\to\Delta^n]$, it remains to verify
+	% segment-id: o014.li2.chapter8.nerves-of-categories.q005
+	\begin{equation}\label{eqn:inner-horn-filling-aux0}
+		\sigma \circ \mathrm{d}^j = \sigma' \circ \mathrm{d}^j : \Delta^{n-1} \to X, \quad j \neq i .
+	\end{equation}
+
+	By the definition of the nerve, proving
+	\eqref{eqn:inner-horn-filling-aux0} reduces to the following verification.
+	For each $j\neq i$ and each pair of adjacent elements $h<k$ in the
+	sequence $0,\ldots,\widehat{j},\ldots,n$ (where $\widehat{j}$ means that
+	$j$ is omitted), the pullbacks of $\sigma$ and $\sigma'$ along
+	$\Delta^1\xrightarrow{\{h,k\}}\Lambda^n_i\subset\Delta^n$ must agree.
+	\begin{itemize}
+		\item If $k=h+1$, this is guaranteed by the construction of $\sigma$.
+		In particular, \eqref{eqn:inner-horn-filling-aux0} always holds when
+		$j\in\{0,n\}$.
+		\item Suppose $(h,k)=(j-1,j+1)$. If $n=2$, this case cannot occur. If
+		$n>2$, then either $j-1>0$ or $j+1<n$. When $j-1>0$,
+		$\{j-1,j+1\}$ factors as
+		% segment-id: o014.li2.chapter8.nerves-of-categories.q006
+		\[ \Delta^1 \xrightarrow{\{j-2, j\}} \Delta^{n-1} \xrightarrow{\mathrm{d}^0 = \{1, \ldots, n\}} \Lambda^n_i \subset \Delta^n. \]
+		By the already known $j=0$ case of
+		\eqref{eqn:inner-horn-filling-aux0}, the two pullbacks agree. Similarly,
+		when $j+1<n$, the issue reduces to the known case $j=n$.
+	\end{itemize}
+
+	Now prove (ii) $\implies$ (i). Define a category $\mathcal{C}$ by
+	$\Obj(\mathcal{C}):=X_0$ and, for all $C,C'\in X_0$,
+	% segment-id: o014.li2.chapter8.nerves-of-categories.q007
+	\[ \Hom_{\mathcal{C}}(C, C') := \left\{ f \in X_1: d_1(f) = C, \; d_0(f) = C' \right\}. \]
+	Use the degeneracy map $s_0:X_0\to X_1$ to define the identity morphism
+	$\identity_C$ as $s_0(C)$. We also depict a morphism $f$ as
+	$0\xrightarrow{f}1$ to emphasize that it corresponds to a $1$-simplex
+	$[1]=\{0,1\}\to X$.
+
+	If $d_0(f)=d_1(g)$, define the composite by $gf:=d_1(\sigma)$, where
+	$\sigma:\Delta^2\to X$ is the unique extension of
+	% segment-id: o014.li2.chapter8.nerves-of-categories.q008
+	\[\begin{tikzcd}[column sep=small]
+		& 1 \arrow[rd, "g"] & \\
+		0 \arrow[ru, "f"] & & 2
+	\end{tikzcd}: \Lambda^2_1 \to X
+	\quad \text{that is,}\quad d^0(\sigma) = g, \quad d^2(\sigma) = f. \]
+
+	The laws $f\circ\identity_C=f$ and $\identity_{C'}\circ f=f$ are
+	witnessed, respectively, by the following elements of $X_2$.
+	% segment-id: o014.li2.chapter8.nerves-of-categories.q009
+	\[ \begin{tikzcd}[row sep=large]
+		& 1 \arrow[rd, bend left, "{\identity_{C'} = d_0 s_1(f)}"] & \\
+		0 \arrow[rr, "{}" name=A, "{f = d_1 s_1(f)}"'] \arrow[ru, bend left, "{f = d_2 s_1(f)}"] & & 2 \arrow[phantom, from=1-2, to=A, "{s_1(f)}" description]
+	\end{tikzcd} \quad \begin{tikzcd}[row sep=large]
+		& 1 \arrow[rd, bend left, "{f = d_0 s_0(f)}"] & \\
+		0 \arrow[rr, "{}" name=A, "{f = d_1 s_0(f)}"'] \arrow[ru, bend left, "{\identity_C = d_2 s_0(f)}"] & & 2 \arrow[phantom, from=1-2, to=A, "{s_0(f)}" description]
+	\end{tikzcd}\]
+
+	For associativity $h(gf)=(hg)f$, construct
+	$\sigma':\Lambda^3_2\to X$ whose three faces are, respectively,
+	% segment-id: o014.li2.chapter8.nerves-of-categories.q010
+	\[\begin{tikzcd}[column sep=small]
+		& 1 \arrow[rd, "g"] & \\
+		0 \arrow[ru, "f"] \arrow[rr, "gf"'] & & 2
+	\end{tikzcd} \quad \begin{tikzcd}[column sep=small]
+		& 2 \arrow[rd, "h"] & \\
+		1 \arrow[ru, "g"] \arrow[rr, "hg"'] & & 3
+	\end{tikzcd} \quad \begin{tikzcd}[column sep=small]
+		& 2 \arrow[rd, "h"] & \\
+		0 \arrow[ru, "gf"] \arrow[rr, "h(gf)"'] & & 3.
+	\end{tikzcd}\]
+	This horn has a unique extension $\sigma:\Delta^3\to X$ such that
+	$d^2(\sigma)\in X_2$ has the form
+	% segment-id: o014.li2.chapter8.nerves-of-categories.q011
+	\[\begin{tikzcd}[column sep=small]
+		& 1 \arrow[rd, "hg"] & \\
+		0 \arrow[ru, "f"] \arrow[rr, "h(gf)"'] & & 3.
+	\end{tikzcd} \]
+	By construction, however, this $2$-simplex also determines the composite
+	of $f$ and $hg$, proving $(hg)f=h(gf)$.
+
+	Thus $\mathcal{C}$ is a category. There is a canonical morphism
+	$X\to\mathrm{N}\mathcal{C}$: from a given $\Delta^n\to X$, pull back
+	along each $\Delta^1\xrightarrow{\{j,j+1\}}\Delta^n$ to obtain a chain of
+	morphisms. By construction, $X_n\to\mathrm{N}\mathcal{C}_n$ is clearly a
+	bijection for $n=0,1$. If $n\geq2$, choose $0<i<n$ and consider the
+	commutative diagram
+	% segment-id: o014.li2.chapter8.nerves-of-categories.q012
+	\[\begin{tikzcd}
+		\Hom(\Delta^n, X) \arrow[d] \arrow[r] & \Hom(\Delta^n, \mathrm{N}\mathcal{C}) \arrow[d] \\
+		\Hom(\Lambda^n_i, X) \arrow[r] & \Hom(\Lambda^n_i, \mathrm{N}\mathcal{C}).
+	\end{tikzcd}\]
+	By the assumption and the unique inner horn-filling property, both vertical
+	arrows are bijections. Moreover, $\Lambda^n_i$ can be expressed as the
+	$\varinjlim$ of a family of $\Delta^{n-1}$ and $\Delta^{n-2}$ (that is,
+	the gluing of $n$ faces), so induction shows that the arrow in the second
+	row is also a bijection. This proves the result.
+\end{proof}
+
+% segment-id: o014.li2.chapter8.nerves-of-categories.p003
+Notice also that in the argument (ii) $\implies$ (i), if there is a small
+category $\mathcal{C}_0$ with $X=\mathrm{N}(\mathcal{C}_0)$, then the
+category $\mathcal{C}$ constructed in the proof is exactly
+$\mathcal{C}_0$.
+
+% segment-id: o014.li2.chapter8.nerves-of-categories.p004
+Write $\cate{Cat}$ for the category of all small categories, with functors as
+morphisms. Every functor $F:\mathcal{C}\to\mathcal{C}'$ induces a morphism
+$\mathrm{N}F:\mathrm{N}\mathcal{C}\to\mathrm{N}\mathcal{C}'$ in
+$\cate{sSet}$, mapping $(f_1,\ldots,f_n)$ to
+$(Ff_1,\ldots,Ff_n)$. This gives the nerve functor
+$\mathrm{N}:\cate{Cat}\to\cate{sSet}$.
+
+% segment-id: o014.li2.chapter8.nerves-of-categories.pr002
+\begin{proposition}\label{prop:nerve-ff}
+	The nerve functor $\mathrm{N}:\cate{Cat}\to\cate{sSet}$ is fully
+	faithful.
+\end{proposition}
+% segment-id: o014.li2.chapter8.nerves-of-categories.pf002
+\begin{proof}
+	The proof of Proposition~\ref{prop:inner-horn-filling} has already shown
+	how to reconstruct morphisms and their composition from the nerve of a
+	category. Hence a morphism
+	$\mathrm{N}(\mathcal{C})\to\mathrm{N}(\mathcal{C}')$ naturally induces a
+	functor $\mathcal{C}\to\mathcal{C}'$. It is easy to see that this
+	construction and the construction induced by $\mathrm{N}$ are mutually
+	inverse.
+\end{proof}
+
+% segment-id: o014.li2.chapter8.nerves-of-categories.eg002
+\begin{example}[Classifying space]\label{eg:classifying-space}
+	\index{classifying space}
+	\index[sym1]{BGamma@$\mathrm{B}\Gamma$}
+	\index[sym1]{EGamma@$\mathrm{E}\Gamma$}
+	Let $\Gamma$ be a monoid. Define the categories $\mathcal{B}\Gamma$ and
+	$\mathcal{E}\Gamma$ as follows:
+	% segment-id: o014.li2.chapter8.nerves-of-categories.q013
+	\begin{center}\begin{tabular}{|c|c|c|c|}\hline
+		Category & Object set & Morphisms & Composition of morphisms \\ \hline
+		$\mathcal{B}\Gamma$ & $\{\star\}$ & $\End_{\mathcal{B}\Gamma}(\star)=\Gamma$ & multiplication in $\Gamma$ \\ \hline
+		$\mathcal{E}\Gamma$ & $\Gamma$ & $\Hom_{\mathcal{E}\Gamma}(g,g')=\{h\in\Gamma:hg=g'\}$ & multiplication in $\Gamma$ \\ \hline
+	\end{tabular}\end{center}
+
+	Define the nerves
+	$\mathrm{B}\Gamma:=\mathrm{N}((\mathcal{B}\Gamma)^{\opp})$ and
+	$\mathrm{E}\Gamma:=\mathrm{N}((\mathcal{E}\Gamma)^{\opp})$.
+	The simplicial set $\mathrm{B}\Gamma$ is called the classifying space of
+	$\Gamma$. Taking $(\cdots)^{\opp}$ amounts to reversing the arrows in the
+	definition of the nerve without changing their labels. Thus
+	% segment-id: o014.li2.chapter8.nerves-of-categories.q014
+	\begin{equation*}
+		\begin{array}{|c|c|c|} \hline
+		\text{Set} & \text{Element} & \text{Corresponding chain of morphisms in }\mathcal{B}\Gamma\text{ or }\mathcal{E}\Gamma \\ \hline
+		(\mathrm{B}\Gamma)_n = \Gamma^n & (g_1, \ldots, g_n) & \star \xleftarrow{g_1} \cdots \leftarrow \star \xleftarrow{g_n} \star \\ \hline
+		(\mathrm{E}\Gamma)_n = \Gamma^{n+1} & (g_1, \ldots, g_{n+1}) & g_1 \cdots g_{n+1} \xleftarrow{g_1} \cdots \leftarrow g_n g_{n+1} \xleftarrow{g_n} g_{n+1} \\ \hline
+		\end{array}
+	\end{equation*}
+	Substitution into the definitions gives, for every $n\geq0$,
+	% segment-id: o014.li2.chapter8.nerves-of-categories.q015
+	\begin{equation*}
+		\mathrm{B}\Gamma: \qquad \begin{aligned}
+			d_i(g_1, \ldots, g_n) & =
+			\begin{cases}
+				(g_2, \ldots, g_n), & i = 0 \\
+				(\ldots, g_i g_{i+1} , \ldots), & 0 < i < n \\
+				(g_1, \ldots, g_{n-1}), & i = n,
+			\end{cases} \\
+			s_j(g_1, \ldots, g_n) & =
+			\begin{cases}
+				(1, g_1, \ldots, g_n), & j = 0 \\
+				(\ldots, g_j, 1, g_{j+1}, \ldots), & 0 < j < n \\
+				(g_1, \ldots, g_n, 1), & j = n,
+			\end{cases}
+		\end{aligned}
+	\end{equation*}
+	and
+	% segment-id: o014.li2.chapter8.nerves-of-categories.q016
+	\begin{equation*}
+		\mathrm{E}\Gamma: \qquad \begin{aligned}
+			d_i(g_1, \ldots, g_{n+1}) & =
+			\begin{cases}
+				(g_2, \ldots, g_{n+1}), & i = 0 \\
+				(g_1, \ldots, g_i g_{i+1} , \ldots), & 0 < i \leq n,
+			\end{cases} \\
+			s_j(g_1, \ldots, g_{n+1}) & =
+			\begin{cases}
+				(1, g_1, \ldots, g_{n+1}), & j = 0 \\
+				(\ldots, g_j, 1, g_{j+1}, \ldots), & 0 < j \leq n.
+			\end{cases}
+		\end{aligned}
+	\end{equation*}
+
+	There is a natural functor
+	$(\mathcal{E}\Gamma)^{\opp}\to(\mathcal{B}\Gamma)^{\opp}$ mapping all
+	objects to $\star$ and every morphism $h\in\Gamma$ to $h$. The induced
+	morphism $\mathrm{E}\Gamma\to\mathrm{B}\Gamma$ simply maps
+	$(g_1,\ldots,g_{n+1})$ to $(g_1,\ldots,g_n)$. The right multiplication
+	action of $\Gamma$ on $(\mathrm{E}\Gamma)_n$ acts along its fibers, or in
+	other words changes the datum $g_{n+1}$:
+	% segment-id: o014.li2.chapter8.nerves-of-categories.q017
+	\[ (g_1, \ldots, g_n, g_{n+1})g = (g_1, \ldots, g_n, g_{n+1}g). \]
+	These actions clearly commute with $d_i$ and $s_j$. If $\Gamma$ is a
+	group, the action is also free.
+
+	In topology, $\mathrm{B}\Gamma$ (or its geometric realization
+	$|\mathrm{B}\Gamma|$; see \S\ref{sec:geom-realization}) serves to
+	classify $\Gamma$-torsors over spaces, while
+	$\mathrm{E}\Gamma\to\mathrm{B}\Gamma$ gives the universal torsor.
+	Example~\ref{eg:classifying-contractible} will show that
+	$\mathrm{E}\Gamma$ is ``right-contractible.''
+\end{example}

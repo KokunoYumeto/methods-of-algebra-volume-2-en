@@ -1,0 +1,218 @@
+{
+  "schema": "o014-english-range-receipt-v1",
+  "range": {
+    "first_sequence": 65,
+    "last_sequence": 73
+  },
+  "status": "PASS",
+  "source_commit": "9a5803ff77dd3257484cb177f851a73770a59dd3",
+  "validation": {
+    "source_slice_sha256_verified": true,
+    "indonesian_witness_sha256_verified": true,
+    "stable_unit_ids_verified": true,
+    "segment_id_sequence_parity": true,
+    "localized_environment_roles_canonicalized_to_english": true,
+    "environment_role_order_parity": true,
+    "label_sequence_parity": true,
+    "reference_key_coverage_parity": true,
+    "citation_key_sequence_parity": true,
+    "display_formula_order_parity": true,
+    "display_formula_comparison_ignores_translated_text_and_whitespace": true,
+    "balanced_braces_math_delimiters_and_nested_environments": true,
+    "han_residue_count": 0,
+    "indonesian_residue_count": 0,
+    "placeholder_count": 0,
+    "tex_or_git_invoked": false
+  },
+  "units": [
+    {
+      "sequence": 65,
+      "unit_id": "o014.aljabr2.chapter5.general-spectral-sequences",
+      "target_path": "source/en/chapter5-unit-065.tex",
+      "target_sha256": "473a73f0e4479d1f4bd6bbbf7dd58fdfb030276e39a7c68786c3188da2a55b37",
+      "bytes": 18210,
+      "lines": 387,
+      "chinese_source": {
+        "path": "chapter5.tex",
+        "start_line": 141,
+        "end_line": 349,
+        "sha256": "11808ac2298ae69ada1ce4902304350a5659b01038d7bf9632555194ab50176d"
+      },
+      "indonesian_witness_sha256": "dc3977b24a6a456db924d2d0a9a1c0cbaeeefb8b0c9f77cdd0a978fdffd0aff2",
+      "segments": 30,
+      "environment_tokens": 74,
+      "labels": 16,
+      "references": 8,
+      "citation_keys": 0,
+      "display_math_blocks": 14
+    },
+    {
+      "sequence": 66,
+      "unit_id": "o014.aljabr2.chapter5.exact-couples",
+      "target_path": "source/en/chapter5-unit-066.tex",
+      "target_sha256": "0031b8d0c2f550f56367547e9e0cb921f02fc39ea610202d616c754ed44438e4",
+      "bytes": 9204,
+      "lines": 211,
+      "chinese_source": {
+        "path": "chapter5.tex",
+        "start_line": 350,
+        "end_line": 467,
+        "sha256": "fc8b256a4ade7923dc49bc2986fb6f7d50514ddbb4141413403e635f9a4f026e"
+      },
+      "indonesian_witness_sha256": "13ec21c2cd198c6c2c7dc6de3b2e8723c03258d6250b900958e5867f3f01ac94",
+      "segments": 11,
+      "environment_tokens": 44,
+      "labels": 5,
+      "references": 10,
+      "citation_keys": 0,
+      "display_math_blocks": 13
+    },
+    {
+      "sequence": 67,
+      "unit_id": "o014.aljabr2.chapter5.filtered-differential-spectral-sequence",
+      "target_path": "source/en/chapter5-unit-067.tex",
+      "target_sha256": "c9509a4a9b7e43f9bf883e9c8e1ee2ad12c09c2b50f3891272f076903d970ed4",
+      "bytes": 12709,
+      "lines": 262,
+      "chinese_source": {
+        "path": "chapter5.tex",
+        "start_line": 468,
+        "end_line": 577,
+        "sha256": "fe21b31b5cbb87c4a5926bfb3748a39afd44128213ad6a19df3fde4589055aa0"
+      },
+      "indonesian_witness_sha256": "41770d6e7505cdacfdd14d7b7c17760124adb233f8740c0f4e662d6adab6f591",
+      "segments": 21,
+      "environment_tokens": 34,
+      "labels": 8,
+      "references": 18,
+      "citation_keys": 0,
+      "display_math_blocks": 11
+    },
+    {
+      "sequence": 68,
+      "unit_id": "o014.aljabr2.chapter5.filtered-complex-spectral-sequence",
+      "target_path": "source/en/chapter5-unit-068.tex",
+      "target_sha256": "2c3e4e653b9c0e36844c233aa6276dcac81a0aa95a4d02bd85dce7dddbbe4a6d",
+      "bytes": 16379,
+      "lines": 343,
+      "chinese_source": {
+        "path": "chapter5.tex",
+        "start_line": 578,
+        "end_line": 739,
+        "sha256": "6b1fcdd8301a50e75d22dc311741ab5eefb94ff211d7f025d18e740a3c260767"
+      },
+      "indonesian_witness_sha256": "09fe3c95f6b9a51ec6ddd36b28db2625d35fc517085e514958868844ccedfd27",
+      "segments": 21,
+      "environment_tokens": 50,
+      "labels": 10,
+      "references": 32,
+      "citation_keys": 1,
+      "display_math_blocks": 17
+    },
+    {
+      "sequence": 69,
+      "unit_id": "o014.aljabr2.chapter5.bicomplex-spectral-sequences-applications",
+      "target_path": "source/en/chapter5-unit-069.tex",
+      "target_sha256": "784d96bed846d9a155bd531b4b48b0baaa542e308dfb798f081d9a8510078a37",
+      "bytes": 26293,
+      "lines": 467,
+      "chinese_source": {
+        "path": "chapter5.tex",
+        "start_line": 740,
+        "end_line": 954,
+        "sha256": "4bd7fa6811f80bf2dab6ce52936e8cc424419b13619bf0145c75554fd5d78577"
+      },
+      "indonesian_witness_sha256": "8430ddf3ac92ce4d8056b19a7e8a877ec257ca98741123002320128af8e196c2",
+      "segments": 55,
+      "environment_tokens": 64,
+      "labels": 9,
+      "references": 37,
+      "citation_keys": 1,
+      "display_math_blocks": 27
+    },
+    {
+      "sequence": 70,
+      "unit_id": "o014.aljabr2.chapter5.multiplicative-structures",
+      "target_path": "source/en/chapter5-unit-070.tex",
+      "target_sha256": "06e0f2bd28d7a12a12e48c555c3cb6ff0cc4429c11056296483e755a3ad2f51c",
+      "bytes": 13206,
+      "lines": 266,
+      "chinese_source": {
+        "path": "chapter5.tex",
+        "start_line": 955,
+        "end_line": 1063,
+        "sha256": "2a51be1763d4e302cb3434a4d461308b5e9e3b182a3bcbf59c98b0770b8ad43e"
+      },
+      "indonesian_witness_sha256": "daaa4ec1b03d89bfbb76adde44650798861a68b5001456b9baada695b9109a70",
+      "segments": 19,
+      "environment_tokens": 30,
+      "labels": 4,
+      "references": 9,
+      "citation_keys": 2,
+      "display_math_blocks": 9
+    },
+    {
+      "sequence": 71,
+      "unit_id": "o014.aljabr2.chapter5.exercises",
+      "target_path": "source/en/chapter5-unit-071.tex",
+      "target_sha256": "eb1384674393479b58c9a6fae492d586238ed38fe08a0dfcd912203064593164",
+      "bytes": 8913,
+      "lines": 194,
+      "chinese_source": {
+        "path": "chapter5.tex",
+        "start_line": 1066,
+        "end_line": 1148,
+        "sha256": "6671645c08cdc5a0195004e1e2c7a4343e8d311d3284160024fc2f0198b5da41"
+      },
+      "indonesian_witness_sha256": "f4246e1f41321a85c570db8b36ea12772d913bd1bd714b8941d797444625e560",
+      "segments": 1,
+      "environment_tokens": 24,
+      "labels": 0,
+      "references": 9,
+      "citation_keys": 1,
+      "display_math_blocks": 9
+    },
+    {
+      "sequence": 72,
+      "unit_id": "o014.aljabr2.chapter6.overview-g-modules-resolutions",
+      "target_path": "source/en/chapter6-unit-072.tex",
+      "target_sha256": "14ef45338c6f8b0c5a649824600f8d8d9c6aa5693b8066362291e2d4d369e2b7",
+      "bytes": 39512,
+      "lines": 732,
+      "chinese_source": {
+        "path": "chapter6.tex",
+        "start_line": 1,
+        "end_line": 320,
+        "sha256": "fda330672e2d5ea8355231e3323bf9365f01e3d1ae3d97c9dfe99470851fc914"
+      },
+      "indonesian_witness_sha256": "6c89d8d5fc359819629c61b6a09995382a3f9431bfec500b06f2094830b98f19",
+      "segments": 107,
+      "environment_tokens": 88,
+      "labels": 22,
+      "references": 50,
+      "citation_keys": 2,
+      "display_math_blocks": 34
+    },
+    {
+      "sequence": 73,
+      "unit_id": "o014.aljabr2.chapter6.group-homology-cohomology",
+      "target_path": "source/en/chapter6-unit-073.tex",
+      "target_sha256": "ce88be5939d5a1dd1c273a0aece2bd0c5869bf7353b5bd3bdf18b1382ed7be1f",
+      "bytes": 26729,
+      "lines": 490,
+      "chinese_source": {
+        "path": "chapter6.tex",
+        "start_line": 321,
+        "end_line": 556,
+        "sha256": "b0ebe701c11ab7139bc3ab1f5fc2b748e2037c107ad3dd68edffb7391cfe4c64"
+      },
+      "indonesian_witness_sha256": "74d97f32133e91fc289035e25f7fc462bd2077844919c8d9d73659f665babdb6",
+      "segments": 65,
+      "environment_tokens": 76,
+      "labels": 13,
+      "references": 32,
+      "citation_keys": 1,
+      "display_math_blocks": 30
+    }
+  ]
+}

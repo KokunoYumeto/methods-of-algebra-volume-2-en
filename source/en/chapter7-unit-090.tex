@@ -1,0 +1,243 @@
+% English translation of chapter7.tex lines 611--711.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter7.closed-monoidal-categories
+% Coverage: all of Section 7.3 on closed monoidal categories; ends immediately
+% before Section 7.4 at line 712.
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.h001
+\section{Closed Monoidal Categories}\label{sec:closed-monoidal}
+\hypertarget{o014.aljabr2.chapter7.closed-monoidal-categories}{ }
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.p001
+Let $\Bbbk$ be a commutative ring. Then $\Bbbk\dcate{Mod}$ is a symmetric
+monoidal category under $\otimes:=\otimes_{\Bbbk}$. It has the following
+closedness properties.
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.l001
+\begin{itemize}
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.i001
+	\item It is enriched over itself: the set of homomorphisms $\Hom(X,Y)$
+	naturally has the structure of a $\Bbbk$-module;
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.i002
+	\item the basic properties of the tensor product give a canonical
+	isomorphism in $\Bbbk\dcate{Mod}$
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.q001
+	\[ \Hom(X \otimes Y, Z) \simeq \Hom(X, \Hom(Y, Z)). \]
+\end{itemize}
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.p002
+Extending these properties to general monoidal categories leads to the
+following concept.
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.d001
+\begin{definition}\label{def:closed-monoidal-cat}
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.x001
+	\index{monoidal category!closed}
+	Let $\mathcal{C}$ be a monoidal category. The category $\mathcal{C}$ is
+	called \emph{right closed} (or \emph{left closed}) if, for every object
+	$Y$, the functor $(\cdot)\otimes Y:\mathcal{C}\to\mathcal{C}$ (or
+	$Y\otimes(\cdot):\mathcal{C}\to\mathcal{C}$) is equipped with a specified
+	right adjoint. A monoidal category that is both left closed and right
+	closed is called a \emph{closed monoidal category}.
+\end{definition}
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.p003
+All monoidal categories considered below are braided monoidal categories, so
+we shall no longer distinguish left closed from right closed. In this
+situation, the right adjoint of $(\cdot)\otimes Y$ is denoted by
+$[Y,\cdot]:\mathcal{C}\to\mathcal{C}$.
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.p004
+Recall that if a category $\mathcal{C}$ has finite products, then
+$\mathcal{C}$ is a symmetric monoidal category under $\times$, with the
+terminal object as its unit $\munit$ (Example~\ref{eg:Cartesius-monoidal}).
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.d002
+\begin{definition}\label{def:Cartesian-closed}
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.x002
+	\index{category!Cartesian closed}
+	Let $\mathcal{C}$ be a category with finite products. If
+	$(\mathcal{C},\times)$ is a closed monoidal category, then $\mathcal{C}$ is
+	called a \emph{Cartesian closed category}.
+\end{definition}
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.p005
+More generally, for any two pairs of adjoint functors $(F,G)$ and $(F',G')$
+between categories $\mathcal{C}_1$ and $\mathcal{C}_2$, every
+$\varphi:F\to F'$ naturally induces $\psi:G'\to G$; conversely, every
+$\psi:G'\to G$ naturally induces $\varphi:F\to F'$. In either case, the
+induced morphism is characterized by the commutative diagram
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.g001
+\[\begin{tikzcd}
+	\Hom(F' X, Y) \arrow[r, "\sim"] \arrow[d, "{(\varphi_X)^*}"'] & \Hom(X, G'Y) \arrow[d, "{(\psi_Y)_*}"] \\
+	\Hom(FX, Y) \arrow[r, "\sim"'] & \Hom(X, GY)
+\end{tikzcd}\]
+This is simply an application of the Yoneda lemma. The reader may also try to
+write down these induced morphisms using the unit and counit of the adjoint
+pairs.
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.p006
+As an application, every morphism $Y\to Y'$ in a closed monoidal category
+induces $[Y',\cdot]\to[Y,\cdot]$. Thus, being a closed monoidal category is
+equivalent to the existence of a bifunctor
+$[\cdot,\cdot]:\mathcal{C}^{\opp}\times\mathcal{C}\to\mathcal{C}$ and a
+family of canonical bijections
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.e001
+\begin{equation}\label{eqn:closed-monoidal-adj0}
+	\Hom(X \otimes Y, Z) \simeq \Hom(X, [Y, Z]),
+\end{equation}
+functorial in all three variables.
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.p007
+The bifunctor $[\cdot,\cdot]$ is also called the \emph{internal $\Hom$} of the
+closed monoidal category $\mathcal{C}$. The definition also yields the
+following conclusions.
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.l002
+\begin{itemize}
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.i003
+	\item From
+	$\Hom(X,Z)\simeq\Hom(X\otimes\munit,Z)\simeq\Hom(X,[\munit,Z])$ and the
+	Yoneda lemma, one obtains $Z\simeq[\munit,Z]$;
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.i004
+	\item the unit morphism of the adjoint pair gives
+	$\mathrm{coev}_{X,Y}:X\to[Y,X\otimes Y]$, while the counit morphism gives
+	$\mathrm{ev}_{Y,X}:[Y,X]\otimes Y\to X$;
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.i005
+	\item from the composite
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.q002
+	\[ [Y, Z] \otimes ([X, Y] \otimes X) \xrightarrow{\identity \otimes \mathrm{ev}_{X, Y}} [Y, Z] \otimes Y \xrightarrow{\mathrm{ev}_{Y, Z}} Z \]
+	and the adjunction together with the associativity constraint, one obtains
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.q003
+	\[ [Y, Z] \otimes [X, Y] \to [X, Z]; \]
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.i006
+	\item taking $\mathrm{coev}_{\munit,X}$ gives a morphism
+	$\munit\to[X,X]$.
+\end{itemize}
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.p008
+The term internal $\Hom$ and the preceding properties make clear that a closed
+monoidal category is enriched over itself. We first show how to recover the
+ordinary $\Hom$ from the internal $\Hom$.
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.pr001
+\begin{proposition}
+	Let $\mathcal{C}$ be a closed monoidal category. There is a family of
+	canonical bijections
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.q004
+	\[ \Hom(X, Y) \simeq \Hom(\munit, [X, Y]), \quad X, Y \in \Obj(\mathcal{C}). \]
+\end{proposition}
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.pf001
+\begin{proof}
+	By \eqref{eqn:closed-monoidal-adj0},
+	$\Hom(\munit,[X,Y])\simeq\Hom(\munit\otimes X,Y)\simeq\Hom(X,Y)$.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.p009
+To show that $\mathcal{C}$ is enriched over itself, one must still prove that
+$[Y,Z]\otimes[X,Z]\to[Y,Z]$ and $\munit\to[X,X]$ satisfy axioms such as
+associativity. This can be checked using the standard properties of the unit
+and counit. Since the details are rather tedious, the proof is left as an
+exercise for this chapter.
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.p010
+We next show that the adjunction \eqref{eqn:closed-monoidal-adj0} is itself
+automatically internalized in $\mathcal{C}$.
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.pr002
+\begin{proposition}\label{prop:closed-monoidal-adj}
+	Let $\mathcal{C}$ be a closed monoidal category. There is a family of
+	canonical isomorphisms
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.q005
+	\[ [X \otimes Y, Z] \simeq [X, [Y, Z]]; \]
+	more precisely, this is an isomorphism between functors from
+	$\mathcal{C}^{\opp}\times\mathcal{C}^{\opp}\times\mathcal{C}$ to
+	$\mathcal{C}$.
+\end{proposition}
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.pf002
+\begin{proof}
+	Fix $X$, $Y$, and $Z$. For every object $T$,
+	\eqref{eqn:closed-monoidal-adj0} and the associativity constraint of
+	$\mathcal{C}$ give natural bijections
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.g002
+	\begin{multline*}
+		\Hom(T, [X \otimes Y, Z]) \simeq \Hom(T \otimes (X \otimes Y), Z) \simeq \Hom((T \otimes X) \otimes Y, Z) \\
+		\simeq \Hom(T \otimes X, [Y, Z]) \simeq \Hom(T, [X, [Y, Z]]).
+	\end{multline*}
+	Since $T$ is arbitrary, the Yoneda lemma gives the desired isomorphism.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.p011
+The following basic examples involve the symmetric monoidal categories
+introduced in \S\ref{sec:alg-in-monoidal-cat}.
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.l003
+\begin{itemize}
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.i007
+	\item The category of sets $\cate{Set}$ is Cartesian closed: take $[X,Y]$
+	to be the set of maps
+	$Y^X=\left\{\text{maps}\;X\to Y\right\}$. Then
+	\eqref{eqn:closed-monoidal-adj0}, or its internalized version in
+	Proposition~\ref{prop:closed-monoidal-adj}, gives the natural bijection
+	$Z^{X\times Y}\xrightarrow{1:1}(Z^X)^Y$. In computer science, such a
+	bijection, or its generalization to an arbitrary closed monoidal category,
+	is often called \emph{currying}.
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.i008
+	\item All small categories and the functors between them form the category
+	$\cate{Cat}$. Its products are the products of categories
+	$\mathcal{C}_1\times\cdots\times\mathcal{C}_2$, and its empty product is
+	the category $\mathbf{1}$. The category $\cate{Cat}$ is Cartesian closed;
+	this is equivalent to the following simple statement: specifying a
+	bifunctor $\mathcal{A}\times\mathcal{B}\to\mathcal{C}$ is equivalent to
+	specifying a functor $\mathcal{A}\to\mathcal{B}^{\mathcal{C}}$, and is
+	also equivalent to specifying $\mathcal{B}\to\mathcal{C}^{\mathcal{A}}$.
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.i009
+	\item Although the category of topological spaces $\cate{Top}$ has many
+	good properties and is a symmetric monoidal category under the product
+	$\times$, it is not Cartesian closed; see the discussion at the end of
+	\cite[\S 1.5]{Kel05}. Since mapping spaces $X^Y$ occur everywhere in
+	topology, the cost of giving up closedness is too high. A convenient
+	replacement is the category of compactly generated Hausdorff
+	spaces\footnote{A compactly generated Hausdorff space is a Hausdorff space
+	$X$ with the following property: if the intersection of a subset
+	$A\subset X$ with every compact subset $K\subset X$ is closed, then $A$
+	is closed.} $\cate{CGHaus}$. It is a full subcategory of $\cate{Top}$ and
+	is itself Cartesian closed. One can prove that there is an adjoint pair
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.g003
+	$\begin{tikzcd}
+		\cate{CGHaus} \arrow[shift left, r, "\text{inclusion functor}"] & \cate{Top} \arrow[shift left, l, "k"]
+	\end{tikzcd}$,
+	where the inclusion functor preserves $\varinjlim$ but not products.
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.i010
+	\item Let $G$ be a group and $\Bbbk$ a commutative ring. The symmetric
+	monoidal category $G\dcate{Mod}$ introduced in
+	Proposition~\ref{prop:Gmod-monoidal} is closed: its internal $\Hom$ is
+	precisely the $\Hom$ module introduced in \S\ref{sec:G-mod}, and the
+	required adjunction is exactly \eqref{eqn:G-mod-tensor-Hom}.
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.i011
+	\item Again let $\Bbbk$ be a commutative ring, and set
+	$\mathcal{A}:=\Bbbk\dcate{Mod}$. As seen in \S\ref{sec:dga-monoidal}, the
+	category of complexes $\cate{C}(\mathcal{A})$ is a symmetric monoidal
+	category. It is closed, with internal $\Hom$ given by the $\Hom$ complex.
+	The adjunction required in \eqref{eqn:closed-monoidal-adj0} is the
+	adjunction between $\Hom$ and $\otimes$ at the level of complexes.
+	Concretely, it is a corollary of Proposition~\ref{prop:tensor-Hom-cplx} in
+	the case $A=R=B=\Bbbk$. The corresponding unit and counit morphisms are
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.g004
+	\[\begin{tikzcd}[row sep=tiny]
+		\mathrm{ev}_{X, Y}: \Hom^n(X, Y) \dotimes{\Bbbk} X^m \arrow[r] & Y^{n+m} \\
+		f \otimes x \arrow[mapsto, r] & f(x), \\
+		\mathrm{coev}_{X, Y}: X^n \arrow[r] & \Hom^n(Y, X \otimes Y) \\
+		x \arrow[mapsto, r] & {[y \mapsto x \otimes y]}.
+	\end{tikzcd}\]
+\end{itemize}
+
+% segment-id: o014.aljabr2.chapter7.closed-monoidal-categories.p012
+The last example shows that Definition~\ref{def:Hom-cplx} of the $\Hom$
+complex is entirely natural, provided that $\cate{C}(\mathcal{A})$ is given
+the symmetric monoidal structure described above.

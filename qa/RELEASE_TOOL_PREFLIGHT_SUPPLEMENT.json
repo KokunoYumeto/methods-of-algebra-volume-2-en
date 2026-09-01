@@ -1,0 +1,21 @@
+{
+  "schema": "o014-english-release-tool-preflight-supplement-v1",
+  "verified_at_utc": "2026-09-01T00:19:54.7144132Z",
+  "result": "PASS",
+  "reason": "The Zenodo publisher was extended after the main preflight so the repository README cannot retain a stale pending-DOI label after publication.",
+  "change": {
+    "file": "release/publish_zenodo.py",
+    "bytes": 17021,
+    "sha256": "960675ac40e0eae1acf8b03aae7630fc67366f6e3c16b8abbcf55941d8270379",
+    "behavior": "After a successful anonymous nine-file public readback, replace exactly one README archival-DOI line with the verified version DOI; fail closed if the line is absent or ambiguous."
+  },
+  "checks": {
+    "python_ast_parse": "PASS",
+    "credential_handling_unchanged": true,
+    "zenodo_payload_unchanged": true,
+    "metadata_boundary_unchanged": true,
+    "publication_and_anonymous_readback_still_precede_readme_update": true,
+    "readme_prepublication_bytes": 3097,
+    "readme_prepublication_sha256": "62666ca18fe7f85cf6345a072c09d2f49503f56a5aa97ca5a31b8e2bb96cb3d9"
+  }
+}

@@ -1,0 +1,273 @@
+% Unit 053: English translation of chapter4.tex, lines 623--722.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter4.verdier-localization
+% Coverage: the end of Section 4.3, from the construction of
+% $S\mathcal{N}$ and Verdier localization through the relation between
+% localization and subcategories; ends before Section 4.4.
+
+% segment-id: o014.li2.chapter4.verdier-localization.pr001
+\begin{proposition}
+	\index[sym1]{SN@$S\mathcal{N}$}
+	Let $\mathcal{N}$ be a saturated triangulated subcategory of a
+	triangulated category $\mathcal{D}$
+	(Definition--Proposition~\ref{def:triangulated-subcat},
+	Convention~\ref{con:saturated-intersection}). Then
+% segment-id: o014.li2.chapter4.verdier-localization.q001
+	\[ S\mathcal{N} := \left\{\begin{array}{r|l}
+		s \in \Mor(\mathcal{D}) & \exists \;\text{a distinguished triangle}\; X \xrightarrow{s} Y \to Z \xrightarrow{+1} \\
+		& \text{such that}\; Z \in \Obj(\mathcal{N})
+	\end{array}\right\} \]
+	is a multiplicative system compatible with triangulation.
+\end{proposition}
+
+% segment-id: o014.li2.chapter4.verdier-localization.pf001
+\begin{proof}
+	Since $\mathcal{N}$ is closed under translation, rotating triangles shows
+	that $S\mathcal{N}$ satisfies (ST1). Next consider the commutative diagram
+	in (ST2), and suppose that $\alpha, \beta \in S\mathcal{N}$.
+	Lemma~\ref{prop:triangulated-9-diag} gives a diagram
+% segment-id: o014.li2.chapter4.verdier-localization.g001
+	\[\begin{tikzcd}
+		{} & {} & {} & {} \\
+		X'' \arrow[u, "+1"] \arrow[r] & Y'' \arrow[u, "+1"] \arrow[r] & Z'' \arrow[u, "+1"] \arrow[r, "+1"] & {} \\
+		X \arrow[r] \arrow[u] & Y \arrow[r] \arrow[u] & Z \arrow[r, "+1"] \arrow[u] & {}\\
+		X' \arrow[r] \arrow[u, "\alpha"] & Y' \arrow[r] \arrow[u, "\beta"] & Z' \arrow[r, "+1"] \arrow[u, "\gamma"] & {}
+	\end{tikzcd}\]
+	in which every row and column is a distinguished triangle, all squares
+	commute, and $(\alpha, \beta, \gamma)$ is a morphism of triangles. Using
+	the saturation of $\mathcal{N}$, the fact that
+	$\alpha, \beta \in S$, and Corollary~\ref{prop:Cone-uniqueness}, we see
+	that $X'', Y'' \in \Obj(\mathcal{N})$. The definition of a saturated
+	triangulated subcategory then implies
+	$Z'' \in \Obj(\mathcal{N})$, hence $\gamma \in S$. This verifies (ST2).
+
+	We next verify the axioms for a multiplicative system
+	(Definition~\ref{def:multiplicative-family}). Since
+	$0 \in \Obj(\mathcal{N})$, axiom (S1) follows from (TR1).
+
+	To verify (S2), let $f, g \in S\mathcal{N}$. Choose distinguished
+	triangles $X \xrightarrow{f} Y \to Z' \xrightarrow{+1}$ and
+	$Y \xrightarrow{g} Z \to X' \xrightarrow{+1}$ with
+	$Z', X' \in \Obj(\mathcal{N})$, and use (TR2) to choose a distinguished
+	triangle $X \xrightarrow{gf} Z \to Y' \xrightarrow{+1}$. Applying (TR5)
+	gives a distinguished triangle $Z' \to Y' \to X' \xrightarrow{+1}$.
+	The saturated triangulated-subcategory property therefore implies
+	$Y' \in \Obj(\mathcal{N})$, that is, $gf \in S\mathcal{N}$.
+
+	To verify (S3), consider morphisms
+	$X \xrightarrow{s \in S\mathcal{N}} Z \xleftarrow{f} Y$. Choose a
+	distinguished triangle $X \xrightarrow{s} Z \xrightarrow{h} N
+	\xrightarrow{+1}$ with $N \in \Obj(\mathcal{N})$, and use (TR2) to
+	choose a triangle $Y \xrightarrow{hf} N \to U \xrightarrow{+1}$. Apply
+	(TR4) to the solid part of the diagram
+% segment-id: o014.li2.chapter4.verdier-localization.g002
+	\[\begin{tikzcd}
+		Y \arrow[r, "hf"] \arrow[d, "f"'] & N \arrow[r] \arrow[equal, d] & U \arrow[r, "+1"] \arrow[dashed, d] & TY \arrow[dashed, d, "Tf"] \\
+		Z \arrow[r, "h"'] & N \arrow[r] & TX \arrow[r, "-Ts"'] & TZ
+	\end{tikzcd}\]
+	to obtain the morphisms indicated by the dashed arrows, and hence a
+	morphism of distinguished triangles. After rotation, this yields an
+	element $s': W := T^{-1} U \to Y$ of $S\mathcal{N}$, a corresponding
+	morphism $f': W \to X$, and the commutative diagram required in (S3):
+% segment-id: o014.li2.chapter4.verdier-localization.g003
+	\[\begin{tikzcd}
+		X \arrow[d, "{s \in S\mathcal{N}}"'] & W \arrow[d, "{s' \in S\mathcal{N}}"] \arrow[l, "{f'}"'] \\
+		Z & Y \arrow[l, "f"] .
+	\end{tikzcd}\]
+
+	To verify (S4), replace $(f, g)$ in that axiom by $(f-g, 0)$. It suffices
+	to prove the following assertion: for a morphism $f: X \to Y$, if there
+	is an $s: Y \to W$ with $s \in S\mathcal{N}$ and $sf = 0$, then there
+	is a $t: Z \to X$ with $t \in S\mathcal{N}$ and $ft = 0$. To prove this,
+	choose a distinguished triangle
+	$N \to Y \xrightarrow{s} W \xrightarrow{+1}$ with
+	$N \in \Obj(\mathcal{N})$. Since $\Hom(X, \cdot)$ is cohomological and
+	$sf=0$, there is an $h \in \Hom(X, N)$ such that $f$ factors as
+	$X \xrightarrow{h} N \to Y$. Choose a distinguished triangle
+	$Z \xrightarrow{t} X \xrightarrow{h} N \xrightarrow{+1}$; then
+	$t \in S\mathcal{N}$. On the other hand,
+	$ht=0$ (Lemma~\ref{prop:dt-composite-null}) implies $ft = 0$. Thus (S4)
+	holds.
+
+	The arguments for the dual versions of (S3) and (S4) are identical.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.verdier-localization.th001
+\begin{theorem}[Verdier localization]\label{prop:Verdier-localization}
+	\index{localization!Verdier}
+	\index[sym1]{DN@$\mathcal{D}/\mathcal{N}$}
+	Let $\mathcal{N}$ be a saturated triangulated subcategory of
+	$\mathcal{D}$. Define
+	$\mathcal{D}/\mathcal{N} := \mathcal{D}\left[ (S\mathcal{N})^{-1}\right]$
+	(which is allowed to be a “large” category), equipped with the
+	triangulated structure from
+	Proposition~\ref{prop:localization-triangulated}. Then the localization
+	functor $Q: \mathcal{D} \to \mathcal{D}/\mathcal{N}$ has the following
+	properties.
+% segment-id: o014.li2.chapter4.verdier-localization.l001
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter4.verdier-localization.i001
+		\item For every morphism $f: X \to Y$ in $\mathcal{D}$, one has
+		$Qf = 0$ if and only if $f$ factors as $X \to N \to Y$ with
+		$N \in \Obj(\mathcal{N})$; in particular, $Q$ maps $\mathcal{N}$
+		to $0$.
+% segment-id: o014.li2.chapter4.verdier-localization.i002
+		\item For every pretriangulated category $\mathcal{E}$ and every
+		triangulated functor $F: \mathcal{D} \to \mathcal{E}$, if $F$ maps
+		$\mathcal{N}$ to $0$, then $F$ factors uniquely as
+		$\mathcal{D} \xrightarrow{Q} \mathcal{D}/\mathcal{N}
+		\xrightarrow{\overline{F}} \mathcal{E}$, where $\overline{F}$ is a
+		triangulated functor.
+% segment-id: o014.li2.chapter4.verdier-localization.i003
+		\item For every Abelian category $\mathcal{A}$ and every
+		cohomological functor $H: \mathcal{D} \to \mathcal{A}$, if $H$ maps
+		$\mathcal{N}$ to $0$, then $H$ factors uniquely as
+		$\mathcal{D} \xrightarrow{Q} \mathcal{D}/\mathcal{N}
+		\xrightarrow{\overline{H}} \mathcal{A}$, where $\overline{H}$ is a
+		cohomological functor.
+	\end{enumerate}
+\end{theorem}
+
+% segment-id: o014.li2.chapter4.verdier-localization.pf002
+\begin{proof}
+	For (i), if $f$ factors as $X \to N \to Y$, then $Qf = 0$. Indeed, the
+	rotation $N \to 0 \to TN \xrightarrow{+1}$ of the distinguished triangle
+	$N \xrightarrow{\identity_N} N \to 0 \xrightarrow{+1}$ shows that
+	$N \to 0$ is mapped to an isomorphism in
+	$\mathcal{D}/\mathcal{N}$. Conversely, if $Qf = 0$, there is a morphism
+	$s: M \to X$ with $s \in S\mathcal{N}$ and $fs = 0$
+	(Corollary~\ref{prop:fraction-zero}). By the definition of
+	$S\mathcal{N}$, there is a commutative diagram whose rows are
+	distinguished triangles (the solid part):
+% segment-id: o014.li2.chapter4.verdier-localization.g004
+	\[\begin{tikzcd}
+		M \arrow[r, "s"] \arrow[d] & X \arrow[d, "f"] \arrow[r] & N \arrow[r] \arrow[dashed, d] & TM \arrow[dashed, d] \\
+		0 \arrow[r] & Y \arrow[r, "{\identity_Y}"'] & Y \arrow[r] & 0
+	\end{tikzcd} \quad (N \in \Obj(\mathcal{N})), \]
+	By (TR4), the morphisms indicated by the dashed arrows can be supplied so
+	that the entire diagram commutes. This diagram factors $f$ as
+	$X \to N \to Y$.
+
+	Consider the situation in (ii). Put $s \in S\mathcal{N}$ into a
+	distinguished triangle $X \xrightarrow{s} Y \to N \xrightarrow{+1}$ with
+	$N \in \Obj(\mathcal{N})$. Then
+	$FX \xrightarrow{Fs} FY \to 0 \xrightarrow{+1}$ is a distinguished
+	triangle in $\mathcal{E}$. Corollary~\ref{prop:triangle-0-isom} shows that
+	$Fs$ is an isomorphism. The universal property then gives a unique
+	factorization $H = \overline{F} \circ Q$, where $\overline{F}$ is an
+	additive functor. In view of the description of the triangulated
+	structure on $\mathcal{D}/\mathcal{N}$
+	(Proposition~\ref{prop:localization-triangulated}), it is straightforward
+	to verify that $\overline{F}$ preserves translations and triangles; the
+	details are left to the reader.
+
+	Consider the situation in (iii). Again put $s \in S\mathcal{N}$ into a
+	distinguished triangle $X \xrightarrow{s} Y \to N \xrightarrow{+1}$.
+	Applying $H$ gives the exact sequence
+	$\underbracket{HT^{-1} N}_{=0} \to HX \xrightarrow{Hs} HY \to
+	\underbracket{HN}_{=0}$, so $Hs$ is an isomorphism. The universal property
+	then gives a unique factorization $H = \overline{H} \circ Q$, where
+	$\overline{H}$ is additive. To verify that $\overline{H}$ is
+	cohomological, recall that the distinguished triangles in
+	$\mathcal{D}/\mathcal{N}$ are isomorphic to images of distinguished
+	triangles in $\mathcal{D}$.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.verdier-localization.ex001
+\begin{example}\label{eg:cohomological-functor-multiplicative}
+	\index{quasi-isomorphism}
+	\index[sym1]{SHSNH@$S_H$, $S\mathcal{N}_H$}
+	Cohomological functors give an important class of multiplicative systems
+	compatible with triangulation. Let
+	$H: \mathcal{D} \to \mathcal{A}$ be a cohomological functor. A morphism
+	$f: X \to Y$ in $\mathcal{D}$ is called an
+	$H$-\emph{quasi-isomorphism} if $H(T^n f)$ is an isomorphism in
+	$\mathcal{A}$ for every $n \in \Z$. All $H$-quasi-isomorphisms form a
+	subset $S_H \subset \Mor(\mathcal{D})$. It plainly satisfies (ST1), while
+	(ST2) follows from the long exact sequence of a cohomological functor
+	(Remark~\ref{rem:cohomological-functor-long}) together with
+	Proposition~\ref{prop:5-lemma}.
+
+	On the other hand, define $\mathcal{N}_H$ as in
+	Example~\ref{eg:subcat-N-H}. It is a saturated triangulated subcategory,
+	so $S\mathcal{N}_H$ is defined. The two are related as follows.
+\end{example}
+
+% segment-id: o014.li2.chapter4.verdier-localization.pr002
+\begin{proposition}\label{prop:cohomological-functor-multiplicative}
+	Let $H: \mathcal{D} \to \mathcal{A}$ be a cohomological functor. Then
+	$S\mathcal{N}_H = S_H$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter4.verdier-localization.pf003
+\begin{proof}
+	Let $f: X \to Y$ be a morphism in $\mathcal{D}$. Extend $f$ to a
+	distinguished triangle
+	$X \xrightarrow{f} Y \to N \xrightarrow{+1}$. Recall that $N$ is unique
+	up to isomorphism. The long exact sequence of a cohomological functor
+	therefore implies
+% segment-id: o014.li2.chapter4.verdier-localization.q002
+	\[ f \;\text{is an $H$-quasi-isomorphism} \iff \forall n, \; H(T^n N) = 0, \]
+	and the right-hand side is equivalent to
+	$N \in \Obj(\mathcal{N}_H)$. This proves the assertion.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.verdier-localization.p001
+Thus there are at least two ways to localize at $S_H$: adjoin inverses to the
+elements of $S_H$, or make $\mathcal{N}_H$ zero. These give two universal
+properties of the Verdier localization
+$Q: \mathcal{D} \to \mathcal{D}/\mathcal{N}_H
+= \mathcal{D}[S_H^{-1}]$.
+
+% segment-id: o014.li2.chapter4.verdier-localization.p002
+Finally, we discuss the relation between localization and subcategories. Let
+$\mathcal{N}$ and $\mathcal{I}$ be triangulated subcategories of a
+triangulated category $\mathcal{D}$, with $\mathcal{N}$ saturated. Then
+$\mathcal{N} \cap \mathcal{I}$ is also a saturated triangulated subcategory
+of $\mathcal{I}$. The universal property of Verdier localization determines
+a triangulated functor
+$i: \mathcal{I}/(\mathcal{N} \cap \mathcal{I}) \to
+\mathcal{D}/\mathcal{N}$.
+
+% segment-id: o014.li2.chapter4.verdier-localization.p003
+Note the following simple fact. The system
+$S(\mathcal{N} \cap \mathcal{I})$, defined relative to
+$\mathcal{N} \cap \mathcal{I} \subset \mathcal{I}$, satisfies
+% segment-id: o014.li2.chapter4.verdier-localization.q003
+\begin{equation}\label{eqn:S-N-D}
+	S(\mathcal{N} \cap \mathcal{I}) = S\mathcal{N} \cap \Mor(\mathcal{I}).
+\end{equation}
+The inclusion $\subset$ is clear. For $\supset$, suppose that a morphism
+$f: X \to Y$ in $\mathcal{I}$ can be placed in a distinguished triangle
+$X \xrightarrow{f} Y \to N \xrightarrow{+1}$ in $\mathcal{D}$ with
+$N \in \Obj(\mathcal{N})$. Corollary~\ref{prop:Cone-uniqueness} shows that
+$N$ is isomorphic to an object in $\mathcal{I}$. Since $\mathcal{N}$ is
+saturated, we may take $N \in \Obj(\mathcal{N} \cap \mathcal{I})$, and hence
+$f \in S(\mathcal{N} \cap \mathcal{I})$.
+
+% segment-id: o014.li2.chapter4.verdier-localization.pr003
+\begin{proposition}\label{prop:triangulated-i-equiv}
+	Let $\mathcal{N}$, $\mathcal{D}$, and $\mathcal{I}$ be as above, and
+	assume the following “resolution condition”: for every
+	$X \in \Obj(\mathcal{D})$, there exist $U \in \Obj(\mathcal{I})$ and a
+	morphism $U \to X$ belonging to $S\mathcal{N}$. Then
+	$i: \mathcal{I}/(\mathcal{N} \cap \mathcal{I})
+	\to \mathcal{D}/\mathcal{N}$ is an equivalence of triangulated
+	categories.
+
+	The same conclusion holds if the resolution condition is replaced by:
+	for every $X \in \Obj(\mathcal{D})$, there exist
+	$U \in \Obj(\mathcal{I})$ and a morphism $X \to U$ belonging to
+	$S\mathcal{N}$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter4.verdier-localization.pf004
+\begin{proof}
+	Proposition~\ref{prop:injective-localization} implies that $i$ is an
+	equivalence, and Corollary~\ref{prop:triangulated-equivalence} shows that
+	the equivalence is triangulated.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.verdier-localization.p004
+The result above will be used in the study of derived functors.

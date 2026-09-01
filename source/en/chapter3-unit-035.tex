@@ -1,0 +1,178 @@
+% Unit 035 English translation of chapter3.tex lines 622--699.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter3.opposite-category-complexes
+% Coverage: Section 3.4 in full.
+
+% segment-id: o014.li2.chapter3.opposite-category-complexes.h001
+\section{Complexes on the Opposite Category}\label{sec:opposite-cplx}
+\hypertarget{o014.aljabr2.chapter3.opposite-category-complexes}{ }
+
+% segment-id: o014.li2.chapter3.opposite-category-complexes.p001
+Let $\mathcal{A}$ be an additive category. This section relates complexes on
+$\mathcal{A}$ and on $\mathcal{A}^{\opp}$. Since functors involving
+$\mathcal{A}^{\opp}$, such as the $\Hom$ functor, occur frequently, this
+procedure is simple but necessary; some of the signs involved also require a
+little care. Beginning readers are advised to skip this section or merely
+skim it on a first reading.
+
+% segment-id: o014.li2.chapter3.opposite-category-complexes.p002
+The discussion has three aspects: complexes, homotopy, and mapping cones. The
+derived-category version considered later
+(Proposition~\sourcecrossref{prop:derived-cat-op}{in the later discussion of
+derived categories}) is a direct application of these results. Recall that if
+$f:X\to Y$ is a morphism in $\mathcal{A}$, then $f^{\opp}$ denotes the
+corresponding morphism $Y\to X$ in $\mathcal{A}^{\opp}$.
+
+% segment-id: o014.li2.chapter3.opposite-category-complexes.dp001
+\begin{definition-proposition}\label{def:sigma}
+	\index[sym1]{sigma@$\sigma$}
+	The isomorphism of additive categories
+	$\sigma:\cate{C}(\mathcal{A}^{\opp})\to\cate{C}(\mathcal{A})^{\opp}$
+	is defined as follows. For an object $X$ of
+	$\cate{C}(\mathcal{A}^{\opp})$, define in $\mathcal{A}$
+% segment-id: o014.li2.chapter3.opposite-category-complexes.q001
+	\[ (\sigma X)^n := X^{-n}, \quad d_{\sigma X}^n = (-1)^{n+1} \left[ d_X^{-n-1, \opp}: (\sigma X)^n \to (\sigma X)^{n+1} \right], \quad n \in \Z. \]
+	For a morphism $f=\left(f^n:X^n\to Y^n\right)_n$ in
+	$\cate{C}(\mathcal{A}^{\opp})$, take its image $\sigma f$ to be the
+	following morphism in $\cate{C}(\mathcal{A})$:
+% segment-id: o014.li2.chapter3.opposite-category-complexes.q002
+	\[ (\sigma f)^n := \left(f^{-n} \right)^{\opp} : (\sigma Y)^n \to (\sigma X)^n, \]
+	that is, a morphism $\sigma X\to\sigma Y$ in
+	$\cate{C}(\mathcal{A})^{\opp}$. For every $m\in\Z$, there is a natural
+	isomorphism
+% segment-id: o014.li2.chapter3.opposite-category-complexes.q003
+	\[ s_m: \sigma \circ [m] \rightiso [-m] \circ \sigma, \]
+	where $[-m]$ is regarded as a functor from
+	$\cate{C}(\mathcal{A})^{\opp}$ to itself (strictly speaking, it should be
+	written $[-m]^{\opp}$).
+\end{definition-proposition}
+% segment-id: o014.li2.chapter3.opposite-category-complexes.pf001
+\begin{proof}
+	The general case of $s_m$ reduces step by step to the case $m=1$. Define
+	$s_1=(s_{1,X})_X$ as follows. For every $n$, take
+% segment-id: o014.li2.chapter3.opposite-category-complexes.g001
+	\begin{equation}\label{eqn:sigma-s}\begin{tikzcd}[row sep=tiny]
+		s_{1,X}^n : \sigma(X{[1]})^n = X^{1-n} \arrow[r, "\sim"', "{(-1)^{n-1}}" inner sep=0.6em] & X^{1-n} = (\sigma X){[-1]}^n .
+	\end{tikzcd}\end{equation}
+	The entire verification reduces to
+	$s_{1, X}^{n+1} d^n_{\sigma(X[1])} = -d_{X[1]}^{-n-1, \opp} =
+	d_X^{-n, \opp} = (-1)^n d_{\sigma X}^{n-1} =
+	d^n_{(\sigma X)[-1]} s_{1,X}^n$.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.opposite-category-complexes.p003
+If the construction $\sigma$ with coefficient $(-1)^{n+1}$ is applied in
+both directions, $\sigma^2X$ is naturally isomorphic to $X$ through the
+isomorphism whose degree-$n$ component is $(-1)^n\identity_{X^n}$. To obtain
+an inverse, define the reverse construction by the same formulas on objects
+and morphisms, but use the coefficient $(-1)^n$ on the differential. The
+composites in both orders are then exactly the identity functor, so $\sigma$
+is indeed an isomorphism of categories.%
+\footnote{Translator's note (O014-C036): arguing from
+$n(n+1)\equiv0\pmod{2}$, the source states that applying $\sigma$ twice
+returns $X$ strictly. Using the same formula in both directions instead gives
+the differential $-d_X$, not $d_X$. The signed natural isomorphism and the
+corrected inverse construction are recorded above.}
+
+% segment-id: o014.li2.chapter3.opposite-category-complexes.r001
+\begin{remark}\label{rem:sigma-vs-cohomology}
+	If $\mathcal{A}$ is an abelian category, the signs on
+	$d_{\sigma X}^\bullet$ do not change the cohomology introduced in
+	Definition~\ref{def:cohomology}; thus
+	$\Hm^{-n}(\sigma X)\in\Obj(\mathcal{A})$ corresponds to
+	$\Hm^n(X)\in\Obj(\mathcal{A}^{\opp})$.
+\end{remark}
+
+% segment-id: o014.li2.chapter3.opposite-category-complexes.p004
+We next examine the relation between $\sigma$ and homotopy.
+
+% segment-id: o014.li2.chapter3.opposite-category-complexes.pr001
+\begin{proposition}\label{prop:sigma-homotopy}
+	The functor $\sigma$ defined above induces an equivalence of additive
+	categories
+	$\cate{K}(\mathcal{A}^{\opp})\rightiso\cate{K}(\mathcal{A})^{\opp}$.
+\end{proposition}
+% segment-id: o014.li2.chapter3.opposite-category-complexes.pf002
+\begin{proof}
+	Let $X,Y$ be objects of $\cate{C}(\mathcal{A}^{\opp})$. For
+	$f=(f^k)_k\in\Hom^{-1}_{\cate{C}(\mathcal{A}^{\opp})}(X,Y)$, use the
+	following table to define the corresponding
+	$\sigma f\in\Hom^{-1}_{\cate{C}(\mathcal{A})}(\sigma Y,\sigma X)$ in
+	$\mathcal{A}$:
+% segment-id: o014.li2.chapter3.opposite-category-complexes.q004
+	\begingroup\setlength{\arraycolsep}{4pt}
+	\[\begin{array}{|c|c|c|c|} \hline
+		\text{Category} & \multicolumn{3}{c|}{\text{Morphism}} \\ \hline
+		\mathcal{A}^{\opp} & X^k \xrightarrow{(-1)^{k+1} f^k} Y^{k-1} & d_Y^{k-1} f^k + f^{k+1} d_X^k & (d^{-1}f)^k \\
+		\mathcal{A} & (\sigma Y)^{-k+1} \xrightarrow{(\sigma f)^{-k+1}} (\sigma X)^{-k} & (\sigma f)^{-k+1} d_{\sigma Y}^{-k} + d_{\sigma X}^{-k-1} (\sigma f)^{-k} & d^{-1} (\sigma f)^{-k} \\ \hline
+	\end{array}\]
+	\endgroup
+	This suffices to show
+	\[\begin{aligned}
+		\Hom_{\cate{K}(\mathcal{A}^{\opp})}(X, Y)
+		&\rightiso \Hom_{\cate{K}(\mathcal{A})}(\sigma Y, \sigma X) \\
+		&= \Hom_{\cate{K}(\mathcal{A})^{\opp}}(\sigma X, \sigma Y).
+	\end{aligned}\]
+\end{proof}
+
+% segment-id: o014.li2.chapter3.opposite-category-complexes.p005
+Finally, using $\sigma$ and the family of isomorphisms $(s_m)_m$ constructed
+above, we compare mapping cones in $\cate{C}(\mathcal{A})$ and
+$\cate{C}(\mathcal{A}^{\opp})$. The details are somewhat routine.
+
+% segment-id: o014.li2.chapter3.opposite-category-complexes.pr002
+\begin{proposition}\label{prop:sigma-triangulated}
+	\index[sym1]{sigma}
+	For every morphism $f:X\to Y$ in $\cate{C}(\mathcal{A}^{\opp})$, there
+	is a commutative diagram in $\cate{C}(\mathcal{A})$%
+	\footnote{Here $\alpha(\cdot)$ and $\beta(\cdot)$ are both defined
+	relative to $\cate{C}(\mathcal{A})$. If the diagram is viewed in
+	$\cate{C}(\mathcal{A})^{\opp}$, all its arrows must be reversed.}:
+% segment-id: o014.li2.chapter3.opposite-category-complexes.g002
+	\[\begin{tikzcd}[column sep=large]
+		\sigma\left( X{[1]} \right) \arrow[r, "{\sigma(\beta(f))}"] \arrow[d, "{s_{1,X}}"'] & \sigma\left(\Cone(f)\right) \arrow[r, "{\sigma(\alpha(f))}"] \arrow[d, "\theta"] & \sigma Y \arrow[r, "\sigma(f)"] \arrow[d, "\identity"] & \sigma X \arrow[d, "{\identity}"] \\
+		(\sigma X){[-1]} \arrow[r, "{\alpha(\sigma(f))[-1]}"' inner sep=0.6em] & \Cone(\sigma(f)){[-1]} \arrow[r, "{\beta(\sigma(f))[-1]}"' inner sep=0.6em] & \sigma Y \arrow[r, "{\sigma(f)}"' inner sep=0.6em] & \sigma X
+	\end{tikzcd}\]
+	where $\theta$ is a canonical isomorphism and $s_{1,X}$ is the
+	isomorphism supplied by Definition--Proposition~\ref{def:sigma}.
+\end{proposition}
+% segment-id: o014.li2.chapter3.opposite-category-complexes.pf003
+\begin{proof}
+	If $\Cone(f)$ were replaced by $X[1]\oplus Y$, the statement would be
+	easy and the required isomorphism would simply be
+	$(s_{1,X},\identity_{\sigma Y})$. The complication is that the matrix
+	$d_{\Cone(f)}$ has the off-diagonal entry $f[1]$. Nevertheless, we follow
+	the same method: using \eqref{eqn:sigma-s}, for every $n\in\Z$ define the
+	isomorphism
+% segment-id: o014.li2.chapter3.opposite-category-complexes.q005
+	\begin{multline*}
+		\theta^n: \sigma\left(\Cone(f)\right)^n = \sigma\left(X[1]\right)^n \oplus (\sigma Y)^n \\
+		\xrightarrow[\sim]{(s_{1,X}, \identity)^n = ((-1)^{n-1} \identity, \identity) } (\sigma X)[-1]^n \oplus (\sigma Y)^n \xlongequal{\text{interchange}} \left( (\sigma Y) \oplus (\sigma X)[-1] \right)^n .
+	\end{multline*}
+	Under this identification, the morphism $d_{\sigma(\Cone(f))}^n$ in
+	$\mathcal{A}$ corresponds to
+% segment-id: o014.li2.chapter3.opposite-category-complexes.q006
+	\[ \begin{pmatrix}
+		d_{\sigma Y}^n & 0 \\
+		* & d_{(\sigma X)[-1]}^n
+	\end{pmatrix} : \left( (\sigma Y) \oplus (\sigma X)[-1] \right)^n \to \left( (\sigma Y) \oplus (\sigma X)[-1] \right)^{n+1} . \]
+	As noted at the start of the proof, the diagonal entries pose no problem;
+	we need only determine the lower-left entry. By
+	Definition--Proposition~\ref{def:sigma}, this entry is $(-1)^{n+1}$ times
+	the following composite in $\mathcal{A}$:
+% segment-id: o014.li2.chapter3.opposite-category-complexes.g003
+	\[\begin{tikzcd}[row sep=tiny]
+		(\sigma Y)^n \arrow[r] & (\sigma(X[1]))^{n+1} \arrow[r, "\sim"] & (\sigma X)[-1]^{n+1} \\
+		Y^{-n} \arrow[equal, u] \arrow[r, "{(f^{-n})^{\opp}}"'] & X^{-n} \arrow[equal, u] \arrow[r, "{s_{1, X}^{n+1} = (-1)^n}"'] & X^{-n} \arrow[equal, u]
+	\end{tikzcd}\]
+	Thus the result is $-\sigma(f)^n$. It follows that
+% segment-id: o014.li2.chapter3.opposite-category-complexes.q007
+	\[ \theta := (\theta^n)_{n \in \Z}: \sigma(\Cone(f)) \rightiso \Cone(\sigma(f))[-1] \]
+	is indeed an isomorphism in $\cate{C}(\mathcal{A})$. Once this is
+	established, verifying commutativity presents no essential difficulty.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.opposite-category-complexes.p006
+Of course, the results of this section also apply to chain complexes and
+extend to the case in which $\mathcal{A}$ is a $\Bbbk$-linear category.

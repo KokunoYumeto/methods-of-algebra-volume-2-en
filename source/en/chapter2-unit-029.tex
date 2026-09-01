@@ -1,0 +1,496 @@
+% English translation of chapter2.tex lines 1564--1754.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter2.serre-subcategories-and-k0-groups
+% This segment stops exactly before the source section at line 1756.
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.h001
+\section{Serre Subcategories and \texorpdfstring{$\mathrm{K}_0$}{K0} Groups}\label{sec:Serre-subcat}
+\hypertarget{o014.aljabr2.chapter2.serre-subcategories-and-k0-groups}{ }
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.p001
+A full subcategory of an abelian category automatically inherits the structure
+of an $\cate{Ab}$-category, so one may ask whether the full subcategory is an
+additive category or an abelian category.
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.d001
+\begin{definition}\index{abelian category!abelian subcategory}
+If $\mathcal{B}$ is a full subcategory of an abelian category $\mathcal{A}$,
+$\mathcal{B}$ is itself abelian, and the inclusion functor
+$\iota:\mathcal{B}\to\mathcal{A}$ is exact
+(Definition~\ref{def:exact-functor}), then $\mathcal{B}$ is called an
+\emph{abelian subcategory} of $\mathcal{A}$.
+\end{definition}
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.pr001
+\begin{proposition}\label{prop:Abel-subcat}
+A full subcategory $\mathcal{B}$ of an abelian category $\mathcal{A}$ is an
+abelian subcategory if and only if the following conditions hold.
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.l001
+\begin{itemize}
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.i001
+	\item $0\in\Obj(\mathcal{B})$;
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.i002
+	\item if $X,Y\in\Obj(\mathcal{B})$, then $X\oplus Y$ may also be chosen as
+	an object of $\mathcal{B}$;
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.i003
+	\item for every morphism $f:X\to Y$, if
+	$X,Y\in\Obj(\mathcal{B})$, then $\Ker(f)$ and $\Coker(f)$ may also be
+	chosen as objects of $\mathcal{B}$.
+\end{itemize}
+\end{proposition}
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.pf001
+\begin{proof}
+Notice that these conditions are self-dual. The ``only if'' direction is
+clear. Now suppose that the conditions hold. Then $\mathcal{B}$ is an additive
+category and $\iota:\mathcal{B}\to\mathcal{A}$ is an additive functor. We next
+show that $\iota$ preserves all finite $\varprojlim$ and $\varinjlim$. First,
+$\iota$ preserves $0$ and finite direct sums. Moreover, equalizers can be
+expressed as $\Ker$ (Remark~\ref{rem:equalizer-Ker}), while the stated
+condition says that $\mathcal{B}$ is closed under taking $\Ker$. Thus $\iota$
+preserves all finite $\varprojlim$; the case of $\varinjlim$ is dual.
+
+Recalling the definitions of $\Image$ and $\Coim$ in
+Definition~\ref{def:Im-Coim} and using the preceding step, we see that
+$\mathcal{B}$ is closed under both constructions. For every morphism $f$ in
+$\mathcal{B}$, the canonical morphism
+$\Coim(f)\rightiso\Image(f)$ in diagram \eqref{eqn:strict-morphism} is an
+isomorphism in $\mathcal{A}$, hence also in $\mathcal{B}$. Therefore
+$\mathcal{B}$ is an abelian subcategory.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.d002
+\begin{definition}[J.-P.\ Serre]\label{def:Serre-subcat}
+\index{Serre subcategory}
+\index{weak Serre subcategory}
+A full subcategory $\mathcal{T}$ of an abelian category $\mathcal{A}$ is
+called a \emph{Serre subcategory} of $\mathcal{A}$ if it satisfies the
+following conditions.
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.l002
+\begin{itemize}
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.i004
+	\item $0\in\Obj(\mathcal{T})$;
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.i005
+	\item for every short exact sequence
+	$0\to X'\to X\to X''\to0$ in $\mathcal{A}$, one has
+	$X\in\Obj(\mathcal{T})$ if and only if
+	$X',X''\in\Obj(\mathcal{T})$.
+\end{itemize}
+If the last condition is weakened as follows: for every exact sequence in
+$\mathcal{A}$
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.q001
+\[W\to X'\to X\to X''\to Y,\]
+if $W,X',X'',Y\in\Obj(\mathcal{T})$, then $X\in\Obj(\mathcal{T})$, then
+$\mathcal{T}$ is called a \emph{weak Serre subcategory} of $\mathcal{A}$
+\footnote{This somewhat abrupt definition is designed specifically for
+derived categories; see \S\sourcecrossref{sec:derived-cat}{4.4}.}.
+\end{definition}
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.p002
+For example, if $R$ is a commutative ring, all Noetherian (or Artinian)
+modules form a Serre subcategory of $R\dcate{Mod}$. This is a standard fact in
+module theory \cite[Lemma 6.10.2]{Li1}.
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.p003
+If $\mathcal{T}$ is a Serre subcategory (or weak Serre subcategory) of
+$\mathcal{A}$, then $\mathcal{T}^{\opp}$ is a Serre subcategory (or weak
+Serre subcategory) of $\mathcal{A}^{\opp}$.
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.p004
+A weak Serre subcategory $\mathcal{T}$ has the following saturation property:
+if $X\in\Obj(\mathcal{A})$ is isomorphic to an object of $\mathcal{T}$, then
+$X\in\Obj(\mathcal{T})$. This follows by applying the last condition to the
+exact sequence $0\to0\to X\rightiso Y\to0$.
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.co001
+\begin{corollary}\label{prop:Serre-subcat-abelian}
+If $\mathcal{T}$ is a weak Serre subcategory of an abelian category
+$\mathcal{A}$, then $\mathcal{T}$ is an abelian subcategory of $\mathcal{A}$.
+\end{corollary}
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.pf002
+\begin{proof}
+It suffices to verify the conditions of Proposition~\ref{prop:Abel-subcat}.
+First, $0\in\Obj(\mathcal{T})$. Next, insert the following exact sequences
+into the definition of a weak Serre subcategory:
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.g001
+\begin{gather*}
+	0\to X\to X\oplus Y\to Y\to0
+	\quad\text{(Proposition~\ref{prop:biproduct-ses})},\\
+	0\to0\to\Ker(f)\to X\xrightarrow{f}Y,\quad
+	X\xrightarrow{f}Y\to\Coker(f)\to0\to0,
+\end{gather*}
+which shows that $\mathcal{T}$ is closed under direct sums, $\Ker$, and
+$\Coker$.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.ex001
+\begin{example}\index[sym1]{kerF@$\Ker(F)$}
+If $F:\mathcal{A}\to\mathcal{B}$ is an exact functor between abelian
+categories, then the objects satisfying $FX=0$ form a Serre subcategory of
+$\mathcal{A}$, denoted by $\Ker(F)$.
+\end{example}
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.th001
+\begin{theorem}[Serre quotient]\label{prop:Serre-quotient}
+\index{Serre quotient}
+Let $\mathcal{T}$ be a Serre subcategory of an abelian category
+$\mathcal{A}$. Then there is an abelian category
+$\mathcal{A}/\mathcal{T}$ (which may be a large category), together with an
+exact, essentially surjective functor
+$Q:\mathcal{A}\to\mathcal{A}/\mathcal{T}$, such that
+$\Ker(Q)=\mathcal{T}$ and with the following universal property: for every
+abelian category $\mathcal{B}$ and every exact functor
+$F:\mathcal{A}\to\mathcal{B}$ with $\Ker(F)\supset\mathcal{T}$, there is a
+unique exact functor $G:\mathcal{A}/\mathcal{T}\to\mathcal{B}$ such that
+$F=GQ$.
+
+In this universal property, $G$ is faithful if and only if
+$\Ker(F)=\mathcal{T}$.
+\end{theorem}
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.pf003
+\begin{proof}
+Define
+$S:=\left\{f\in\Mor(\mathcal{A}):\Ker(f),\Coker(f)\in\Obj(\mathcal{T})\right\}$.
+We shall show that $S$ is a multiplicative system in the sense of
+Definition~\ref{def:multiplicative-family}.
+
+Clearly $S$ contains all identity morphisms, so (S1) holds. Let $f:X\to Y$
+and $g:Y\to Z$ belong to $S$. The mutually dual exact sequences
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.g002
+\begin{gather*}
+	0\to\Ker(f)\to\Ker(gf)\xrightarrow{f}\Ker(g),\\
+	\Coker(f)\xrightarrow{g}\Coker(gf)\to\Coker(g)\to0,
+\end{gather*}
+immediately give $gf\in S$, so (S2) holds. Next consider morphisms
+$X\xrightarrow{s\in S}Z\xleftarrow{f}Y$. Define
+$W:=X\dtimes{Z}Y$, with morphism $s':W\to Y$. Observe that
+$\Ker(s')\simeq\Ker(s)$ (Proposition~\ref{prop:pull-back-ker}), and $f$
+induces $\Coker(s')\hookrightarrow\Coker(s)$
+(Corollary~\ref{prop:Abel-cat-Coker-pull}); hence $s'\in S$. Thus (S3) holds.
+Finally, consider morphisms
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.g003
+$\begin{tikzcd}
+	X \arrow[r, "f", shift left] \arrow[r, "g"', shift right] &
+	Y \arrow[r, "s \in S"] & W
+\end{tikzcd}$,
+with $sf=sg$. Since $\Image(f-g)\hookrightarrow\Ker(s)$, we have
+$\Image(f-g)\in\Obj(\mathcal{T})$; therefore
+$Z:=\Ker(f-g)\hookrightarrow X$ is a morphism in $S$, proving (S4).
+
+Thus $S$ is a left multiplicative system. All the conditions are self-dual,
+so $S$ is also a right multiplicative system. Now take the localization
+functor
+$Q:\mathcal{A}\to\mathcal{A}/\mathcal{T}:=\mathcal{A}[S^{-1}]$.
+Proposition~\ref{prop:localization-extra-property} says that $Q$ is
+essentially surjective (indeed,
+$\Obj(\mathcal{A})=\Obj(\mathcal{A}/\mathcal{T})$), while
+Proposition~\ref{prop:Abel-cat-localization} says that $Q$ is an exact functor
+between abelian categories. Notice that
+$\identity_{QX}=Q(\identity_X)$ equals $0$ if and only if there is a
+$U\in\Obj(\mathcal{A})$ such that $U\xrightarrow{0}X$ lies in $S$ (this can
+be checked directly using Corollary~\ref{prop:fraction-zero}); this implies
+$X=\Coker[U\xrightarrow{0}X]\in\Obj(\mathcal{T})$. Conversely, if
+$X\in\Obj(\mathcal{T})$, we may take $U=X$. Hence
+$\Ker(Q)=\mathcal{T}$.
+
+We next verify the universal property. If
+$\Ker(F)\supset\mathcal{T}$, then the exact sequence
+$\Ker(s)\to X\xrightarrow{s\in S}Y\to\Coker(s)$ shows that $F$ sends every
+element of $S$ to an isomorphism, and the universal property of localization
+determines the required $G$.
+
+It remains to verify that $G$ is exact.
+Theorem~\ref{prop:localization-additivity} first ensures that $G$ is additive.
+Since every morphism in $\mathcal{A}[S^{-1}]$ can, after composition with an
+isomorphism arising from $S$, be represented by a morphism in $\mathcal{A}$,
+checking that $G$ preserves kernels reduces to the exactness of $F$ and $Q$.
+The same applies to cokernels. Since $Q$ is essentially surjective and
+$\Ker(Q)=\mathcal{T}$, the characterization of faithfulness reduces to
+statement (ii) of Proposition~\ref{prop:faithful-exact}.
+\end{proof}
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.p005
+Notice that $\mathcal{A}/\mathcal{T}$ is constructed as a localization and may
+therefore be a ``large category.'' The exercises give another description of
+$\mathcal{A}/\mathcal{T}$ that controls the size of the Serre quotient under
+the assumption that $\mathcal{A}$ is a well-powered category
+(Definition~\ref{def:well-powered}).
+\index{size issue}
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.ex002
+\begin{example}
+Let $S$ be a multiplicative subset of a commutative ring $R$. Define a full
+subcategory $\mathcal{T}$ of $R\dcate{Mod}$ by declaring that
+$M\in\Obj(\mathcal{T})$ if and only if, for every $m\in M$, there is an
+$s\in S$ such that $sm=0$. It is easy to verify that $\mathcal{T}$ is a Serre
+subcategory. We now show that $R\dcate{Mod}/\mathcal{T}$ is equivalent to
+$R[S^{-1}]\dcate{Mod}$.
+
+The assignment $M\mapsto M[S^{-1}]:=M\dotimes{R}R[S^{-1}]$ defines an exact
+functor $F:R\dcate{Mod}\to R[S^{-1}]\dcate{Mod}$ that sends $\mathcal{T}$ to
+zero, so the universal property gives an exact functor
+$G:R\dcate{Mod}/\mathcal{T}\to R[S^{-1}]\dcate{Mod}$. Clearly
+$\Ker(F)=\mathcal{T}$, so $G$ is faithful. Moreover, $G$ is essentially
+surjective: regard any $R[S^{-1}]$-module $N$ as an $R$-module; one checks
+directly that there is an isomorphism of $R[S^{-1}]$-modules
+$N\dotimes{R}R[S^{-1}]\simeq N$.
+
+It remains to prove that $G$ is full and faithful. Given an
+$R[S^{-1}]$-module homomorphism
+$\varphi:M_1[S^{-1}]\to M_2[S^{-1}]$, form the fiber product
+\footnote{Editorial correction (O014-C029): the source defines $M_0$ as the
+set of elements $m\in M_1$ whose images ``come from'' $M_2$, and then uses a
+restriction $\varphi|_{M_0}:M_0\to M_2$. A preimage in $M_2$ is not canonical
+when $M_2\to M_2[S^{-1}]$ has an $S$-torsion kernel, so that morphism is not
+well-defined. We use instead the canonical fiber product and its two
+projections.}
+$M_0:=M_1\dtimes{M_2[S^{-1}]}M_2$, where the map
+$M_1\to M_2[S^{-1}]$ is the composite
+$M_1\to M_1[S^{-1}]\xrightarrow{\varphi}M_2[S^{-1}]$.
+Write its projections as $p_1:M_0\to M_1$ and $p_2:M_0\to M_2$. The kernel
+and cokernel of $p_1$ are $S$-torsion modules, so $p_1$ lies in the
+multiplicative system defining the Serre quotient. Hence the roof
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.g004
+$\begin{tikzcd}
+	M_1 & M_0 \arrow[l, "p_1"'] \arrow[r, "p_2"] & M_2
+\end{tikzcd}$
+defines a morphism in $R\dcate{Mod}/\mathcal{T}$ that is sent to $\varphi$.
+This proves the claim.
+\end{example}
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.p006
+We now introduce an important construction closely related to Serre
+subcategories.
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.d003
+\begin{definition}\label{def:K0}
+\index{K0 group@$\mathrm{K}_0$ group}
+\index[sym1]{K0@$\mathrm{K}_0$}
+Let $\mathcal{A}$ be an abelian category. Define the commutative group
+$\mathrm{K}_0(\mathcal{A})$ as follows, writing the group operation
+additively. Take the free $\Z$-module $F$ with basis $\Obj(\mathcal{A})$, and
+write the element corresponding to $X\in\Obj(\mathcal{A})$ as
+$\lrangle{X}\in F$. Let $R\subset F$ be the submodule generated by the
+elements
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.q002
+\[\lrangle{X}-\lrangle{X'}-\lrangle{X''},\quad
+0\to X'\to X\to X''\to0:\ \text{a short exact sequence in }\mathcal{A},\]
+and call $\mathrm{K}_0(\mathcal{A}):=F/R$ the \emph{$\mathrm{K}_0$ group} of
+$\mathcal{A}$. We henceforth denote the image of
+$X\in\Obj(\mathcal{A})$ in $\mathrm{K}_0(\mathcal{A})$ by $[X]$.
+\end{definition}
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.lm001
+\begin{lemma}\label{prop:K0-prep}
+For every abelian category $\mathcal{A}$, the following equalities hold in
+$\mathrm{K}_0(\mathcal{A})$.
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.l003
+\begin{compactenum}[(i)]
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.i006
+	\item $[0]=0$;
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.i007
+	\item if $X,Y\in\Obj(\mathcal{A})$ and $X\simeq Y$, then $[X]=[Y]$;
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.i008
+	\item $[X\oplus Y]=[X]+[Y]$;
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.i009
+	\item if
+	$0\to X^1\xrightarrow{f^1}\cdots\xrightarrow{f^{n-1}}X^n\to0$
+	is an exact sequence in $\mathcal{A}$, then
+	$\sum_{i=1}^{n}(-1)^i[X^i]=0$;
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.i010
+	\item in the notation of \S\ref{sec:Abel-cat-subobjects}, for a family of
+	subobjects $X=X_0\supset\cdots\supset X_r=0$, one has
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.q003
+	\[[X]=\sum_{i=0}^{r-1}[X_i/X_{i+1}].\]
+\end{compactenum}
+\end{lemma}
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.pf004
+\begin{proof}
+Take the short exact sequence $0\to0\to0\to0\to0$; this gives (i). If
+$X\simeq Y$, then $0\to X\rightiso Y\to0\to0$, together with (i), gives
+(ii). The short exact sequence of Proposition~\ref{prop:biproduct-ses} gives
+(iii).
+
+For (iv), append zero terms and extend the exact sequence infinitely in both
+directions. Consider the short exact sequences
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.q004
+\[0\to\Ker(f^i)\to X^i\to\Image(f^i)\to0,\quad i=1,\ldots,n.\]
+Then
+$\left[X^i\right]=\left[\Ker(f^i)\right]+\left[\Image(f^i)\right]
+=\left[\Ker(f^i)\right]+\left[\Ker(f^{i+1})\right]$;
+now take the alternating sum.
+
+Finally, (v) follows by induction on $r$, using the short exact sequence
+$0\to X_1\to X_0\to X_0/X_1\to0$.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.rem001
+\begin{remark}
+\index{size issue}
+Since this book requires groups to be realized on small sets, and in view of
+Lemma~\ref{prop:K0-prep} (ii), a fully precise formulation of
+$\mathrm{K}_0(\mathcal{A})$ should require $\mathcal{A}$ to have a small
+skeleton \cite[Lemma 2.2.12]{Li1}. This issue has little effect here.
+\end{remark}
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.th002
+\begin{theorem}[Euler--Poincaré principle]\label{prop:EP}
+Let
+$\cdots\to X^i\xrightarrow{d_X^i}X^{i+1}\to\cdots$ be a complex in an
+abelian category $\mathcal{A}$ with only finitely many nonzero terms. Then the
+equality
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.q005
+\[\sum_i(-1)^i\left[\Hm^i(X)\right]
+=\sum_i(-1)^i\left[X^i\right],\quad
+\Hm^i(X):=\Hm\left[X^{i-1}\xrightarrow{d_X^{i-1}}X^i
+\xrightarrow{d_X^i}X^{i+1}\right]\]
+holds in $\mathrm{K}_0(\mathcal{A})$.
+\end{theorem}
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.pf005
+\begin{proof}
+For every $i$ there is an exact sequence
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.q006
+\[0\to\Ker\left(d_X^{i-1}\right)\to X^{i-1}
+\xrightarrow{d_X^{i-1}}\Ker\left(d_X^i\right)
+\to\Hm^i(X)\to0,\]
+and all terms are $0$ for $|i|\gg0$. Apply Lemma~\ref{prop:K0-prep} (iv) and
+sum in $\mathrm{K}_0(\mathcal{A})$ to obtain
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.q007
+\[\sum_i(-1)^i
+\left(\left[X^{i-1}\right]+\left[\Hm^i(X)\right]\right)
+=\sum_i(-1)^i
+\left(\left[\Ker\left(d_X^{i-1}\right)\right]
++\left[\Ker\left(d_X^i\right)\right]\right).\]
+The terms on the right-hand side cancel in pairs; rearranging gives
+$\sum_i(-1)^i[\Hm^i(X)]=\sum_i(-1)^i[X^i]$.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.ex003
+\begin{example}
+Let $\mathcal{A}$ be the abelian category of finite-dimensional vector spaces
+over a division ring $D$. Since every vector space has a basis,
+$\mathrm{K}_0(\mathcal{A})=\Z\cdot[D]$. On the other hand, the assignment
+$[X]\mapsto\dim_D X$ defines a group homomorphism
+$\dim:\mathrm{K}_0(\mathcal{A})\to\Z$ sending $[D]$ to $1$. Thus
+$\dim:\mathrm{K}_0(\mathcal{A})\rightiso\Z$.
+
+If infinite-dimensional vector spaces are allowed, the $\mathrm{K}_0$ group
+becomes trivial. Indeed, for every $D$-vector space $V$, a cardinality
+argument gives a $D$-vector space $W$ such that $V\oplus W\simeq W$ and
+$\dim_D W=\max\{\dim_D V,\aleph_0\}$; consequently, $[V]=0$.
+\end{example}
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.p007
+For an exact functor $F:\mathcal{A}\to\mathcal{B}$ between abelian
+categories, since $F$ preserves short exact sequences, the assignment
+$[X]\mapsto[FX]$ defines a group homomorphism
+\footnote{Editorial correction (O014-C028): the source prints
+$\mathrm{K}_0(f)$, but this homomorphism is induced by the functor $F$; we use
+$\mathrm{K}_0(F)$.}
+$\mathrm{K}_0(F):\mathrm{K}_0(\mathcal{A})
+\to\mathrm{K}_0(\mathcal{B})$.
+Therefore, if $\mathcal{A}$ is an abelian subcategory of $\mathcal{B}$, there
+is a natural homomorphism
+$\mathrm{K}_0(\mathcal{A})\to\mathrm{K}_0(\mathcal{B})$.
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.pr002
+\begin{proposition}\label{prop:K0-exact-seq}
+Let $\mathcal{T}$ be a Serre subcategory of an abelian category
+$\mathcal{A}$, and write its Serre quotient as
+$\mathcal{B}:=\mathcal{A}/\mathcal{T}$. Then the exact functors
+$\mathcal{T}\to\mathcal{A}\xrightarrow{Q}\mathcal{B}$ induce an exact
+sequence of additive groups
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.q008
+\[\mathrm{K}_0(\mathcal{T})\to\mathrm{K}_0(\mathcal{A})
+\xrightarrow{\mathrm{K}_0(Q)}\mathrm{K}_0(\mathcal{B})\to0.\]
+\end{proposition}
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.pf006
+\begin{proof}
+First, $Q:\mathcal{A}\to\mathcal{B}$ is essentially surjective, so
+$\mathrm{K}_0(\mathcal{A})\to\mathrm{K}_0(\mathcal{B})$ is surjective. The
+composite $\mathrm{K}_0(\mathcal{T})\to\mathrm{K}_0(\mathcal{A})
+\to\mathrm{K}_0(\mathcal{B})$ is plainly $0$. It remains to prove
+$\Ker(\mathrm{K}_0(Q))\subset
+\Image\left[\mathrm{K}_0(\mathcal{T})\to
+\mathrm{K}_0(\mathcal{A})\right]$.
+
+Let $\sum_{i=1}^n a_i[X_i]\in\Ker(\mathrm{K}_0(Q))$, where
+$a_1,\ldots,a_n\in\Z$. This is equivalent to the existence of a family of
+short exact sequences in $\mathcal{B}$,
+$0\to Y'_j\xrightarrow{f_j}Y_j\xrightarrow{g_j}Y''_j\to0$, and integers
+$b_j\in\Z$ for $j=1,\ldots,m$, such that
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.q009
+\begin{equation}\label{eqn:K0-exact-seq-aux-0}
+\sum_{i=1}^n a_i\lrangle{QX_i}
+=\sum_{j=1}^m b_j
+\left(\lrangle{Y_j}-\lrangle{Y'_j}-\lrangle{Y''_j}\right)
+\end{equation}
+in the free $\Z$-module with basis $\Obj(\mathcal{B})$. Since
+$Q:\mathcal{A}\to\mathcal{B}$ is constructed by localization in
+Theorem~\ref{prop:Serre-quotient}, that theorem together with
+\S\ref{sec:cat-localization} gives:
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.l004
+\begin{compactitem}
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.i011
+	\item $Q$ identifies $\Obj(\mathcal{A})$ with $\Obj(\mathcal{B})$, so
+	\eqref{eqn:K0-exact-seq-aux-0} gives the equality in
+	$\mathrm{K}_0(\mathcal{A})$
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.q010
+	\begin{equation}\label{eqn:K0-exact-seq-aux-1}
+	\sum_{i=1}^n a_i[X_i]
+	=\sum_{j=1}^m b_j\left([Y_j]-[Y'_j]-[Y''_j]\right);
+	\end{equation}
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.i012
+	\item moreover, after replacing $Y_j$, $Y'_j$, $Y''_j$, and $f_j$ and $g_j$ by
+	isomorphic objects and morphisms in $\mathcal{B}$ arising from $S$, we may
+	arrange that there are morphisms $u_j$ and $v_j$ in $\mathcal{A}$ such that
+	$f_j=Q(u_j)$ and $g_j=Q(v_j)$. From
+	$Q(v_ju_j)=g_jf_j=0$ and Corollary~\ref{prop:fraction-zero}, a further
+	adjustment by members of $S$ lets us arrange that $v_ju_j=0$.
+\end{compactitem}
+
+Thus, for every $1\leq j\leq m$, there are exact sequences in $\mathcal{A}$
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.g005
+\begin{gather*}
+	0\to\Ker(v_j)\to Y_j\xrightarrow{v_j}Y''_j
+	\to\Coker(v_j)\to0,\\
+	0\to\Ker(u_j)\to Y'_j\xrightarrow{u_j}\Ker(v_j)
+	\to\frac{\Ker(v_j)}{\Image(u_j)}\to0.
+\end{gather*}
+Since $Q$ is exact, $\Coker(v_j)$, $\Ker(u_j)$, and
+$\frac{\Ker(v_j)}{\Image(u_j)}$ all belong to
+$\mathcal{T}=\Ker(Q)$. Therefore, in $\mathrm{K}_0(\mathcal{A})$,
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.q011
+\[[Y_j]-[Y'_j]-[Y''_j]\in
+\Image\left[\mathrm{K}_0(\mathcal{T})
+\to\mathrm{K}_0(\mathcal{A})\right].\]
+Substituting these relations into \eqref{eqn:K0-exact-seq-aux-1} gives
+$\Ker(\mathrm{K}_0(Q))\subset
+\Image\left[\mathrm{K}_0(\mathcal{T})
+\to\mathrm{K}_0(\mathcal{A})\right]$.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.p008
+For an exact sequence such as the one in
+Proposition~\ref{prop:K0-exact-seq}, a strategy that invariably succeeds is to
+try to extend it to the left: seek a family of higher K-groups
+$\mathrm{K}_i(\cdot)$ for $i\in\Z_{\geq0}$ together with a canonical exact
+sequence
+% segment-id: o014.li2.chapter2.serre-subcategories-and-k0-groups.q012
+\[\cdots\to\mathrm{K}_{i+1}(\mathcal{B})
+\to\mathrm{K}_i(\mathcal{T})\to\mathrm{K}_i(\mathcal{A})
+\to\mathrm{K}_i(\mathcal{B})\to\cdots\]
+One also hopes that the family
+$(\mathrm{K}_i(\mathcal{A}))_{i\geq0}$ contains deep information about
+$\mathcal{A}$ and is, at least to some extent, computable. This is the subject
+of K-theory, whose applications also encompass exact categories, which are
+more general than abelian categories. Because the relevant constructions are
+based on the viewpoint of homotopy theory, this book cannot treat them in
+detail; interested readers may consult \cite{Lai19}, or the summary in
+\cite[\S 13.6]{Bu10}.
+\index{exact category}

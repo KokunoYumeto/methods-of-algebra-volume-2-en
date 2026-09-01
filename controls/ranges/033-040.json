@@ -1,0 +1,140 @@
+{
+  "schema": "o014-english-range-receipt-v1",
+  "result": "PASS",
+  "range": {
+    "start": 33,
+    "end": 40
+  },
+  "recorded_at_utc": "2026-08-31T18:08:43Z",
+  "source": {
+    "commit": "9a5803ff77dd3257484cb177f851a73770a59dd3",
+    "tree": "23bd05c2fb8434278df4fdfb636559a6a2b0d2ff",
+    "path": "chapter3.tex"
+  },
+  "checks": {
+    "map_and_witness_binding": true,
+    "bilingual_content_review": true,
+    "stable_unit_and_segment_ids": true,
+    "labels_references_citations_and_source_crossrefs": true,
+    "canonical_environment_role_parity": true,
+    "formula_diagram_code_and_exercise_content": true,
+    "environment_and_brace_balance": true,
+    "index_and_footnote_cardinality": true,
+    "no_untranslated_residue_or_placeholders": true,
+    "unique_segment_ids_within_range": true
+  },
+  "units": [
+    {
+      "sequence": 33,
+      "unit_id": "o014.aljabr2.chapter3.hom-complex-and-homotopy",
+      "path": "source/en/chapter3-unit-033.tex",
+      "bytes": 18354,
+      "sha256": "6b01697f4cc137db97edebeb0c78c38df3108c9b211f2c088c62e2813733332f",
+      "checks": {
+        "map_and_witness_binding": true,
+        "structural_parity": true,
+        "canonical_environment_role_parity": true,
+        "translation_and_formula_review": true,
+        "syntax_balance_and_residue_scan": true
+      }
+    },
+    {
+      "sequence": 34,
+      "unit_id": "o014.aljabr2.chapter3.mapping-cone",
+      "path": "source/en/chapter3-unit-034.tex",
+      "bytes": 23850,
+      "sha256": "a0a01c1d6ad88fca0a1342518bbf5287b83ba78f57ad64afca540a63d9285e68",
+      "checks": {
+        "map_and_witness_binding": true,
+        "structural_parity": true,
+        "canonical_environment_role_parity": true,
+        "translation_and_formula_review": true,
+        "syntax_balance_and_residue_scan": true
+      }
+    },
+    {
+      "sequence": 35,
+      "unit_id": "o014.aljabr2.chapter3.opposite-category-complexes",
+      "path": "source/en/chapter3-unit-035.tex",
+      "bytes": 10049,
+      "sha256": "909b732309579e5815a92c4eecf2534fd848f006aed7ad794edc1fe69aa300a4",
+      "checks": {
+        "map_and_witness_binding": true,
+        "structural_parity": true,
+        "canonical_environment_role_parity": true,
+        "translation_and_formula_review": true,
+        "syntax_balance_and_residue_scan": true
+      }
+    },
+    {
+      "sequence": 36,
+      "unit_id": "o014.aljabr2.chapter3.double-complexes",
+      "path": "source/en/chapter3-unit-036.tex",
+      "bytes": 27620,
+      "sha256": "19d8806261ceb444319a0441db7e6c609b5e548ca4e3cc2bbe7e2974afbacdb5",
+      "checks": {
+        "map_and_witness_binding": true,
+        "structural_parity": true,
+        "canonical_environment_role_parity": true,
+        "translation_and_formula_review": true,
+        "syntax_balance_and_residue_scan": true
+      }
+    },
+    {
+      "sequence": 37,
+      "unit_id": "o014.aljabr2.chapter3.abelian-category-complexes",
+      "path": "source/en/chapter3-unit-037.tex",
+      "bytes": 13395,
+      "sha256": "206451f9e042699e30881d1f8a0085b95e626166dd56fb638286effec90ab759",
+      "checks": {
+        "map_and_witness_binding": true,
+        "structural_parity": true,
+        "canonical_environment_role_parity": true,
+        "translation_and_formula_review": true,
+        "syntax_balance_and_residue_scan": true
+      }
+    },
+    {
+      "sequence": 38,
+      "unit_id": "o014.aljabr2.chapter3.mapping-cone-and-long-exact-sequences",
+      "path": "source/en/chapter3-unit-038.tex",
+      "bytes": 24579,
+      "sha256": "6644e9587a2dcceed53a5f4335730581f84a979f3f6e662d316744a7f96a24a7",
+      "checks": {
+        "map_and_witness_binding": true,
+        "structural_parity": true,
+        "canonical_environment_role_parity": true,
+        "translation_and_formula_review": true,
+        "syntax_balance_and_residue_scan": true
+      }
+    },
+    {
+      "sequence": 39,
+      "unit_id": "o014.aljabr2.chapter3.exercises-hochschild-homology-and-cohomology",
+      "path": "source/en/chapter3-unit-039.tex",
+      "bytes": 34086,
+      "sha256": "3a4e5d128f60f6cccd1e4642c749077104a2cf83480e8bbd3cb4f4f30b912a68",
+      "checks": {
+        "map_and_witness_binding": true,
+        "structural_parity": true,
+        "canonical_environment_role_parity": true,
+        "translation_and_formula_review": true,
+        "syntax_balance_and_residue_scan": true
+      }
+    },
+    {
+      "sequence": 40,
+      "unit_id": "o014.aljabr2.chapter3.truncation-functors",
+      "path": "source/en/chapter3-unit-040.tex",
+      "bytes": 14423,
+      "sha256": "0a1b949a00e640e80b4bcb199cc29bc844955e4af0cbb6a157759874279fe878",
+      "checks": {
+        "map_and_witness_binding": true,
+        "structural_parity": true,
+        "canonical_environment_role_parity": true,
+        "translation_and_formula_review": true,
+        "syntax_balance_and_residue_scan": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,907 @@
+% Unit 088 English translation of chapter7.tex, lines 1--418.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter7.monoidal-algebras
+% Coverage: the opening of Chapter 7 and all of Section 7.1 on algebras in
+% monoidal categories; ends immediately before Section 7.2 at line 419.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.h001
+\chapter{Monad Theory}\label{sec:monads}
+\hypertarget{o014.aljabr2.chapter7.monoidal-algebras}{ }
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p001
+The starting point of this chapter, \S\ref{sec:alg-in-monoidal-cat}, is the
+notion of an algebra over a monoidal category $(\mathcal{V},\otimes)$. This
+means an object $A\in\Obj(\mathcal{V})$ equipped with a multiplication
+$\mu:A\otimes A\to A$ and a unit morphism $\eta:\mathbf{1}\to A$, satisfying
+the associative and unit laws. The concept is modeled on that of a monoid,
+while algebras over a commutative ring $\Bbbk$ are the typical examples.
+These algebras form a category $\cate{Alg}(\mathcal{V})$. When
+$(\mathcal{V},\otimes)$ has stronger commutativity properties,
+$\cate{Alg}(\mathcal{V})$ acquires additional structure and properties. The
+best situation is when $\mathcal{V}$ is a symmetric monoidal category; then
+$\cate{Alg}(\mathcal{V})$ is itself a symmetric monoidal category.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p002
+For an algebra $A$, a left $A$-module is an object $M$ of $\mathcal{V}$
+together with a scalar-multiplication morphism $\mu_M:A\otimes M\to M$
+satisfying the associative and unit laws; right modules and bimodules are
+defined similarly. Since complexes are the principal objects of this book, a
+natural step is to take an abelian category $\mathcal{A}$ with countable
+coproducts and a right-exact additive bifunctor
+$\otimes:\mathcal{A}\times\mathcal{A}\to\mathcal{A}$, extend $\otimes$ to
+complexes by taking total complexes, and then consider the monoidal category
+$(\cate{C}(\mathcal{A}),\otimes)$, usually endowed with the Koszul braiding
+\eqref{eqn:Koszul-braiding}. Differential graded algebras and modules thus
+arise naturally as a continuation of the theory; “dg” abbreviates
+“differential graded.” These are the subject of \S\ref{sec:dga-monoidal}.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p003
+We also know that the $\Hom$ sets in $\cate{C}(\mathcal{A})$ can be upgraded
+to $\Hom$ complexes, and that composition can likewise be lifted to the level
+of $\Hom$ complexes. In particular, the endomorphism complex
+$\End^\bullet(X)$ of an object $X$ becomes a dg-algebra. Generalizing these
+observations leads to the notion of a dg-category
+(Definition~\ref{def:dgCat}), and one can speak of dg-functors between
+dg-categories. After a brief introduction to closed monoidal categories in
+\S\ref{sec:closed-monoidal}, we shall explain in \S\ref{sec:dg-closed} that
+the category $\cate{dgCat}$ of all small dg-categories is closed. Equivalently,
+all dg-functors between two small dg-categories $\mathcal{C}$ and
+$\mathcal{D}$ themselves form a dg-category
+$\iHom(\mathcal{C},\mathcal{D})$.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p004
+The various dg-structures arise naturally and are important tools in linear
+algebra. This chapter gives only a brief introduction, however, and
+\S\ref{sec:bialgebra} turns instead to coalgebras and comodules over a
+monoidal category $\mathcal{V}$. These are simply algebras and modules over
+the opposite monoidal category $\mathcal{V}^{\opp}$. More concretely, a
+coalgebra $C$ is equipped with a comultiplication
+$\Delta:C\to C\otimes C$ and a counit morphism $\epsilon:C\to\munit$, while
+a left comodule $M$ is equipped with a scalar-comultiplication morphism
+$\rho:M\to C\otimes M$; their associative and unit laws are obtained by
+reversing all the arrows.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p005
+If $\mathcal{V}$ is a braided monoidal category, mutually compatible algebra
+and coalgebra structures $(A,\mu,\eta,\Delta,\epsilon)$ on an object $A$ are
+called a bialgebra, and a bialgebra equipped with an antipode is called a Hopf
+algebra (Definition~\ref{def:Hopf-algebra}). In the concrete case
+$\mathcal{V}=\Bbbk\dcate{Mod}$, these concepts are inspired by geometry and
+topology. For example, the cohomology of a Lie group, or more generally of an
+H-group, naturally becomes a Hopf algebra; quantum groups form another
+important class of examples. Moreover, the group algebra $\Bbbk[G]$ of any
+group $G$ is also a Hopf algebra.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p006
+We now introduce the protagonist of \S\ref{sec:Beck}, which also gives this
+chapter its title: the monad. For any category $\mathcal{C}$, the endofunctor
+category $\mathcal{C}^{\mathcal{C}}$ is a strict monoidal category under
+composition, and a monad is simply an algebra in
+$\mathcal{C}^{\mathcal{C}}$; a comonad is its dual version. Simple though it
+is, this concept plays a major role in algebra, geometry, and computer
+science. One notable use of monads is to explain the various “standard
+resolutions” of homological algebra, such as $\mathsf{B}R$ from
+\S\ref{sec:HH} or $\mathsf{L}$ from \S\ref{sec:G-mod}. We shall investigate
+this aspect in \S\ref{sec:bar-resolution}.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p007
+Monads and comonads arise chiefly from adjoint pairs
+% segment-id: o014.li2.chapter7.monoidal-algebras.g001
+\[\begin{tikzcd}
+	F: \mathcal{C} \arrow[shift left, r] & \mathcal{D}: G \arrow[shift left, l].
+\end{tikzcd}\]
+Such a pair determines a monad $T$ on $\mathcal{C}$ and a comonad $L$ on
+$\mathcal{D}$, expressed in terms of the unit $\eta$ and counit
+$\varepsilon$ of the adjunction as
+% segment-id: o014.li2.chapter7.monoidal-algebras.g002
+\[\begin{array}{|c|c|}\hline
+	\text{monad} & \text{comonad} \\ \hline
+	T := GF & L := FG \\
+	\mu := \left[ T^2 \xrightarrow{G\varepsilon F} T \right] & \delta := \left[ L \xrightarrow{F\eta G} L^2 \right] \\
+	\eta : \identity_{\mathcal{C}} \to T & \varepsilon: L \to \identity_{\mathcal{D}} \\ \hline 
+\end{array}\]
+The adjoint pair naturally induces a functor
+$\mathbb{K}:\mathcal{D}\to\mathcal{C}^T$ (or
+$\mathcal{C}\to\mathcal{D}^L$), where $\mathcal{C}^T$ (or
+$\mathcal{D}^L$) denotes the category of modules under the action of the
+monad (or its comonadic counterpart). If $\mathbb{K}$ is an equivalence, the
+adjoint pair is called monadic (or comonadic). This means that the information
+in $\mathcal{D}$ (or $\mathcal{C}$) can be reconstructed from the action of
+the monad (or comonad) on the other side. Beck's
+Theorem~\ref{prop:Beck} gives a practical characterization of monadicity.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p008
+The next step is Morita theory in \S\ref{sec:Morita}, a classical theme in
+ring theory. The first part considers functors between categories of left or
+right modules that preserve small $\varinjlim$ (or $\varprojlim$).
+Theorem~\ref{prop:Morita} states that they all arise by taking the tensor
+product (or $\Hom$) with a bimodule $P$. This also confirms the special
+position of bimodules in ring and module theory: they provide enough means to
+“change rings.” One thereby obtains a module-theoretic characterization of
+equivalences between the categories of left modules $A\dcate{Mod}$ and
+$B\dcate{Mod}$, called Morita equivalences
+(Definition--Proposition~\ref{def:Morita-equiv}); the characterizations for
+left and right modules are entirely parallel.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p009
+For the adjoint pair determined by an $(A,B)$-bimodule $P$, the second part
+examines the associated monad and comonad and their modules. Assuming that
+$P$ is a finitely generated projective $B$-module,
+Proposition~\ref{prop:Morita-comonad} explicitly presents them as an algebra
+in the monoidal category $(A,A)\dcate{Mod}$ and a coalgebra in
+$(B,B)\dcate{Mod}$, respectively. From this foundation one readily obtains a
+refinement of Morita equivalence (Theorem~\ref{prop:Morita-refined},
+Corollary~\ref{prop:Morita-refined-symm}).
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p010
+Morita theory concerns given module categories. As a complement, in
+\S\ref{sec:module-cat} we study when an abelian category $\mathcal{A}$ is
+equivalent to the category of right modules over a ring $R$. The answer
+involves a compact projective generator of $\mathcal{A}$
+(Theorem~\ref{prop:identify-ModR}). We shall also give a sufficient condition
+for the finitely generated version
+(Theorem~\ref{prop:identify-ModR-fg}).
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p011
+Returning to Beck's monadicity theorem, the first half of
+\S\ref{sec:descent-modules} gives a simple application in module theory,
+called faithfully flat descent for modules. For a homomorphism of commutative
+rings $K\to L$, it explains how to reconstruct a $K$-module from an
+$L$-module carrying an action of the change-of-rings comonad $\mathbf{L}$.
+Descent techniques are widely used in geometry, and the second half of
+\S\ref{sec:descent-modules} reformulates the condition of carrying an
+$\mathbf{L}$-action in the form customarily used in geometry. All of this
+rests on the preparation in \S\ref{sec:Morita}.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p012
+As a special case of faithfully flat descent, \S\ref{sec:descent-Galois}
+takes $L|K$ to be a Galois extension of fields and reformulates the preceding
+result in terms of the action of the Galois group $\Gal(L|K)$. This technique
+is called Galois descent. Its main result,
+Theorem~\ref{prop:Galois-descent}, says that the category of $K$-vector
+spaces is equivalent to the category of $L$-vector spaces equipped with a
+smooth semilinear action of $\Gal(L|K)$. The exercises give another direct
+proof.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p013
+On the basis of faithfully flat descent, or its special case of Galois
+descent, one can further descend various structures such as algebras and
+modules. In \S\ref{sec:Galois-H1} we consider a kind of data expressed in
+terms of vector spaces and their tensor powers. Galois descent and group
+cohomology then reduce the classification of such data to nonabelian group
+cohomology $\Hm^1$. Although the purpose is only to illustrate the technique,
+it already helps clarify several basic questions in algebra, such as the
+classification of nondegenerate quadratic forms.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.rn001
+\begin{petunjukbacaan}
+	This chapter falls roughly into three parts. The first
+	(\S\S\ref{sec:alg-in-monoidal-cat}---\ref{sec:bialgebra}) introduces
+	algebras over monoidal categories, dg-structures, and Hopf algebras; these
+	topics occupy a natural and important place in algebra. The second
+	(\S\S\ref{sec:Beck}---\ref{sec:module-cat}) centers on monads and the
+	related Morita theory. The third
+	(\S\S\ref{sec:descent-modules}---\ref{sec:Galois-H1}) discusses descent.
+	The three parts are arranged more or less sequentially, although the
+	dg-structures and dg-categories are not needed for what follows.
+	\CHref{sec:simplicial} and \CHref{sec:duality} of this book use several
+	results from the second part. Further material appears in the exercises
+	for this chapter.
+\end{petunjukbacaan}
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.h002
+\section{Algebras over Monoidal Categories}\label{sec:alg-in-monoidal-cat}
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p014
+For a fixed commutative ring $\Bbbk$, we know that a $\Bbbk$-algebra is a
+multiplicative structure superimposed on a $\Bbbk$-module. Its definition can
+be expressed using the tensor-product bifunctor
+$\otimes=\otimes_{\Bbbk}$ on $\Bbbk\dcate{Mod}$ and commutative diagrams.
+The essential point is that $(\Bbbk\dcate{Mod},\otimes)$ is a monoidal
+category with unit $\munit:=\Bbbk$. When discussing commutative
+$\Bbbk$-algebras and their variants, the central role is played by the
+braiding $c(X,Y):X\otimes Y\rightiso Y\otimes X$ on this monoidal category,
+which has the symmetry property $c(Y,X)c(X,Y)=\identity$. See
+\cite[\S 7.4]{Li1}.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p015
+\index{monoidal category}
+Once formulated in the appropriate language, this theory encompasses general
+\emph{monoidal categories} and \emph{symmetric monoidal categories}.
+Following \cite[Definitions 3.1.1 and 3.1.2]{Li1}, the convention in this
+section\footnote{Definitions in other sources may differ slightly, but the
+resulting concepts of a monoidal category are equivalent.} defines a monoidal
+category to be data $(\mathcal{V},\otimes,a,\munit,\iota)$, often abbreviated
+to $\mathcal{V}$ or $(\mathcal{V},\otimes)$, where
+% segment-id: o014.li2.chapter7.monoidal-algebras.l001
+\begin{compactitem}
+	\item $\otimes: \mathcal{V} \times \mathcal{V} \to \mathcal{V}$ is a bifunctor;
+	\item $a(X, Y, Z): (X \otimes Y) \otimes Z \rightiso X \otimes (Y \otimes Z)$ is a canonical morphism called the associativity constraint ($X, Y, Z \in \Obj(\mathcal{V})$), and it satisfies the pentagon axiom;
+	\item $\munit = \munit_{\mathcal{V}} \in \Obj(\mathcal{V})$ is the unit;
+	\item $\iota: \munit \otimes \munit \rightiso \munit$.
+\end{compactitem}
+This gives a family of canonical isomorphisms
+$\munit \otimes X \xrightarrow[\sim]{\lambda_X} X \xleftarrow[\sim]{\rho_X} X \otimes \munit$;
+by \cite[Lemma 3.1.5]{Li1}, these isomorphisms satisfy
+$\lambda_{\munit}=\iota=\rho_{\munit}$. They are all called unit constraints
+and will no longer be displayed explicitly.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p016
+A \emph{braiding} on a monoidal category is an isomorphism of bifunctors,
+written
+% segment-id: o014.li2.chapter7.monoidal-algebras.q001
+\[ c = \left( c(X, Y): X \otimes Y \rightiso Y \otimes X\right)_{X, Y \in \Obj(\mathcal{V})}, \]
+required to be compatible with the associativity and unit constraints; see
+\cite[Definition 3.3.1]{Li1}. A monoidal category equipped with a specified
+braiding is called a \emph{braided monoidal category}. If
+$c(Y,X)c(X,Y)=\identity_{X\otimes Y}$ always holds, the data are called a
+\emph{symmetric monoidal category}.
+\index{braiding}
+\index[sym1]{cXY@$c(X, Y)$}
+\index{monoidal category!braided}
+\index{monoidal category!symmetric}
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.d001
+\begin{definition}[Algebra]\label{def:algebra-monoidal}
+	\index{algebra}
+	An algebra over a monoidal category $\mathcal{V}$ means data
+	$(A,\mu,\eta)$, where
+	% segment-id: o014.li2.chapter7.monoidal-algebras.q002
+	\[ A \in \Obj(\mathcal{V}), \quad \mu = \mu_A: A \otimes A \to A, \quad \eta = \eta_A: \munit \to A, \]
+	such that the following diagrams commute:
+	% segment-id: o014.li2.chapter7.monoidal-algebras.g003
+	\begin{equation*}\begin{gathered}
+		\begin{tikzcd}
+			\munit \otimes A \arrow[r, "{\eta \otimes \identity}"] \arrow[rd, "\sim"' sloped] & A \otimes A \arrow[d, "\mu"] & A \otimes \munit \arrow[l, "{\identity \otimes \eta}"'] \arrow[ld, "\sim"' sloped] \\
+			& A &
+		\end{tikzcd} \quad
+		\begin{tikzcd}[column sep=tiny]
+			(A \otimes A) \otimes A \arrow[rr, "{a(A, A, A)}", "\sim"'] \arrow[d, "{\mu \otimes \identity}"'] & & A \otimes (A \otimes A) \arrow[d, "{\identity \otimes \mu}"] \\
+			A \otimes A \arrow[r, "\mu"'] & A & A \otimes A \arrow[l, "\mu"] .
+		\end{tikzcd}
+	\end{gathered}\end{equation*}
+	Thus $\mu$ may be viewed as a multiplication on $A$, and $\eta$ as its
+	unit morphism.
+	
+	A morphism from an algebra $(A,\mu,\eta)$ to
+	$(A',\mu',\eta')$ is defined to be a morphism $\phi:A\to A'$ in
+	$\mathcal{V}$ that makes the following diagrams commute:
+	% segment-id: o014.li2.chapter7.monoidal-algebras.g004
+	\[\begin{tikzcd}
+		\munit \arrow[r, "\eta"] \arrow[rd, "{\eta'}"'] & A \arrow[d, "\phi"] \\
+		& A'
+	\end{tikzcd} \quad \begin{tikzcd}
+		A \otimes A \arrow[d, "\mu"'] \arrow[r, "{\phi \otimes \phi}"] & A' \otimes A' \arrow[d, "{\mu'}"] \\
+		A \arrow[r, "\phi"'] & A' .
+	\end{tikzcd}\]
+\end{definition}
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p017
+We often abbreviate $(A,\mu,\eta)$ to $A$. In some sources an algebra is also
+called a ring or a monoid in $\mathcal{V}$, and it is sometimes called an
+associative algebra to emphasize the associative law displayed by the second
+commutative diagram.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p018
+The concept of a module admits a similar generalization.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.d002
+\begin{definition}[Module]\label{def:module-algebra}
+	\index{module}
+	Let $(A,\mu,\eta)$ be an algebra over $\mathcal{V}$. A left $A$-module is
+	defined to be data $(M,\mu_M)$, where
+	% segment-id: o014.li2.chapter7.monoidal-algebras.q003
+	\[ M \in \Obj(\mathcal{V}), \quad \mu_M: A \otimes M \to M, \]
+	that make the following diagrams commute:
+	% segment-id: o014.li2.chapter7.monoidal-algebras.g005
+	\[\begin{tikzcd}
+		\munit \otimes M \arrow[r, "{\eta \otimes \identity}"] \arrow[rd, "\sim"' sloped] & A \otimes M \arrow[d, "{\mu_M}"] \\
+		& M
+	\end{tikzcd} \quad \begin{tikzcd}[column sep=small]
+		% Editorial correction: the frozen Chinese source and Indonesian witness
+		% label this ill-typed map with mu_M; multiplication here is mu_A.
+		(A \otimes A) \otimes M \arrow[rr, "{a(A, A, M)}", "\sim"'] \arrow[d, "{\mu_A \otimes \identity}"'] & & A \otimes (A \otimes M) \arrow[d, "{\identity \otimes \mu_M}"] \\
+		A \otimes M \arrow[r, "{\mu_M}"'] & M & A \otimes M \arrow[l, "{\mu_M}"] .
+	\end{tikzcd}\]
+	Thus $\mu_M$ may be viewed as scalar multiplication on the module.
+	
+	As usual, the module $(M,\mu_M)$ is abbreviated to $M$. A morphism from
+	$M$ to $M'$ is defined to be a morphism $\psi:M\to M'$ in $\mathcal{V}$
+	that makes the following diagram commute:
+	% segment-id: o014.li2.chapter7.monoidal-algebras.g006
+	\[\begin{tikzcd}
+		A \otimes M \arrow[d, "{\mu_M}"'] \arrow[r, "{\identity \otimes \psi}"] & A \otimes M' \arrow[d, "{\mu_{M'}}"] \\
+		M \arrow[r, "\psi"'] & M' .
+	\end{tikzcd}\]
+	
+	Right $A$-modules are defined similarly. If $M$ carries both a left
+	$A$-module structure and a right $B$-module structure that make the
+	following diagram commute,
+	% segment-id: o014.li2.chapter7.monoidal-algebras.g007
+	\[\begin{tikzcd}[column sep=small]
+		(A \otimes M) \otimes B \arrow[rr, "{a(A, M, B)}", "\sim"'] \arrow[d, "{\mu_M^A \otimes \identity}"'] & & A \otimes (M \otimes B) \arrow[d, "{\identity \otimes \mu_M^B}"] \\
+		M \otimes B \arrow[r, "{\mu_M^B}"'] & M & A \otimes M , \arrow[l, "{\mu_M^A}"]
+	\end{tikzcd}\]
+	then $M$ is called an $(A,B)$-bimodule. A morphism between two such
+	bimodules is a morphism $\psi:M\to M'$ that is simultaneously a morphism
+	of left $A$-modules and of right $B$-modules.
+\end{definition}
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p019
+If $M$ is a left $A$-module and $N$ a right $B$-module, then $M\otimes N$
+naturally becomes an $(A,B)$-bimodule.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.r001
+\begin{remark}[The unit as an algebra]\label{rem:unit-algebra}
+	For example, $\munit$ becomes an algebra with
+	$\mu_{\munit}:=\iota$ and
+	$\eta_{\munit}:=\identity_{\munit}$. The required commutative diagrams
+	follow from the standard properties of $\munit$ and
+	$\iota:\munit\otimes\munit\rightiso\munit$; see
+	\cite[Lemma 3.1.5]{Li1}. For every algebra $A$ there is exactly one
+	morphism $\munit\to A$, and it must be $\eta_A$.
+	
+	Similarly, it is easy to see that every $M\in\Obj(\mathcal{V})$ has
+	exactly one left (or right) $\munit$-module structure, obtained by taking
+	$\mu_M:\munit\otimes M\to M$ to be the unit constraint of $\mathcal{V}$.
+\end{remark}
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p020
+Our next goal is to discuss
+% segment-id: o014.li2.chapter7.monoidal-algebras.l002
+\begin{inparaenum}[(a)]
+	\item commutativity of algebras,
+	\item their tensor products.
+\end{inparaenum}
+The two are closely related, and both require a braiding on $\mathcal{V}$. We
+begin with commutativity.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.d003
+\begin{definition}\label{def:opposite-braided-algebra}
+	\index[sym1]{Aop}
+	The natural properties of the braiding show that, if $A$ is an algebra
+	over a braided monoidal category $\mathcal{V}$, then replacing $\mu$ by
+	$\mu\circ c(A,A)$ while leaving all other data unchanged again gives an
+	algebra over $\mathcal{V}$. This algebra is defined to be the
+	\emph{opposite algebra} $A^{\opp}$ of $A$. The verification is lengthy
+	but not difficult, and is left as an exercise for this chapter.
+\end{definition}
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p021
+By functoriality of the braiding, if $\phi:A_1\to A_2$ is a morphism, then it
+is also a morphism from $A_1^{\opp}$ to $A_2^{\opp}$.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.d004
+\begin{definition}\label{def:calg-monoidal}
+	\index{algebra!commutative}
+	Let $A$ be an algebra over a braided monoidal category $\mathcal{V}$. It
+	is called a \emph{commutative algebra} if the following diagram commutes
+	in $\mathcal{V}$:
+	% segment-id: o014.li2.chapter7.monoidal-algebras.g008
+	\[\begin{tikzcd}
+		A \otimes A \arrow[rd, "{\mu_A}"'] \arrow[rr, "{c(A, A)}", "\sim"'] & & A \otimes A . \arrow[ld, "{\mu_A}"] \\
+		& A &
+	\end{tikzcd}\]
+	In other words, we require the multiplication $\mu_A$ to satisfy the
+	commutative law. Equivalently, $A=A^{\opp}$.
+\end{definition}
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p022
+The algebra $\munit$ of Remark~\ref{rem:unit-algebra} is a simple example of a
+commutative algebra. The required commutative diagram follows from the
+compatibility of the braiding $c$ with the unit constraints.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p023
+Continue to suppose that $\mathcal{V}$ is a braided monoidal category. Just as
+over a commutative ring, for any two algebras $A$ and $B$ the braiding $c$
+gives a canonical algebra structure on $A\otimes B$:
+% segment-id: o014.li2.chapter7.monoidal-algebras.l003
+\begin{itemize}
+	\item The multiplication $\mu_{A \otimes B}$ is the composite
+	% segment-id: o014.li2.chapter7.monoidal-algebras.g009
+	\begin{multline*}
+		(A \otimes B) \otimes (A \otimes B) \rightiso (A \otimes (B \otimes A)) \otimes B \\
+		\xrightarrow{(\identity_A \otimes c(B, A)) \otimes \identity_B} (A \otimes (A \otimes B)) \otimes B \\
+		\rightiso (A \otimes A) \otimes (B \otimes B) \xrightarrow{\mu_A \otimes \mu_B} A \otimes B ,
+	\end{multline*}
+	where all unlabeled arrows come from associativity constraints. In braid
+	diagram notation this composite is depicted as follows:
+	% segment-id: o014.li2.chapter7.monoidal-algebras.g010
+	\begin{center}\begin{tikzpicture}[baseline=(braid)]
+		\pic[
+			braid/number of strands=4,
+			braid/every strand/.style={black},
+			name prefix=braid
+		]
+		at (0, 0) {braid = {s_2}};
+		\coordinate (braid) at ($(braid-1-s)!0.5!(braid-1-e)$);
+		\node[above] at (braid-1-s) {$A$};
+		\node[above] at (braid-2-s) {$B$};
+		\node[above] at (braid-3-s) {$A$};
+		\node[above] at (braid-4-s) {$B$};
+		
+		\coordinate (MA) at ($(braid-1-e)!0.5!(braid-3-e)$);
+		\draw[->] (MA) -- ($(MA) + (0, -2em)$) node[below] {$A$};
+		\draw[fill=white] ([yshift=0.5em, xshift=-0.5em] braid-1-e) rectangle ([yshift=-1em, xshift=0.5em] braid-3-e);
+		\node at ([yshift=-0.25em] MA) {$\mu_A$};
+		
+		\coordinate (MB) at ($(braid-2-e)!0.5!(braid-4-e)$);
+		\draw[->] (MB) -- ($(MB) + (0, -2em)$) node[below] {$B$};
+		\draw[fill=white] ([yshift=0.5em, xshift=-0.5em] braid-2-e) rectangle ([yshift=-1em, xshift=0.5em] braid-4-e);
+		\node at ([yshift=-0.25em] MB) {$\mu_B$};
+	\end{tikzpicture}\end{center}
+	
+	\item The unit $\eta_{A \otimes B}$ is the composite
+	% segment-id: o014.li2.chapter7.monoidal-algebras.q004
+	\[ \munit \xrightarrow[\sim]{\iota^{-1}} \munit \otimes \munit \xrightarrow{\eta_A \otimes \eta_B} A \otimes B. \]
+\end{itemize}
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p024
+To verify that this is indeed an algebra, the conditions of
+Definition~\ref{def:algebra-monoidal} can be reduced to the corresponding
+properties of $(A,\mu_A,\eta_A)$ and $(B,\mu_B,\eta_B)$ using only $c$ (to
+interchange the order of $\otimes$), $\iota$ (to duplicate the unit), and the
+associativity constraints (to change the placement of parentheses).
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p025
+If $M$ is a left $A$-module and $N$ a left $B$-module, then $M\otimes N$
+naturally becomes a left $(A\otimes B)$-module. Its construction and
+verification are the same as in the preceding paragraph, using $c$ to
+interchange positions. The case of right modules is similar.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p026
+For the algebra $\munit$ defined in Remark~\ref{rem:unit-algebra}, it is clear
+that $\munit\otimes A\simeq A\simeq A\otimes\munit$, with the isomorphisms
+given by the unit constraints of $\mathcal{V}$.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.r002
+\begin{remark}\label{rem:Alg-otimes-functorial}
+	The construction above is functorial in $A$ and $B$: if $A\to A'$ and
+	$B\to B'$ are morphisms of algebras, then so is the corresponding morphism
+	$A\otimes B\to A'\otimes B'$. Another lengthy but straightforward fact is
+	that, when $A,B,C$ are all algebras, the associativity constraint
+	$(A\otimes B)\otimes C\rightiso A\otimes(B\otimes C)$ is a morphism of
+	algebras.
+\end{remark}
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.le001
+\begin{lemma}\label{prop:CAlg-mu}
+	Let $A$ be an algebra over a braided monoidal category $\mathcal{V}$. Then
+	$A$ is commutative if and only if its multiplication
+	$\mu_A:A\otimes A\to A$ is a morphism of algebras.
+\end{lemma}
+% segment-id: o014.li2.chapter7.monoidal-algebras.pf001
+\begin{proof}
+	For $\mu_A$ to be a morphism of algebras, two conditions are required. The
+	condition concerning the unit is equivalent to commutativity of
+	% segment-id: o014.li2.chapter7.monoidal-algebras.g011
+	\[\begin{tikzcd}[column sep=large]
+		\munit \otimes \munit \arrow[d, "\iota"'] \arrow[r, "{\eta_A \otimes \eta_A}"] & A \otimes A \arrow[d, "{\mu_A}"] \\
+		\munit \arrow[r, "{\eta_A}"'] & A
+	\end{tikzcd}\]
+	and this holds automatically because $A$ is an algebra. The remaining
+	condition is commutativity of
+	% segment-id: o014.li2.chapter7.monoidal-algebras.g012
+	\begin{equation*}
+		\begin{tikzcd}[column sep=large]
+			(A \otimes A) \otimes (A \otimes A) \arrow[r, "{\mu_A \otimes \mu_A}"] \arrow[d, "{\mu_{A \otimes A}}"'] & A \otimes A \arrow[d, "{\mu_A}"] \\
+			A \otimes A \arrow[r, "{\mu_A}"'] & A
+		\end{tikzcd}
+	\end{equation*}
+	Identify the upper-left corner with
+	$A\otimes(A\otimes A)\otimes A$ by the associativity constraints. By
+	associativity of $\mu_A$, composition in the diagram along
+	\begin{tikzpicture}[scale=0.5, baseline=(O)]
+		\draw[->] (0, 0) -- (1, 0) -- (1, -0.7);
+		\coordinate (O) at (0, -0.5);
+	\end{tikzpicture}
+	equals
+	% segment-id: o014.li2.chapter7.monoidal-algebras.q005
+	\[ A \otimes (A \otimes A) \otimes A \xrightarrow{\identity \otimes \mu_A \otimes \identity} A \otimes A \otimes A \xrightarrow{\text{multiplication}} A . \]
+	On the other hand, the definition of $\mu_{A\otimes A}$ and the
+	associativity of $\mu_A$ show that composition in the diagram along
+	\begin{tikzpicture}[scale=0.5, baseline=(O)]
+		\draw[->] (0, 0) -- (0, -0.7) -- (1, -0.7);
+		\coordinate (O) at (0, -0.5);
+	\end{tikzpicture}
+	equals
+	% segment-id: o014.li2.chapter7.monoidal-algebras.q006
+	\[ A \otimes (A \otimes A) \otimes A \xrightarrow{\identity \otimes (\mu_A c(A,A) ) \otimes \identity} A \otimes A \otimes A \xrightarrow{\text{multiplication}} A . \]
+	Thus $\mu_Ac(A,A)=\mu_A$ implies that the original diagram commutes, or
+	equivalently that $\mu_A$ is a morphism of algebras.
+	
+	Conversely, let $f\in\left\{\mu_A,\mu_Ac(A,A)\right\}$. We have the
+	elementary commutative diagram
+	% segment-id: o014.li2.chapter7.monoidal-algebras.g013
+	\[\begin{tikzcd}
+		A \otimes (A \otimes A) \otimes A \arrow[r, "{\identity \otimes f \otimes \identity}"] & A \otimes A \otimes A \arrow[r, "{\text{multiplication}}"] & A . \\
+		A \otimes A \arrow[u, "{\eta_A \otimes \identity \otimes \eta_A}"] \arrow[r, "f"'] & A \arrow[ru, "\identity"'] \arrow[u, "{\eta_A \otimes \identity \otimes \eta_A}"] &
+	\end{tikzcd}\]
+	If $\mu_A$ is a morphism of algebras, the preceding discussion shows that
+	the first row gives the same composite for the two choices of $f$.
+	Considering the second row then yields $\mu_A=\mu_Ac(A,A)$.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.le002
+\begin{lemma}\label{prop:c-as-isom-alg}
+	Let $A$ and $B$ be algebras over a symmetric monoidal category
+	$\mathcal{V}$. Then $c(A,B):A\otimes B\to B\otimes A$ is an isomorphism
+	of algebras.
+\end{lemma}
+% segment-id: o014.li2.chapter7.monoidal-algebras.pf002
+\begin{proof}
+	Two commutative diagrams must be verified for $c(A,B)$. The first is
+	% segment-id: o014.li2.chapter7.monoidal-algebras.g014
+	\[\begin{tikzcd}[row sep=tiny]
+		& \munit \otimes \munit \arrow[ld, "\sim" sloped] \arrow[dd, "{c(\munit, \munit)}"] \arrow[r, "{\eta_A \otimes \eta_B}"] & A \otimes B \arrow[dd, "{c(A, B)}"] \\
+		\munit & & \\
+		& \munit \otimes \munit \arrow[lu, "\sim"' sloped] \arrow[r, "{\eta_B \otimes \eta_A}"'] & B \otimes A
+	\end{tikzcd}\]
+	Commutativity on the right follows from functoriality of $c$, while that
+	on the left follows from compatibility of $c$ with the unit constraints
+	\cite[(3.12)]{Li1}. For the second diagram, which says that $c(A,B)$
+	preserves multiplication, the argument is based on symmetry of the
+	braiding and is exactly the same as at the end of \cite[\S 7.4]{Li1}.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.pr001
+\begin{proposition}
+	Let $A$ and $B$ be commutative algebras over a symmetric monoidal category
+	$\mathcal{V}$. Then $A\otimes B$ is also commutative.
+\end{proposition}
+% segment-id: o014.li2.chapter7.monoidal-algebras.pf003
+\begin{proof}
+	It is enough to show that the multiplication $\mu_{A\otimes B}$ is a
+	morphism of algebras. Recall the definition of $\mu_{A\otimes B}$ and
+	apply Lemma~\ref{prop:c-as-isom-alg} to $c(B,A)$, the commutativity
+	assumptions on $A,B$ together with Lemma~\ref{prop:CAlg-mu} to
+	$\mu_A,\mu_B$, and Remark~\ref{rem:Alg-otimes-functorial} on the
+	functoriality of $\otimes$. Every part of the composite is then a
+	morphism of algebras.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p027
+We have defined algebras, modules, and their morphisms. All these structures
+form categories, with notation
+% segment-id: o014.li2.chapter7.monoidal-algebras.t001
+\begin{center}\begin{tabular}{|c|c|c|c|c|c|} \hline
+	structure & algebra & commutative algebra & left $A$-module & right $B$-module & $(A,B)$-bimodule \\ \hline
+	category & $\cate{Alg}(\mathcal{V})$ & $\cate{CAlg}(\mathcal{V})$ & $A\dcate{Mod}$ & $\cated{Mod}B$ & $(A,B)\dcate{Mod}$ \\ \hline
+	condition & {\small $\mathcal{V}$: monoidal category} & {\small $\mathcal{V}$: braided monoidal category} & {\small $A$: algebra} & {\small $B$: algebra} & {\small $A, B$: algebras} \\ \hline
+\end{tabular}\end{center}
+\index[sym1]{Alg@$\cate{Alg}(\cdot)$}
+\index[sym1]{CAlg@$\cate{CAlg}(\cdot)$}
+\index[sym1]{Mod}
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p028
+The preceding discussion also shows that $\cate{Alg}(\mathcal{V})$ and
+$\cate{CAlg}(\mathcal{V})$ generally have less structure than
+$\mathcal{V}$. Labeling the levels of structure by numbers, the situation can
+be represented schematically as
+% segment-id: o014.li2.chapter7.monoidal-algebras.g015
+\[\begin{tikzcd}[row sep=small]
+	0 & 1 & 2 & \infty \\
+	\text{category} & \text{monoidal category} \arrow[l, "{\cate{Alg}}"'] & \text{braided monoidal category} \arrow[shift right, l, "{\cate{Alg}}"'] \arrow[shift left, bend left, ll, "{\cate{CAlg}}"'] & \text{symmetric monoidal category} \arrow[loop right, "{\cate{Alg}, \cate{CAlg}}"]
+\end{tikzcd}\]
+Moreover, whenever $\cate{Alg}(\mathcal{V})$ or
+$\cate{CAlg}(\mathcal{V})$ becomes a monoidal category under $\otimes$, its
+unit is always $\munit$.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p029
+Recall that Lemma~\ref{prop:CAlg-mu} says that a commutative algebra over a
+braided monoidal category $\mathcal{V}$ automatically gives an algebra over
+the monoidal category $\cate{Alg}(\mathcal{V})$, by taking the multiplication
+$A\otimes A\to A$ to be that of $A$. In fact, this is the only possible
+choice. This leads to a simple, interesting, and important observation: there
+is an equivalence of categories
+% segment-id: o014.li2.chapter7.monoidal-algebras.e001
+\begin{equation}\label{eqn:AlgAlg-CAlg}
+	\cate{Alg}\left(\cate{Alg}(\mathcal{V}) \right) \simeq \cate{CAlg}(\mathcal{V}), \quad \mathcal{V}:\;\text{braided monoidal category}.
+\end{equation}
+These facts rest on the so-called \emph{Eckmann--Hilton argument}; their proof
+is deliberately left as an exercise for this chapter, supplied with a hint.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.e002
+\begin{example}\label{eg:Cartesius-monoidal}
+	Let the category $\mathcal{C}$ have finite products. In particular, it
+	has an empty product, namely a terminal object, denoted by $\munit$. For
+	every two objects $X,Y$ there is a canonical isomorphism
+	$c(X,Y):X\times Y\rightiso Y\times X$. These data make
+	$(\mathcal{C},\times)$ a symmetric monoidal category with unit $\munit$.
+	We may discuss algebras over $\mathcal{C}$, also called monoid objects in
+	$\mathcal{C}$\footnote{For categories of this kind,
+	\cite[\S 4.11]{Li1} also discusses group objects, but the inverse property
+	cannot be formulated in an arbitrary monoidal category.}, together with
+	their commutative versions.
+	\begin{itemize}
+		\item If $\mathcal{C}=\cate{Set}$, the one-point set is the unit
+		$\munit$. The corresponding algebras are monoids, and the
+		corresponding commutative algebras are commutative monoids.
+		\item If $\mathcal{C}=\cate{Top}$, the corresponding algebras are
+		topological monoids, and the corresponding commutative algebras are
+		commutative topological monoids.
+	\end{itemize}
+	
+	On the other hand, let $\Bbbk$ be a commutative ring and give
+	$\Bbbk\dcate{Mod}$ the structure of a symmetric monoidal category through
+	$\otimes=\otimes_{\Bbbk}$, with $\Bbbk$ as the unit $\munit$ and the
+	braiding determined by $x\otimes y\mapsto y\otimes x$. The corresponding
+	algebras (or commutative algebras) are precisely algebras (or commutative
+	algebras) in the usual algebraic sense; see
+	\cite[Definition 7.1.1]{Li1}.
+\end{example}
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p030
+In these concrete situations, the multiplication of an algebra $A$ is often
+written directly as multiplication of elements $xy=x\cdot y$, and the unit
+is directly identified with the element $1_A$, so that the notation
+$\mu_A,\eta_A$ can be omitted.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.e003
+\begin{example}[Graded modules and graded algebras]\label{eg:graded-module}
+	\index{graded module, graded algebra}
+	Fix an abelian category $\mathcal{A}$ and a nonempty set $I$. An object of
+	$\mathcal{A}^I$ is called an $I$-graded object and is written
+	$M=(M^i)_{i\in I}$, while a morphism is written
+	$(f^i:M^i\to N^i)_{i\in I}$. The object
+	$M^i\in\Obj(\mathcal{A})$ (or the morphism
+	$f^i\in\Mor(\mathcal{A})$) is customarily called the degree-$i$
+	component of $M$ (or $f$). The special cases $I=\Z$ and $\Z^n$ have
+	already been discussed repeatedly in \S\ref{sec:additive-cplx},
+	\S\ref{sec:triangular-def}, \S\ref{sec:grading-filtration}, and elsewhere.
+	
+	For concreteness, take for the moment
+	$\mathcal{A}:=\Bbbk\dcate{Mod}$, where $\Bbbk$ is a commutative ring.
+	An $I$-graded object in $\mathcal{A}$ is also called an $I$-graded module.
+	Suppose further that $I$ is a monoid. Define a bifunctor $\otimes$ on the
+	category $\mathcal{A}^I$ by
+	% segment-id: o014.li2.chapter7.monoidal-algebras.e004
+	\begin{equation}\label{eqn:graded-module}
+		(M \otimes N)^i := \bigoplus_{jk=i} M^j \otimes N^k, \quad (f \otimes g)^i := \bigoplus_{jk=i} f^j \otimes g^k .
+	\end{equation}
+	Also define $\munit$ to be $\Bbbk$ concentrated in the component
+	$i=1_I$ (the unit of $I$). These data make $\mathcal{A}^I$ a monoidal
+	category. The unit condition $\eta_A:\munit=\Bbbk\to A$ automatically
+	% Editorial correction: the frozen Chinese source and Indonesian witness
+	% say A^0, but the multiplicatively written grading monoid has unit 1_I.
+	ensures that $1_A:=\eta_A(1)\in A^{1_I}$.
+	
+	In the special case where $I$ is commutative, this recovers the
+	$I$-graded modules and $I$-graded algebras introduced in
+	\cite[Definition 7.4.1]{Li1}.
+
+	Continue to take $\mathcal{A}=\Bbbk\dcate{Mod}$ and require $(I,+)$ to
+	be a commutative monoid. Every additive homomorphism
+	$\epsilon:I\to\Z/2\Z$ makes $\Bbbk\dcate{Mod}^I$ a symmetric monoidal
+	category with the \emph{Koszul braiding} characterized by
+	% segment-id: o014.li2.chapter7.monoidal-algebras.e005
+	\begin{equation}\label{eqn:Koszul-braiding}\begin{aligned}
+		M^a \otimes N^b & \to N^b \otimes M^a \\
+		x \otimes y & \mapsto (-1)^{\epsilon(a)\epsilon(b)} y \otimes x ,
+	\end{aligned}\end{equation}
+	where $a,b\in I$. The corresponding commutative algebras are precisely the
+	$\epsilon$-commutative algebras of
+	\cite[Definition 7.4.3]{Li1}. The various equations and definitions that
+	result are collectively called the \emph{Koszul sign rule}. Whenever
+	tensor positions are interchanged, the sign must be changed according to
+	this rule.
+	\index{Koszul sign rule}
+	
+	For example, the condition for $A$ to be a commutative algebra is written
+	explicitly as
+	% segment-id: o014.li2.chapter7.monoidal-algebras.q007
+	\[ x y = (-1)^{\epsilon(a) \epsilon(b)} yx, \quad x \in A^a, \; y \in A^b. \]
+	
+	The typical situation is
+	% segment-id: o014.li2.chapter7.monoidal-algebras.q008
+	\[ I \in \{\Z, \Z_{\geq 0} \}, \quad \epsilon(a) := a \;\bmod 2 , \]
+	where the corresponding $\epsilon$-commutative algebras are called
+	anticommutative graded algebras in the source cited above. Since this
+	braiding appears everywhere in the study of $\Z$-graded objects, the term
+	\emph{graded commutative} is more apt.
+	
+	Now return to a general abelian category $\mathcal{A}$ and
+	$(I,+,\epsilon)$ as above. To generalize the preceding construction, we
+	need to extend $\mathcal{A}$ to a symmetric monoidal category
+	$(\mathcal{A},\otimes)$ such that
+	% segment-id: o014.li2.chapter7.monoidal-algebras.l004
+	\begin{itemize}
+		\item $\mathcal{A}$ is an abelian category, and coproducts (that is,
+		direct sums) of the form in \eqref{eqn:graded-module} exist;
+		\item $\otimes:\mathcal{A}\times\mathcal{A}\to\mathcal{A}$ is
+		additive in each variable and preserves these coproducts.
+	\end{itemize}
+	Under these conditions, $\otimes$ and the Koszul braiding on
+	$\mathcal{A}^I$ can still be defined in the same way, making
+	$(\mathcal{A}^I,\otimes)$ a symmetric monoidal category. Its unit is
+	still the unit $\munit$ of $\mathcal{A}$, viewed as an $I$-graded object
+	concentrated in degree zero.
+	
+	For general $(\mathcal{A},\otimes)$, all verifications are the same as in
+	the case of $\Bbbk\dcate{Mod}$. The only difference is that “elements” of
+	an object no longer have meaning in the general case.
+\end{example}
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.cv001
+\begin{convention}
+	In the special case $\mathcal{A}=\Bbbk\dcate{Mod}$, the usual convention
+	is to regard an $I$-graded module $(M^i)_{i\in I}$ as a module equipped
+	with a direct-sum decomposition $M=\bigoplus_{i\in I}M^i$, and to require
+	morphisms to preserve the direct-sum components.
+\end{convention}
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.e006
+\begin{example}\label{eg:superspace}
+	\index{super vector space}
+	In the construction above ($\mathcal{A}=\Bbbk\dcate{Mod}$), let $\Bbbk$
+	be a field with $\mathrm{char}(\Bbbk)\neq2$, take
+	$I=\Z/2\Z=\{0,1\}$, and set $\epsilon=\identity_{\Z/2\Z}$. The
+	corresponding symmetric monoidal category is denoted by
+	$\cate{Vect}^-_{\Z/2\Z}(\Bbbk)$. Its objects can be viewed as
+	$\Bbbk$-vector spaces equipped with a direct-sum decomposition
+	$V=V_0\oplus V_1$, and are also called \emph{super vector spaces}. This is
+	the source of terminology common in linear algebra and mathematical
+	physics, such as superalgebra and commutative superalgebra.
+\end{example}
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p031
+Finally, we discuss the effect of lax monoidal functors on algebras.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.d005
+\begin{definition}\label{def:lax-monoidal}
+	\index{functor!monoidal, lax monoidal, right lax monoidal}
+	Let $\mathcal{V}$ and $\mathcal{V}'$ be monoidal categories. According to
+	\cite[Remark 3.1.8]{Li1}, a right lax monoidal functor from
+	$\mathcal{V}$ to $\mathcal{V}'$, abbreviated here to a \emph{lax
+	monoidal functor}, means data $(F,\xi_F,\varphi_F)$, where
+	% Editorial correction: the frozen Chinese source and Indonesian witness
+	% repeat the source category; the declared functor has codomain V'.
+	$F:\mathcal{V}\to\mathcal{V}'$ is a functor and
+	% segment-id: o014.li2.chapter7.monoidal-algebras.q009
+	\[ \xi_F: F(\cdot) \otimes F(\cdot) \to F(\cdot \otimes \cdot), \quad \varphi_F: \munit_{\mathcal{V}'} \to F\left( \munit_{\mathcal{V}} \right), \]
+	are morphisms subject to a collection of compatibility conditions with
+	the monoidal structures. The data $(F,\xi_F,\varphi_F)$ are often
+	abbreviated to $F$.
+	
+	If $\mathcal{V}$ and $\mathcal{V}'$ are both braided (or symmetric)
+	monoidal categories, and $F$ also makes the following diagram commute,
+	then $F$ is called a braided functor, or is said to be compatible with
+	the braidings:
+	% segment-id: o014.li2.chapter7.monoidal-algebras.g016
+	\[\begin{tikzcd}[column sep=huge]
+		F(X) \otimes F(Y) \arrow[r, "{\xi_F(X, Y)}"] \arrow[d, "{c'(FX, FY)}"'] & F(X \otimes Y) \arrow[d, "{Fc(X, Y)}"] \\
+		F(Y) \otimes F(X) \arrow[r, "{\xi_F(Y, X)}"'] & F(Y \otimes X) .
+	\end{tikzcd}\]
+
+	If $\xi_F$ and $\varphi_F$ in the data of a lax monoidal functor are both
+	isomorphisms, the functor is called a \emph{monoidal functor}.
+\end{definition}
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p032
+We may of course also discuss morphisms between lax monoidal functors, also
+called natural transformations:
+% segment-id: o014.li2.chapter7.monoidal-algebras.q010
+\[ \theta = (\theta_X)_{X \in \Obj(\mathcal{V})}: F \to G, \quad F, G: \mathcal{V} \to \mathcal{V}' . \]
+In addition to the conditions for a natural transformation, we require
+$\theta$ to make the following diagrams commute:
+% segment-id: o014.li2.chapter7.monoidal-algebras.g017
+\[\begin{tikzcd}[column sep=huge]
+	F(X) \otimes F(Y) \arrow[r, "{\xi_F(X, Y)}"] \arrow[d, "{\theta_X \otimes \theta_Y}"'] & F(X \otimes Y) \arrow[d, "{\theta_{X \otimes Y}}"] \\
+	G(X) \otimes G(Y) \arrow[r, "{\xi_G(X, Y)}"'] & G(X \otimes Y)
+\end{tikzcd} \quad \begin{tikzcd}
+	\munit_{\mathcal{V}'} \arrow[r, "{\varphi_F}"] \arrow[rd, "{\varphi_G}"'] & F(\munit_{\mathcal{V}}) \arrow[d, "{\theta_{\munit_{\mathcal{V}}}}"] \\
+	& G(\munit_{\mathcal{V}}) .
+\end{tikzcd}\]
+
+If $F$ and $G$ are monoidal functors, this definition is in fact equivalent
+to \cite[Definition 3.1.10]{Li1}, where $\varphi_F$ and $\varphi_G$ are
+called “standard” isomorphisms. We may therefore discuss equivalences between
+monoidal categories or braided monoidal categories.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.pr002
+\begin{proposition}\label{prop:lax-monoidal-Alg}
+	A lax monoidal functor $F$ induces a functor
+	$\cate{Alg}(\mathcal{V})\to\cate{Alg}(\mathcal{V}')$. If $A$ is an
+	algebra over $\mathcal{V}$, then $F$ induces
+	$A\dcate{Mod}\to F(A)\dcate{Mod}$, and similarly for the other module
+	categories.
+
+	If, in addition, $\mathcal{V}$ and $\mathcal{V}'$ are braided monoidal
+	categories and $F$ is a braided functor, then $F$ also induces
+	$\cate{CAlg}(\mathcal{V})\to\cate{CAlg}(\mathcal{V}')$, while
+	$\cate{Alg}(\mathcal{V})\to\cate{Alg}(\mathcal{V}')$ is a lax monoidal
+	functor. If, moreover, $\mathcal{V}$ and $\mathcal{V}'$ are both
+	symmetric, then the same holds for
+	$\cate{CAlg}(\mathcal{V})\to\cate{CAlg}(\mathcal{V}')$.
+\end{proposition}
+% segment-id: o014.li2.chapter7.monoidal-algebras.pf004
+\begin{proof}
+	Let $A$ be an algebra over $\mathcal{V}$. Define the multiplication
+	$\mu_{FA}$ as
+	$FA\otimes FA\to F(A\otimes A)\xrightarrow{F\mu_A}FA$, and the unit
+	$\eta_{FA}$ as
+	$\munit_{\mathcal{V}'}\to F(\munit_{\mathcal{V}})\xrightarrow{F\eta_A}FA$.
+	The remaining verifications are routine.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.e007
+\begin{example}\label{eg:ev0-monoidal}
+	Consider the symmetric monoidal abelian category $\mathcal{A}$ and the
+	category $\mathcal{A}^I$ from Example~\ref{eg:graded-module}. Define the
+	functor
+	% segment-id: o014.li2.chapter7.monoidal-algebras.q011
+	\[ \mathrm{ev}_0: \mathcal{A}^I \to \mathcal{A}, \quad \left(M^i\right)_{i \in I} \mapsto M^0. \]
+	This functor is exact and symmetric lax monoidal: simply take
+	% segment-id: o014.li2.chapter7.monoidal-algebras.q012
+	\[ \xi_{\mathrm{ev}_0}(M, N): M^0 \otimes N^0 \to (M \otimes N)^0 := \bigoplus_{i+j=0} M^i \otimes N^j \]
+	to be the evident morphism, and
+	$\varphi_{\mathrm{ev}_0}:\munit\to\munit$ to be the identity. Thus
+	$A\mapsto A^0$ induces lax monoidal functors
+	% segment-id: o014.li2.chapter7.monoidal-algebras.q013
+	\[ \cate{Alg}(\mathcal{A}^I) \to \cate{Alg}(\mathcal{A}), \quad \cate{CAlg}(\mathcal{A}^I) \to \cate{CAlg}(\mathcal{A}). \]
+\end{example}
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.p033
+The following remark concerns algebras over a general monoidal category
+$\mathcal{V}$. Recall that finite ordinals correspond bijectively to
+$\Z_{\geq0}$; the finite ordinal $\mathbf{n}$ corresponding to $n$ is
+identified with the totally ordered $n$-element set $\{0,\ldots,n-1\}$, with
+$0\leq1\leq2\leq\cdots$.
+
+% segment-id: o014.li2.chapter7.monoidal-algebras.r003
+\begin{remark}[The walking algebra]\label{rem:walking-algebra}
+	\index{algebra!walking}
+	\index[sym1]{FinOrd@$\cate{FinOrd}$}
+	A map $f:A\to B$ between partially ordered sets is called
+	order-preserving if
+	$a\leq a'\implies f(a)\leq f(a')$. Write $\cate{FinOrd}$ for the category
+	of finite ordinals whose morphisms are order-preserving maps between
+	ordinals. This is a strict monoidal category under
+	$\mathbf{n}\otimes\mathbf{m}:=\mathbf{n}+\mathbf{m}$. A morphism
+	$f\otimes g:\mathbf{n}\otimes\mathbf{m}\to\mathbf{n}'\otimes\mathbf{m}'$
+	maps the first $n$ elements (or the last $m$ elements) by $f$ (or $g$),
+	and the object $\mathbf{0}$ is the unit\footnote{Here $\mathbf{1}$ always
+	denotes an ordinal; the unit of the monoidal category $\mathcal{V}$ is
+	denoted separately by $\munit_{\mathcal{V}}$.}. Make $\mathbf{1}$ into
+	an algebra over $\cate{FinOrd}$: take its unit to be
+	$\emptyset=\mathbf{0}\hookrightarrow\mathbf{1}$ and its multiplication
+	to be
+	$\mathbf{1}\otimes\mathbf{1}=\mathbf{2}\twoheadrightarrow\mathbf{1}$.
+	The associated commutative diagrams are entirely straightforward to
+	verify.
+	
+	The ordinal $\mathbf{1}$ (or $\mathbf{2}$) may be viewed as the “walking”
+	object (or morphism). Indeed, for any category $\mathcal{C}$, specifying
+	a functor $\mathbf{1}\to\mathcal{C}$ (or
+	$\mathbf{2}\to\mathcal{C}$) is equivalent to specifying an object (or a
+	morphism) in $\mathcal{C}$. Now consider a monoidal category
+	$\mathcal{V}$. We claim that there is an isomorphism of categories
+	% segment-id: o014.li2.chapter7.monoidal-algebras.q014
+	\[
+		\left\{ \mathcal{V}\;\text{-algebras}\; A \right\} \simeq \left\{ \text{monoidal functors}\; F: \cate{FinOrd} \to \mathcal{V} \right\},
+	\]
+	which also means that $\cate{FinOrd}$ is the “walking algebra.” First, for
+	a monoidal functor $F:\cate{FinOrd}\to\mathcal{V}$, define
+	$A:=F(\mathbf{1})$. As a simple special case of
+	Proposition~\ref{prop:lax-monoidal-Alg}, $A$ naturally becomes an algebra
+	over $\mathcal{V}$: the multiplication $\mu:A\otimes A\to A$ is
+	$F(\mathbf{2}\twoheadrightarrow\mathbf{1})$, while the unit
+	$\eta:\munit_{\mathcal{V}}\to A$ is
+	$F(\mathbf{0}\hookrightarrow\mathbf{1})$.
+	
+	Conversely, from an algebra $(A,\mu,\eta)$ over $\mathcal{V}$ define a
+	monoidal functor $F:\cate{FinOrd}\to\mathcal{V}$ by
+	% segment-id: o014.li2.chapter7.monoidal-algebras.q015
+	\[ F(\mathbf{n}) = A^{\otimes n} := \underbracket{A \otimes (A \otimes (\cdots))}_{n\;\text{copies of}\; A}, \quad A^{\otimes 0} := \munit_{\mathcal{V}}, \]
+	For $f:\mathbf{n}\to\mathbf{m}$, if $f$ is injective, then
+	$F(f):A^{\otimes n}\to A^{\otimes m}$ is obtained by inserting
+	$\eta:\munit_{\mathcal{V}}\to A$ outside the image of $f$; if $f$ is
+	surjective, $F(f)$ is obtained by using $\mu:A\otimes A\to A$ to
+	successively combine the factors in each fiber. The associativity
+	constraints and other properties of a monoidal category ensure that
+	these operations are well defined. A general map $f$ has a unique
+	surjective--injective factorization, and this defines $F$ on morphisms.
+	Functoriality is clear. It is not difficult to verify that the two
+	constructions are mutually inverse.
+\end{remark}

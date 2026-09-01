@@ -1,0 +1,852 @@
+% English translation of chapter1.tex lines 1708--2079.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter1.adjoint-functor-theorem
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.h001
+\section{Adjoint Functor Theorems}\label{sec:AFT}
+\hypertarget{o014.aljabr2.chapter1.adjoint-functor-theorem}{ }
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.p001
+Functors often occur in adjoint pairs. Consider categories $\mathcal{C}$ and
+$\mathcal{D}$ and a pair of functors
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.g001
+\[\begin{tikzcd}
+	F: \mathcal{C} \arrow[shift left, r] & \mathcal{D}: G \arrow[shift left, l]
+\end{tikzcd}\]
+such that $(F,G)$ is an adjoint pair. Then $F$ preserves $\varinjlim$ and $G$
+preserves $\varprojlim$, whenever the limits in question exist. Conversely,
+one naturally asks: if $F:\mathcal{C}\to\mathcal{D}$ preserves colimits,
+what ensures that it has a right adjoint? If
+$G:\mathcal{D}\to\mathcal{C}$ preserves limits, what ensures that it has a
+left adjoint? In many cases the adjoint can be written down explicitly, but
+sometimes an abstract existence result is needed. Such results are
+collectively called adjoint functor theorems. Their hypotheses fall roughly
+into two classes. First, to use preservation of colimits (or limits), one
+assumes that $\mathcal{C}$ (or $\mathcal{D}$) is cocomplete (or complete).
+Second, one needs conditions closely related to set size.
+\index{size issues}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.p002
+Our first task is to reformulate the existence of an adjoint appropriately.
+By duality, we state only the case of a left adjoint.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.p003
+For a functor $G:\mathcal{D}\to\mathcal{C}$ and
+$c\in\Obj(\mathcal{C})$, Definition \ref{def:comma-category} gives a
+category $(c/G)$ whose objects are data $(d,c\xrightarrow{f}Gd)$.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.le001
+\begin{lemma}\label{prop:adjoint-vs-comma}
+	A functor $G:\mathcal{D}\to\mathcal{C}$ has a left adjoint if and only if
+	$(c/G)$ has an initial object for every $c\in\Obj(\mathcal{C})$.
+\end{lemma}
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.pf001
+\begin{proof}
+	Fix $c$. Specifying a morphism
+	$(d_0,c\xrightarrow{\beta_0}Gd_0)\to(d,c\xrightarrow{\beta}Gd)$ in
+	$(c/G)$ amounts to specifying $\alpha:d_0\to d$ such that
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.g002
+	\[\begin{tikzcd}[row sep=small, column sep=small]
+		Gd_0 \arrow[rr, "G\alpha"] & & Gd \\
+		& c \arrow[lu, "\beta_0"] \arrow[ru, "\beta"'] &
+	\end{tikzcd}\]
+	commutes. Thus $(d_0,\beta_0)$ is initial in $(c/G)$ if and only if
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.q001
+	\begin{equation}\label{eqn:adjoint-vs-comma-aux}
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.g003
+	\begin{tikzcd}[row sep=tiny]
+		\Hom_{\mathcal{D}}(d_0, d) \arrow[r] & \Hom_{\mathcal{C}}(c, Gd) \\
+		\alpha \arrow[mapsto, r] & \beta := (G\alpha) \beta_0
+	\end{tikzcd}\end{equation}
+	is a bijection for every $d\in\Obj(\mathcal{D})$. This is the basis of the
+	argument.
+
+	Suppose that $G$ has a left adjoint $F$, and let
+	$c\in\Obj(\mathcal{C})$. We claim that $Fc$, together with the unit
+	$\eta_c:c\to G(Fc)$, is initial in $(c/G)$. For any
+	$(d,c\xrightarrow{\beta}Gd)$, the map in
+	\eqref{eqn:adjoint-vs-comma-aux},
+	$\Hom_{\mathcal{D}}(Fc,d)\to\Hom_{\mathcal{C}}(c,Gd)$, sends $\alpha$ to
+	$(G\alpha)\eta_c$. This is exactly the bijection on $\Hom$ sets supplied
+	by the adjunction, so $(Fc,\eta_c)$ is initial.
+
+	Conversely, suppose that $(c/G)$ has an initial object for every $c$, and
+	write it as $(Fc,\eta_c:c\to G(Fc))$. Since initial objects are unique up
+	to unique isomorphism, these objects form a functor
+	$F:\mathcal{C}\to\mathcal{D}$, and
+	$(\eta_c)_{c\in\Obj(\mathcal{C})}$ gives
+	$\eta:\identity_{\mathcal{C}}\to GF$. For every
+	$(c,d)\in\Obj(\mathcal{C})\times\Obj(\mathcal{D})$, define the bijection
+	from \eqref{eqn:adjoint-vs-comma-aux}:
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.q002
+	\begin{align*}
+		\varphi_{c, d}: \Hom_{\mathcal{D}}(Fc, d) & \to \Hom_{\mathcal{C}}(c, Gd) \\
+		\alpha & \mapsto (G\alpha) \eta_c.
+	\end{align*}
+	These bijections are plainly functorial in $c$ and $d$. Hence
+	$(F,G,\varphi)$ is an adjoint pair with unit $\eta$.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.d001
+\begin{definition}
+	Let $\mathcal{E}$ be a category. A nonempty small subset $\Gamma$ of
+	$\Obj(\mathcal{E})$ is called a \emph{weakly initial family} if, for every
+	$e'\in\Obj(\mathcal{E})$, there is an $e\in\Gamma$ such that
+	$\Hom_{\mathcal{E}}(e,e')$ is nonempty.\footnote{Translator's note: the
+	source has the subscript $\mathcal{C}$; it has been corrected to
+	$\mathcal{E}$, the category introduced in this definition (O014-C020).}
+	If $e\in\Obj(\mathcal{E})$ and $\{e\}$ is weakly initial, then $e$ itself
+	is called a \emph{weakly initial object}.
+\end{definition}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.p004
+Every initial object is weakly initial. Weakly terminal families and weakly
+terminal objects are defined similarly.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.le002
+\begin{lemma}\label{prop:weakly-initial-prod}
+	If $\Gamma$ is a weakly initial family in $\mathcal{E}$ and
+	$e:=\prod_{x\in\Gamma}x$ exists, then $e$ is weakly initial.
+\end{lemma}
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.pf002
+\begin{proof}
+	For every $e'\in\Obj(\mathcal{E})$, there are $y\in\Gamma$ and a morphism
+	$y\to e'$. Take the composite
+	$e\xrightarrow{\text{projection}}y\to e'$.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.p005
+Return to adjoint functor theorems. To apply Lemma
+\ref{prop:adjoint-vs-comma}, we must study the projection functor
+$\Pi_{c/}:(c/G)\to\mathcal{D}$ from Definition \ref{def:comma-category}.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.pr001
+\begin{proposition}\label{prop:comma-cat-completeness}
+	Let $\mathcal{D}$ be complete, let $G:\mathcal{D}\to\mathcal{C}$ preserve
+	all small limits, and fix $c\in\Obj(\mathcal{C})$.
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.l001
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i001
+		\item The functor $\Pi_{c/}$ is conservative (Definition
+		\ref{def:conservative}) and creates all small limits (Definition
+		\ref{def:create-limit}).
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i002
+		\item The category $(c/G)$ is complete.
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i003
+		\item The functor $\Pi_{c/}$ sends monomorphisms to monomorphisms.
+	\end{enumerate}
+\end{proposition}
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.pf003
+\begin{proof}
+	For (i), conservativity is clear. The key point is that, given
+	$\beta:J\to(c/G)$ sending $j\in\Obj(J)$ to
+	$(d_j,c\xrightarrow{f_j}Gd_j)$, one can lift $\varprojlim_jd_j$ and its
+	projection morphisms to
+	$(\varprojlim_jd_j,c\xrightarrow{f}G(\varprojlim_jd_j))$ and show that it
+	is $\varprojlim\beta$. Explicitly, take $f$ to be the composite in the
+	first row of the commutative diagram
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.g004
+	\[\begin{tikzcd}
+		c \arrow[r, "{\exists!}"] \arrow[rd, "{f_{j'}}"'] & \varprojlim_j Gd_j \arrow[d] & G (\varprojlim_j d_j) \arrow[l, "\exists!"', "\sim"] \arrow[ld] \\
+		& Gd_{j'} &
+	\end{tikzcd} \quad j' \in \Obj(J). \]
+	The remaining checks are routine and are omitted; compare the examples in
+	\S\ref{sec:limit-functor}.
+
+	Statement (ii) follows from the completeness of $\mathcal{D}$ and (i).
+
+	For (iii), first observe that for every morphism $f:a\to b$ in any
+	category, a direct manipulation of the definitions gives
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.g005
+	\[ f \;\text{is monic} \iff
+	\begin{tikzcd}
+		a \arrow[r, "\identity_a"] \arrow[d, "\identity_a"'] & a \arrow[d, "f"] \\
+		a \arrow[r, "f"'] & b
+	\end{tikzcd} \;\text{is a pullback diagram}. \]
+
+	Now consider a monomorphism in $(c/G)$ from $(d',c\to Gd')$ to
+	$(d,c\to Gd)$, determined by $\iota:d'\to d$ in $\mathcal{D}$. By (i),
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.q003
+	\[ (d', c \to Gd') \dtimes{(d, c \to Gd)} (d', c \to Gd') = \left( d' \dtimes{d} d' , \; c \to G\left( d' \dtimes{d} d' \right) \right) . \]
+	The left-hand side identifies with $(d',c\to Gd')$, with both projections
+	corresponding to $\identity_{d'}$. Thus $d'\dtimes{d}d'$ identifies with
+	$d'$ in the same way. In other words, $\iota$ is monic.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.le003
+\begin{lemma}\label{prop:jointly-weak-initial-obj}
+	If a complete category $\mathcal{E}$ has a weakly initial family $\Gamma$,
+	then $\mathcal{E}$ has an initial object.
+\end{lemma}
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.pf004
+\begin{proof}
+	Completeness and Lemma \ref{prop:weakly-initial-prod} ensure that
+	$\mathcal{E}$ has a weakly initial object $e$. Let $I$ be the full
+	subcategory of $\mathcal{E}$ with $\Obj(I)=\{e\}$; it is small.
+	Completeness gives a limit $x$ of the inclusion $I\to\mathcal{E}$, with
+	canonical morphism $i:x\to e$. Its universal property says
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.q004
+	\begin{equation}\label{eqn:jointly-weak-initial-obj-aux}
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.g006
+	\begin{tikzcd}[row sep=tiny]
+		i_*: \Hom_{\mathcal{E}}(t, x) \arrow[r, "1:1"] & \left\{ \phi \in \Hom_{\mathcal{E}}(t, e) : \forall \theta, \theta' \in \Hom_{\mathcal{E}}(e, e), \; \theta \phi = \theta' \phi \right\} \\
+		\psi \arrow[r, mapsto] & i\psi
+	\end{tikzcd}\end{equation}
+	for arbitrary $t\in\Obj(\mathcal{E})$. This immediately shows that $i$ is
+	monic.
+
+	We show that $x$ is initial. Given $y\in\Obj(\mathcal{E})$, choose any
+	morphism $e\to y$ and call the composite $x\xrightarrow{i}e\to y$ by
+	$f$. For any $g:x\to y$, consider the equalizer
+	$j:\Ker(f,g)\hookrightarrow x$. There is a morphism
+	$k:e\to\Ker(f,g)$, hence $ijk:e\to e$. Taking $\psi=\identity_x$ in
+	\eqref{eqn:jointly-weak-initial-obj-aux} gives
+	$(ijk)i=(\identity_e)i=i$. Cancelling the monomorphism $i$ on the left
+	gives $jki=\identity_x$, and consequently $f=fjki=gjki=g$. This proves the
+	claim.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.p006
+The following result is due to P.\ Freyd and is also known as the General
+Adjoint Functor Theorem.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.th001
+\begin{theorem}[P.\ Freyd's Adjoint Functor Theorem]\label{prop:GAFT}
+	\index{adjoint functor theorem}
+	Let $\mathcal{C}$ and $\mathcal{D}$ be categories.
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.l002
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i004
+		\item Let $\mathcal{D}$ be complete and let
+		$G:\mathcal{D}\to\mathcal{C}$ preserve all small limits. Then $G$ has
+		a left adjoint if and only if the following \emph{solution set
+		condition} holds: for every $c\in\Obj(\mathcal{C})$, there is a family
+		of morphisms $(f_i:c\to Gd_i)_{i\in I}$, indexed by a small set $I$,
+		such that for every $f:c\to Gd$ there are $i\in I$ and
+		$\alpha:d_i\to d$ for which $f$ factors as
+		$c\xrightarrow{f_i}Gd_i\xrightarrow{G\alpha}Gd$.
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i005
+		\item Let $\mathcal{C}$ be cocomplete and let
+		$F:\mathcal{C}\to\mathcal{D}$ preserve all small colimits. Then $F$ has
+		a right adjoint if and only if the following \emph{cosolution set
+		condition} holds: for every $d\in\Obj(\mathcal{D})$, there is a family
+		of morphisms $(g_i:Fc_i\to d)_{i\in I}$, indexed by a small set $I$,
+		such that for every $g:Fc\to d$ there are $i\in I$ and
+		$\beta:c\to c_i$ for which $g$ factors as
+		$Fc\xrightarrow{F\beta}Fc_i\xrightarrow{g_i}d$.
+	\end{enumerate}
+\end{theorem}
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.pf005
+\begin{proof}
+	We prove only (i). Fix $c\in\Obj(\mathcal{C})$. By Lemma
+	\ref{prop:adjoint-vs-comma}, $G$ has a left adjoint if and only if $(c/G)$
+	has an initial object. The solution set condition says exactly that $(c/G)$
+	has the weakly initial family
+	$\{(d_i,c\to Gd_i):i\in I\}$, where $I$ is small. Since every initial
+	object is weakly initial, the ``only if'' direction is clear. In the other
+	direction, Lemma \ref{prop:jointly-weak-initial-obj} reduces the problem to
+	the completeness of $(c/G)$, which is precisely Proposition
+	\ref{prop:comma-cat-completeness}(ii).
+\end{proof}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.e001
+\begin{example}\label{eg:free-group-GAFT}
+	Consider the category of groups $\cate{Grp}$ and the forgetful functor
+	$U:\cate{Grp}\to\cate{Set}$. The category $\cate{Grp}$ is complete and
+	$U$ preserves all small limits. To deduce from Theorem \ref{prop:GAFT}
+	that $U$ has the left adjoint $\mathrm{F}:\cate{Set}\to\cate{Grp}$, which
+	constructs the free group on a set, the key is to verify the solution set
+	condition for every small set $c$.
+
+	Take any $d\in\Obj(\cate{Grp})$ and map $f:c\to Ud$. Factor $f$ as
+	$c\to Us\xrightarrow{U\iota}Ud$, where $s$ is the subgroup of $d$
+	generated by $f(c)$ and $\iota:s\to d$ is the inclusion. Presenting $s$ by
+	the generating set $f(c)$ and relations shows that the isomorphism classes
+	of all such data $(s,c\to Us)$ form a small set $I$. This establishes the
+	solution set condition.
+
+	The same procedure works for other algebraic structures, such as
+	$\cate{Ab}$ and $R\dcate{Mod}$, again giving left adjoints to the forgetful
+	functors; see the latter part of \cite[Chapter V, \S 6]{ML98}. Likewise,
+	for any commutative ring $\Bbbk$, taking the multiplicative monoid of a
+	$\Bbbk$-algebra gives a forgetful functor
+	$U:\Bbbk\dcate{Alg}\to\cate{Mon}$. The same technique shows that $U$ has
+	a left adjoint sending a monoid $M$ to $\Bbbk[M]$; see
+	\cite[Definition 5.6.1]{Li1}.
+
+	The approach through the Adjoint Functor Theorem \ref{prop:GAFT} not only
+	applies uniformly to many algebraic structures; in the free-group case it
+	is also shorter than the classical construction in \cite[\S 4.8]{Li1}.
+\end{example}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.p007
+The Special Adjoint Functor Theorem \ref{prop:SAFT}, to be introduced shortly,
+replaces the solution set condition by conditions on generators and
+subobjects. We pause to define generators and cogenerators in a category;
+these notions will also be used in the later section on Grothendieck
+categories, among other places.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.d002
+\begin{definition}\label{def:generators}
+	\index{generator}
+	\index{cogenerator}
+	Let $\mathcal{E}$ be a category and let $\Sigma$ be a nonempty small
+	subset of $\Obj(\mathcal{E})$.
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.l003
+	\begin{itemize}
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i006
+		\item The set $\Sigma$ is called a \emph{generating family} if the
+		following holds: given any pair $f,g:x\to y$ in $\mathcal{E}$, if
+		$f\epsilon=g\epsilon$ for every $s\in\Sigma$ and every
+		$\epsilon:s\to x$, then $f=g$. If $\{s\}$ is a generating family for
+		$\mathcal{E}$, then $s$ is called a \emph{generator} of $\mathcal{E}$.
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i007
+		\item The set $\Sigma$ is called a \emph{cogenerating family} if the
+		following holds: given any pair $f,g:x\to y$ in $\mathcal{E}$, if
+		$\delta f=\delta g$ for every $s\in\Sigma$ and every
+		$\delta:y\to s$, then $f=g$. If $\{s\}$ is a cogenerating family for
+		$\mathcal{E}$, then $s$ is called a \emph{cogenerator} of $\mathcal{E}$.
+	\end{itemize}
+\end{definition}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.p008
+The two notions are plainly dual.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.le004
+\begin{lemma}\label{prop:generator-via-limit}
+	Let $\Sigma$ be a small subset of $\Obj(\mathcal{C})$. If every object of
+	$\mathcal{C}$ can be expressed as a colimit (or limit) of elements of
+	$\Sigma$, then $\Sigma$ is a generating (or cogenerating) family.
+\end{lemma}
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.pf006
+\begin{proof}
+	For colimits, a morphism $\varinjlim\alpha=:x\to y$ is uniquely determined
+	by its composites with all $\alpha(i)\xrightarrow{\iota_i}\varinjlim\alpha$.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.e002
+\begin{example}\label{eg:generators}
+	Here are some basic examples of generators and cogenerators.
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.l004
+	\begin{itemize}
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i008
+		\item In $\cate{Set}$, the singleton $\{\mathrm{pt}\}$ is a generator:
+		for maps $f,g:X\to Y$, specifying $\epsilon:\{\mathrm{pt}\}\to X$
+		amounts to specifying $x\in X$, so $f\epsilon=g\epsilon$ for every
+		$\epsilon$ is equivalent to pointwise equality of $f$ and $g$. The set
+		$\{0,1\}$ is a cogenerator, because if $f(x)\ne g(x)$ for some $x\in X$,
+		one can choose $\delta:Y\to\{0,1\}$ such that
+		$\delta(f(x))\ne\delta(g(x))$.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i009
+		\item Let $\cate{CHaus}$ be the category of compact Hausdorff spaces and
+		continuous maps. The singleton $\{\mathrm{pt}\}$ is again a generator,
+		while $[0,1]$ is a cogenerator: for every compact Hausdorff space $Y$ and
+		distinct $a,b\in Y$, Urysohn's lemma
+		\cite[Theorem 6.3.1 and Corollary 7.2.6]{Xiong} gives a continuous map
+		$\delta:Y\to[0,1]$ with $\delta(a)=0$ and $\delta(b)=1$.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i010
+		\item Let $R$ be a ring. In $R\dcate{Mod}$, the module $R$ is a
+		generator because specifying an $R$-module homomorphism $R\to M$ amounts
+		to specifying an element of $M$. Taking coproducts shows that every
+		nonzero free $R$-module is also a generator.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i011
+		\item Consider the Yoneda embedding
+		$h_{\mathcal{E}}:\mathcal{E}\to\mathcal{E}^\wedge$ of a small category
+		$\mathcal{E}$. Then $h_{\mathcal{E}}(\Obj(\mathcal{E}))$ is a
+		generating family for $\mathcal{E}^\wedge$. This follows immediately
+		from the density theorem for the Yoneda embedding in Appendix \S~A.1 and
+		Lemma \ref{prop:generator-via-limit}.
+	\end{itemize}
+\end{example}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.p009
+The Special Adjoint Functor Theorem involves one more set-theoretic notion.
+Recall the posets $(\mathrm{Sub}_e,\subset)$ and
+$(\mathrm{Quot}_e,\twoheadleftarrow)$ introduced in Definition
+\ref{def:sub-quot-obj}, where $e$ is an object of a category $\mathcal{E}$.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.d003
+\begin{definition}\label{def:well-powered}
+	\index{category!well-powered, well-copowered}
+	A category $\mathcal{E}$ is called \emph{well-powered} (or
+	\emph{well-copowered}) if $\mathrm{Sub}_e$ (or $\mathrm{Quot}_e$) is a
+	small set for every $e\in\Obj(\mathcal{E})$.
+\end{definition}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.p010
+In this section, well-poweredness will be paired with completeness. Choose a
+representative $s\hookrightarrow e$ of every element of $\mathrm{Sub}_e$.
+Thus for any subset $S\subset\mathrm{Sub}_e$ it makes sense, independently of
+the representatives chosen, to ask whether the fiber product
+$\prod_{s\in S}(s\hookrightarrow e)$ exists. Dually, for a subset
+$S\subset\mathrm{Quot}_e$, one may ask whether the fiber coproduct
+$\coprod_{s\in S}(e\twoheadrightarrow s)$ exists.
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.l005
+\begin{itemize}
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i012
+	\item If $\mathcal{E}$ is complete, then well-poweredness implies that for
+	every $e$, all subsets $S\subset\mathrm{Sub}_e$ have fiber products.
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i013
+	\item If $\mathcal{E}$ is cocomplete, then well-copoweredness implies that
+	for every $e$, all subsets $S\subset\mathrm{Quot}_e$ have fiber coproducts.
+\end{itemize}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.le005
+\begin{lemma}\label{prop:cogenerator-initial-obj}
+	Let $\mathcal{E}$ be complete and well-powered. If there is a cogenerating
+	family $\Sigma\subset\Obj(\mathcal{E})$, then $\mathcal{E}$ has an initial
+	object.
+\end{lemma}
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.pf007
+\begin{proof}
+	Take $e:=\prod_{s\in\Sigma}s$, and let $x$ be the fiber product of all
+	elements of $\mathrm{Sub}_e$; only here is well-poweredness used. We show
+	that $x$ is initial in $\mathcal{E}$.
+
+	By construction, $x\hookrightarrow e$ is the infimum of the poset
+	$(\mathrm{Sub}_e,\subset)$; in particular, $\mathrm{Sub}_x=\{x\}$. For
+	any object $y$ and $f,g\in\Hom_{\mathcal{E}}(x,y)$, the equalizer
+	$\Ker(f,g)$ must therefore be $x$ itself, so $f=g$. It remains to show that
+	$\Hom_{\mathcal{E}}(x,y)$ is nonempty for every $y$.
+
+	Form in $\mathcal{E}$ the product
+	$\prod_{s\in\Sigma}s^{\Hom_{\mathcal{E}}(y,s)}$. Define
+	$i:y\to\prod_{s\in\Sigma}s^{\Hom_{\mathcal{E}}(y,s)}$ so that its
+	projection onto the component corresponding to $s\in\Sigma$ and
+	$\delta\in\Hom_{\mathcal{E}}(y,s)$ is exactly $\delta$. Since $\Sigma$ is
+	cogenerating, $i$ is easily seen to be monic. For every $s\in\Sigma$, take
+	the diagonal morphism $d_s:s\to s^{\Hom_{\mathcal{E}}(y,s)}$, and form the
+	pullback
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.g007
+	\[\begin{tikzcd}[column sep=large]
+		z \arrow[r] \arrow[d, "j"'] & y \arrow[hookrightarrow, d, "i"] \arrow[phantom, ld, "\Box" description] \\
+		e \arrow[r, "{\prod_{s \in \Sigma} d_s}"'] &  \prod_{s \in \Sigma} s^{\Hom_{\mathcal{E}}(y, s)}.
+	\end{tikzcd}\]
+	Lemma \ref{prop:mono-pullback} ensures that $j$ is also monic, giving a
+	subobject of $e$. Since $x$ is the infimum of $\mathrm{Sub}_e$, there is a
+	morphism $x\hookrightarrow z$. The composite $x\hookrightarrow z\to y$ is
+	the required morphism.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.th002
+\begin{theorem}[Special Adjoint Functor Theorem]\label{prop:SAFT}
+	\index{adjoint functor theorem}
+	Let $\mathcal{C}$ and $\mathcal{D}$ be categories.
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.l006
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i014
+		\item A functor $G:\mathcal{D}\to\mathcal{C}$ has a left adjoint if it
+		satisfies the following conditions.
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.l007
+		\begin{compactitem}
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i015
+			\item $\mathcal{D}$ is complete and well-powered, and $G$ preserves
+			all small limits;
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i016
+			\item there is a cogenerating family
+			$\Sigma\subset\Obj(\mathcal{D})$.
+		\end{compactitem}
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i017
+		\item A functor $F:\mathcal{C}\to\mathcal{D}$ has a right adjoint if it
+		satisfies the following conditions.
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.l008
+		\begin{compactitem}
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i018
+			\item $\mathcal{C}$ is cocomplete and well-copowered, and $F$
+			preserves all small colimits;
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i019
+			\item there is a generating family
+			$\Sigma\subset\Obj(\mathcal{C})$.
+		\end{compactitem}
+	\end{enumerate}
+\end{theorem}
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.pf008
+\begin{proof}
+	By duality, it suffices to prove (i). Lemma
+	\ref{prop:adjoint-vs-comma} again reduces the problem to showing that
+	$(c/G)$ has an initial object for $c\in\Obj(\mathcal{C})$; the strategy is
+	to apply Lemma \ref{prop:cogenerator-initial-obj}.
+
+	Proposition \ref{prop:comma-cat-completeness}(ii) shows that $(c/G)$ is
+	complete. Moreover, Definition \ref{def:generators} and the definition of
+	$(c/G)$ show at once that all data $(d,c\to Gd)$ with $d\in\Sigma$ form a
+	cogenerating family for $(c/G)$. Since $\Sigma$ is small, this is a small
+	set.
+
+	Let $e=(d,c\to Gd)\in\Obj((c/G))$. Subobjects are isomorphism classes of
+	monomorphisms. By Proposition \ref{prop:comma-cat-completeness}, the
+	projection $\Pi_{c/}:(c/G)\to\mathcal{D}$ is conservative and preserves
+	monomorphisms, so it induces an order-preserving embedding
+	$\mathrm{Sub}_e\hookrightarrow\mathrm{Sub}_d$. Thus $(c/G)$ is
+	well-powered.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.co001
+\begin{corollary}\label{prop:SAFT-completeness}
+	If a complete well-powered category $\mathcal{D}$ has a cogenerating family
+	$\Sigma$, then $\mathcal{D}$ is cocomplete.
+
+	Dually, if a cocomplete well-copowered category $\mathcal{C}$ has a
+	generating family $\Sigma$, then $\mathcal{C}$ is complete.
+\end{corollary}
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.pf009
+\begin{proof}
+	It suffices to prove the assertion for $\mathcal{D}$. Let $I$ be a small
+	category. By Example \ref{eg:comma-vs-cone}, it is enough to show that
+	$(\alpha/\Delta)$ has an initial object for every
+	$\alpha:I\to\mathcal{D}$. By Lemma \ref{prop:adjoint-vs-comma}, this is
+	equivalent to saying that the diagonal functor $\Delta$ has a left adjoint.
+	Clearly $\Delta$ preserves all small limits and colimits, so Theorem
+	\ref{prop:SAFT} applies.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.e003
+\begin{example}
+	Let $\iota:\cate{CHaus}\to\cate{Top}$ be the inclusion of compact Hausdorff
+	spaces into topological spaces. Example \ref{eg:generators} showed that
+	$\cate{CHaus}$ has the cogenerator $[0,1]$. By the Tychonoff theorem
+	\cite[Theorem 7.7.2]{Xiong}, $\cate{CHaus}$ is readily seen to be complete,
+	and $\iota$ preserves all small limits; details are left to the reader.
+	Furthermore, the power set of a small set is small, so $\cate{CHaus}$ is
+	well-powered. Theorem \ref{prop:SAFT}(i) therefore gives a left adjoint
+	$C:\cate{Top}\to\cate{CHaus}$ to $\iota$. In point-set topology, $C(X)$
+	is called the \emph{Stone--\v{C}ech compactification} of $X$; the unit gives
+	a canonical morphism $\eta_X:X\to\iota C(X)$. The constructions in Lemma
+	\ref{prop:cogenerator-initial-obj} and Theorem \ref{prop:SAFT} agree with
+	the classical construction of the Stone--\v{C}ech compactification.
+\end{example}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.p011
+Adjoint functor theorems provide sufficient conditions for representability.
+For representable functors, see \cite[Definition 2.5.2]{Li1} or the definition
+of a representable functor in Appendix \S~A.1. The key observation is this: if
+$G:\mathcal{D}\to\cate{Set}$ has a left adjoint $F$, then $G$ is
+representable. Indeed, consider the singleton $\{\mathrm{pt}\}$ and put
+$r_G:=F(\{\mathrm{pt}\})$. The canonical bijections
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.q005
+\[ \Hom_{\mathcal{D}}\left( r_G, d \right) \simeq \Hom_{\cate{Set}}\left( \{\mathrm{pt}\}, Gd \right) \simeq Gd , \quad d \in \Obj(\mathcal{D}) \]
+imply $G\simeq\Hom_{\mathcal{D}}(r_G,\cdot)$.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.co002
+\begin{corollary}\label{prop:cogenerator-representability}
+	If a complete well-powered category $\mathcal{D}$ has a cogenerating family
+	$\Sigma$, then a functor $G:\mathcal{D}\to\cate{Set}$ is representable if
+	and only if it preserves all small limits.
+\end{corollary}
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.pf010
+\begin{proof}
+	The ``only if'' direction is a general property of representable functors.
+	For the converse, Theorem \ref{prop:SAFT} ensures that $G$ has a left
+	adjoint $F:\cate{Set}\to\mathcal{D}$; now apply the observation above.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.x001
+\begin{Exercises}
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.ex001
+	\item Consider the category of groups $\cate{Grp}$. Prove that a group
+	homomorphism $\varphi:H\to G$ is a monomorphism (or epimorphism) in
+	$\cate{Grp}$ if and only if its underlying map is injective (or
+	surjective). Some references, including \cite{Li1}, do not adequately
+	explain this fact.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.hn001
+	\begin{hint}
+		It suffices to prove the ``only if'' direction. For monomorphisms,
+		consider homomorphisms from $\Ker\varphi$ to $H$. For epimorphisms, one
+		must show that if $\varphi(H)\ne G$, then there are distinct group
+		homomorphisms $f,g:G\rightrightarrows K$ whose restrictions to
+		$\varphi(H)$ agree. One approach is to take $K$ to be the amalgamated
+		free product defined by two copies of the embedding
+		$\varphi(H)\hookrightarrow G$ in \cite[Definition 4.8.5]{Li1}, and to
+		take $f$ and $g$ as the embeddings of $G$ into the two copies. Uniqueness
+		of reduced expressions \cite[Lemma 4.8.7]{Li1} implies $f\ne g$.
+	\end{hint}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.ex002
+	\item Show that in the category $\cate{Top}$, the image of $f:X\to Y$ is
+	$f(X)$ with the subspace topology from $Y$, while its coimage is $f(X)$
+	with the quotient topology from $X$. Give the corresponding topological
+	interpretations of strict monomorphisms and strict epimorphisms.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.ex003
+	\item Let $\mathcal{C}$ have finite limits and finite colimits. Prove that
+	the following statements about a morphism $f:X\to Y$ are equivalent.
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.l009
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i020
+		\item The morphism $f$ is a strict epimorphism.
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i021
+		\item The canonical morphism $\Coim(f)\to Y$ is an isomorphism.
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i022
+		\item $X\dtimes{Y}X\rightrightarrows X\xrightarrow{f}Y$ is a coequalizer
+		diagram.
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i023
+		\item The morphism $f:X\to Y$ is the coequalizer of some pair
+		$a,b:W\rightrightarrows X$.
+	\end{enumerate}
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.hn002
+	\begin{hint}
+		Recall that being epic is equivalent to $\Image(f)\rightiso Y$ (Lemma
+		\ref{prop:epi-image}), and use Proposition
+		\ref{prop:epi-mono-isomorphism}. It is easy to prove
+		(i) $\iff$ (ii) $\iff$ (iii) $\implies$ (iv). For
+		(iv) $\implies$ (ii), consider the solid part of the commutative diagram
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.g008
+		\[\begin{tikzcd}
+			W \arrow[shift left, r, "a"] \arrow[shift right, r, "b"'] \arrow[d, "{(a, b)}"'] & X \arrow[d, "\identity"] \arrow[twoheadrightarrow, r, "f"] & Y \arrow[dashed, d] \\
+			X \dtimes{Y} X \arrow[shift left, r] \arrow[shift right, r] & X \arrow[twoheadrightarrow, r] & \Coim(f)
+		\end{tikzcd}\]
+		The universal property of the coequalizer gives the dashed arrow and
+		shows that it and $\Coim(f)\to Y$ are inverse to each other.
+	\end{hint}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.ex004
+	\item Let $\mathcal{C}$ have finite limits and finite colimits. Prove that
+	if a morphism $f$ has a right inverse (or left inverse), then $f$ is a
+	strict epimorphism (or strict monomorphism).
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.hn003
+	\begin{hint}
+		If $fg=\identity_Y$, then $f$ is the coequalizer of $gf$ and
+		$\identity_X$.
+	\end{hint}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.ex005
+	\item Prove that an additive-category structure on any category, if it
+	exists, is unique.
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.hn004
+	\begin{hint}
+		Apply Proposition \ref{prop:additive-cat-addition}.
+	\end{hint}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.ex006
+	\item Compare Example \ref{eg:Grp-Set-create}. Let $U$ be the forgetful
+	functor from compact Hausdorff spaces $\cate{CHaus}$ to sets $\cate{Set}$.
+	Prove that $U$ creates all small limits. Show that it does not create all
+	small colimits.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.ex007
+	\item Let $\mathcal{I}$ be the category of all finite sets and surjective
+	maps. Prove that $\mathcal{I}^{\opp}$ is not filtered in the sense of
+	\S\ref{sec:filtered-indlim}.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.ex008
+	\item In Definition \ref{def:Kan-extension}, prove that every morphism
+	$F\to F'$ induces canonical morphisms $\Lan_KF\to\Lan_KF'$ and
+	$\Ran_KF\to\Ran_KF'$, provided these Kan extensions exist. Characterize
+	the induced morphisms.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.ex009
+	\item Let $K$ and $F$ be as in \S\ref{sec:Kan-extension}. Prove that if
+	$M:\mathcal{E}\to\mathcal{F}$ has a left adjoint (or right adjoint), then
+	$M$ preserves $\Ran_KF$ (or $\Lan_KF$).
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.hn005
+	\begin{hint}
+		By duality, suppose that $M$ has a right adjoint $N$, with unit
+		$\eta':\identity\to NM$ and counit $\varepsilon':MN\to\identity$. For
+		any functor $L:\mathcal{D}\to\mathcal{F}$, there are canonical
+		bijections
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.q006
+		\begin{multline*}
+			\Hom_{\mathcal{F}^{\mathcal{D}}} \left( M (\Lan_K F) , L \right) \simeq \Hom_{\mathcal{E}^{\mathcal{D}}} \left( \Lan_K F, N L \right) \\
+			\stackrel{\text{\eqref{eqn:Kan-univ}}}{\simeq} \Hom_{\mathcal{E}^{\mathcal{C}}} \left( F, NLK \right) \simeq \Hom_{\mathcal{F}^{\mathcal{C}}} \left( MF, LK \right).
+		\end{multline*}
+
+		Using the general properties of $\eta'$ and $\varepsilon'$, verify that
+		when $L=M(\Lan_KF)$ this bijection sends $\identity$ to $M\eta$, where
+		$\eta$ is the morphism belonging to $\Lan_KF$.
+
+		For general $L$, use the familiar technique from the proof of the Yoneda
+		lemma to verify that an arbitrary morphism
+		\[ \varphi:M(\Lan_KF)\to L \]
+		corresponds to the composite
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.q007
+		\[
+		\begin{aligned}
+			(\varphi K)(M\eta):\quad MF
+			&\xrightarrow{M\eta} M(\Lan_K F)K, \\
+			M(\Lan_K F)K &\xrightarrow{\varphi K} LK .
+		\end{aligned}
+		\]
+	\end{hint}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.ex010
+	\item Consider the diagram of functors
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.g009
+	\[\begin{tikzcd}[column sep=small, row sep=small]
+		& \mathcal{D} \arrow[rd, "E"] & \\
+		\mathcal{C} \arrow[ru, "F"] & & \mathcal{D}' \arrow[ll, "G"]
+	\end{tikzcd}\]
+	where $EF$ is left adjoint to $G$, with counit
+	$\varepsilon:EFG\to\identity_{\mathcal{D}'}$. Prove that if, for every
+	category $\mathcal{X}$, the functor
+	$F^*:\mathcal{X}^{\mathcal{D}}\to\mathcal{X}^{\mathcal{C}}$ is fully
+	faithful, then $E$ can also be realized as a left adjoint to $FG$, with the
+	same counit $\varepsilon$.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.hn006
+	\begin{hint}
+		The following argument is from \cite[I.1.3.1 Lemma]{GZ67}. Let
+		$\eta:\identity_{\mathcal{C}}\to GEF$ be the unit of $(EF,G)$. Taking
+		$\mathcal{X}=\mathcal{D}$ gives
+		$\eta':\identity_{\mathcal{D}}\to FGE$ such that $\eta'F=F\eta$. Check
+		the triangle identities for $(E,FG)$ with $\eta'$ and $\varepsilon$.
+		First,
+		$(FG\varepsilon)(\eta'FG)=(FG\varepsilon)(F\eta G)=\identity_{FG}$.
+		On the other hand, taking $\mathcal{X}=\mathcal{D}'$ shows that
+		$(\varepsilon E)(E\eta')=\identity_E$ is equivalent to
+		$(\varepsilon EF)(E\eta'F)=\identity_{EF}$; but
+		$(\varepsilon EF)(E\eta'F)=(\varepsilon EF)(EF\eta)=\identity_{EF}$.
+	\end{hint}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.ex011
+	\item Consider an adjoint pair
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.g010
+	$\begin{tikzcd}
+		F: \mathcal{C} \arrow[r, shift left] & \mathcal{D} \arrow[l, shift left] : G
+	\end{tikzcd}$,
+	and put
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.q008
+	\[ S := \left\{ s \in \Mor(\mathcal{C}): Fs \;\text{is invertible} \right\}; \]
+	this factors $F$ uniquely as
+	$\mathcal{C}\xrightarrow{Q}\mathcal{C}[S^{-1}]\xrightarrow{H}\mathcal{D}$.
+	Prove that the following statements are equivalent.
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.l010
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i024
+		\item The functor $G$ is fully faithful.
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i025
+		\item The counit $\varepsilon:FG\to\identity_{\mathcal{D}}$ is an
+		isomorphism.
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i026
+		\item The functor $H$ is an equivalence of categories, with $QG$ as a
+		quasi-inverse.
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.i027
+		\item For every category $\mathcal{X}$, the functor
+		$F^*:\mathcal{X}^{\mathcal{D}}\to\mathcal{X}^{\mathcal{C}}$ is fully
+		faithful.
+	\end{enumerate}
+	Also state the dual version of this result.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.hn007
+	\begin{hint}
+		The following argument is from \cite[I.1.3 Proposition]{GZ67}. First,
+		(i) $\iff$ (ii) is fairly easy; see the hint in
+		\cite[Chapter 2, Exercise 8]{Li1}.
+
+		For (ii) $\implies$ (iii), one must prove
+		$QGH\simeq\identity_{\mathcal{C}[S^{-1}]}$. Proposition
+		\ref{prop:localization-extra-property} reduces this to
+		$QGHQ\simeq Q$. Consider the unit
+		$\eta:\identity_{\mathcal{C}}\to GF$. Since
+		$(\varepsilon F)(F\eta)=\identity_F$, the morphism $F\eta$ is an
+		isomorphism, hence $Q\eta:Q\rightiso QGF=QGHQ$.
+
+		For (iii) $\implies$ (iv), the fact that $H$ is an equivalence implies
+		that $H^*$ is fully faithful, while Proposition
+		\ref{prop:localization-extra-property} applies to $Q^*$.
+
+		For (iv) $\implies$ (ii), put $E=\identity_{\mathcal{D}}$ in the
+		preceding exercise. Then $FG$ is a right adjoint to
+		$\identity_{\mathcal{D}}$, with counit $\varepsilon$. Since right
+		adjoints to $\identity_{\mathcal{D}}$ are unique up to isomorphism,
+		$\varepsilon$ is an isomorphism.
+	\end{hint}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.ex012
+	\item Let $S$ be a left multiplicative system in $\mathcal{C}$. Prove that
+	every commutative diagram in $\mathcal{C}[S^{-1}]^l$ of the form
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.g011
+	\[\begin{tikzcd}
+		Q^l X \arrow[r, "{Q^l f}"] \arrow[d, "\alpha"'] & Q^l X' \arrow[d, "\beta"] \\
+		Q^l Y \arrow[r, "{Q^l g}"'] & Q^l Y'
+	\end{tikzcd}\]
+	\begin{center}
+		arises from a commutative diagram in $\mathcal{C}$ of the form
+	\end{center}
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.g012
+	\[\begin{tikzcd}
+		X \arrow[r, "f"] & X' \\
+		U \arrow[r] \arrow[rightarrowtail, u] \arrow[d] & U' \arrow[rightarrowtail, u] \arrow[d] \\
+		Y \arrow[r, "g"'] & Y'
+	\end{tikzcd}\]
+	where $f,g\in\Mor(\mathcal{C})$ are given and, as usual,
+	$\rightarrowtail$ denotes a morphism in $S$. State the corresponding
+	version for a right multiplicative system.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.hn008
+	\begin{hint}
+		Represent $\alpha$ and $\beta$ by $(U^\dagger;s,a)$ and $(U';t,b)$,
+		respectively. Apply (S3) to obtain $W,h,r$ and a commutative diagram in
+		$\mathcal{C}$
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.g013
+		\[\begin{tikzcd}
+			W \arrow[r, "h"] \arrow[rightarrowtail, d, "r"'] & U' \arrow[rightarrowtail, d, "{t}"] \\
+			U^\dagger \arrow[r, "{fs}"'] & X' .
+		\end{tikzcd}\]
+		This shows that the upper square in the following diagram commutes:
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.g014
+		\[\begin{tikzcd}
+			X \arrow[r, "f"] & X' \\
+			W \arrow[rightarrowtail, u, "{sr}"] \arrow[r, "h"] \arrow[d, "{ar}"'] & U' \arrow[rightarrowtail, u, "{t}"'] \arrow[d, "{b}"] \\
+			Y \arrow[r, "g"'] & Y'
+		\end{tikzcd}\]
+		For the lower square, first show that it commutes after applying $Q^l$;
+		then use Corollary \ref{prop:fraction-zero} to choose
+		$U\rightarrowtail W$ and adjust it to the required commutative diagram.
+	\end{hint}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.ex013
+	\item Verify the details of central localization in Example
+	\ref{eg:central-localization}. Prove that the category
+	$\mathcal{C}[S^{-1}]$ defined there and the localization supplied by
+	Theorem \ref{prop:localization-additivity} are equivalent as
+	$Z(\mathcal{C})[S^{-1}]$-linear categories.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.ex014
+	\item Complete the details in the proof of Proposition
+	\ref{prop:comma-cat-completeness}(i).
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.ex015
+	\item Use the Adjoint Functor Theorem \ref{prop:GAFT} to construct the free
+	product $G\star H$ of any two groups $G$ and $H$; see
+	\cite[Definition 4.8.9]{Li1}.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.ex016
+	\item Let $\mathrm{F}(X)$ be the free group on a set $X$. Prove that the
+	canonical map $\iota:X\to U(\mathrm{F}(X))$ is injective, where $U$ is the
+	forgetful functor from groups to sets.
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.hn009
+	\begin{hint}
+		For distinct $x,y\in X$, there is a group $H$ and a map of sets
+		$f:X\to U(H)$ such that $f(x)\ne f(y)$.
+	\end{hint}
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.ex017
+	\item (P.\ Freyd) Let $\mathcal{D}$ be complete and let
+	$G:\mathcal{D}\to\cate{Set}$ preserve all small limits and satisfy the
+	following solution set condition: there is a small subset
+	$\Gamma\subset\Obj(\mathcal{D})$ such that for every
+	$d\in\Obj(\mathcal{D})$ and $p\in Gd$, there are $x\in\Gamma$, $q\in Gx$,
+	and $f:x\to d$ with $(Gf)(q)=p$. Prove that $G$ is representable.
+
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.hn010
+	\begin{hint}
+		Write an object of $\left(\{\mathrm{pt}\}/G\right)$ as $(d,p)$, where
+		$d\in\Obj(\mathcal{D})$ and $p\in Gd$. The condition says exactly that
+		$\Gamma^\natural:=\{(x,q):x\in\Gamma,\;q\in Gx\}$ is a weakly initial
+		family for $\left(\{\mathrm{pt}\}/G\right)$. Show that this category
+		has an initial object $(r_G,u_G)$. Following the argument for
+		\eqref{eqn:adjoint-vs-comma-aux}, show that for every $d$ there is a
+		bijection
+% segment-id: o014.li2.chapter1.adjoint-functor-theorem.g015
+		\[\begin{tikzcd}[row sep=tiny, column sep=small]
+			\Hom_{\mathcal{D}}(r_G, d) \arrow[r] & \Hom_{\cate{Set}}\left( \{\mathrm{pt}\}, Gd \right) \arrow[r, "\sim"] & Gd \\
+			\alpha \arrow[mapsto, rr] & & (G\alpha)(u_G) .
+		\end{tikzcd}\]
+	\end{hint}
+\end{Exercises}

@@ -1,0 +1,227 @@
+% English translation of chapter1.tex lines 1141--1229.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter1.kan-extensions-as-limits
+
+% segment-id: o014.li2.chapter1.kan-extensions-as-limits.h001
+\section{Constructing Kan Extensions by Limits}\label{sec:Kan-as-limit}
+\hypertarget{o014.aljabr2.chapter1.kan-extensions-as-limits}{ }
+
+% segment-id: o014.li2.chapter1.kan-extensions-as-limits.p001
+As in \S\ref{sec:Kan-extension}, throughout this section we continue to
+consider functors $K: \mathcal{C} \to \mathcal{D}$ and
+$F: \mathcal{C} \to \mathcal{E}$, with the aim of studying the existence of
+$\Lan_K F$ and $\Ran_K F$.
+
+% segment-id: o014.li2.chapter1.kan-extensions-as-limits.p002
+Recall the discussion at the beginning of \S\ref{sec:Kan-extension}. The
+motivation for Kan extensions is to seek a functor
+$G: \mathcal{D} \to \mathcal{E}$ such that $F \simeq GK$, or at least to find
+the best approximation to one. How should $Gd$ be defined for
+$d \in \Obj(\mathcal{D})$? The only clue is that when $d=Kc$, the object $Gd$
+ought to be $Fc$, up to isomorphism. This suggests approximating $Gd$ by a
+colimit $\varinjlim$ (or a limit $\varprojlim$) of the objects $Fc$, indexed by
+	all $c \in \Obj(\mathcal{C})$ and morphisms $Kc \to d$ (or $d \to Kc$).
+	These two constructions have dual universal properties. We now make the
+	construction precise.
+
+% segment-id: o014.li2.chapter1.kan-extensions-as-limits.p003
+Given $d \in \Obj(\mathcal{D})$, define the categories $(K/d)$ and $(d/K)$ as
+in Definition \ref{def:comma-category}, together with the projection functors
+% segment-id: o014.li2.chapter1.kan-extensions-as-limits.q001
+\[ \Pi_{/d}: (K/d) \to \mathcal{C}, \quad \Pi_{d/}: (d/K) \to \mathcal{C}. \]
+Our focus will be on the composite functors
+$F\Pi_{/d}: (K/d) \to \mathcal{E}$ and
+$F\Pi_{d/}: (d/K) \to \mathcal{E}$, which send the objects
+$(c,Kc \to d)$ and $(c,d \to Kc)$, respectively, to $Fc$. Assuming that the
+limits under discussion exist, we first record a few observations.
+
+% segment-id: o014.li2.chapter1.kan-extensions-as-limits.l001
+\begin{itemize}
+	% segment-id: o014.li2.chapter1.kan-extensions-as-limits.i001
+	\item Every morphism $d \to d'$ induces a canonical morphism
+	$\varinjlim F\Pi_{/d} \to \varinjlim F\Pi_{/d'}$; it is characterized by
+	requiring the diagram
+	% segment-id: o014.li2.chapter1.kan-extensions-as-limits.q002
+	\begin{equation}\label{eqn:Kan-limit-aux-0}
+	% segment-id: o014.li2.chapter1.kan-extensions-as-limits.g001
+	\begin{tikzcd}
+		Fc \arrow[equal, r] \arrow[d] & Fc \arrow[d] \\
+		\varinjlim F \Pi_{/d} \arrow[r] & \varinjlim F \Pi_{/d'}
+	\end{tikzcd}\end{equation}
+	to commute for every $(c,Kc \to d) \in \Obj((K/d))$ (which induces an
+	object $(c,Kc \to d') \in \Obj((K/d'))$), where the vertical arrows are
+	the structure morphisms of the colimits. This is an instance of the
+	functoriality of colimits; see \cite[Lemma 2.7.4]{Li1}\footnote{Translator's
+	note: the source gives the locator as Lemma~2.7,4; it has been corrected to
+	Lemma~2.7.4 here (O014-C016).} and its proof.
+	% segment-id: o014.li2.chapter1.kan-extensions-as-limits.i002
+	\item Considering
+	$(c,Kc \xrightarrow{\identity} Kc) \in \Obj(K/Kc)$ gives a canonical
+	morphism $\eta_c: Fc \to \varinjlim F\Pi_{/Kc}$.
+	% segment-id: o014.li2.chapter1.kan-extensions-as-limits.i003
+	\item Every morphism $c \to c'$ induces a canonical morphism
+	$\varinjlim F\Pi_{/Kc} \to \varinjlim F\Pi_{/Kc'}$ that makes the following
+	diagram commute:
+	% segment-id: o014.li2.chapter1.kan-extensions-as-limits.g002
+	\[\begin{tikzcd}
+		Fc \arrow[r] \arrow[d, "{\eta_c}"'] & Fc' \arrow[d, "{\eta_{c'}}"] \\
+		\varinjlim F \Pi_{/Kc} \arrow[r] & \varinjlim F \Pi_{/Kc'} .
+	\end{tikzcd}\]
+\end{itemize}
+
+% segment-id: o014.li2.chapter1.kan-extensions-as-limits.p004
+By duality, $\varprojlim F\Pi_{d/}$ has the corresponding properties,
+including a canonical morphism
+$\varepsilon_c: \varprojlim F\Pi_{Kc/} \to Fc$. The next theorem is based on
+this functoriality.
+
+% segment-id: o014.li2.chapter1.kan-extensions-as-limits.th001
+\begin{theorem}\label{prop:Kan-limit}
+	Consider functors $K: \mathcal{C} \to \mathcal{D}$ and
+	$F: \mathcal{C} \to \mathcal{E}$.
+	% segment-id: o014.li2.chapter1.kan-extensions-as-limits.l002
+	\begin{enumerate}[(i)]
+		% segment-id: o014.li2.chapter1.kan-extensions-as-limits.i004
+		\item Suppose that for every $d \in \Obj(\mathcal{D})$, the colimit
+		$\varinjlim(F\Pi_{/d})$ exists in $\mathcal{E}$. Then
+		$(\Lan_K F)(d) := \varinjlim(F\Pi_{/d})$, together with the
+		functoriality given by \eqref{eqn:Kan-limit-aux-0}, determines the left
+		Kan extension $\Lan_K F: \mathcal{D} \to \mathcal{E}$. The associated
+		natural transformation $\eta: F \to (\Lan_K F)\circ K$ comes from the
+		family $(\eta_c)_{c\in\Obj(\mathcal{C})}$ discussed above.
+		% segment-id: o014.li2.chapter1.kan-extensions-as-limits.i005
+		\item Suppose that for every $d \in \Obj(\mathcal{D})$, the limit
+		$\varprojlim(F\Pi_{d/})$ exists in $\mathcal{E}$. Then
+		$(\Ran_K F)(d) := \varprojlim(F\Pi_{d/})$, together with the dual of
+		\eqref{eqn:Kan-limit-aux-0}, determines the right Kan extension
+		$\Ran_K F: \mathcal{D} \to \mathcal{E}$. The associated natural
+		transformation $\varepsilon: (\Ran_K F)\circ K \to F$ comes from the
+		family $(\varepsilon_c)_{c\in\Obj(\mathcal{C})}$ discussed above.
+		% segment-id: o014.li2.chapter1.kan-extensions-as-limits.i006
+		\item If $K: \mathcal{C} \to \mathcal{D}$ is fully faithful, then the
+		$\eta$ constructed in (i) (or the $\varepsilon$ constructed in (ii)) is
+		an isomorphism.
+	\end{enumerate}
+\end{theorem}
+% segment-id: o014.li2.chapter1.kan-extensions-as-limits.pf001
+\begin{proof}
+	% segment-id: o014.li2.chapter1.kan-extensions-as-limits.p005
+	By duality, we treat only the case of $\Lan_K F$. For (i), we verify the
+	universal property in Definition \ref{def:Kan-extension} step by step.
+
+	% segment-id: o014.li2.chapter1.kan-extensions-as-limits.p006
+	Let $L: \mathcal{D} \to \mathcal{E}$ be a functor and let
+	$\xi: F \to LK$. For every $d \in \Obj(\mathcal{D})$, every object
+	$(c,Kc \to d)$ of $(K/d)$, and every morphism in $(K/d)$ determined by
+	$f:c\to c'$, namely $(c,Kc\to d)\to(c',Kc'\to d)$, there is a commutative
+	diagram
+	% segment-id: o014.li2.chapter1.kan-extensions-as-limits.g003
+	\[\begin{tikzcd}
+		Fc \arrow[r, "\xi_c"] \arrow[d, "Ff"'] & LKc \arrow[d, "LKf"'] \arrow[r] & Ld . \\
+		Fc' \arrow[r, "{\xi_{c'}}"'] & LKc' \arrow[ru] &
+	\end{tikzcd}\]
+	The universal property of $\varinjlim$ therefore gives
+	$\chi_d:(\Lan_K F)(d)\to Ld$, characterized by requiring the diagram
+	% segment-id: o014.li2.chapter1.kan-extensions-as-limits.q003
+	\begin{equation}\label{eqn:Kan-limit-aux-1}
+	% segment-id: o014.li2.chapter1.kan-extensions-as-limits.g004
+	\begin{tikzcd}
+		Fc \arrow[r] \arrow[d, "\xi_c"'] & (\Lan_K F)(d) \arrow[d, "\chi_d"] \\
+		LKc \arrow[r, "{L(Kc \to d)}"'] & Ld
+	\end{tikzcd}\end{equation}
+	to commute for all $(c,Kc\to d)\in\Obj((K/d))$; the arrow in the first row
+	is the structure morphism of the colimit.
+
+	% segment-id: o014.li2.chapter1.kan-extensions-as-limits.p007
+	We now prove that $(\chi_d)_{d\in\Obj(\mathcal{D})}$ defines a natural
+	transformation $\chi:\Lan_K F\to L$. Given $d\to d'$, take
+	$(c,Kc\to d)$ and its image $(c,Kc\to d')$. Comparing
+	\eqref{eqn:Kan-limit-aux-0} with \eqref{eqn:Kan-limit-aux-1}, the question
+	reduces to proving that the diagram
+	% segment-id: o014.li2.chapter1.kan-extensions-as-limits.g005
+	\[\begin{tikzcd}[row sep=tiny]
+		& & Ld \arrow[dd, "{L(d \to d')}"] \\
+		Fc \arrow[r, "\xi_c"] & LKc \arrow[ru, "{L(Kc \to d)}"] \arrow[rd, "{L(Kc \to d')}"'] & \\
+		& & Ld'
+	\end{tikzcd}\]
+	commutes, which is immediate.
+
+	% segment-id: o014.li2.chapter1.kan-extensions-as-limits.p008
+	The next step is to verify
+	% segment-id: o014.li2.chapter1.kan-extensions-as-limits.q004
+	\begin{equation}\label{eqn:Kan-limit-aux-2}
+		\forall c \in \Obj(\mathcal{C}), \quad \xi_c = \chi_{Kc} \eta_c: Fc \to LKc.
+	\end{equation}
+	Since $\eta_c$ is the canonical morphism from
+	$Fc=F\Pi_{/Kc}(c,Kc\xrightarrow{\identity}Kc)$ to
+	$(\Lan_K F)(Kc)$, equation \eqref{eqn:Kan-limit-aux-2} is simply a special
+	case of \eqref{eqn:Kan-limit-aux-1}.
+
+	% segment-id: o014.li2.chapter1.kan-extensions-as-limits.p009
+	Finally, we show that a natural transformation $\chi:\Lan_K F\to L$
+	satisfying \eqref{eqn:Kan-limit-aux-2} is unique. Fix $d$ and consider any
+	object $(c,Kc\to d)$ of $(K/d)$ and the associated diagram
+	% segment-id: o014.li2.chapter1.kan-extensions-as-limits.g006
+	\[\begin{tikzcd}
+		& Fc \arrow[ld, "{\eta_c}"'] \arrow[rd] & \\
+		(\Lan_K F)(Kc) \arrow[rr, "{(\Lan_K F)(Kc \to d)}"'] \arrow[d, "{\chi_{Kc}}"'] & & (\Lan_K F)(d) \arrow[d, "\chi_d"] \\
+ 		LKc \arrow[rr, "{L(Kc \to d)}"'] & & Ld
+	\end{tikzcd}\]
+	where $Fc\to(\Lan_K F)(d)$ is the morphism appearing in
+	\eqref{eqn:Kan-limit-aux-1}. The square commutes by the naturality of
+	$\chi$, while the triangle commutes by \eqref{eqn:Kan-limit-aux-0}. Since
+	$\chi_{Kc}\eta_c=\xi_c$, the composite
+	$Fc\to(\Lan_K F)(d)\xrightarrow{\chi_d}Ld$ equals
+	$L(Kc\to d)\xi_c$. As $(c,Kc\to d)$ varies, this family of equalities
+	uniquely determines $\chi_d$.
+
+	% segment-id: o014.li2.chapter1.kan-extensions-as-limits.p010
+	Thus $\left(\Lan_K F,\eta\right)$ is indeed a left Kan extension.
+
+	% segment-id: o014.li2.chapter1.kan-extensions-as-limits.p011
+	Now consider (iii), and fix $c\in\Obj(\mathcal{C})$. Since $K$ is fully
+	faithful, it is easy to see that $(K/Kc)$ has the terminal object
+	$(c,Kc\xrightarrow{\identity}Kc)$. The morphism
+	$\eta_c:Fc\to\varinjlim F\Pi_{/Kc}$ comes from this terminal object and is
+	therefore an isomorphism.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.kan-extensions-as-limits.r001
+\begin{remark}
+	If $\mathcal{C}$ is a small category, then $(K/d)$ and $(d/K)$ are also
+	small categories for every $d\in\Obj(\mathcal{D})$. Consequently, when
+	$\mathcal{E}$ is cocomplete (or complete), Theorem \ref{prop:Kan-limit} and
+	Proposition \ref{prop:Kan-uniqueness} show that
+	$K^*: \mathcal{E}^{\mathcal{D}} \to \mathcal{E}^{\mathcal{C}}$ has a left
+	adjoint $\Lan_K$ (or a right adjoint $\Ran_K$).
+\end{remark}
+
+% segment-id: o014.li2.chapter1.kan-extensions-as-limits.e001
+\begin{example}[Inverse image of presheaves]
+	\index{presheaf}
+	Take $\mathcal{E}:=\cate{Set}$, which is both complete and cocomplete. Let
+	$f:X\to Y$ be a continuous map of topological spaces. Let
+	$\mathcal{C}:=\cate{Open}_Y$ be the category whose objects are the open
+	subsets of $Y$ and whose morphisms are inclusions of open subsets; similarly,
+	let $\mathcal{D}:=\cate{Open}_X$. Now define a functor
+	$\cate{Open}_Y\to\cate{Open}_X$ that sends an open subset $V\subset Y$ to
+	$f^{-1}V$, and regard it below as a functor
+	$K:\cate{Open}_Y^{\opp}\to\cate{Open}_X^{\opp}$. Readers familiar with
+	sheaf theory will recognize that the objects of
+	$\cate{Open}_Y^\wedge:=\cate{Set}^{\cate{Open}_Y^{\opp}}$ are, by
+	definition, precisely the \emph{presheaves} on $Y$, while
+	$K^*:\cate{Open}_X^\wedge\to\cate{Open}_Y^\wedge$ is the direct-image
+	functor between the presheaf categories: it sends a presheaf $\mathcal{F}$
+	on $X$ to the presheaf on $Y$ given by
+	$V\mapsto\mathcal{F}(f^{-1}V)$. In this situation, the left adjoint of the
+	direct image is $\Lan_K$, given by Theorem \ref{prop:Kan-limit}; it sends a
+	presheaf $\mathcal{G}$ on $Y$ to
+	% segment-id: o014.li2.chapter1.kan-extensions-as-limits.q005
+	\begin{gather*}
+		U \mapsto \varinjlim_{\substack{V \subset Y: \text{open subset} \\ \text{such that}\; U \subset f^{-1} V }} \mathcal{G}(V), \quad U \subset X: \text{open subset}, \\
+		U \subset f^{-1}V \;\xleftrightarrow{\text{corresponds to}}\; \text{a morphism}\; K(V) \to U \;\text{in}\; \cate{Open}_X^{\opp}.
+	\end{gather*}
+	Unsurprisingly, this is precisely the \emph{inverse image} of $\mathcal{G}$
+	in sheaf theory.
+\end{example}

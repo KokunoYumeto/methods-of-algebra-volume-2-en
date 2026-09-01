@@ -1,0 +1,447 @@
+% Unit 089 English translation of chapter7.tex lines 419--610.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter7.differential-graded-structures
+% Scope: all of Section 7.2, “Example: Differential Graded Structures”;
+% stops immediately before Section 7.3 at source line 611.
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.h001
+\section{Example: Differential Graded Structures}\label{sec:dga-monoidal}
+\hypertarget{o014.aljabr2.chapter7.differential-graded-structures}{ }
+% segment-id: o014.li2.chapter7.differential-graded-structures.p001
+Continuing the discussion in Example~\ref{eg:graded-module}, consider a
+symmetric monoidal abelian category $(\mathcal{A}, \otimes)$ that admits
+countable coproducts. Throughout this section we also assume that $\otimes$
+is right exact in each variable. The standard example is, of course,
+$\mathcal{A}=\Bbbk\dcate{Mod}$.
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p002
+We previously discussed $\Z$-graded algebras over $\mathcal{A}$, or,
+equivalently, algebras over the monoidal category
+$(\mathcal{A}^{\Z},\otimes)$. More precisely, in the setting of
+Example~\ref{eg:graded-module}, this means taking $I=\Z$ and the Koszul
+braiding~\eqref{eqn:Koszul-braiding} corresponding to
+$\epsilon(a)=a\bmod\;2$. Henceforth, “graded” always means
+“$\Z$-graded.” The aim of this section is to add a “differential” structure;
+part of the discussion overlaps with \S\ref{sec:multiplicative-SS}.
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p003
+Define the shift functor $T:\mathcal{A}^{\Z}\to\mathcal{A}^{\Z}$ by
+$(TM)^n=M^{n+1}$ and $(Tf)^n=f^{n+1}$. Thus
+$\left(\mathcal{A}^{\Z},T\right)$ is an abelian category with translation,
+and a differential object over it (Definition~\ref{def:differential-object})
+is called a \emph{differential graded object} over $\mathcal{A}$. In fact,
+the abelian category $\left(\mathcal{A}^{\Z},T\right)_d$ of differential
+graded objects is canonically isomorphic to the category of complexes
+$\cate{C}(\mathcal{A})$. This has already been observed in
+\S\ref{sec:additive-cplx}.
+\index{differential graded object}
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p004
+Accordingly, from now on we identify differential graded objects over
+$\mathcal{A}$ with complexes, without distinguishing between the two.
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p005
+We next equip $\cate{C}(\mathcal{A})$ with a symmetric monoidal structure.
+For any complexes $M$ and $N$, the bifunctor
+$\otimes:\mathcal{A}\times\mathcal{A}\to\mathcal{A}$ gives the double
+complex $M^\bullet\otimes N^\bullet$; totalization by direct sums gives
+% segment-id: o014.li2.chapter7.differential-graded-structures.q001
+\[ M \otimes N := \tot_{\oplus}\left( M^\bullet \otimes N^\bullet \right), \quad (M \otimes N)^n = \bigoplus_{a+b=n} M^a \otimes N^b. \]
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p006
+In the example $\mathcal{A}=\Bbbk\dcate{Mod}$, the differential
+$d=d_{M\otimes N}$ on the complex (or, equivalently, on the differential
+object) can be written elementwise as
+% segment-id: o014.li2.chapter7.differential-graded-structures.q002
+\begin{equation*}
+	d(x \otimes y) = (d_M x) \otimes y + (-1)^a x \otimes (d_N y), \quad x \in M^a, \; y \in N^b.
+\end{equation*}
+With these definitions, the Koszul braiding~\eqref{eqn:Koszul-braiding}
+is a morphism of complexes. The reader may verify this directly or deduce it
+from Proposition~\ref{prop:double-cplx-swap}.
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p007
+Moreover, the unit object $\munit$ of $(\mathcal{A},\otimes)$, viewed as a
+complex concentrated in degree zero, is clearly the unit object of the
+monoidal category $(\cate{C}(\mathcal{A}),\otimes)$. The following fact is
+immediate: for every
+$X=(X^n,d_X^n)_n\in\Obj(\cate{C}(\mathcal{A}))$,
+% segment-id: o014.li2.chapter7.differential-graded-structures.q003
+\begin{equation}\label{eqn:unit-map-into-cplx}
+	\Hom_{\cate{C}(\mathcal{A})}(\munit, X) \simeq \Hom_{\mathcal{A}}\left( \munit, \Ker\left(d_X^0 \right) \right).
+\end{equation}
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.d001
+\begin{definition}\label{def:dg-algebra}
+	\index{differential graded algebra}
+	\index{dg algebra}
+	With respect to the symmetric monoidal structure above, the objects of
+	$\cate{Alg}\left(\cate{C}(\mathcal{A})\right)$ are called
+	\emph{differential graded algebras} over $\mathcal{A}$, abbreviated
+	\emph{dg algebras}; the objects of
+	$\cate{CAlg}\left(\cate{C}(\mathcal{A})\right)$ are called commutative
+	differential graded algebras over $\mathcal{A}$, abbreviated commutative
+	dg algebras.
+\end{definition}
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p008
+For a differential graded algebra $A$, one can therefore also speak of left
+(or right) $A$-modules $M$, and even of bimodules; each forms an abelian
+category. In this setting $M$ is also called a \emph{differential graded
+module} over $A$, abbreviated a \emph{dg module}. This notion combines the
+theory of complexes with module theory and is extremely useful. The exercises
+in this chapter give a further introduction; the reader may also consult
+monographs such as \cite{Yek20}. To emphasize the differential graded
+structure, we write the category of dg modules as $A\dcate{dgMod}$, and use
+analogous notation for its variants.
+\index{differential graded module}
+\index{dg module}
+\index[sym1]{A-dgMod@$A\dcate{dgMod}$}
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p009
+The forgetful functor $\cate{C}(\mathcal{A})\to\mathcal{A}^{\Z}$ preserves
+$\otimes$, so Proposition~\ref{prop:lax-monoidal-Alg} shows that it preserves
+algebra (or commutative algebra) structures. When
+$\mathcal{A}=\Bbbk\dcate{Mod}$, to say that $A$ is a dg algebra is precisely
+to say that $A$ is a graded algebra equipped with a differential $d$ whose
+multiplication satisfies the Leibniz rule
+% segment-id: o014.li2.chapter7.differential-graded-structures.q004
+\[ d(xy) = (dx)y + (-1)^a x (dy), \quad x \in A^a, \; y \in A^b. \]
+Substituting $x=1_A=y$ gives $d(1_A)=0$. The opposite algebra $A^{\opp}$ is
+obtained by replacing the multiplication with
+$x\mathbin{\cdot^{\opp}}y:=(-1)^{ab}yx$.
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p010
+Similarly, when $\mathcal{A}=\Bbbk\dcate{Mod}$, a left $A$-module $M$ is
+equivalently a graded $\Bbbk$-module $M$ with a scalar-multiplication morphism
+$A\otimes M\to M$ satisfying associativity and the other module axioms, and
+equipped with a differential $d$ satisfying the Leibniz rule
+% segment-id: o014.li2.chapter7.differential-graded-structures.q005
+\[ d(tm) = (dt)m + (-1)^a t (dm), \quad t \in A^a, \; m \in M^b; \]
+for a right $A$-module $M$, the Leibniz rule becomes
+% segment-id: o014.li2.chapter7.differential-graded-structures.q006
+\[ d(mt) = (dm)t + (-1)^b m (dt), \quad t \in A^a, \; m \in M^b. \]
+For a general $(\mathcal{A},\otimes)$, all these properties can be formulated
+without elements. For example, the unit of an algebra $A$ corresponds to a
+morphism $\munit\to\Ker\left(d_A^0\right)$ in $\mathcal{A}$; see
+\eqref{eqn:unit-map-into-cplx}.
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p011
+Taking cohomology gives an additive functor
+$\Hm=(\Hm^n)_{n\in\Z}:\cate{C}(\mathcal{A})\to\mathcal{A}^{\Z}$. The next
+result says that multiplication of complexes induces multiplication on
+cohomology.
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.pr001
+\begin{proposition}\label{prop:Hm-lax-monoidal}
+	The functor $\Hm$ induces
+	% segment-id: o014.li2.chapter7.differential-graded-structures.q007
+	\[ \cate{Alg}\left(\cate{C}(\mathcal{A})\right) \to \cate{Alg}\left(\mathcal{A}^{\Z}\right),
+	\quad \cate{CAlg}\left(\cate{C}(\mathcal{A})\right) \to \cate{CAlg}\left(\mathcal{A}^{\Z}\right). \]
+	If $A$ is a dg algebra and $M$ is a left $A$-module (or a right module, or
+	a bimodule), then $\Hm(M)$ is respectively a left $\Hm(A)$-module (or a
+	right module, or a bimodule).
+\end{proposition}
+% segment-id: o014.li2.chapter7.differential-graded-structures.pf001
+\begin{proof}
+	By Proposition~\ref{prop:lax-monoidal-Alg}, it suffices to prove that $\Hm$
+	is a lax monoidal functor. The required canonical morphism
+	% segment-id: o014.li2.chapter7.differential-graded-structures.q008
+	\[ \xi_{\Hm}(M, N): \Hm(M) \otimes \Hm(N) \to \Hm(M \otimes N), \]
+	is nearly tautological: it is the morphism $\kappa$ discussed in
+	Theorem~\ref{prop:Kunneth-homology} or Proposition~\ref{prop:bifunctor-cup}.
+	On the other hand, take
+	% segment-id: o014.li2.chapter7.differential-graded-structures.q009
+	\[ \varphi_{\Hm}: \munit \to \Hm(\munit) = \munit \quad \text{(concentrated in degree zero)} \]
+	to be $\identity$.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p012
+We may also take the lax monoidal functor
+$\mathrm{ev}_0:\mathcal{A}^{\Z}\to\mathcal{A}$ of
+Example~\ref{eg:ev0-monoidal}. Again, Proposition~\ref{prop:lax-monoidal-Alg}
+shows that it sends graded algebras (or graded commutative algebras) to
+algebras (or commutative algebras), and modules to modules. Observe that
+$\mathrm{ev}_0\Hm=\Hm^0$. In applications, each stage of the composite
+$\cate{C}(\mathcal{A})\xrightarrow{\Hm}\mathcal{A}^{\Z}
+\xrightarrow{\mathrm{ev}_0}\mathcal{A}$ discards information; the richest
+structure remains on the dg algebra itself.
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.eg001
+\begin{example}\label{eg:k-linear-A-enrich}
+	Let $\Bbbk$ be a commutative ring. For any $\Bbbk$-linear category
+	$\mathcal{A}$, consider the multiplication on the Hom complexes from
+	\eqref{eqn:Hom-cplx-multiplication}:
+	% segment-id: o014.li2.chapter7.differential-graded-structures.q010
+	\[ \Hom^a(Y, Z) \times \Hom^b(X, Y) \to \Hom^{a+b}(X, Z), \quad X, Y, Z \in \Obj(\cate{C}(\mathcal{A})). \]
+
+	Because this multiplication satisfies the Leibniz rule
+	(Lemma~\ref{prop:Hom-cplx-Leibniz}), it determines a morphism in
+	$\cate{C}(\Bbbk\dcate{Mod})$
+	% segment-id: o014.li2.chapter7.differential-graded-structures.q011
+	\[ \Hom^\bullet(Y, Z) \otimes \Hom^\bullet(X, Y) \to \Hom^\bullet(X, Z). \]
+	Moreover, the multiplication is associative, so
+	$\End^\bullet(X):=\Hom^\bullet(X,X)$ is an algebra over
+	$(\cate{C}(\Bbbk\dcate{Mod}),\otimes)$ with unit
+	$\identity_X\in\End^0(X)$. Furthermore, $\Hom^\bullet(X,Y)$ is an
+	$(\End^\bullet(Y),\End^\bullet(X))$-bimodule.
+
+	Taking the cohomology $\Hm=(\Hm^n)_n$ of $\Hom^\bullet(X,Y)$ gives only
+	% segment-id: o014.li2.chapter7.differential-graded-structures.q012
+	\[ \bigoplus_{n \in \Z} \Hom_{\cate{K}(\mathcal{A})}(X, Y[n]); \]
+	whereas applying \eqref{eqn:unit-map-into-cplx} to
+	$\Hom^\bullet(X,Y)$ shows that $\Hom_{\cate{C}(\mathcal{A})}$ can be
+	reconstructed as
+	% segment-id: o014.li2.chapter7.differential-graded-structures.q013
+	\[ \Hom_{\cate{C}(\Bbbk\dcate{Mod})}\left( \Bbbk, \Hom^\bullet(X, Y) \right) \simeq \Hom_{\cate{C}(\mathcal{A})}(X, Y)  \]
+	with $\Bbbk$ serving as the unit object of
+	$(\cate{C}(\Bbbk\dcate{Mod}),\otimes)$.
+\end{example}
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p013
+Thus the sets $\Hom_{\cate{C}(\mathcal{A})}$ and composition of morphisms in
+$\cate{C}(\mathcal{A})$ are merely shadows of the Hom complexes and their
+multiplication, obtained by applying
+$\Hom_{\cate{C}(\Bbbk\dcate{Mod})}(\Bbbk,\mathord\cdot)$.
+
+\index{enriched category}
+\index[sym1]{Hom-internal@$\iHom$}
+% segment-id: o014.li2.chapter7.differential-graded-structures.p014
+Starting from the example $\cate{C}(\mathcal{A})$, we are naturally led to
+the concept of a differential graded category. This concept involves the
+\emph{$\mathcal{V}$-enriched categories} introduced in
+\cite[Definition 3.4.1]{Li1}. Briefly, for any monoidal category
+$\mathcal{V}$, a $\mathcal{V}$-enriched category $\mathcal{C}$ still has
+objects and morphisms, but the Hom sets are replaced by Hom objects in
+$\mathcal{V}$, written $\iHom=\iHom_{\mathcal{C}}$ to distinguish them.
+Composition of morphisms is replaced by a morphism in $\mathcal{V}$
+% segment-id: o014.li2.chapter7.differential-graded-structures.q014
+\[ \iHom(Y, Z) \otimes \iHom(X, Y) \to \iHom(X, Z), \]
+while an identity morphism $\identity_X\in\Hom(X,X)$ is replaced by
+$\identity_X:\munit\to\iHom(X,X)$. These are all morphisms in $\mathcal{V}$,
+and their properties are expressed by commutative diagrams in $\mathcal{V}$.
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p015
+For enriched versions of functors and morphisms between them, see
+\cite[Definitions 3.4.1, 3.4.2, 3.4.4]{Li1}. They are defined in the expected
+way; in brief, an enriched functor lifts maps between Hom sets to morphisms
+between $\iHom$ objects.
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p016
+For example, a $\Bbbk\dcate{Mod}$-category is precisely a category enriched
+over $(\Bbbk\dcate{Mod},\otimes)$.
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p017
+Conversely, let us temporarily call a category without enrichment an ordinary
+category. If set-theoretic size issues are ignored, an ordinary category is
+the same thing as a category enriched over $(\cate{Set},\times)$.
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.d002
+\begin{definition}\label{def:dgCat}
+	\index{differential graded category}
+	\index{dg category}
+	Let $\Bbbk$ be a commutative ring, and consider the corresponding symmetric
+	monoidal category $(\cate{C}(\Bbbk\dcate{Mod}),\otimes)$. A category
+	enriched over $(\cate{C}(\Bbbk\dcate{Mod}),\otimes)$ is called a
+	\emph{differential graded category} over $\Bbbk$, abbreviated a
+	\emph{dg category} over $\Bbbk$. Functors between such categories and
+	morphisms between those functors are defined as for enriched
+	categories.\footnote{Much of the literature on infinity categories uses
+	the term DG-category, as well as the notation $\cate{DGCat}$ for the
+	category they form, and this notation may overlap with that of this book.
+	Although those DG-categories are closely related to the dg categories
+	discussed here, the two are not the same notion.}
+\end{definition}
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p018
+By definition, an object $X$ of a dg category gives a dg algebra
+$\End^\bullet(X)$.
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.eg002
+\begin{example}\label{eg:CA-dg-cat}
+	Example~\ref{eg:k-linear-A-enrich} says that $\cate{C}(\mathcal{A})$
+	naturally becomes a dg category over $\Bbbk$ for any $\Bbbk$-linear
+	category $\mathcal{A}$. For example, for every $\Bbbk$-algebra $R$, the
+	category of complexes of left (or right) $R$-modules is automatically a
+	dg category over $\Bbbk$.
+\end{example}
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.eg003
+\begin{example}\label{eg:dg-Hom-cplx}
+	\index{Hom complex}
+	\index[sym1]{Hom-A-bullet@$\Hom^{\bullet}_A$}
+	Let $\Bbbk$ be a commutative ring and let $A$ be a dg algebra over
+	$\mathcal{A}:=\Bbbk\dcate{Mod}$. For left $A$-modules $M$ and $N$, define
+	the following subcomplex of $\Hom^\bullet_{\Bbbk}(M,N)$:
+	% segment-id: o014.li2.chapter7.differential-graded-structures.q015
+	\[ \Hom^p_A(M, N) := \left\{\begin{array}{r|l}
+		f \in \Hom^p_{\Bbbk}(M, N) & \forall m \in M, \; \forall k \in \Z, \; \forall t \in A^k, \\
+		& f(tm) = (-1)^{pk} tf(m)
+	\end{array}\right\}. \]
+	For left $A$-modules $L$, $M$, and $N$, composition on the Hom complexes
+	$\Hom^\bullet_{\Bbbk}$ induces a morphism of complexes
+	% segment-id: o014.li2.chapter7.differential-graded-structures.q016
+	\[ \Hom^p_A(M, N) \otimes \Hom^q_A(L, M) \to \Hom^{p+q}_A(L, N). \]
+	Thus the category $A\dcate{dgMod}$ of left $A$-modules is enriched to a dg
+	category. For right $A$-modules, the condition in the definition of
+	$\Hom^p_A(M,N)$ must be replaced by $f(mt)=f(m)t$ (think about why).
+	Bimodules are handled similarly.
+
+	The definition above can also be formulated without reference to elements,
+	and therefore extends to a general $\mathcal{A}$.
+\end{example}
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p019
+More precisely, a dg category enriches every Hom set of the underlying
+ordinary category to a Hom complex $\Hom^\bullet$, while dg versions of
+functors and their morphisms must be formulated inside
+$\cate{C}(\Bbbk\dcate{Mod})$. Explicitly:
+% segment-id: o014.li2.chapter7.differential-graded-structures.l001
+\begin{itemize}
+	\item A \emph{dg functor} $F:\mathcal{C}\to\mathcal{D}$ between dg
+	categories consists of a map of object sets
+	$F:\Obj(\mathcal{C})\to\Obj(\mathcal{D})$ and morphisms of Hom complexes
+	$\Hom^\bullet_{\mathcal{C}}(X,Y)\to
+	\Hom^\bullet_{\mathcal{D}}(FX,FY)$. The latter are morphisms in
+	$\cate{C}(\Bbbk\dcate{Mod})$ and are required to make both diagrams below
+	commute:
+	% segment-id: o014.li2.chapter7.differential-graded-structures.q017
+	\begin{equation*}\begin{gathered}
+		\begin{tikzcd}[column sep=small]
+			\Hom_{\mathcal{C}}^\bullet(Y, Z) \otimes \Hom_{\mathcal{C}}^\bullet(X, Y) \arrow[r] \arrow[d] & \Hom_{\mathcal{C}}^\bullet(X, Z) \arrow[d] \\
+			\Hom_{\mathcal{D}}^\bullet(FY, FZ) \otimes \Hom_{\mathcal{D}}^\bullet(FX, FY) \arrow[r] & \Hom_{\mathcal{D}}^\bullet(FX, FZ)
+		\end{tikzcd} \\
+		\begin{tikzcd}[column sep=small]
+			\Bbbk \arrow[r] \arrow[rd] & \Hom_{\mathcal{C}}^\bullet(X, X) \arrow[d] \\
+			& \Hom_{\mathcal{D}}^\bullet(FX, FX) ;
+		\end{tikzcd}
+	\end{gathered}\end{equation*}
+	\index{dg functor}
+	\item In the classical sense, a morphism, or natural transformation,
+	$\phi$ between dg functors $F,G:\mathcal{C}\to\mathcal{D}$ is a family of
+	elements
+	% segment-id: o014.li2.chapter7.differential-graded-structures.q018
+	\begin{multline*}
+		\phi_X \in \Ker\left[ \Hom_{\mathcal{D}}^0(FX, GX) \to \Hom_{\mathcal{D}}^1(FX, GX) \right] \\
+		\xlongequal{\text{\eqref{eqn:unit-map-into-cplx}}} \Hom_{\cate{C}(\Bbbk\dcate{Mod})}\left(\Bbbk, \Hom_{\mathcal{D}}^\bullet(FX, GX) \right) ,
+	\end{multline*}
+	indexed by $X\in\Obj(\mathcal{C})$, such that for every $m\in\Z$ and
+	$f\in\Hom_{\mathcal{C}}^m(X,Y)$,
+	% segment-id: o014.li2.chapter7.differential-graded-structures.q019
+	\[ (Gf) \phi_X = \phi_Y (Ff) \; \in \Hom_{\mathcal{D}}^m(FX, GY), \]
+	where multiplication means multiplication in the Hom complex.
+\end{itemize}
+Thus one may speak of isomorphisms, equivalences, adjunctions, and other
+notions for dg categories. An element of $\Hom^n_{\mathcal{C}}(X,Y)$ is
+sometimes called a \emph{morphism of degree $n$} from $X$ to $Y$.
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p020
+For a general monoidal category $\mathcal{V}$, one may view
+$\Hom_{\mathcal{V}}(\munit,M)$ as the set of “elements” of
+$M\in\Obj(\mathcal{V})$; this is at least natural when
+$\mathcal{V}=\cate{Set}$ or $\Bbbk\dcate{Mod}$. Following this idea, every
+$\mathcal{V}$-enriched category $\mathcal{C}$ has an underlying ordinary
+category defined by
+% segment-id: o014.li2.chapter7.differential-graded-structures.q020
+\[ \Hom_{\mathcal{C}}(X, Y) := \Hom_{\mathcal{V}}\left( \munit, \iHom_{\mathcal{C}}(X, Y) \right), \]
+and we continue to denote that ordinary category by $\mathcal{C}$; see
+\cite[Remark 3.4.3]{Li1} for details. In the example of the dg category
+$\cate{C}(\mathcal{A})$, the resulting ordinary category is the ordinary
+category of complexes $\cate{C}(\mathcal{A})$. Thus our notation is
+consistent.
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p021
+Another operation comes from lax monoidal functors. Here is the general
+statement.
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.pr002
+\begin{proposition}\label{prop:lax-monoidal-enriched}
+	Let $F:\mathcal{V}\to\mathcal{V}'$ be a lax monoidal functor between
+	monoidal categories. For every $\mathcal{V}$-enriched category
+	$\mathcal{C}$, define a $\mathcal{V}'$-enriched category $F(\mathcal{C})$
+	as follows: set $\Obj(F(\mathcal{C}))=\Obj(\mathcal{C})$, and for every
+	pair of objects $X,Y$, set
+	% segment-id: o014.li2.chapter7.differential-graded-structures.q021
+	\begin{gather*}
+		\iHom_{F(\mathcal{C})}(X, Y) := F\iHom_{\mathcal{C}}(X, Y), \\
+		\identity_X: \munit_{\mathcal{V}'} \xrightarrow{\varphi_F} F(\munit_{\mathcal{V}}) \to F\iHom_{\mathcal{C}}(X, X).
+	\end{gather*}
+	Composition is defined by
+	% segment-id: o014.li2.chapter7.differential-graded-structures.q022
+	\begin{multline*}
+		F\iHom_{\mathcal{C}}(Y, Z) \otimes F\iHom_{\mathcal{C}}(X, Y) \\
+		\xrightarrow{\xi_F} F\left( \iHom_{\mathcal{C}}(Y, Z) \otimes \iHom_{\mathcal{C}}(X, Y) \right)
+		\to F\iHom_{\mathcal{C}}(X, Z),
+	\end{multline*}
+	and on the corresponding ordinary categories this construction gives an
+	ordinary functor $\mathcal{C}\to F(\mathcal{C})$.
+\end{proposition}
+% segment-id: o014.li2.chapter7.differential-graded-structures.pf002
+\begin{proof}
+	The lax monoidal structure $(F,\xi_F,\varphi_F)$ supplies all properties
+	required of composition. On the level of ordinary categories, the functor
+	is the identity on objects and sends a morphism
+	$f:\munit_{\mathcal{V}}\to\iHom_{\mathcal{C}}(X,Y)$ to the composite
+	$\munit_{\mathcal{V}'}\xrightarrow{\varphi_F}F(\munit_{\mathcal{V}})
+	\xrightarrow{Ff}F\iHom_{\mathcal{C}}(X,Y)$.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p022
+Comparing this construction with that of
+Proposition~\ref{prop:lax-monoidal-Alg}, we see that
+% Editorial correction: F(C) is enriched over V', so its endomorphism algebra
+% lies in Alg(V'); the frozen Chinese source and Indonesian witness say Alg(V).
+$\iHom_{F(\mathcal{C})}(X,X)$, as an object of $\cate{Alg}(\mathcal{V}')$,
+is induced from $\iHom_{\mathcal{C}}(X,X)$; the same applies to the bimodule
+structures on $\iHom$.
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.r001
+\begin{remark}\label{rem:dg-homotopy-cat}
+	\index{homotopy category}
+	Proposition~\ref{prop:lax-monoidal-enriched} gives another way to pass from
+	a dg category to an ordinary category. Apply the lax monoidal functor $\Hm$
+	of Proposition~\ref{prop:Hm-lax-monoidal} to any dg category $\mathcal{C}$
+	over $\Bbbk$. The result is a category $\Hm(\mathcal{C})$ enriched over
+	$(\Bbbk\dcate{Mod}^{\Z},\otimes)$, satisfying
+	% segment-id: o014.li2.chapter7.differential-graded-structures.q023
+	\[ \Obj(\Hm(\mathcal{C})) = \Obj(\mathcal{C}), \quad \iHom_{\Hm(\mathcal{C})}(X, Y) = \left( \Hm^n \Hom^\bullet(X, Y) \right)_{n \in \Z}. \]
+	Taking the degree-$0$ part, or equivalently applying the lax monoidal
+	functor $\Hm^0$ to $\mathcal{C}$, produces an ordinary
+	$\Bbbk\dcate{Mod}$-category called the \emph{homotopy category}
+	$\mathrm{h}(\mathcal{C})$ of $\mathcal{C}$. It satisfies
+	% segment-id: o014.li2.chapter7.differential-graded-structures.q024
+	\[ \Obj(\mathrm{h}\mathcal{C}) = \Obj(\mathcal{C}), \quad \Hom_{\mathrm{h}\mathcal{C}}(X, Y) = \Hm^0 \Hom^\bullet(X, Y). \]
+	In the special case $\mathcal{C}=\cate{C}(\mathcal{A})$, substituting
+	Definition~\ref{def:cplx-homotopy-cat} immediately gives
+	% segment-id: o014.li2.chapter7.differential-graded-structures.q025
+	\[ \mathrm{h}(\cate{C}(\mathcal{A})) = \cate{K}(\mathcal{A}). \]
+\end{remark}
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p023
+As seen above, the world of dg categories supports many homotopy-flavored
+operations. Their meaning ultimately has to be explained through
+applications and also involves the abstract language of model categories.
+We give only a brief outline of some elementary notions, without developing
+them further.
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.d003
+\begin{definition}
+	Let $F:\mathcal{C}\to\mathcal{D}$ be a dg functor between dg categories.
+	If
+	% segment-id: o014.li2.chapter7.differential-graded-structures.q026
+	\[ \Hom^\bullet_{\mathcal{C}}(X, Y) \to \Hom^\bullet_{\mathcal{D}}(FX, FY) \]
+	is a quasi-isomorphism for all $X,Y\in\Obj(\mathcal{C})$, then $F$ is
+	called \emph{quasi-fully faithful}. If the induced functor
+	$\mathrm{h}F:\mathrm{h}\mathcal{C}\to\mathrm{h}\mathcal{D}$ is
+	essentially surjective, then $F$ is called \emph{quasi-essentially
+	surjective}. A dg functor that is both quasi-fully faithful and
+	quasi-essentially surjective is called a \emph{quasi-equivalence}.
+\end{definition}
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p024
+Thus quasi-equivalent dg categories $\mathcal{C}$ and $\mathcal{D}$ have
+equivalent homotopy categories.
+
+% segment-id: o014.li2.chapter7.differential-graded-structures.p025
+We continue this brief discussion of dg categories in \S\ref{sec:dg-closed}.

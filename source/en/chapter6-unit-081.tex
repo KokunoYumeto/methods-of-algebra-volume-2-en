@@ -1,0 +1,250 @@
+% Unit 081 English translation of chapter6.tex lines 1632--1739.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter6.lhs-spectral-sequence-b
+% Coverage: proof of the LHS theorem, the inflation--restriction sequence,
+% Hopf's formula, and the multiplicative LHS structure; concludes Section 6.9.
+
+% segment-id: o014.li2.chapter6.lhs-spectral-sequence-b.p001
+\begin{proof}
+	For~(i), it suffices to express \eqref{eqn:LHS-derived} concretely through
+	the Grothendieck spectral sequence of
+	Theorem~\ref{prop:Grothendieck-ss}.
+
+	We now discuss~(ii). If $n=1$, the hypothesis is vacuous and the
+	corresponding exact sequence is precisely the low-degree exact sequence in
+	Theorem~\ref{prop:Grothendieck-ss}; its underlying principle is the edge
+	computation in Remark~\ref{rem:edge-computing}. We next review and extend
+	that argument to general $n$. The idea is to exploit the zero terms in the
+	spectral sequence.
+
+	It suffices to discuss the cohomological case. The hypothesis shows that
+	the spectral sequence in~(i) satisfies
+	\[ 1\leq q<n\implies
+	E_2^{p,q}=E_3^{p,q}=\cdots=E_\infty^{p,q}=0. \]
+
+	Recall that the direction of $d_r$ is
+	$d_r^{p,q}:E_r^{p,q}\to E_r^{p+r,q-r+1}$ and that $E_{r+1}^{p,q}$ is the
+	cohomology of $E_r^{p,q}$ with respect to $d_r$. Every $d$ leaving
+	$E_{n+1}^{n+1,0}$ (or entering $E_{n+1}^{0,n}$) is zero. We therefore
+	obtain the horizontal exact sequence in the diagram
+	\[\begin{tikzcd}[row sep=small, column sep=scriptsize]
+		& E_\infty^{0,n} \arrow[phantom,d,"\simeq" description,sloped]
+		& & & E_\infty^{n+1,0}
+		\arrow[phantom,d,"\simeq" description,sloped] & \\
+		& \vdots \arrow[phantom,d,"\simeq" description,sloped]
+		& & & \vdots \arrow[phantom,d,"\simeq" description,sloped] & \\
+		0 \arrow[r] & E_{n+2}^{0,n} \arrow[r] &
+		E_{n+1}^{0,n} \arrow[r,"{d^{0,n}_{n+1}}" inner sep=0.6em]
+		\arrow[phantom,d,"\simeq" description,sloped] &
+		E_{n+1}^{n+1,0} \arrow[r]
+		\arrow[phantom,d,"\simeq" description,sloped] &
+		E_{n+2}^{n+1,0} \arrow[r] & 0. \\
+		& & \vdots \arrow[phantom,d,"\simeq" description,sloped] &
+		\vdots \arrow[phantom,d,"\simeq" description,sloped] & & \\
+		& \Hm^n(H,M)^{G/H} \arrow[r,"\sim"] & E_2^{0,n} & E_2^{n+1,0} &
+		\Hm^{n+1}(G/H,M^H) \arrow[l,"\sim"'] &
+	\end{tikzcd}\]
+	The reason for the vertical isomorphisms is similar: once every $d$
+	entering or leaving $E_r^{p,q}$ is zero, there is an isomorphism
+	$E_r^{p,q}\simeq E_{r+1}^{p,q}$. In the same way one obtains
+	\[ \Hm^n(G/H,M^H)\simeq E_2^{n,0}\simeq\cdots
+	\simeq E_\infty^{n,0}. \]
+
+	Next, recall that the target $\Hm^{p+q}(G,M)$ of the spectral sequence has
+	a finite decreasing filtration
+	$\cdots\supset\mathrm{F}^k\supset\mathrm{F}^{k+1}\supset\cdots$, with
+	$E_\infty^{p,q}\simeq\gr^p\Hm^{p+q}(G,M)$. At the edge of the first
+	quadrant, this gives
+	\begin{align*}
+		E_\infty^{n+1,0}&\simeq\mathrm{F}^{n+1}
+		\subset\Hm^{n+1}(G,M),\\
+		E_\infty^{0,n}&\simeq\Hm^n(G,M)/\mathrm{F}^1.
+	\end{align*}
+
+	How can one determine $\mathrm{F}^1\subset\Hm^n(G,M)$? On the line
+	$p+q=n$, only $(n,0)$ and $(0,n)$ can possibly satisfy
+	$E_\infty^{p,q}\neq0$. Thus the filtration on $\Hm^n(G,M)$ has the form
+	\[ 0=\mathrm{F}^{n+1}
+	\underbracket{\subset}_{E_\infty^{n,0}}\mathrm{F}^n
+	=\cdots=\mathrm{F}^1
+	\underbracket{\subset}_{E_\infty^{0,n}}\mathrm{F}^0
+	=\Hm^n(G,M). \]
+	Combining all the isomorphisms and exact sequences above gives the desired
+	result.
+
+	Assertion~(iii) is as expected, but the following argument is somewhat
+	long and may be skipped. For brevity, we discuss only
+	$\Hm^n(G,M)\to\Hm^n(H,M)^{G/H}$; the other cases are similar or easy.
+	Recall the construction in \S\ref{sec:double-cplx-ss}. Take an injective
+	resolution $M\to I$, with $I$ a complex of $G$-modules, and then take a
+	Cartan--Eilenberg resolution $J$ of the complex of $G/H$-modules $I^H$
+	(Theorem~\ref{prop:CE-resolution}). Regarding the complexes $I^G$ and so
+	forth as double complexes concentrated on the horizontal axis gives a
+	commutative diagram of double complexes of $\Bbbk$-modules
+	\begin{equation}\label{eqn:LHS-SS-aux}\begin{tikzcd}
+		& J^{G/H} \arrow[hookrightarrow,r] & J \\
+		I^G \arrow[equal,r] & (I^H)^{G/H}
+		\arrow[hookrightarrow,r] \arrow[u] & I^H. \arrow[u]
+	\end{tikzcd}\end{equation}
+
+	Following the convention of Proposition~\ref{prop:double-cplx-ss}, write
+	$\Hm_{\mathrm{II}}\Hm_{\mathrm{I}}(\cdot)$ for the operation of first
+	taking horizontal and then vertical cohomology of a double complex. Note
+	the following points.
+	\begin{itemize}
+		\item Since the horizontal cohomology $\Hm_{\mathrm{I}}(J)$ of the
+		Cartan--Eilenberg resolution gives an injective resolution of
+		$\Hm^p(I^H)$ in column $p$ ($p\in\Z$), the morphism $I^H\to J$ induces
+		the isomorphism
+		\[ \Hm^n(H,M)=\Hm^n(I^H)
+		=\Hm_{\mathrm{II}}\Hm_{\mathrm{I}}(I^H)^{n,0}
+		\rightiso\Hm_{\mathrm{II}}\Hm_{\mathrm{I}}(J)^{n,0}. \]
+		\item Remark~\ref{rem:CE-split} gives
+		$\Hm_{\mathrm{I}}(J^{G/H})\simeq\Hm_{\mathrm{I}}(J)^{G/H}$. Since
+		$\Hm_{\mathrm{I}}(J)$ vertically resolves each $\Hm^p(H,M)$, while
+		$(\cdot)^{G/H}$ is left exact, applying
+		$\Hm_{\mathrm{II}}\Hm_{\mathrm{I}}(\cdot)^{n,0}$ to
+		$J^{G/H}\hookrightarrow J$ corresponds to
+		\[ \text{the inclusion homomorphism}\qquad
+		\Hm^n(H,M)^{G/H}\hookrightarrow\Hm^n(H,M). \]
+		\item We have shown that $I^G\hookrightarrow I^H$ induces on $\Hm^n$
+		(or, equivalently, on
+		$\Hm_{\mathrm{II}}\Hm_{\mathrm{I}}(\cdot)^{n,0}$) the canonical
+		homomorphism $\Hm^n(G,M)\to\Hm^n(H,M)$.
+	\end{itemize}
+
+	Filter the first-quadrant double complex $J^{G/H}$ decreasingly by the
+	vertical coordinate (the $p$th step is the part with vertical coordinate
+	$\geq p$). The corresponding spectral sequence is
+	$(E_r^{p,q})_{p,q}$, where $r=0,1,\ldots$. Write $\Ker(d^n)_{n,0}$ for
+	the projection of $\Ker(d^n)$ in the total complex $\tot(J^{G/H})$ onto
+	the component $(n,0)$. The description of $Z_r^{p,q}$ in
+	Proposition~\ref{prop:filtered-cplx-ss}, together with the observations
+	above, gives
+	\begin{multline}\label{eqn:LHS-SS-aux1}
+		\Ker(d^n)_{n,0}\simeq Z_\infty^{0,n}
+		\subset\cdots\subset Z_2^{0,n}\\
+		\twoheadrightarrow E_2^{0,n}
+		=\Hm_{\mathrm{II}}\Hm_{\mathrm{I}}(J^{G/H})^{n,0}
+		\simeq\Hm^n(H,M)^{G/H}.
+	\end{multline}
+
+	We now describe $\Hm^n(G,M)\to\Hm^n(H,M)^{G/H}$. Choose a representative
+	of an element of $\Hm^n(G,M)$ in
+	$\Ker[I^{n,G}\to I^{n+1,G}]$, map it through $I^G\to J^{G/H}$ into
+	$\Ker(d^n)_{n,0}$, and then follow \eqref{eqn:LHS-SS-aux1} to
+	$\Hm_{\mathrm{II}}\Hm_{\mathrm{I}}(J^{G/H})^{n,0}$. To take its image
+	further in $\Hm^n(H,M)$, apply
+	$\Hm_{\mathrm{II}}\Hm_{\mathrm{I}}(\cdot)^{n,0}$ to the whole diagram
+	\eqref{eqn:LHS-SS-aux} and compose along
+	\begin{tikzpicture}[scale=0.5, baseline=(O)]
+		\draw[->] (-1,0)--(0,0)--(0,1)--(1,1);
+		\coordinate (O) at (0,0.2);
+	\end{tikzpicture}.
+	If instead we follow
+	\begin{tikzpicture}[scale=0.5, baseline=(O)]
+		\draw[->] (-1,0)--(1,0)--(1,1);
+		\coordinate (O) at (0,0.2);
+	\end{tikzpicture}
+	and use the three observations above, the result is the canonical
+	homomorphism $\Hm^n(G,M)\to\Hm^n(H,M)$. This proves~(iii).
+\end{proof}
+
+% segment-id: o014.li2.chapter6.lhs-spectral-sequence-b.p002
+Remark~\ref{rem:LHS-SS-mult} will give a canonical and perhaps more natural
+construction of the Lyndon--Hochschild--Serre spectral sequence.
+
+% segment-id: o014.li2.chapter6.lhs-spectral-sequence-b.p003
+\index{inflation--restriction exact sequence}
+The cohomological exact sequence above is also called the
+\emph{inflation--restriction exact sequence}, because the canonical
+homomorphism $\Hm^n(G/H,M^H)\to\Hm^n(G,M)$ is commonly called the inflation
+homomorphism, while $\Hm^n(G,M)\to\Hm^n(H,M)^{G/H}$ is called the restriction
+homomorphism. The more complicated morphisms are
+\[ \Hm^n(H,M)^{G/H}\to\Hm^{n+1}(G/H,M^H),\qquad
+	\Hm_{n+1}(G/H,M_H)\to\Hm_n(H,M)_{G/H}. \]
+They are both called \emph{transgression} maps, in keeping with the
+transgression maps in the theory of characteristic classes.
+\index{transgression}
+
+% segment-id: o014.li2.chapter6.lhs-spectral-sequence-b.p004
+As an application, we briefly derive a formula of Hopf for computing
+$\Hm_2(G,\Z)$ from a presentation of the group $G$. Here we take $\Bbbk=\Z$
+and give $\Z$ the trivial $G$-module structure.
+
+% segment-id: o014.li2.chapter6.lhs-spectral-sequence-b.t001
+\begin{corollary}[H.\ Hopf]\label{prop:Hopf-H2}
+	\index[sym1]{[,]@$[\cdot,\cdot]$}
+	Let $G$ be a group and $G\simeq F/R$, where $F$ is a free group and
+	$R\lhd F$. Write $[F,R]$ for the subgroup of $R$ generated by the
+	elements $[f,r]:=frf^{-1}r^{-1}$, with $f\in F$ and $r\in R$. This
+	subgroup is normal in $R$ and
+	$[F,R]\subset[F,F]:=F_{\mathrm{der}}$. There is an isomorphism
+	\[ \Hm_2(G,\Z)\simeq(R\cap[F,F])/[F,R]. \]
+\end{corollary}
+\begin{proof}
+	Proposition~\ref{prop:free-group-coh} gives $\Hm_2(F,\Z)=0$. Thus the
+	exact sequence in Theorem~\ref{prop:LHS-SS} for $n=1$ becomes
+	\[ 0\to\Hm_2(G,\Z)\to\Hm_1(R,\Z)_G
+	\to\Hm_1(F,\Z)\to\Hm_1(G,\Z)\to0. \]
+	Interpreting $\Hm_1$ through Example~\ref{eg:group-H1-further}, we obtain
+	\[ 0\to\Hm_2(G,\Z)\to\left(\frac{R}{[R,R]}\right)_G
+	\to\frac{F}{[F,F]}\to\frac{G}{[G,G]}\to0. \]
+
+	The action of $G$ on $R/[R,R]$ is as follows. Choose a preimage $f\in F$
+	of $g\in G$; one can verify that the action of $g$ comes from the
+	conjugation action of $f$ on $R$ (exercise). For an arbitrary
+	$\bar r\in R/[R,R]$, choose a preimage $r\in R$. Then
+	$g\bar r-\bar r$ (with the group operation written additively) is the
+	image of
+	\[ frf^{-1}\cdot r^{-1}\in R
+	\quad\text{(with the group operation written multiplicatively)}. \]
+	As $f$ and $r$ vary, these elements generate $[F,R]$. Hence
+	$(R/[R,R])_G\simeq R/[F,R]$; the rest is immediate.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.lhs-spectral-sequence-b.r001
+\begin{remark}[Multiplicative structure of the
+Lyndon--Hochschild--Serre spectral sequence]\label{rem:LHS-SS-mult}
+	In the cohomological case, write the spectral sequence of a $G$-module
+	$M$ as $E_r^{p,q}(M)$. The cup-product operation to be introduced in
+	\S\ref{sec:cup-product}, applied to the cohomology of $G/H$ and $H$,
+	equips the $E_2$ term with a multiplicative structure
+	\[ \cup:E_2^{p_1,q_1}(M_1)\otimes E_2^{p_2,q_2}(M_2)
+	\to E_2^{p_1+p_2,q_1+q_2}(M_1\otimes M_2), \]
+	while the convergence target of the spectral sequence also has a cup
+	product, applied to the group $G$:
+	\[ \cup:\Hm^{n_1}(G,M_1)\otimes\Hm^{n_2}(G,M_2)
+	\to\Hm^{n_1+n_2}(G,M_1\otimes M_2). \]
+	The question is whether these structures can be defined on every page and
+	whether $d_r$ has good properties with respect to them, such as the
+	Leibniz rule
+	\[ d_r(\alpha_1\cup\alpha_2)
+	=d_r(\alpha_1)\cup\alpha_2
+	+(-1)^{p_1+q_1}\alpha_1\cup(d_r\alpha_2),
+	\qquad \alpha_i\in E_r^{p_i,q_i}(M_i). \]
+
+	In their original work \cite[pp.~118--119]{HS53}, Hochschild and Serre
+	wrote down directly a canonical filtration on the normalized standard
+	complex $\overline{C}(G,M)$ that is compatible with the cup product
+	defined at the level of $\overline{C}(G,M)$. Consequently, every page
+	inherits a multiplication with the properties above. Concretely, they use
+	the decreasing filtration
+	$\overline{C}(G,M)=\mathrm{F}^0\supset\mathrm{F}^1\supset\cdots$. If
+	$p>n$, the degree-$n$ term of the complex $\mathrm{F}^p$ is $0$; otherwise,
+	the degree-$n$ term of $\mathrm{F}^p$ is
+	\[ \left\{\begin{array}{r|l}
+		f\in\overline{C}^n(G,M) &
+		(g_1,\ldots,g_n)\ \text{has at least }n-p+1\text{ entries in }H\\
+		&\implies f(g_1,\ldots,g_n)=0
+	\end{array}\right\}. \]
+	The details are left as an exercise for this chapter; interested readers,
+	or those who need them, may consult the original work.
+
+	In particular, $\overline{C}(G,\Bbbk)$ becomes a filtered differential
+	graded algebra, and the spectral sequence $E_r^{p,q}(\Bbbk)$ has the
+	corresponding multiplicative structure (Definition~\ref{def:mult-ss} and
+	Proposition~\ref{prop:dga-mult-ss}). From the topological viewpoint, this
+	is entirely unsurprising.
+\end{remark}

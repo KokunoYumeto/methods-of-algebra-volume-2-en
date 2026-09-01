@@ -1,0 +1,787 @@
+% Unit 055: English translation of chapter4.tex, lines 987--1313.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter4.morphisms-extensions
+% Coverage: complete Section 4.5 on morphisms in the derived category,
+% amplitude, the Way-out Lemma, Ext functors, and Yoneda's description by
+% n-extensions; ends immediately before Section 4.6 at line 1314.
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.h001
+\section{Morphisms and Extensions}\label{sec:Hom-Ext}
+\hypertarget{o014.aljabr2.chapter4.morphisms-extensions}{ }
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.p001
+Throughout this section, $\mathcal{A}$ is an Abelian category. Without
+further comment, we identify
+$\Obj(\cate{C}(\mathcal{A}))$, $\Obj(\cate{K}(\mathcal{A}))$, and
+$\Obj(\cate{D}(\mathcal{A}))$; when necessary, we distinguish the morphism
+sets in these categories by writing
+$\Hom_{\cate{D}(\mathcal{A})}$, $\Hom_{\cate{K}(\mathcal{A})}$,
+$\Hom_{\cate{C}(\mathcal{A})}$, and $\Hom_{\mathcal{A}}$. Readers not yet
+familiar with K-injective and K-projective complexes may skip the statements
+concerning them.
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.pr001
+\begin{proposition}\label{prop:Hom-D-injective}
+	Suppose $X \in \Obj(\cate{C}^+(\mathcal{A}))$ consists of injective
+	objects, or, more generally, suppose
+	$X \in \Obj(\cate{C}(\mathcal{A}))$ is a K-injective complex as in
+	Definition~\ref{def:K-resolutions}. Then
+	$\Hom_{\cate{K}(\mathcal{A})}(\cdot, X) \simeq
+	\Hom_{\cate{D}(\mathcal{A})}(\cdot, X)$.
+
+	Dually, suppose $X \in \Obj(\cate{C}^-(\mathcal{A}))$ consists of
+	projective objects, or suppose
+	$X \in \Obj(\cate{C}(\mathcal{A}))$ is a K-projective complex. Then
+	$\Hom_{\cate{K}(\mathcal{A})}(X, \cdot) \simeq
+	\Hom_{\cate{D}(\mathcal{A})}(X, \cdot)$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.pf001
+\begin{proof}
+	By duality, it suffices to treat
+	$\Hom_{\cate{D}(\mathcal{A})}(\cdot, X)$. Lemma~\ref{prop:MXY-equiv}
+	gives
+% segment-id: o014.li2.chapter4.morphisms-extensions.g001
+	\begin{equation}\label{eqn:Hom-D-injective-aux}
+		\Hom_{\cate{D}(\mathcal{A})}(T, X) \simeq \varinjlim_{\substack{\alpha: S \to T \\ \text{quasi-isomorphism in }\cate{K}(\mathcal{A})}} \Hom_{\cate{K}(\mathcal{A})}(S, X), \quad T \in \Obj(\cate{K}(\mathcal{A})).
+	\end{equation}
+
+	Suppose $X \in \Obj(\cate{C}^+(\mathcal{A}))$ consists of injective
+	objects. For a quasi-isomorphism
+	$\alpha \in \Hom_{\cate{K}(\mathcal{A})}(S, T)$,
+	Theorem~\ref{prop:resolution-homotopy} shows that
+	$\alpha^*: \Hom_{\cate{K}(\mathcal{A})}(T, X) \rightiso
+	\Hom_{\cate{K}(\mathcal{A})}(S, X)$. Hence the $\varinjlim$ in
+	\eqref{eqn:Hom-D-injective-aux} is equal to
+	$\Hom_{\cate{K}(\mathcal{A})}(T, X)$.
+
+	If $X \in \Obj(\cate{C}(\mathcal{A}))$ is K-injective, use
+	Theorem~\ref{prop:K-resolution-homotopy} instead.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.p002
+One immediate application of the preceding proposition is to control the size
+of a derived category. Here we again use the chosen Grothendieck universe
+$\mathcal{U}$, together with the terminology of $\mathcal{U}$-categories
+(that is, “categories” in the standard convention of this book) and small
+$\mathcal{U}$-categories.
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.co001
+\begin{corollary}\label{prop:D-size}
+	Use the notation above. Let $\mathcal{A}$ be a $\mathcal{U}$-category.
+% segment-id: o014.li2.chapter4.morphisms-extensions.l001
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter4.morphisms-extensions.i001
+		\item If $\mathcal{A}$ has enough injective objects (respectively
+		projective objects), then $\cate{D}^+(\mathcal{A})$ (respectively
+		$\cate{D}^-(\mathcal{A})$) is also a $\mathcal{U}$-category.
+% segment-id: o014.li2.chapter4.morphisms-extensions.i002
+		\item If $\mathcal{A}$ has enough K-injective or K-projective
+		complexes (Definition~\ref{def:K-resolutions}), then
+		$\cate{D}(\mathcal{A})$ is also a $\mathcal{U}$-category.
+% segment-id: o014.li2.chapter4.morphisms-extensions.i003
+		\item If $\mathcal{A}$ is a small $\mathcal{U}$-category, then so is
+		$\cate{D}(\mathcal{A})$.
+	\end{enumerate}
+\end{corollary}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.pf002
+\begin{proof}
+	It suffices to verify that $\Hom_{\cate{D}(\mathcal{A})}(X,Y)$ is a small
+	$\mathcal{U}$-set. Notice that the $\Hom_{\cate{K}(\mathcal{A})}$ version
+	is easy to handle, since it is straightforward to prove that
+	$\cate{C}(\mathcal{A})$ is a $\mathcal{U}$-category.
+
+	Suppose $\mathcal{A}$ has enough injective objects and
+	$X \in \Obj(\cate{D}^+(\mathcal{A}))$. Without loss of generality, we
+	may assume that $X \in \Obj(\cate{C}^+(\mathcal{A}))$ consists of
+	injective objects; (i) then follows from
+	Proposition~\ref{prop:Hom-D-injective}. If $X$ has a K-injective resolution
+	(respectively $Y$ has a K-projective resolution), without loss of
+	generality we may assume that $X$ is K-injective (respectively $Y$ is
+	K-projective); the same argument gives (ii).
+
+	For (iii), observe that $\cate{K}(\mathcal{A})$ is then a small
+	$\mathcal{U}$-category. Apply this observation to
+	Remark~\ref{rem:localization-size}.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.x001
+\index{size issues}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.pr002
+\begin{proposition}[Orthogonality]\label{prop:derived-cat-orthogonality}
+	Let $a,b,n\in\Z$, with $a<b$.
+% segment-id: o014.li2.chapter4.morphisms-extensions.l002
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter4.morphisms-extensions.i004
+		\item If $X \in \Obj(\cate{D}^{\leq a}(\mathcal{A}))$ and
+		$Y \in \Obj(\cate{D}^{\geq b}(\mathcal{A}))$, then
+		$\Hom_{\cate{D}(\mathcal{A})}(X,Y)=0$.
+% segment-id: o014.li2.chapter4.morphisms-extensions.i005
+		\item If $X \in \Obj(\cate{D}^{\leq n}(\mathcal{A}))$ and
+		$Y \in \Obj(\cate{D}^{\geq n}(\mathcal{A}))$, then $\Hm^n$
+		induces a canonical isomorphism
+% segment-id: o014.li2.chapter4.morphisms-extensions.q001
+		\[ \Hom_{\cate{D}(\mathcal{A})}(X, Y) \rightiso \Hom_{\mathcal{A}}\left( \Hm^n(X), \Hm^n(Y) \right). \]
+	\end{enumerate}
+\end{proposition}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.pf003
+\begin{proof}
+	Let $a\leq b$. Represent a morphism
+	$f\in\Hom_{\cate{D}(\mathcal{A})}(X,Y)$ by a diagram
+	$X\xleftarrow{s}Z\xrightarrow{g}Y$ in $\cate{K}(\mathcal{A})$, where
+	$s$ is a quasi-isomorphism. Replacing $f$ by $g$, we may reduce to the
+	case in which $f$ comes from $\cate{C}(\mathcal{A})$. Next replace $f$
+	by the composite
+	$\tau^{\leq a}X\to X\xrightarrow{f}Y\to\tau^{\geq b}Y$ in
+	$\cate{C}(\mathcal{A})$. The two morphisms at the ends of this composite
+	are quasi-isomorphisms. We may therefore reduce further to the case
+	$X\in\Obj(\cate{C}^{\leq a}(\mathcal{A}))$ and
+	$Y\in\Obj(\cate{C}^{\geq b}(\mathcal{A}))$.
+
+	If $a<b$, every morphism $X\to Y$ in $\cate{C}(\mathcal{A})$ must be
+	zero. This proves (i).
+
+	Now take $X$ and $Y$ as above, but set $a=n=b$ to treat (ii). Consider
+	the canonical morphisms
+% segment-id: o014.li2.chapter4.morphisms-extensions.e001
+	\begin{equation}\label{eqn:derived-cat-orthogonality-aux}
+		\Hom_{\mathcal{A}}\left( \Hm^n(X), \Hm^n(Y) \right) \xleftarrow{\Hm^n} \Hom_{\cate{C}(\mathcal{A})}(X, Y) \to \Hom_{\cate{K}(\mathcal{A})}(X, Y) \to \Hom_{\cate{D}(\mathcal{A})}(X, Y).
+	\end{equation}
+	\begin{itemize}
+		\item The first morphism $\Hm^n$ is an isomorphism: because
+		$X\in\Obj(\cate{C}^{\leq n}(\mathcal{A}))$ and
+		$Y\in\Obj(\cate{C}^{\geq n}(\mathcal{A}))$, any
+		$f\in\Hom_{\cate{C}(\mathcal{A})}(X,Y)$ can be nonzero only in
+		degree $n$, and the only conditions on $f^n$ are
+% segment-id: o014.li2.chapter4.morphisms-extensions.q002
+		\[ f^n\left( \Image(d_X^{n-1}) \right) = 0 , \quad f\left(X^n\right) \subset \Ker\left( d_Y^n \right). \]
+		But $X^n/\Image(d_X^{n-1})=\Hm^n(X)$ and
+		$\Ker(d_Y^n)=\Hm^n(Y)$.
+		\item The second morphism is also an isomorphism, since the conditions
+		on $X,Y$ imply $\Hom^{-1}(X,Y)=\{0\}$.
+	\end{itemize}
+
+	Thus, to prove (ii), it remains to show that the last morphism in
+	\eqref{eqn:derived-cat-orthogonality-aux} is an isomorphism. Applying
+	Lemma~\ref{prop:MXY-equiv} gives
+% segment-id: o014.li2.chapter4.morphisms-extensions.q003
+	\[ \Hom_{\cate{D}(\mathcal{A})}(X, Y) \simeq \varinjlim_{[Y \rightarrowtail Z] \in \Obj(\mathrm{qis}_{Y/}) } \Hom_{\cate{K}(\mathcal{A})}(X, Z). \]
+	If $Y\to Z$ is a quasi-isomorphism, then both morphisms in
+	$Y\to Z\to\tau^{\geq n}Z$ are quasi-isomorphisms in
+	$\cate{K}(\mathcal{A})$. This shows that the quasi-isomorphisms $Y\to Z$
+	with $Z$ coming from $\cate{C}^{\geq n}(\mathcal{A})$ form a cofinal full
+	subcategory of the filtered category $\mathrm{qis}_{Y/}$
+	(Definition~\ref{def:cofinal} and
+	Proposition~\ref{prop:cofinal-filtered}). By
+	Proposition~\ref{prop:cofinal-lim}, we may henceforth restrict the
+	$\varinjlim$ to this subcategory.
+
+	We already know that the first two morphisms in
+	\eqref{eqn:derived-cat-orthogonality-aux} are canonical isomorphisms. Take
+	$Y\to Z$ as above. This gives the commutative diagram
+% segment-id: o014.li2.chapter4.morphisms-extensions.g002
+	\[\begin{tikzcd}
+		\Hom_{\mathcal{A}}(\Hm^n(X), \Hm^n(Y)) \arrow[d, "\sim" sloped] & \Hom_{\cate{K}(\mathcal{A})}(X, Y) \arrow[l, "\sim", "{\Hm^n}"'] \arrow[d] \\
+		\Hom_{\mathcal{A}}(\Hm^n(X), \Hm^n(Z)) & \Hom_{\cate{K}(\mathcal{A})}(X, Z) \arrow[l, "\sim"', "{\Hm^n}"]
+	\end{tikzcd}\]
+	which shows that
+	$\Hom_{\cate{K}(\mathcal{A})}(X,Y)\rightiso
+	\Hom_{\cate{K}(\mathcal{A})}(X,Z)$. Hence the preceding $\varinjlim$ is
+	constant with value $\Hom_{\cate{K}(\mathcal{A})}(X,Y)$. The last
+	morphism in \eqref{eqn:derived-cat-orthogonality-aux} is therefore an
+	isomorphism.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.th001
+\begin{theorem}\label{prop:derived-cat-embedding}
+	Regarding the objects of $\mathcal{A}$ as complexes concentrated in
+	degree zero gives an equivalence of additive categories
+	$\mathcal{A}\to\cate{D}^{\leq0}(\mathcal{A})\cap
+	\cate{D}^{\geq0}(\mathcal{A})$, with quasi-inverse given by $\Hm^0$.
+\end{theorem}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.pf004
+\begin{proof}
+	It is clear that the objects of $\mathcal{A}$ give objects of
+	$\cate{D}^{\leq0}(\mathcal{A})\cap\cate{D}^{\geq0}(\mathcal{A})$.
+	Thus we obtain an additive functor
+	$\Phi:\mathcal{A}\to\cate{D}^{\leq0}(\mathcal{A})\cap
+	\cate{D}^{\geq0}(\mathcal{A})$. Proposition
+	\ref{prop:derived-cat-orthogonality} (ii) implies that $\Phi$ is fully
+	faithful.
+
+	We next show that $\Phi$ is essentially surjective. Let $X$ be an object
+	of $\cate{D}^{\leq0}(\mathcal{A})\cap\cate{D}^{\geq0}(\mathcal{A})$.
+	Applying the truncation functors to the complex $X$ in
+	$\cate{C}(\mathcal{A})$, we see that every morphism in
+	$X\to\tau^{\geq0}X\leftarrow\tau^{\leq0}\tau^{\geq0}X$ is a
+	quasi-isomorphism, while Proposition~\ref{prop:truncate-twice} gives
+	$\tau^{\leq0}\tau^{\geq0}X\simeq\Hm^0(X)$. Hence $\Phi$ is an
+	equivalence and $\Hm^0$ is its quasi-inverse.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.p003
+More generally, for every $n\in\Z$, the functor $S\mapsto S[-n]$ gives an
+additive equivalence from $\mathcal{A}$ to
+$\cate{D}^{\geq n}(\mathcal{A})\cap\cate{D}^{\leq n}(\mathcal{A})$, with
+$\Hm^n$ as quasi-inverse. This is simply the shifted version of the result
+above.
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.p004
+Henceforth, without further comment, we identify $\mathcal{A}$ with the full
+additive subcategory
+$\cate{D}^{\geq0}(\mathcal{A})\cap\cate{D}^{\leq0}(\mathcal{A})$ of
+$\cate{D}^{\bdd}(\mathcal{A})$.
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.d001
+\begin{definition}\label{def:functor-amplitude}
+	\index{amplitude}
+	Let $\star\in\{+,-,\bdd,\hspace{0.8em}\}$ (where
+	$\star=\hspace{0.8em}$ means that there is no superscript), and let
+	$\mathcal{A}$ and $\mathcal{A}'$ be Abelian categories. If a
+	triangulated functor
+	$R:\cate{D}^\star(\mathcal{A})\to\cate{D}^\star(\mathcal{A}')$
+	restricts to
+	$\mathcal{A}\to\cate{D}^{[a,b]}(\mathcal{A}')$, where
+	$-\infty\leq a\leq b\leq+\infty$, then $R$ is said to have
+	\emph{amplitude} contained in $[a,b]$.
+\end{definition}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.p005
+Here is a simple observation: if
+$X'\to X\to X''\xrightarrow{+1}$ is a distinguished triangle in
+$\cate{D}(\mathcal{A})$ and
+$X',X''\in\Obj(\cate{D}^{[a,b]}(\mathcal{A}))$, then
+$X\in\Obj(\cate{D}^{[a,b]}(\mathcal{A}))$. This follows immediately from
+the long exact sequence for $\Hm^n$.
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.le001
+\begin{lemma}\label{prop:amplitude-translate}
+	If the amplitude of $R$ is contained in $[a,b]$, then for every
+	$-\infty<c\leq d<+\infty$ one has
+% segment-id: o014.li2.chapter4.morphisms-extensions.q004
+	\[ R\;\text{restricts to}\;\cate{D}^{[c,d]}(\mathcal{A})\to\cate{D}^{[c+a,d+b]}(\mathcal{A}'). \]
+\end{lemma}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.pf005
+\begin{proof}
+	The case $c=d$ is immediate. If $c<d$, then for every
+	$X\in\Obj(\cate{D}^{[c,d]}(\mathcal{A}))$, take the distinguished
+	triangle from Proposition~\ref{prop:derived-truncation-adjunction}
+% segment-id: o014.li2.chapter4.morphisms-extensions.q005
+	\[ \tau^{\leq d-1}X\to X\to\tau^{\geq d}X\xrightarrow{+1},\quad \tau^{\geq d}X\simeq\Hm^d(X)[-d] \]
+	and apply the preceding observation to its image under $R$ to carry out
+	the induction.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.p006
+Consequently, if $R$ has finite amplitude, then it restricts to
+$\cate{D}^{\bdd}(\mathcal{A})\to\cate{D}^{\bdd}(\mathcal{A}')$.
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.p007
+We next give a related result explaining how a triangulated functor is
+determined by its values on $\mathcal{A}$.
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.pr003
+\begin{proposition}[Way-out Lemma {\cite[Chapter I, \S 7]{Har66}}]\label{prop:wayout}
+	\index{Way-out Lemma}
+	Let $\mathcal{T}$ be a weak Serre subcategory of $\mathcal{A}$ and let
+	$\star\in\{\hspace{0.8em},+,\bdd\}$. Consider triangulated functors
+	$F,G:\cate{D}^{\star}_{\mathcal{T}}(\mathcal{A})\to
+	\cate{D}(\mathcal{A}')$ and a morphism $\eta:F\to G$ between them such
+	that $\eta_X:FX\to GX$ is an isomorphism for every
+	$X\in\Obj(\mathcal{T})$. Then $\eta$ is also an isomorphism if one of the
+	following conditions holds:
+% segment-id: o014.li2.chapter4.morphisms-extensions.l003
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter4.morphisms-extensions.i006
+		\item $\star=\bdd$;
+% segment-id: o014.li2.chapter4.morphisms-extensions.i007
+		\item $\star=+$, and there exists $k\in\Z$ such that $F,G$ restrict
+		to $\cate{D}^{\geq0}_{\mathcal{T}}(\mathcal{A})\to
+		\cate{D}^{\geq k}(\mathcal{A}')$;
+% segment-id: o014.li2.chapter4.morphisms-extensions.i008
+		\item $\star=\hspace{0.8em}$, and there exist $k,\ell\in\Z$ such that
+		$F,G$ respectively restrict to
+		$\cate{D}^{\geq0}_{\mathcal{T}}(\mathcal{A})\to
+		\cate{D}^{\geq k}(\mathcal{A}')$ and
+		$\cate{D}^{\leq0}_{\mathcal{T}}(\mathcal{A})\to
+		\cate{D}^{\leq\ell}(\mathcal{A}')$.
+	\end{enumerate}
+
+	In addition, let $\mathfrak{I}$ be a subset of $\Obj(\mathcal{T})$ such
+	that for every $X\in\Obj(\mathcal{T})$ there exist
+	$I\in\mathfrak{I}$ and a monomorphism $X\hookrightarrow I$. If the
+	condition on $\eta_X$ is replaced by the condition that $\eta_I$ be an
+	isomorphism for every $I\in\mathfrak{I}$, then $\eta$ is still an
+	isomorphism under assumption (i) or (ii).
+
+	Of course, (ii) also has a dual version for $\star=-$, which we do not
+	write out.
+\end{proposition}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.pf006
+\begin{proof}
+	For (i), simply repeat the argument of
+	Lemma~\ref{prop:amplitude-translate}; use the distinguished triangle
+	$\tau^{\leq d}X\to X\to\tau^{\geq d+1}X\xrightarrow{+1}$ and
+	Proposition~\ref{prop:dt-3-2} inductively to reduce to the case
+	$X\simeq\Hm^{d+1}(X)[-d-1]$.
+
+	For (ii), the goal is to prove that $\Hm^j(FX)\to\Hm^j(GX)$ is an
+	isomorphism for every
+	$X\in\Obj(\cate{D}^+_{\mathcal{T}}(\mathcal{A}))$ and $j\in\Z$.
+	Consider the distinguished triangle above once more, but take $d\gg0$ so
+	that $F\tau^{\geq d+1}X$ and $G\tau^{\geq d+1}X$ both lie in
+	$\cate{D}^{\geq j+1}(\mathcal{A}')$. We obtain a commutative diagram with
+	exact rows
+% segment-id: o014.li2.chapter4.morphisms-extensions.g003
+	\[\begin{tikzcd}
+		0 \arrow[r] \arrow[d] & \Hm^j\left(F\tau^{\leq d}X\right) \arrow[r] \arrow[d] & \Hm^j(FX) \arrow[d] \arrow[r] & 0 \arrow[d] \\
+		0 \arrow[r] & \Hm^j\left(G\tau^{\leq d}X\right) \arrow[r] & \Hm^j(GX) \arrow[r] & 0
+	\end{tikzcd}\]
+	But $\tau^{\leq d}X\in
+	\Obj(\cate{D}^{\bdd}_{\mathcal{T}}(\mathcal{A}))$, so this case
+	follows from (i).
+
+	For (iii), choose any $d\in\Z$. Using
+	$\tau^{\leq d}X\to X\to\tau^{\geq d+1}X\xrightarrow{+1}$ and
+	Proposition~\ref{prop:dt-3-2}, this case follows from (ii) and its dual.
+
+	Now consider the final assertion. Since (ii) has been proved, it suffices
+	to show that $\eta_X$ is an isomorphism for every
+	$X\in\Obj(\mathcal{T})$. Take an exact sequence
+	$0\to X\to I^0\to I^1\to\cdots$ with every $I^n\in\mathfrak{I}$.
+	Write this sequence as a quasi-isomorphism of complexes $X\to I$; it
+	remains to prove that $\eta_I$ is an isomorphism. To do this, define the
+	brutal truncation $\sigma^{\leq d}I$ of the complex, which agrees with
+	$I$ in degrees $\leq d$ and has zero terms in all other degrees; define
+	$\sigma^{\geq d+1}I$ similarly. We can now follow the arguments for (i)
+	and (ii), using instead the canonical short exact sequence in
+	$\cate{C}(\mathcal{A})$
+% segment-id: o014.li2.chapter4.morphisms-extensions.q006
+	\[ 0\to\sigma^{\geq d+1}I\to I\to\sigma^{\leq d}I\to0 \]
+	and its corresponding distinguished triangle. The details are left to the
+	reader.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.p008
+Recall Theorem~\ref{prop:derived-cat-embedding}. Its key ingredient is the
+full faithfulness
+$\Hom_{\mathcal{A}}(X,Y)\simeq\Hom_{\cate{D}(\mathcal{A})}(X,Y)$.
+What information do we obtain when the degrees of $X$ and $Y$ are shifted
+relative to one another? This is our next topic.
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.d002
+\begin{definition}[$\Ext$ functors: General case]\label{def:Ext-general}
+	\index[sym1]{Extn}
+	\index{$\Ext$ functor}
+	For $X,Y\in\Obj(\mathcal{A})$ and $n\in\Z$, define
+	$\Ext^n_{\mathcal{A}}(X,Y):=
+	\Hom_{\cate{D}(\mathcal{A})}\left(X,Y[n]\right)$. The functor
+	$\Ext^n_{\mathcal{A}}:\mathcal{A}^{\opp}\times\mathcal{A}\to
+	\cate{Ab}$ is additive in each variable.
+\end{definition}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.p009
+The notation $\Ext^n_{\mathcal{A}}(X,Y)$ already appeared in
+Definition--Proposition~\ref{def:Ext-classical}. The discussion of $\RHom$
+will reconcile the two definitions; see
+Corollary~\ref{prop:Ext-reconcilation}. Here we do not assume that
+$\mathcal{A}$ has enough injective or projective objects.
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.p010
+As for $\Hom$, functoriality of $\Ext^n$ in its two variables is still called
+pullback and pushout, respectively. When no confusion can arise,
+$\Ext^n_{\mathcal{A}}$ is also abbreviated to $\Ext^n$. We now show that its
+properties resemble those of the $\Ext^n$ defined in \S\ref{sec:Ext-Tor}.
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.pr004
+\begin{proposition}\label{prop:Ext-generalities}
+	Below, $X,Y$ are arbitrary objects of $\mathcal{A}$. The family of
+	bifunctors $(\Ext^n)_{n\in\Z}$ has the following properties.
+% segment-id: o014.li2.chapter4.morphisms-extensions.l004
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter4.morphisms-extensions.i009
+		\item If $n<0$, then $\Ext^n(X,Y)=0$.
+% segment-id: o014.li2.chapter4.morphisms-extensions.i010
+		\item There is a canonical isomorphism
+		$\Ext^0(X,Y)\simeq\Hom_{\mathcal{A}}(X,Y)$.
+% segment-id: o014.li2.chapter4.morphisms-extensions.i011
+		\item Short exact sequences
+		$0\to X'\to X\to X''\to0$ and
+		$0\to Y'\to Y\to Y''\to0$ in $\mathcal{A}$ induce the respective
+		long exact sequences
+% segment-id: o014.li2.chapter4.morphisms-extensions.q007
+		\begin{gather*}
+			\cdots \to \Ext^{n-1}(X', Y) \xrightarrow{\delta^{n-1}} \Ext^n(X'', Y) \to \Ext^n(X, Y) \to \Ext^n(X', Y) \to \cdots , \\
+			\cdots \to \Ext^{n-1}(X, Y'') \xrightarrow{\delta^{n-1}} \Ext^n(X, Y') \to \Ext^n(X, Y) \to \Ext^n(X, Y'') \to \cdots ,
+		\end{gather*}
+		with every connecting morphism $\delta^n$ functorial in the short
+		exact sequence.
+% segment-id: o014.li2.chapter4.morphisms-extensions.i012
+		\item If $\Ext^1(X,\cdot)=0$ (respectively
+		$\Ext^1(\cdot,Y)=0$), then $X$ (respectively $Y$) is a projective
+		(respectively injective) object of $\mathcal{A}$.
+	\end{enumerate}
+\end{proposition}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.pf007
+\begin{proof}
+	Assertions (i) and (ii) follow immediately from
+	Proposition~\ref{prop:derived-cat-orthogonality}.
+
+	For (iii), first use Proposition~\ref{prop:ses-vs-triangle} to turn the
+	short exact sequences canonically into distinguished triangles
+	$X'\to X\to X''\xrightarrow{+1}$ and
+	$Y'\to Y\to Y''\xrightarrow{+1}$ in $\cate{D}(\mathcal{A})$. Then use
+	the fact that $\Hom$ is a cohomological functor in each variable
+	(Proposition~\ref{prop:cohomological-Hom-functor}).
+
+	Finally, (iv) follows by applying (i) and (ii) to the long exact sequences
+	in (iii).
+\end{proof}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.p011
+Since $\Ext^n$ is given by $\Hom$ in $\cate{D}(\mathcal{A})$, for
+$f\in\Ext^n(X,Y)$ and $g\in\Ext^n(X',Y')$ there is an evident direct sum
+$f\oplus g\in\Ext^n(X\oplus X',Y\oplus Y')$. On the other hand, $\Ext$
+has a composition operation,
+% segment-id: o014.li2.chapter4.morphisms-extensions.g004
+\begin{equation}\label{eqn:Ext-composition}\begin{tikzcd}[row sep=tiny]
+	\Ext^m(Y, Z) \times \Ext^n(X, Y) \arrow[equal, d] & \\
+	\Hom_{\cate{D}(\mathcal{A})}(Y, Z[m]) \times \Hom_{\cate{D}(\mathcal{A})}(X, Y[n]) \arrow[r] & \Ext^{m+n}(X, Z) \\
+	(f, g) \arrow[r, mapsto] & fg := f[n] \circ g ,
+\end{tikzcd}\end{equation}
+where $m,n\in\Z$.
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.p012
+It is easy to see that this operation is associative and bilinear.
+Consequently, the Abelian group
+% segment-id: o014.li2.chapter4.morphisms-extensions.q008
+\[ \Ext(X):=\bigoplus_{n\in\Z}\Ext^n(X,X) \]
+has a natural ring structure, with
+$\identity_A\in\End_{\mathcal{A}}(A)$ as multiplicative identity, while
+$\Ext(X,Y):=\bigoplus_{n\in\Z}\Ext^n(X,Y)$ becomes an
+$(\Ext(Y),\Ext(X))$-bimodule.
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.p013
+More generally, if $\mathcal{A}$ is $\Bbbk$-linear, where $\Bbbk$ is a
+commutative ring, then the functors $\Ext^n$ take values in
+$\Bbbk\dcate{Mod}$, while $\Ext(X)$ becomes a $\Bbbk$-algebra. The
+definition of multiplication in \eqref{eqn:Ext-composition} shows that
+$\Ext(X)$ is in fact a graded $\Bbbk$-algebra; see
+\cite[Definition~7.4.1]{Li1}. Such constructions are extremely useful in
+representation theory.
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.d003
+\begin{definition}\index{$\Ext$-algebra}\label{def:Ext-algebra}
+	Let $X\in\Obj(\mathcal{A})$. The graded algebra $\Ext(X)$ defined above
+	is called the \emph{$\Ext$-algebra} of the object $X$.
+\end{definition}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.p014
+The notation $\Ext$ abbreviates “extension.” To explain the concrete
+connection, we first define what an extension means.
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.d004
+\begin{definition}\label{def:Yoneda-Ext}
+	\index{extension}
+	Let $X$ and $Y$ be objects of $\mathcal{A}$ and let
+	$n\in\Z_{\geq1}$. An exact sequence in $\mathcal{A}$ of the form
+% segment-id: o014.li2.chapter4.morphisms-extensions.q009
+	\[ \mathcal{E}:\quad 0\to Y\to E^1\to\cdots\to E^n\to X\to0 \]
+	is called an \emph{$n$-extension} of $X$ by $Y$. For fixed $X,Y$,
+	consider the following binary relation on the set of all $n$-extensions:
+% segment-id: o014.li2.chapter4.morphisms-extensions.g005
+	\begin{multline*} \mathcal{E} \sim_0 \mathcal{E}' \iff \text{there is a commutative diagram} \\
+		\begin{tikzcd}[ampersand replacement=\&]
+			0 \arrow[r] \& Y \arrow[r] \arrow[equal, d] \& E^1 \arrow[r] \arrow[d] \& \cdots \arrow[r] \& E^n \arrow[d] \arrow[r] \& X \arrow[equal, d] \arrow[r] \& 0 \\
+			0 \arrow[r] \& Y \arrow[r] \& (E')^1 \arrow[r] \& \cdots \arrow[r] \& (E')^n \arrow[r] \& X \arrow[r] \& 0
+		\end{tikzcd}\end{multline*}
+	This binary relation generates an equivalence relation $\sim$.\footnote{In
+	other words, $\mathcal{E}_1\sim\mathcal{E}_2$ if and only if they can be
+	connected by a chain of commutative diagrams of this kind.} The
+	equivalence classes of $n$-extensions form the set
+	$\Ext^{n,\text{Yoneda}}(X,Y)$.
+\end{definition}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.p015
+Proposition~\ref{prop:5-lemma} implies that equivalence of $1$-extensions is
+the same as isomorphism of short exact sequences
+% segment-id: o014.li2.chapter4.morphisms-extensions.g006
+\[\begin{tikzcd}
+	0 \arrow[r] & Y \arrow[r] \arrow[equal, d] & E \arrow[r] \arrow[d, "\sim" sloped] & X \arrow[equal, d] \arrow[r] & 0 \\
+	0 \arrow[r] & Y \arrow[r] & E' \arrow[r] & X \arrow[r] & 0 .
+\end{tikzcd}\]
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.cv001
+\begin{convention}
+	Henceforth a $1$-extension is simply called an extension, and equivalence
+	between such extensions is called isomorphism. A split short exact
+	sequence (Proposition~\ref{prop:split-ses}) is also called a split
+	extension; all such extensions are isomorphic.
+\end{convention}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.p016
+The following operations are available on $n$-extensions.
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.l005
+\begin{description}
+% segment-id: o014.li2.chapter4.morphisms-extensions.i013
+	\item[Composition] For
+	$[\mathcal{E}_1]\in\Ext^{n,\text{Yoneda}}(Y,Z)$ and
+	$[\mathcal{E}_2]\in\Ext^{m,\text{Yoneda}}(X,Y)$, define
+	$[\mathcal{E}_1]\circ[\mathcal{E}_2]\in
+	\Ext^{n+m,\text{Yoneda}}(X,Z)$ by splicing the two exact sequences
+	end-to-end at $Y$. This operation is also called the \emph{Yoneda
+	product}.
+	\index{extension!Yoneda product}
+% segment-id: o014.li2.chapter4.morphisms-extensions.i014
+	\item[Pullback] For a morphism $f:X'\to X$, the corresponding map
+	$f^*:\Ext^{n,\text{Yoneda}}(X,Y)\to
+	\Ext^{n,\text{Yoneda}}(X',Y)$ is obtained as follows. Given
+	$[\mathcal{E}]\in\Ext^{n,\text{Yoneda}}(X,Y)$, consider the commutative
+	diagram
+% segment-id: o014.li2.chapter4.morphisms-extensions.g007
+	\[\begin{tikzcd}[every cell/.append style={font=\small}]
+		0 \arrow[r] & Y \arrow[r] \arrow[equal, d] & E^1 \arrow[r] \arrow[equal, d] & \cdots \arrow[r] & E^{n-1}  \arrow[equal, d] \arrow[r] & E^n \dtimes{X} X' \arrow[d] \arrow[r] \arrow[phantom, rd, "\Box" description] & X' \arrow[d, "f"] \arrow[r] & 0 \\
+		0 \arrow[r] & Y \arrow[r] & E^1 \arrow[r] & \cdots \arrow[r] & E^{n-1} \arrow[r] & E^n \arrow[r] & X \arrow[r] & 0
+	\end{tikzcd}\]
+	The square marked $\Box$ is a pullback square, while
+	$E^{n-1}\to E^n\dtimes{X}X'$ is determined by $E^{n-1}\to E^n$ and
+	$E^{n-1}\xrightarrow{0}X'$. Pullback preserves kernels, and
+	$E^n\dtimes{X}X'\to X'$ is still an epimorphism
+	(Proposition~\ref{prop:Abel-cat-pull-push}); from this one checks that the
+	first row remains exact. Its equivalence class is $f^*[\mathcal{E}]$.
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.i015
+	\item[Pushout] For a morphism $g:Y\to Y'$, the corresponding map
+	$g_*:\Ext^{n,\text{Yoneda}}(X,Y)\to
+	\Ext^{n,\text{Yoneda}}(X,Y')$ is obtained as follows. Given
+	$[\mathcal{E}]\in\Ext^{n,\text{Yoneda}}(X,Y)$, pushout gives the
+	commutative diagram
+% segment-id: o014.li2.chapter4.morphisms-extensions.g008
+	\[\begin{tikzcd}[every cell/.append style={font=\small}]
+		0 \arrow[r] & Y \arrow[r] \arrow[d, "g"'] \arrow[phantom, rd, "\boxplus" description] & E^1 \arrow[r] \arrow[d] & E^2 \arrow[r] \arrow[equal, d] & \cdots \arrow[r] & E^n \arrow[equal, d] \arrow[r] & X \arrow[equal, d] \arrow[r] & 0 \\
+		0 \arrow[r] & Y' \arrow[r] & E^1 \dsqcup{Y} Y' \arrow[r] & E^2 \arrow[r] & \cdots \arrow[r] & E^n \arrow[r] & X \arrow[r] & 0
+	\end{tikzcd}\]
+	Here $E^1\dsqcup{Y}Y'\to E^2$ is determined by $E^1\to E^2$ and
+	$Y'\xrightarrow{0}E^2$. Dually, one checks that the second row remains
+	exact. Its equivalence class is $g_*[\mathcal{E}]$.
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.i016
+	\item[Direct sum] Take the termwise direct sum of two extensions,
+	$\mathcal{E}\oplus\mathcal{E}'$, and then take its equivalence class.
+	This gives a map
+% segment-id: o014.li2.chapter4.morphisms-extensions.g009
+	\[\begin{tikzcd}
+		\oplus: \Ext^{n, \text{Yoneda}}(X, Y) \times \Ext^{n, \text{Yoneda}}(X', Y') \arrow[r] & \Ext^{n, \text{Yoneda}}(X \oplus X', Y \oplus Y') .
+	\end{tikzcd}\]
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.i017
+	\item[Baer sum] This is the following map:
+	\index{extension!Baer sum}
+	\index[sym1]{plusdot@$\dot{+}$}
+% segment-id: o014.li2.chapter4.morphisms-extensions.g010
+	\[\begin{tikzcd}
+		\dot{+}: \Ext^{n, \text{Yoneda}}(X, Y) \times \Ext^{n, \text{Yoneda}}(X, Y) \arrow[r] & \Ext^{n, \text{Yoneda}}(X, Y).
+	\end{tikzcd}\]
+	It is defined by pulling $[\mathcal{E}_1]\oplus[\mathcal{E}_2]$ back
+	along $X\hookrightarrow X\times X$, then pushing it out along
+	$Y\oplus Y\twoheadrightarrow Y$ (these morphisms come from
+	Convention~\ref{con:biproduct}). The result is
+	$[\mathcal{E}_1]\dot{+}[\mathcal{E}_2]\in
+	\Ext^{n,\text{Yoneda}}(X,Y)$.
+\end{description}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.p017
+One checks that pullback and pushout commute:
+$g_*f^*=f^*g_*$, while the Baer sum $\dot{+}$ is commutative. These
+properties also follow from those of $\Ext^n$ by the following theorem.
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.th002
+\begin{theorem}[Nobuo Yoneda]\label{prop:Yoneda-Ext}
+	For all $X,Y\in\Obj(\mathcal{A})$ and $n\in\Z_{\geq1}$, there is a
+	canonical bijection
+% segment-id: o014.li2.chapter4.morphisms-extensions.q010
+	\[ \Ext^{n,\text{Yoneda}}(X,Y) \xrightarrow{1:1} \Ext^n(X,Y), \]
+	which sends the equivalence class of an $n$-extension
+	$0\to Y\to E^1\to\cdots\to E^n\to X\to0$ to
+	$as^{-1}\in\Hom_{\cate{D}(\mathcal{A})}(X,Y[n])$, where
+% segment-id: o014.li2.chapter4.morphisms-extensions.g011
+	\[\begin{tikzcd}
+		X \arrow[phantom, r, "" {name=A, yshift=2ex}] & {} & & & X \\
+		Z \arrow[u, "{s: \text{quasi-isomorphism}}"] \arrow[d, "a"'] & Y \arrow[r] \arrow[d, "\identity"'] & E^1 \arrow[r] & \cdots \arrow[r] & E^n \arrow[u] \\
+		Y[n] \arrow[phantom, r, "" {name=B, yshift=-2ex}] & Y & & &
+		\arrow[dash, from=A, to=B]
+	\end{tikzcd}\]
+	and all omitted terms are zero. Under this bijection, composition,
+	direct sum, pullback, and pushout of $n$-extensions correspond to the
+	respective operations on $\Ext^n$, while the Baer sum $\dot{+}$
+	corresponds to the additive group law on $\Ext^n(X,Y)$.
+\end{theorem}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.pf008
+\begin{proof}
+	An equivalence of extensions $\mathcal{E}\sim\mathcal{E}'$ is reflected
+	by a quasi-isomorphism between the corresponding complexes $Z$ and
+	$Z'$. Thus the displayed map is well defined. It remains to prove that
+	it is surjective and injective. We begin with surjectivity.
+
+	Every $f\in\Hom_{\cate{D}(\mathcal{A})}(X,Y[n])$ is represented by a
+	diagram $X\xleftarrow{s}Z\xrightarrow{a}Y[n]$ in
+	$\cate{C}(\mathcal{A})$, where $s$ is a quasi-isomorphism. After
+	precomposing with the quasi-isomorphism $\tau^{\leq0}Z\to Z$, we may
+	assume that $Z\in\Obj(\cate{C}^{\leq0}(\mathcal{A}))$. Next, the
+	adjunction in Proposition~\ref{prop:truncation-adjunction} factors $s$
+	and $a$ through the quasi-isomorphism
+	$Z\twoheadrightarrow\tau^{\geq-n}Z$. Hence we may assume that
+	$Z\in\Obj(\cate{C}^{[-n,0]}(\mathcal{A}))$.
+
+	Since $Z$ is exact outside degree $0$, imitate the definition of the
+	pushout of an extension above and define a complex $Z'$ to be the
+	second row of the following diagram:
+% segment-id: o014.li2.chapter4.morphisms-extensions.g012
+	\[\begin{tikzcd}[every cell/.append style={font=\small}]
+		\cdots 0 \arrow[r] & Z^{-n} \arrow[r] \arrow[d, "{a^{-n}}"'] \arrow[phantom, rd, "\boxplus" description] & Z^{-n+1} \arrow[r] \arrow[d] & Z^{-n+2} \arrow[r] \arrow[equal, d] & \cdots \\
+		\cdots 0 \arrow[r] & Y \arrow[r] & Z^{-n+1} \dsqcup{Z^{-n}} Y \arrow[r] & Z^{-n+2} \arrow[r] & \cdots
+	\end{tikzcd}\]
+	The vertical morphisms give a quasi-isomorphism $Z\to Z'$, and $a$
+	factors as $Z\to Z'\xrightarrow{a'}Y[n]$.
+
+	Moreover, $Z\xrightarrow{s}X$ also factors canonically as
+	$Z\to Z'\xrightarrow{s'}X$. This is immediate when $n>1$; when $n=1$,
+	the morphism $(s')^0:Z^0\dsqcup{Z^{-1}}Y\to X$ is determined by
+	$s^0:Z^0\to X$ and $Y\xrightarrow{0}X$.
+
+	In short, we have reduced to the case in which
+	$X\xleftarrow{s}Z\xrightarrow{a}Y[n]$ has the form
+% segment-id: o014.li2.chapter4.morphisms-extensions.g013
+	\[\begin{tikzcd}
+		\cdots 0 \arrow[r] & 0 \arrow[r] & 0 \arrow[r] & \cdots \arrow[r] & X \arrow[r] & 0 \cdots \\
+		\cdots 0 \arrow[r] & Z^{-n} \arrow[r] \arrow[equal, d] \arrow[u] & Z^{-n+1} \arrow[r] \arrow[u] \arrow[d] & \cdots \arrow[r] & Z^0 \arrow[u] \arrow[d] \arrow[r] & 0 \cdots \\
+		\cdots 0 \arrow[r] & Y \arrow[r] & 0 \arrow[r] & \cdots \arrow[r] & 0 \arrow[r] & 0 \cdots
+	\end{tikzcd}\]
+	Flattening this diagram, however, gives the $n$-extension
+	$0\to Y\to Z^{-n+1}\to\cdots\to Z^0\to X\to0$. This proves
+	surjectivity.
+
+	We now prove injectivity. In view of \eqref{eqn:localization-sim}, the
+	starting point is a commutative diagram in $\cate{K}(\mathcal{A})$
+% segment-id: o014.li2.chapter4.morphisms-extensions.g014
+	\[\begin{tikzcd}
+		& Z_2 \arrow[ld, "s_2"'] \arrow[rd, "a_2"] & \\
+		X & W \arrow[l, "t"'] \arrow[r, "b"] \arrow[u] \arrow[d] & Y[n] \\
+		& Z_1 \arrow[lu, "s_1"] \arrow[ru, "a_1"'] &
+	\end{tikzcd} \quad \begin{array}{l}
+		W \in \Obj(\cate{C}(\mathcal{A})), \quad s_i, t: \;\text{quasi-isomorphisms}, \\
+		(Z_i; s_i, a_i) \;\text{has the reduced form above and corresponds to an $n$-extension},\\
+		(i = 1, 2) .
+	\end{array}\]
+	We wish to show that this diagram gives an equivalence of
+	$n$-extensions. As before, first precompose with
+	$\tau^{\leq0}W\to W$ to reduce to
+	$W\in\Obj(\cate{C}^{\leq0}(\mathcal{A}))$. Next, use the truncation
+	adjunction to factor all the morphisms in $\cate{C}(\mathcal{A})$
+	through $W\twoheadrightarrow\tau^{\geq-n}W$. Let $K$ be the kernel of
+	$W\twoheadrightarrow\tau^{\geq-n}W$. Since
+	$\Hom^{-1}(K,V)=0$ for every
+	$V\in\Obj(\cate{C}^{[-n,0]}(\mathcal{A}))$, the homotopies between
+	these morphisms factor in the same way. This operation therefore does
+	not change the commutativity of the diagram in
+	$\cate{K}(\mathcal{A})$. We have reduced to the case
+	$W\in\Obj(\cate{C}^{[-n,0]}(\mathcal{A}))$.
+
+	Similarly, $\Hom^{-1}(W,X)=0$, so the left half of the diagram already
+	commutes in $\cate{C}(\mathcal{A})$. For the right half, since
+	$a_i^{-n}=\identity_Y$, we may modify the morphisms $W\to Z_i$ by
+	suitable homotopies so that the right half also commutes in
+	$\cate{C}(\mathcal{A})$. Now repeat the pushout operation from the
+	surjectivity proof to reduce to $W^{-n}=Y$ and
+	$b^{-n}=\identity_Y$, without changing the commutativity of the left
+	half, as one verifies directly. Thus $(W;t,b)$ also corresponds to an
+	$n$-extension, and the commutative diagram witnesses the equivalence
+	relation $\sim$ in Definition~\ref{def:Yoneda-Ext}. This proves
+	injectivity.
+
+	Compatibility of composition, direct sum, pullback, and pushout with
+	this bijection is a routine verification. For the Baer sum $\dot{+}$,
+	Proposition~\ref{prop:additive-cat-addition} realizes the sum $f+g$ in
+	$\Ext^n(X,Y):=\Hom_{\cate{D}(\mathcal{A})}(X,Y[n])$ as the composite
+	$X\to X\oplus X\xrightarrow{f\oplus g}(Y\oplus Y)[n]\to Y[n]$,
+	which agrees exactly with the definition of $\dot{+}$.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.p018
+Dually, an element of $\Hom_{\cate{D}(\mathcal{A})}(X,Y[n])$ can also be
+represented by a diagram of the form
+$X\xrightarrow{b}Z\xleftarrow{t}Y[n]$ in $\cate{C}(\mathcal{A})$, where
+$t$ is a quasi-isomorphism. The exercises for this chapter compare these
+two constructions.
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.pr005
+\begin{proposition}\label{prop:Ext1-via-ses}
+	Consider an extension
+	$0\to Y\xrightarrow{f}E\xrightarrow{g}X\to0$. In the exact sequence
+	from Proposition~\ref{prop:Ext-generalities}~(iii),
+% segment-id: o014.li2.chapter4.morphisms-extensions.q011
+	\begin{gather*}
+		\Hom_{\mathcal{A}}(X,E) \xrightarrow{g_*} \Hom_{\mathcal{A}}(X,X) \to \Ext^1(X,Y),
+	\end{gather*}
+	the element of $\Ext^1(X,Y)$ determined by this extension is the image
+	of $\identity_X$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.pf009
+\begin{proof}
+	The connecting homomorphism
+	$\Hom_{\mathcal{A}}(X,X)\to\Ext^1(X,Y)$ is precisely $e_*$, where
+	$e\in\Hom_{\cate{D}(\mathcal{A})}(X,Y[1])$ is determined by the diagram
+	in $\cate{C}(\mathcal{A})$
+% segment-id: o014.li2.chapter4.morphisms-extensions.g015
+	\[\begin{tikzcd}
+		X & \Cone(f) \arrow[r, "{\beta(f)}"] \arrow[l, "\Phi"', "\text{quasi-isomorphism}" inner sep=0.6em] & {Y[1]}
+	\end{tikzcd}\]
+	as in Proposition~\ref{prop:ses-vs-triangle}. But $\Cone(f)$ is the
+	complex $Y\xrightarrow{f}E$ concentrated in degrees $-1$ and $0$.
+	Comparison with Theorem~\ref{prop:Yoneda-Ext} immediately shows that
+	$e$ comes from the extension
+	$0\to Y\xrightarrow{f}E\xrightarrow{g}X\to0$.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.pr006
+\begin{proposition}\label{prop:Yoneda-zero}
+	The zero element of the additive group
+	$\left(\Ext^{n,\text{Yoneda}}(X,Y),\dot{+}\right)$ is represented by
+	the following extensions:
+% segment-id: o014.li2.chapter4.morphisms-extensions.tb001
+	\begin{center}\begin{tabular}{|c|c|} \hline
+		$n = 1$ & The split extension $0 \to Y \to X \oplus Y \to X \to 0$ \\ \hline
+		$n = 2$ & $0 \to Y \xrightarrow{\identity_Y} Y \xrightarrow{0} X \xrightarrow{\identity_X} X \to 0$ \\ \hline
+		$n \geq 3$ & $0 \to Y \xrightarrow{\identity_Y} Y \to 0 \to \cdots \to 0 \to X \xrightarrow{\identity_X} X \to 0$ . \\ \hline
+	\end{tabular}\end{center}
+\end{proposition}
+
+% segment-id: o014.li2.chapter4.morphisms-extensions.pf010
+\begin{proof}
+	For $n=1$, suppose that the short exact sequence
+	$0\to Y\xrightarrow{f}E\xrightarrow{g}X\to0$ corresponds to the zero
+	element. The exact sequence in Proposition~\ref{prop:Ext1-via-ses}
+	shows that there is an $s\in\Hom_{\mathcal{A}}(X,E)$ such that
+	$gs=\identity_X$; hence the short exact sequence splits.
+
+	Next consider $n=2$. Both $\Ext^1(0,Y)$ and $\Ext^1(X,0)$ are plainly
+	zero groups; corresponding extensions may be taken to be
+	$0\to Y\xrightarrow{\identity}Y\to0\to0$ and
+	$0\to0\to X\xrightarrow{\identity}X\to0$. Since
+	$\Ext^1\times\Ext^1\to\Ext^2$ is bilinear, splicing these two
+	extensions gives the zero element of $\Ext^2(X,Y)$. For $n\geq3$,
+	consider the $(n-1)$-extension
+	$0\to\cdots\to0\to X\xrightarrow{\identity}X\to0$; the same argument
+	gives the zero element of $\Ext^n(X,Y)$.
+\end{proof}

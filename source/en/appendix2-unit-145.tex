@@ -1,0 +1,59 @@
+% O014 / D80 -- Methods of Algebra, Volume 2 -- en
+% Source: appendix2.tex, lines 606--660 inclusive.
+% Stable unit ID: o014.aljabr2.appendix-b.freyd-mitchell
+% Original source copyright 2024 Wen-Wei Li, CC BY 4.0.
+
+\section{The Freyd--Mitchell Embedding Theorem}\label{sec:FM}
+We continue to fix a Grothendieck universe $\mathcal{U}$ in order to distinguish categories (which by default mean $\mathcal{U}$-categories) from small categories. By convention, all groups, rings, and modules mentioned below are by default realized on small sets (that is, $\mathcal{U}$-sets).
+
+\begin{lemma}\label{prop:FM-prep-1}
+	Let $\mathcal{C}$ be a cocomplete Abelian category with a projective generator, and let $O$ be a small subset of $\Obj(\mathcal{C})$. Then $\mathcal{C}$ has a projective generator $S$ such that every $X\in O$ is a quotient of $S$.
+\end{lemma}
+\begin{proof}
+	Choose any projective generator $s$ of $\mathcal{C}$. Since $\mathcal{C}$ is cocomplete, form the direct sum
+	\[ S := \bigoplus_{X \in O} s^{\oplus \Hom(s, X)}. \]
+	This object remains projective. For each $X\in O$, define the canonical morphism $S\twoheadrightarrow X$ whose restriction to the direct-summand copy of $s$ corresponding to $f\in\Hom(s,X)$ is $f$, and whose restriction to every other direct-summand copy is $0$. The generator property readily shows that this is an epimorphism; see the proof of Theorem~\ref{prop:identify-ModR} for details.
+\end{proof}
+
+The following result is a simple variation on Theorem~\ref{prop:identify-ModR}.
+
+\begin{lemma}\label{prop:FM-prep-2}
+	Let $S$ be a projective generator of an Abelian category $\mathcal{C}$. Define $R:=\End_{\mathcal{C}}(S)$, thereby obtaining a faithful exact functor (Proposition~\ref{prop:injective-cogenerator})
+	\[ G := \Hom_{\mathcal{C}}(S, \cdot): \mathcal{C} \to \cated{Mod}R. \]
+	If $X\in\Obj(\mathcal{C})$ is a quotient of a direct sum of finitely many copies of $S$, then the map induced by $G$,
+	\[ \Hom_{\mathcal{C}}(X, Y) \to \Hom_{\cated{Mod}R}(GX, GY) \]
+	is bijective for every $Y\in\Obj(\mathcal{C})$.
+\end{lemma}
+\begin{proof}
+	Take $m\in\Z_{\geq 0}$ and a short exact sequence in $\mathcal{C}$
+	\[ 0 \to X' \to S^{\oplus m} \to X \to 0. \]
+	Applying $G$ gives a short exact sequence in $\cated{Mod}R$. Consider the following commutative diagram with exact rows in $\cate{Ab}$:
+	\begin{equation}\label{eqn:FM-prep-2}\begin{tikzcd}
+			0 \arrow[r] & \Hom_{\mathcal{C}}(X, Y) \arrow[r] \arrow[hookrightarrow, d] & \Hom_{\mathcal{C}}(S^{\oplus m}, Y) \arrow[r] \arrow[hookrightarrow, d] & \Hom_{\mathcal{C}}(X', Y) \arrow[hookrightarrow, d] \\
+			0 \arrow[r] & \Hom_R(GX, GY) \arrow[r] & \Hom_R(G(S^{\oplus m}), GY) \arrow[r] & \Hom_R(GX', GY),
+	\end{tikzcd}\end{equation}
+	where all vertical arrows arise from the faithful functor $G$ and hence are injective. Observe that the composite
+	\[ \Hom_{\mathcal{C}}(S, Y) \xrightarrow{\identity} GY \xleftarrow[\psi(1_R) \mapsfrom \psi]{\sim} \Hom_R(R, GY) = \Hom_R(GS, GY) \]
+	is the same as the map on $\Hom$ induced by $G$. This is of course nearly a tautology, and was checked in the proof of Lemma~\ref{prop:GP-prep}. Since $G$ is additive, the middle vertical arrow in \eqref{eqn:FM-prep-2} is an isomorphism. A straightforward diagram chase in $\cate{Ab}$ shows that the left vertical arrow is also an isomorphism.
+\end{proof}
+
+\begin{theorem}[P.\ Freyd, B.\ Mitchell {\cite[Chapter 4]{Fr03}}]\label{prop:FM}
+	\index{Freyd--Mitchell embedding theorem}
+	Let $\mathcal{A}$ be a small Abelian category. Then there are a ring $R$ and a fully faithful exact functor $F:\mathcal{A}\to\cated{Mod}R$.
+\end{theorem}
+\begin{proof}
+	The following argument is taken from \cite[Theorem 9.6.10]{KS06}. Since $\mathcal{A}^{\opp}$ is again a small Abelian category, Theorem~\ref{prop:Ind-Grothendieck} shows that $\IndC(\mathcal{A}^{\opp})$ is a Grothendieck category. Corollary~\ref{prop:Grothendieck-cat-cogenerator} therefore guarantees that it has an injective cogenerator. Recalling that
+	\[ \ProC(\mathcal{A}) \simeq \IndC(\mathcal{A}^{\opp})^{\opp}, \]
+	we conclude that $\ProC(\mathcal{A})$ has a projective generator. Moreover, $\mathcal{A}\to\ProC(\mathcal{A})$ is a fully faithful exact functor between Abelian categories (Theorem~\ref{prop:Ind-Abel}).
+
+	Regard $\mathcal{A}$ as a full subcategory of $\ProC(\mathcal{A})$. Applying Lemma~\ref{prop:FM-prep-1}, with $O=\Obj(\mathcal{A})$, gives a projective generator $S$ of $\ProC(\mathcal{A})$ such that every object of $\mathcal{A}$ is a quotient of $S$. Now consider the functor
+	\[ \mathcal{A} \to \ProC(\mathcal{A}) \xrightarrow{G} \cated{Mod}R , \quad G := \Hom_{\ProC(\mathcal{A})}(S, \cdot), \; R := \End_{\ProC(\mathcal{A})}(S). \]\footnote{Translator's note: the source prints the endomorphism-ring subscript as $\ProC\mathcal{C}$. Here $S$ is an object of $\ProC(\mathcal{A})$, so the type-correct subscript is $\ProC(\mathcal{A})$.}
+	Write the composite as $F$. Since each factor is exact, $F$ is exact. Lemma~\ref{prop:FM-prep-2} shows that $G$ is fully faithful; therefore $F$ is fully faithful. This proves the theorem.
+\end{proof}
+
+\begin{corollary}
+	Let $\mathcal{A}$ be a small Abelian category. Then there is a faithful exact functor $E:\mathcal{A}\to\cate{Ab}$.
+\end{corollary}
+
+The Freyd--Mitchell theorem allows many commutative-diagram arguments about general Abelian categories to be reduced to the case of $\cated{Mod}R$, or even of $\cate{Ab}$. Since these two categories are concrete, their objects have elements, and diagram-chasing techniques \cite[\S 6.8]{Li1} greatly simplify many problems. Under suitable set-theoretic assumptions, the requirement that the category be small can be met by enlarging the Grothendieck universe.
+\index{size issues}

@@ -1,0 +1,115 @@
+{
+  "receipt_version": "1.0",
+  "range_id": "indonesian-original-mastery-bridges",
+  "receipt_path": "04_mirrors/en/methods-of-algebra-volume-2-en/controls/ranges/bridges.json",
+  "status": "PASS",
+  "recorded_date": "2026-08-31",
+  "path_base": "workspace_root",
+  "scope_inputs": [
+    {
+      "path": "04_mirrors/en/methods-of-algebra-volume-2-en/controls/ENGLISH_EDITION_SCOPE.md",
+      "bytes": 5020,
+      "sha256": "5ba6a091709743b67e5dd596e8c498cb4896b86ce8da17d2fb93794519758a85",
+      "role": "authorized additive English-edition scope"
+    },
+    {
+      "path": "04_mirrors/en/methods-of-algebra-volume-2-en/controls/SOURCE_UNIT_MAP.json",
+      "bytes": 189125,
+      "sha256": "3aed692c6244842ab98bc831cc581c7aee41917fdde299cf2b99453fc1cac201",
+      "role": "bridge-stem allocation map",
+      "bridge_stems": [
+        "mastery-bridge-001-diagram-chasing",
+        "mastery-bridge-002-derived-functors-spectral-sequences"
+      ]
+    }
+  ],
+  "source_inputs": [
+    {
+      "path": "04_mirrors/id/methods-of-algebra-volume-2-id/source/id-ID/mastery-bridge-001-diagram-chasing.tex",
+      "bytes": 22579,
+      "sha256": "d216070b6d1fe6ea12b72cd53574b1980b24acd4099442749ea37ede2f581342",
+      "stable_unit_id": "o014.mastery.diagram-chasing.001"
+    },
+    {
+      "path": "04_mirrors/id/methods-of-algebra-volume-2-id/source/id-ID/mastery-bridge-002-derived-functors-spectral-sequences.tex",
+      "bytes": 24149,
+      "sha256": "627b2f66e1c411df15819f9be9bbd0204d0abcb16940be9ef1d8f29806865745",
+      "stable_unit_id": "o014.mastery.derived-spectral.002"
+    }
+  ],
+  "translation_outputs": [
+    {
+      "path": "04_mirrors/en/methods-of-algebra-volume-2-en/source/en/mastery-bridge-001-diagram-chasing.tex",
+      "bytes": 22487,
+      "sha256": "ed17bd2b07b08d367e5a6bf86c349c4ea51663bb6ed44e57c0f7132e195d4072",
+      "stable_unit_id": "o014.mastery.diagram-chasing.001"
+    },
+    {
+      "path": "04_mirrors/en/methods-of-algebra-volume-2-en/source/en/mastery-bridge-002-derived-functors-spectral-sequences.tex",
+      "bytes": 24139,
+      "sha256": "20e7498059a531a3f95e94bb03c32a663b5c14a6ea8fa0dffe38e4ef0c5e103e",
+      "stable_unit_id": "o014.mastery.derived-spectral.002"
+    }
+  ],
+  "coverage": {
+    "totals": {
+      "bridges_source": 2,
+      "bridges_target_complete": 2,
+      "exercises_source": 16,
+      "exercises_target": 16,
+      "hints_source": 0,
+      "hints_target": 0,
+      "solutions_answers_source": 16,
+      "solutions_answers_target": 16,
+      "display_math_blocks_source": 91,
+      "display_math_blocks_target": 91,
+      "tikzcd_diagrams_source": 8,
+      "tikzcd_diagrams_target": 8
+    },
+    "bridges": [
+      {
+        "stem": "mastery-bridge-001-diagram-chasing",
+        "exercises": { "source": 8, "target": 8 },
+        "hints": { "source": 0, "target": 0 },
+        "solutions_answers": { "source": 8, "target": 8 },
+        "labels": { "source": 9, "target": 9, "ordered_values_exact": true },
+        "hypertargets": { "source": 17, "target": 17, "ordered_values_exact": true },
+        "references": { "source": 15, "target": 15, "ordered_values_exact": true },
+        "display_math_blocks": { "source": 38, "target": 38, "canonical_math_exact": true },
+        "tikzcd_diagrams": { "source": 7, "target": 7 },
+        "latex_commands": { "source": 751, "target": 751, "ordered_stream_exact": true }
+      },
+      {
+        "stem": "mastery-bridge-002-derived-functors-spectral-sequences",
+        "exercises": { "source": 8, "target": 8 },
+        "hints": { "source": 0, "target": 0 },
+        "solutions_answers": { "source": 8, "target": 8 },
+        "labels": { "source": 9, "target": 9, "ordered_values_exact": true },
+        "hypertargets": { "source": 17, "target": 17, "ordered_values_exact": true },
+        "references": { "source": 26, "target": 26, "ordered_values_exact": true },
+        "display_math_blocks": { "source": 53, "target": 53, "canonical_math_exact": true },
+        "tikzcd_diagrams": { "source": 1, "target": 1 },
+        "latex_commands": { "source": 767, "target": 767, "ordered_stream_exact": true }
+      }
+    ]
+  },
+  "validation": {
+    "bridge_stems_match_source_unit_map": true,
+    "stable_unit_ids_exact": true,
+    "stable_exercise_ids_ordered_exact": true,
+    "stable_solution_ids_ordered_exact": true,
+    "latex_environment_sequences_exact_and_balanced": true,
+    "formulas_preserved": true,
+    "diagrams_preserved": true,
+    "exercise_hint_solution_answer_coverage_complete": true,
+    "natural_complete_english": true,
+    "independent_attribution_and_nonendorsement_preserved_separately_in_each_bridge": true,
+    "build": "not_run_out_of_scope"
+  },
+  "write_boundary": [
+    "04_mirrors/en/methods-of-algebra-volume-2-en/source/en/mastery-bridge-001-diagram-chasing.tex",
+    "04_mirrors/en/methods-of-algebra-volume-2-en/source/en/mastery-bridge-002-derived-functors-spectral-sequences.tex",
+    "04_mirrors/en/methods-of-algebra-volume-2-en/controls/ranges/bridges.json"
+  ],
+  "pass_basis": "Both mapped Indonesian-original bridges are translated in full; all 16 exercises and all 16 full solutions/answers are present; the sources contain no separate hints; stable identifiers, labels, targets, references, formulas, environments, and diagrams pass exact structural parity checks."
+}

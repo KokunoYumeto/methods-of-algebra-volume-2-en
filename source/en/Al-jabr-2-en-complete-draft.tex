@@ -1,0 +1,346 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8
+
+% Complete independent English edition in production.
+% Source work © 2024 Wen-Wei Li, CC BY 4.0.
+% English translation/modification: OpenAI Codex gpt-5.6-sol, Ultra,
+% acting on instructions of the user.
+\documentclass[
+  colors=true,
+  coverpage=coverpage-en.tex,
+  fontsetup=font-setup-en.tex,
+  titlesetup=titles-setup-en.tex
+]{AJbook2}
+
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n}
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{tikz-cd}
+\usetikzlibrary{positioning,patterns,calc,matrix,shapes.arrows,shapes.symbols,fit,arrows.meta,braids}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{mycommand}
+
+% Keep the standard extensible arrows and import only the additional arrow
+% implementations required by the source.
+\let\OOriginalXrightarrow\xrightarrow
+\let\OOriginalXleftarrow\xleftarrow
+\let\OOriginalXleftrightarrow\xleftrightarrow
+\let\OOriginalXhookrightarrow\xhookrightarrow
+\let\OOriginalXhookleftarrow\xhookleftarrow
+\let\OOriginalXmapsto\xmapsto
+\usepackage{myarrows}
+\let\xrightarrow\OOriginalXrightarrow
+\let\xleftarrow\OOriginalXleftarrow
+\let\xleftrightarrow\OOriginalXleftrightarrow
+\let\xhookrightarrow\OOriginalXhookrightarrow
+\let\xhookleftarrow\OOriginalXhookleftarrow
+\let\xmapsto\OOriginalXmapsto
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+\usepackage[unicode,bookmarksnumbered]{hyperref}
+\makeatletter
+\newcommand{\sourcecrossref}[2]{\@ifundefined{r@#1}{#2}{\ref{#1}}}
+\makeatother
+\hypersetup{
+  pdflang={en},
+  pdfauthor={Wen-Wei Li},
+  pdftitle={Methods of Algebra, Volume 2: Linear Algebra - Independent English Edition},
+  pdfsubject={Complete English-access derivative edition},
+  pdfkeywords={linear algebra, homological algebra, category theory, English},
+  CJKbookmarks=true
+}
+\usepackage[open,openlevel=0]{bookmark}
+
+\usepackage[xindy,splitindex]{imakeidx}
+\makeindex[columns=2,program=truexindy,intoc=true,
+  options=-M texindy -I xelatex -C utf8,title={Index of Terms}]
+\makeindex[columns=3,program=truexindy,intoc=true,
+  options=-M numeric-sort -M latex -M latex-loc-fmts -M makeindex -I xelatex -C utf8,
+  name=sym1,title={Index of Symbols}]
+
+\addbibresource{Al-jabr.bib}
+\ExecuteBibliographyOptions{backref=false}
+\renewcommand{\today}{September 1, 2026}
+
+% English display labels for the environment command names retained from the
+% Indonesian structural witness. They share the source theorem counter.
+\AtBeginDocument{
+  \renewcommand{\contentsname}{Contents}
+  \renewcommand{\bibname}{References}
+  \renewcommand{\listfigurename}{List of Figures}
+  \renewcommand{\listtablename}{List of Tables}
+  \renewcommand{\figurename}{Figure}
+  \renewcommand{\tablename}{Table}
+  \renewcommand{\chaptername}{Chapter}
+  \renewcommand{\appendixname}{Appendix}
+  \renewcommand{\chaptermark}[1]{\markboth{\AJchapterttl{\thechapter}\quad ##1}{}}
+  \renewcommand{\sectionmark}[1]{\markright{\S\arabic{chapter}.\arabic{section}\quad ##1}}
+  \theoremstyle{plain}
+  \theorembodyfont{\normalfont}
+  \theoremheaderfont{\sffamily\bfseries}
+  \theoremseparator{\ }
+  \theoremsymbol{}
+  % AJbook2 defines the source environment command names with Chinese display
+  % headings.  ntheorem's \renewtheorem retains their counters while giving
+  % the independent English edition English headings.
+  \renewtheorem{theorem}{Theorem}[section]
+  \renewtheorem{corollary}[theorem]{Corollary}
+  \renewtheorem{lemma}[theorem]{Lemma}
+  \renewtheorem{proposition}[theorem]{Proposition}
+  \renewtheorem{definition}[theorem]{Definition}
+  \renewtheorem{definition-theorem}[theorem]{Definition--Theorem}
+  \renewtheorem{definition-proposition}[theorem]{Definition--Proposition}
+  \renewtheorem{hypothesis}[theorem]{Hypothesis}
+  \renewtheorem{conjecture}[theorem]{Conjecture}
+  \renewtheorem{example}[theorem]{Example}
+  \renewtheorem{remark}[theorem]{Remark}
+  \renewtheorem{convention}[theorem]{Convention}
+  \renewtheorem{exercise}[theorem]{Exercise}
+  \newtheorem{teorema}[theorem]{Theorem}
+  \newtheorem{korolari}[theorem]{Corollary}
+  \newtheorem{lema}[theorem]{Lemma}
+  \newtheorem{proposisi}[theorem]{Proposition}
+  \newtheorem{definisi}[theorem]{Definition}
+  \newtheorem{definisiteorema}[theorem]{Definition--Theorem}
+  \newtheorem{definisiproposisi}[theorem]{Definition--Proposition}
+  \newtheorem{definisi-proposisi}[theorem]{Definition--Proposition}
+  \newtheorem{hipotesis}[theorem]{Hypothesis}
+  \newtheorem{konjektur}[theorem]{Conjecture}
+  \newtheorem{contoh}[theorem]{Example}
+  \newtheorem{catatan}[theorem]{Remark}
+  \newtheorem{konvensi}[theorem]{Convention}
+  \newtheorem{latihan}[theorem]{Exercise}
+  \theoremstyle{nonumberplain}
+  \theoremheaderfont{\sffamily\bfseries}
+  \theoremseparator{\enspace}
+  \theoremsymbol{\ensuremath{\square}}
+  \renewtheorem{proof}{Proof}
+  \newtheorem{bukti}{Proof}
+}
+
+\renewenvironment{Exercises}{
+  \markright{Exercises}
+  \phantomsection
+  \addcontentsline{toc}{section}{Exercises}
+  \vspace{1em}\begin{center}\Large\bfseries Exercises\end{center}\vspace{0.7em}
+  \begin{small}\begin{enumerate}[\bfseries 1.]
+}{\end{enumerate}\end{small}}
+\renewenvironment{hint}{
+  \ifvmode\ignorespaces\else\quad\fi
+  \begin{tikzpicture}[baseline=(H.base),every node/.style={
+    signal,draw,very thin,signal to=east,signal from=nowhere,
+    signal pointer angle=120,inner sep=2pt}]
+    \node[anchor=mid west] (H) at (0,0){\sffamily\footnotesize Hint};
+  \end{tikzpicture}
+}{}
+
+\setlength{\emergencystretch}{1.5em}
+\newtcolorbox{petunjukbacaan}{breakable,enhanced,width=\textwidth,
+  colback=white,colbacktitle=white,colframe=gray!50,boxrule=0.2mm,
+  coltitle=black,fonttitle=\sffamily,
+  attach boxed title to top left={yshift=-\tcboxedtitleheight/2,xshift=\tcboxedtitlewidth/4},
+  boxed title style={boxrule=0pt,colframe=white},before skip=0.5cm,
+  top=3mm,bottom=3mm,title={Reading Guide}}
+
+\begin{document}
+\frontmatter
+
+\cleardoublepage
+\thispagestyle{empty}
+\section*{Attribution, license, and edition status}
+The source work is Wen-Wei Li, \emph{Methods of Algebra, Volume 2:
+Linear Algebra}, 2024 edition. The frozen source is the author-controlled
+repository at commit \texttt{9a5803ff77dd3257484cb177f851a73770a59dd3},
+tree \texttt{23bd05c2fb8434278df4fdfb636559a6a2b0d2ff}. The source and this
+derivative are licensed under Creative Commons Attribution 4.0 International
+(CC BY 4.0):
+\begin{center}\small\url{https://creativecommons.org/licenses/by/4.0/}\end{center}
+
+This independent edition translates the complete active introduction,
+Chapters 1--9, Appendices A--B, exercises, hints, headings, and reader
+interfaces. Formulae, notation, numbering, labels, cross-references,
+citations, diagrams, and bibliographic identities are preserved. Two clearly
+identified mastery bridges are independent additions derived from the
+Indonesian course edition. Wen-Wei Li and Higher Education Press do not endorse
+this independent translation.
+
+\medskip
+Production provenance: the English translation, terminology reconciliation,
+metadata, and modular backend were produced with \textbf{OpenAI Codex
+gpt-5.6-sol, Ultra}, acting on instructions of the user. This disclosure does
+not displace Wen-Wei Li’s authorship or other component credits.
+
+\mainmatter
+
+\input{prelude-unit-001}
+\input{prelude-unit-002}
+\input{prelude-unit-003}
+\input{prelude-unit-004}
+\input{prelude-unit-005}
+\input{prelude-unit-006}
+\input{prelude-unit-007}
+
+\part*{Core Part}
+\input{chapter1-unit-008}
+\input{chapter1-unit-009}
+\input{chapter1-unit-010}
+\input{chapter1-unit-011}
+\input{chapter1-unit-012}
+\input{chapter1-unit-013}
+\input{chapter1-unit-014}
+\input{chapter1-unit-015}
+\input{chapter1-unit-016}
+\input{chapter1-unit-017}
+\input{chapter1-unit-018}
+\input{chapter1-unit-019}
+\input{chapter2-unit-020}
+\input{chapter2-unit-021}
+\input{chapter2-unit-022}
+\input{chapter2-unit-023}
+\input{chapter2-unit-024}
+\input{chapter2-unit-025}
+\input{chapter2-unit-026}
+\input{chapter2-unit-027}
+\input{chapter2-unit-028}
+\input{chapter2-unit-029}
+\input{chapter2-unit-030}
+\input{chapter3-unit-031}
+\input{chapter3-unit-032}
+\input{chapter3-unit-033}
+\input{chapter3-unit-034}
+\input{chapter3-unit-035}
+\input{chapter3-unit-036}
+\input{chapter3-unit-037}
+\input{chapter3-unit-038}
+\input{chapter3-unit-039}
+\input{chapter3-unit-040}
+\input{chapter3-unit-041}
+\input{chapter3-unit-042}
+\input{chapter3-unit-043}
+\input{chapter3-unit-044}
+\input{chapter3-unit-045}
+\input{chapter3-unit-046}
+\input{chapter3-unit-047}
+\input{chapter4-unit-048}
+\input{chapter4-unit-049}
+\input{chapter4-unit-050}
+\input{chapter4-unit-051}
+\input{chapter4-unit-052}
+\input{chapter4-unit-053}
+\input{chapter4-unit-054}
+\input{chapter4-unit-055}
+\input{chapter4-unit-056}
+\input{chapter4-unit-057}
+\input{chapter4-unit-058}
+\input{chapter4-unit-059}
+\input{chapter4-unit-060}
+\input{chapter4-unit-061}
+\input{chapter4-unit-062}
+\input{chapter4-unit-063}
+\input{chapter5-unit-064}
+\input{chapter5-unit-065}
+\input{chapter5-unit-066}
+\input{chapter5-unit-067}
+\input{chapter5-unit-068}
+\input{chapter5-unit-069}
+\input{chapter5-unit-070}
+\input{chapter5-unit-071}
+
+\part*{Advanced Part}
+\input{chapter6-unit-072}
+\input{chapter6-unit-073}
+\input{chapter6-unit-074}
+\input{chapter6-unit-075}
+\input{chapter6-unit-076}
+\input{chapter6-unit-077}
+\input{chapter6-unit-078}
+\input{chapter6-unit-079}
+\input{chapter6-unit-080}
+\input{chapter6-unit-081}
+\input{chapter6-unit-082}
+\input{chapter6-unit-083}
+\input{chapter6-unit-084}
+\input{chapter6-unit-085}
+\input{chapter6-unit-086}
+\input{chapter6-unit-087}
+\input{chapter7-unit-088}
+\input{chapter7-unit-089}
+\input{chapter7-unit-090}
+\input{chapter7-unit-091}
+\input{chapter7-unit-092}
+\input{chapter7-unit-093}
+\input{chapter7-unit-094}
+\input{chapter7-unit-095}
+\input{chapter7-unit-096}
+\input{chapter7-unit-097}
+\input{chapter7-unit-098}
+\input{chapter7-unit-099}
+\input{chapter7-unit-100}
+\input{chapter7-unit-101}
+\input{chapter7-unit-102}
+\input{chapter7-unit-103}
+\input{chapter7-unit-104}
+\input{chapter7-unit-105}
+\input{chapter8-unit-106}
+\input{chapter8-unit-107}
+\input{chapter8-unit-108}
+\input{chapter8-unit-109}
+\input{chapter8-unit-110}
+\input{chapter8-unit-111}
+\input{chapter8-unit-112}
+\input{chapter8-unit-113}
+\input{chapter8-unit-114}
+\input{chapter8-unit-115}
+\input{chapter8-unit-116}
+\input{chapter8-unit-117}
+\input{chapter8-unit-118}
+\input{chapter8-unit-119}
+\input{chapter8-unit-120}
+\input{chapter9-unit-121}
+\input{chapter9-unit-122}
+\input{chapter9-unit-123}
+\input{chapter9-unit-124}
+\input{chapter9-unit-125}
+\input{chapter9-unit-126}
+\input{chapter9-unit-127}
+\input{chapter9-unit-128}
+\input{chapter9-unit-129}
+\input{chapter9-unit-130}
+\input{chapter9-unit-131}
+\input{chapter9-unit-132}
+\input{chapter9-unit-133}
+\input{chapter9-unit-134}
+
+\bookmarksetup{startatroot}
+\appendix
+\input{appendix1-unit-135}
+\input{appendix1-unit-136}
+\input{appendix1-unit-137}
+\input{appendix1-unit-138}
+\input{appendix1-unit-139}
+\input{appendix2-unit-140}
+\input{appendix2-unit-141}
+\input{appendix2-unit-142}
+\input{appendix2-unit-143}
+\input{appendix2-unit-144}
+\input{appendix2-unit-145}
+\input{appendix2-unit-146}
+
+\bookmarksetup{startatroot}
+\part*{Mastery Bridges}
+\addcontentsline{toc}{part}{Mastery Bridges}
+\input{mastery-bridge-001-diagram-chasing}
+\input{mastery-bridge-002-derived-functors-spectral-sequences}
+
+\backmatter
+\printbibliography[heading=bibintoc,title={References}]
+{\footnotesize\printindex[sym1]
+\indexprologue{English terms are arranged alphabetically.}
+\printindex}
+
+\end{document}

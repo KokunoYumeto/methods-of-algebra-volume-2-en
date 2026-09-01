@@ -1,0 +1,331 @@
+% Unit 059 English translation of chapter4.tex lines 1841--2001.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter4.rhom
+% Coverage: complete Section 4.9; stops before Section 4.10 at line 2002.
+
+% segment-id: o014.li2.chapter4.rhom.h001
+\section{Example: \texorpdfstring{$\RHom$}{RHom}}\label{sec:RHom}
+\hypertarget{o014.aljabr2.chapter4.rhom}{ }
+
+% segment-id: o014.li2.chapter4.rhom.p001
+Throughout this section, $\mathcal{A}$ remains an abelian category. If
+$\mathcal{A}$ is moreover $\Bbbk$-linear, where $\Bbbk$ is a commutative
+ring, every statement in this section can be strengthened by replacing
+$\cate{Ab}$ with $\Bbbk\dcate{Mod}$.
+
+% segment-id: o014.li2.chapter4.rhom.p002
+The bifunctor
+$\Hom:=\Hom_{\mathcal{A}}:\mathcal{A}^{\opp}\times\mathcal{A}\to\cate{Ab}$
+is left exact in each variable. To study its derived bifunctor in the sense of
+Definition~\ref{def:derived-bifunctor}, we need some preparation. First, the
+general theory of \S\ref{sec:bounded-derived-functor} gives
+\begin{align*}
+	\cate{C}\Hom: \cate{C}^+(\mathcal{A}^{\opp}) \times \cate{C}^+(\mathcal{A}) & \to \cate{C}^+(\cate{Ab}), \\
+	\cate{K}\Hom: \cate{K}^+(\mathcal{A}^{\opp}) \times \cate{K}^+(\mathcal{A}) & \to \cate{K}^+(\cate{Ab}).
+\end{align*}
+
+% segment-id: o014.li2.chapter4.rhom.p003
+Denote all localization functors by $Q$. Recall the isomorphism
+$\sigma:\cate{C}^\pm(\mathcal{A}^{\opp})\rightiso
+\cate{C}^{\mp}(\mathcal{A})^{\opp}$ of
+Definition--Proposition~\ref{def:sigma}. The isomorphisms it induces at the
+level of the triangulated categories $\cate{K}^\pm$ and $\cate{D}^\pm$ are
+also denoted by $\sigma$ (Propositions~\ref{prop:sigma-homotopy} and
+\ref{prop:derived-cat-op}).
+
+% segment-id: o014.li2.chapter4.rhom.d001
+\begin{definition}
+	\index{$\RHom$ functor}
+	If the right derived bifunctor of $\Hom$ in the sense of
+	Definition~\ref{def:derived-bifunctor} exists, denote it by
+	$\RHom=\RHom_{\mathcal{A}}$. It is a functor from
+	$\cate{D}^+(\mathcal{A}^{\opp})\times\cate{D}^+(\mathcal{A})$ to
+	$\cate{D}^+(\cate{Ab})$ and, by means of
+	$\sigma:\cate{D}^{\pm}(\mathcal{A}^{\opp})\rightiso
+	\cate{D}^{\mp}(\mathcal{A})^{\opp}$, can also be regarded as a functor
+	\[ \RHom: \cate{D}^-(\mathcal{A})^{\opp} \times \cate{D}^+(\mathcal{A}) \to \cate{D}^+(\cate{Ab}). \]
+\end{definition}
+
+% segment-id: o014.li2.chapter4.rhom.l001
+\begin{lemma}\label{prop:RHom-bounded-prep}
+	Write $\mathcal{I}_{\mathcal{A}}$ (respectively,
+	$\mathcal{P}_{\mathcal{A}}$) for the full subcategory of injective
+	(respectively, projective) objects of $\mathcal{A}$.
+	\begin{compactitem}
+		\item If $\mathcal{A}$ has enough injective objects, then
+		$(\cate{K}^+(\mathcal{A}^{\opp}),
+		\cate{K}^+(\mathcal{I}_{\mathcal{A}}))$ is $\Hom$-injective.
+		\item If $\mathcal{A}$ has enough projective objects, then
+		$(\cate{K}^+(\mathcal{P}_{\mathcal{A}}^{\opp}),
+		\cate{K}^+(\mathcal{A}))$ is $\Hom$-injective.
+	\end{compactitem}
+\end{lemma}
+% segment-id: o014.li2.chapter4.rhom.pf001
+\begin{proof}
+	It suffices to treat the case of enough injectives; the projective case is
+	entirely similar. We verify the conditions of
+	Lemma~\ref{prop:RF-bifunctor}.
+
+	First, fix $X_1\in\Obj(\mathcal{A})$. Recall that
+	$\mathcal{I}_{\mathcal{A}}$ is of type I for every additive functor
+	$F:\mathcal{A}\to\cate{Ab}$
+	(Example~\ref{eg:injective-gives-F-injectives}); take the special case
+	$F=\Hom(X_1,\cdot)$.
+
+	Second, fix $X_2\in\Obj(\mathcal{I}_{\mathcal{A}})$. To verify that
+	$\mathcal{A}^{\opp}$ is of type I relative to $\Hom(\cdot,X_2)$, observe
+	that the resolution condition (I1) holds trivially. For (I2), it suffices to
+	show that $\Hom(\cdot,X_2):\mathcal{A}^{\opp}\to\cate{Ab}$ is exact; this
+	is precisely the characterization of $X_2$ as an injective object.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.rhom.p004
+The following result involves the $\Hom$ complex of
+Definition~\ref{def:Hom-cplx}, denoted by $\Hom^\bullet$.
+
+% segment-id: o014.li2.chapter4.rhom.t001
+\begin{theorem}\label{prop:RHom}\label{prop:RHom-bounded}
+	\index{$\Hom$ complex}
+	\index{$\Hom$ bicomplex}
+	\index[sym1]{RHom@$\RHom$}
+	Suppose that $\mathcal{A}$ has enough injective objects or enough
+	projective objects.
+	\begin{enumerate}[(i)]
+		\item The right derived bifunctor $\RHom$ exists.
+		\item If $\mathcal{A}$ has enough injective objects and $X_2\to I_2$ is
+		an injective resolution, then it induces an isomorphism
+		\[ \RHom(QX_1, QX_2) \rightiso Q \Hom^\bullet(X_1, I_2). \]
+		In particular, if $X_1\in\Obj(\mathcal{A})$, then
+		$\RHom(QX_1,\cdot)\simeq\mathrm{R}(\Hom(X_1,\cdot)):
+		\cate{D}^+(\mathcal{A})\to\cate{D}^+(\cate{Ab})$.
+		\item If $\mathcal{A}$ has enough projective objects and $P_1\to X_1$
+		is a projective resolution, then it induces an isomorphism
+		\[ \RHom(QX_1, QX_2) \rightiso Q \Hom^\bullet(P_1, X_2). \]
+		In particular, if $X_2\in\Obj(\mathcal{A})$, then
+		$\RHom(\cdot,QX_2)\simeq\mathrm{R}(\Hom(\cdot,X_2)):
+		\cate{D}^-(\mathcal{A})^{\opp}\to\cate{D}^+(\cate{Ab})$.
+		\item There is a canonical isomorphism
+		$\Hm^n\RHom(X,Y)\simeq
+		\Hom_{\cate{D}(\mathcal{A})}(X,Y[n])$, where
+		$X\in\Obj(\cate{D}^-(\mathcal{A}))$ and
+		$Y\in\Obj(\cate{D}^+(\mathcal{A}))$. If
+		$X,Y\in\Obj(\mathcal{A})$, the right-hand side is precisely
+		$\Ext^n(X,Y)$ from Definition~\ref{def:Ext-general}.
+	\end{enumerate}
+\end{theorem}
+% segment-id: o014.li2.chapter4.rhom.pf002
+\begin{proof}
+	By Lemma~\ref{prop:RHom-bounded-prep} and the following observations,
+	statements (i)--(iii) all follow by applying
+	Lemma~\ref{prop:RF-bifunctor}:
+	\begin{itemize}
+		\item at the level of complexes, Example~\ref{eg:Hom-bicplx} gives a
+		canonical isomorphism
+		$\cate{C}\Hom(\sigma^{-1}(X_1),X_2)\simeq\Hom^\bullet(X_1,X_2)$;
+		\item $P_1\to X_1$ is a projective resolution in
+		$\cate{K}^-(\mathcal{A})$ if and only if the corresponding morphism
+		$\sigma^{-1}(X_1)\to\sigma^{-1}(P_1)$ is an injective resolution in
+		$\cate{K}^+(\mathcal{A}^{\opp})$.
+	\end{itemize}
+
+	For (iv), first suppose that $\mathcal{A}$ has enough injective objects. We
+	may assume that $Y\in\Obj(\cate{C}^+(\mathcal{A}))$ consists of injective
+	objects. Identifying the objects of $\cate{K}(\mathcal{A})$ and
+	$\cate{D}(\mathcal{A})$, Proposition~\ref{prop:Hom-D-injective} gives
+	\[ \Hom_{\cate{D}(\mathcal{A})}(X, Y[n]) \simeq \Hom_{\cate{K}(\mathcal{A})}(X, Y[n]) \simeq \Hm^n \Hom^\bullet(X, Y) \xrightarrow[\sim]{\text{(ii)}} \Hm^n \RHom(X, Y). \]
+	If $\mathcal{A}$ has enough projective objects, the argument is entirely
+	similar.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.rhom.co001
+\begin{corollary}\label{prop:Ext-reconcilation}
+	Let $X,Y\in\Obj(\mathcal{A})$. If $\mathcal{A}$ has enough injective
+	(respectively, projective) objects, then $\Ext^n(X,Y)$ from
+	Definition~\ref{def:Ext-general} is canonically isomorphic to
+	$\Ext^n_{\mathcal{A},\mathrm{II}}(X,Y)$ (respectively,
+	$\Ext^n_{\mathcal{A},\mathrm{I}}(X,Y)$) as defined in
+	\S\ref{sec:Ext-Tor}.
+\end{corollary}
+% segment-id: o014.li2.chapter4.rhom.pf003
+\begin{proof}
+	Apply Theorem~\ref{prop:RHom} (ii) and (iii) directly.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.rhom.d002
+\begin{definition}
+	\index{dimension!injective}
+	\index{dimension!projective}
+	\index[sym1]{injdim@$\mathrm{inj.dim}$, $\mathrm{proj.dim}$}
+	Let $X\in\Obj(\mathcal{A})$. The following dimensions are dimensions of
+	right derived functors in the sense of
+	Definition--Proposition~\ref{def:dim-functor}.
+	\begin{itemize}
+		\item If $\mathcal{A}$ has enough injective objects, the dimension of
+		$\mathrm{R}(\Hom(\cdot,X)):
+		\cate{D}^-(\mathcal{A})^{\opp}\to\cate{D}^+(\cate{Ab})$ is called the
+		\emph{injective dimension} of $X$ and is denoted by
+		$\mathrm{inj.dim}(X)$.
+		\item If $\mathcal{A}$ has enough projective objects, the dimension of
+		$\mathrm{R}(\Hom(X,\cdot)):
+		\cate{D}^+(\mathcal{A})\to\cate{D}^+(\cate{Ab})$ is called the
+		\emph{projective dimension} of $X$ and is denoted by
+		$\mathrm{proj.dim}(X)$.
+	\end{itemize}
+\end{definition}
+
+% segment-id: o014.li2.chapter4.rhom.p005
+For $X\in\Obj(\mathcal{A})$ and
+$n\in\Z_{\geq0}\sqcup\{\infty\}$, an injective resolution
+$0\to X\to I^0\to I^1\to\cdots$ is said to have length $\leq n$ if
+$k>n\Rightarrow I^k=0$; projective resolutions are treated in the same way.
+The notation $\Ext^{\geq m}(Y,X)=0$ means that
+$k\geq m\Rightarrow\Ext^k(Y,X)=0$, and similarly in the other cases.
+\index{resolution!length}
+
+% segment-id: o014.li2.chapter4.rhom.pr001
+\begin{proposition}\label{prop:id-pd-Ext}
+	Let $n\in\Z_{\geq0}$. If $\mathcal{A}$ has enough injective objects, then
+	\begin{align*}
+		\mathrm{inj.dim}(X) \leq n & \iff \Ext^{\geq n+1}(\cdot, X) = 0 \\
+		& \iff \Ext^{n+1}(\cdot, X) = 0 \iff X\;\text{has an injective resolution of length $\leq n$}.
+	\end{align*}
+
+	If $\mathcal{A}$ has enough projective objects, then
+	\begin{align*}
+		\mathrm{proj.dim}(X) \leq n & \iff \Ext^{\geq n+1}(X, \cdot) = 0 \\
+		& \iff \Ext^{n+1}(X, \cdot) = 0 \iff X\;\text{has a projective resolution of length $\leq n$}.
+	\end{align*}
+\end{proposition}
+% segment-id: o014.li2.chapter4.rhom.pf004
+\begin{proof}
+	It suffices to discuss injective resolutions. Suppose that
+	$\mathrm{inj.dim}(X)\leq n$. The definition of dimension implies that, for
+	every $Y\in\Obj(\mathcal{A})$,
+	$\bigl(\mathrm{R}\Hom(\cdot,X)\bigr)(Y)$ lies in
+	$\Obj(\cate{D}^{[0,n]}(\cate{Ab}))$, and hence
+	$\Ext^{\geq n+1}(Y,X)=0$.
+
+	Now suppose that $\Ext^{n+1}(\cdot,X)=0$. Take an injective resolution
+	$0\to X\to I^0\xrightarrow{d^0}\cdots$. Repeatedly applying dimension
+	shifting from Proposition~\ref{prop:dimension-shifting} to the short exact
+	sequences
+	\[ 0 \to X \to I^0 \to \Image\left(d_I^0 \right) \to 0, \quad 0 \to \Image\left( d_I^{k-2}\right) \to I^{k-1} \to \Image\left(d_I^{k-1} \right) \to 0 \]
+	for $1<k\leq n$ gives
+	\[ \Ext^1\left(\cdot, \Image\left(d_I^{n-1}\right) \right) \simeq \cdots \simeq \Ext^{n+1}\left(\cdot, X \right) = 0. \]
+	Thus $\Image(d_I^{n-1})$ is injective
+	(Corollary~\ref{prop:obstruction-exactness}). Replacing $I^n$ by this object
+	gives an injective resolution of length $\leq n$.
+
+	If $X$ has an injective resolution of length $\leq n$, computing the
+	derived functor with this resolution shows that, for every
+	$Y\in\Obj(\mathcal{A})$,
+	$\bigl(\mathrm{R}\Hom(\cdot,X)\bigr)(Y)$ lies in
+	$\Obj(\cate{D}^{[0,n]}(\cate{Ab}))$.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.rhom.p006
+In keeping with Example~\ref{eg:Tor-dimension}, injective and projective
+dimension may also be viewed as two kinds of ``$\Ext$-dimension,'' although
+this terminology is not standard.
+
+% segment-id: o014.li2.chapter4.rhom.dp001
+\begin{definition-proposition}[Global dimension]\label{def:global-dim}
+	\index{dimension!global}
+	\index[sym1]{gldim@$\mathrm{gl.dim}$}
+	Suppose that $\mathcal{A}$ has enough injective and projective objects. Then
+% segment-id: o014.li2.chapter4.rhom.g001
+	\[\begin{tikzcd}[row sep=tiny, column sep=tiny, ampersand replacement=\&]
+		\displaystyle\sup_{X \in \Obj(\mathcal{A})} \mathrm{inj.dim}(X) \arrow[equal, r] \& \inf \left\{ n \in \Z_{\geq 0} \;\middle| \; \Ext^{\geq n+1}(\cdot, \cdot) = 0 \right\} \arrow[equal, r] \& \displaystyle\sup_{X \in \Obj(\mathcal{A})} \mathrm{proj.dim}(X) \\
+		\& \sup\left\{{\begin{array}{r|l}
+			 n \in \Z_{\geq 0} & \exists X, Y \in \Obj(\mathcal{A}) \\
+			 & \Ext^n(X,Y) \neq 0
+		\end{array}}\right\} \arrow[equal, u] \& \text{(with the convention $\inf \emptyset := \infty$)}
+	\end{tikzcd}\]
+	This value is denoted by
+	$\mathrm{gl.dim}(\mathcal{A})\in\Z_{\geq0}\sqcup\{\infty\}$ and is
+	called the \emph{global dimension}, or \emph{global homological dimension},
+	of $\mathcal{A}$.
+\end{definition-proposition}
+% segment-id: o014.li2.chapter4.rhom.pf005
+\begin{proof}
+	For every $n\in\Z_{\geq0}$, Proposition~\ref{prop:id-pd-Ext} shows that
+	$n\geq\sup_X\mathrm{inj.dim}(X)$ is equivalent to
+	$\Ext^{\geq n+1}(\cdot,\cdot)=0$. Take the infimum over all $n$ satisfying
+	this condition. The case of $\mathrm{proj.dim}$ is exactly the same, and
+	the vertical equality is immediate.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.rhom.p007
+For example, if $R$ is a principal ideal domain, every submodule of a free
+$R$-module is again free \cite[Lemma 6.7.4]{Li1}. Thus every $R$-module,
+say $M$, has a free resolution of the form
+$0\to F_1\to F_0\to M\to0$, which shows that
+$\mathrm{gl.dim}(R\dcate{Mod})\leq1$.
+
+% segment-id: o014.li2.chapter4.rhom.p008
+Global dimension is an upper bound for the dimensions of all derived functors.
+
+% segment-id: o014.li2.chapter4.rhom.co002
+\begin{corollary}
+	Let $F:\mathcal{A}\to\mathcal{A}'$ be a left-exact (respectively,
+	right-exact) functor between abelian categories, and suppose that
+	$\mathcal{A}$ has enough injective and projective objects. Then the dimension
+	of $\mathrm{R}F$ (respectively, $\mathrm{L}F$) is at most
+	$\mathrm{gl.dim}(\mathcal{A})$.
+\end{corollary}
+% segment-id: o014.li2.chapter4.rhom.pf006
+\begin{proof}
+	The definition of dimension involves the amplitude of $\mathrm{R}F$
+	(respectively, $\mathrm{L}F$); see
+	Definition~\ref{def:functor-amplitude}. To control the amplitude, for every
+	$X\in\Obj(\mathcal{A})$ use Proposition~\ref{prop:id-pd-Ext} to choose an
+	injective (respectively, projective) resolution of length at most
+	$\mathrm{gl.dim}(\mathcal{A})$, and compute $\mathrm{R}F(X)$
+	(respectively, $\mathrm{L}F(X)$) using that resolution.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.rhom.p009
+We conclude this section with a result of adjunction type.
+
+% segment-id: o014.li2.chapter4.rhom.t002
+\begin{theorem}\label{prop:RHom-adjoint-bounded}
+	Consider an adjoint pair of additive functors between abelian categories
+	$\begin{tikzcd}
+		F: \mathcal{A} \arrow[r, shift left] & \mathcal{A}' \arrow[l, shift left] : G
+	\end{tikzcd}$.
+	Suppose that $\mathcal{A}$ has enough projective objects and
+	$\mathcal{A}'$ has enough injective objects. Then there is a canonical
+	isomorphism in $\cate{D}^+(\cate{Ab})$
+	\[ \RHom_{\mathcal{A'}}\left(\mathrm{L}F(X), Y\right) \simeq \RHom_{\mathcal{A}}\left(X, \mathrm{R}G(Y) \right), \]
+	where $X\in\Obj(\cate{D}^-(\mathcal{A}))$ and
+	$Y\in\Obj(\cate{D}^+(\mathcal{A}'))$. Consequently, there is a canonical
+	isomorphism in $\cate{Ab}$
+	\[ \Hom_{\cate{D}(\mathcal{A'})}\left(\mathrm{L}F(X), Y\right) \simeq \Hom_{\cate{D}(\mathcal{A})}\left(X, \mathrm{R}G(Y) \right). \]
+\end{theorem}
+% segment-id: o014.li2.chapter4.rhom.pf007
+\begin{proof}
+	Choose a projective resolution $P\to X$ and an injective resolution
+	$Y\to I$. Applying Theorem~\ref{prop:RHom} gives
+	\[ \RHom_{\mathcal{A}}(\mathrm{L}F(QX), QY) \simeq Q\Hom^\bullet\left( \cate{K}F(P), I \right). \]
+	But $\cate{K}F(P)$ is obtained by applying $F$ degree by degree to the
+	complex. From the definition of the $\Hom$ complex and the adjunction, the
+	right-hand side is isomorphic to $Q\Hom^\bullet(P,\cate{K}G(I))$, which is
+	precisely $\RHom_{\mathcal{A}}(QX,\mathrm{R}G(QY))$.
+
+	Theorem~\ref{prop:resolution-homotopy} shows that a projective resolution of
+	$X$ is unique up to unique isomorphism in $\cate{K}^-(\mathcal{A})$, and
+	every morphism in $\cate{D}^-(\mathcal{A})$ lifts uniquely to projective
+	resolutions (Proposition~\ref{prop:Hom-D-injective}). The same holds for
+	injective resolutions of $Y$. This suffices to show that the isomorphism
+	constructed above is functorial in $(X,Y)$.
+
+	The final assertion follows by applying $\Hm^0$ to both sides.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.rhom.p010
+Here $\mathrm{L}F$ and $\mathrm{R}G$ are not adjoint functors in the strict
+sense: the former is a functor between $\cate{D}^-$ categories, whereas the
+latter is a functor between $\cate{D}^+$ categories. The version for unbounded
+derived categories in \S\ref{sec:unbounded-derived} will remove this
+discrepancy.

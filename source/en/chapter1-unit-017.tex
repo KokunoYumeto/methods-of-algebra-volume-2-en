@@ -1,0 +1,737 @@
+% English translation of chapter1.tex lines 1230--1582.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter1.gabriel-zisman-localization
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.h001
+\section{Gabriel--Zisman Localization}\label{sec:cat-localization}
+\hypertarget{o014.aljabr2.chapter1.gabriel-zisman-localization}{ }
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.p001
+Gabriel--Zisman localization, henceforth simply called localization, is the
+most economical way to adjoin inverses to a family of morphisms in a category.
+The theory originates in \cite{GZ67} and is characterized by a universal
+property.
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.d001
+\begin{definition}[P.\ Gabriel, M.\ Zisman]\label{def:cat-localization}
+	\index{localization}
+	\index[sym1]{CS@$\mathcal{C}[S^{-1}]$}
+	Let $\mathcal{C}$ be a category and let $S$ be a subset of
+	$\Mor(\mathcal{C})$ that contains all identity morphisms and is closed
+	under composition. A \emph{localization} of $\mathcal{C}$ at $S$ means a
+	category $\mathcal{C}[S^{-1}]$ (which may be a ``large'' category), together
+	with a functor $Q:\mathcal{C}\to\mathcal{C}[S^{-1}]$, called the
+	localization functor, satisfying the following conditions.
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.l001
+	\begin{itemize}
+		% segment-id: o014.li2.chapter1.gabriel-zisman-localization.i001
+		\item For every $s\in S$, its image $Q(s)$ is an isomorphism in
+		$\mathcal{C}[S^{-1}]$.
+		% segment-id: o014.li2.chapter1.gabriel-zisman-localization.i002
+		\item For every category $\mathcal{D}$ (again possibly ``large'') and
+		functor $F:\mathcal{C}\to\mathcal{D}$, if $F$ sends every morphism in
+		$S$ to an isomorphism, then there is a unique functor
+		$F[S^{-1}]:\mathcal{C}[S^{-1}]\to\mathcal{D}$ such that
+		$F=F[S^{-1}]Q$.
+	\end{itemize}
+\end{definition}
+\index{size issues}
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.p002
+By convention, we often omit $Q$ from the data. Some sources, such as
+\cite[Definition 7.1.1]{KS06}, give a somewhat weaker universal property for
+localization\footnote{From the perspective of $2$-categories, the more natural
+universal property is this: for every $\mathcal{D}$, the functor
+$Q^*:\mathcal{D}^{\mathcal{C}[S^{-1}]}\to\mathcal{D}^{\mathcal{C}}$ is fully
+faithful, and $G\in\Obj(\mathcal{D}^{\mathcal{C}})$ is isomorphic to some
+$Q^*(F)=FQ$ if and only if $G$ sends the elements of $S$ to isomorphisms. The
+functor $Q$ in Definition \ref{def:cat-localization} automatically has this
+property---the fully faithful part is Proposition
+\ref{prop:localization-extra-property}, and the rest is easy.}.
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.p003
+We next show that localization is unique up to a unique isomorphism.
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.pr001
+\begin{proposition}\label{prop:cat-localization-unique}
+	If $(\mathcal{C}[S^{-1}],Q)$ and $(\mathcal{C}[S^{-1}]',Q')$ are both
+	localizations of $\mathcal{C}$ at $S$, then there is a unique pair of
+	functors
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g001
+	$\begin{tikzcd}
+		\mathcal{C}[S^{-1}] \arrow[r, shift left, "G"] & \mathcal{C}[S^{-1}]' \arrow[l, shift left, "{G'}"]
+	\end{tikzcd}$
+	such that $GQ=Q'$, $G'Q'=Q$, and
+	$G'G=\identity_{\mathcal{C}[S^{-1}]}$,
+	$GG'=\identity_{\mathcal{C}[S^{-1}]'}$.
+\end{proposition}
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.pf001
+\begin{proof}
+	Since $Q'$ sends $S$ to isomorphisms, the universal property gives a unique
+	$G$ such that $GQ=Q'$. Similarly, there is a unique $G'$ such that
+	$G'Q'=Q$. Since $G'GQ=Q$, taking
+	$\mathcal{D}=\mathcal{C}[S^{-1}]$ and $F=Q$ in the universal property gives
+	$G'G=\identity_{\mathcal{C}[S^{-1}]}$. Likewise,
+	$GG'=\identity_{\mathcal{C}[S^{-1}]'}$\footnote{Translator's note: the
+	source has $\identity_{\mathcal{C}[S^{-1}]}$ for this last identity. Since
+	$GG'$ is an endofunctor of $\mathcal{C}[S^{-1}]'$, the prime has been added
+	to the target localization here (O014-C017).}.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.pr002
+\begin{proposition}
+	Suppose that the localization $(\mathcal{C}[S^{-1}],Q)$ exists. Let
+	$S^{\opp}$ denote the corresponding image of $S$ in
+	$\Mor(\mathcal{C}^{\opp})$. Then there is an equivalence of categories,
+	compatible with $Q$,
+	$\mathcal{C}[S^{-1}]^{\opp}\leftrightarrows
+	\mathcal{C}^{\opp}[(S^{\opp})^{-1}]$.
+\end{proposition}
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.pf002
+\begin{proof}
+	By the uniqueness of localization, it suffices to apply $(-)^{\opp}$ to all
+	the categories and functors in Definition \ref{def:cat-localization}, since
+	this operation does not reverse the direction of a functor.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.p004
+The problem is thus reduced to the existence and construction of localization.
+For general $\mathcal{C}$ and $S$, one can construct $\mathcal{C}[S^{-1}]$ by
+formally adjoining inverses to $\mathcal{C}$, much as in the construction of a
+free group. More concretely,
+$\Obj(\mathcal{C}[S^{-1}])=\Obj(\mathcal{C})$, while morphisms in
+$\mathcal{C}[S^{-1}]$ are represented formally by finite zigzags
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g002
+\[ \cdots b t^{-1} a s^{-1} \cdots = \left(
+	\begin{tikzcd}[row sep=tiny, column sep=tiny]
+	\cdots \arrow[rd] & & Y \arrow[ld, "s"'] \arrow[rd, "a"] & & W \arrow[ld, "t"'] \arrow[rd, "b"] & & \cdots \arrow[ld] \\
+	& X & & Z & & U &
+\end{tikzcd}\right) \]
+with $a,b,\ldots\in\Mor(\mathcal{C})$ and $s,t,\ldots\in S$. Composition
+and $Q$ are defined in the evident way, but one must quotient by the
+equivalence relation generated by
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.q001
+\[ s^{-1}t^{-1}=(ts)^{-1}, \quad ss^{-1}=\identity, \quad s^{-1}s=\identity \]
+and so on; see the sketch in \cite[I.1.1]{GZ67}. Localization may therefore be
+viewed as a kind of calculus of fractions for morphisms.
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.p005
+This construction is completely general, but its drawbacks are equally clear,
+chiefly because the equivalence relation is hard to work with. For example, it
+is difficult to characterize those $f,g\in\Mor(\mathcal{C})$ for which
+$Qf=Qg$. Fortunately, in practice $S$ is often a left (or right)
+multiplicative system, to be introduced in Definition
+\ref{def:multiplicative-family}. In that case the description of
+$\mathcal{C}[S^{-1}]$ can be simplified: the zigzags above can be
+\emph{straightened}, so that every morphism can be written in the form
+$as^{-1}$ (or $s^{-1}a$).
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.p006
+Before introducing multiplicative systems, we record a simple property of the
+construction above.
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.pr003
+\begin{proposition}\label{prop:localization-extra-property}
+	The localization functor $Q:\mathcal{C}\to\mathcal{C}[S^{-1}]$ is
+	essentially surjective. Moreover, for every category $\mathcal{D}$ and
+	functors $A,B:\mathcal{C}[S^{-1}]\to\mathcal{D}$, the evident map
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.q002
+	\[ \Hom_{\mathcal{D}^{\mathcal{C}[S^{-1}]}}(A,B) \to \Hom_{\mathcal{D}^{\mathcal{C}}}\left(AQ,BQ\right) \]
+	is a bijection. In other words,
+	$Q^*:\mathcal{D}^{\mathcal{C}[S^{-1}]}\to\mathcal{D}^{\mathcal{C}}$ is a
+	fully faithful functor.
+\end{proposition}
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.pf003
+\begin{proof}
+	We may realize the localization concretely as above. Write the map induced
+	by $Q$ on objects as $X\mapsto\underline{X}$. It is a bijection, hence $Q$
+	is essentially surjective. It follows at once that the map
+	$\Hom_{\mathcal{D}^{\mathcal{C}[S^{-1}]}}(A,B)\to
+	\Hom_{\mathcal{D}^{\mathcal{C}}}(AQ,BQ)$ is injective.
+
+	For surjectivity, let
+	$\varphi=(\varphi_X)_{X\in\Obj(\mathcal{C})}\in
+	\Hom_{\mathcal{D}^{\mathcal{C}}}(AQ,BQ)$. For each
+	$\underline{X}=QX$, define a morphism
+	$\tilde{\varphi}_{\underline{X}}:A\underline{X}\to B\underline{X}$ in
+	$\mathcal{D}$ to be $\varphi_X$. It remains to show that
+	$\tilde{\varphi}:=(\tilde{\varphi}_{\underline{X}})_{\underline{X}}$ lies
+	in $\Hom_{\mathcal{D}^{\mathcal{C}[S^{-1}]}}(A,B)$. In other words, for
+	every morphism $f:\underline{X}\to\underline{Y}$ in
+	$\mathcal{C}[S^{-1}]$, we must verify that the following diagram commutes in
+	$\mathcal{D}$:
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g003
+	\[\begin{tikzcd}
+		A\underline{X} \arrow[r, "{\tilde{\varphi}_{\underline{X}}}"] \arrow[d, "Af"'] & B\underline{X} \arrow[d, "Bf"] \\
+		A\underline{Y} \arrow[r, "{\tilde{\varphi}_{\underline{Y}}}"'] & B\underline{Y} .
+	\end{tikzcd}\]
+	By the zigzag construction of morphisms, $f$ decomposes into a string of
+	morphisms of the form $Qa$ or $(Qs)^{-1}$, with
+	$a\in\Mor(\mathcal{C})$ and $s\in S$. The commutativity of the diagram
+	therefore reduces to the corresponding property of $\varphi$.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.d002
+\begin{definition}\label{def:multiplicative-family}
+	\index{multiplicative system}
+	A subset $S\subset\Mor(\mathcal{C})$ satisfying the following properties
+	is called a \emph{left multiplicative system} in $\mathcal{C}$.
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.l002
+	\begin{enumerate}[(S1)]
+		% segment-id: o014.li2.chapter1.gabriel-zisman-localization.i003
+		\item For every $X\in\Obj(\mathcal{C})$, one has $\identity_X\in S$.
+		% segment-id: o014.li2.chapter1.gabriel-zisman-localization.i004
+		\item For all $f,g\in S$, if the composite $gf$ is defined, then
+		$gf\in S$.
+		% segment-id: o014.li2.chapter1.gabriel-zisman-localization.i005
+		\item Given morphisms
+		$X\xrightarrow{s\in S}Z\xleftarrow{f}Y$, there are morphisms in
+		$\mathcal{C}$, $X\xleftarrow{f'}W\xrightarrow{s'\in S}Y$, such that
+		$sf'=fs'$, depicted by the commutative diagram
+		% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g004
+		\[\begin{tikzcd}
+			X \arrow[d, "{s \in S}"'] & W \arrow[dashed, l, "{f'}"'] \arrow[dashed, d, "{s' \in S}"] \\
+			Z & Y \arrow[l, "f"]
+		\end{tikzcd} \quad \text{commutative}. \]
+		% segment-id: o014.li2.chapter1.gabriel-zisman-localization.i006
+		\item Let $f,g:X\to Y$ be morphisms in $\mathcal{C}$ and let
+		$s:Y\to W$ belong to $S$. If $sf=sg$, then there is a morphism
+		$t:Z\to X$ in $S$ such that $ft=gt$. Diagrammatically,
+		% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g005
+		\[\begin{tikzcd}
+			Z \arrow[dashed, r, "t \in S"] \arrow[dash, rr, "\text{commutative}"', to path={ -- ([yshift=-2ex]\tikztostart.south) -- ([yshift=-2ex]\tikztotarget.south) [midway]\tikztonodes -- (\tikztotarget)}] & X \arrow[r, shift left, "f"] \arrow[r, shift right, "g"'] & Y \arrow[r, "s \in S"] & W .
+		\end{tikzcd}\]
+	\end{enumerate}
+	The dashed parts of these diagrams are the morphisms whose existence is
+	asserted.
+
+	If the image $S^{\opp}$ of $S$ in $\Mor(\mathcal{C}^{\opp})$ is a left
+	multiplicative system, then $S$ is called a \emph{right multiplicative
+	system} in $\mathcal{C}$. Equivalently, reverse all arrows in conditions
+	(S3) and (S4). A subset $S$ that is both a left and a right multiplicative
+	system is called a \emph{multiplicative system} in $\mathcal{C}$.
+\end{definition}
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.c001
+\begin{convention}
+	For a given left or right multiplicative system $S$, from now on arrows
+	belonging to $S$ will always be drawn as $\rightarrowtail$ in commutative
+	diagrams, to distinguish them from the other arrows.
+\end{convention}
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.p007
+Fix $X\in\Obj(\mathcal{C})$. In accordance with this convention, define the
+category $S_{/X}$ (or $S_{X/}$) for a left (or right) multiplicative system
+$S$ as follows.
+\index[sym1]{SX@$S_{/X}, S_{X/}$}
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.q003
+\begin{align*}
+	\Obj\left(S_{/X}\right) &:= \left\{\text{morphisms}\;X\leftarrowtail Z\right\}, & \Mor(S_{/X}) &:= \left\{\text{commutative diagrams}\;
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g006
+	{\begin{tikzcd}[row sep=small, column sep=small, ampersand replacement=\&]
+			X \& Z \arrow[rightarrowtail, l] \arrow[d] \\
+			\& W \arrow[rightarrowtail, lu]
+	\end{tikzcd}}\right\}, \\
+	\Obj\left(S_{X/}\right) &:= \left\{\text{morphisms}\;X\rightarrowtail Z\right\}, & \Mor(S_{X/}) &:= \left\{\text{commutative diagrams}\;
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g007
+	{\begin{tikzcd}[row sep=small, column sep=small, ampersand replacement=\&]
+			X \arrow[rightarrowtail, r] \arrow[rightarrowtail, rd] \& Z \arrow[d] \\
+			\& W
+	\end{tikzcd}}\right\}.
+\end{align*}
+Note that if $S$ is a left multiplicative system, then
+$\left(S^{\opp}\right)_{X/}=(S_{/X})^{\opp}$.
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.le001
+\begin{lemma}\label{prop:S-filtered}
+	If $S$ is a left (or right) multiplicative system, then
+	$S_{/X}^{\opp}$ (or $S_{X/}$) is a filtered category.
+\end{lemma}
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.pf004
+\begin{proof}
+	By the duality observed above, we need only discuss the case of a right
+	multiplicative system. For any objects $i:X\to Z$ and $j:X\to Z'$ of
+	$S_{X/}$, use the corresponding version of (S3) to construct a commutative
+	diagram
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g008
+	\[\begin{tikzcd}
+		Z \arrow[r, "{j'}"] & W \\
+		X \arrow[rightarrowtail, u, "i"] \arrow[rightarrowtail, r, "j"'] & Z' \arrow[rightarrowtail, u, "{i'}"']
+	\end{tikzcd}\]
+	Then $k:=i'j\in S$ gives an object of $S_{X/}$, together with morphisms
+	$i\xrightarrow{j'}k\xleftarrow{i'}j$ in $S_{X/}$.
+
+	Let $i,j$ be as above. For any pair of morphisms in $S_{X/}$,
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g009
+	$\begin{tikzcd}[row sep=small]
+		Z \arrow[shift left, rr, "f"] \arrow[shift right, rr, "g"'] & & Z' \\
+		& X \arrow[lu, "i"] \arrow[ru, "j"'] &
+	\end{tikzcd}$
+	(a commutative diagram), the corresponding version of (S4) gives
+	$h:Z'\rightarrowtail W$ such that $hf=hg$. Put
+	$k:=hj:X\rightarrowtail W$ and regard this as an object of $S_{X/}$. We
+	then obtain the commutative diagram in $S_{X/}$
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g010
+	$\begin{tikzcd}[column sep=small]
+		i \arrow[shift left, r, "f"] \arrow[shift right, r, "g"'] & j \arrow[r, "h"] & k
+	\end{tikzcd}$.
+	These are exactly the defining conditions for a filtered category.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.p008
+Let $X,Y\in\Obj(\mathcal{C})$. We now define sets $M_{X,Y}^l$ and
+$M_{X,Y}^r$ for left and right multiplicative systems, respectively. Note
+that they need not be small sets.
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.l003
+\begin{itemize}
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.i007
+	\item Let $S$ be a left multiplicative system. Abbreviate a diagram in
+	$\mathcal{C}$ of the form
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g011
+	\[\begin{tikzcd} X & Z \arrow[rightarrowtail, l, "s"'] \arrow[r, "a"] & Y \end{tikzcd}\]
+	by $(Z;s,a)$. These data form the set $M_{X,Y}^l$.
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.i008
+	\item Let $S$ be a right multiplicative system. Abbreviate a diagram in
+	$\mathcal{C}$ of the form
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g012
+	\[\begin{tikzcd} X \arrow[r, "a"] & Z & Y \arrow[rightarrowtail, l, "s"'] \end{tikzcd}\]
+	by $(Z;a,s)$. These data form the set $M_{X,Y}^r$.
+\end{itemize}
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.p009
+Define a binary relation $\sim$ as follows:
+$(Z;s,a)\sim(Z';s',a')$ (or $(Z;a,s)\sim(Z';a',s')$) if and only if there
+is a commutative diagram of the form
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.q004
+\begin{equation}\label{eqn:localization-sim}
+	\begin{array}{cc}
+		% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g013
+		\begin{tikzcd}
+			& Z \arrow[rightarrowtail, ld, "s"'] \arrow[rd, "a"] & \\
+			X & W \arrow[rightarrowtail, l] \arrow[r] \arrow[u] \arrow[d] & Y \\
+			& Z' \arrow[rightarrowtail, lu, "{s'}"] \arrow[ru, "{a'}"'] &
+		\end{tikzcd} &
+		% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g014
+		\begin{tikzcd}
+			& Z \arrow[d] & \\
+			X \arrow[r] \arrow[ru, "a"] \arrow[rd, "{a'}"'] & W & Y \arrow[rightarrowtail, l] \arrow[rightarrowtail, lu, "s"'] \arrow[rightarrowtail, ld, "{s'}"] \\
+			& Z' \arrow[u] &
+		\end{tikzcd} \\
+		\text{(left multiplicative system)} & \text{(right multiplicative system)}
+	\end{array}
+\end{equation}
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.p010
+For every $f:X\to Y$, condition (S1) implies
+$(X;\identity_X,f)\in M_{X,Y}^l$ and
+$(X;f,\identity_Y)\in M_{X,Y}^r$. The two definitions are plainly dual.
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.le002
+\begin{lemma}\label{prop:MXY-equiv}
+	For a left (or right) multiplicative system $S$ and arbitrary $X,Y$, the
+	relation $\sim$ defined above is an equivalence relation on $M_{X,Y}^l$
+	(or $M_{X,Y}^r$). In fact, there are bijections
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g015
+	\[\begin{tikzcd}[row sep=tiny, column sep=small]
+		M_{X, Y}^l /\sim \arrow[r, "1:1"] & \displaystyle\varinjlim_{\substack{[X \leftarrowtail Z] \\ \in \Obj(S_{/X}^{\opp})}} \Hom(Z, Y) , \\
+		{[Z; s, a]} \arrow[mapsto, r] & {\left[ Z \xrightarrow{a} Y \right]}
+	\end{tikzcd} \quad
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g016
+	\begin{tikzcd}[row sep=tiny, column sep=small]
+		M_{X, Y}^r /\sim \arrow[r, "1:1"] & \displaystyle\varinjlim_{\substack{[Y \rightarrowtail Z] \\ \in \Obj(S_{Y/})}} \Hom(X, Z) \\
+		{[Z; a, s]} \arrow[mapsto, r] & {\left[ X \xrightarrow{a} Z \right]}
+	\end{tikzcd}\]
+	where $[Z;s,a]$ (or $[Z;a,s]$) denotes the equivalence class containing
+	$(Z;s,a)$ (or $(Z;a,s)$).
+\end{lemma}
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.pf005
+\begin{proof}
+	Consider the functor $\alpha:S_{/X}^{\opp}\to\cate{Set}$ sending an object
+	$X\leftarrowtail Z$ to $\Hom(Z,Y)$. By definition,
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.q005
+	\[ M_{X, Y}^l = \bigsqcup_{X \leftarrowtail Z} \alpha(X \leftarrowtail Z), \]
+	and since $S_{/X}^{\opp}$ is filtered (Lemma \ref{prop:S-filtered}), it is
+	easy to check that the binary relation $\sim$ on $M_{X,Y}^l$ arising from
+	\eqref{eqn:localization-sim} translates into the equivalence relation in
+	Proposition \ref{prop:filtered-union}. This also proves the bijection with
+	$\varinjlim$. The argument for the $M_{X,Y}^r$ version is identical.
+
+	When discussing filtered colimits of sets, \S\ref{sec:filtered-indlim}
+	assumes that the indexing category is small, so that the resulting colimit
+	still lies in $\cate{Set}$. Here $S_{/X}$ and $S_{Y/}$ need not be small
+	categories. The assertion itself, however, does not depend on set size, and
+	the argument can be formulated so as not to depend on a choice of
+	Grothendieck universe.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.p011
+The equivalence class $[Z;s,a]$ (or $[Z;a,s]$) should be understood as the
+morphism $as^{-1}$ (or $s^{-1}a$) in the category $\mathcal{C}[S^{-1}]$ to be
+constructed.
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.dp001
+\begin{definition-proposition}\label{prop:localized-composition}
+	Let $S$ be a left multiplicative system, let $X,Y$ be arbitrary, and take
+	$(U;s,a)\in M_{X,Y}^l$ and $(V;t,b)\in M_{Y,Z}^l$. Use (S3) to extend them
+	to the following commutative diagram:
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g017
+	\[\begin{tikzcd}[row sep=small]
+		& & W \arrow[rightarrowtail, ld, "r"'] \arrow[rd, "c"] & & \\
+		& U \arrow[rightarrowtail, ld, "s"'] \arrow[rd, "a"'] & & V \arrow[rightarrowtail, ld, "t"] \arrow[rd, "b"] & \\
+		X & & Y & & Z
+	\end{tikzcd}\]
+	Then
+	$[V;t,b]\circ[U;s,a]:=[W;sr,bc]\in M_{X,Z}^l/\sim$ depends only on
+	$[U;s,a]$ and $[V;t,b]$. The dual statement holds for right multiplicative
+	systems.
+\end{definition-proposition}
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.pf006
+\begin{proof}
+	First fix $(V;t,b)$ and vary $(U;s,a)$ within its equivalence class. In
+	view of \eqref{eqn:localization-sim}, it suffices, for a commutative diagram
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g018
+	\[\begin{tikzcd}
+		& U \arrow[rightarrowtail, ld, "s"'] \arrow[rd, "a"] & W \arrow[rightarrowtail, l, "r"'] \arrow[rd, "c"] & & \\
+		X & & Y & V \arrow[r, "b"] \arrow[rightarrowtail, l, "t"'] & Z . \\
+		& U' \arrow[rightarrowtail, lu, "{s'}"] \arrow[ru, "{a'}"] \arrow[uu, "x"] & W' \arrow[rightarrowtail, l, "{r'}"] \arrow[ru, "{c'}"'] & &
+	\end{tikzcd}\]
+	to prove $(W;sr,bc)\sim(W';s'r',bc')$. Apply (S3) to obtain an object
+	$Q$ and morphisms $q,k$ such that
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g019
+	\[\begin{tikzcd}
+		Q \arrow[rightarrowtail, d, "k"'] \arrow[r, "q"] & W \arrow[rightarrowtail, d, "r"] \\
+		W' \arrow[r, "{xr'}"'] & U
+	\end{tikzcd} \quad \text{commutes}. \]
+
+	Combining this with the preceding diagram gives
+	$tc'k=a'r'k=axr'k=arq=tcq$. By (S4), there is a
+	$w:P\rightarrowtail Q$ such that $c'kw=cqw$. It is then easy to verify that
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g020
+	\[\begin{tikzcd}[column sep=large, row sep=large]
+		& W \arrow[rightarrowtail, ld, "sr"'] \arrow[rd, "bc"] & \\
+		X & P \arrow[r, "{bc'kw}" description] \arrow[rightarrowtail, l, "{s'r'kw}" description] \arrow[u, "qw" description] \arrow[d, "{kw}" description] & Z \\
+		& W' \arrow[rightarrowtail, lu, "{s'r'}"] \arrow[ru, "{bc'}"'] &
+	\end{tikzcd} \quad \text{commutes, that is,}\; (W;sr,bc)\sim(W';s'r',bc'). \]
+
+	The case in which $(U;s,a)$ is fixed and $(V;t,b)$ varies within its
+	equivalence class is similar.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.dt001
+\begin{definition-theorem}\label{def:fraction-localization}
+	Let $S$ be a left multiplicative system in a category $\mathcal{C}$.
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.l004
+	\begin{enumerate}[(i)]
+		% segment-id: o014.li2.chapter1.gabriel-zisman-localization.i009
+		\item There is a category $\mathcal{C}[S^{-1}]^l$ (possibly a large
+		category) whose object set is $\Obj(\mathcal{C})$ and whose $\Hom$ set
+		between two objects $X,Y$ is $M_{X,Y}^l/\sim$. The identity morphism of
+		$X$ is $[X;\identity_X,\identity_X]$, and composition is given by the
+		binary operation in Definition--Proposition
+		\ref{prop:localized-composition}.
+		% segment-id: o014.li2.chapter1.gabriel-zisman-localization.i010
+		\item There is a functor
+		$Q^l:\mathcal{C}\to\mathcal{C}[S^{-1}]^l$ that is the identity on
+		objects and sends a morphism $f:X\to Y$ to
+		$[X;\identity_X,f]$.
+	\end{enumerate}
+	The dual statement holds for a right multiplicative system $S$; the
+	corresponding data are denoted
+	$Q^r:\mathcal{C}\to\mathcal{C}[S^{-1}]^r$.
+\end{definition-theorem}
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.pf007
+\begin{proof}
+	By duality, we need only consider a left multiplicative system.
+
+	For (i), it suffices to verify the properties of composition in
+	$\mathcal{C}[S^{-1}]^l$. The operation in Definition--Proposition
+	\ref{prop:localized-composition} plainly makes
+	$[X;\identity_X,\identity_X]$ an identity morphism, so only associativity
+	remains. Take $(A;s,a)\in M_{X,Y}^l$, $(B;t,b)\in M_{Y,Z}^l$, and
+	$(C;u,c)\in M_{Z,W}^l$. Applying (S3) three times gives the commutative
+	diagram
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g021
+	\[\begin{tikzcd}[row sep=small]
+		& & & \bullet \arrow[rightarrowtail, ld] \arrow[rd] & & & \\
+		& & \bullet \arrow[rightarrowtail, ld] \arrow[rd] & & \bullet \arrow[rightarrowtail, ld] \arrow[rd] & & \\
+		& A \arrow[rightarrowtail, ld, "s"'] \arrow[rd, "a"] & & B \arrow[rightarrowtail, ld, "t"'] \arrow[rd, "b"] & & C \arrow[rightarrowtail, ld, "u"'] \arrow[rd, "c"] & \\
+		X & & Y & & Z & & W
+	\end{tikzcd}\]
+	The whole diagram gives an element of $M_{X,W}^l$; its lower-left part
+	gives a representative of $[B;t,b]\circ[A;s,a]$, and its lower-right part
+	gives a representative of $[C;u,c]\circ[B;t,b]$. This proves
+	associativity:
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.q006
+	\[ [C;u,c]\circ([B;t,b]\circ[A;s,a])=([C;u,c]\circ[B;t,b])\circ[A;s,a]. \]
+
+	For (ii), it remains to check that $Q^l$ respects identities and composition.
+	It preserves identities because $[X;\identity_X,\identity_X]$ has the
+	required identity property. Now consider morphisms
+	$X\xrightarrow{f}Y\xrightarrow{g}Z$ in
+	$\mathcal{C}$. The diagram
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g022
+	\[\begin{tikzcd}[row sep=small]
+		& & X \arrow[equal, ld] \arrow[rd, "f"] & & \\
+		& X \arrow[equal, ld] \arrow[rd, "f"] & & Y \arrow[equal, ld] \arrow[rd, "g"] & \\
+		X & & Y & & Z
+	\end{tikzcd}\]
+	shows that $Q^l(gf)=Q^l(g)Q^l(f)$.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.th001
+\begin{theorem}[P.\ Gabriel, M.\ Zisman]\label{prop:Gabriel-Zisman}\index{localization}
+	Let $S$ be a left (or right) multiplicative system in $\mathcal{C}$. Then
+	$\left(\mathcal{C}[S^{-1}]^l,Q^l\right)$ (or
+	$\left(\mathcal{C}[S^{-1}]^r,Q^r\right)$) is a localization of
+	$\mathcal{C}$ at $S$.
+\end{theorem}
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.pf008
+\begin{proof}
+	By duality, we only verify the conditions of Definition
+	\ref{def:cat-localization} for a left multiplicative system. Write
+	$Q=Q^l$. If $f:X\to Y$ belongs to $S$, the diagram
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g023
+	\[ \begin{tikzcd}
+		& X \arrow[rightarrowtail, ld, "f"'] \arrow[rd, "f"] \arrow[d, "f" description] & \\
+		Y & Y \arrow[equal, l] \arrow[equal, r] & Y
+	\end{tikzcd}\]
+	shows that $[X;f,f]=[Y;\identity_Y,\identity_Y]$. Hence the following
+	diagrams show that $[X;f,\identity_X]=[X;\identity_X,f]^{-1}$:
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g024
+	\[\begin{tikzcd}[column sep=small, row sep=small]
+		& & X \arrow[equal, ld] \arrow[equal, rd] & & \\
+		& X \arrow[equal, ld] \arrow[rd, "f"] & & X \arrow[rightarrowtail, ld, "f"'] \arrow[equal, rd] & \\
+		X & & Y & & X
+	\end{tikzcd} \quad
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g025
+	\begin{tikzcd}[column sep=small, row sep=small]
+		& & X \arrow[equal, ld] \arrow[equal, rd] & & \\
+		& X \arrow[rightarrowtail, ld, "f"'] \arrow[equal, rd] & & X \arrow[equal, ld] \arrow[rightarrowtail, rd, "f"] & \\
+		Y & & X & & Y
+	\end{tikzcd}\]
+	Thus $Q$ does send the elements of $S$ to isomorphisms.
+
+	Now let $F:\mathcal{C}\to\mathcal{D}$ be a functor sending $S$ to
+	isomorphisms. Define
+	$F[S^{-1}]:\mathcal{C}[S^{-1}]^l\to\mathcal{D}$ as follows: on objects it
+	sends $X$ to $FX$, and on morphisms it sends
+	$[U;s,a]\in\Hom_{\mathcal{C}[S^{-1}]^l}(X,Y)$ to
+	$(Fa)(Fs)^{-1}\in\Hom_{\mathcal{D}}(FX,FY)$\footnote{Translator's note:
+	the source has $\Hom_{\mathcal{D}}(X,Y)$. Since
+	$(Fa)(Fs)^{-1}:FX\to FY$, the source and target objects have been corrected
+	to $FX$ and $FY$ here (O014-C018).}. Clearly, $F[S^{-1}]$ sends identity
+	morphisms in $\mathcal{C}[S^{-1}]^l$ to identity morphisms in $\mathcal{D}$.
+	Apply $F$ to the diagram in Definition--Proposition
+	\ref{prop:localized-composition} and invert the arrows in $F(S)$; it follows
+	at once that $F[S^{-1}]$ preserves composition. The equality
+	$F[S^{-1}]Q=F$ is also clear. Since every morphism in
+	$\mathcal{C}[S^{-1}]^l$ has the form $(Qa)(Qs)^{-1}$, no other definition
+	of $F[S^{-1}]$ is possible.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.c002
+\begin{convention}
+	If $S$ is a multiplicative system, Proposition
+	\ref{prop:cat-localization-unique} shows that the two localizations can be
+	identified; we write the resulting functor as
+	$Q:\mathcal{C}\to\mathcal{C}[S^{-1}]$.
+\end{convention}
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.co001
+\begin{corollary}\label{prop:fraction-zero}
+	Let $S$ be a left (or right) multiplicative system in $\mathcal{C}$.
+	Morphisms $f,g:X\to Y$ in $\mathcal{C}$ satisfy $Q^lf=Q^lg$ (or
+	$Q^rf=Q^rg$) if and only if there exists $s\in S$ such that $fs=gs$ (or
+	$sf=sg$).
+\end{corollary}
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.pf009
+\begin{proof}
+	It suffices to check the ``only if'' direction for a left multiplicative
+	system $S$. If $Q^lf=Q^lg$, the construction of
+	$\mathcal{C}[S^{-1}]^l$ gives a commutative diagram
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.g026
+	\[\begin{tikzcd}
+		& X \arrow[equal, ld] \arrow[rd, "f"] & \\
+		X & U \arrow[rightarrowtail, l, "s"'] \arrow[r, "a"] \arrow[d] \arrow[u] & Y \\
+		& X \arrow[equal, lu] \arrow[ru, "g"'] &
+	\end{tikzcd}\]
+	from which $fs=a=gs$.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.co002
+\begin{corollary}\label{prop:fraction-mono-epi}
+	Let $S$ be a left (or right) multiplicative system in $\mathcal{C}$. Then
+	$Q^l$ (or $Q^r$) sends monomorphisms to monomorphisms (or epimorphisms to
+	epimorphisms).
+\end{corollary}
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.pf010
+\begin{proof}
+	We prove only the case of a left multiplicative system. Let $f:X\to Y$ be
+	a monomorphism in $\mathcal{C}$. Take
+	$\alpha,\beta:Q^lW\rightrightarrows Q^lX$ such that
+	$(Q^lf)\alpha=(Q^lf)\beta$. Conditions (S2) and (S3) allow us to represent
+	$\alpha$ and $\beta$ by elements $(U;s,a)$ and $(U;s,b)$, respectively,
+	of $M^l_{W,X}$; the details are left to the reader as an exercise. The
+	given equality then implies $Q^l(fa)=Q^l(fb)$. By Corollary
+	\ref{prop:fraction-zero}, there is a $t\in S$ such that $fat=fbt$. Hence
+	$at=bt$, and therefore $\alpha=\beta$.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.r001
+\begin{remark}\label{rem:localization-size}
+	\index{size issues}
+	In the basic operations of category theory, we want to avoid large
+	categories whenever possible. Definition--Theorem
+	\ref{def:fraction-localization} says that $\mathcal{C}[S^{-1}]^l$ (or
+	$\mathcal{C}[S^{-1}]^r$) may be a large category. The reason is that the
+	$\varinjlim$ in Lemma \ref{prop:MXY-equiv} need not be small, so its value
+	need not lie in $\cate{Set}$. This is a somewhat delicate issue.
+
+	If $S$ satisfies the following condition, however, then
+	$\mathcal{C}[S^{-1}]^l$ (or $\mathcal{C}[S^{-1}]^r$) is not large: assume
+	that $S_{/X}^{\opp}$ (or $S_{X/}$) has a small cofinal subcategory
+	(Definition \ref{def:cofinal}) for every $X\in\Obj(\mathcal{C})$. By
+	Proposition \ref{prop:cofinal-lim}, the colimit in question may be
+	restricted to that subcategory, yielding an object of $\cate{Set}$. If
+	$\mathcal{C}$ itself is small, this condition holds automatically.
+\end{remark}
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.le003
+\begin{lemma}\label{prop:localization-prod}
+	Let $S$ be a left (or right) multiplicative system in $\mathcal{C}$. Then
+	the localization functor $Q^l$ (or $Q^r$) preserves finite $\varprojlim$
+	(or finite $\varinjlim$).
+\end{lemma}
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.pf011
+\begin{proof}
+	We discuss only the case of a left multiplicative system. Let $J$ be a
+	finite category, and suppose that the limit associated with a functor
+	$\beta:J^{\opp}\to\mathcal{C}$ exists. By Lemma \ref{prop:MXY-equiv}, for
+	every $X\in\Obj(\mathcal{C})$ there are canonical bijections
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.q007
+	\begin{multline*}
+		\Hom_{\mathcal{C}[S^{-1}]^l}\left(Q^lX,Q^l\varprojlim\beta\right)
+		\simeq \varinjlim_{X\leftarrowtail Z}\Hom_{\mathcal{C}}\left(Z,\varprojlim\beta\right) \\
+		\simeq \varinjlim_{X\leftarrowtail Z}\varprojlim_{j\in\Obj(J)}
+		\Hom_{\mathcal{C}}\left(Z,\beta(j)\right).
+	\end{multline*}
+
+	Applying Lemma \ref{prop:S-filtered} and Proposition
+	\ref{prop:filtered-finite-exchange} to the last term transforms it further
+	into
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.q008
+	\[ \varprojlim_{j \in \Obj(J)} \varinjlim_{X \leftarrowtail Z} \Hom_{\mathcal{C}}\left( Z, \beta(j) \right) \simeq \varprojlim_{j \in \Obj(J)} \Hom_{\mathcal{C}[S^{-1}]^l} \left(Q^l X, Q^l \beta(j) \right). \]
+	Strictly speaking, \S\ref{sec:filtered-indlim} works in $\cate{Set}$,
+	whereas the $\Hom$ sets here need not lie in $\cate{Set}$. This is only a
+	minor technical issue; see the related discussion in the proof of Lemma
+	\ref{prop:MXY-equiv}.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.th002
+\begin{theorem}\label{prop:localization-additivity}
+	Let $\mathcal{C}$ be an $\cate{Ab}$-category and let $S$ be a left (or
+	right) multiplicative system in it.
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.l005
+	\begin{enumerate}[(i)]
+		% segment-id: o014.li2.chapter1.gabriel-zisman-localization.i011
+		\item The category $\mathcal{C}[S^{-1}]^l$ (or
+		$\mathcal{C}[S^{-1}]^r$) has a canonical $\cate{Ab}$-category structure
+		making $Q^l$ (or $Q^r$) an additive, essentially surjective functor.
+		% segment-id: o014.li2.chapter1.gabriel-zisman-localization.i012
+		\item If $\mathcal{C}$ is an additive category and $S$ is a
+		multiplicative system, then $\mathcal{C}[S^{-1}]$ is also an additive
+		category.
+		% segment-id: o014.li2.chapter1.gabriel-zisman-localization.i013
+		\item The preceding statements remain true if $\cate{Ab}$-categories are
+		replaced by $\Bbbk$-linear categories, where $\Bbbk$ is a commutative
+		ring. If $F$ in the universal property of Definition
+		\ref{def:cat-localization} is $\Bbbk$-linear, then so is the associated
+		functor $F[S^{-1}]$.
+	\end{enumerate}
+\end{theorem}
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.pf012
+\begin{proof}
+	For (i), it suffices to treat a left multiplicative system. We must define
+	addition on the morphism sets of $\mathcal{C}[S^{-1}]$. Let
+	\[
+		f,g\in\Hom_{\mathcal{C}[S^{-1}]^l}(X,Y).
+	\]
+	Since $S_{/X}^{\opp}$ is filtered (Lemma \ref{prop:S-filtered}), there are
+	a morphism $s:U\rightarrowtail X$ and morphisms $a_1,a_2:U\to Y$ in
+	$\mathcal{C}$ such that $f=[U;s,a_1]$ and $g=[U;s,a_2]$. Define
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.q009
+	\[ f+g:=[U;s,a_1+a_2]\in\Hom_{\mathcal{C}[S^{-1}]}(X,Y). \]
+	In particular, a zero morphism can be written $[U;s,0]$, and
+	$-[U;s,a]=[U;s,-a]$. One must still prove that $f+g$ is independent of the
+	choice of representatives; this too follows from the filteredness of
+	$S_{/X}^{\opp}$, and the routine details are omitted. Once this operation
+	is known to be well defined, the axioms for an $\cate{Ab}$-category and the
+	additivity of $Q$ are easy to verify.
+
+	Statement (ii) follows from (i), the definition of an additive category
+	(Definition \ref{def:additive-category}), and Lemma
+	\ref{prop:localization-prod}.
+
+	For (iii), if $\mathcal{C}$ is $\Bbbk$-linear, define scalar multiplication
+	on $\Hom_{\mathcal{C}[S^{-1}]}$ by
+	$t\cdot[U;s,a]=[U;s,ta]$ for $t\in\Bbbk$. The required properties are
+	immediate.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.e001
+\begin{example}[Localization of rings]
+	Giving a ring $R$ is equivalent to giving an $\cate{Ab}$-category
+	$\mathcal{C}$ with a single object $\star$ such that
+	$R=\End_{\mathcal{C}}(\star)$. If $R$ is commutative, the conditions that
+	$S\subset R=\Mor(\mathcal{C})$ be a left or a right multiplicative system
+	coincide. In this case, the ring corresponding to the $\cate{Ab}$-category
+	$\mathcal{C}[S^{-1}]$ is precisely the localization $R[S^{-1}]$ of $R$;
+	see \cite[\S 5.3]{Li1}. For a general ring $R$, the theory in this section
+	provides a construction of noncommutative localizations. The related theory
+	is also a branch of noncommutative ring theory; see \cite[\S 10A]{Lam99}
+	for a detailed account.
+\end{example}
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.e002
+\begin{example}[Central localization]\label{eg:central-localization}
+	Write the center of an additive category $\mathcal{C}$ as
+	$Z(\mathcal{C})$; this is a commutative ring. See the discussion preceding
+	Proposition \ref{prop:k-linear-center}. For any multiplicative subset $S$
+	of $Z(\mathcal{C})$, it is easy to check that the set of morphisms
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.q010
+	\[ \{s_X \in \End_{\mathcal{C}}(X): s \in S, \; X \in \Obj(\mathcal{C}) \} \]
+	is a multiplicative system. The corresponding category
+	$\mathcal{C}[S^{-1}]$ can of course be constructed using the calculus of
+	fractions above, but a shorter construction is
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.q011
+	\[ \Obj(\mathcal{C}[S^{-1}]) := \Obj(\mathcal{C}), \quad \Hom_{\mathcal{C}[S^{-1}]}(X, Y) := \Hom_{\mathcal{C}}(X, Y) \dotimes{Z(\mathcal{C})} Z(\mathcal{C})[S^{-1}], \]
+	with composition defined in the usual way. The relevant checks are left as
+	an exercise for this chapter.
+\end{example}
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.r002
+\begin{remark}\label{rem:reflexive-localization}
+	\index{localization!reflective}
+	For general $\mathcal{C}$ and $S$, the case in which the localization
+	functor $Q:\mathcal{C}\to\mathcal{C}[S^{-1}]$ has a fully faithful right
+	adjoint is especially interesting and important. A localization with this
+	property is called a \emph{reflective localization}. The
+	Gabriel--Popescu theorem to be introduced in Appendix \S~A.3 is a
+	typical example.
+\end{remark}
+
+% segment-id: o014.li2.chapter1.gabriel-zisman-localization.r003
+\begin{remark}[Localization of product categories]\label{rem:localization-product-cat}
+	Finally, let $\mathcal{C}_i$ be categories equipped with left (or right)
+	multiplicative systems $S_i$, for $i=1,2$, and write their localization
+	functors as $Q_i:\mathcal{C}_i\to\mathcal{C}_i[S_i^{-1}]$. Clearly,
+	$S_1\times S_2$ is also a left (or right) multiplicative system in
+	$\mathcal{C}_1\times\mathcal{C}_2$. From the construction in
+	Definition--Theorem \ref{def:fraction-localization}, one readily checks that
+	% segment-id: o014.li2.chapter1.gabriel-zisman-localization.q012
+	\[ (Q_1, Q_2): \mathcal{C}_1 \times \mathcal{C}_2 \to \mathcal{C}_1[S_1^{-1}] \times \mathcal{C}_2[S_2^{-1}] \]
+	is the corresponding localization. This statement generalizes to products
+	of arbitrary families of categories.
+\end{remark}

@@ -1,0 +1,709 @@
+% English translation of chapter2.tex lines 1245--1563.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter2.exact-functors-injective-projective-objects
+% This segment stops exactly before the source section at line 1564.
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.h001
+\section{Exact Functors, Injective Objects, and Projective Objects}\label{sec:inj-proj}
+\hypertarget{o014.aljabr2.chapter2.exact-functors-injective-projective-objects}{ }
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p001
+Given a functor $F: \mathcal{A} \to \mathcal{B}$, one may ask whether it
+preserves $\varinjlim$ or $\varprojlim$; see \cite[\S 2.8]{Li1} or the
+discussion in \S\ref{sec:limit-functor}. This section focuses on the case in
+which $\mathcal{A}$ and $\mathcal{B}$ are abelian categories and $F$ is an
+additive functor. Taking the special instances of $\varprojlim$ (or
+$\varinjlim$) given by $\Ker$ (or $\Coker$), every morphism $f:X\to Y$ in
+$\mathcal{A}$ yields a canonical morphism $F\Ker(f)\to\Ker F(f)$ and its dual
+$\Coker F(f)\to F\Coker(f)$; they make the following diagrams commute.
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.g001
+\[\begin{tikzcd}[column sep=small]
+	F \Ker(f) \arrow[rd, "{F[\Ker(f) \hookrightarrow X]}"'] \arrow[rr] & & \Ker F(f) \arrow[hookrightarrow, ld] \\
+	& FX &
+\end{tikzcd} \quad \begin{tikzcd}[column sep=small]
+	\Coker F(f) \arrow[rr] & & F \Coker(f) \\
+	& FY \arrow[twoheadrightarrow, lu] \arrow[ru, "{ F[Y \twoheadrightarrow \Coker(f)] }"'] . &
+\end{tikzcd}\]
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.l001
+\begin{itemize}
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i001
+	\item If $F\Ker(f)\rightiso\Ker F(f)$ for every $f$, we say that
+	\emph{$F$ preserves kernels};
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i002
+	\item if $\Coker F(f)\rightiso F\Coker(f)$ for every $f$, we say that
+	\emph{$F$ preserves cokernels}.
+\end{itemize}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p002
+If $(X^\bullet,d^\bullet)$ is a complex in an abelian category, then
+$(FX^\bullet,Fd^\bullet)$ is also a complex; the issue to be examined is
+exactness.
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.pr001
+\begin{proposition}\label{prop:left-right-exact-functor}
+For an additive functor $F:\mathcal{A}\to\mathcal{B}$ between abelian
+categories, the following statements are equivalent:
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.l002
+\begin{enumerate}[(L1)]
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i003
+	\item $F$ preserves kernels;
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i004
+	\item if $0\to X'\xrightarrow{f}X\xrightarrow{g}X''$ is exact in
+	$\mathcal{A}$, then
+	$0\to F(X')\xrightarrow{Ff}F(X)\xrightarrow{Fg}F(X'')$ is exact in
+	$\mathcal{B}$;
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i005
+	\item $F$ preserves all finite $\varprojlim$.
+\end{enumerate}
+Dually, the following statements are also equivalent:
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.l003
+\begin{enumerate}[(R1)]
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i006
+	\item $F$ preserves cokernels;
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i007
+	\item if $X'\xrightarrow{f}X\xrightarrow{g}X''\to0$ is exact in
+	$\mathcal{A}$, then
+	$F(X')\xrightarrow{Ff}F(X)\xrightarrow{Fg}F(X'')\to0$ is exact in
+	$\mathcal{B}$;
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i008
+	\item $F$ preserves all finite $\varinjlim$.
+\end{enumerate}
+\end{proposition}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.pf001
+\begin{proof}
+By duality, it suffices to discuss (L1)--(L3).
+
+(L1) $\implies$ (L2). An exact sequence of the form
+$0\to\bullet\to\bullet\to\bullet$ is precisely a kernel diagram of a
+morphism; see the explanation at the end of \S\ref{sec:cohomology}.
+
+(L2) $\implies$ (L3). Every finite $\varprojlim$ can be constructed from
+finite products and equalizers. We already know that additive functors preserve
+biproducts; since $F$ preserves $\Ker$, it preserves all equalizers
+(Remark~\ref{rem:equalizer-Ker}). Thus $F$ preserves all finite
+$\varprojlim$.
+
+(L3) $\implies$ (L1) is immediate.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p003
+For an additive functor $F$ as above, if every exact sequence
+$(X^\bullet,d^\bullet)$ gives an exact sequence $(FX^\bullet,Fd^\bullet)$, we
+say that $F$ preserves exact sequences. Likewise, one may ask whether $F$
+preserves short exact sequences; these two properties turn out to be
+equivalent.
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.pr002
+\begin{proposition}\label{prop:exact-functor}
+For an additive functor $F:\mathcal{A}\to\mathcal{B}$ between abelian
+categories, the following statements are equivalent:
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.l004
+\begin{enumerate}[(E1)]
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i009
+	\item $F$ preserves short exact sequences;
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i010
+	\item $F$ preserves exact sequences;
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i011
+	\item $F$ preserves all finite $\varprojlim$ and finite $\varinjlim$.
+\end{enumerate}
+\end{proposition}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.pf002
+\begin{proof}
+(E1) $\implies$ (E2). Take an exact sequence $(X^\bullet,d^\bullet)$ in
+$\mathcal{A}$ and decompose the complex into short exact sequences
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.g002
+\[\begin{tikzcd}
+	0 \arrow[r] & \Ker(d^n) \arrow[r, "{\iota^n}"] & X^n \arrow[r, "{\mathbf{d}^n}"] & \Ker(d^{n+1}) \arrow[r] & 0
+\end{tikzcd}\]
+where the morphism $\mathbf{d}^n$ is characterized by
+$d^n=\iota^{n+1}\mathbf{d}^n$; the index $n$ may be arbitrary, except that
+$X^n$ cannot be the rightmost term of the exact sequence.
+
+By assumption, the sequence
+$0\to F(\Ker(d^n))\xrightarrow{F\iota^n}F(X^n)
+\xrightarrow{F\mathbf{d}^n}F(\Ker(d^{n+1}))\to0$ remains exact, and
+$Fd^n=F\iota^{n+1}F\mathbf{d}^n$. The short exact sequences can therefore be
+reassembled into the exact sequence $(FX^\bullet,Fd^\bullet)$ in
+$\mathcal{B}$.
+
+(E2) $\implies$ (E3). If $F$ preserves exact sequences, it satisfies
+conditions (L2) and (R2) of
+Proposition~\ref{prop:left-right-exact-functor}.
+
+(E3) $\implies$ (E1). Suppose that
+$0\to X'\to X\to X''\to0$ is exact in $\mathcal{A}$. Applying
+Proposition~\ref{prop:left-right-exact-functor} once more, we see that
+$0\to F(X')\to F(X)\to F(X'')$ and
+$F(X')\to F(X)\to F(X'')\to0$ are both exact; hence
+$0\to F(X')\to F(X)\to F(X'')\to0$ is exact.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p004
+Notice that (E3) $\iff$ (L3) $\wedge$ (R3).
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.d001
+\begin{definition}[Exact functors]\label{def:exact-functor}
+	\index{left exact, right exact, exact}
+For an additive functor $F:\mathcal{A}\to\mathcal{B}$ between abelian
+categories, consider conditions (L1)--(L3), (R1)--(R3) of
+Proposition~\ref{prop:left-right-exact-functor}, and conditions (E1)--(E3) of
+Proposition~\ref{prop:exact-functor}.
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.l005
+\begin{itemize}
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i012
+	\item If any of (L1)--(L3) holds, then $F$ is called \emph{left exact}.
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i013
+	\item If any of (R1)--(R3) holds, then $F$ is called \emph{right exact}.
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i014
+	\item If any of (E1)--(E3) holds, then $F$ is called \emph{exact}; this is
+	equivalent to saying that $F$ is both left exact and right exact.
+\end{itemize}
+\end{definition}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p005
+For example, every equivalence between abelian categories is of course an
+exact functor. Another extreme example is the zero functor: it sends every
+object to a zero object and every morphism to a zero morphism; this functor is
+also exact.
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p006
+By Lemma~\ref{prop:mono-epi-ker-coker}, a left exact functor preserves
+monomorphisms, while a right exact functor preserves epimorphisms.
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.rem001
+\begin{remark}\label{rem:exactness-mono-epi}
+In view of (E1), if $F$ is known to be left exact (or right exact), then $F$ is
+exact if and only if $F$ preserves epimorphisms (or monomorphisms).
+\end{remark}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p007
+A standard way to check left or right exactness is by means of adjoint
+functors.
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.th001
+\begin{theorem}\label{prop:exactness-adjoint}
+Consider a pair of additive functors between abelian categories $\mathcal{A}$
+and $\mathcal{B}$:
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.g003
+\[\begin{tikzcd}
+	F: \mathcal{A} \arrow[r, yshift=0.3em] & \mathcal{B} :G \arrow[l, yshift=-0.3em] .
+\end{tikzcd}\]
+Suppose that $F$ and $G$ can be equipped as an adjoint pair $(F,G,\varphi)$.
+Then $F$ is right exact and $G$ is left exact; indeed, $F$ preserves
+$\varinjlim$ and $G$ preserves $\varprojlim$.
+\end{theorem}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.pf003
+\begin{proof}
+Apply \cite[Theorem 2.8.12]{Li1} and conditions (L3), (R3) of
+Proposition~\ref{prop:left-right-exact-functor}.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.ex001
+\begin{example}[Left/right exactness of limits]\label{eg:limit-exactness}
+Let $\mathcal{A}$ be an abelian category, let $I$ be any category, and suppose
+that every functor $\alpha:I\to\mathcal{A}$ has a $\varinjlim$ (or a
+$\varprojlim$). Endow $\mathcal{A}^I$ with the abelian-category structure of
+Proposition~\ref{prop:functor-cat-Abel}. We shall show that the functor
+$\varinjlim:\mathcal{A}^I\to\mathcal{A}$ (or $\varprojlim$) is right exact (or
+left exact).
+
+It suffices to discuss $\varinjlim$. By
+Theorem~\ref{prop:exactness-adjoint}, one strategy is to show that
+$\varinjlim$ has a right adjoint. Define the diagonal functor
+$\Delta:\mathcal{A}\to\mathcal{A}^I$, which sends $L\in\Obj(\mathcal{A})$ to
+the constant functor $\Obj(I)\ni i\mapsto L$. We have an adjoint pair
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.g004
+\[\begin{tikzcd}
+	\varinjlim : \mathcal{A}^I \arrow[shift left, r] & \mathcal{A}: \Delta \arrow[l, shift left] .
+\end{tikzcd}\]
+This follows immediately from the universal property of $\varinjlim$: in
+$\mathcal{A}^I$, giving a morphism from a functor
+$\alpha:I\to\mathcal{A}$ to $\Delta(L)$ is equivalent to giving a compatible
+family of morphisms $f_i:\alpha(i)\to L$; in other words, a cone with base
+$\alpha$ and vertex $L$. See the related review in
+\S\ref{sec:limit-functor}.
+\end{example}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.ex002
+\begin{example}\label{eg:module-adjoint-pairs}
+Let $f:R\to S$ be a ring homomorphism. Consider the following functors between
+categories of left modules:
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.g005
+\[\begin{tikzcd}[column sep=large]
+	R\dcate{Mod} \arrow[bend left=50, r, "{S \dotimes{R} (\cdot)}"] \arrow[bend right=50, r, "{\Hom_R({}_R S, \cdot)}"'] & S\dcate{Mod} \arrow[l, "{ {}_{R \to S} \mathcal{F} }"]
+\end{tikzcd}\]
+Here the forgetful functor ${}_{R\to S}\mathcal{F}$ is simply the operation of
+regarding an $S$-module as an $R$-module via $f$. The functors
+$S\dotimes{R}(\cdot)$ and $\Hom_R({}_R S,\cdot)$ are discussed in
+\cite[\S 6.6]{Li1}; here ${}_R S$ means $S$ regarded as a left $R$-module.
+According to \cite[Corollary 6.6.8]{Li1},
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.q001
+\[\left(S\dotimes{R}-,\;{}_{R\to S}\mathcal{F}\right)
+\quad\text{and}\quad
+\left({}_{R\to S}\mathcal{F},\;\Hom_R({}_R S,-)\right)\]
+are adjoint pairs. Theorem~\ref{prop:exactness-adjoint} then implies
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.q002
+\[S\dotimes{R}(\cdot)\ \text{is right exact},\quad
+\Hom({}_R S,\cdot)\ \text{is left exact},\quad
+{}_{R\to S}\mathcal{F}\ \text{is exact}.\]
+This exactness can also be checked directly by algebraic means. For example,
+for the forgetful functor ${}_{R\to S}\mathcal{F}$, whether a sequence of
+module homomorphisms
+$\cdots\to M^n\xrightarrow{d^n}M^{n+1}\to\cdots$ is a complex (that is,
+$d^{n+1}d^n=0$), or is exact (that is,
+$\Image(d^n)=\Ker(d^{n+1})$), depends only on the additive-group structure of
+$M^n$, not on multiplication in $R$ or $S$. In other words,
+${}_{\Z\to S}\mathcal{F}:S\dcate{Mod}\to\cate{Ab}$ is already an exact
+functor. Alternatively, one can check directly that
+${}_{R\to S}\mathcal{F}$ preserves all limits; this follows directly from
+the construction in \cite[Theorem 6.2.2]{Li1}.
+\end{example}
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p008
+An exact functor automatically preserves the $\Image\simeq\Coim$ of a
+morphism (Definition~\ref{def:Im-Coim},
+Proposition~\ref{prop:Im-Coim-additive}); it also preserves cohomology.
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.pr003
+\begin{proposition}\label{prop:exact-preserves-cohomologies}
+Let $F:\mathcal{A}\to\mathcal{B}$ be an exact functor between abelian
+categories. For every complex $(X^\bullet,d^\bullet)$ in $\mathcal{A}$, there
+is a canonical isomorphism in $\mathcal{B}$
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.q003
+\[F\Hm^n(X^\bullet,d^\bullet)\rightiso
+\Hm^n(FX^\bullet,Fd^\bullet),\qquad n\in\Z.\]
+\end{proposition}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.pf004
+\begin{proof}
+It suffices to consider a three-term complex
+$X'\xrightarrow{f}X\xrightarrow{g}X''$. Returning to definition
+\eqref{eqn:homology-3},
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.q004
+\begin{multline*}
+	F\left(\Hm\left[X'\xrightarrow{f}X\xrightarrow{g}X''\right]\right)
+	=F\Coker\left[\Image(f)\to\Ker(g)\right]\\
+	\simeq\Coker\left[F\Image(f)\to F\Ker(g)\right]\\
+	\simeq\Coker\left[\Image(Ff)\to\Ker(Fg)\right]
+	=\Hm\left[FX'\xrightarrow{Ff}FX\xrightarrow{Fg}FX''\right],
+\end{multline*}
+and all the isomorphisms that occur are canonical.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p009
+Faithful exact functors have particularly useful properties.
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.pr004
+\begin{proposition}\label{prop:faithful-exact}\index{faithfully exact functor}
+For an additive functor $F:\mathcal{A}\to\mathcal{B}$ between abelian
+categories, the following statements are equivalent:
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.l006
+\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i015
+	\item $F$ is exact and faithful;
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i016
+	\item $F$ is exact, and $FX=0\iff X=0$ for every
+	$X\in\Obj(\mathcal{A})$;
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i017
+	\item $X'\to X\to X''$ is exact in $\mathcal{A}$ if and only if
+	$FX'\to FX\to FX''$ is exact in $\mathcal{B}$.
+\end{enumerate}
+\end{proposition}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.pf005
+\begin{proof}
+(i) $\implies$ (ii): If $FX=0$, then
+$F(\identity_X)=\identity_{FX}=0$, whence $\identity_X=0$ and $X=0$.
+
+(ii) $\implies$ (iii): Apply
+Proposition~\ref{prop:exact-preserves-cohomologies} to the cohomology.
+
+(iii) $\implies$ (i): This condition immediately implies that $F$ is exact.
+Suppose that $u:X\to Y$ satisfies $Fu=0$. Since
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.q005
+\[X\xrightarrow{\identity}X\xrightarrow{u}Y\xrightarrow{\identity}Y,\]
+the image of this sequence under $F$ is exact; hence the sequence itself is
+exact and $u=0$.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p010
+Localization (see \S\ref{sec:cat-localization}) provides an important example
+of an exact functor.
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.pr005
+\begin{proposition}[Exactness of localization]\label{prop:Abel-cat-localization}
+Let $\mathcal{A}$ be an abelian category and let
+$S\subset\Mor(\mathcal{A})$ be a multiplicative family
+(Definition~\ref{def:multiplicative-family}). Then the category
+$\mathcal{A}[S^{-1}]$ supplied by Theorem~\ref{prop:Gabriel-Zisman} has a
+canonical abelian-category structure, and the localization functor
+$Q:\mathcal{A}\to\mathcal{A}[S^{-1}]$ is exact.
+\end{proposition}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.pf006
+\begin{proof}
+Theorem~\ref{prop:localization-additivity} gives
+$\mathcal{A}[S^{-1}]$ a canonical additive-category structure under which $Q$
+is an additive functor. We shall show that every morphism $f$ in
+$\mathcal{A}[S^{-1}]$ has a kernel and cokernel and is strict. By the
+construction of $\mathcal{A}[S^{-1}]$, after composing $f$ with an isomorphism
+from $S$, we may assume that $f$ is the image under $Q$ of a morphism in
+$\mathcal{A}$; this does not change the property to be proved.
+Lemma~\ref{prop:localization-prod} says that $Q$ preserves all finite
+$\varinjlim$ and $\varprojlim$. In particular, $Q$ sends $\Ker$, $\Coker$,
+$\Image$, and $\Coim$ in $\mathcal{A}$ to the corresponding constructions in
+$\mathcal{A}[S^{-1}]$, and therefore also preserves diagram
+\eqref{eqn:strict-morphism}. This shows that $\mathcal{A}[S^{-1}]$ is an
+abelian category; condition (E3) of Proposition~\ref{prop:exact-functor} shows
+that $Q$ is exact.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p011
+If, in addition, $\mathcal{A}$ is a $\Bbbk$-linear abelian category, where
+$\Bbbk$ is a commutative ring, then $Q$ is a functor between $\Bbbk$-linear
+abelian categories. This too is part of
+Theorem~\ref{prop:localization-additivity}.
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p012
+Another extremely important example is the $\Hom$ functor. If $T$ is an
+object of an abelian category $\mathcal{A}$, then $\Hom(T,\cdot)$ defines a
+functor $\mathcal{A}\to\cate{Ab}$, while $\Hom(\cdot,T)$ defines a functor
+$\mathcal{A}^{\opp}\to\cate{Ab}$; on morphisms, they send $f:X\to Y$ to
+$f_*$ and $f^*$ on $\Hom$, respectively. Both are plainly additive functors.
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p013
+If $\mathcal{A}$ is a $\Bbbk$-linear abelian category, the $\Hom$ functors may
+take values in $\Bbbk\dcate{Mod}$ and become $\Bbbk$-linear. This extension
+has little effect on the discussion below, so we do not treat it separately.
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.pr006
+\begin{proposition}[Left exactness of $\Hom$]\label{prop:Hom-left-exact}
+Let $\mathcal{A}$ be an abelian category and let $T$ be an object of
+$\mathcal{A}$. Then $\Hom(T,\cdot):\mathcal{A}\to\cate{Ab}$ and
+$\Hom(\cdot,T):\mathcal{A}^{\opp}\to\cate{Ab}$ are both left exact functors.
+\end{proposition}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.pf007
+\begin{proof}
+By duality (replacing $\mathcal{A}$ by $\mathcal{A}^{\opp}$), it suffices to
+treat $\Hom(T,\cdot)$. The point is to show that $\Hom(T,\cdot)$ preserves
+$\Ker$. Since $\Ker$ in $\cate{Ab}$ is simply the kernel from group theory,
+this follows immediately from the universal property of $\Ker$.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.d002
+\begin{definition}\label{def:injective-projective-obj}
+	\index{injective object}
+	\index{projective object}
+Let $X$ be an object of an abelian category $\mathcal{A}$. If
+$\Hom(X,\cdot):\mathcal{A}\to\cate{Ab}$ is an exact functor, then $X$ is
+called a \emph{projective object}; if
+$\Hom(\cdot,X):\mathcal{A}^{\opp}\to\cate{Ab}$ is an exact functor, then $X$
+is called an \emph{injective object}.
+\end{definition}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p014
+By Remark~\ref{rem:exactness-mono-epi} and
+Proposition~\ref{prop:Hom-left-exact}, to decide whether an object $X$ is
+projective (or injective), it suffices to check whether the functor
+$\Hom(X,\cdot)$ (or $\Hom(\cdot,X)$) preserves epimorphisms. Consequently:
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.l007
+\begin{itemize}
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i018
+	\item An object $P$ is projective if and only if, for every exact sequence
+	in $\mathcal{A}$ of the form $Y\xrightarrow{g}X\to0$ and every morphism
+	$P\to X$, there exists a $P\to Y$ making the following diagram commute.
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.g006
+	\[\begin{tikzcd}
+		& P \arrow[d] \arrow[ld, "\exists"'] & \\
+	Y \arrow[r, "g"'] & X \arrow[r] & 0 \\
+	\end{tikzcd}\]
+	(Equivalently, $g_*:\Hom(P,Y)\to\Hom(P,X)$ is surjective.)
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i019
+	\item An object $I$ is injective if and only if, for every exact sequence
+	in $\mathcal{A}$ of the form $0\to X\xrightarrow{f}Y$ and every morphism
+	$X\to I$, there exists a $Y\to I$ making the following diagram commute.
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.g007
+	\[\begin{tikzcd}
+		0 \arrow[r] & X \arrow[r, "f"] \arrow[d] & Y \arrow[ld, "\exists"] \\
+		& I &
+	\end{tikzcd}\]
+	(Equivalently, $f^*:\Hom(Y,I)\to\Hom(X,I)$ is surjective.)
+\end{itemize}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.lm001
+\begin{lemma}\label{prop:inj-proj-split}
+Consider a short exact sequence
+$0\to X'\xrightarrow{f}X\xrightarrow{g}X''\to0$ in an abelian category. If
+$X'$ is injective or $X''$ is projective, then this short exact sequence
+splits.
+\end{lemma}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.pf008
+\begin{proof}
+By duality, we may assume without loss of generality that $X'$ is injective.
+Apply the characterization above to the commutative diagram
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.g008
+\[\begin{tikzcd}
+	0 \arrow[r] & X' \arrow[r, "f"] \arrow[d, "{\identity_{X'}}"'] & X \arrow[ld, "\exists r"] \\
+	& X' &
+\end{tikzcd}\]
+The relation $rf=\identity_{X'}$ then satisfies the condition of
+Proposition~\ref{prop:split-ses}.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.lm002
+\begin{lemma}\label{prop:prod-injective-projective}
+Consider a family of objects $(X_i)_{i\in I}$ in an abelian category
+$\mathcal{A}$. If the coproduct $\coprod_{i\in I}X_i$ (or the product
+$\prod_{i\in I}X_i$) exists in $\mathcal{A}$, then the coproduct is projective
+(or the product is injective) if and only if every $X_i$ is so.
+\end{lemma}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.pf009
+\begin{proof}
+By duality, it suffices to consider the coproduct $\coprod_{i\in I}X_i$. The
+universal property gives an isomorphism of functors
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.q006
+\[
+\Hom_{\mathcal{A}}\left(\coprod_{i\in I}X_i,-\right)
+\rightiso\prod_{i\in I}\Hom_{\mathcal{A}}\left(X_i,-\right):
+\mathcal{A}\to\cate{Ab}.
+\]
+It remains only to use the following elementary observation: for a family of
+	maps $(f_i:A_i\to B_i)_{i\in I}$, where $A_i,B_i$ are sets, the induced map
+$(f_i)_{i\in I}:\prod_{i\in I}A_i\to\prod_{i\in I}B_i$ is surjective if and
+only if every $f_i$ is surjective.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p015
+For example, let $R$ be a ring. Every free $R$-module is a projective object
+of $R\dcate{Mod}$. Indeed, it suffices to show that $R$ itself is projective;
+but $\Hom(R,\cdot):R\dcate{Mod}\to\cate{Ab}$ is isomorphic to the forgetful
+functor $\mathcal{F}:R\dcate{Mod}\to\cate{Ab}$ via the isomorphism that sends
+a homomorphism $\varphi:R\to X$ to $\varphi(1)\in X$. Thus
+$\Hom(R,\cdot)$ is exact.
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p016
+Free modules are also generators for $R\dcate{Mod}$; see
+Definition~\ref{def:generators} and Example~\ref{eg:generators}. An injective
+object that is also a cogenerator (or a projective object that is also a
+generator) is very useful. Here is a simple characterization.
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.pr007
+\begin{proposition}[Injective cogenerators and projective generators]\label{prop:injective-cogenerator}
+In an abelian category $\mathcal{A}$, an injective (or projective) object $X$
+is a cogenerator (or generator) if and only if
+$\Hom(T,X)\neq0$ (or $\Hom(X,T)\neq0$) for every
+$T\in\Obj(\mathcal{A})$ with $T\neq0$.
+
+Equivalently, $\Hom(\cdot,X)$ (or $\Hom(X,\cdot)$) is a faithful exact
+functor.
+\end{proposition}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.pf010
+\begin{proof}
+We treat only the case in which $X$ is injective. First suppose that $X$ is a
+cogenerator. Apply the definition of cogenerator to
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.g009
+\[\begin{tikzcd}
+	T \arrow[r, shift left, "{\identity_T}"] \arrow[r, shift right, "0"'] & T
+\end{tikzcd}\]
+There is then a $\delta\in\Hom(T,X)$ such that
+$\delta=\delta\circ\identity_T\neq\delta\circ0=0$.
+
+Conversely, we wish to show that if $h:S\to T$ is nonzero, then there is a
+$\delta\in\Hom(T,X)$ such that $\delta h\neq0$. Observe that there is a
+$\delta'\in\Hom(\Image(h),X)$ with $\delta'\neq0$. Since
+$S\twoheadrightarrow\Image(h)$ is an epimorphism, the composite
+$S\twoheadrightarrow\Image(h)\xrightarrow{\delta'}X$ is nonzero. Now use the
+injectivity of $X$ (see the discussion following
+Definition~\ref{def:injective-projective-obj}) to extend $\delta'$ to
+$\delta:T\to X$.
+
+The assertion about faithful exact functors is an immediate application of
+Proposition~\ref{prop:faithful-exact}.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p017
+To do homological algebra in an abelian category, one often needs enough
+injective or projective objects.
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.d003
+\begin{definition}\label{def:enough-injectives}
+	\index{enough injectives}
+	\index{enough projectives}
+Let $\mathcal{A}$ be an abelian category.
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.l008
+\begin{itemize}
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i020
+	\item If, for every $X\in\Obj(\mathcal{A})$, there are an injective object
+	$I$ and a monomorphism $X\hookrightarrow I$, then $\mathcal{A}$ is said to
+	\emph{have enough injectives}.
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i021
+	\item If, for every $X\in\Obj(\mathcal{A})$, there are a projective object
+	$P$ and an epimorphism $P\twoheadrightarrow X$, then $\mathcal{A}$ is said
+	to \emph{have enough projectives}.
+\end{itemize}
+\end{definition}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p018
+These two notions are dual to each other. A standard way to construct
+injective or projective objects is to use adjoints of exact functors; here are
+the details.
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.pr008
+\begin{proposition}\label{prop:adjoint-injective-projective}
+Consider a pair of functors between abelian categories
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.g010
+\[\begin{tikzcd}
+	\mathcal{A} \arrow[r, shift left, "F"] & \mathcal{B} \arrow[l, shift left, "G"]
+\end{tikzcd}\]
+and suppose that $F$ is exact.
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.l009
+\begin{itemize}
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i022
+	\item If $G$ is a left adjoint of $F$, then $G$ sends projective objects in
+	$\mathcal{B}$ to projective objects in $\mathcal{A}$;
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i023
+	\item if $G$ is a right adjoint of $F$, then $G$ sends injective objects in
+	$\mathcal{B}$ to injective objects in $\mathcal{A}$.
+\end{itemize}
+\end{proposition}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.pf011
+\begin{proof}
+By duality, it suffices to consider the case in which $G$ is a left adjoint.
+In this case $G$ is necessarily additive
+(Corollary~\ref{prop:automatic-additivity}). Let $P$ be a projective object of
+$\mathcal{B}$. For every exact sequence $(X^\bullet,d^\bullet)$ in
+$\mathcal{A}$, there is an isomorphism of complexes in $\cate{Ab}$
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.q007
+\[
+\Hom_{\mathcal{A}}(GP,X^\bullet)\rightiso
+\Hom_{\mathcal{B}}(P,FX^\bullet).
+\]
+Since $F$ is exact, $(FX^\bullet,Fd^\bullet)$ is an exact sequence, and hence
+the right-hand side is exact in $\cate{Ab}$. Therefore
+$\Hom_{\mathcal{A}}(GP,\cdot):\mathcal{A}\to\cate{Ab}$ is an exact functor.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p019
+For example, consider a ring $R$ and the forgetful functor
+$\mathcal{F}:R\dcate{Mod}\to\cate{Ab}$. By
+Example~\ref{eg:module-adjoint-pairs}, $\mathcal{F}$ is exact and has the right
+adjoint $G:=\Hom_{\cate{Ab}}(R,\cdot)$.
+Proposition~\ref{prop:adjoint-injective-projective} shows that $G$ sends
+injective objects in $\cate{Ab}$ to injective objects in $R\dcate{Mod}$.
+Injective objects in $\cate{Ab}$ are easy to characterize: they are precisely
+the divisible $\Z$-modules. This is the standard way to construct injective
+$R$-modules in module theory and to show that $R\dcate{Mod}$ has enough
+injectives; see \cite[Theorem 6.9.14]{Li1}.
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p020
+On the other hand, $R\dcate{Mod}$ also has enough projectives: for every
+$R$-module $X$, choose a set of generators $A\subset X$; then
+$R^{\oplus A}\twoheadrightarrow X$.
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.ex003
+\begin{example}\label{eg:A2-injective-projective}
+The following combined exercise involves an abstract abelian category and will
+be used in \S\sourcecrossref{sec:derived-primer}{3.12} to study long exact
+sequences of derived functors. Let $\mathcal{A}$ be an abelian category.
+Consider the category $\mathbf{2}$ (whose diagram is $0\to1$; see the book's
+introduction on categories). The functor category
+$\mathcal{A}^{\mathbf{2}}$ is again abelian
+(Proposition~\ref{prop:functor-cat-Abel}); it is the arrow category: its
+objects are morphisms $X_0\to X_1$ in $\mathcal{A}$, and its morphisms are
+commutative squares in $\mathcal{A}$
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.g011
+\[\begin{tikzcd}[row sep=small, column sep=small]
+	X_0 \arrow[r] \arrow[d] & Y_0 \arrow[d] \\
+	X_1 \arrow[r] & Y_1
+\end{tikzcd}\]
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p021
+For $i\in\{0,1\}$, the evaluation functor
+$\mathrm{ev}_i:\mathcal{A}^{\mathbf{2}}\to\mathcal{A}$ sends an object
+$X_0\to X_1$ to $X_i$. In addition, define additive functors from
+$\mathcal{A}$ to $\mathcal{A}^{\mathbf{2}}$ by
+\footnote{Editorial correction (O014-C027): the source writes
+$H:X\to[X\xrightarrow{\identity_X}X]$, whereas the context defines the object
+map of the functor $H$, in parallel with $L_0$ and $L_1$. The assignment arrow
+$\mapsto$ is used here.}
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.q008
+\[L_0:X\mapsto[X\to0],\quad L_1:X\mapsto[0\to X],\quad
+H:X\mapsto[X\xrightarrow{\identity_X}X],\]
+for $X\in\Obj(\mathcal{A})$; the definitions on morphisms are clear. We shall
+prove the following assertions.
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.l010
+\begin{compactenum}[(i)]
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i024
+	\item The functors $\mathrm{ev}_0$ and $\mathrm{ev}_1$ are both exact and
+	both send injective (or projective) objects of
+	$\mathcal{A}^{\mathbf{2}}$ to injective (or projective) objects of
+	$\mathcal{A}$. Moreover, $H$, $L_0$, and $L_1$ are all exact.
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i025
+	\item The functors $L_0,H$ (or $H,L_1$) send injective (or projective)
+	objects of $\mathcal{A}$ to injective (or projective) objects of
+	$\mathcal{A}^{\mathbf{2}}$.
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.i026
+	\item If $\mathcal{A}$ has enough injectives (or projectives), then so does
+	$\mathcal{A}^{\mathbf{2}}$.
+\end{compactenum}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p022
+Since $\varinjlim$ and $\varprojlim$ in $\mathcal{A}^{\mathbf{2}}$ are
+constructed objectwise, the functors $\mathrm{ev}_0,\mathrm{ev}_1$ and
+$H,L_0,L_1$ are indeed exact. The remainder of (i) and (ii) follows from the
+adjoint relations satisfied by $\mathrm{ev}_i$; the diagrams are as follows,
+and verification is a simple exercise:
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.g012
+\[\begin{tikzcd}[column sep=huge]
+	\mathcal{A}^{\mathbf{2}} \arrow[r, "{\mathrm{ev}_0}" description] & \mathcal{A} \arrow[l, bend right, "{H: \text{left adjoint}}"'] \arrow[l, bend left, "L_0: \text{right adjoint}"] 
+\end{tikzcd} \quad \begin{tikzcd}[column sep=huge]
+	\mathcal{A}^{\mathbf{2}} \arrow[r, "{\mathrm{ev}_1}" description] & \mathcal{A} \arrow[l, bend right, "{L_1: \text{left adjoint}}"'] \arrow[l, bend left, "{H: \text{right adjoint}}"] .
+\end{tikzcd}\]
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p023
+For (iii), first consider injective objects. Take an object
+$[X_0\xrightarrow{f}X_1]$ of $\mathcal{A}^{\mathbf{2}}$, and choose
+monomorphisms $\epsilon_i:X_i\hookrightarrow I_i$, where $I_i$ is injective,
+$i\in\{0,1\}$. These give two morphisms in
+$\mathcal{A}^{\mathbf{2}}$, which may be written as the commutative diagrams
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.g013
+\[\begin{tikzcd}[column sep=large, /tikz/execute at end picture={
+		\node[rectangle, draw, dashed, fit=(NE) (SE), inner xsep=0.5em, inner ysep=0em] {};
+	}]
+	X_0 \arrow[d, "f"'] \arrow[hookrightarrow, r, "\epsilon_0"] & |[alias=NE]| I_0 \arrow[d] \\
+	X_1 \arrow[r] & |[alias=SE]| 0
+\end{tikzcd} \quad \text{and} \quad \begin{tikzcd}[column sep=large, /tikz/execute at end picture={
+	\node[rectangle, draw, dashed, fit=(NE) (SE), inner xsep=0.5em, inner ysep=0em] {};
+	}]
+	X_0 \arrow[d, "f"'] \arrow[r, "\epsilon_1 f"] & |[alias=NE]| I_1 \arrow[d, "\identity"] \\
+	X_1 \arrow[hookrightarrow, r, "\epsilon_1"'] & |[alias=SE]| I_1
+\end{tikzcd}\]
+The two framed columns are $L_0(I_0)$ and $H(I_1)$, respectively. By (ii),
+both are injective objects in $\mathcal{A}^{\mathbf{2}}$, and so is their
+direct sum (Lemma~\ref{prop:prod-injective-projective}). Hence the commutative
+diagram
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.g014
+\[\begin{tikzcd}[column sep=large]
+	X_0 \arrow[d, "f"'] \arrow[hookrightarrow, r, "{(\epsilon_0, \epsilon_1 f)}"] & I_0 \oplus I_1 \arrow[d, "\text{projection}"] \\
+	X_1 \arrow[hookrightarrow, r, "{\epsilon_1}"'] & I_1
+\end{tikzcd}\]
+embeds $[X_0\xrightarrow{f}X_1]$ into an injective object. For projective
+objects, use the functors $H$ and $L_1$.
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p024
+\end{example}
+
+% segment-id: o014.li2.chapter2.exact-functors-injective-projective-objects.p025
+The discussion in Example~\ref{eg:A2-injective-projective} extends from
+$\mathcal{A}^{\mathbf{2}}$ to a general functor category
+$\mathcal{A}^{\mathcal{C}}$; the argument presents no essentially new
+difficulty. The exercises in this chapter give the details.

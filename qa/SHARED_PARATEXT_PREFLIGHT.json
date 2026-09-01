@@ -1,0 +1,105 @@
+{
+  "schema": "shared-paratext-preflight/v1",
+  "checked_at": "2026-09-01",
+  "scope": {
+    "root": "C:/Users/Floris/Documents/interlanguage/04_mirrors/en/methods-of-algebra-volume-2-en",
+    "included": [
+      "source/en/Al-jabr-2-en-complete-draft.tex",
+      "source/en/coverpage-en.tex",
+      "source/en/font-setup-en.tex",
+      "source/en/titles-setup-en.tex",
+      "README.md",
+      "source/en/LICENSE"
+    ],
+    "excluded": [
+      "source/en/*-unit-*.tex bodies",
+      "backend/figure-alt-text-en.csv",
+      "tools/build_english_backend.py"
+    ],
+    "tex_build_run": false,
+    "git_used": false
+  },
+  "files": [
+    {
+      "path": "source/en/Al-jabr-2-en-complete-draft.tex",
+      "bytes": 11831,
+      "sha256": "a51b13e91fd9511f3bb400775e318dc83f67594f5d44bccf1b19005291805f89"
+    },
+    {
+      "path": "source/en/coverpage-en.tex",
+      "bytes": 4867,
+      "sha256": "057770c57d3a4b60e9d236ca456cbe422f4d8ce7e7afe1903771d3dd656fcb49"
+    },
+    {
+      "path": "source/en/font-setup-en.tex",
+      "bytes": 1850,
+      "sha256": "a48d07b7c79a6d41bf98ec67561bead6fa5c8e16d91e820e815461cfc7ce17c7"
+    },
+    {
+      "path": "source/en/titles-setup-en.tex",
+      "bytes": 6698,
+      "sha256": "ca9817c86ce21fabe8e2581758e9a0ae79374c2fdcc370b700ffa588aeb2140c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3097,
+      "sha256": "62666ca18fe7f85cf6345a072c09d2f49503f56a5aa97ca5a31b8e2bb96cb3d9"
+    },
+    {
+      "path": "source/en/LICENSE",
+      "bytes": 19045,
+      "sha256": "48a83a6e39f7b2f166763b30776132c9a99aa816f17cb06f87ad5b8542a7b71f"
+    }
+  ],
+  "checks": {
+    "natural_edition_english": {
+      "status": "PASS",
+      "detail": "Visible master, cover, setup labels, and README prose are natural English."
+    },
+    "input_closure": {
+      "status": "PASS",
+      "total_inputs": 148,
+      "unit_inputs": 146,
+      "bridge_inputs": 2,
+      "unit_number_range": "001-146",
+      "missing_unit_numbers": [],
+      "duplicate_inputs": [],
+      "missing_files": [],
+      "bridges": [
+        "mastery-bridge-001-diagram-chasing",
+        "mastery-bridge-002-derived-functors-spectral-sequences"
+      ]
+    },
+    "attribution_source_license_nonendorsement_model_credit": {
+      "status": "PASS",
+      "detail": "The edition identifies Wen-Wei Li and the frozen source commit/tree, states CC BY 4.0 and modification status, disclaims endorsement by Wen-Wei Li and Higher Education Press, distinguishes the two independent bridges, and credits OpenAI Codex gpt-5.6-sol, Ultra without displacing authorship."
+    },
+    "language_residue": {
+      "status": "PASS",
+      "detail": "No active Han text occurs in the scoped TeX. Indonesian-named compatibility environments are retained only as source command identifiers and render English headings. The README's Chinese original-title field is intentional bibliographic identification, not residue."
+    },
+    "dates_and_paths": {
+      "status": "PASS",
+      "detail": "Compilation date is September 1, 2026; source-publication dates remain identified as source facts; edition-facing paths checked exist. The stale missing Zenodo-receipt pointer was replaced with an accurate pending-publication statement."
+    },
+    "static_tex_safety": {
+      "status": "PASS",
+      "detail": "All scoped TeX files have balanced unescaped braces and balanced begin/end environments. AJbook2.cls, cover/setup files, mycommand.sty, myarrows.sty, Al-jabr.bib, and ccby.png exist. No TeX engine was invoked."
+    },
+    "license_text": {
+      "status": "PASS",
+      "detail": "source/en/LICENSE identifies Creative Commons Attribution 4.0 International and contains Sections 1 through 8, including the no-endorsement provision."
+    }
+  },
+  "fixes": [
+    {
+      "path": "source/en/titles-setup-en.tex",
+      "change": "Updated the ProvidesFile declaration from the stale upstream 2018 date to 2026/09/01 and identified it as English title formatting."
+    },
+    {
+      "path": "README.md",
+      "change": "Replaced a link to the nonexistent release/ZENODO_PUBLICATION_RECEIPT.json with the accurate statement that the archival DOI is pending Zenodo publication."
+    }
+  ],
+  "overall": "PASS"
+}

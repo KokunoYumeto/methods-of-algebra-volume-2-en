@@ -1,0 +1,149 @@
+% English translation of chapter9.tex, lines 1950--2035.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter9.exercises
+% Coverage: all Chapter 9 exercises.
+
+% segment-id: o014.li2.chapter9.exercises.h001
+\begin{Exercises}
+	% segment-id: o014.li2.chapter9.exercises.ex001
+	\item Let $\Bbbk$ be a field and let $V,W$ be $\Bbbk$-vector spaces; as usual, set $V^\vee:=\Hom_{\Bbbk}(V,\Bbbk)$, and so on. Write down the canonical linear map
+	$V^\vee\dotimes{\Bbbk}W^\vee\to(V\dotimes{\Bbbk}W)^\vee$.
+	Show that it is always injective, but is not surjective when both $V$ and $W$ are infinite-dimensional.
+
+	% segment-id: o014.li2.chapter9.exercises.ex002
+	\item Let $T$ be any object of a monoidal category $\mathcal{C}$, and let $\iota:U\to\munit$ be a morphism. Assuming that the left dual of $U$ (respectively the right dual $U^*$) exists, prove that the bijection in Proposition~\ref{prop:dual-internal-Hom}(iii)
+	% segment-id: o014.li2.chapter9.exercises.q001
+	\[ \Hom(T\otimes U,T)\to\Hom(T,T\otimes{}^*U) \]
+	(respectively $\Hom(U\otimes T,T)\to\Hom(T,U^*\otimes T)$) sends $\identity_T\otimes\iota$ to $\identity_T\otimes{}^*\iota$ (respectively sends $\iota\otimes\identity_T$ to $\iota^*\otimes\identity_T$).
+
+	% segment-id: o014.li2.chapter9.exercises.ex003
+	\item Suppose that the monoidal category $\mathcal{C}$ is also additive, with zero object $0$, and that $\otimes$ is an additive bifunctor. Show that $X\otimes0=0=0\otimes X$ for every $X$.
+
+	% segment-id: o014.li2.chapter9.exercises.ex004
+	\item Let $\mathcal{C}$ be a rigid braided monoidal category that is also Abelian, and suppose that $\End_{\mathcal{C}}(\munit)$ is a field. Given $X\in\Obj(\mathcal{C})$ and its right dual $X^*$, prove that $X\neq0$ is equivalent to $X\otimes X^*\neq0$, and also to $X^*\otimes X\neq0$.
+	% segment-id: o014.li2.chapter9.exercises.hint001
+	\begin{hint}
+		Observe that $X\neq0$ is equivalent to $\mathrm{ev}_X\neq0$, and also to $\mathrm{coev}_X\neq0$; apply Proposition~\ref{prop:rigid-unit-simple}.
+	\end{hint}
+
+	% segment-id: o014.li2.chapter9.exercises.ex005
+	\item Let $\mathcal{C}$ and $\mathcal{C}'$ be rigid symmetric monoidal categories, both of which are also Abelian, with $\End_{\mathcal{C}}(\munit)$ a field and $\munit'\neq0$. Prove that every exact monoidal functor compatible with the braidings,
+	$F:\mathcal{C}\to\mathcal{C}'$, satisfies $X\neq0\iff F(X)\neq0$.
+	% segment-id: o014.li2.chapter9.exercises.hint002
+	\begin{hint}
+		Repeat the argument of Lemma~\ref{prop:Tannaka-generalities}(i), or use the method of the preceding exercise.
+	\end{hint}
+
+	% segment-id: o014.li2.chapter9.exercises.ex006
+	\item (Nobuo Yoneda) Let $\mathcal{C},\mathcal{D}$ be categories and let $F:\mathcal{C}^{\opp}\times\mathcal{C}\to\mathcal{D}$ be a functor. A \emph{wedge} for $F$ means data
+	$\left(W,(e_X)_{X\in\Obj(\mathcal{C})}\right)$, also written $e:W\xrightarrow{\bullet}F$, consisting of
+	\begin{compactitem}
+		\item an object $W$ of $\mathcal{D}$;
+		\item a morphism $e_X:W\to F(X,X)$ in $\mathcal{D}$,
+	\end{compactitem}
+	such that the following diagram commutes for every $f:X\to Y$ in $\mathcal{C}$:
+	% segment-id: o014.li2.chapter9.exercises.q002
+	\[\begin{tikzcd}
+		W \arrow[r, "e_Y"] \arrow[d, "e_X"'] & F(Y, Y) \arrow[d, "{F(f, Y)}"] \\
+		F(X, X) \arrow[r, "{F(X, f)}"' inner sep=0.6em] & F(X, Y).
+	\end{tikzcd}\]
+
+	Dually, define a \emph{cowedge} to be data $(M,(f_X)_X)$, written $f:F\xrightarrow{\bullet}M$, subject to the commutativity of
+	% segment-id: o014.li2.chapter9.exercises.q003
+	\[\begin{tikzcd}
+		F(Y, X) \arrow[r, "{F(f, X)}"] \arrow[d, "{F(Y, f)}"'] & F(X, X) \arrow[d, "{f_X}"] \\
+		F(Y, Y) \arrow[r, "{f_Y}"'] & M.
+	\end{tikzcd}\]
+	\begin{enumerate}[(i)]
+		\item Explain how all wedges (respectively cowedges) for $F$ form a category. If the category of wedges (respectively cowedges) has a terminal (respectively initial) object, that object is called the \emph{end} (respectively \emph{coend}) of $F$, and is denoted by
+		% segment-id: o014.li2.chapter9.exercises.q004
+		\[ \text{end}\;=\int_{X\in\mathcal{C}}F(X,X),\qquad
+		\text{coend}\;=\int^{X\in\mathcal{C}}F(X,X). \]
+		Here the integral is only notation, but it is not unmotivated.
+		\index{end}
+		\index{coend}
+		\index[sym1]{integral@$\int F(X, X)$}
+		\item Interpret \eqref{eqn:cogebra-L} and the construction of $\coHom(\omega_1,\omega_2)$ in Proposition~\ref{prop:cogebra-L-universal} as a special case of a coend.
+		\item Suppose that $\mathcal{C}$ is essentially small relative to the chosen Grothendieck universe (Definition~\ref{def:essentially-small-cat}), and that $\mathcal{D}$ is complete (respectively cocomplete). Prove that every $F$ has an end (respectively coend).
+		\item For two functors
+		$F,G:\mathcal{C}^{\opp}\times\mathcal{C}\rightrightarrows\mathcal{D}$,
+		define a \emph{dinatural transformation}
+		$\alpha:F\xrightarrow{\bullet}G$ to be data
+		$(\alpha_X)_{X\in\Obj(\mathcal{C})}$, where
+		$\alpha_X:F(X,X)\to G(X,X)$, such that the following diagram commutes for every $f:X\to Y$ in $\mathcal{C}$:
+		% segment-id: o014.li2.chapter9.exercises.q005
+		\[\begin{tikzcd}[row sep=tiny]
+			& F(X, X) \arrow[r, "{\alpha_X}"] & G(X, X) \arrow[rd, "{G(X, f)}"] & \\
+			F(Y, X) \arrow[ru, "{F(f, X)}"] \arrow[rd, "{F(Y, f)}"'] & & & G(X, Y). \\
+			& F(Y, Y) \arrow[r, "{\alpha_Y}"'] & G(Y, Y) \arrow[ru, "{G(f, Y)}"'] &
+		\end{tikzcd}\]
+		Show that the wedges and cowedges above are special cases of dinatural transformations. Also show that natural transformations, that is, morphisms between functors $\mathcal{C}\to\mathcal{D}$ or $\mathcal{C}^{\opp}\to\mathcal{D}$, are special cases as well.
+		\index{dinatural transformation}
+	\end{enumerate}
+	A detailed account of ends and coends can be found in the monograph \cite{Lor21}.
+
+	% segment-id: o014.li2.chapter9.exercises.ex007
+	\item Consider two functors $F,G:\mathcal{C}\to\mathcal{D}$, where $\mathcal{C}$ is essentially small. Prove that the set of morphisms between them can be interpreted as the end
+	% segment-id: o014.li2.chapter9.exercises.q006
+	\[ \Hom_{\mathcal{D}^{\mathcal{C}}}(F,G)\simeq
+	\int_{X\in\mathcal{C}}\Hom_{\mathcal{D}}(FX,GX). \]
+	Use this to interpret the center $Z(\mathcal{C})$ of the category $\mathcal{C}$ as an end determined by $\Hom_{\mathcal{C}}$.
+
+	% segment-id: o014.li2.chapter9.exercises.ex008
+	\item Let $\Bbbk$ be a field. Prove that the coend of the functor
+	$\Hom_{\Bbbk}:\cate{Vect}_{\mathrm f}(\Bbbk)^{\opp}\times
+	\cate{Vect}_{\mathrm f}(\Bbbk)\to\cate{Vect}_{\mathrm f}(\Bbbk)$
+	can be identified with $\Bbbk$ together with the trace maps
+	% segment-id: o014.li2.chapter9.exercises.q007
+	\[ \Tr_V:\End_{\Bbbk}(V)\to\Bbbk,\qquad
+	V:\;\text{a finite-dimensional $\Bbbk$-vector space}. \]
+
+	% segment-id: o014.li2.chapter9.exercises.ex009
+	\item In general, an end resembles an operation of taking invariants, whereas a coend resembles gluing. For readers familiar with simplicial sets, interpret the geometric realization functor $|\mathord\cdot|$ discussed in \S\ref{sec:geom-realization} as the coend
+	% segment-id: o014.li2.chapter9.exercises.q008
+	% Preserve the witness's literal `qquad` token sequence while rendering it as \qquad.
+	\begingroup
+	\mathcode`q="8000
+	\begingroup\lccode`~=`q\lowercase{\endgroup\def~~uad{\qquad}}
+	\[ |X|\simeq\int^{[n]\in\simpDelta}X_n\times|\Delta^n|,qquad
+	X\in\Obj(\cate{sSet}). \]
+	\endgroup
+
+	% segment-id: o014.li2.chapter9.exercises.ex010
+	\item For a small category $\mathcal{C}$, define the functor category
+	$\mathcal{C}^\wedge:=\cate{Set}^{\mathcal{C}^{\opp}}$. Prove that for every $\mathcal{F}\in\Obj(\mathcal{C}^\wedge)$ there is a canonical isomorphism in $\mathcal{C}^\wedge$
+	% segment-id: o014.li2.chapter9.exercises.q009
+	\[ \int^{X\in\Obj(\mathcal{C})}\mathcal{F}(X)\times
+	\Hom_{\mathcal{C}}(\cdot,X)\rightiso\mathcal{F}. \]
+	This coend comes from the functor
+	% segment-id: o014.li2.chapter9.exercises.q010
+	\[ \mathcal{C}^{\opp}\times\mathcal{C}\to\mathcal{C}^\wedge,
+	\quad(X,Y)\mapsto\mathcal{F}(X)\times\Hom_{\mathcal{C}}(\cdot,Y). \]
+	% segment-id: o014.li2.chapter9.exercises.hint003
+	\begin{hint}
+		See \S\ref{sec:Yoneda}, especially the density theorem \ref{prop:Yoneda-density}.
+	\end{hint}
+	\index{Yoneda embedding!density}
+
+	% segment-id: o014.li2.chapter9.exercises.ex011
+	\item Let $\mathcal{T}$ be a Tannakian category, let
+	$\omega:\mathcal{T}\to\cated{Mod}B$ be a fiber functor, and let $B'$ be a commutative $B$-algebra. Show that, under the isomorphism of Corollary~\ref{prop:Aut-Tannakian}, the identity element and inversion in the group
+	$\Aut^{\otimes}(\omega\dotimes{B}B')$ arise respectively from the counit and antipode of $\coEnd_B(\omega)$ through the functor
+	$\Hom_{B\dcate{CAlg}}(\mathord\cdot,B')$.
+	% segment-id: o014.li2.chapter9.exercises.hint004
+	\begin{hint}
+		The identity and inverse in a group are uniquely determined by multiplication. Multiplication is already known to correspond to the comultiplication of $\coEnd(\omega)$.
+	\end{hint}
+
+	% segment-id: o014.li2.chapter9.exercises.ex012
+	\item Let $G$ be a group, let $G\dcate{Set}$ denote the category of all small sets with a left $G$-action, and let $U:G\dcate{Set}\to\cate{Set}$ be the forgetful functor. Give a natural isomorphism of groups
+	% segment-id: o014.li2.chapter9.exercises.q011
+	\[ G\simeq\Aut(U). \]
+	Explain how this may be viewed as a simple prototype of the Tannaka--Krein theorem \ref{prop:Tannaka-Krein}.
+	% segment-id: o014.li2.chapter9.exercises.hint005
+	\begin{hint}
+		Apply the Yoneda lemma to
+		$U\simeq\Hom_{G\dcate{Set}}(G,\mathord\cdot)$ to obtain an isomorphism of monoids $G\simeq\End(U)$.
+	\end{hint}
+\end{Exercises}

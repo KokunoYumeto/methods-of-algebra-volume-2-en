@@ -1,0 +1,416 @@
+% English translation of chapter7.tex lines 1445--1660.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter7.beck-monadicity-b
+% Coverage: the remainder of Section 7.6, from the comparison functor through
+% the linear version of Beck's theorem; Unit 096 begins Section 7.7.
+
+\hypertarget{o014.aljabr2.chapter7.beck-monadicity-b}{ }
+% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.l001
+\begin{lemma}\label{prop:T-comparison}
+	Consider the monad $T$ and comonad $L$ arising from an adjoint pair $(F,G)$.
+	Let $N\in\Obj(\mathcal{D})$. The data
+	% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.q001
+	\[ M:=G(N)\in\Obj(\mathcal{C}), \quad
+	 a:T(M)=GFG(N)\xrightarrow{G\varepsilon_N}G(N)=M \]
+	give $(M,a)\in\Obj(\mathcal{C}^T)$. We thereby obtain a functor
+	$\mathbb{K}:\mathcal{D}\to\mathcal{C}^T$ satisfying
+	$G=U^T\mathbb{K}$.
+
+	Dually, $F$ also has a canonical factorization
+	$\mathcal{C}\xrightarrow{\mathbb{K}}\mathcal{D}^L\to\mathcal{D}$, which
+	will henceforth be written $F=U^L\mathbb{K}$, where $U^L$ is the forgetful
+	functor\footnote{Using the same symbol $\mathbb{K}$ will cause little
+	confusion, since this book will not discuss monads and comonads
+	simultaneously.}.
+\end{lemma}
+% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.pf001
+\begin{proof}
+	It is enough to treat the case of $T$. In this case, the two diagrams in
+	Definition~\ref{def:T-Alg} become
+	% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.g001
+	\[\begin{tikzcd}
+		GFGFG(N) \arrow[r, "GFG\varepsilon" inner sep=0.5em] \arrow[d, "{G\varepsilon FG}"'] & GFG(N) \arrow[d, "G\varepsilon"] \\
+		GFG(N) \arrow[r, "G\varepsilon"'] & G(N)
+	\end{tikzcd} \quad \begin{tikzcd}
+		G(N) \arrow[r, "\eta G"] \arrow[equal, rd] & GFG(N) \arrow[d, "{G\varepsilon}"] \\
+		& G(N).
+	\end{tikzcd} \]
+	Their commutativity is verified exactly as in
+	Example~\ref{eg:adjunction-monad}, so it need not be repeated; the
+	functoriality of $N\mapsto(M,a)$ is also immediate.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.p001
+For a given adjoint pair $(F,G)$, applying a functor is a process that forgets
+structure. Lemma~\ref{prop:T-comparison} factors $G$ (or $F$) as
+$U^T\mathbb{K}$ (or $U^L\mathbb{K}$). We want to know whether structure is
+lost only at the second step, when the forgetful functor $U^T$ is applied. If
+so, the information lost in the process can be reconstructed with the aid of
+the monad $T$ (or comonad $L$). This consideration motivates the following
+concept.
+
+% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.d001
+\begin{definition}\label{def:monadic}
+	Consider a pair of adjoint functors
+	% segment-id: o014.li2.chapter7.beck-monadicity-b.g002
+	$\begin{tikzcd}
+		F: \mathcal{C} \arrow[shift left, r] & \mathcal{D}: G \arrow[shift left, l]
+	\end{tikzcd}$,
+	which determines a monad $T$ on $\mathcal{C}$ and a comonad $L$ on
+	$\mathcal{D}$.
+	\begin{itemize}
+		\item If the functor $\mathbb{K}:\mathcal{D}\to\mathcal{C}^T$ in
+		Lemma~\ref{prop:T-comparison} is an equivalence of categories, the
+		adjoint pair is called \emph{monadic}.
+		\item If its dual version
+		$\mathbb{K}:\mathcal{C}\to\mathcal{D}^L$ is an equivalence of
+		categories, the adjoint pair is called \emph{comonadic}.
+	\end{itemize}
+\end{definition}
+
+% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.p002
+For example, the free--forgetful adjoint pairs in
+Examples~\ref{eg:Mon-monad} and \ref{eg:Mod-monad} are both monadic; a direct
+check even shows that $\mathbb{K}$ is an isomorphism of categories in both
+examples.
+
+% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.p003
+Beck's theorem below, also called the monadicity theorem or the Barr--Beck
+theorem, characterizes monadicity. We need some preparation.
+
+% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.dp001
+\begin{definition-proposition}
+	\index{split fork}
+	Consider a diagram in a category $\mathcal{C}$
+	% segment-id: o014.li2.chapter7.beck-monadicity-b.e001
+	\begin{equation*}\label{eqn:split-coeq}\begin{tikzcd}[column sep=large]
+		A \arrow[shift left, r, "u"] \arrow[shift right, r, "v" description] & B \arrow[r, "h"] \arrow[dashed, l, bend left, "t"] & Z \arrow[dashed, l, bend left, "s"]
+	\end{tikzcd}\end{equation*}
+	such that the solid part commutes, that is, $hu=hv$, and $h$ and $v$ have
+	sections (that is, right inverses) $s$ and $t$, respectively, as indicated
+	by the dashed arrows, with $sh=ut\in\End(B)$. The solid part of a diagram
+	with these properties is called a \emph{split fork}. The diagram
+	automatically gives a coequalizer of $u$ and $v$ in $\mathcal{C}$.
+\end{definition-proposition}
+% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.pf002
+\begin{proof}
+	Consider the following diagram:
+	% segment-id: o014.li2.chapter7.beck-monadicity-b.g003
+	\[\begin{tikzcd}[row sep=small]
+		& & W \\
+		A \arrow[shift left, r, "u"] \arrow[shift right, r, "v"'] & B \arrow[r, "h"'] \arrow[ru, "k"] & Z
+	\end{tikzcd} \qquad \begin{array}{ll}
+		W \in \Obj(\mathcal{C}) \\
+		ku = kv.
+	\end{array} \]
+	If there is a $\varphi:Z\to W$ with $\varphi h=k$, then
+	$\varphi=\varphi hs=ks$. Conversely, $\varphi:=ks$ does satisfy
+	$\varphi h=ksh=kut=kvt=k$. This proves the required universal property.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.p004
+Unlike coequalizers in general, split forks are ``absolute'': their images
+under arbitrary functors are still split forks.
+
+% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.eg001
+\begin{example}\label{eg:T-split-fork}
+	Let $(T,\mu,\eta)$ be a monad on $\mathcal{C}$. Every
+	$(M,a)\in\Obj(\mathcal{C}^T)$ gives a split fork in $\mathcal{C}$:
+	% segment-id: o014.li2.chapter7.beck-monadicity-b.e002
+	\begin{equation*}\begin{tikzcd}[column sep=large]
+			T^2(M) \arrow[shift left, r, "Ta"] \arrow[shift right, r, "\mu_M" description] & T(M) \arrow[r, "a"] \arrow[dashed, bend left, l, "\eta_{TM}"] & M \arrow[dashed, bend left, l, "\eta_M"]
+		\end{tikzcd} \quad \begin{array}{ll}
+			a (Ta) = a \mu_M , & \eta_M a = (Ta) \eta_{TM}, \\
+			a \eta_M = \identity_M , & \mu_M \eta_{TM} = \identity_{TM}.
+		\end{array}\end{equation*}
+	The equalities on the right are part of Definitions~\ref{def:monad} and
+	\ref{def:T-Alg}; for example,
+	$\eta_Ma=(Ta)\eta_{TM}$ follows from the naturality of
+	$\eta:\identity_{\mathcal{C}}\to T$. In particular, the diagram above
+	realizes $M$ as the coequalizer of $Ta$ and $\mu_M$.
+\end{example}
+
+% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.d002
+\begin{definition}\label{def:Beck-split-pair}
+	Consider a functor $G:\mathcal{D}\to\mathcal{C}$ and a pair of morphisms
+	$f,g:X\rightrightarrows Y$ in $\mathcal{D}$. If there is a morphism
+	$h:G(Y)\to Z$ such that the diagram
+	% segment-id: o014.li2.chapter7.beck-monadicity-b.e003
+	\begin{equation*}\begin{tikzcd}
+			G(X) \arrow[shift left, r, "Gf"] \arrow[shift right, r, "Gg"'] & G(Y) \arrow[r, "h"] & Z
+	\end{tikzcd}\end{equation*}
+	is a split fork in $\mathcal{C}$, then $(f,g)$ is called a
+	\emph{$G$-split pair} in $\mathcal{D}$.
+\end{definition}
+
+% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.p005
+Let $(f,g)$ be a $G$-split pair. Since $(Gf,Gg)$ has a coequalizer, it is
+natural to ask whether that coequalizer can be lifted to a coequalizer of
+$(f,g)$ in $\mathcal{D}$, and whether the lift is unique. A coequalizer is a
+special case of a $\varinjlim$; the concepts of a functor creating or
+preserving $\varinjlim$ in Definition~\ref{def:create-limit} provide the
+right terminology for this question.
+
+% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.p006
+Note that the forgetful functor $U^T:\mathcal{C}^T\to\mathcal{C}$ is
+conservative in the sense of Definition~\ref{def:conservative}.
+
+% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.l002
+\begin{lemma}\label{prop:UT-split-fork}
+	Let $(T,\mu,\eta)$ be a monad on $\mathcal{C}$. The functor $U^T$ creates
+	the coequalizer of every $U^T$-split pair.
+\end{lemma}
+% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.pf003
+\begin{proof}
+	Suppose we are given a pair of morphisms in $\mathcal{C}^T$,
+	$u,v:(M,a)\rightrightarrows(M',a')$, and a split fork in $\mathcal{C}$:
+	% segment-id: o014.li2.chapter7.beck-monadicity-b.e004
+	\begin{equation*}\begin{tikzcd}[column sep=large]
+		M \arrow[shift left, r, "u"] \arrow[shift right, r, "v" description] & M' \arrow[r, "h"] \arrow[dashed, l, bend left, "t"] & M'' \arrow[dashed, l, bend left, "s"].
+	\end{tikzcd}\end{equation*}
+	Since this diagram gives a coequalizer in $\mathcal{C}$, it is enough to
+	extend $M''$ uniquely to an object
+	$(M'',a'')\in\Obj(\mathcal{C}^T)$ such that $h$ is a morphism in
+	$\mathcal{C}^T$, and then to show that this construction gives the
+	coequalizer of $u$ and $v$ in $\mathcal{C}^T$.
+
+	The image of a split fork under any functor remains a split fork. Hence,
+	in the following diagram, whose solid part is commutative,
+	% segment-id: o014.li2.chapter7.beck-monadicity-b.g004
+	\[\begin{tikzcd}
+		T(M) \arrow[shift left, r, "Tu"] \arrow[shift right, r, "Tv"'] \arrow[d, "a"'] & T(M') \arrow[r, "Th"] \arrow[d, "{a'}"] & T(M'') \arrow[dashed, d, "{a''}"] \\
+		M \arrow[shift left, r, "u"] \arrow[shift right, r, "v"'] & M' \arrow[r, "h"'] & M''
+	\end{tikzcd}\]
+	both rows are coequalizers in $\mathcal{C}$. The universal property
+	therefore gives exactly one $a''$ that makes the whole diagram commute. If
+	$(M'',a'')$ is shown to be a $T$-algebra, then commutativity of the
+	right-hand part of this diagram says precisely that $h$ is a morphism in
+	$\mathcal{C}^T$.
+
+	For this, it remains to verify that the following two diagrams
+	commute.\footnote{Translator's note: the lower-right node of the first
+	diagram is printed as $T(M'')$ in the source. The unit law for a
+	$T$-algebra requires that node to be $M''$; the target is corrected here.}
+	% segment-id: o014.li2.chapter7.beck-monadicity-b.g005
+	\[\begin{tikzcd}
+		M'' \arrow[r, "{\eta_{M''}}"] \arrow[equal, rd] & T(M'') \arrow[d, "{a''}"] \\
+		& M''
+	\end{tikzcd} \quad
+	\begin{tikzcd}
+		T^2(M'') \arrow[r, "{\mu_{M''}}"] \arrow[d, "{Ta''}"'] & T(M'') \arrow[d, "{a''}"] \\
+		T(M'') \arrow[r, "{a''}"'] & M'' .
+	\end{tikzcd}\]
+	The coequalizer diagrams show that $h$ and $Th$ are epimorphisms (as is
+	$T^2h$). The commutativity of the two diagrams above therefore follows
+	immediately from that of the corresponding diagrams for $M$ and $M'$.
+
+	Finally, we show that $h$ gives the coequalizer of $u$ and $v$ in
+	$\mathcal{C}^T$. Suppose there is a morphism in $\mathcal{C}^T$
+	$k:(M',a')\to(W,b)$ with $ku=kv$.\footnote{Translator's note: the source
+	prints the domain of $k$ as $(M'',a'')$, which makes $ku$, $kv$, and
+	$\varphi h=k$ undefined. The correct domain is $(M',a')$.} In
+	$\mathcal{C}$, there is a unique morphism $\varphi:M''\to W$ with
+	$\varphi h=k$. It remains to prove that $\varphi$ is actually a morphism
+	in $\mathcal{C}^T$. Consider the diagram
+	% segment-id: o014.li2.chapter7.beck-monadicity-b.g006
+	\[\begin{tikzcd}
+		T(M') \arrow[r, "Th"] \arrow[d, "{a'}"'] & T(M'') \arrow[r, "T\varphi"] \arrow[d, "{a''}"] & T(W) \arrow[d, "b"] \\
+		M' \arrow[r, "h"'] & M'' \arrow[r, "\varphi"'] & W.
+	\end{tikzcd}\]
+	The composites of the top and bottom rows are $Tk$ and $k$, respectively.
+	Since $h$ and $k$ are morphisms in $\mathcal{C}^T$, the outer boundary and
+	the left square commute. Thus the right square commutes after composition
+	with $Th$. Since $Th$ is an epimorphism, the right square itself commutes.
+	This shows that $\varphi$ is a morphism in $\mathcal{C}^T$.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.l003
+\begin{lemma}\label{prop:Beck-FG-coeq}
+	Let $G:\mathcal{D}\to\mathcal{C}$ be a functor with left adjoint $F$, and
+	suppose $G$ creates the corresponding coequalizers for all $G$-split pairs
+	$f,g:X\rightrightarrows Y$ (Definition~\ref{def:Beck-split-pair}). Then the
+	following diagram is a coequalizer:
+	% segment-id: o014.li2.chapter7.beck-monadicity-b.e005
+	\begin{equation*}\begin{tikzcd}[column sep=large]
+		FGFG(N) \arrow[shift left, r, "FG\varepsilon_N"] \arrow[shift right, r, "\varepsilon_{FG(N)}"'] & FG(N) \arrow[r, "\varepsilon_N"] & N,
+	\end{tikzcd}\end{equation*}
+	where $N\in\Obj(\mathcal{D})$.
+\end{lemma}
+% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.pf004
+\begin{proof}
+	Applying $G$ to this diagram gives the split fork of
+	Example~\ref{eg:T-split-fork} for
+	$(M,a):=(G(N),G\varepsilon_N)=\mathbb{K}(N)$. Since $G$ creates the
+	corresponding coequalizer, the original diagram is a coequalizer.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.t001
+\begin{theorem}[J.\ M.\ Beck]\label{prop:Beck}
+	\index{Beck's theorem}
+	Let $G:\mathcal{D}\to\mathcal{C}$ be a functor with left adjoint $F$. The
+	following statements are equivalent:
+	\begin{enumerate}[(i)]
+		\item the adjoint pair $(F,G)$ is monadic
+		(Definition~\ref{def:monadic});
+		\item $G$ creates the corresponding coequalizer for every $G$-split
+		pair $f,g:X\rightrightarrows Y$;
+		\item $G$ is conservative (Definition~\ref{def:conservative}), every
+		$G$-split pair $f,g:X\rightrightarrows Y$ has a coequalizer
+		$X\rightrightarrows Y\to Z$ in $\mathcal{D}$, and the image of that
+		coequalizer under $G$ is a coequalizer of $(Gf,Gg)$.
+	\end{enumerate}
+
+	If any of the conditions above holds, a quasi-inverse functor $\mathbb{L}$
+	to $\mathbb{K}:\mathcal{D}\to\mathcal{C}^T$ can be described as follows.
+	For $(M,a)\in\Obj(\mathcal{C}^T)$, there is a coequalizer diagram
+	% segment-id: o014.li2.chapter7.beck-monadicity-b.e006
+	\begin{equation}\label{eqn:Beck-aux1}\begin{tikzcd}
+		FGF(M) \arrow[shift left, r, "Fa"] \arrow[shift right, r, "\varepsilon_{FM}"'] & F(M) \arrow[r] & \mathbb{L}(M, a).
+	\end{tikzcd}\end{equation}
+
+	For the comonad determined by $(F,G)$, the criterion is entirely dual.
+\end{theorem}
+% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.pf005
+\begin{proof}
+	First, we prove (i) $\implies$ (ii). Suppose
+	$\mathbb{K}:\mathcal{D}\to\mathcal{C}^T$ has a quasi-inverse functor
+	$\mathbb{L}$. The properties of being a split pair, being a split fork,
+	and creating $\varinjlim$ are invariant under equivalences of categories.
+	Since $G=U^T\mathbb{K}$, it is enough to prove that
+	$U^T:\mathcal{C}^T\to\mathcal{C}$ creates the corresponding coequalizer
+	for every $U^T$-split pair. This is precisely the content of
+	Lemma~\ref{prop:UT-split-fork}.
+
+	Next, (i) $\implies$ (iii). Since (i) $\implies$ (ii) is already known, it
+	remains only to show that $G$ is conservative when $G$ is monadic. But
+	$G=U^T\mathbb{K}$, where $\mathbb{K}$ is an equivalence of categories and
+	$U^T$ is plainly conservative. Hence $G$ is conservative as well.
+
+	We now prove (ii) $\implies$ (i) by constructing a quasi-inverse functor
+	$\mathbb{L}$ to $\mathbb{K}$. For $(M,a)\in\Obj(\mathcal{C}^T)$,
+	consider the pair of morphisms in $\mathcal{D}$
+	% segment-id: o014.li2.chapter7.beck-monadicity-b.g007
+	$\begin{tikzcd}
+		FGF(M) \arrow[shift left, r, "Fa"] \arrow[shift right, r, "\varepsilon_{FM}"'] & F(M).
+	\end{tikzcd}$
+	Its image under $G$ is
+	% segment-id: o014.li2.chapter7.beck-monadicity-b.g008
+	$\begin{tikzcd}
+		T^2(M) \arrow[shift left, r, "Ta"] \arrow[shift right, r, "\mu_M"'] & T(M)
+	\end{tikzcd}$\!,
+	which can be extended to a split fork by
+	Example~\ref{eg:T-split-fork}. Thus $(Fa,\varepsilon_{FM})$ is a
+	$G$-split pair, and the original diagram can be extended to a coequalizer
+	diagram in $\mathcal{D}$, namely \eqref{eqn:Beck-aux1}.
+
+	By \eqref{eqn:Beck-aux1} and the universal property of coequalizers, a
+	morphism $(M,a)\xrightarrow{\varphi}(M',a')$ in $\mathcal{C}^T$ gives a
+	unique morphism $\mathbb{L}(M,a)\to\mathbb{L}(M',a')$ making the following
+	diagram commute:
+	% segment-id: o014.li2.chapter7.beck-monadicity-b.e007
+	\begin{equation*}\begin{tikzcd}
+		FGF(M) \arrow[shift left, r, "Fa"] \arrow[shift right, r, "\varepsilon_{FM}"'] \arrow[d, "FGF\varphi"'] & F(M) \arrow[r] \arrow[d, "F\varphi"] & \mathbb{L}(M, a) \arrow[d] \\
+		FGF(M') \arrow[shift left, r, "{Fa'}"] \arrow[shift right, r, "\varepsilon_{FM'}"'] & F(M') \arrow[r] & \mathbb{L}(M', a').
+	\end{tikzcd}\end{equation*}
+	Thus $(M,a)\mapsto\mathbb{L}(M,a)$ becomes a functor
+	$\mathbb{L}:\mathcal{C}^T\to\mathcal{D}$.
+
+	We next prove
+	$\mathbb{L}\mathbb{K}\simeq\identity_{\mathcal{D}}$.\footnote{Translator's
+	note: the source prints $\identity_{\mathcal{C}}$ here and in the
+	comparison sentence below. Since $\mathbb{L}\mathbb{K}$ is an endofunctor
+	of $\mathcal{D}$, the correct subscript is $\mathcal{D}$.} For every
+	$N\in\Obj(\mathcal{D})$, the construction above gives a coequalizer
+	diagram
+	% segment-id: o014.li2.chapter7.beck-monadicity-b.e008
+	\begin{equation*}\begin{tikzcd}[column sep=large]
+		FGFG(N) \arrow[shift left, r, "FG\varepsilon_N"] \arrow[shift right, r, "\varepsilon_{FG(N)}"'] & FG(N) \arrow[r] & \mathbb{L}\mathbb{K}(N).
+	\end{tikzcd}\end{equation*}
+
+	Comparing this with the coequalizer diagram in
+	Lemma~\ref{prop:Beck-FG-coeq} immediately gives the canonical isomorphism
+	$\mathbb{L}\mathbb{K}\simeq\identity_{\mathcal{D}}$.
+
+	Next, we verify
+	$\mathbb{K}\mathbb{L}\simeq\identity_{\mathcal{C}^T}$. Clearly
+	$\mathbb{K}F=\mathrm{Free}^T$; both send an object $M$ to
+	$(GF(M),G\varepsilon_{FM})$. By definition and
+	$\mu:=G\varepsilon F$, applying $\mathbb{K}$ to
+	\eqref{eqn:Beck-aux1} gives
+	% segment-id: o014.li2.chapter7.beck-monadicity-b.e009
+	\begin{equation}\label{eqn:Beck-aux3}
+		\begin{tikzcd}[row sep=small]
+			(T^2(M), \ldots) \arrow[shift left, r, "Ta"] \arrow[shift right, r, "\mu_M"'] & (T(M), \ldots) \arrow[r] & \mathbb{K}\mathbb{L}(M, a). \\
+			\mathrm{Free}^T(T(M)) \arrow[equal, u] & \mathrm{Free}^T(M) \arrow[equal, u] &
+		\end{tikzcd}
+	\end{equation}
+
+	Applying the forgetful functor $U^T$ to the two terms on the left of
+	\eqref{eqn:Beck-aux3} gives
+	% segment-id: o014.li2.chapter7.beck-monadicity-b.g009
+	$\begin{tikzcd}
+		T^2(M) \arrow[shift left, r, "{Ta}"] \arrow[shift right, r, "{\mu_M}"'] & T(M)
+	\end{tikzcd}$.
+	Example~\ref{eg:T-split-fork} extends this diagram to a split fork with
+	coequalizer $M$. On the other hand, $U^T$ creates this coequalizer
+	(Lemma~\ref{prop:UT-split-fork}). Recalling
+	Definition~\ref{def:create-limit}, it follows that
+	\eqref{eqn:Beck-aux3} is also a coequalizer diagram.
+
+	On the other hand, apply Lemma~\ref{prop:Beck-FG-coeq} to the adjoint pair
+	$(\mathrm{Free}^T,U^T)$ and the object $N=(M,a)$. Carefully expanding the
+	description of this adjoint pair gives the coequalizer diagram
+	% segment-id: o014.li2.chapter7.beck-monadicity-b.g010
+	\[\begin{tikzcd}[row sep=tiny]
+		\mathrm{Free}^T(T(M)) \arrow[shift left, r, "Ta"] \arrow[shift right, r, "\mu_M"'] & \mathrm{Free}^T(M) \arrow[r] & (M, a).
+	\end{tikzcd}\]
+	Comparison with the preceding paragraph immediately gives
+	$\mathbb{K}\mathbb{L}\simeq\identity_{\mathcal{C}^T}$.
+
+	Finally, we prove (iii) $\implies$ (ii). The second part of (iii) says
+	precisely that all $G$-split pairs have coequalizers and that $G$ preserves
+	those coequalizers. Since $G$ is conservative,
+	Remark~\ref{rem:conservative-reflect} shows that (ii) holds.
+
+	Reversing all morphisms while retaining the direction of the functors,
+	that is, replacing $\mathcal{C}$ and $\mathcal{D}$ by
+	$\mathcal{C}^{\opp}$ and $\mathcal{D}^{\opp}$, gives the characterization
+	of comonadicity. We omit the details.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.co001
+\begin{corollary}
+	Consider a pair of adjoint functors
+	% segment-id: o014.li2.chapter7.beck-monadicity-b.g011
+	$\begin{tikzcd}
+		F: \mathcal{C} \arrow[shift left, r] & \mathcal{D}: G \arrow[shift left, l]
+	\end{tikzcd}$
+	with corresponding unit $\eta$ and counit $\varepsilon$. If this adjoint
+	pair is monadic, then the diagram
+	% segment-id: o014.li2.chapter7.beck-monadicity-b.g012
+	\[\begin{tikzcd}[column sep=large]
+		FGFG(N) \arrow[shift left, r, "FG\varepsilon_N"] \arrow[shift right, r, "\varepsilon_{FG(N)}"'] & FG(N) \arrow[r, "\varepsilon_N"] & N
+	\end{tikzcd}\]
+	is a coequalizer for every $N\in\Obj(\mathcal{D})$.
+\end{corollary}
+% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.pf006
+\begin{proof}
+	Combine Lemma~\ref{prop:Beck-FG-coeq} with
+	Theorem~\ref{prop:Beck}~(ii).
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.beck-monadicity-b.p007
+In practice, a linear version of Beck's theorem is often needed. More
+precisely, let $\Bbbk$ be a commutative ring and $(F,G)$ an adjoint pair
+between $\Bbbk\dcate{Mod}$-categories, with both functors $\Bbbk$-linear;
+see Definition~\ref{def:cat-k-linear} and
+Proposition~\ref{prop:automatic-k-morphism}. It is easy to see that
+$\mathcal{C}^T$ naturally becomes a $\Bbbk\dcate{Mod}$-category and that,
+by definition, both functors in
+$\mathcal{D}\xrightarrow{\mathbb{K}}\mathcal{C}^T\xrightarrow{U^T}\mathcal{C}$
+are $\Bbbk$-linear. If condition (ii) or (iii) of Beck's
+Theorem~\ref{prop:Beck} is satisfied, the description by the diagram
+\eqref{eqn:Beck-aux1} immediately shows that the quasi-inverse functor
+$\mathbb{L}$ to $\mathbb{K}$ is also $\Bbbk$-linear. We therefore obtain a
+$\Bbbk$-linear equivalence $\mathbb{K}:\mathcal{D}\to\mathcal{C}^T$.

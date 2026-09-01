@@ -1,0 +1,180 @@
+% English translation of chapter7.tex lines 1968--2035.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter7.morita-theory-c
+% Coverage: the end of Section 7.7, from the categorical characterization
+% of finitely generated modules through the symmetric form of Morita equivalence.
+
+% segment-id: o014.aljabr2.chapter7.morita-theory-c.l001
+\begin{lemma}\label{prop:fg-module-cat}
+	Let $R$ be a ring and $N$ a right $R$-module. Then $N$ is finitely
+	generated if and only if the following property holds: for every family
+	$(N_i)_{i \in I}$ of subobjects of $N$, if
+	$\sum_{i \in I}N_i=N$, then there is a finite subset $I_0\subset I$ such
+	that $\sum_{i \in I_0}N_i=N$.
+\end{lemma}
+% segment-id: o014.aljabr2.chapter7.morita-theory-c.pf001
+\begin{proof}
+	For the ``only if'' direction, let $x_1,\ldots,x_n$ be a set of generators
+	for $N$. Each $x_j$ belongs to some $\sum_{i\in I_j}N_i$, where
+	$I_j\subset I$ is finite; it is enough to take
+	$I_0=\bigcup_{j=1}^n I_j$. For the ``if'' direction, consider
+	$N=\sum_{x\in N}xR$.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.morita-theory-c.p001
+We now return to the Morita equivalences introduced in
+Definition--Proposition~\ref{def:Morita-equiv}. We discuss only the case of
+right modules.
+
+% segment-id: o014.aljabr2.chapter7.morita-theory-c.t001
+\begin{theorem}[Kiiti Morita]\label{prop:Morita-refined}
+	Let $A$ and $B$ be $\Bbbk$-algebras. Let
+	$\mathrm{Equiv}(\cated{Mod}A,\cated{Mod}B)$ be the category whose objects
+	are all equivalences $F:\cated{Mod}A\to\cated{Mod}B$ and whose morphisms
+	are isomorphisms between these equivalences. On the other hand, define a
+	category $\mathcal{P}(A,B)$ whose objects are the $(A,B)$-bimodules $P$
+	satisfying the following conditions:
+	\begin{itemize}
+		\item as a right $B$-module, $P$ is a finitely generated projective
+		generator of $\cated{Mod}B$;
+		\item left multiplication induces an isomorphism
+		$A\rightiso\End_{\cated{Mod}B}(P)$.
+	\end{itemize}
+	Its morphisms are defined to be bimodule isomorphisms. There are
+	quasi-inverse functors
+	\[
+	\begin{tikzcd}[row sep=tiny]
+		\mathrm{Equiv}(\cated{Mod}A, \cated{Mod}B) \arrow[shift left, r] & \mathcal{P}(A, B) \arrow[shift left, l] \\
+		F \arrow[mapsto, r] & F(A) \\
+		(\cdot) \dotimes{A} P & P \arrow[mapsto, l] .
+	\end{tikzcd}
+	\]
+\end{theorem}
+% segment-id: o014.aljabr2.chapter7.morita-theory-c.pf002
+\begin{proof}
+	First, we show that $F\mapsto F(A)$ is well defined. Observe that $A$ is a
+	finitely generated projective generator of $\cated{Mod}A$. Both the
+	property of being a projective generator and the property of being
+	finitely generated have categorical characterizations
+	(Lemma~\ref{prop:fg-module-cat}), so the same holds for $F(A)$. Moreover,
+	abstract considerations give
+	% segment-id: o014.aljabr2.chapter7.morita-theory-c.q001
+	\[
+	F:\End_{\cated{Mod}A}(A)\rightiso
+	\End_{\cated{Mod}B}(F(A)).
+	\]
+	It is easy to check that this is exactly the homomorphism
+	$A\to\End_{\cated{Mod}B}(F(A))$ given by left multiplication by $A$ on
+	$F(A)$.
+
+	If the functor from right to left is also well defined, then
+	Theorem~\ref{prop:Morita} implies that the two functors are quasi-inverse.
+	It therefore suffices to prove the following assertion: if
+	$P\in\Obj(\mathcal{P}(A,B))$, then
+	$F:=(\cdot)\dotimes{A}P$ is an equivalence of categories.
+
+	Take $P$ as above. In \eqref{eqn:AB-adjunction-2}, we showed that the right
+	adjoint of $(\cdot)\dotimes{A}P$ is
+	$(\cdot)\dotimes{B}P^\vee$, where
+	$P^\vee:=\Hom_{\cated{Mod}B}(P,B)$. We seek to show that these functors are
+	quasi-inverse. Taking $Q=P^\vee$ in
+	Definition--Proposition~\ref{def:Morita-equiv}~(ii), it is enough to prove
+	that the bimodule homomorphisms in
+	Definition~\ref{def:bimodule-ev-coev},
+	% segment-id: o014.aljabr2.chapter7.morita-theory-c.q002
+	\[
+	\mathrm{ev}:P^\vee\dotimes{A}P\to B,\qquad
+	\mathrm{coev}:A\to P\dotimes{B}P^\vee
+	\simeq\End_{\cated{Mod}B}(P),
+	\]
+	are both isomorphisms.
+
+	First consider $\mathrm{ev}$. Since $P$ is a generator of
+	$\cated{Mod}B$, there is a surjective homomorphism
+	$P^{\oplus I}\twoheadrightarrow B$. In particular, there are
+	$q_1,\ldots,q_n\in P^\vee$ and $p_1,\ldots,p_n\in P$ such that
+	$\sum_{i=1}^n q_i(p_i)=1_B$, or equivalently
+	$\mathrm{ev}(\sum_i q_i\otimes p_i)=1_B$. Thus surjectivity is proved.
+
+	Next, define an operation $P\times P^\vee\to A$, written as
+	multiplication. It is characterized by the following associativity-like
+	identity in $P$, for all $p,p'\in P$ and $q\in P^\vee$:
+	% segment-id: o014.aljabr2.chapter7.morita-theory-c.q003
+	\[
+	\underbracket{(pq)}_{\in A}p'
+	= p\underbracket{(qp')}_{\in B}.
+	\]
+	Here $qp':=q(p')$. Indeed, for fixed $p$ and $q$, the right-hand side is
+	an element of $\End_{\cated{Mod}B}(P)$, while left multiplication induces
+	$A\rightiso\End_{\cated{Mod}B}(P)$; thus $pq\in A$ is uniquely defined.
+	The identity above also gives a second form of associativity, namely the
+	following identity in $P^\vee$:
+	% segment-id: o014.aljabr2.chapter7.morita-theory-c.q004
+	\[
+	\underbracket{(qp)}_{\in B}q'
+	= q\underbracket{(pq')}_{\in A}.
+	\]
+	It is enough to check that the two sides take the same value on every
+	$p'\in P$; this direct verification is left to the reader.
+
+	We can now prove the injectivity of $\mathrm{ev}$. Choose $p_i$ and $q_i$
+	as in the preceding step. If
+	$\mathrm{ev}(\sum_{j=1}^m q'_j\otimes p'_j)=0$, then the two forms of
+	associativity above give
+	% segment-id: o014.aljabr2.chapter7.morita-theory-c.q005
+	\begin{multline*}
+		\sum_j q'_j \otimes p'_j
+		= \sum_{i,j}(q_i p_i)q'_j\otimes p'_j
+		= \sum_{i,j}q_i\underbracket{(p_iq'_j)}_{\in A}\otimes p'_j \\
+		= \sum_{i,j}q_i\otimes(p_iq'_j)p'_j
+		= \sum_{i,j}q_i\otimes p_i\underbracket{(q'_jp'_j)}_{\in B}
+		= \sum_i q_i\otimes p_i\sum_j q'_jp'_j=0.
+	\end{multline*}
+
+	Finally, the assertion that $\mathrm{coev}$ is an isomorphism is precisely
+	the second condition in the definition of $\mathcal{P}(A,B)$.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.morita-theory-c.p002
+Consequently, $A$ and $B$ are Morita equivalent if and only if
+$\mathcal{P}(A,B)$ is nonempty, while studying the category
+$\mathcal{P}(A,B)$ is an entirely concrete problem in module theory.
+Conversely, Morita equivalence may also be used to rewrite the definition of
+$\mathcal{P}(A,B)$ in a more symmetric form.
+
+% segment-id: o014.aljabr2.chapter7.morita-theory-c.c001
+\begin{corollary}\label{prop:Morita-refined-symm}
+	An $(A,B)$-bimodule $P$ is an object of the category
+	$\mathcal{P}(A,B)$ in Theorem~\ref{prop:Morita-refined} if and only if the
+	following conditions hold:
+	\begin{itemize}
+		\item as a left $A$-module, $P$ is a finitely generated projective
+		generator of $A\dcate{Mod}$, and as a right $B$-module, $P$ is a
+		finitely generated projective generator of $\cated{Mod}B$;
+		\item left multiplication induces an isomorphism
+		$A\rightiso\End_{\cated{Mod}B}(P)$, while right multiplication
+		induces an isomorphism
+		$B^{\opp}\rightiso\End_{A\dcate{Mod}}(P)$.
+	\end{itemize}
+\end{corollary}
+% segment-id: o014.aljabr2.chapter7.morita-theory-c.pf003
+\begin{proof}
+	It is enough to prove the ``only if'' direction. Suppose
+	$P\in\Obj(\mathcal{P}(A,B))$. The bimodule isomorphisms already proved,
+	% segment-id: o014.aljabr2.chapter7.morita-theory-c.q006
+	\[
+	P\dotimes{B}P^\vee\simeq A,\qquad
+	P^\vee\dotimes{A}P\simeq B,
+	\]
+	not only show that
+	$(\cdot)\dotimes{A}P:\cated{Mod}A\to\cated{Mod}B$ is an equivalence,
+	but also imply that
+	$P\dotimes{B}(\cdot):B\dcate{Mod}\to A\dcate{Mod}$ is an equivalence.
+	Therefore the left-module version of Theorem~\ref{prop:Morita-refined}
+	shows that $P$, as a left $A$-module, is a finitely generated projective
+	generator, and that right multiplication induces
+	$B^{\opp}\rightiso\End_{A\dcate{Mod}}(P)$. In fact, it is enough to
+	repeat the first paragraph of the proof of
+	Theorem~\ref{prop:Morita-refined} for left modules.
+\end{proof}

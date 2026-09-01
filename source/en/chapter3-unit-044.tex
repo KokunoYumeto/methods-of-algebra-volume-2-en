@@ -1,0 +1,365 @@
+% Unit 044 English translation of chapter3.tex lines 2553--2713.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter3.example-lim1
+% Coverage: Section 3.13 in full.
+
+% segment-id: o014.li2.chapter3.example-lim1.h001
+\section{Example: \texorpdfstring{$\lim\nolimits^1$}{lim1}}\label{sec:lim1}
+\hypertarget{o014.aljabr2.chapter3.example-lim1}{ }
+
+% segment-id: o014.li2.chapter3.example-lim1.p001
+Our first example of derived functors comes from a common class of inverse
+limits. Regard $\Z_{\geq0}$ as a category under its usual total order; then
+$\Z_{\geq0}^{\opp}$ may be displayed as $\cdots\to2\to1\to0$. For any
+category $\mathcal{A}$, consider the functor category
+% segment-id: o014.li2.chapter3.example-lim1.q001
+\begin{equation}\label{eqn:InvSys}
+	\index[sym1]{InvSys@$\cate{InvSys}$}
+	\cate{InvSys}(\mathcal{A}) := \mathcal{A}^{\Z_{\geq 0}^{\opp}}.
+\end{equation}
+Its objects may be identified with data $(A_n,f_n)_{n\geq0}$, where
+$A_n\in\Obj(\mathcal{A})$ and $f_n\in\Hom(A_{n+1},A_n)$. Such data are also
+called \emph{inverse systems} in $\mathcal{A}$. Using derived functors, this
+section studies their inverse limits when $\mathcal{A}$ is abelian.
+
+% segment-id: o014.li2.chapter3.example-lim1.cn001
+\begin{convention}\label{con:exact-product}
+	\index{abelian category!with exact countable products}
+	\index{abelian category!with exact countable coproducts}
+	An abelian category $\mathcal{A}$ is said to have \emph{exact countable
+	products} (respectively \emph{exact countable coproducts}) if it has
+	countable products (respectively countable coproducts, or direct sums) and
+	the product functor $\prod:\mathcal{A}^{\Z_{\geq0}}\to\mathcal{A}$
+	(respectively the direct-sum functor
+	$\oplus:\mathcal{A}^{\Z_{\geq0}}\to\mathcal{A}$) is exact.
+\end{convention}
+
+% segment-id: o014.li2.chapter3.example-lim1.p002
+The product functor is always left exact. Thus, assuming countable products
+exist, its exactness is equivalent to preservation of epimorphisms: for every
+family of epimorphisms $(g_n:A_n\to B_n)_{n\geq0}$, the corresponding map
+$\prod_{n\geq0}g_n:\prod_{n\geq0}A_n\to\prod_{n\geq0}B_n$ must also be an
+epimorphism. The assertion for countable coproducts is dual.
+
+% segment-id: o014.li2.chapter3.example-lim1.hy001
+\begin{hypothesis}\label{hyp:lim1}
+	Throughout this section, the abelian category $\mathcal{A}$ is assumed to
+	have exact countable products.
+\end{hypothesis}
+
+% segment-id: o014.li2.chapter3.example-lim1.p003
+The category $R\dcate{Mod}$ of modules over any ring $R$ has this property.
+
+% segment-id: o014.li2.chapter3.example-lim1.de001
+\begin{definition}\label{def:Delta-diff}
+	\index[sym1]{DeltaA@$\Delta_A$}
+	Given an object $A=(A_n,f_n)_n$ of $\cate{InvSys}(\mathcal{A})$, define
+	the shift morphism
+	$T_A:\prod_{n\geq0}A_n\to\prod_{n\geq0}A_n$ as follows. When
+	$\mathcal{A}=\cate{Ab}$,
+	$T_A((a_n)_{n\geq0}):=(f_n(a_{n+1}))_{n\geq0}$; the general definition
+	is analogous. Define further the canonical morphism
+% segment-id: o014.li2.chapter3.example-lim1.q002
+	\[ \Delta_A := T_A - \identity: \prod_{n \geq 0} A_n \to \prod_{n \geq 0} A_n. \]
+	As $A$ varies, these maps give endomorphisms $T$ and
+	$\Delta=T-\identity$ of the product functor $\prod_{n\geq0}$.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.example-lim1.p004
+Notice that this definition requires only that $\mathcal{A}$ be an
+$\cate{Ab}$-category with countable products.
+
+% segment-id: o014.li2.chapter3.example-lim1.p005
+Recall that inverse limits are generally constructed from equalizers and
+products. Here $\cate{InvSys}(\mathcal{A})$ is naturally an abelian category
+(Proposition~\ref{prop:functor-cat-Abel}), so the construction reduces to
+$\varprojlim A=\Ker[\Delta_A:\prod_nA_n\to\prod_nA_n]$.
+
+% segment-id: o014.li2.chapter3.example-lim1.p006
+Moreover, $\cate{InvSys}(\mathcal{A})$ also has exact countable products,
+since limits in a functor category are constructed pointwise; see
+\S\ref{sec:limit-functor}.
+
+% segment-id: o014.li2.chapter3.example-lim1.le001
+\begin{lemma}
+	The construction above gives a left exact additive functor
+	$\varprojlim:\cate{InvSys}(\mathcal{A})\to\mathcal{A}$. On the other
+	hand, the product functor
+	$\prod_{n\geq0}:\cate{InvSys}(\mathcal{A})\to\mathcal{A}$ is exact.
+\end{lemma}
+% segment-id: o014.li2.chapter3.example-lim1.pf001
+\begin{proof}
+	Both functors are plainly additive, and left exactness follows from
+	Example~\ref{eg:limit-exactness}. By hypothesis, the functor
+	$\prod_{n\geq0}:(A_n,f_n)_n\mapsto\prod_nA_n$ also preserves
+	epimorphisms, since it does so pointwise. Remark
+	\ref{rem:exactness-mono-epi} therefore shows that it is exact.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.example-lim1.de002
+\begin{definition}
+	\index[sym1]{lim1@$\lim\nolimits^1$}
+	Define additive functors
+	$\lim^n:\cate{InvSys}(\mathcal{A})\to\mathcal{A}$ by
+% segment-id: o014.li2.chapter3.example-lim1.q003
+	\begin{align*}
+		\lim\nolimits^0 & := \varprojlim = \Ker \Delta: \; A \mapsto \Ker \Delta_A, \\
+		\lim\nolimits^1 & := \Coker \Delta: \; A \mapsto \Coker \Delta_A , \\
+		\lim\nolimits^n & := 0, \quad n \in \Z_{\geq 2}.
+	\end{align*}
+\end{definition}
+
+% segment-id: o014.li2.chapter3.example-lim1.p007
+Let $0\to X\to Y\to Z\to0$ be a short exact sequence in
+$\cate{InvSys}(\mathcal{A})$; equivalently, it is exact pointwise. Applying
+the exact functor $\prod_{n\geq0}$ and its endomorphism $\Delta$ gives the
+commutative diagram with exact rows
+% segment-id: o014.li2.chapter3.example-lim1.g001
+\[\begin{tikzcd}
+	0 \arrow[r] & \prod_n X_n \arrow[r] \arrow[d, "\Delta_X"'] & \prod_n Y_n \arrow[r] \arrow[d, "\Delta_Y"] & \prod_n Z_n \arrow[d, "\Delta_Z"] \arrow[r] & 0 \\
+	0 \arrow[r] & \prod_n X_n \arrow[r] & \prod_n Y_n \arrow[r] & \prod_n Z_n \arrow[r] & 0 .
+\end{tikzcd}\]
+The Snake Lemma (Theorem~\ref{prop:snake-lemma}) gives the long exact sequence
+% segment-id: o014.li2.chapter3.example-lim1.q004
+\[ 0 \to \lim\nolimits^0 X \to \lim\nolimits^0 Y \to \lim\nolimits^0 Z \xrightarrow[\text{connecting morphism}]{\delta^0} \lim\nolimits^1 X \to \lim\nolimits^1 Y \to \lim\nolimits^1 Z \to 0 ; \]
+it is functorial in short exact sequences. For $n>0$, set $\delta^n:=0$. We
+summarize this as follows.
+
+% segment-id: o014.li2.chapter3.example-lim1.le002
+\begin{lemma}
+	The data $(\lim^n,\delta^n)_{n\geq0}$ form a cohomological
+	$\delta$-functor from $\cate{InvSys}(\mathcal{A})$ to $\mathcal{A}$
+	(Definition~\ref{def:delta-functor}), with $\lim^0=\varprojlim$.
+\end{lemma}
+
+% segment-id: o014.li2.chapter3.example-lim1.p008
+We now turn to the right derived functors of $\varprojlim$. If $\mathcal{A}$
+has enough injectives, then so does $\cate{InvSys}(\mathcal{A})$. Indeed, the
+exercises in \CHref{sec:Abel-cat} already discuss the general functor category
+$\mathcal{A}^{\mathcal{C}}$; here $\mathcal{C}=\Z_{\geq0}^{\opp}$. We give a
+direct proof of the following slightly more precise result.
+
+[Translator's clarification: the following results are under the standing
+assumption that $\mathcal{A}$ has enough injective objects.]
+
+% segment-id: o014.li2.chapter3.example-lim1.le003
+\begin{lemma}\label{prop:lim1-prep}
+	Under Hypothesis~\ref{hyp:lim1}, define the additive full subcategory
+	$\mathcal{R}$ of $\cate{InvSys}(\mathcal{A})$ by
+% segment-id: o014.li2.chapter3.example-lim1.q005
+	\[ \Obj(\mathcal{R}) = \left\{\begin{array}{l|l}
+		R = (R_k, r_k)_{k \geq 0} & R \;\text{is injective}, \; \Delta_R \; \text{is an epimorphism}, \\
+		\; \in \Obj\left( \cate{InvSys}(\mathcal{A}) \right) & \forall k, \; R_k \;\text{is injective in $\mathcal{A}$}
+	\end{array}\right\}. \]
+	For every $A\in\Obj(\cate{InvSys}(\mathcal{A}))$, there are an object
+	$R\in\Obj(\mathcal{R})$ and a monomorphism $A\hookrightarrow R$.
+\end{lemma}
+% segment-id: o014.li2.chapter3.example-lim1.pf002
+\begin{proof}
+	For every $m\in\Z_{\geq0}$, define a functor
+	$\mathcal{R}_m:\mathcal{A}\to\cate{InvSys}(\mathcal{A})$ by sending an
+	object $X$ to
+% segment-id: o014.li2.chapter3.example-lim1.g002
+	\begin{equation}\label{eqn:Rm-construction}\begin{tikzcd}[row sep=tiny]
+		\cdots \arrow[r, "{\identity}"] & X \arrow[r, "{\identity}"] & X \arrow[r] & 0 \arrow[r] & \cdots \arrow[r] & 0. \\
+		\cdots & \text{term $m+1$} & \text{term $m$} & & &
+	\end{tikzcd}\end{equation}
+	This is plainly right adjoint to
+	$\mathrm{ev}_m:(A_n,f_n)_{n\geq0}\mapsto A_m$, and hence preserves
+	injective objects (Proposition~\ref{prop:adjoint-injective-projective}).
+	It is also straightforward to check that
+	$\Delta_{\mathcal{R}_mX}$ is an epimorphism; one can write down a right
+	inverse explicitly.
+
+	Given $A=(A_n,f_n)_{n\geq0}$, choose for each $m$ an injective object
+	$I_m$ of $\mathcal{A}$ and a monomorphism $A_m\hookrightarrow I_m$.
+	Then
+	$A\hookrightarrow\prod_{m\geq0}\mathcal{R}_m(I_m)=:R$. By
+	Lemma~\ref{prop:prod-injective-projective}, the object on the right is
+	still injective; in fact, by construction every $R_k$ is injective in
+	$\mathcal{A}$. Since $\prod_m$ is exact,
+	$\Delta_R=\prod_m\Delta_{\mathcal{R}_m(I_m)}$ remains an epimorphism.
+	Thus $R\in\Obj(\mathcal{R})$.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.example-lim1.p009
+We may therefore discuss $\mathrm{R}^n\varprojlim$ for $n\geq0$. Recall that
+the right derived functors of $\varprojlim$ are characterized as a universal
+cohomological $\delta$-functor (Corollary~\ref{prop:derived-erasable}).
+
+% segment-id: o014.li2.chapter3.example-lim1.th001
+\begin{theorem}[S.\ Eilenberg]\label{prop:lim1}
+	Under Hypothesis~\ref{hyp:lim1}, $\lim\nolimits^n$ is effaceable in the
+sense of Definition~\ref{def:erasable} for every $n>0$. Consequently there
+is a canonical isomorphism
+$\mathrm{R}^1\varprojlim\simeq\lim^1$, while
+$\mathrm{R}^n\varprojlim=0$ for $n\notin\{0,1\}$.
+\end{theorem}
+% segment-id: o014.li2.chapter3.example-lim1.pf003
+\begin{proof}
+	Lemma~\ref{prop:lim1-prep} shows that $\lim^1$ is effaceable. Hence
+	$(\lim^n)_{n\geq0}$ is a universal $\delta$-functor by
+	Proposition~\ref{prop:erasable-univ-delta}.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.example-lim1.p010
+Having identified $\lim^1$ as the obstruction to exactness of $\varprojlim$,
+we now study conditions that ensure $\lim^1=0$.
+
+% segment-id: o014.li2.chapter3.example-lim1.ex001
+\begin{example}\label{eg:quotient-lim1-0}
+	If an object $A$ of $\cate{InvSys}(\mathcal{A})$ satisfies $\lim^1A=0$,
+	then $\lim^1Q=0$ for every quotient object $Q$ of $A$. Indeed, the long exact
+	sequence induced by $0\to K\to A\to Q\to0$ ends with
+	$\lim^1A\to\lim^1Q\to0$.
+\end{example}
+
+% segment-id: o014.li2.chapter3.example-lim1.ex002
+\begin{example}\label{eg:lim1-section}
+	If every $f_n:A_{n+1}\to A_n$ has a section (a right inverse) $s_n$, then
+	$\Delta_A$ also has a section
+	$\Sigma_A:\prod_nA_n\to\prod_nA_n$, and hence $\Delta_A$ is an
+	epimorphism. In element notation, one may recursively define
+	$\Sigma_A((b_n)_n)=(a_n)_n$ by $a_0=0$ and
+	$a_{n+1}:=s_n(a_n+b_n)$. The general case is analogous.
+\end{example}
+
+% segment-id: o014.li2.chapter3.example-lim1.de003
+\begin{definition}[Mittag-Leffler condition]\label{def:ML}
+	\index{Mittag-Leffler condition}
+	Suppose that every morphism in a category $\mathcal{C}$ has an image
+	(Definition~\ref{def:Im-Coim}), and let
+	$X=(X_k,f_k)_{k\geq0}$ be an object of $\cate{InvSys}(\mathcal{C})$.
+	For $b\geq a$, let $f_a^b:X_b\to X_a$ be the composite
+	$f_a\cdots f_{b-1}$, with $f_a^a=\identity$. The inverse system $X$ is
+	called \emph{Mittag-Leffler} if
+% segment-id: o014.li2.chapter3.example-lim1.q006
+	\[ \forall k \geq 0, \; \exists N \geq k, \quad n \geq N \implies \Image f^n_k = \Image f^N_k. \]
+\end{definition}
+
+% segment-id: o014.li2.chapter3.example-lim1.p011
+For example, if every $f_k$ is an epimorphism, then
+$(X_k,f_k)_{k\geq0}$ is automatically Mittag-Leffler.
+
+% segment-id: o014.li2.chapter3.example-lim1.p012
+For a Mittag-Leffler system $(X_k,f_k)_{k\geq0}$, each $X_k$ has a
+well-defined subobject $X_k^\flat:=\Image f_k^N$ for $N\gg k$. It is easy to
+see that every morphism
+% segment-id: o014.li2.chapter3.example-lim1.q007
+\[ \cdots \to X^\flat_2 \xrightarrow{f^\flat_1} X^\flat_1 \xrightarrow{f^\flat_0} X^\flat_0 \]
+in the resulting inverse system, where
+$f_k^\flat:=f_k|_{X_{k+1}^\flat}$, is an epimorphism.
+
+% segment-id: o014.li2.chapter3.example-lim1.le004
+\begin{lemma}\label{prop:ML-nonempty}
+	Let $\mathcal{C}$ be $\cate{Set}$ or $R\dcate{Mod}$ for an arbitrary ring
+	$R$, and suppose that an object $(X_n,f_n)_{n\geq0}$ of
+	$\cate{InvSys}(\mathcal{C})$ is Mittag-Leffler.
+% segment-id: o014.li2.chapter3.example-lim1.l001
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter3.example-lim1.i001
+		\item The inclusions $X_n^\flat\hookrightarrow X_n$ induce a
+		canonical isomorphism
+		$\varprojlim_nX_n^\flat\rightiso\varprojlim_nX_n$.
+% segment-id: o014.li2.chapter3.example-lim1.i002
+		\item If $\mathcal{C}=\cate{Set}$ and every $X_n$ is nonempty, then
+		$\varprojlim_nX_n\neq\emptyset$.
+	\end{enumerate}
+\end{lemma}
+% segment-id: o014.li2.chapter3.example-lim1.pf004
+\begin{proof}
+	For (i), write down the explicit construction of the inverse limit in
+	these categories:
+% segment-id: o014.li2.chapter3.example-lim1.q008
+	\[ \varprojlim_n X_n = \left\{ (x_n)_{n \geq 0} \in \prod_{n \geq 0} X_n : \forall n \geq 0,\; f_n(x_{n+1}) = x_n \right\}; \]
+	every $x_n$ in this expression automatically belongs to
+	$\bigcap_{N\geq n}\Image(f_n^N)$, which immediately gives
+	$\varprojlim_nX_n=\varprojlim_nX_n^\flat$.
+
+	For (ii), the definition shows that every $X_n^\flat$ is nonempty. By (i),
+	the problem reduces to the case where every $f_n$ is surjective, when the
+	claim is clear.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.example-lim1.pr001
+\begin{proposition}\label{prop:ML-exactness}
+	Let $R$ be a ring and $\mathcal{A}:=R\dcate{Mod}$. If an object
+	$A=(A_n,f_n)_{n\geq0}$ of $\cate{InvSys}(\mathcal{A})$ is
+	Mittag-Leffler, then $\lim^1A=0$. Equivalently, for every short exact
+	sequence $0\to A\to B\to C\to0$ in $\cate{InvSys}(\mathcal{A})$, the
+	sequence
+	$0\to\varprojlim A\to\varprojlim B\to\varprojlim C\to0$ is exact.
+\end{proposition}
+% segment-id: o014.li2.chapter3.example-lim1.pf005
+\begin{proof}
+	First prove the equivalence of the two assertions. Let
+	$A\in\cate{InvSys}(\mathcal{A})$. If $\lim^1A=0$, exactness of
+	$0\to\varprojlim A\to\varprojlim B\to\varprojlim C\to0$ follows
+	immediately from the long exact sequence. Conversely, suppose this sequence
+	is always exact. Choose a monomorphism $A\hookrightarrow B$ with $B$
+	injective in $\cate{InvSys}(\mathcal{A})$. Dimension shifting
+	(Proposition~\ref{prop:dimension-shifting}) gives
+	$\mathrm{R}^1\varprojlim A=0$, and Theorem~\ref{prop:lim1} then gives
+	$\lim^1A=0$.
+
+	Now prove the main assertion. Suppose that $A$ is Mittag-Leffler in the
+	short exact sequence
+	$0\to\underbracket{(A_n,f_n)_n}_{=A}\xrightarrow{\varphi}
+	\underbracket{(B_n,g_n)_n}_{=B}\xrightarrow{\psi}
+	\underbracket{(C_n,h_n)_n}_{=C}\to0$.
+	\footnote{Translator's note (O014-C063): under the brace for $C$, the
+	source writes the inverse system as $(C_n,h_n)$ without its indexing
+	subscript. Since $C$ is an object of $\cate{InvSys}(\mathcal{A})$, the
+	notation has been restored to $(C_n,h_n)_n$.}
+	We must show that $\varprojlim\psi$ is an epimorphism. By
+	Lemma~\ref{prop:ML-nonempty}~(ii), it is enough to show, for every
+	$c=(c_n)_{n\geq0}\in\varprojlim C$, that the inverse system of nonempty
+	sets
+% segment-id: o014.li2.chapter3.example-lim1.q009
+	\[ \cdots \to \psi_2^{-1}(c_2) \xrightarrow{g_1} \psi_1^{-1}(c_1) \xrightarrow{g_0} \psi_0^{-1}(c_0) \]
+	is Mittag-Leffler, since this makes $(\varprojlim\psi)^{-1}(c)$ nonempty.
+
+	Given $k\geq0$, choose $N\geq k$ large enough that
+	$\Image f_k^n=\Image f_k^N$ for all $n\geq N$. Fix
+	$b_N\in\psi_N^{-1}(c_N)$. To verify the Mittag-Leffler condition, we show
+	that for every $n\geq N$ there is a $b_n\in\psi_n^{-1}(c_n)$ such that
+	$g_k^n(b_n)=g_k^N(b_N)$.
+
+	Choose any $b_n'\in\psi_n^{-1}(c_n)$. Then
+	$\psi_N(g_N^n(b_n'))=c_N=\psi_N(b_N)$, so there is an $a_N$ such that
+	$g_N^n(b_n')-b_N=\varphi_N(a_N)$. Choose $a_n$ with
+	$f_k^n(a_n)=f_k^N(a_N)$. Then $b_n:=b_n'-\varphi_n(a_n)$ has the required
+	properties.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.example-lim1.p013
+For a general abelian category $\mathcal{A}$ satisfying
+Hypothesis~\ref{hyp:lim1}, there are counterexamples in which the
+Mittag-Leffler condition does not imply $\lim^1=0$; see \cite{Roo06} for a
+detailed discussion.
+
+% segment-id: o014.li2.chapter3.example-lim1.p014
+The following elementary exercise will be used in \S\ref{sec:K-injectives}.
+
+% segment-id: o014.li2.chapter3.example-lim1.co001
+\begin{corollary}\label{prop:ML-4-terms}
+	Suppose that $\mathcal{A}$ satisfies Hypothesis~\ref{hyp:lim1}, and let
+	$A\to B\to C\to D$ be an exact sequence in
+	$\cate{InvSys}(\mathcal{A})$. If $\lim^1A=0$, then
+% segment-id: o014.li2.chapter3.example-lim1.q010
+	\[ \varprojlim B \to \varprojlim C \to \varprojlim D \]
+	is exact in $\mathcal{A}$.
+\end{corollary}
+% segment-id: o014.li2.chapter3.example-lim1.pf006
+\begin{proof}
+	Put $H:=\Ker[C\to D]$ and $X:=\Image[A\to B]$. Since $\varprojlim$ is
+	left exact, there is a canonical isomorphism
+% segment-id: o014.li2.chapter3.example-lim1.q011
+	\[ \Ker\left[ \varprojlim C \to \varprojlim D\right] \simeq \varprojlim H . \]
+	The morphism $B\to C$ factors as $B\twoheadrightarrow H\hookrightarrow C$,
+	so it remains to prove that $\varprojlim B\to\varprojlim H$ is an
+	epimorphism. Example~\ref{eg:quotient-lim1-0} gives $\lim^1X=0$. Applying
+	$\varprojlim$ to $0\to X\to B\to H\to0$ then shows that
+	$\varprojlim B\to\varprojlim H$ is an epimorphism.
+\end{proof}

@@ -1,0 +1,637 @@
+% INDEPENDENT INSTRUCTIONAL MATERIAL --- NOT WEN-WEI LI'S SOURCE TEXT.
+% stable-unit-id: o014.mastery.derived-spectral.002
+% provenance: OpenAI Codex gpt-5.6-sol, Ultra
+% license: CC BY 4.0; compatible with the source translation license.
+
+\section*{Mastery Bridge 002: Derived Functors and Spectral Sequences}
+\addcontentsline{toc}{section}{Mastery Bridge 002: Derived Functors and Spectral Sequences}
+\hypertarget{o014.mastery.derived-spectral.002}{ }
+\label{mastery:derived-spectral-002}
+
+\noindent\textbf{Status and attribution.}
+This unit is independent instructional material prepared to accompany this
+book. It is not part of Wen-Wei Li's source text and must not be attributed to
+him. Production provenance:
+\texttt{OpenAI Codex gpt-5.6-sol, Ultra}. This material is available under the
+Creative Commons Attribution 4.0 International license
+(CC BY 4.0; \url{https://creativecommons.org/licenses/by/4.0/}), and is
+therefore compatible with the license of the source text.
+
+\subsection*{Prerequisite map}
+
+The shortest prerequisite chain is as follows.
+\begin{compactitem}
+	\item Abelian categories, complexes, and cohomology:
+	\S\ref{sec:Abel-cat-def}, \S\ref{sec:cohomology}, and
+	Definition~\ref{def:cohomology}.
+	\item Injective/projective objects and the existence of enough such
+	objects:
+	\S\ref{sec:inj-proj}, Definition~\ref{def:injective-projective-obj}, and
+	Definition~\ref{def:enough-injectives}.
+	\item Resolutions and uniqueness up to homotopy:
+	\S\ref{sec:resolutions}, Definition~\ref{def:resolutions}, and
+	Theorem~\ref{prop:resolution-homotopy}.
+	\item Classical derived functors, long exact sequences, and dimension
+	shifting: \S\ref{sec:derived-primer},
+	Theorem~\ref{prop:long-exact-sequence-primer}, and
+	Proposition~\ref{prop:dimension-shifting}.
+	\item Spectral sequences, edge maps, and composition of functors:
+	\S\ref{sec:spectral-sequence}, Remark~\ref{rem:edge-computing}, and
+	Theorem~\ref{prop:Grothendieck-ss}.
+	\item Cohomology of cyclic groups and multiplicative structure:
+	Definition~\ref{def:group-coh-ho},
+	Proposition~\ref{prop:group-cohomology-cyclic},
+	\S\ref{sec:grading-filtration}, and
+	\S\ref{sec:multiplicative-SS}.
+\end{compactitem}
+The conceptual progression is
+\[
+	\text{replace by a resolution}
+	\Longrightarrow \text{take cohomology}
+	\Longrightarrow \text{organize the total filtration}
+	\Longrightarrow \text{read the pages and edges}.
+\]
+
+\subsection*{Working method: three ledgers}
+
+To keep a computation organized, record its information in three separate
+``ledgers'' that must not be conflated.
+\begin{enumerate}
+	\item The \emph{resolution ledger} records which object is replaced by a
+	resolution, the direction of that resolution, and why its terms are
+	injective, projective, or acyclic for the functor to be applied.
+	\item The \emph{degree ledger} records cohomological indices, total degree
+	$n=p+q$, the direction of the differential
+	$d_r:E_r^{p,q}\to E_r^{p+r,q-r+1}$, and every vanishing term.
+	\item The \emph{filtration ledger} records the abutment object $H^n$, the
+	filtration $\mathrm{F}^pH^n$, the identification
+	$\gr^pH^n\simeq E_\infty^{p,n-p}$, and multiplicative compatibility.
+\end{enumerate}
+The most common mistake is to identify $E_2^{p,q}$ directly with a subobject
+of the abutment. What is canonically available is the graded term
+$E_\infty^{p,q}$; returning to the abutment still requires solving the
+filtration extension problem.
+
+As a worked example, take a first-quadrant cohomological spectral sequence
+\[
+	E_2^{p,q}\Rightarrow H^{p+q}.
+\]
+In total degree $1$, no differential touches $E_2^{1,0}$, while the only
+differential that can leave $E_2^{0,1}$ is
+$d_2:E_2^{0,1}\to E_2^{2,0}$. Therefore
+\[
+	E_\infty^{1,0}=E_2^{1,0},\qquad
+	E_\infty^{0,1}=\Ker(d_2:E_2^{0,1}\to E_2^{2,0}).
+\]
+The filtration of $H^1$ has a subobject
+$\mathrm{F}^1H^1\simeq E_\infty^{1,0}$ and quotient
+$H^1/\mathrm{F}^1H^1\simeq E_\infty^{0,1}$. In total degree $2$,
+\[
+	E_\infty^{2,0}\simeq
+	E_2^{2,0}/\Image(d_2:E_2^{0,1}\to E_2^{2,0})
+	\hookrightarrow H^2.
+\]
+These three observations immediately produce the five-term sequence
+\[
+	0\to E_2^{1,0}\to H^1\to E_2^{0,1}
+	\xrightarrow{d_2}E_2^{2,0}\to H^2.
+\]
+The method is always the same: mark the vanishing region, determine which
+differentials remain possible, compute $E_\infty$, and only then use the
+abutment filtration.
+
+\subsection*{Exercises and complete solutions}
+
+% stable-exercise-id: o014.mastery.derived-spectral.002.ex01
+\subsubsection*{Exercise 1 --- Comparing resolutions and independence of choices}
+\hypertarget{o014.mastery.derived-spectral.002.ex01}{ }
+\label{mastery:derived-spectral-002-ex01}
+
+Let $\mathcal{A}$ be an abelian category with enough injectives, let
+$F:\mathcal{A}\to\mathcal{B}$ be an additive functor, and let
+\[
+	0\to X\to I^0\to I^1\to\cdots,
+	\qquad
+	0\to X\to J^0\to J^1\to\cdots
+\]
+be two injective resolutions of $X$.
+\begin{enumerate}[(i)]
+	\item Construct cochain maps $u:I^\bullet\to J^\bullet$ and
+	$v:J^\bullet\to I^\bullet$ lifting $\identity_X$.
+	\item Prove by a cochain homotopy that $vu\simeq\identity_I$ and
+	$uv\simeq\identity_J$.
+	\item Conclude that $\Hm^n(FI^\bullet)$ and
+	$\Hm^n(FJ^\bullet)$ are canonically isomorphic for every $n$.
+\end{enumerate}
+
+% stable-solution-id: o014.mastery.derived-spectral.002.sol01
+\paragraph{Solution.}
+\hypertarget{o014.mastery.derived-spectral.002.sol01}{ }
+Because $X\hookrightarrow I^0$ is a monomorphism and $J^0$ is injective,
+the morphism $X\to J^0$ extends to $u^0:I^0\to J^0$. Suppose that
+$u^0,\ldots,u^n$ have been constructed and satisfy the cochain-map
+condition. The morphism $d_J^nu^n:I^n\to J^{n+1}$ vanishes on
+$\Ker(d_I^n)=\Image(d_I^{n-1})$, and hence factors through
+$\Image(d_I^n)\hookrightarrow I^{n+1}$. Since $J^{n+1}$ is injective,
+this factorization extends to $u^{n+1}:I^{n+1}\to J^{n+1}$ with
+\[
+	u^{n+1}d_I^n=d_J^nu^n.
+\]
+Induction produces $u$. Interchanging $I$ and $J$ produces $v$.
+
+We also need the fact that any two lifts $r,s:I^\bullet\to J^\bullet$ of
+$\identity_X$ are homotopic. In degree zero, $r^0-s^0$ vanishes on
+$X=\Ker(d_I^0)$, and hence factors through
+$\Image(d_I^0)\hookrightarrow I^1$. Injectivity of $J^0$ gives
+$h^1:I^1\to J^0$ with
+$r^0-s^0=h^1d_I^0$. Inductively, once $h^1,\ldots,h^n$ have been
+constructed, the morphism
+\[
+	r^n-s^n-d_J^{n-1}h^n:I^n\longrightarrow J^n
+\]
+vanishes on $\Ker(d_I^n)$. It factors through
+$\Image(d_I^n)\hookrightarrow I^{n+1}$ and, because $J^n$ is injective,
+extends to $h^{n+1}:I^{n+1}\to J^n$. Thus
+\[
+	r-s=d_Jh+hd_I,
+\]
+that is, $r\simeq s$.
+
+The composites $vu$ and $\identity_I$ both lift $\identity_X$, so they are
+homotopic; similarly, $uv\simeq\identity_J$. Since $F$ is additive, it
+carries the homotopy equations to homotopy equations. Therefore
+$\Hm^n(Fu)$ and $\Hm^n(Fv)$ are mutually inverse. If other comparison maps
+are chosen, they are homotopic to the first ones and induce the same maps on
+cohomology. The isomorphism is consequently canonical. This is the concrete
+content of independence of resolutions in
+Theorem~\ref{prop:resolution-homotopy}.
+
+% stable-exercise-id: o014.mastery.derived-spectral.002.ex02
+\subsubsection*{Exercise 2 --- Computing $\Ext$ from a short resolution}
+\hypertarget{o014.mastery.derived-spectral.002.ex02}{ }
+\label{mastery:derived-spectral-002-ex02}
+
+Let $m\geq1$ and let $M$ be an abelian group. Use the projective resolution
+\[
+	0\longrightarrow\Z\xrightarrow{\times m}\Z
+	\longrightarrow\Z/m\Z\longrightarrow0
+\]
+to compute $\Ext^n_{\Z}(\Z/m\Z,M)$ for all $n\geq0$. Explain why the
+answer is independent of the chosen projective resolution.
+
+% stable-solution-id: o014.mastery.derived-spectral.002.sol02
+\paragraph{Solution.}
+\hypertarget{o014.mastery.derived-spectral.002.sol02}{ }
+Apply $\Hom_{\Z}(-,M)$ to the resolution. Since
+$\Hom_{\Z}(\Z,M)\simeq M$, this gives the cochain complex
+\[
+	0\longrightarrow
+	\underbracket{M}_{\text{degree }0}
+	\xrightarrow{\times m}
+	\underbracket{M}_{\text{degree }1}
+	\longrightarrow0.
+\]
+Thus
+\[
+	\Ext^n_{\Z}(\Z/m\Z,M)\simeq
+	\begin{cases}
+		M[m]:=\{x\in M:mx=0\},&n=0,\\
+		M/mM,&n=1,\\
+		0,&n\geq2.
+	\end{cases}
+\]
+For $n=0$, this identification is the usual one
+$\Hom_{\Z}(\Z/m\Z,M)\simeq M[m]$. Two projective resolutions of
+$\Z/m\Z$ are connected by comparison maps unique up to homotopy, the dual
+version of Exercise 1. The functor $\Hom_{\Z}(-,M)$ carries these homotopies
+to homotopies, so the cohomology is unchanged. Hence the answer above is
+independent of the resolution used.
+
+% stable-exercise-id: o014.mastery.derived-spectral.002.ex03
+\subsubsection*{Exercise 3 --- The long exact sequence of derived functors}
+\hypertarget{o014.mastery.derived-spectral.002.ex03}{ }
+\label{mastery:derived-spectral-002-ex03}
+
+Let $F:\mathcal{A}\to\mathcal{B}$ be an additive left-exact functor, and
+suppose that $\mathcal{A}$ has enough injectives. For a short exact sequence
+\[
+	0\longrightarrow X\longrightarrow Y\longrightarrow Z\longrightarrow0,
+\]
+use compatible injective resolutions to construct the connecting morphisms
+\[
+	\delta^n:\mathrm{R}^nF(Z)\longrightarrow\mathrm{R}^{n+1}F(X).
+\]
+Prove that these morphisms are well defined and natural, and that they
+produce a long exact sequence.
+
+% stable-solution-id: o014.mastery.derived-spectral.002.sol03
+\paragraph{Solution.}
+\hypertarget{o014.mastery.derived-spectral.002.sol03}{ }
+The injective version of the Horseshoe Lemma gives a diagram of resolutions
+whose rows are exact and which is split in every degree:
+\[
+\begin{tikzcd}
+	0 \arrow[r] & X \arrow[r] \arrow[d] & Y \arrow[r] \arrow[d] & Z \arrow[r] \arrow[d] & 0 \\
+	0 \arrow[r] & I_X^\bullet \arrow[r] & I_Y^\bullet \arrow[r] & I_Z^\bullet \arrow[r] & 0.
+\end{tikzcd}
+\]
+Because the bottom row is split in every degree, every additive functor
+preserves its exactness. Thus
+\[
+	0\to F(I_X^\bullet)\to F(I_Y^\bullet)
+	\to F(I_Z^\bullet)\to0
+\]
+is a short exact sequence of complexes.
+
+Take a class $[z]\in\Hm^n(FI_Z^\bullet)$ with cocycle representative $z$.
+Lift $z$ to $y\in F(I_Y^n)$. Since the image of $d(y)$ in
+$F(I_Z^{n+1})$ is $d(z)=0$, there is an $x\in F(I_X^{n+1})$ whose image
+is $d(y)$. The cochain map on the left is injective, and $d^2=0$ then shows
+that $d(x)=0$. Define
+\[
+	\delta^n[z]:=[x].
+\]
+If $y$ is replaced by another lift, the difference comes from
+$F(I_X^n)$ and $x$ changes by a coboundary. If $z$ is replaced by
+$z+d(w)$, lift $w$ and correct $y$ by the differential of that lift; the
+class $[x]$ remains unchanged. Thus $\delta^n$ is well defined.
+
+Exactness is checked by the same chase. For example,
+$[y]\in\Hm^n(FI_Y)$ maps to zero in $\Hm^n(FI_Z)$ if and only if, after
+correcting $y$ by a coboundary, it comes from a cocycle in $F(I_X^n)$.
+Next, $[z]$ lies in the kernel of $\delta^n$ if and only if $x$ is a
+coboundary; correcting the lift $y$ by a preimage of that coboundary then
+produces a cocycle mapping to $z$. The analogous argument at the next term
+completes the exactness check and yields
+\[
+	\cdots\to\mathrm{R}^nF(X)\to\mathrm{R}^nF(Y)
+	\to\mathrm{R}^nF(Z)\xrightarrow{\delta^n}
+	\mathrm{R}^{n+1}F(X)\to\cdots.
+\]
+For a morphism between two short exact sequences, comparison maps of
+resolutions carry the choices $z,y,x$ to corresponding choices in the
+second diagram. Both orders of operations produce the same class, so
+$\delta^n$ is natural. This construction realizes
+Theorem~\ref{prop:long-exact-sequence-primer}.
+
+% stable-exercise-id: o014.mastery.derived-spectral.002.ex04
+\subsubsection*{Exercise 4 --- Dimension shifting}
+\hypertarget{o014.mastery.derived-spectral.002.ex04}{ }
+\label{mastery:derived-spectral-002-ex04}
+
+Let $F:\mathcal{A}\to\mathcal{B}$ be a left-exact functor, and suppose
+that
+\[
+	0\longrightarrow X\longrightarrow A\longrightarrow B\longrightarrow0
+\]
+is exact, with $A$ being $F$-acyclic.
+\begin{enumerate}[(i)]
+	\item Prove the natural isomorphisms
+	\[
+		\mathrm{R}^1F(X)\simeq\Coker[FA\to FB],
+		\qquad
+		\mathrm{R}^nF(X)\simeq\mathrm{R}^{n-1}F(B)\qquad(n\geq2).
+	\]
+	\item For an injective resolution
+	$0\to X\to I^0\to I^1\to\cdots$, define
+	$C^0=X$ and $C^{r+1}=\Coker[C^r\to I^r]$. Apply (i) repeatedly to
+	obtain a cohomological formula for $\mathrm{R}^nF(X)$.
+	\item If $X$ has an injective resolution with $I^r=0$ for $r>d$,
+	prove that $\mathrm{R}^nF(X)=0$ for $n>d$.
+\end{enumerate}
+
+% stable-solution-id: o014.mastery.derived-spectral.002.sol04
+\paragraph{Solution.}
+\hypertarget{o014.mastery.derived-spectral.002.sol04}{ }
+The long exact sequence from Exercise 3 contains
+\[
+	FA\longrightarrow FB\longrightarrow\mathrm{R}^1F(X)
+	\longrightarrow\underbracket{\mathrm{R}^1F(A)}_{0}
+\]
+and, for $n\geq2$,
+\[
+	\underbracket{\mathrm{R}^{n-1}F(A)}_{0}
+	\longrightarrow\mathrm{R}^{n-1}F(B)
+	\longrightarrow\mathrm{R}^nF(X)
+	\longrightarrow\underbracket{\mathrm{R}^nF(A)}_{0}.
+\]
+Exactness gives both isomorphisms in (i), and their naturality follows from
+the naturality of the long exact sequence.
+
+The injective resolution decomposes into short exact sequences
+\[
+	0\to C^r\to I^r\to C^{r+1}\to0,
+	\qquad r\geq0.
+\]
+Because $I^r$ is injective, it is $F$-acyclic. Therefore, for $n\geq1$,
+\[
+	\mathrm{R}^nF(X)\simeq\mathrm{R}^{n-1}F(C^1)\simeq\cdots
+	\simeq\mathrm{R}^1F(C^{n-1})
+	\simeq\Coker[FI^{n-1}\to FC^n].
+\]
+Left exactness of $F$ identifies $FC^n$ with
+$\Ker[FI^n\to FI^{n+1}]$. Hence
+\[
+	\mathrm{R}^nF(X)\simeq
+	\frac{\Ker[FI^n\to FI^{n+1}]}
+	{\Image[FI^{n-1}\to FI^n]}
+	=\Hm^n(FI^\bullet).
+\]
+If the resolution ends at $I^d$, the complex $FI^\bullet$ has no terms in
+degrees greater than $d$, so its cohomology vanishes in degrees $n>d$. This
+also follows by shifting dimension until one reaches the final injective
+cosyzygy. It is the computational form of
+Proposition~\ref{prop:dimension-shifting}.
+
+% stable-exercise-id: o014.mastery.derived-spectral.002.ex05
+\subsubsection*{Exercise 5 --- Setting up the Grothendieck spectral sequence}
+\hypertarget{o014.mastery.derived-spectral.002.ex05}{ }
+\label{mastery:derived-spectral-002-ex05}
+
+Let
+\[
+	\mathcal{A}\xrightarrow{F}\mathcal{B}\xrightarrow{G}\mathcal{C}
+\]
+be additive left-exact functors. Suppose that $\mathcal{A}$ and
+$\mathcal{B}$ have enough injectives, and that $F$ maps every injective
+object to a $G$-acyclic object. For $X\in\Obj(\mathcal{A})$, prove the
+existence of a first-quadrant spectral sequence
+\[
+	E_2^{p,q}=\mathrm{R}^pG(\mathrm{R}^qF(X))
+	\Rightarrow\mathrm{R}^{p+q}(GF)(X).
+\]
+Explain explicitly the role of the $G$-acyclicity hypothesis.
+
+% stable-solution-id: o014.mastery.derived-spectral.002.sol05
+\paragraph{Solution.}
+\hypertarget{o014.mastery.derived-spectral.002.sol05}{ }
+Choose an injective resolution $0\to X\to I^\bullet$. The complex
+$F(I^\bullet)$ lies in nonnegative degrees. Choose a Cartan--Eilenberg
+resolution $F(I^\bullet)\to J^{\bullet,\bullet}$ in $\mathcal{B}$ and
+apply $G$ to obtain a first-quadrant double complex $GJ^{p,q}$. The two
+filtrations of the total complex $\tot(GJ)$ give two spectral sequences
+converging to the same abutment.
+
+For the first filtration, take cohomology in the direction that resolves
+each $F(I^p)$. This gives
+\[
+	\Hm^q(GJ^{p,\bullet})
+	\simeq\mathrm{R}^qG(F(I^p)).
+\]
+The $G$-acyclicity hypothesis says precisely that this term vanishes for
+$q>0$, while for $q=0$ it is $GF(I^p)$. Thus this spectral sequence has
+only one nonzero row and degenerates. Its total cohomology is therefore
+\[
+	\Hm^n(GF(I^\bullet))=\mathrm{R}^n(GF)(X).
+\]
+
+For the second filtration, the defining property of a Cartan--Eilenberg
+resolution says that the complex obtained after taking cohomology in the
+$F(I^\bullet)$ direction is an injective resolution of
+\[
+	\Hm^q(F(I^\bullet))=\mathrm{R}^qF(X).
+\]
+After applying $G$ and taking cohomology, one consequently obtains
+\[
+	E_2^{p,q}=\mathrm{R}^pG(\mathrm{R}^qF(X)).
+\]
+Both filtrations compute the same total cohomology, which the first
+calculation identifies as $\mathrm{R}^{p+q}(GF)(X)$. Since the double
+complex lies in the first quadrant, the filtration in every total degree is
+finite and convergence follows. This is the construction in
+Theorem~\ref{prop:Grothendieck-ss}; without $G$-acyclicity, the first
+spectral sequence need not collapse, and this argument cannot identify the
+abutment with the derived functors of the composite.
+
+% stable-exercise-id: o014.mastery.derived-spectral.002.ex06
+\subsubsection*{Exercise 6 --- Edge maps and the Grothendieck five-term sequence}
+\hypertarget{o014.mastery.derived-spectral.002.ex06}{ }
+\label{mastery:derived-spectral-002-ex06}
+
+Use the spectral sequence from Exercise 5.
+\begin{enumerate}[(i)]
+	\item Identify the two edge morphisms
+	\[
+		\mathrm{R}^nG(FX)\longrightarrow\mathrm{R}^n(GF)(X),
+		\qquad
+		\mathrm{R}^n(GF)(X)\longrightarrow G(\mathrm{R}^nF(X)).
+	\]
+	\item Derive the five-term exact sequence
+	\[
+	\begin{aligned}
+		0\to\mathrm{R}^1G(FX)&\to\mathrm{R}^1(GF)(X)
+		\to G(\mathrm{R}^1F(X))\\
+		&\xrightarrow{d_2}\mathrm{R}^2G(FX)
+		\to\mathrm{R}^2(GF)(X).
+	\end{aligned}
+	\]
+	\item Prove that the first edge morphism is an isomorphism for every
+	$n$ if $\mathrm{R}^qF(X)=0$ for $q>0$, and that the second edge
+	morphism is an isomorphism for every $n$ if
+	$\mathrm{R}^pG(\mathrm{R}^qF(X))=0$ for $p>0$.
+\end{enumerate}
+
+% stable-solution-id: o014.mastery.derived-spectral.002.sol06
+\paragraph{Solution.}
+\hypertarget{o014.mastery.derived-spectral.002.sol06}{ }
+Along the bottom edge,
+$E_2^{n,0}=\mathrm{R}^nG(FX)$ maps surjectively, page by page, to
+$E_\infty^{n,0}$. The latter term is the deepest filtration piece
+$\mathrm{F}^n\mathrm{R}^n(GF)(X)$, and its inclusion in the abutment gives
+the first edge morphism. Along the left edge, the quotient
+\[
+	\mathrm{R}^n(GF)(X)/\mathrm{F}^1
+	\simeq E_\infty^{0,n}
+\]
+embeds in $E_2^{0,n}=G(\mathrm{R}^nF(X))$; their composite gives the
+second edge morphism. These directions agree with
+\eqref{eqn:edge-ss-coh}.
+
+The computation in the working method above applies to every first-quadrant
+spectral sequence and gives
+\[
+	0\to E_2^{1,0}\to H^1\to E_2^{0,1}
+	\xrightarrow{d_2}E_2^{2,0}\to H^2.
+\]
+Substituting
+\[
+	E_2^{p,q}=\mathrm{R}^pG(\mathrm{R}^qF(X)),
+	\qquad H^n=\mathrm{R}^n(GF)(X)
+\]
+gives exactly the stated five-term sequence.
+
+If $\mathrm{R}^qF(X)=0$ for $q>0$, only the row $q=0$ is nonzero. There
+are no differentials or cross-row extension problems, so
+\[
+	E_2^{n,0}=E_\infty^{n,0}=\mathrm{R}^n(GF)(X),
+\]
+and the first edge morphism is an isomorphism. If all terms with $p>0$
+vanish, only the column $p=0$ remains; similarly,
+\[
+	\mathrm{R}^n(GF)(X)=E_\infty^{0,n}=E_2^{0,n}
+	=G(\mathrm{R}^nF(X)),
+\]
+and the second edge morphism is an isomorphism.
+
+% stable-exercise-id: o014.mastery.derived-spectral.002.ex07
+\subsubsection*{Exercise 7 --- Cohomology of a cyclic group in concrete terms}
+\hypertarget{o014.mastery.derived-spectral.002.ex07}{ }
+\label{mastery:derived-spectral-002-ex07}
+
+Let $C_m=\lrangle{\sigma}$ be the cyclic group of order $m$, and equip
+$A=\Z/r\Z$ with the trivial $C_m$-action. Write $d=\gcd(m,r)$. Use the
+periodic resolution
+\[
+	\cdots\xrightarrow{\nu}\Z[C_m]
+	\xrightarrow{\sigma-1}\Z[C_m]
+	\xrightarrow{\nu}\Z[C_m]
+	\xrightarrow{\sigma-1}\Z[C_m]\to\Z\to0,
+	\qquad \nu=1+\sigma+\cdots+\sigma^{m-1},
+\]
+to compute $\Hm^n(C_m,A)$ for all $n\geq0$. As a check, also determine the
+answer for the trivial coefficients $A=\Z$.
+
+% stable-solution-id: o014.mastery.derived-spectral.002.sol07
+\paragraph{Solution.}
+\hypertarget{o014.mastery.derived-spectral.002.sol07}{ }
+Every $\Hom_{\Z[C_m]}(\Z[C_m],A)$ is canonically isomorphic to $A$.
+Because the action is trivial, $\sigma-1$ acts as zero, while $\nu$ acts as
+multiplication by $m$. Applying $\Hom_{\Z[C_m]}(-,A)$ therefore gives the
+complex
+\[
+	0\to\underbracket{A}_{0}\xrightarrow{0}
+	\underbracket{A}_{1}\xrightarrow{\times m}A
+	\xrightarrow{0}A\xrightarrow{\times m}A\to\cdots.
+\]
+Consequently,
+\[
+	\Hm^n(C_m,A)\simeq
+	\begin{cases}
+		A,&n=0,\\
+		A[m]:=\Ker(\times m:A\to A),&n>0\text{ odd},\\
+		A/mA,&n>0\text{ even}.
+	\end{cases}
+\]
+For $A=\Z/r\Z$, the subgroup $A[m]$ is generated by the class of $r/d$
+and has order $d$, so $A[m]\simeq\Z/d\Z$. The subgroup $mA$ has order
+$r/d$, so the quotient $A/mA$ is also cyclic of order $d$. Thus
+\[
+	\Hm^n(C_m,\Z/r\Z)\simeq
+	\begin{cases}
+		\Z/r\Z,&n=0,\\
+		\Z/d\Z,&n>0.
+	\end{cases}
+\]
+For $A=\Z$, the kernel of multiplication by $m$ is zero and its cokernel is
+$\Z/m\Z$. Hence
+\[
+	\Hm^n(C_m,\Z)\simeq
+	\begin{cases}
+		\Z,&n=0,\\
+		0,&n>0\text{ odd},\\
+		\Z/m\Z,&n>0\text{ even}.
+	\end{cases}
+\]
+This is the direct specialization of
+Proposition~\ref{prop:group-cohomology-cyclic}.
+
+% stable-exercise-id: o014.mastery.derived-spectral.002.ex08
+\subsubsection*{Exercise 8 --- Checking a multiplicative filtration}
+\hypertarget{o014.mastery.derived-spectral.002.ex08}{ }
+\label{mastery:derived-spectral-002-ex08}
+
+Let $(A^\bullet,d,\mu)$ be a cohomological dg algebra over a commutative
+ring $\Bbbk$, equipped with a decreasing filtration that is exhaustive and
+bounded in every degree,
+\[
+	d(\mathrm{F}^pA)\subset\mathrm{F}^pA,
+	\qquad
+	\mathrm{F}^pA\cdot\mathrm{F}^{p'}A
+	\subset\mathrm{F}^{p+p'}A.
+\]
+\begin{enumerate}[(i)]
+	\item Prove that $E_0=\gr_{\mathrm F}A$ has a graded multiplication and
+	that $d_0$ satisfies the Leibniz rule.
+	\item If $x$ and $y$ represent classes in
+	$E_r^{p,q}$ and $E_r^{p',q'}$, prove that $xy$ represents a class in
+	$E_r^{p+p',q+q'}$, that its product is independent of the chosen
+	representatives, and that
+	\[
+		d_r(xy)=d_r(x)y+(-1)^{p+q}x\,d_r(y).
+	\]
+	\item For the induced filtration
+	$\mathrm{F}^p\Hm^n(A)=\Image[\Hm^n(\mathrm{F}^pA)\to\Hm^n(A)]$,
+	prove that
+	\[
+		\mathrm{F}^p\Hm^n(A)\cdot\mathrm{F}^{p'}\Hm^{n'}(A)
+		\subset\mathrm{F}^{p+p'}\Hm^{n+n'}(A)
+	\]
+	and that the convergence isomorphism
+	$E_\infty\simeq\gr_{\mathrm F}\Hm(A)$ preserves multiplication.
+\end{enumerate}
+
+% stable-solution-id: o014.mastery.derived-spectral.002.sol08
+\paragraph{Solution.}
+\hypertarget{o014.mastery.derived-spectral.002.sol08}{ }
+For homogeneous classes
+$[x]\in\gr^p_{\mathrm F}A^n$ and
+$[y]\in\gr^{p'}_{\mathrm F}A^{n'}$, define
+\[
+	[x][y]:=[xy]\in\gr^{p+p'}_{\mathrm F}A^{n+n'}.
+\]
+If $x$ or $y$ is changed by an element at the next filtration level,
+multiplicative compatibility places the resulting change in $xy$ inside
+$\mathrm{F}^{p+p'+1}$, so the multiplication is well defined. Since $d$
+preserves the filtration, it induces $d_0$, and the Leibniz rule in $A$
+gives
+\[
+	d_0([x][y])=d_0([x])\,[y]+(-1)^n[x]\,d_0([y]).
+\]
+
+On the $E_r$ page, representatives can be chosen so that
+\[
+	x\in\mathrm{F}^pA^{p+q},\quad
+	dx\in\mathrm{F}^{p+r}A^{p+q+1},
+\]
+and similarly
+$y\in\mathrm{F}^{p'}A^{p'+q'}$ with
+$dy\in\mathrm{F}^{p'+r}A^{p'+q'+1}$. Filtration compatibility and the
+Leibniz rule give
+\[
+	xy\in\mathrm{F}^{p+p'}A^{p+q+p'+q'},
+\]
+and
+\[
+	d(xy)=dx\,y+(-1)^{p+q}x\,dy
+	\in\mathrm{F}^{p+p'+r}A^{p+q+p'+q'+1}.
+\]
+Thus $xy$ indeed determines a class in $E_r^{p+p',q+q'}$, and the Leibniz
+formula for $d_r$ follows immediately.
+
+To check that the result is independent of the representatives, it is
+enough to consider changes by $r$-boundaries and by elements in a deeper
+filtration. If, for example, $x$ is replaced by $x+du$, with
+$u\in\mathrm{F}^{p-r+1}A^{p+q-1}$, then
+\[
+	(du)y=d(uy)-(-1)^{p+q-1}u\,dy.
+\]
+The first term is a boundary, while the second lies in
+\[
+	\mathrm{F}^{p-r+1+p'+r}A
+	=\mathrm{F}^{p+p'+1}A,
+\]
+so it does not change the class in question. A change of the representative
+$y$ is handled symmetrically; changes in a deeper filtration are even more
+immediate. Thus multiplication is well defined on every page and passes to
+$E_{r+1}\simeq\Hm(E_r,d_r)$.
+
+Finally, if $[x]\in\mathrm{F}^p\Hm^n(A)$ and
+$[y]\in\mathrm{F}^{p'}\Hm^{n'}(A)$, choose closed representatives
+$x\in\mathrm{F}^pA^n$ and $y\in\mathrm{F}^{p'}A^{n'}$. Their product
+$xy$ is closed and lies in $\mathrm{F}^{p+p'}A^{n+n'}$, which proves the
+required filtration inclusion. The isomorphism
+$E_\infty^{p,q}\simeq\gr^p_{\mathrm F}\Hm^{p+q}(A)$ is built from the
+same filtered representatives on both sides. The product of two
+representatives maps to the class of their product, so this isomorphism
+preserves multiplication. This check is the argument represented in
+Proposition~\ref{prop:dga-mult-ss}.

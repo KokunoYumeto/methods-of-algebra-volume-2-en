@@ -1,0 +1,260 @@
+% English translation of chapter1.tex, lines 33--139.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter1.subquotients
+
+% segment-id: o014.li2.chapter1.subquotients.h001
+\section{Subquotients}\label{sec:subquot}
+\hypertarget{o014.aljabr2.chapter1.subquotients}{ }
+
+% segment-id: o014.li2.chapter1.subquotients.p001
+We begin by recalling the notions of monomorphism and epimorphism. Fix a
+category $\mathcal C$.
+
+% segment-id: o014.li2.chapter1.subquotients.l001
+\begin{itemize}
+	% segment-id: o014.li2.chapter1.subquotients.i001
+	\item A morphism $f:X\to Y$ is called a \emph{monomorphism}, also written
+	$f:X\hookrightarrow Y$, if left cancellation holds:
+	\[ \forall T \in \Obj(\mathcal{C}), \; \forall g,h: T \to X , \quad fg=fh \iff g=h; \]
+	% segment-id: o014.li2.chapter1.subquotients.i002
+	\item A morphism $f:X\to Y$ is called an \emph{epimorphism}, also written
+	$f:X\twoheadrightarrow Y$, if right cancellation holds:
+	\[ \forall T \in \Obj(\mathcal{C}), \; \forall g,h: Y \to T, \quad gf=hf \iff g=h. \]
+\end{itemize}
+
+% segment-id: o014.li2.chapter1.subquotients.x001
+\index{monomorphism}
+\index{epimorphism}
+
+% segment-id: o014.li2.chapter1.subquotients.p002
+It follows immediately that $f:X\to Y$ is monic if and only if
+$f_*:\Hom(T,X)\to\Hom(T,Y)$ is injective for every $T$. Likewise, $f$ is
+epic if and only if $f^*:\Hom(Y,T)\to\Hom(X,T)$ is injective for every $T$.
+Monicity and epicity are dual properties: $f$ is monic if and only if
+$f^{\opp}$ is epic.
+
+% segment-id: o014.li2.chapter1.subquotients.e001
+\begin{example}
+	If the equalizer $\Ker(f,g)$ of a pair of morphisms $f,g:X\to Y$ exists,
+	its universal property shows that the canonical morphism
+	$\iota:\Ker(f,g)\to X$ is monic. Dually, if the coequalizer
+	$\Coker(f,g)$ exists, the canonical morphism $p:Y\to\Coker(f,g)$ is epic.
+	Here is another simple observation: if $\mathcal C$ has a zero object,
+	denoted by $0$, then $0\to X$ is monic and $X\to0$ is epic. The reader is
+	invited to verify these details.
+\end{example}
+
+% segment-id: o014.li2.chapter1.subquotients.pr001
+\begin{proposition}\label{prop:epi-mono-isomorphism}
+	Consider morphisms $X\xrightarrow{a}Y\xrightarrow{b}Z$. Suppose that $b$
+	is monic or that $a$ is epic. Then $ba:X\to Z$ is an isomorphism if and
+	only if both $a$ and $b$ are isomorphisms.
+\end{proposition}
+
+% segment-id: o014.li2.chapter1.subquotients.pf001
+\begin{proof}
+	One direction is clear. Now suppose that $ba$ is an isomorphism and that
+	$b$ is monic. Set $c:=a(ba)^{-1}:Z\to Y$; then $bc=\identity_Z$.
+	Moreover, $b(cb)=(bc)b=b$, so left cancellation by $b$ gives
+	$cb=\identity_Y$. Thus $b$ is an isomorphism, and consequently so is $a$.
+	Passing to $\mathcal C^{\opp}$ gives the case in which $a$ is epic.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.subquotients.p003
+In categories commonly used in algebra, such as $\cate{Set}$, $\cate{Ab}$,
+and $R\dcate{Mod}$, a morphism is monic or epic precisely when its underlying
+map is injective or surjective, respectively. In these examples one can also
+speak of subsets, subgroups, and so forth. This notion extends to arbitrary
+categories, but one additional step is needed. We formulate it in the language
+of partially ordered sets.
+
+% segment-id: o014.li2.chapter1.subquotients.p004
+Let $\mathcal C$ be a category and let $X$ be an object of $\mathcal C$.
+Given a pair of monomorphisms $f_i:S_i\hookrightarrow X$, where $i=1,2$,
+write $(S_1,f_1)\subset(S_2,f_2)$, or simply $S_1\subset S_2$, if there is
+a morphism $g:S_1\to S_2$ such that $f_2g=f_1$. The monicity of $f_2$ implies
+that $g$, if it exists, is unique and is itself monic. The relation $\subset$
+defined in this way is not yet a partial order. If $S_1\subset S_2$ and
+$S_2\subset S_1$, we say that $S_1$ and $S_2$ are equivalent. This is the
+same as requiring a commutative diagram
+
+% segment-id: o014.li2.chapter1.subquotients.g001
+\[\begin{tikzcd}
+	S_1 \arrow[r, "g_1"] \arrow[hookrightarrow, rd, "f_1"'] & S_2 \arrow[hookrightarrow, d, "f_2"] \arrow[r, "g_2"] & S_1 \arrow[hookrightarrow, ld, "f_1"] \\
+	& X &
+\end{tikzcd}\]
+
+% segment-id: o014.li2.chapter1.subquotients.p005
+Uniqueness gives $g_2g_1=\identity_{S_1}$ and, similarly,
+$g_1g_2=\identity_{S_2}$. Thus $S_1$ and $S_2$ are equivalent if and only if
+there is an isomorphism $g:S_1\rightiso S_2$ with $f_2g=f_1$; moreover, this
+isomorphism is unique. This is, of course, a standard argument in algebra.
+
+% segment-id: o014.li2.chapter1.subquotients.p006
+Similarly, given a pair of epimorphisms $f_i:X\twoheadrightarrow Q_i$, where
+$i=1,2$, if there is a morphism $g:Q_2\to Q_1$ such that $gf_2=f_1$, then
+$g$ is unique and epic; in this case write $Q_1\twoheadleftarrow Q_2$. If
+$Q_1\twoheadleftarrow Q_2$ and $Q_2\twoheadleftarrow Q_1$, we say that $Q_1$
+and $Q_2$ are equivalent. Equivalently, there is a unique isomorphism
+$g:Q_2\rightiso Q_1$ satisfying $gf_2=f_1$.
+
+% segment-id: o014.li2.chapter1.subquotients.p007
+The binary relation $\subset$ (or $\twoheadleftarrow$) induces a partial order
+on the corresponding equivalence classes. We have borrowed the set-inclusion
+symbol $\subset$ here. Although this may cause some ambiguity, it is consistent
+with the notation for other algebraic substructures, such as subgroups,
+submodules, and subspaces.
+
+% segment-id: o014.li2.chapter1.subquotients.d001
+\begin{definition}\label{def:sub-quot-obj}
+	\index{subobject} \index[sym1]{SubX@$\mathrm{Sub}_X$}
+	\index{quotient object} \index[sym1]{QuotX@$\mathrm{Quot}_X$}
+	Let $\mathcal C$ be a category and let $X$ be an object of $\mathcal C$.
+	An equivalence class, under the relation above, of monomorphisms
+	$S\hookrightarrow X$ (respectively, of epimorphisms
+	$X\twoheadrightarrow Q$) is called a \emph{subobject} (respectively, a
+	\emph{quotient object}) of $X$. These equivalence classes form the
+	partially ordered set $(\mathrm{Sub}_X,\subset)$ (respectively,
+	$(\mathrm{Quot}_X,\twoheadleftarrow)$), in which
+	$\identity_X:X\to X$ gives the unique maximal element.
+\end{definition}
+
+% segment-id: o014.li2.chapter1.subquotients.p008
+Subobjects and quotient objects are dual: $(\mathrm{Sub}_X,\subset)$ as
+defined in $\mathcal C$ is the same as
+$(\mathrm{Quot}_X,\twoheadleftarrow)$ as defined in $\mathcal C^{\opp}$.
+For convenience, this section deals mainly with subobjects. Because the
+isomorphism $g$ occurring in the equivalence relation is unique, one may
+choose a representative $f:S\hookrightarrow X$ of an equivalence class
+without ambiguity, or abbreviate that representative simply as $S$. Recall
+that $f_*:\Hom(\cdot,S)\to\Hom(\cdot,X)$ is injective.
+
+% segment-id: o014.li2.chapter1.subquotients.lm001
+\begin{lemma}\label{prop:subobject-order}
+	For any two subobjects $S_1,S_2$ of $X$, one has
+	\begin{equation*}
+		S_1 \subset S_2 \iff \forall T \in \Obj(\mathcal{C}), \; \Hom(T, S_1) \subset \Hom(T, S_2),
+	\end{equation*}
+	where $\Hom(T,S_1)$ and $\Hom(T,S_2)$ on the right-hand side are
+	understood as subsets of $\Hom(T,X)$.
+\end{lemma}
+
+% segment-id: o014.li2.chapter1.subquotients.pf002
+\begin{proof}
+	The implication $\implies$ is immediate. Conversely, take $T:=S_1$.
+	Under $\Hom(S_1,S_1)\subset\Hom(S_1,X)$, the element
+	$\identity_{S_1}$ corresponds to $f_1$. The hypothesis supplies
+	$g\in\Hom(S_1,S_2)$ whose image in $\Hom(S_1,X)$ is $f_1$, that is,
+	$f_2g=f_1$. This is the required morphism.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.subquotients.p009
+Suppose that $\mathcal C$ has a zero object and that $(X_i)_{i\in I}$ is a
+family of objects. For every $(i,j)\in I\times I$, define
+$\delta_{ij}\in\Hom(X_i,X_j)$ by $\delta_{ij}=\identity$ when $i=j$, and as
+the zero morphism otherwise. If the product and coproduct of
+$(X_i)_{i\in I}$ exist, then $(\delta_{ij})_{i,j}$ determines a canonical
+morphism
+
+% segment-id: o014.li2.chapter1.subquotients.q001
+\begin{equation}\label{eqn:coprod-prod-delta}
+	\delta: \coprod_{i \in I} X_i \to \prod_{i \in I} X_i.
+\end{equation}
+
+% segment-id: o014.li2.chapter1.subquotients.p010
+For the additive categories to be reviewed shortly, $\delta$ is always an
+isomorphism when $I$ is finite. This need not hold in an arbitrary category.
+
+% segment-id: o014.li2.chapter1.subquotients.lm002
+\begin{lemma}\label{prop:mono-pullback}
+	Let $X\to Z$ be a monomorphism. Its pullback along $Y\to Z$, namely
+	$X\dtimes{Z}Y\to Y$ (if it exists), is also a monomorphism. Dually, a
+	pushout of an epimorphism is again an epimorphism.
+\end{lemma}
+
+% segment-id: o014.li2.chapter1.subquotients.pf003
+\begin{proof}
+	By duality, it suffices to treat the case of monomorphisms. Let
+	$p_2:X\dtimes{Z}Y\to Y$ be the canonical morphism supplied by the fiber
+	product. The question reduces to showing, for every object $T$, that
+	% segment-id: o014.li2.chapter1.subquotients.g002
+	\[\begin{tikzcd}
+		\Hom(T,X) \dtimes{\Hom(T,Z)} \Hom(T,Y) & \\
+		\Hom\left(T, X \dtimes{Z} Y \right) \arrow[leftrightarrow, u, "1:1", "\text{universal property}"'] \arrow[r, "{(p_2)_*}"'] & \Hom(T, Y)
+	\end{tikzcd} \]
+	is injective. Indeed, the monicity of $X\to Z$ makes
+	$\Hom(T,X)\to\Hom(T,Z)$ injective, and the map from the upper left to the
+	lower right is the evident projection from the fiber product.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.subquotients.lm003
+\begin{lemma}\label{prop:mono-product}
+	Let $(f_i:X_i\to Z)_{i\in I}$ be a family of monomorphisms. Then the
+	canonical morphism from $\prod_{i\in I}(X_i\to Z)$ (if it exists) to $Z$
+	is also a monomorphism. Dually, given a family of epimorphisms
+	$(g_i:Z\to X_i)_{i\in I}$, the canonical morphism from $Z$ to
+	$\coprod_{i\in I}(Z\to X_i)$ (if it exists) is also an epimorphism.
+\end{lemma}
+
+% segment-id: o014.li2.chapter1.subquotients.pf004
+\begin{proof}
+	As in Lemma~\ref{prop:mono-pullback}, the question reduces to showing that
+	the bottom row of
+	% segment-id: o014.li2.chapter1.subquotients.g003
+	\[\begin{tikzcd}
+		\prod_{i \in I} \left( \Hom(T, X_i) \to \Hom(T, Z) \right) & \\
+		\Hom\left(T, \prod_{i \in I} (X_i \to Z) \right) \arrow[leftrightarrow, u, "1:1", "\text{universal property}"'] \arrow[r] & \Hom(T, Z)
+	\end{tikzcd}\]
+	is injective. This follows from the hypothesis, since every map
+	$\Hom(T,X_i)\to\Hom(T,Z)$ is injective.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.subquotients.p011
+We return to subobjects and quotient objects.
+
+% segment-id: o014.li2.chapter1.subquotients.d002
+\begin{definition}\label{def:subquotient}
+	\index{subquotient}
+	Let $\mathcal C$ be any category and let $X,Y$ be objects of $\mathcal C$.
+	If $Y$ can be realized as a quotient object of a subobject of $X$, then
+	$Y$ is called a \emph{subquotient} of $X$.
+\end{definition}
+
+% segment-id: o014.li2.chapter1.subquotients.p012
+Considering a subobject of a quotient object amounts to discussing a
+subquotient in $\mathcal C^{\opp}$. The next result shows that, for a certain
+class of categories, the two approaches yield the same notion. This class
+includes the abelian categories studied later; see
+Corollary~\sourcecrossref{prop:Abel-cat-subquotient}{2.1.7}.
+
+% segment-id: o014.li2.chapter1.subquotients.pr002
+\begin{proposition}\label{prop:subquotient-equiv}
+	Suppose that $\mathcal C$ has finite fiber products and finite fiber
+	coproducts, that pullbacks of epimorphisms remain epimorphisms, and that
+	pushouts of monomorphisms remain monomorphisms. Then a subquotient may
+	equivalently be defined as a subobject of a quotient object.
+\end{proposition}
+
+% segment-id: o014.li2.chapter1.subquotients.pf005
+\begin{proof}
+	Consider a subquotient diagram $Y\twoheadleftarrow Z\hookrightarrow X$ in
+	$\mathcal C$, and set $W:=X\dsqcup{Z}Y$. The morphism $X\to W$ is the
+	pushout of $Z\to Y$, so it is epic by
+	Lemma~\ref{prop:mono-pullback}; the morphism $Y\to W$ is the pushout of
+	$Z\to X$, so it is monic by hypothesis. Thus
+	$Y\hookrightarrow W\twoheadleftarrow X$, exhibiting a subquotient of $X$
+	in $\mathcal C^{\opp}$. Since the assumptions are self-dual, a subquotient
+	in $\mathcal C^{\opp}$ likewise yields a subquotient in $\mathcal C$.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.subquotients.p013
+Once the property ``quotient of a subobject = subobject of a quotient'' has
+been established, it follows that a subquotient of a subquotient is again a
+subquotient.
+
+% segment-id: o014.li2.chapter1.subquotients.p014
+The definition of a subquotient does not specify how it is to be realized as a
+quotient object of a subobject. For example, in $\mathcal C=\cate{Ab}$,
+$\Z/2\Z$ is a subquotient of $\Z/4\Z$: it can be realized either as a quotient
+object of $\Z/4\Z$ or as the subobject $2\Z/4\Z$ of $\Z/4\Z$.

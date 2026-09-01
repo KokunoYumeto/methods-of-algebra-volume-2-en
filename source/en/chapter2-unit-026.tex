@@ -1,0 +1,420 @@
+% English translation of chapter2.tex lines 911--1132.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter2.subobjects-and-isomorphism-theorems
+
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.h001
+\section{Subobjects and the Isomorphism Theorems}\label{sec:Abel-cat-subobjects}
+\hypertarget{o014.aljabr2.chapter2.subobjects-and-isomorphism-theorems}{ }
+
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.p001
+Throughout this section, let $\mathcal{A}$ be an abelian category. For every
+object $X$ of $\mathcal{A}$, the partially ordered set of its subobjects is
+denoted by $(\mathrm{Sub}_X,\subset)$, following the convention of
+\S\ref{sec:subquot}.
+
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.p002
+The results of this section are familiar when $\mathcal{A}=R\dcate{Mod}$,
+where $R$ is any ring, but different arguments are required for an abelian
+category.
+
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.d001
+\begin{definition}\label{def:intersection-sum}
+	\index{quotient}
+	\index[sym1]{XoverY@$X/Y$}
+	Let $X$ be an object of $\mathcal{A}$.
+	\begin{itemize}
+		% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.i001
+		\item For a subobject $X'$ of $X$, the corresponding \emph{quotient}
+		is defined by $X/X':=\Coker[X'\to X]$; it is naturally a quotient
+		object of $X$. Every epimorphism $f:X\twoheadrightarrow X''$ may be
+		viewed as the quotient of $X$ by $\Ker(f)$.
+		% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.i002
+		\item For subobjects $X_1,\ldots,X_n$ of $X$, their \emph{intersection}
+		and \emph{sum} are respectively defined by
+		\begin{align*}
+			X_1 \cap \cdots \cap X_n & := X_1 \dtimes{X} \cdots \dtimes{X} X_n, \\
+			X_1 + \cdots + X_n & := \Image\left[ X_1 \oplus \cdots \oplus X_n \xrightarrow{\sigma} X \right].
+		\end{align*}
+		Here $\sigma$ is induced by the morphisms $X_i\hookrightarrow X$ and may
+		be viewed as summation. Both are naturally subobjects of $X$: the case
+		of $X_1\cap\cdots\cap X_n$ follows from
+		Lemma~\ref{prop:mono-product}, while the case of
+		$X_1+\cdots+X_n$ follows directly from the definition.
+	\end{itemize}
+\end{definition}
+
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.p003
+For example, the definition of cohomology can be rewritten using a quotient:
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.q002
+\[ \Hm^n(X) := \Ker(d_X^n)/\Image(d_X^{n-1}). \]
+
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.p004
+More generally, let $I$ be any set and let $(X_i)_{i\in I}$ be a family of
+subobjects of $X$. The same method gives a well-defined
+$\bigcap_{i\in I}X_i$ (respectively, $\sum_{i\in I}X_i$), provided that
+their fiber product over $X$ (respectively, their coproduct
+$\bigsqcup_{i\in I}X_i$ in $\mathcal{A}$) exists. The role of this
+definition is clarified by the following fact.
+
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.pr001
+\begin{proposition}\label{prop:subobject-inf-sup}
+	Let $(X_i)_{i\in I}$ be a family of subobjects of $X$. If their fiber
+	product over $X$ (respectively, their coproduct $\bigsqcup$ in
+	$\mathcal{A}$) exists, it gives the infimum (respectively, supremum) of
+	$(X_i)_{i\in I}$ in the partially ordered set
+	$(\mathrm{Sub}_X,\subset)$.
+\end{proposition}
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.pf001
+\begin{proof}
+	By construction,
+	$\bigcap_{j\in I}X_j\subset X_i\subset\sum_{j\in I}X_j$ for every $i$.
+
+	Now consider a subobject $Y\hookrightarrow X$. For the intersection,
+	suppose that $\forall i\in I,\;Y\subset X_i$, that is, that there is a
+	family of commutative diagrams
+	$\begin{tikzcd}[row sep=small, column sep=small]
+		Y \arrow[hookrightarrow, r] \arrow[d] & X \\
+		X_i \arrow[hookrightarrow, ru] &
+	\end{tikzcd}$.
+	The universal property of the fiber product gives a morphism
+	$Y\to\bigcap_{i\in I}X_i$, and hence
+	$Y\subset\bigcap_{i\in I}X_i$. For the sum, suppose instead that
+	$\forall i\in I,\;X_i\subset Y$. The universal property of the
+	coproduct gives a commutative diagram
+	\[\begin{tikzcd}
+		\coprod_{i \in I} X_i \arrow[r, "\sigma"] \arrow[rd] & X \\
+		& Y \arrow[hookrightarrow, u].
+	\end{tikzcd}\]
+
+	By Lemma~\ref{prop:Im-Coim-fac}, the morphism
+	$\bigsqcup_{i\in I}X_i\to Y$ factors uniquely through
+	$\Coim(\sigma)\simeq\Image(\sigma)$, compatibly with the morphism to $X$.
+	Thus $\sum_{i\in I}X_i:=\Image(\sigma)\subset Y$.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.c001
+\begin{convention}\label{con:increasing-union}
+	\index[sym1]{Xsum@$\sum_{i \in I} X_i$}
+	\index[sym1]{Xunion@$\bigcup_{i \in I} X_i$}
+	In view of Proposition~\ref{prop:subobject-inf-sup}, we may also dispense
+	with fiber products or coproducts and define the intersection
+	$\bigcap_iX_i$ (respectively, the sum $\sum_iX_i$) of a family of
+	subobjects $(X_i)_{i\in I}$ directly as their infimum (respectively,
+	supremum) in $\mathrm{Sub}_X$, whenever it exists. The indexing set $I$ is
+	always assumed to be small. If $I$ has a filtered partial order and
+	$i\leq j\implies X_i\subset X_j$, the supremum $\sum_{i\in I}X_i$ may
+	equally well be denoted by the increasing union $\bigcup_{i\in I}X_i$.
+\end{convention}
+
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.co001
+\begin{corollary}
+	For every object $X$, the partially ordered set
+	$(\mathrm{Sub}_X,\subset)$ is a bounded lattice in the sense of
+	Definition~\ref{def:lattice-order}.
+\end{corollary}
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.pf002
+\begin{proof}
+	The supremum of two subobjects $Y,Z$ is $Y+Z$, and their infimum is
+	$Y\cap Z$; the greatest element of $\mathrm{Sub}_X$ is $X$, and the least
+	is $0$.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.p005
+This section focuses on $(\mathrm{Sub}_X,\subset)$, but the version in terms
+of quotient objects $(\mathrm{Quot}_X,\twoheadleftarrow)$ is entirely
+equivalent. Indeed, there is an evident order-reversing bijection
+$\mathrm{Sub}_X\simeq\mathrm{Quot}_X$: a subobject $X'$ and a quotient
+object $X''$ correspond if and only if they can be placed in a short exact
+sequence $0\to X'\to X\to X''\to0$. We shall therefore not discuss the
+quotient version separately.
+
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.d002
+\begin{definition}\label{def:subobject-image}
+	\index[sym1]{finvY@$f^{-1}(Y')$}
+	\index[sym1]{fX@$f(X')$}
+	Given a morphism $f:X\to Y$ and subobjects $X'\hookrightarrow X$ and
+	$Y'\hookrightarrow Y$, write
+	\[ f^{-1}(Y') := X \dtimes{Y} Y', \quad f(X') := \Image\left[ X' \hookrightarrow X \xrightarrow{f} Y \right]; \]
+	the first is the preimage of $Y'$ and a subobject of $X$, while the second
+	is the image of $X'$ and a subobject of $Y$. These
+	constructions give order-preserving maps in both directions:
+	$\begin{tikzcd}
+		\mathrm{Sub}_X \arrow[r, yshift=0.3em, "f(\cdot)"] & \mathrm{Sub}_Y \arrow[l, yshift=-0.3em, "f^{-1}(\cdot)"]
+	\end{tikzcd}$.
+\end{definition}
+
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.le001
+\begin{lemma}\label{prop:image-sum-preimage-intersection}
+	Let $f:X\to Y$ be as above.
+	\begin{enumerate}[(i)]
+		% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.i003
+		\item For every $X'\in\mathrm{Sub}_X$ and $Y'\in\mathrm{Sub}_Y$,
+		\[ X' \subset f^{-1}(Y') \iff f(X') \subset Y'. \]
+		% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.i004
+		\item For a family $(X'_i)_{i\in I}$ in $\mathrm{Sub}_X$
+		(respectively, $(Y'_i)_{i\in I}$ in $\mathrm{Sub}_Y$),% 
+		\footnote{Editorial correction (O014-C025): the source introduces the
+		families $(X_i)$ and $(Y_i)$ without primes, while the two formulas that
+		follow use $X'_i$ and $Y'_i$. Primes are added to the declaration to
+		match the formulas.}
+		we have
+		\[ f\left( \sum_{i \in I} X'_i \right) = \sum_{i \in I} f(X'_i), \quad f^{-1}\left( \bigcap_{i \in I} Y'_i \right) = \bigcap_{i \in I} f^{-1}(Y'_i), \]
+		provided the intersections and sums in question exist.
+	\end{enumerate}
+\end{lemma}
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.pf003
+\begin{proof}
+	For (i), by definition $X'\subset f^{-1}(Y')$ is equivalent to the
+	existence of a commutative diagram
+	\[\begin{tikzcd}
+		X' \arrow[dashed, r, "\exists"] \arrow[hookrightarrow, d] & Y' \arrow[hookrightarrow, d] \\
+		X \arrow[r, "f"'] & Y .
+	\end{tikzcd}\]
+	Since $f(X')$ is the image of
+	$X'\hookrightarrow X\xrightarrow{f}Y$,% 
+	\footnote{Editorial correction (O014-C026): the source calls $f(X')$ the
+	coimage, but Definition~\ref{def:subobject-image} defines it as
+	$\Image[X'\to X\to Y]$, namely the image and a subobject of $Y$. The term
+	consistent with that object is used here.}
+	Lemma~\ref{prop:Im-Coim-fac} shows that such diagrams correspond bijectively
+	to
+	\[\begin{tikzcd}
+		X' \arrow[r] \arrow[d, hookrightarrow] & f(X') \arrow[hookrightarrow, d] \arrow[dashed, r, "\exists"] & Y' \arrow[hookrightarrow, ld] \\
+		X \arrow[r, "f"'] & Y &
+	\end{tikzcd}\]
+	which proves (i). If the partially ordered sets are regarded as categories
+	$\cate{Sub}_X$, and so on, (i) says that
+	$f(\cdot):\cate{Sub}_X\to\cate{Sub}_Y$ is left adjoint to
+	$f^{-1}(\cdot):\cate{Sub}_Y\to\cate{Sub}_X$. Since products
+	(respectively, coproducts) correspond to infima (respectively, suprema),
+	(ii) follows from \cite[Theorem 2.8.12]{Li1}.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.pr002
+\begin{proposition}\label{prop:biproduct-sum-intersection}
+	Consider subobjects $i:A\hookrightarrow X$ and $j:B\hookrightarrow X$.
+	The morphism $(i,j):A\oplus B\to X$ is an isomorphism if and only if
+	\[ A \cap B = 0, \quad A + B = X. \]
+	Moreover, the commutative diagram
+	\[\begin{tikzcd}
+		A \cap B \arrow[r, "\delta_1"] \arrow[d, "\delta_2"'] & A \arrow[d, "i"] \\
+		B \arrow[r, "j"'] & A + B
+	\end{tikzcd}\]
+	is both a pushout and a pullback; here $\delta_1$ and $\delta_2$ are the
+	canonical morphisms.
+\end{proposition}
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.pf004
+\begin{proof}
+	Define the diagonal morphism $\Delta:A\cap B\to A\oplus B$ by
+	$p_i\Delta=\delta_i$ for $i=1,2$. Also define the antidiagonal morphism
+	$\Delta^-:A\cap B\to A\oplus B$ by
+	$p_1\Delta^-=-\delta_1$ and $p_2\Delta^-=\delta_2$.
+
+	Remark~\ref{rem:Abel-cat-fibered-product} says that $\Delta$ gives an
+	isomorphism
+	$A\cap B:=A\dtimes{X}B\rightiso
+	\Ker\left[A\oplus B\xrightarrow{(i,-j)}X\right]$. Replacing $(i,-j)$ by $(i,j)$
+	leaves the image of $A\oplus B\to X$ equal to $A+B$, while the kernel
+	morphism changes from $\Delta$ to $\Delta^-$. We therefore obtain a
+	commutative diagram with an exact row
+	\[\begin{tikzcd}
+		& & & X & \\
+		0 \arrow[r] & A \cap B \arrow[r, "{\Delta^-}"'] & A \oplus B \arrow[ru, "{(i, j)}" description] \arrow[r] & A+B \arrow[r] \arrow[hookrightarrow, u] & 0
+	\end{tikzcd}\]
+	Thus $(i,j):A\oplus B\to X$ is an isomorphism if and only if $A+B=X$
+	and $A\cap B=0$.
+
+	Remark~\ref{rem:Abel-cat-fibered-product} also identifies
+	$A\dsqcup{A\cap B}B$ with $(A\oplus B)/\Image(\Delta^-)$. Hence we have a
+	commutative diagram
+	\[\begin{tikzcd}[column sep=small]
+		A \cap B \arrow[r, "\delta_1"] \arrow[d, "\delta_2"'] & A \arrow[d] \arrow[rdd, bend left, "i" description] & \\
+		B \arrow[r] \arrow[rrd, bend right, "j" description] & (A \oplus B)/\Image(\Delta^-) \arrow[rd, "\simeq" description] & \\
+		& & A + B
+	\end{tikzcd}\]
+	whose upper-left square is a pushout; its outer frame is therefore also a
+	pushout. Since $\delta_1$ is a monomorphism,
+	Proposition~\ref{prop:Abel-cat-pull-push} shows that the outer frame is also
+	a pullback.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.p006
+In other words, $B$ is a complement of $A$ in the lattice $\mathrm{Sub}_X$
+(Definition~\ref{def:modular-lattice}) if and only if
+$(i,j):A\oplus B\rightiso X$; the latter is often written as
+$A\oplus B=X$. Starting from this fact, one can recursively use
+lattice-theoretic language to determine whether $X$ is a direct sum of
+finitely many prescribed subobjects $X_1,\ldots,X_n$; the result is analogous
+to the module case. For an infinite family of subobjects one generally needs
+to work in a Grothendieck category; see
+\ifcsname r@sec:Grothendieck-cat\endcsname\S\ref{sec:Grothendieck-cat}\else\S2.10\fi.
+The related material is left to the exercises.
+
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.p007
+Module theory rests on several basic isomorphism theorems; see
+\cite[Propositions 6.1.11, 6.1.12, 6.1.13]{Li1}. We now extend them to an
+arbitrary abelian category $\mathcal{A}$.
+
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.th001
+\begin{theorem}\label{prop:Abel-cat-isom-thm}
+	Fix an object $X$.
+	\begin{enumerate}[(i)]
+		% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.i005
+		\item For every morphism $f:X\to Y$, there is a canonical isomorphism
+		$X/\Ker(f)\rightiso\Image(f)$ making the diagram
+		\[\begin{tikzcd}
+			X \arrow[twoheadrightarrow, r] \arrow[twoheadrightarrow, d] & \Image(f) \\
+			X/\Ker(f) \arrow[ru, "\sim" sloped]
+		\end{tikzcd} \quad \text{commutative}. \]
+		% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.i006
+		\item Fix a subobject $Z\hookrightarrow X$, and denote the natural
+		morphism $X\twoheadrightarrow\overline{X}:=X/Z$ by $\pi$. There is an
+		order-preserving bijection
+		\[\begin{tikzcd}[row sep=tiny]
+			\left\{ Y \in \mathrm{Sub}_X : Z \subset Y \right\} \arrow[leftrightarrow, r, "1:1"] & \mathrm{Sub}_{\overline{X}} \\
+			Y \arrow[r, mapsto] & \pi(Y) = Y/Z =: \overline{Y} \\
+			\pi^{-1}(\overline{Y}) & \overline{Y} \arrow[mapsto, l] ,
+		\end{tikzcd}\]
+		with notation as in Definition~\ref{def:subobject-image}. If
+		$Y\supset Z$, there is a canonical isomorphism
+		$X/Y\rightiso\overline{X}/\overline{Y}$ making the diagram
+		\[\begin{tikzcd}
+			X \arrow[r] \arrow[twoheadrightarrow, d] & \overline{X} \arrow[twoheadrightarrow, d] \\
+			X/Y \arrow[r, "\sim"'] & \overline{X}/\overline{Y}
+		\end{tikzcd}\]
+		commutative. Moreover,
+		$\overline{Y_1\cap Y_2}=\overline{Y_1}\cap\overline{Y_2}$ and
+		$\overline{Y_1+Y_2}=\overline{Y_1}+\overline{Y_2}$.
+		% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.i007
+		\item For $Y,Z\in\mathrm{Sub}_X$, there is a canonical isomorphism
+		$Y/(Y\cap Z)\rightiso(Y+Z)/Z$ making the diagram
+		\[\begin{tikzcd}
+			Y \arrow[hookrightarrow, r] \arrow[twoheadrightarrow, d] & Y+Z \arrow[twoheadrightarrow, d] \\
+			Y/(Y \cap Z) \arrow[r, "\sim"'] & (Y+Z)/Z
+		\end{tikzcd} \quad \text{commutative}. \]
+	\end{enumerate}
+\end{theorem}
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.pf005
+\begin{proof}
+	In view of the short exact sequence
+	$0\to\Ker(f)\to X\to\Image(f)\to0$, assertion (i) merely restates the
+	definition.
+
+	For (ii), given $Y$, first form the following commutative diagram with
+	exact rows:
+	\[\begin{tikzcd}
+		0 \arrow[r] & Z \arrow[r] \arrow[equal, d] & Y \arrow[r] \arrow[hookrightarrow, d] & Y/Z \arrow[dashed, d, "\exists!"] \arrow[r] & 0 \\
+		0 \arrow[r] & Z \arrow[r] & X \arrow[r, "\pi"'] & \overline{X} \arrow[r] & 0
+	\end{tikzcd}\]
+	The dashed arrow comes from functoriality of cokernels
+	\eqref{eqn:Ker-Coker-functoriality}. Theorem~\ref{prop:snake-lemma}
+	immediately gives $\Ker[Y/Z\to\overline{X}]=0$ and
+	$X/Y\rightiso\Coker[Y/Z\to\overline{X}]$. In particular,
+	\[ Y/Z =  \Image[Y \to \overline{X}] = \pi(Y) \;\in \mathrm{Sub}_{\overline{X}}, \quad X/Y \simeq \overline{X}/\pi(Y). \]
+
+	We have already observed that both maps in (ii) preserve order. We now show
+	that they are inverse. Given $Y$, the monomorphism
+	$\overline{Y}\hookrightarrow\overline{X}$ is the kernel of
+	$\overline{X}\to\overline{X}/\overline{Y}$. Hence
+	Proposition~\ref{prop:Ker-Coker-composite} says that
+	$\pi^{-1}(\overline{Y}):=X\dtimes{\overline{X}}\overline{Y}\hookrightarrow X$
+	is the kernel of the composite
+	$X\to\overline{X}\to\overline{X}/\overline{Y}$. By the preceding
+	isomorphism, this is also the kernel of $X\to X/Y$, identifying
+	$\pi^{-1}(\overline{Y})$ with $Y$.
+
+	Conversely, given $\overline{Y}$, set
+	$Y:=X\dtimes{\overline{X}}\overline{Y}=\pi^{-1}(\overline{Y})$ and
+	consider the pullback diagram
+	\[\begin{tikzcd}
+		Y \arrow[r] \arrow[hookrightarrow, d] & \overline{Y} \arrow[hookrightarrow, d] \\
+		X \arrow[r, "\pi"'] & \overline{X} \arrow[phantom, lu, "\Box" description] .
+	\end{tikzcd}\]
+	Since $\pi$ in the lower row is an epimorphism,
+	Proposition~\ref{prop:Abel-cat-pull-push} says that the morphism in the
+	upper row is also an epimorphism. Thus $\overline{Y}=\pi(Y)$.
+
+	Finally, the equalities
+	$\overline{Y_1\cap Y_2}=\overline{Y_1}\cap\overline{Y_2}$ and
+	$\overline{Y_1+Y_2}=\overline{Y_1}+\overline{Y_2}$ follow immediately
+	from the order-preserving bijection $Y\leftrightarrow\overline{Y}$.
+
+	For (iii), consider the commutative diagram with exact rows
+	\[\begin{tikzcd}
+		0 \arrow[r] & Y \cap Z \arrow[r] \arrow[hookrightarrow, d] & Y \arrow[hookrightarrow, d] \arrow[r] & Y/(Y \cap Z) \arrow[r] \arrow[dashed, d, "\exists! \theta"] & 0 \\
+		0 \arrow[r] & Z \arrow[r] & Y+Z \arrow[r] & (Y+Z)/Z \arrow[r] & 0
+	\end{tikzcd}\]
+	where $\theta$ comes from functoriality of cokernels.
+	Proposition~\ref{prop:biproduct-sum-intersection} says that the left square
+	is a pushout. Pushouts preserve cokernels
+	(Proposition~\ref{prop:pull-back-ker}), so $\theta$ is an isomorphism.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.co002
+\begin{corollary}\label{prop:Abel-cat-Coker-pull}
+	Consider a commutative diagram
+	\[\begin{tikzcd}
+		\Ker(g') \arrow[hookrightarrow, r] \arrow[d, "k"'] & W \arrow[r, "{g'}"] \arrow[d, "{f'}"'] & Y \arrow[d, "f"] \arrow[twoheadrightarrow, r] & \Coker(g') \arrow[d, "c"] \\
+		\Ker(g) \arrow[hookrightarrow, r] & X \arrow[r, "g"'] & Z \arrow[twoheadrightarrow, r] & \Coker(g)
+	\end{tikzcd}\]
+	where $k,c$ are the morphisms characterized by functoriality
+	\eqref{eqn:Ker-Coker-functoriality}. If the middle square is a pullback
+	(respectively, a pushout), then $c$ is a monomorphism (respectively, $k$ is
+	an epimorphism).
+\end{corollary}
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.pf006
+\begin{proof}
+	It is enough to handle the pullback case. Since pullback along $f$ can be
+	performed in stages, it suffices to consider two cases: $f$ is an
+	epimorphism or $f$ is a monomorphism. If $f$ is an epimorphism,
+	Proposition~\ref{prop:Abel-cat-pull-push} says that the middle square is
+	also a pushout, and then $c$ is an isomorphism. If $f$ is a monomorphism,
+	factor the pullback along $g$ into stages as
+	\[\begin{tikzcd}
+		W \arrow[d, "{f'}"'] \arrow[r] & \Image(g) \dtimes{Z} Y \arrow[r, "{g''}"] \arrow[d] & Y \arrow[d, "f"] \\
+		X \arrow[twoheadrightarrow, r] & \Image(g) \arrow[hookrightarrow, r] \arrow[phantom, lu, "\Box" description] & Z ; \arrow[phantom, lu, "\Box" description]
+	\end{tikzcd}\]
+	Proposition~\ref{prop:Abel-cat-pull-push} says that
+	$W\to\Image(g)\dtimes{Z}Y$ is an epimorphism, so
+	$\Coker(g')=\Coker(g'')$. It remains to consider the case in which both
+	$f$ and $g$ are monomorphisms. Then $W=Y\cap X$, and $c$ factors as
+	$Y/(Y\cap X)\rightiso(Y+X)/X\hookrightarrow Z/X$.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.th002
+\begin{theorem}\label{prop:subobject-modularity}
+	For every object $X$, the partially ordered set
+	$(\mathrm{Sub}_X,\subset)$ is a bounded modular lattice in the sense of
+	Definition~\ref{def:modular-lattice}.
+\end{theorem}
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.pf007
+\begin{proof}
+	We already know that $(\mathrm{Sub}_X,\subset)$ is a bounded lattice.
+	Consider any interval $[Y_1,Y_2]$ in $\mathrm{Sub}_X$.
+	Lemma~\ref{prop:modularity-criterion} reduces the problem to the following
+	assertion: for all $A,B,C\in[Y_1,Y_2]$,
+	\begin{equation}\label{eqn:Abel-cat-interval-complement}
+		\left( A, B \;\text{are both complements of}\; C, \; A \subset B \right) \implies A = B.
+	\end{equation}
+
+	First, the order-preserving bijection in
+	Theorem~\ref{prop:Abel-cat-isom-thm}(ii) reduces
+	\eqref{eqn:Abel-cat-interval-complement} to the case $Y_1=0$ and $Y_2=X$.
+	By Proposition~\ref{prop:biproduct-sum-intersection}, the hypothesis about
+	complements becomes $A\oplus C\rightiso X\leftiso B\oplus C$, where the
+	two isomorphisms are induced by the monomorphisms
+	$\iota_A,\iota_B,\iota_C$ from $A,B,C$ to $X$. By hypothesis, there is an
+	$\alpha:A\to B$ such that $\iota_A=\iota_B\alpha$. Hence the diagram
+	\[\begin{tikzcd}[column sep=large]
+		B \oplus C \arrow[r, "{(\iota_B, \iota_C)}"] & X \\
+		A \oplus C \arrow[ru, "{(\iota_A, \iota_C)}"'] \arrow[u, "{(\alpha, \identity_C)}"] &
+	\end{tikzcd}\]
+	is commutative. Thus $(\alpha,\identity_C)$ is an isomorphism, and
+	Lemma~\ref{prop:isomorphism-matrix} then implies that $\alpha$ is an
+	isomorphism. This proves \eqref{eqn:Abel-cat-interval-complement}.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.subobjects-and-isomorphism-theorems.p008
+Modularity of the subobject lattice is an important bridge for transporting
+standard arguments from module theory to abelian categories.

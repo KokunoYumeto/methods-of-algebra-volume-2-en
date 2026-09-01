@@ -1,0 +1,98 @@
+% Stable unit: appendix1-unit-137; source appendix1.tex, lines 284--371.
+% Stable unit ID: o014.aljabr2.appendix1.gabriel-popescu
+\section{The Gabriel--Popescu Theorem}\label{sec:GP}
+This section continues and supplements \S\ref{sec:Grothendieck-cat}. Fix a Grothendieck category $\mathcal{A}$, and abbreviate $\Hom_{\mathcal{A}}$ to $\Hom$. Write $X^{\oplus I}$ for the direct sum in $\mathcal{A}$ of $I$ copies of an object $X$, where $I$ is a small set.
+
+The Gabriel--Popescu theorem will show that $\mathcal{A}$ can always be realized as a reflective localization (Remark~\ref{rem:reflexive-localization}) of a category of right modules $\cated{Mod}R$ for some ring $R$. The ring $R$ and the functors involved depend on a generator $s$. We follow L.\ Kuhn's proof \cite{Ku94}; one of its steps requires the classical theory of derived functors, for which see \S\ref{sec:derived-primer}.
+
+Choose $s\in\Obj(\mathcal{A})$, put $R:=\End(s)$, and consider the functor
+\begin{align*}
+	G: \mathcal{A} & \to \cated{Mod}R \\
+	X & \mapsto \Hom(s, X),
+\end{align*}
+where $R$ acts on the right of $\Hom(s,X)$ by composition of morphisms. It is easy to see that $G$ is an additive functor between Abelian categories and preserves all small $\varprojlim$. Henceforth write $\Hom_R:=\Hom_{\cated{Mod}R}$ to distinguish it from $\Hom:=\Hom_{\mathcal{A}}$.
+
+For every $r\in R$, define $\lambda_r:x\mapsto rx$ in $\End_R(R)$. Notice that $G(s)=R$, and that $\lambda_r:R\to R$ is precisely the image under $G$ of the morphism $r:s\to s$.
+
+\begin{lemma}\label{prop:GP-prep}
+	The functor $G:\mathcal{A}\to\cated{Mod}R$ above has a left adjoint $P:\cated{Mod}R\to\mathcal{A}$. The counit $\varepsilon:PG\to\identity$ of this adjunction makes $\varepsilon_s:PG(s)=P(R)\to s$ an isomorphism, and the following diagram commutes:
+	\[\begin{tikzcd}[column sep=small]
+		\lambda_r \arrow[phantom, r, "\in" description] & \End_R(R) \arrow[r, "P"] & \End(P(R)) \arrow[d, "\sim" sloped] & \varphi \arrow[phantom, l, "\ni" description] \arrow[mapsto, d] \\
+		r \arrow[phantom, r, "\in" description] \arrow[mapsto, u] & R \arrow[u, "\sim" sloped] \arrow[equal, r] & \End(s) & \varepsilon_s \varphi \varepsilon_s^{-1} \arrow[phantom, l, "\ni" description] .
+	\end{tikzcd}\]
+\end{lemma}
+\begin{proof}
+	The existence of the left adjoint $P$ follows from the special adjoint functor theorem \ref{prop:SAFT} and Corollary~\ref{prop:Grothendieck-cat-wellpowered}. We next claim that, for every $Y\in\Obj(\mathcal{A})$, the following diagram commutes:
+	\[\begin{tikzcd}
+		& \Hom(PG(s), Y) \arrow[d, "\sim" sloped] & \\
+		\Hom(s, Y) \arrow[ru, "{\varepsilon_s^*}"] \arrow[r, "G"] \arrow[rd, "\identity"'] & \Hom_R(G(s), G(Y)) \arrow[d, "\sim" sloped] & \psi \arrow[phantom, l, "\ni" description, sloped] \arrow[mapsto, d] \\
+		& G(Y) & \psi(1_R). \arrow[phantom, l, "\ni" description, sloped]
+	\end{tikzcd}\]
+	\begin{itemize}
+		\item Commutativity of the upper part is a general property of the adjunction $(P,G)$. Given $f\in\Hom(s,Y)$, the morphism $f\varepsilon_s:PGs\to Y$ corresponds to $G(f\varepsilon_s)\circ\eta_{Gs}:Gs\to GY$; see \cite[(2.5)]{Li1}. By the triangle identity for the adjunction, the latter equals $(Gf)\circ\left((G\varepsilon_s)\eta_{Gs}\right)=Gf$.
+		\item Commutativity of the lower part follows directly from the definition of $G$.
+	\end{itemize}
+
+	Thus $\varepsilon_s^*$ is an isomorphism. Taking $Y$ to be the injective cogenerator supplied by Corollary~\ref{prop:Grothendieck-cat-cogenerator} then shows that $\varepsilon_s$ is an isomorphism. Finally, the assertion about the first diagram is equivalent to the commutativity of
+	\[\begin{tikzcd}
+		P(R) \arrow[r, "{P(\lambda_r)}"] \arrow[d, "{\varepsilon_s}"'] & P(R) \arrow[d, "{\varepsilon_s}"] \\
+		s \arrow[r, "r"'] & s
+	\end{tikzcd} \quad (r \in R) \]
+	But $R=Gs$ and $\lambda_r=Gr$, so this follows from the naturality of $\varepsilon$.
+\end{proof}
+
+How can $P$ be described? For every right $R$-module $M$, there are small sets $I,J$ and an exact sequence
+\[ R^{\oplus J} \to R^{\oplus I} \to M \to 0; \]
+Since $P$ preserves small $\varinjlim$, it follows that
+$PM\simeq\Coker\left[s^{\oplus J}\to s^{\oplus I}\right]$.
+
+The following result is stated in terms of the Serre quotient of an Abelian category; see Theorem~\ref{prop:Serre-quotient} for details. A Serre quotient is a special case of a localization.
+
+\begin{theorem}[P.\ Gabriel, N.\ Popescu, L.\ Kuhn]\label{prop:GP}
+	Let $s$ be a generator of the Grothendieck category $\mathcal{A}$. Then:
+	\begin{itemize}
+		\item the functor $G=\Hom(s,\cdot):\mathcal{A}\to\cated{Mod}R$ has an exact left adjoint $P$;
+		\item $G$ is fully faithful, and the counit of the adjunction gives an isomorphism $\varepsilon:PG\rightiso\identity_{\mathcal{A}}$;\footnote{Translator's note: the source prints $\identity_{\cated{Mod}R}$. Since $PG$ is an endofunctor of $\mathcal{A}$, the type-correct target of the counit is $\identity_{\mathcal{A}}$.}
+		\item $P$ induces an equivalence of categories $\cated{Mod}R/\Ker(P)\rightiso\mathcal{A}$.
+	\end{itemize}
+\end{theorem}
+\begin{proof}
+	Lemma~\ref{prop:GP-prep} has shown that $G$ has a left adjoint $P$. We claim that if $u:M\to GX$ is a monomorphism in $\cated{Mod}R$, then the corresponding morphism $v:=\varepsilon_X\circ Pu:PM\to X$ (see \cite[(2.5)]{Li1}) is a monomorphism in $\mathcal{A}$. Express $M$ as the filtered $\varinjlim$ of its finitely generated $R$-submodules. Since $P$ preserves $\varinjlim$ and filtered $\varinjlim$ in $\mathcal{A}$ are exact, the problem reduces to the case where $M$ is finitely generated.
+
+	Identify $s$ with $P(R)$ via $\varepsilon_s$. Choose a finite set $I$ and a surjection $R^{\oplus I}\twoheadrightarrow M$. This gives $e:s^{\oplus I}\twoheadrightarrow PM$. To conclude that $v$ is a monomorphism, it suffices to prove $\Ker(ve)=\Ker(e)$. By the generator property (for instance, Proposition~\ref{prop:Abel-strong-generator}), the problem further reduces to showing that any morphism $f:s\to s^{\oplus I}$ satisfying $vef=0$ also satisfies $ef=0$. Make two observations:
+	\begin{itemize}
+		\item By construction, $e$ is the image under $P$ of a morphism. Since $I$ is finite, write $f$ as an element of $R^{\oplus I}$ and inspect its components one by one; the commutative diagram in Lemma~\ref{prop:GP-prep} ensures that $f$ is also in the image of $P$.
+		\item If a morphism $\psi:N\to M$ in $\cated{Mod}R$ satisfies $v\circ P\psi=0$, then $\psi=0$. This follows from the monicity of $u$ and the commutative diagram in $\cate{Ab}$
+		\[\begin{tikzcd}[column sep=small]
+			v \arrow[phantom, r, "\in" description]& \Hom(PM, X) \arrow[r, "\sim"] \arrow[d, "{(P\psi)^*}"'] & \Hom_R(M, GX) \arrow[d, "{\psi^*}"] & u \arrow[phantom, l, "\ni" description] \\
+			& \Hom(PN, X) \arrow[r, "\sim"'] & \Hom_R(N, GX) . &
+		\end{tikzcd}\]
+	\end{itemize}
+	Thus $ef:s\to PM$ is always in the image of $P$, while $vef=0$ implies $ef=0$. This proves the claim.
+
+	The counit $\varepsilon$ of an adjunction is an isomorphism if and only if the right adjoint $G$ is fully faithful; this general fact is an exercise in \CHref{sec:categories}. We now prove that $\varepsilon$ is an isomorphism. Let $X\in\Obj(\mathcal{A})$. Since $\varepsilon_X:PG(X)\hookrightarrow X$ corresponds to $\identity_{GX}$, taking $u=\identity_{GX}$ in the preceding step shows that $\varepsilon_X$ is a monomorphism. For surjectivity, Proposition~\ref{prop:Abel-strong-generator} reduces the problem to proving that every $\alpha:s\to X$ factors through $\varepsilon_X:PG(X)\hookrightarrow X$, and the required factorization is supplied by the diagram
+	\[\begin{tikzcd}
+		PG(s) \arrow[r, "\sim"', "\varepsilon_s"] \arrow[d, "{PG(\alpha)}"'] & s \arrow[d, "\alpha"] \\
+		PG(X) \arrow[r, "{\varepsilon_X}"'] & X
+	\end{tikzcd}\]
+
+	Next we prove that $P$ is exact. It is already right exact, so it suffices to show that the left derived functor $\mathrm{L}_1P=0$. For any right $R$-module $M$, take a short exact sequence
+	\[ 0 \to K \xrightarrow{u} F \to M \to 0, \quad F: \text{a free module}. \]
+	By dimension shifting (Proposition~\ref{prop:dimension-shifting}),
+	\[ \mathrm{L}_1 P (M) \simeq \Ker[Pu: P(K) \to P(F)]. \]
+	The problem therefore reduces to proving that $Pu$ is monic. Express $F$ as the filtered $\varinjlim$ of its finite-rank free submodules $F'$ (or as their increasing union), and correspondingly write $K=\varinjlim_{F'}(F'\cap K)$. Since $P$ preserves $\varinjlim$ and filtered $\varinjlim$ in $\mathcal{A}$ are exact, the problem reduces to the case
+	$F=R^{\oplus I}\simeq G(s^{\oplus I})$ for a finite set $I$. But at the start of the proof we showed that if
+	$u:K\to G(s^{\oplus I})$ is monic, then
+	$v=\varepsilon_{s^{\oplus I}}\circ Pu:P(K)\to s^{\oplus I}$ is monic; hence $Pu$ is monic. Exactness follows.
+
+	Finally, applying the universal property in Theorem~\ref{prop:Serre-quotient} to $P$ factors it through a faithful additive functor
+	$\overline P:\cated{Mod}R/\Ker(P)\to\mathcal{A}$. Let $\overline G$ be the composite
+	$\mathcal{A}\xrightarrow{G}\cated{Mod}R\to\cated{Mod}R/\Ker(P)$.
+	Then
+	$\overline P\circ\overline G\simeq P\circ G\simeq\identity_{\mathcal{A}}$.
+	It follows that $\overline P$ is also full and essentially surjective, with $\overline G$ as a quasi-inverse, as desired.
+\end{proof}
+
+\begin{remark}
+	The Gabriel--Popescu theorem \ref{prop:GP} implies that a Grothendieck category is presentable in the sense of Definition~\ref{def:presentable-cat}. Indeed, $\cated{Mod}R\simeq R^{\opp}\dcate{Mod}$ is known to be presentable, and \cite[Corollary 1.40]{AR94} reflects this property to $\mathcal{A}$.
+\end{remark}

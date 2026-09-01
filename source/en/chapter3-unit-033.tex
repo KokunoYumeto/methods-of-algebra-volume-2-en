@@ -1,0 +1,369 @@
+% Unit 033 English translation of chapter3.tex lines 163--345.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter3.hom-complex-and-homotopy
+% Coverage: Section 3.2 in full; ends before Section 3.3.
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.h001
+\section{\texorpdfstring{$\Hom$}{Hom} Complexes and Homotopy}\label{sec:Hom-cplx}
+\hypertarget{o014.aljabr2.chapter3.hom-complex-and-homotopy}{ }
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.p001
+We previously defined $\Hom$ between two complexes. This section explains how
+to promote it to a complex and how to promote composition of morphisms to a
+kind of multiplication on complexes. We continue to let $\mathcal{A}$ be an
+additive category. If $\Bbbk$ is any commutative ring and $\mathcal{A}$ is a
+$\Bbbk$-linear category, every statement in this section has an evident
+$\Bbbk$-linear version.
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.p002
+Recall that taking $\Hom$ sets gives a functor
+$\Hom:\mathcal{A}^{\opp}\times\mathcal{A}\to\cate{Ab}$. The notation $\Hom$
+without a superscript refers to the $\Hom$ set in $\mathcal{A}$ or in
+$\cate{C}(\mathcal{A})$; when necessary, a subscript distinguishes the
+category.
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.d001
+\begin{definition}[$\Hom$ complex]\label{def:Hom-cplx}
+	\index[sym1]{Hombullet@$\Hom^{\bullet}$}
+	Let $X,Y$ be objects of $\cate{C}(\mathcal{A})$. For every $n\in\Z$, define
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.q001
+	\[ \Hom^n\left(X, Y \right) := \prod_{k \in \Z} \Hom_{\mathcal{A}}\left( X^k, Y^{k+n} \right); \]
+	termwise composition of morphisms gives
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.q002
+	\begin{equation}\label{eqn:Hom-cplx-multiplication}\begin{aligned}
+		\Hom^n \left(Y, Z \right) \times \Hom^m\left( X, Y \right) & \longrightarrow \Hom^{n+m}\left(X , Z \right) \\
+		(g, f) & \longmapsto gf := \left( g^{k+m} f^k \right)_{k \in \Z}.
+	\end{aligned}\end{equation}
+	Notice that $d_X=(d_X^k)_k\in\Hom^1(X,X)$, and similarly for $d_Y$.
+	Accordingly, define
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.q003
+	\begin{align*}
+		d^n = d_{\Hom^\bullet(X, Y)}^n: \Hom^n\left(X, Y \right) & \longrightarrow \Hom^{n+1}\left(X, Y \right) \\
+		f & \longmapsto d_Y f - (-1)^n f d_X.
+	\end{align*}
+\end{definition}
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.p003
+The operation \eqref{eqn:Hom-cplx-multiplication} is plainly associative and
+distributive over addition. Given morphisms $u:\underline{X}\to X$ and
+$v:Y\to\underline{Y}$ in $\cate{C}(\mathcal{A})$, regard them respectively
+as elements of $\Hom^0(\underline{X},X)$ and $\Hom^0(Y,\underline{Y})$.
+For every $n\in\Z$ there is then a homomorphism
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.q004
+\begin{equation}\label{eqn:Hom-cplx-functoriality}\begin{aligned}
+	\Hom^n(u, v): \Hom^n\left( X, Y\right) & \longrightarrow \Hom^n\left(\underline{X}, \underline{Y}\right) \\
+	f & \longmapsto vfu.
+\end{aligned}\end{equation}
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.dp001
+\begin{definition-proposition}
+	\index{Hom complex@$\Hom$ complex}
+	The data $\left(\Hom^n(X,Y),d^n\right)_{n\in\Z}$ above form an object of
+	$\cate{C}(\cate{Ab})$, called the \emph{$\Hom$ complex}. As $X$ and $Y$
+	vary, this construction together with
+	\eqref{eqn:Hom-cplx-functoriality} gives an additive functor
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.q005
+	\[ \Hom^\bullet: \cate{C}(\mathcal{A})^{\opp} \times \cate{C}(\mathcal{A}) \to \cate{C}(\cate{Ab}). \]
+\end{definition-proposition}
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.pf001
+\begin{proof}
+	First verify that $d^{n+1}d^n=0$. Since $d_Y^2=0=d_X^2$, a direct
+	calculation gives
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.q006
+	\begin{align*}
+		d^{n+1} \left( d^n f \right) & = d_Y \left( d_Y f - (-1)^n f d_X \right) - (-1)^{n+1} \left( d_Y f - (-1)^n f d_X \right) d_X \\
+		& = (-1)^{n+1} d_Y f d_X - (-1)^{n+1} d_Y f d_X = 0.
+	\end{align*}
+
+	Next consider functoriality. Place the map $\Hom^\bullet(u,v)$ defined in
+	\eqref{eqn:Hom-cplx-functoriality} into the diagram%
+	\footnote{Translator's note (O014-C033): the source labels both horizontal
+	arrows $\Hom^{n+1}(u,v)$. Since the upper arrow connects terms of degree
+	$n$, this translation restores its label to $\Hom^n(u,v)$; the lower arrow
+	retains the label $\Hom^{n+1}(u,v)$.}
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.g001
+	\[\begin{tikzcd}
+		\Hom^n\left( X^\bullet, Y^\bullet \right) \arrow[d, "{d^n}"'] \arrow[r, "{\Hom^n(u, v)}" inner sep=0.7em] & \Hom^n\left( \underline{X}^\bullet, \underline{Y}^\bullet \right) \arrow[d, "{\underline{d}^n}"] \\
+		\Hom^{n+1}\left( X^\bullet, Y^\bullet \right) \arrow[r, "{\Hom^{n+1}(u, v)}"' inner sep=0.7em] & \Hom^{n+1}\left( \underline{X}^\bullet, \underline{Y}^\bullet \right) ;
+	\end{tikzcd}\]
+	Because $d_Xu=ud_{\underline{X}}$ and $vd_Y=d_{\underline{Y}}v$, this
+	diagram is plainly commutative.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.p004
+The differential $d_{\Hom^\bullet(X,Y)}$ is also compatible with shifts. Its
+proof is much easier than its statement.
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.le001
+\begin{lemma}\label{prop:Hom-cplx-d-translate}
+	Let $n,m\in\Z$ and $f\in\Hom^n(X,Y)$. Identify $f$ with the element
+	$\underline{f}=(f^k)_k$ of $\Hom^{n-m}(X,Y[m])$, or with the element
+	$\overline{f}=(f^{k-m})_k$ of $\Hom^{n-m}(X[-m],Y)$. Then
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.q007
+	\begin{align*}
+		d^{n-m}_{\Hom^\bullet(X, Y[m])} \underline{f} & \xlongequal{\text{under the identification}} (-1)^m d^n_{\Hom^\bullet(X, Y)} f, \\ d^{n-m}_{\Hom^\bullet(X[-m], Y)} \overline{f} & \xlongequal{\text{under the identification}} d^n_{\Hom^\bullet(X, Y)} f.
+	\end{align*}
+	Consequently,
+	$\Hom^\bullet(X,Y[m])=\Hom^\bullet(X,Y)[m]\simeq
+	\Hom^\bullet(X[-m],Y)$.
+\end{lemma}
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.pf002
+\begin{proof}
+	For example, for the first equality,
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.q008
+	\[ (d^{n-m}_{\Hom^\bullet(X, Y[m])} \underline{f})^k = d_{Y[m]}^{k+n-m} \underline{f}^k - (-1)^{n-m} \underline{f}^{k+1} d_X^k : X^k \to Y^{k+n+1}, \]
+	which also equals
+	$(-1)^m\left(d_Y^{k+n}f^k-(-1)^nf^{k+1}d_X^k\right)$. The argument for
+	$\overline{f}$ is similar: although the case of $\overline{f}$ has no
+	factor $(-1)^m$, there is still an isomorphism of $\Hom$ complexes; see
+	the footnote to Definition~\ref{def:translation-functor}.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.p005
+The multiplication defined in \eqref{eqn:Hom-cplx-multiplication} also obeys
+the Leibniz rule.
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.le002
+\begin{lemma}\label{prop:Hom-cplx-Leibniz}
+	Let $X,Y,Z$ be complexes and
+	$(g,f)\in\Hom^n(Y,Z)\times\Hom^m(X,Y)$. With respect to the
+	multiplication in \eqref{eqn:Hom-cplx-multiplication}, the following
+	equality holds:
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.q009
+	\[
+		\begin{aligned}
+			d^{n+m}(gf)
+				&= (d^n g)f \\
+				&\quad + (-1)^n g(d^m f)
+		\end{aligned}
+	\]
+	in $\Hom^{n+m+1}(X,Z)$.
+\end{lemma}
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.pf003
+\begin{proof}
+	This is a direct calculation, left to the reader.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.le003
+\begin{lemma}\label{prop:Hom-as-cocycle}
+	Let $n\in\Z$ and $f\in\Hom^n(X,Y)$. Then $d^nf=0$ if and only if
+	$f\in\Hom(X,Y[n])$.
+\end{lemma}
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.pf004
+\begin{proof}
+	Via Lemma~\ref{prop:Hom-cplx-d-translate}, identify $f$ with an element of
+	$\Hom^0(X,Y[n])$, reducing the question to the case $n=0$. Clearly,
+	$d^0f=0\iff d_Yf=fd_X$.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.d002
+\begin{definition}\label{def:homotopy}
+	\index{homotopy}
+	\index{null-homotopic}
+	Let $n\in\Z$. Regard $\Hom(X,Y[n])$ as a subset of $\Hom^n(X,Y)$.
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.l001
+	\begin{compactitem}
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.i001
+		\item If $f,g\in\Hom(X,Y[n])$ and
+		$h\in\Hom^{n-1}(X,Y)$ (equivalently,
+		$h\in\Hom^{-1}(X,Y[n])$)%
+		\footnote{Translator's note (O014-C034): the source does not state the
+		degree of $h$, although $d^{n-1}h$ requires
+		$h\in\Hom^{n-1}(X,Y)$. This translation makes its type explicit.}
+		satisfies $g-f=d^{n-1}h$, then $h$ is called a \emph{homotopy} from
+		$f$ to $g$.
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.i002
+		\item For $f,g$ as above, if there exists a homotopy from $f$ to $g$,
+		then $f$ and $g$ are called homotopic. A morphism $f$ homotopic to the
+		zero morphism is called \emph{null-homotopic}.
+	\end{compactitem}
+
+	As the special case $n=0$, a morphism $f\in\Hom(X,Y)$ is null-homotopic
+	if and only if there is a family of morphisms $h^m:X^m\to Y^{m-1}$ such
+	that
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.q010
+	\[ \forall m \in \Z, \quad f^m = d_Y^{m-1} h^m + h^{m+1} d_X^m . \]
+\end{definition}
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.p006
+Homotopy is an equivalence relation. Lemma~\ref{prop:Hom-as-cocycle} gives the
+key equality in $\cate{Ab}$ (or $\Bbbk\dcate{Mod}$):
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.q011
+\[ \Hm^n\left(\Hom^\bullet(X, Y), d^\bullet \right) = \Hom\left(X, Y[n]\right) \big/ \{\text{null-homotopic morphisms} \}. \]
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.p007
+The next result shows that null-homotopic morphisms are not merely closed under
+addition but form an ideal.
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.le004
+\begin{lemma}\label{prop:null-homotopic-composition}
+	Let $X\xrightarrow{f}Y[m]$ and $Y\xrightarrow{g}Z[n]$ be morphisms of
+	complexes. If $f$ or $g$ is null-homotopic, then
+	$g[m]\circ f:X\to Z[n+m]$ is null-homotopic.
+\end{lemma}
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.pf005
+\begin{proof}
+	We suppress the superscripts on $d$. Suppose $f=dh$, where
+	$h\in\Hom^{-1}(X,Y[m])$. Interpreting composition inside $\Hom^\bullet$,
+	we may abbreviate $g[m]\circ f$ as $gf$. Lemma~\ref{prop:Hom-cplx-Leibniz}
+	gives $d(gh)=(dg)h+(-1)^ng(dh)=(-1)^ngf$, so $gf$ is null-homotopic. The
+	case $g=dh$ is similar.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.p008
+Suppressing the subscript on $d_{\Hom^\bullet}$,
+Lemmas~\ref{prop:Hom-cplx-Leibniz} and
+\ref{prop:null-homotopic-composition} show that the multiplication on
+$\Hom^\bullet$ in \eqref{eqn:Hom-cplx-multiplication} induces
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.q012
+\begin{equation}\label{eqn:homotopy-cat-cmposition}
+	\Hm^n\left(\Hom^\bullet(Y, Z) \right) \times \Hm^m\left(\Hom^\bullet(X, Y) \right) \to \Hm^{n+m}\left( \Hom^\bullet(X, Z) \right) ,
+\end{equation}
+and the binary operation \eqref{eqn:homotopy-cat-cmposition} inherits
+associativity and distributivity over addition from
+\eqref{eqn:Hom-cplx-multiplication}.
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.d003
+\begin{definition}\label{def:cplx-homotopy-cat}
+	\index[sym1]{KA@$\cate{K}(\mathcal{A})$}
+	Define the category $\cate{K}(\mathcal{A})$ from
+	$\cate{C}(\mathcal{A})$ by setting
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.q013
+	\begin{align*}
+		\Obj\left( \cate{K}(\mathcal{A}) \right) & := \Obj\left( \cate{C}(\mathcal{A}) \right), \\
+		\Hom_{\cate{K}(\mathcal{A})}\left( X, Y \right) & := \Hm^0\left( \Hom^\bullet\left( X, Y \right), d^\bullet_{\Hom} \right),
+	\end{align*}
+	with composition determined by \eqref{eqn:homotopy-cat-cmposition} for
+	$n=m=0$.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.p009
+Observe that $\cate{K}(\mathcal{A})$ is an additive category: addition on
+morphism sets is clear, the zero object comes from the zero object of
+$\cate{C}(\mathcal{A})$, and the existence of products (or coproducts) follows
+from the more general property that there are natural isomorphisms
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.q014
+\begin{align*}
+	\Hom_{\cate{K}(\mathcal{A})}\left( X, \prod_{i \in I} Y_i \right) & \simeq \prod_{i \in I} \Hom_{\cate{K}(\mathcal{A})}(X, Y_i) \\
+	\text{or}\quad \Hom_{\cate{K}(\mathcal{A})}\left( \coprod_{i \in I} X_i, Y \right) & \simeq \prod_{i \in I} \Hom_{\cate{K}(\mathcal{A})}(X_i, Y),
+\end{align*}
+where $I$ is any set, provided $\prod_{i\in I}Y_i$ (or $\coprod_iX_i$)
+exists at the level of $\cate{C}(\mathcal{A})$. Since taking products and
+taking $\Hm^0$ commute in $\cate{C}(\cate{Ab})$, everything reduces to the
+evident isomorphisms of $\Hom$ complexes
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.q015
+\begin{align*}
+	\Hom^\bullet\left(X, \prod_i Y_i\right) & \simeq \prod_i \Hom^\bullet(X, Y_i) \\
+	\text{or}\quad \Hom^\bullet\left(\coprod_i X_i, Y\right) & \simeq \prod_i \Hom^\bullet(X_i, Y).
+\end{align*}
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.p010
+The shift functor $[n]$ induces an automorphism of the additive category
+$\cate{K}(\mathcal{A})$, still denoted by $[n]$. The additive functor
+$\cate{C}(\mathcal{A})\to\cate{K}(\mathcal{A})$ is the identity on objects
+and the quotient map on morphism sets. The following universal property is
+immediate.
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.pr001
+\begin{proposition}\label{prop:homotopy-category-universal-property}
+	If $\mathcal{B}$ is an $\cate{Ab}$-category and the additive functor
+	$F:\cate{C}(\mathcal{A})\to\mathcal{B}$ sends every null-homotopic
+	morphism to the zero morphism, then $F$ factors uniquely through
+	$\cate{C}(\mathcal{A})\to\cate{K}(\mathcal{A})$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.p011
+The exercises in the next chapter will show that $\cate{K}(\mathcal{A})$ is
+generally not an abelian category.
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.r001
+\begin{remark}\index{Hom complex@$\Hom$ complex}\index[sym1]{Homlbullet@$\Hom_\bullet$}
+	\label{rem:Hom-chain-cplx}
+	For chain complexes (Remark~\ref{rem:cochain-vs-chain}) there is a
+	corresponding $\Hom_\bullet$:
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.q016
+	\begin{gather*}
+		\Hom_n(X, Y) := \prod_{k \in \Z} \Hom\left(X_k, Y_{k+n} \right), \\
+		d_n f = d_Y f - (-1)^n f d_X, \quad f \in \Hom_n(X, Y).
+	\end{gather*}
+	Indeed, use the convention in Remark~\ref{rem:cochain-vs-chain}, setting
+	$X^n=X_{-n}$, $d^n=d_{-n}$, and so on. Then
+	$\left(\Hom_n(X,Y),d_n\right)_n$ is precisely the chain complex
+	corresponding to $\left(\Hom^n(X,Y),d^n\right)_n$:
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.q017
+	\begin{align*}
+		\Hom_n\left(X, Y \right) & = \prod_{k \in \Z} \Hom\left( X_k, Y_{n+k} \right) \xlongequal{h = -k} \prod_{h \in \Z} \Hom\left(X^h, Y^{h-n} \right) \\
+		& = \Hom^{-n} \left(X, Y\right),
+	\end{align*}
+	and the relation between $d_n$ and $d^{-n}$ is similar. Of course, chain
+	complexes have a corresponding version of $\cate{K}(\mathcal{A})$ as
+	well.
+\end{remark}
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.p012
+Given an additive functor $F:\mathcal{A}\to\mathcal{B}$ between additive
+categories and any $X,Y\in\Obj(\cate{C}(\mathcal{A}))$, applying $F$
+termwise gives a morphism in $\cate{C}(\cate{Ab})$
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.q018
+\begin{align*}
+	\Hom^\bullet\left(X, Y\right) & \to \Hom^\bullet\left(\cate{C}F(X), \cate{C}F(Y) \right) \\
+	(f^k)_{k \in \Z}\in\Hom^r(X,Y) & \mapsto
+	(F(f^k))_{k \in \Z}\in
+	\Hom^r\left(\cate{C}F(X),\cate{C}F(Y)\right) \qquad (r\in\Z).
+\end{align*}
+Taking $\Hm^0$ on both sides gives
+\[
+	\Hom_{\cate{K}(\mathcal{A})}(X,Y)\longrightarrow
+	\Hom_{\cate{K}(\mathcal{B})}
+	\bigl(\cate{C}F(X),\cate{C}F(Y)\bigr).
+\]
+Thus we obtain a functor $\cate{K}F:\cate{K}(\mathcal{A})\to
+\cate{K}(\mathcal{B})$ that makes the following diagram commute:
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.g002
+\begin{equation}\label{eqn:KF}\begin{tikzcd}
+	\cate{C}(\mathcal{A}) \arrow[r, "{\cate{C}F}"] \arrow[d] & \cate{C}(\mathcal{B}) \arrow[d] \\
+	\cate{K}(\mathcal{A}) \arrow[r, "{\cate{K}F}"'] & \cate{K}(\mathcal{B}).
+\end{tikzcd}\end{equation}
+The top row is the functor in Proposition~\ref{prop:CA-functoriality}. These
+constructions are compatible with adjoint pairs.
+\index[sym1]{KF@$\cate{K}F$}
+
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.pr002
+\begin{proposition}\label{prop:KF-adjoint}
+	Consider an adjoint pair $(F,G,\varphi)$, where
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.g003
+	$\begin{tikzcd}
+		F: \mathcal{A} \arrow[shift left, r] & \mathcal{B} \arrow[shift left, l] : G
+	\end{tikzcd}$
+	are additive functors between additive categories. Then
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.g004
+	\[\begin{tikzcd}
+		\cate{K}F: \cate{K}(\mathcal{A}) \arrow[shift left, r] & \cate{K}(\mathcal{B}) \arrow[shift left, l] : \cate{K}G
+	\end{tikzcd}\]
+	naturally forms an adjoint pair as well.
+\end{proposition}
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.pf006
+\begin{proof}
+	The adjunction data $\varphi$ are a family of bijections
+	$\varphi_{A,B}:\Hom_{\mathcal{B}}(FA,B)\simeq
+	\Hom_{\mathcal{A}}(A,GB)$, functorial in $A$ and $B$.
+	Proposition~\ref{prop:automatic-k-morphism} ensures that these bijections
+	are linear, and hence they induce a canonical isomorphism of complexes
+% segment-id: o014.li2.chapter3.hom-complex-and-homotopy.q019
+	\[ \Hom^\bullet\left( \cate{C}F(X), Y \right) \simeq \Hom^\bullet\left( X, \cate{C}G(Y) \right). \]
+	In degree $r$, this isomorphism sends
+	\[
+		(f^k)_{k\in\Z}\in\Hom^r(\cate{C}F(X),Y)
+		\longmapsto
+		(\varphi_{X^k,Y^{k+r}}(f^k))_{k\in\Z}
+		\in\Hom^r(X,\cate{C}G(Y)).
+	\]%
+	\footnote{Translator's note (O014-C035): the source writes the component
+	as $\varphi_{A,B}(f^n)$ without tying $A$ and $B$ to the source and target
+	of the relevant graded component. This translation uses $r$ for the
+	complex degree and $k$ for the family index, so the component is typed as
+	$\varphi_{X^k,Y^{k+r}}(f^k)$.}
+	By \eqref{eqn:KF}, taking $\Hm^0$ on both sides makes $\cate{K}F$ left
+	adjoint to $\cate{K}G$.
+\end{proof}

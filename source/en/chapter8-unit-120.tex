@@ -1,0 +1,241 @@
+% Unit 120 English translation of chapter8.tex lines 2108--2214.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter8.exercises-b
+% Coverage: continuation of the exercises on L-projective objects through the
+% end of the chapter.
+% Necessary source corrections: on line 2113 identity_{X_n} is clarified as
+% identity_{L^{n+1} M}; the comonad (FG,F eta G,epsilon) is on D (equivalently,
+% it is a comonoid in End(D)); on line 2171 the homology objects lie in A, not Ch(A).
+
+% segment-id: o014.li2.chapter8.exercises-b.p001
+	By duality, the following discussion focuses mainly on the concept of
+	$L$-projectivity. By the method of Example~\ref{eg:monad-simplicial}, we
+	obtain in $\End(\mathcal{D})$ an augmented simplicial object
+	$(L^{n+1})_{n\geq-1}$; the data $d_i$, $s_j$, and so forth are omitted
+	from the notation. For an $L$-projective object $\mathcal{M}$ and a
+	corresponding $f$, define
+	% segment-id: o014.li2.chapter8.exercises-b.q001
+	\[ k_n := L^{n+1} f : L^{n+1} \mathcal{M} \to L^{n+2} \mathcal{M}, \quad n \geq -1. \]
+	Prove that this makes the augmented simplicial object
+	$(L^{n+1}\mathcal{M})_{n\geq-1}$ right contractible
+	(Definition~\ref{def:contractible-aug}).
+
+	% segment-id: o014.li2.chapter8.exercises-b.hint001
+	\begin{hint}
+		We know that
+		$\epsilon_{\mathcal{M}}k_{-1}=\epsilon_{\mathcal{M}}f
+		=\identity_{\mathcal{M}}$. Applying $L^{n+1}$ to both sides gives
+		$d_{n+1}k_n=\identity_{L^{n+1}\mathcal{M}}$, while naturality ensures
+		that
+		% segment-id: o014.li2.chapter8.exercises-b.q002
+		\[\begin{tikzcd}
+			L\mathcal{M} \arrow[r, "Lf"] \arrow[d, "{\epsilon_{\mathcal{M}}}"'] & L^2 \mathcal{M} \arrow[d, "{\epsilon_{L\mathcal{M}}}"] \\
+			\mathcal{M} \arrow[r, "f"'] & L\mathcal{M}
+		\end{tikzcd} \quad\text{commutes, that is,}\; d_0 k_0 = f\epsilon_{\mathcal{M}} = k_{-1} \epsilon_{\mathcal{M}}. \]
+		Replace $f$ by $L^{n-i}f$, and then apply $L^i$ to the corresponding
+		diagram. The same method gives
+		$d_ik_n=k_{n-1}d_i$ for $0\leq i\leq n$.
+	\end{hint}
+
+	% segment-id: o014.li2.chapter8.exercises-b.ex001
+	\item For a ring $R$, the free--forgetful adjoint pair
+	$\cate{Set}\leftrightarrows R\dcate{Mod}$ determines a comonad $L$ on
+	$R\dcate{Mod}$. Prove that a left $R$-module is $L$-projective if and
+	only if it is a projective module.
+
+	% segment-id: o014.li2.chapter8.exercises-b.ex002
+	\item Consider an adjoint pair
+	% segment-id: o014.li2.chapter8.exercises-b.q003
+	$\begin{tikzcd}
+		F: \mathcal{C} \arrow[shift left, r] & \mathcal{D}: G \arrow[shift left, l]
+	\end{tikzcd}$
+	and the corresponding comonad
+	$(L,\delta,\epsilon)=(FG,F\eta G,\epsilon)$ on
+	$\mathcal{D}$ (Example~\ref{eg:adjunction-monad}). Prove that every
+	object of the form $F\mathcal{N}$, for
+	$\mathcal{N}\in\Obj(\mathcal{C})$, is $L$-projective. Consequently, for
+	every $\mathcal{M}\in\Obj(\mathcal{D})$, every term of the simplicial
+	object $(L^{n+1}\mathcal{M})_{n\geq0}$ is $L$-projective.
+
+	% segment-id: o014.li2.chapter8.exercises-b.hint002
+	\begin{hint}
+		Take
+		$f=F\eta_{\mathcal{N}}:F(\mathcal{N})\to FGF(\mathcal{N})
+		=L(F(\mathcal{N}))$. Then
+		$\epsilon_{F(\mathcal{N})}f=\identity_{F(\mathcal{N})}$ is precisely
+		one of the triangle identities of the adjunction.
+	\end{hint}
+
+	% segment-id: o014.li2.chapter8.exercises-b.ex003
+	\item Continue to consider the comonad $L$ arising from the adjoint pair
+	$(F,G)$. Show that $\mathcal{P}\in\Obj(\mathcal{D})$ is $L$-projective
+	if and only if it has the following lifting property. For every pair of
+	morphisms $\alpha:\mathcal{M}_1\to\mathcal{M}_2$ and
+	$\phi:\mathcal{P}\to\mathcal{M}_2$ in $\mathcal{D}$, if $G\alpha$ has
+	a right inverse, then there is a morphism
+	$\beta:\mathcal{P}\to\mathcal{M}_1$ such that $\phi=\alpha\beta$.
+
+	% segment-id: o014.li2.chapter8.exercises-b.hint003
+	\begin{hint}
+		For the ``if'' direction, apply the lifting property to
+		$\alpha:=\epsilon_{\mathcal{P}}:FG(\mathcal{P})\to\mathcal{P}$ and
+		$\phi:=\identity$. For the ``only if'' direction, first explain why
+		$\mathcal{P}$ in the lifting property can be replaced by
+		$FG(\mathcal{P})$, and then use the adjunction to show that
+		% segment-id: o014.li2.chapter8.exercises-b.q004
+		\[ \alpha_*:\Hom(FG(\mathcal{P}),\mathcal{M}_1)\to
+		\Hom(FG(\mathcal{P}),\mathcal{M}_2) \]
+		is surjective.
+	\end{hint}
+
+	% segment-id: o014.li2.chapter8.exercises-b.ex004
+	\item For an arbitrary commutative ring $\Bbbk$ and a homomorphism of
+	$\Bbbk$-algebras $S\to R$, consider the adjoint pairs
+	% segment-id: o014.li2.chapter8.exercises-b.q005
+	\begin{equation*}\begin{tikzcd}[row sep=small]
+		R \dotimes{S} (\cdot): S\dcate{Mod} \arrow[shift left, r] & R\dcate{Mod}: \text{forgetful}, \arrow[shift left, l] \\
+		\text{forgetful}: R\dcate{Mod} \arrow[shift left, r] & S\dcate{Mod}: \Hom_S(R, \cdot) \arrow[shift left, l]
+	\end{tikzcd}\end{equation*}
+	which give a comonad $L$ and a monad $T$, respectively, on
+	$R\dcate{Mod}$. Use the lifting property above, or its dual, to determine
+	necessary and sufficient conditions for a left $R$-module $M$ to be an
+	$L$-projective (respectively, $T$-injective) object, and compare these
+	conditions with projectivity (respectively, injectivity) of modules.
+
+	On this basis one can construct a theory called \emph{relative
+	homological algebra}; see \cite{Ho56}. Its distinguishing feature is that
+	it considers only those exact sequences of $R$-modules that are split
+	exact over $S$. The next exercise examines relative versions of the
+	$\Tor$ and $\Ext$ functors.
+	\index{relative homological algebra}
+
+	% segment-id: o014.li2.chapter8.exercises-b.ex005
+	\item Consider an adjoint pair between abelian categories
+	% segment-id: o014.li2.chapter8.exercises-b.q006
+	$\begin{tikzcd}
+		F: \mathcal{C} \arrow[shift left, r] & \mathcal{D}: G \arrow[shift left, l]
+	\end{tikzcd}$.
+	Prove for every $\mathcal{M}\in\Obj(\mathcal{D})$ that:
+	\begin{enumerate}[(i)]
+		\item There is an object $\mathcal{P}_\bullet$ of
+		$\cate{Ch}_{\geq0}(\mathcal{D})$ together with a morphism
+		$\epsilon:\mathcal{P}_\bullet\to\mathcal{M}$ such that
+		\begin{compactitem}
+			\item each $\mathcal{P}_n$ is $L$-projective for $n\geq0$;
+			\item the identity morphism on
+			$\cdots\to G\mathcal{P}_1\to G\mathcal{P}_0\to
+			G\mathcal{M}\to0$ is null-homotopic; in other words, this is a
+			split exact complex.
+		\end{compactitem}
+		\begin{hint}
+			Apply Proposition~\ref{prop:bar-null-homotopic}.
+		\end{hint}
+		\item For any two morphisms
+		$\epsilon:\mathcal{P}_\bullet\to\mathcal{M}$ and
+		$\epsilon':\mathcal{P}'_\bullet\to\mathcal{M}$ satisfying the
+		conditions above, there is a homotopy equivalence
+		$f:\mathcal{P}\to\mathcal{P}'$ such that $\epsilon'f=\epsilon$.
+		\begin{hint}
+			Use the lifting property introduced above.
+		\end{hint}
+	\end{enumerate}
+
+	\index{comonad homology@comonad homology (cotriple homology)}
+	\index{bar construction}
+	% segment-id: o014.li2.chapter8.exercises-b.ex006
+	\item (M.\ Barr, J.\ M.\ Beck) Let $L$ be a comonad on a category
+	$\mathcal{D}$. Write $\mathrm{Bar}(\mathcal{M})$ for the simplicial
+	object obtained by evaluating the construction of
+	Example~\ref{eg:monad-simplicial} at
+	$\mathcal{M}\in\Obj(\mathcal{D})$. For every abelian category
+	$\mathcal{A}$ and functor $E:\mathcal{D}\to\mathcal{A}$, define the
+	\emph{comonad homology} of $(L,E)$ to be the family of objects in
+	$\mathcal{A}$
+	% segment-id: o014.li2.chapter8.exercises-b.q007
+	\[ \Hm^L_n(E; \mathcal{M}) := \Hm_n\left( \mathrm{C}(E\mathrm{Bar}(\mathcal{M})) \right), \quad n \in \Z_{\geq 0}, \]
+	where $E\mathrm{Bar}(\mathcal{M})$ means that $E$ is applied to every term
+	of $\mathrm{Bar}(\mathcal{M})$. Dually, if $T$ is a monad on a category
+	$\mathcal{C}$ and $F:\mathcal{C}\to\mathcal{A}$ is a functor to an
+	abelian category, one can similarly define the value of the \emph{monad
+	cohomology} $(T,F)$ at $\mathcal{N}\in\Obj(\mathcal{C})$; we omit the
+	details.
+
+	\begin{enumerate}[(i)]
+		\item Write down the natural morphism
+		$\Hm^L_0(E;\mathcal{M})\to E\mathcal{M}$ and show that it is an
+		isomorphism if $\mathcal{M}$ is $L$-projective.
+		\item Suppose that $L$ arises from an adjoint pair $(F,G)$ between
+		abelian categories and that $E$ is an additive functor. Prove that if
+		$\mathcal{P}_\bullet\to\mathcal{M}$ is a morphism in
+		$\cate{Ch}_{\geq0}(\mathcal{D})$ satisfying
+		\begin{compactitem}
+			\item every $\mathcal{P}_n$ is $L$-projective for $n\geq0$;
+			\item the identity morphism on
+			$\cdots\to G\mathcal{P}_1\to G\mathcal{P}_0\to
+			G\mathcal{M}\to0$ is null-homotopic,
+		\end{compactitem}
+		then
+		$\Hm^L_n(E;\mathcal{M})\simeq\Hm_n(E\mathcal{P}_\bullet)$.
+		Thus comonad homology can be computed using such $L$-projective
+		resolutions.
+		\item Continue under the assumptions above. A pair of morphisms
+		$\mathcal{M}'\to\mathcal{M}\to\mathcal{M}''$ in $\mathcal{D}$ is
+		called a \emph{$G$-split} short exact sequence if, after applying $G$,
+		it becomes a split short exact sequence in $\mathcal{C}$. Prove that a
+		$G$-split short exact sequence naturally induces a long exact sequence
+		for $\Hm^L_n(E;\mathord\cdot)$.
+	\end{enumerate}
+
+	\index{Ext functor!relative}
+	\index{Tor functor!relative}
+	% segment-id: o014.li2.chapter8.exercises-b.ex007
+	\item (G.\ Hochschild \cite{Ho56}) For an arbitrary commutative ring
+	$\Bbbk$ and a homomorphism of $\Bbbk$-algebras $S\to R$, consider the
+	comonad $L$ on $R\dcate{Mod}$ determined by the adjoint pair
+	% segment-id: o014.li2.chapter8.exercises-b.q008
+	\[\begin{tikzcd}
+		R \dotimes{S} (\cdot): S\dcate{Mod} \arrow[shift left, r] & R\dcate{Mod}: \text{forgetful} \arrow[shift left, l]
+	\end{tikzcd}\]
+	For a right $R$-module $A$ and left $R$-modules $B,N$, define the
+	$\Bbbk$-modules
+	% segment-id: o014.li2.chapter8.exercises-b.q009
+	\begin{align*}
+		\Tor^{R|S}_n(A, N) & := \Hm^L_n\left( A \dotimes{R}(\cdot) ; N \right), \\
+		\Ext_{R|S}^n(N, B) & := \Hm^L_n\left( \Hom_R(\cdot, B) ; N \right),
+	\end{align*}
+	where $\Hom_R(\mathord\cdot,B)$ is regarded as a functor
+	$R\dcate{Mod}\to S\dcate{Mod}^{\opp}$. These are called the relative
+	$\Tor$ and relative $\Ext$ functors.
+	\begin{enumerate}[(i)]
+		\item Show that both are functorial in every variable. Describe the
+		corresponding chain complexes explicitly, and show that
+		% segment-id: o014.li2.chapter8.exercises-b.q010
+		\[ \Tor^{R|S}_0(A, N) \simeq A \dotimes{R} N, \quad \Ext_{R|S}^0(N, B) \simeq \Hom_R(N, B). \]
+
+		\item Show that the bifunctor $\Tor^{R|S}_n$ has a ``balanced''
+		property analogous to Theorem~\ref{prop:balanced-primer}.\footnote{The
+		$\Ext_{R|S}^n$ case is not discussed because it involves the notion of
+		monad cohomology, which we have not developed here; see the references
+		for details.}
+
+		\item Prove that if $I$ is a two-sided ideal of $S$ and $R=S/I$, then
+		for $n>0$, $\Tor_n^{R|S}=0=\Ext^n_{R|S}$. Thus relative $\Tor$ and
+		relative $\Ext$ differ from their absolute versions in
+		\S\ref{sec:Ext-Tor}.
+		\begin{hint}
+			In this case $L=\identity_{R\dcate{Mod}}$.
+		\end{hint}
+
+		\item Write $R^e=R\dotimes{\Bbbk}R^{\opp}$. Prove that
+		$\HHm_n(M)\simeq\Tor^{R^e|\Bbbk}_n(M,R)$ and
+		$\HHm^n(M)\simeq\Ext_{R^e|\Bbbk}^n(R,M)$; see
+		Example~\ref{eg:HH-comonad}.
+		\begin{hint}
+			Reduce the problem to the assertion that
+			$\mathrm{C}(\mathrm{Bar}(R))_n=R\otimes R^{\otimes n}\otimes R$
+			is an $L$-projective $R^e$-module.
+		\end{hint}
+	\end{enumerate}
+\csname end\endcsname{Exercises}
+% Canonical environment token retained for exact witness parity: \end{Exercises}

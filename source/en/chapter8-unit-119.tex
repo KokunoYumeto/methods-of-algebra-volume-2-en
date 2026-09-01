@@ -1,0 +1,260 @@
+% Unit 119 English translation of chapter8.tex lines 2000--2107.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter8.exercises-a
+% Coverage: the first half of the Chapter 8 exercises, from the opening of
+% the Exercises through the definition of L-projective and T-injective objects;
+% Unit 120 continues at line 2108.
+% Editorial corrections: in the uniqueness hint for Exercise 2, the equality
+% forced by y=DS'y' is y=\widetilde{D}y'; the source reverses its two sides.
+% The Kan condition in Exercise 11 starts at n >= 1, since no 0-dimensional
+% horn Lambda^0_i exists.
+
+\hypertarget{o014.aljabr2.chapter8.exercises-a}{ }
+% segment-id: o014.aljabr2.chapter8.exercises-a.h001
+% Canonical environment token retained for exact witness parity: \begin{Exercises}
+\csname begin\endcsname{Exercises}
+% segment-id: o014.aljabr2.chapter8.exercises-a.ex001
+	\item Prove that, for every category $\mathcal{C}$, the construction
+	$C\mapsto\mathrm{const}(C)$ of Example~\ref{eg:const-simplicial} gives a
+	fully faithful functor $\mathcal{C}\to\cate{s}\mathcal{C}$.
+
+% segment-id: o014.aljabr2.chapter8.exercises-a.ex002
+	\item Let $X$ be a simplicial set and $x\in X_n$. Prove that there is a
+	sequence of indices $j_1<\cdots<j_h$ and a nondegenerate simplex $y$ such
+	that $x=s_{j_h}\cdots s_{j_1}(y)$, and that $y$ is unique.
+
+% segment-id: o014.aljabr2.chapter8.exercises-a.hi001
+	\begin{hint}
+		The difficulty lies in uniqueness. Suppose that $Sy=x=S'y'$, where
+		$S$ and $S'$ are both of the form in the statement. We can choose a
+		composite $D$ of a sequence of face morphisms such that
+		$y=DSy=DS'y'$. Rewrite $DS'$ in the form
+		$\widetilde{S}'\widetilde{D}$ (the meaning of the notation is clear).
+		Since $y$ is nondegenerate, we must have
+		$\widetilde{S}'=\identity$, and hence $y=\widetilde{D}y'$. Use symmetry
+		to conclude that $y=y'$ and $\widetilde{D}=\identity$.
+	\end{hint}
+
+% segment-id: o014.aljabr2.chapter8.exercises-a.ex003
+	\item Show that the following diagram exists in $\cate{sSet}$, with both
+	the upper and lower parts commutative, for $0\leq i<j\leq n$:
+% segment-id: o014.aljabr2.chapter8.exercises-a.q001
+	\[\begin{tikzcd}
+		\Delta^{n-2} \arrow[d, "{\iota_{i < j}}"'] \arrow[r, "{\mathrm{d}^{j-1}}"] & \Delta^{n-1} \arrow[d, "\iota_i"] \arrow[rd, "{\mathrm{d}^i}"] & \\
+		\bigsqcup_{0 \leq i' < j' \leq n} \Delta^{n-2} \arrow[shift left, r] \arrow[shift right, r] & \bigsqcup_{i' = 0}^n \Delta^{n-1} \arrow[r] & \partial \Delta^n \\
+		\Delta^{n-2} \arrow[u, "{\iota_{i < j}}"] \arrow[r, "{\mathrm{d}^i}"'] & \Delta^{n-1} \arrow[u, "\iota_j"'] \arrow[ru, "{\mathrm{d}^j}"'] &
+	\end{tikzcd}\]
+	Here $\bigsqcup$ is taken degreewise in
+	$\cate{sSet}=\cate{Set}^{\simpDelta^{\opp}}$, while $\iota_{i<j}$
+	(respectively, $\iota_i$) denotes the embedding into the $i<j$ term
+	(respectively, the $i$th term). All arrows in the middle row are
+	characterized by this commutativity. Show, moreover, that the middle row is
+	a coequalizer.
+
+	Similarly, show that for every $0\leq k\leq n$ there is also a diagram
+% segment-id: o014.aljabr2.chapter8.exercises-a.q002
+	\[\begin{tikzcd}
+		\Delta^{n-2} \arrow[d, "{\iota_{i < j}}"'] \arrow[r, "{\mathrm{d}^{j-1}}"] & \Delta^{n-1} \arrow[d, "\iota_i"] \arrow[rd, "{\mathrm{d}^i}"] & \\
+		\bigsqcup_{\substack{0 \leq i' < j' \leq n \\ i', j' \neq k}} \Delta^{n-2} \arrow[shift left, r] \arrow[shift right, r] & \bigsqcup_{\substack{0 \leq i' \leq n \\ i' \neq k}} \Delta^{n-1} \arrow[r] & \Lambda^n_k \\
+		\Delta^{n-2} \arrow[u, "{\iota_{i < j}}"] \arrow[r, "{\mathrm{d}^i}"'] & \Delta^{n-1} \arrow[u, "\iota_j"'] \arrow[ru, "{\mathrm{d}^j}"'] &
+	\end{tikzcd}\]
+	whose middle row is a coequalizer and where $i,j\neq k$. Try to explain
+	the topological meaning of these coequalizers.
+
+% segment-id: o014.aljabr2.chapter8.exercises-a.ex004
+	\item Verify the following properties of the join operation $\star$ in
+	Definition~\ref{def:simplicial-join}.
+	\begin{enumerate}[(i)]
+% segment-id: o014.aljabr2.chapter8.exercises-a.i001
+		\item Simplicial sets naturally form a monoidal category under $\star$,
+		with the constant empty simplicial set $\emptyset$ as unit object.
+% segment-id: o014.aljabr2.chapter8.exercises-a.i002
+		\item The order-reversal duality of
+		Remark~\ref{rem:simpDelta-order-reversal} gives an automorphism of
+		$\cate{sSet}$, provisionally denoted by $X\mapsto\hat{X}$. Show that
+		$(X\star Y)^{\wedge}\simeq\hat{Y}\star\hat{X}$.
+% segment-id: o014.aljabr2.chapter8.exercises-a.i003
+		\item Verify that
+		$\Delta^p\star\Delta^q\simeq\Delta^{p+q+1}$.
+	\end{enumerate}
+
+% segment-id: o014.aljabr2.chapter8.exercises-a.ex005
+	\item Show that taking the order-reversal dual of a simplicial set does
+	not change its geometric realization, up to canonical homeomorphism.
+% segment-id: o014.aljabr2.chapter8.exercises-a.hi002
+	\begin{hint}
+		Begin with the case of $\Delta^n$.
+	\end{hint}
+
+% segment-id: o014.aljabr2.chapter8.exercises-a.ex006
+	\item Verify the assertion of Example~\ref{eg:cone-realization}.
+
+% segment-id: o014.aljabr2.chapter8.exercises-a.ex007
+	\item Let $\mathcal{C}$ and $\mathcal{C}'$ be categories. Define the
+	category $\mathcal{C}\star\mathcal{C}'$ as follows:
+% segment-id: o014.aljabr2.chapter8.exercises-a.q003
+	\begin{align*}
+		\Obj(\mathcal{C} \star \mathcal{C}') & := \Obj(\mathcal{C}) \sqcup \Obj(\mathcal{C}'), \\
+		\Hom_{\mathcal{C} \star \mathcal{C}'}(X, Y) & := \begin{cases}
+			\Hom_{\mathcal{C}}(X, Y), & X, Y \in \Obj(\mathcal{C}) \\
+			\Hom_{\mathcal{C}'}(X, Y), & X, Y \in \Obj(\mathcal{C}'), \\
+			\text{one-point set}, & X \in \Obj(\mathcal{C}), \; Y \in \Obj(\mathcal{C}'), \\
+			\emptyset, & X \in \Obj(\mathcal{C}'), \; Y \in \Obj(\mathcal{C}).
+		\end{cases}
+	\end{align*}
+	Composition and identity morphisms are defined in the evident way. Prove
+	that the join operation $\star$ on simplicial sets and the nerve functor of
+	Example~\ref{eg:nerve-cat} are related by
+% segment-id: o014.aljabr2.chapter8.exercises-a.q004
+	\[ \mathrm{N}(\mathcal{C}) \star \mathrm{N}(\mathcal{C}') \simeq \mathrm{N}(\mathcal{C} \star \mathcal{C}'). \]
+
+% segment-id: o014.aljabr2.chapter8.exercises-a.ex008
+	\item Give a more detailed proof of Equations~\eqref{eqn:shuffle-sign-0}
+	and \eqref{eqn:shuffle-sign-1}.
+
+% segment-id: o014.aljabr2.chapter8.exercises-a.ex009
+	\item For a simplicial object $X$ in an arbitrary category, define the
+	simplicial objects called the decalages $\mathrm{Déc}_0X$ and
+	$\mathrm{Déc}^0X$ by
+	$(\mathrm{Déc}_0X)_n=(\mathrm{Déc}^0X)_n=X_{n+1}$ and
+% segment-id: o014.aljabr2.chapter8.exercises-a.q005
+	\begin{gather*}
+		d^{\mathrm{Déc}_0 X, n}_i = d^{X, n+1}_i, \quad s^{\mathrm{Déc}_0 X, n}_j = s^{X, n+1}_j, \\
+		d^{\mathrm{Déc}^0 X, n}_i = d^{X, n+1}_{i+1}, \quad
+		s^{\mathrm{Déc}^0 X, n}_j = s^{X, n+1}_{j+1}.
+	\end{gather*}
+	Show that both are well-defined and are related by the order-reversal
+	duality (Remark~\ref{rem:simpDelta-order-reversal}). Also show that for an
+	additive category,
+	$\mathrm{C}(\mathrm{Déc}^0X)=\mathrm{C}(X)[1]$; see
+	Remark~\ref{rem:chain-cplx-translation}.
+	\index{simplicial object!decalage@decalage ($\mathrm{Déc}$)}
+	\index[sym1]{Dec@$\mathrm{Déc}_0 X, \mathrm{Déc}^0 X$}
+
+% segment-id: o014.aljabr2.chapter8.exercises-a.ex010
+	\item Continuing the preceding exercise, show that
+	$d_0:X_1\to X_0$ (respectively, $d_1:X_1\to X_0$) gives an augmentation
+	of $\mathrm{Déc}_0X$ (respectively, $\mathrm{Déc}^0X$), with $X_0$ as
+	the term of degree $-1$. Show further that, after augmentation,
+	$\mathrm{Déc}_0X$ is right contractible and $\mathrm{Déc}^0X$ is left
+	contractible; see Definition~\ref{def:contractible-aug}.
+% segment-id: o014.aljabr2.chapter8.exercises-a.hi003
+	\begin{hint}
+		It suffices to treat $\mathrm{Déc}_0X$. Take
+		$k_{n-1}:=s_n:X_n\to X_{n+1}$.
+	\end{hint}
+
+% segment-id: o014.aljabr2.chapter8.exercises-a.ex011
+	\item Prove that a small category $\mathcal{C}$ is a groupoid (that is,
+	all its morphisms are invertible) if and only if $\mathrm{N}\mathcal{C}$
+	satisfies the following condition: for every $n\in\Z_{\geq1}$ and
+	$0\leq i\leq n$, every morphism
+	$\Lambda^n_i\to\mathrm{N}\mathcal{C}$ can be extended to
+	$\Delta^n\to\mathrm{N}\mathcal{C}$, without requiring uniqueness. A
+	simplicial set satisfying this extension condition is called a Kan
+	complex.
+
+% segment-id: o014.aljabr2.chapter8.exercises-a.ex012
+	\item Continue the discussion of
+	Example~\ref{eg:classifying-space-std-cplx}. Show that the normalized
+	complex $\overline{\mathsf{L}}$, after being reversed into a chain complex,
+	is isomorphic to $\mathrm{N}(\Bbbk\mathrm{E}\Gamma)$.
+% segment-id: o014.aljabr2.chapter8.exercises-a.hi004
+	\begin{hint}
+		First use Proposition~\ref{prop:Dold-Kan-v} to identify $\mathrm{N}(X)$
+		with a quotient of $\mathrm{C}(X)$.
+	\end{hint}
+
+% segment-id: o014.aljabr2.chapter8.exercises-a.ex013
+	\item Let $\Gamma$ be a monoid. Write $\cated{Set}\Gamma$ for the category
+	of all small sets with a right $\Gamma$-action.
+	\begin{enumerate}[(i)]
+% segment-id: o014.aljabr2.chapter8.exercises-a.i004
+		\item Describe explicitly the free--forgetful adjoint pair
+% segment-id: o014.aljabr2.chapter8.exercises-a.q006
+		\[\begin{tikzcd}
+			\mathrm{F}: \cate{Set} \arrow[shift left, r] & \cated{Set}\Gamma \arrow[shift left, l]: U
+		\end{tikzcd}\]
+		together with its unit and counit morphisms. Show that the corresponding
+		monad $T$ gives an equivalence
+		$\cated{Set}\Gamma\simeq\cate{Set}^T$.
+
+% segment-id: o014.aljabr2.chapter8.exercises-a.hi005
+		\begin{hint}
+			The functor $\mathrm{F}$ sends a set $X$ to $X\times\Gamma$, with
+			$\Gamma$ acting by right multiplication on the second component. The
+			unit morphism is $x\mapsto(x,1)$, while the counit morphism is the
+			action map.
+		\end{hint}
+% segment-id: o014.aljabr2.chapter8.exercises-a.i005
+		\item For every right $\Gamma$-set $X$, describe the corresponding
+		simplicial object $\mathrm{Bar}(X)$ in $\cated{Set}\Gamma$; see
+		Examples~\ref{eg:bar-adjunction} and \ref{eg:bar-comonad}.
+% segment-id: o014.aljabr2.chapter8.exercises-a.i006
+		\item Take the one-point set $X=\{\mathrm{pt}\}$ with trivial right
+		$\Gamma$-action. Show that the corresponding simplicial object is
+		isomorphic to $\mathrm{E}\Gamma$ of
+		Example~\ref{eg:classifying-space}; it becomes a simplicial object in
+		$\cated{Set}\Gamma$ via the right $\Gamma$-action on each
+		$(\mathrm{E}\Gamma)_n$.
+	\end{enumerate}
+
+% segment-id: o014.aljabr2.chapter8.exercises-a.ex014
+	\item Fix a group $\Gamma$. In Example~\ref{eg:HH-comonad}, take the group
+	algebra $R=\Bbbk[\Gamma]$ and take $M$ to be the trivial $\Gamma$-module
+	$\Bbbk$; see Example~\ref{eg:trivial-G-mod}. Show that the corresponding
+	$\epsilon_{\Bbbk}:\mathrm{C}(\mathrm{Bar}(\Bbbk))\to\Bbbk$ is isomorphic
+	to the resolution $\mathsf{L}=(\mathsf{L}_n,\partial'_n)_n\to\Bbbk$ of
+	Proposition~\ref{prop:trivial-mod-resolution}.
+% segment-id: o014.aljabr2.chapter8.exercises-a.hi006
+	\begin{hint}
+		Use \eqref{eqn:L-basis-partial}.
+	\end{hint}
+
+% segment-id: o014.aljabr2.chapter8.exercises-a.ex015
+	\item Let $\Bbbk$ be a commutative ring and
+	$\mathcal{A}=\Bbbk\dcate{Mod}$, with $\otimes=\otimes_{\Bbbk}$. Let
+	$\Gamma$ be a group. Consider the simplicial object
+	$\Bbbk\mathrm{E}\Gamma$ of
+	Example~\ref{eg:classifying-contractible}. Apply
+	Definition~\ref{def:Eilenberg-Zilber} of the Alexander--Whitney morphism
+	to $X:=\Bbbk\mathrm{E}\Gamma\boxtimes\Bbbk\mathrm{E}\Gamma$, and then
+	consider the morphism
+% segment-id: o014.aljabr2.chapter8.exercises-a.q007
+	\[ \mathrm{C}(\Bbbk\mathrm{E}\Gamma) \to \mathrm{C}(\underbracket{\Bbbk\mathrm{E}\Gamma \otimes \Bbbk\mathrm{E}\Gamma}_{\simeq \Bbbk(\mathrm{E}\Gamma \times \mathrm{E}\Gamma)}) \xrightarrow{\overline{\mathrm{AW}}} \mathrm{C}(\Bbbk\mathrm{E}\Gamma) \otimes \mathrm{C}(\Bbbk\mathrm{E}\Gamma). \]
+	The first arrow is induced by the diagonal embedding of simplicial sets
+	$\mathrm{E}\Gamma\to\mathrm{E}\Gamma\times\mathrm{E}\Gamma$. In view
+	of Example~\ref{eg:classifying-space-std-cplx}, the composite can also be
+	regarded as a morphism of chain complexes
+% segment-id: o014.aljabr2.chapter8.exercises-a.q008
+	\[ \mathsf{L} \to \mathsf{L} \otimes \mathsf{L}. \]
+	Use this to interpret the morphism
+	$\Delta:\mathsf{L}\to\mathsf{L}\otimes\mathsf{L}$ used in the
+	definition of the cup product in group cohomology; see
+	Lemma~\ref{prop:cup-resolution}~(ii).
+
+% segment-id: o014.aljabr2.chapter8.exercises-a.hi007
+	\begin{hint}
+		Substitution of the definition of $\overline{\mathrm{AW}}$ shows that
+		the $(p,q)$ component of the composite morphism differs from that in
+		Lemma~\ref{prop:cup-resolution}~(ii) by a factor $(-1)^{pq}$. This
+		difference arises because the discussion there uses
+		$(\mathsf{L}_n,\partial_n)_n$, whereas
+		Example~\ref{eg:classifying-space-std-cplx} uses
+		$(\mathsf{L}_n,\partial'_n)_n$. At the level of the simplicial set
+		$\mathrm{E}\Gamma$, the two differ by order reversal
+		(Remark~\ref{rem:simpDelta-order-reversal}). Observe that order-reversal
+		duality interchanges the roles of $\lambda^n_p$ and $\rho^n_q$ in
+		$\overline{\mathrm{AW}}$, or equivalently interchanges the two copies
+		of $\mathrm{C}(\Bbbk\mathrm{E}\Gamma)$.
+	\end{hint}
+
+% segment-id: o014.aljabr2.chapter8.exercises-a.ex016
+	\item Consider a comonad $(L,\delta,\epsilon)$ on a category $\mathcal{D}$.
+	For every $\mathcal{M}\in\Obj(\mathcal{D})$, if
+	$\epsilon_{\mathcal{M}}:L\mathcal{M}\to\mathcal{M}$ has a right inverse
+	$f:\mathcal{M}\to L\mathcal{M}$, then $\mathcal{M}$ is called an
+	\emph{$L$-projective object}. Dually, from a monad $(T,\mu,\eta)$ on a
+	category $\mathcal{C}$, we define a \emph{$T$-injective object} in
+	$\mathcal{C}$.

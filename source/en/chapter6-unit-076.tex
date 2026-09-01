@@ -1,0 +1,488 @@
+% Unit 076 English translation of chapter6.tex lines 869--1093.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter6.change-of-group
+% Coverage: Section 6.5 in full; ends before Section 6.6 at line 1094.
+
+% segment-id: o014.li2.chapter6.change-of-group.h001
+\section{Change of groups}\label{sec:change-of-group}
+\hypertarget{o014.aljabr2.chapter6.change-of-group}{ }
+
+% segment-id: o014.li2.chapter6.change-of-group.p001
+Consider a group homomorphism $\varphi:H\to G$. In what follows, $M$ denotes
+an arbitrary $G$-module and $N$ an arbitrary $H$-module. Our first task in
+this section is to define two families of canonical homomorphisms
+% segment-id: o014.li2.chapter6.change-of-group.e001
+\begin{equation}\label{eqn:change-of-group-coh}\begin{aligned}
+	\Hm^n(G, M) & \to \Hm^n(H, \varphi^* M), \\
+	\Hm_n(H, \varphi^* M) & \to \Hm_n(G, M),
+\end{aligned}\end{equation}
+where $n\in\Z_{\geq0}$. Since
+$\varphi^*:G\dcate{Mod}\to H\dcate{Mod}$ is exact, the functors on both
+sides of these homomorphisms have long exact sequences; in other words, they
+are cohomological or homological $\delta$-functors. The homomorphisms above
+will be compatible with the long exact sequences. We present two
+constructions.
+
+% segment-id: o014.li2.chapter6.change-of-group.p002
+For cohomology, the first method considers the family of functors
+$B^n:=\Hm^n(H,\varphi^*(\cdot))$. There is a canonical homomorphism
+% segment-id: o014.li2.chapter6.change-of-group.q001
+\[ M^G \hookrightarrow M^{\varphi(H)} = (\varphi^* M)^H =  B^0(M). \]
+Because $(\Hm^n(G,\cdot))_n$ is a universal cohomological $\delta$-functor,
+this homomorphism extends uniquely to a morphism of cohomological
+$\delta$-functors $\Hm^n(G,\cdot)\to B^n$.
+
+% segment-id: o014.li2.chapter6.change-of-group.p003
+The homology case is similar; the key is to use the canonical homomorphism
+$(\varphi^*M)_H=M_{\varphi(H)}\twoheadrightarrow M_G$.
+
+% segment-id: o014.li2.chapter6.change-of-group.p004
+The second method works in the derived category. We introduce some related
+notation.
+
+% segment-id: o014.li2.chapter6.change-of-group.c001
+\begin{convention}
+	Write $\cate{C}(G):=\cate{C}(G\dcate{Mod})$,
+	$\cate{K}(G):=\cate{K}(G\dcate{Mod})$, and
+	$\cate{D}(G):=\cate{D}(G\dcate{Mod})$; use similar notation when
+	one-sided or two-sided boundedness conditions are imposed. Likewise, write
+	$\cate{C}(\Bbbk):=\cate{C}(\Bbbk\dcate{Mod})$, together with
+	$\cate{K}(\Bbbk)$, $\cate{D}(\Bbbk)$, and so forth.
+\end{convention}
+
+% segment-id: o014.li2.chapter6.change-of-group.p005
+The functor on derived categories induced by the exact functor $\varphi^*$ is
+still denoted
+$\varphi^*:\cate{D}(G)\to\cate{D}(H)$. Use the customary notation
+$\mathrm{R}$ and $\mathrm{L}$ for right- and left-derived functors,
+respectively. We seek morphisms between triangulated functors
+% segment-id: o014.li2.chapter6.change-of-group.q002
+\begin{align*}
+	\mathrm{R}\left( (\cdot)^G \right) & \to \mathrm{R}\left( (\cdot)^H \right) \circ \varphi^* , \\
+	\mathrm{L}\left( (\cdot)_H \right) \circ \varphi^* & \to \mathrm{L}\left((\cdot)_G \right).
+\end{align*}
+
+% segment-id: o014.li2.chapter6.change-of-group.p006
+The key is the universal property. In the cohomology case, lift the functors
+$(\cdot)^G$, $(\cdot)^H$, and so on to the level of complexes, with the same
+notation. Consider the following 2-cell diagram involving categories,
+functors, and morphisms of functors, all understood to be triangulated.
+% segment-id: o014.li2.chapter6.change-of-group.g001
+\begin{equation}\label{eqn:grp-pullback-2-cell}
+	\begin{tikzcd}[column sep=huge, row sep=large]
+		\cate{K}^+(G) \arrow[d] \arrow[r, "{\varphi^*}"] \arrow[rr, bend left, "{(\cdot)^G}", "{}"' {name=U}] & \cate{K}^+(H) \arrow[d] \arrow[r, "{(\cdot)^H}"] \arrow[from=U, Rightarrow] \arrow[Rightarrow, ld, "\sim" sloped] & \cate{K}^+(\Bbbk) \arrow[d] \arrow[Rightarrow, ld] \\
+		\cate{D}^+(G) \arrow[r, "{\varphi^*}"'] & \cate{D}^+(H) \arrow[r, "{\mathrm{R}((\cdot)^H)}"'] & \cate{D}^+(\Bbbk)
+	\end{tikzcd}
+\end{equation}
+The $\Rightarrow$ on the curved part comes from the previously used morphism
+$(\cdot)^G\to(\cdot)^H\circ\varphi^*$. The
+$\stackrel{\sim}{\Rightarrow}$ on the left square comes from the exactness of
+$\varphi^*$, while the $\Rightarrow$ on the right square is part of the data
+of the right-derived functor $\mathrm{R}((\cdot)^H)$. The superscript $+$ is
+used here only for simplicity; the unbounded version requires the theory of
+\S\ref{sec:unbounded-derived}.
+
+% segment-id: o014.li2.chapter6.change-of-group.p007
+Recall that 2-cell diagrams can be composed vertically, meaning that the
+morphisms $\Rightarrow$ between functors are composed. By the universal
+property of right-derived functors (see
+Remark~\ref{rem:derived-can-morphism} and the preceding discussion), there is
+a unique $\Downarrow$ in the left-hand diagram below such that
+% segment-id: o014.li2.chapter6.change-of-group.g002
+\begin{equation}\label{eqn:change-of-groups-univ}
+	\begin{tikzcd}[column sep=huge, row sep=large]
+		\cate{K}^+(G) \arrow[r, "{(\cdot)^G}"] \arrow[d] & \cate{K}^+(\Bbbk) \arrow[d] \arrow[Rightarrow, ld] \\
+		\cate{D}^+(G) \arrow[r, "{\mathrm{R}((\cdot)^G)}", ""' {name=D}] \arrow[r, bend right=60, "" {name=U}, "{\mathrm{R}((\cdot)^H) \circ \varphi^*}"'] & \cate{D}^+(\Bbbk) \arrow[Rightarrow, from=D, to=U, "{\exists!}"']
+	\end{tikzcd} \xlongequal{\text{vertical composite}} \;\text{the vertical composite of \eqref{eqn:grp-pullback-2-cell}}
+	\begin{tikzcd}[column sep=huge, row sep=large]
+		\cate{K}^+(G) \arrow[r, "{(\cdot)^G}"] \arrow[d] & \cate{K}^+(\Bbbk) \arrow[d] \arrow[Rightarrow, ld] \\
+		\cate{D}^+(G) \arrow[r, "{\mathrm{R}((\cdot)^H) \circ \varphi^*}"' inner sep=0.6em] & \cate{D}^+(\Bbbk)
+	\end{tikzcd}
+\end{equation}
+The symbol \rotatebox[origin=c]{45}{$\Leftarrow$} in the left-hand diagram is
+part of the data of the right-derived functor
+$\mathrm{R}\left((\cdot)^G\right)$. This uniquely determines the morphism
+% segment-id: o014.li2.chapter6.change-of-group.q003
+\[ \mathrm{R}\left( (\cdot)^G \right) \to \mathrm{R}\left((\cdot)^H \right) \circ \varphi^* . \]
+
+% segment-id: o014.li2.chapter6.change-of-group.p008
+The method for homology is dual. It uses the universal property of
+left-derived functors and the previously used morphism
+$(\cdot)_H\circ\varphi^*\to(\cdot)_G$. We next give a more direct
+description.
+
+% segment-id: o014.li2.chapter6.change-of-group.le001
+\begin{lemma}\label{prop:change-of-groups-alt}
+	For every group homomorphism $\varphi:H\to G$, the morphisms characterized
+	above can be defined as follows.
+% segment-id: o014.li2.chapter6.change-of-group.l001
+	\begin{itemize}
+% segment-id: o014.li2.chapter6.change-of-group.i001
+		\item In the cohomology case, take the composite
+% segment-id: o014.li2.chapter6.change-of-group.e002
+		\begin{equation}\label{eqn:change-of-group-dec-1}
+			\mathrm{R}\left( (\cdot)^G \right) \to \mathrm{R}\left( (\cdot)^H \circ \varphi^* \right) \to \mathrm{R}\left( (\cdot)^H \right) \circ \varphi^* .
+		\end{equation}
+		The first part comes from
+		$(\cdot)^G\to(\cdot)^H\circ\varphi^*$, since a morphism of functors
+		induces a morphism between their right-derived functors; the second
+		part comes from
+		Theorem~\ref{prop:localization-triangulated-composite}~(i).
+% segment-id: o014.li2.chapter6.change-of-group.i002
+		\item The homology case is similar: take the composite
+% segment-id: o014.li2.chapter6.change-of-group.e003
+		\begin{equation}\label{eqn:change-of-group-dec-2}
+			\mathrm{L}\left( (\cdot)_H \right) \circ \varphi^* \to \mathrm{L} \left( (\cdot)_H \circ \varphi^* \right) \to \mathrm{L}\left( (\cdot)_G \right).
+		\end{equation}
+		The first part comes from
+		Theorem~\ref{prop:localization-triangulated-composite}~(ii), and the
+		second from $(\cdot)_H\circ\varphi^*\to(\cdot)_G$.
+	\end{itemize}
+\end{lemma}
+% segment-id: o014.li2.chapter6.change-of-group.pf001
+\begin{proof}
+	It suffices to discuss the cohomology case. First, for the morphisms in
+	\eqref{eqn:change-of-group-dec-1}, check the following equalities of
+	vertical composites:
+% segment-id: o014.li2.chapter6.change-of-group.g003
+	\[\begin{tikzcd}[column sep=huge, row sep=large]
+		\cate{K}^+(G) \arrow[r, "{(\cdot)^G}"] \arrow[d] & \cate{K}^+(\Bbbk) \arrow[d] \arrow[Rightarrow, ld] \\
+		\cate{D}^+(G) \arrow[r, "{\mathrm{R}((\cdot)^G)}", ""' {name=D}] \arrow[r, bend right=60, "" {name=U}, "{\mathrm{R}((\cdot)^H \circ \varphi^*)}"'] & \cate{D}^+(\Bbbk) \arrow[Rightarrow, from=D, to=U]
+	\end{tikzcd} = \begin{tikzcd}[column sep=huge, row sep=large]
+		\cate{K}^+(G) \arrow[r, "{(\cdot)^H \circ \varphi^*}" {name=D}] \arrow[d] \arrow[r, bend left=60, ""' {name=U}, "{(\cdot)^G}"] & \cate{K}^+(\Bbbk) \arrow[d] \arrow[Rightarrow, ld] \\
+		\cate{D}^+(G) \arrow[r, "{\mathrm{R}((\cdot)^H \circ \varphi^* ) }"'] & \cate{D}^+(\Bbbk) \arrow[Rightarrow, from=U, to=D]
+	\end{tikzcd}\]
+and
+% segment-id: o014.li2.chapter6.change-of-group.g004
+	\[\begin{tikzcd}[column sep=huge, row sep=large]
+		\cate{K}^+(G) \arrow[r, "{(\cdot)^H \circ \varphi^*}"] \arrow[d] & \cate{K}^+(\Bbbk) \arrow[d] \arrow[Rightarrow, ld] \\
+		\cate{D}^+(G) \arrow[r, "{\mathrm{R}((\cdot)^H \circ \varphi^* ) }"' {name=U}] \arrow[r, bend right=60, "{\mathrm{R}((\cdot)^H) \circ \varphi^*}"', "" {name=D}] & \cate{D}^+(\Bbbk) \arrow[Rightarrow, from=U, to=D]
+	\end{tikzcd} = \begin{tikzcd}[column sep=huge, row sep=large]
+		\cate{K}^+(G) \arrow[d] \arrow[r, "{\varphi^*}"] & \cate{K}^+(H) \arrow[d] \arrow[r, "{(\cdot)^H}"] \arrow[Rightarrow, ld, "\sim" sloped] & \cate{K}^+(\Bbbk) \arrow[d] \arrow[Rightarrow, ld] \\
+		\cate{D}^+(G) \arrow[r, "{\varphi^*}"'] & \cate{D}^+(H) \arrow[r, "{\mathrm{R}((\cdot)^H)}"'] & \cate{D}^+(\Bbbk).
+	\end{tikzcd}\]
+
+	The first equality characterizes the induced morphism
+	$\mathrm{R}((\cdot)^G)\to
+	\mathrm{R}((\cdot)^H\circ\varphi^*)$, while the second characterizes the
+	canonical morphism in
+	Theorem~\ref{prop:localization-triangulated-composite}. Both arise from
+	the universal property of right-derived functors; see the explanation at
+	the beginning of \S\ref{sec:triangulated-functor-localization}. Splicing
+	these equalities together shows that the composite
+	\eqref{eqn:change-of-group-dec-1} satisfies
+	\eqref{eqn:change-of-groups-univ}.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.change-of-group.r001
+\begin{remark}\label{rem:change-of-group-Yoneda}
+	The first method, based on the universal cohomological
+	$\delta$-functor property, can be combined with derived-category theory
+	to give another concise construction for the cohomology case of
+	\eqref{eqn:change-of-group-coh}. Recall that for every $G$-module $M$ and
+	every $n$, there are canonical isomorphisms
+% segment-id: o014.li2.chapter6.change-of-group.q004
+	\[ \Hm^n(G, M) \simeq \Ext^n_G(\Bbbk, M) \simeq \Hom_{\cate{D}(G)}(\Bbbk, M[n]), \quad \Ext^\bullet_G := \Ext^\bullet_{\Bbbk[G]}; \]
+	and likewise for $H$-modules. Since
+	$\varphi^*\Bbbk\simeq\Bbbk$ and $\varphi^*$ is a triangulated functor, we
+	assert that the desired canonical homomorphism is the composite
+% segment-id: o014.li2.chapter6.change-of-group.q005
+	\[ \Hom_{\cate{D}(G)}(\Bbbk, M[n]) \xrightarrow{\text{functor} \;\varphi^*} \Hom_{\cate{D}(H)}\left( \varphi^* \Bbbk, \varphi^* (M[n])\right) \simeq \Hom_{\cate{D}(H)}\left(\Bbbk, (\varphi^* M)[n]\right). \]
+
+	To prove this, it suffices to note that when $n=0$ the formula becomes the
+	evident embedding $M^G\hookrightarrow(\varphi^*M)^H$ (because
+	$\varphi^*\Bbbk\simeq\Bbbk$ sends $1$ to $1$), and that every morphism in
+	the composite above is compatible with the long exact sequence in the
+	second variable of the $\Hom$ functor in a triangulated category
+	(Proposition~\ref{prop:cohomological-Hom-functor}).
+\end{remark}
+
+% segment-id: o014.li2.chapter6.change-of-group.r002
+\begin{remark}\label{rem:change-of-group-coh}
+	If $\varphi$ is the inclusion of a subgroup, then
+	$\varphi^*=\Res^G_H$ preserves injective and projective objects. By
+	Theorem~\ref{prop:localization-triangulated-composite}~(iii) and (iv), the
+	two morphisms in Lemma~\ref{prop:change-of-groups-alt},
+% segment-id: o014.li2.chapter6.change-of-group.q006
+	\[ \mathrm{R}\left( (\cdot)^H \circ \varphi^* \right) \to \mathrm{R}\left( (\cdot)^H \right) \circ \varphi^*, \quad
+	\mathrm{L}\left( (\cdot)_H \right) \circ \varphi^* \to \mathrm{L} \left( (\cdot)_H \circ \varphi^* \right) \]
+	are isomorphisms. The description of the canonical morphisms therefore
+	simplifies further: take an injective resolution
+	$M\to I:=[I^0\to I^1\to\cdots]$. Then
+	$\Res^G_H(M)\to\Res^G_H(I)$ is also an injective resolution, and the
+	action on $M$ of the morphism
+	$\mathrm{R}\left((\cdot)^G\right)\to
+	\mathrm{R}\left((\cdot)^H\right)\circ\Res^G_H$ is
+% segment-id: o014.li2.chapter6.change-of-group.q007
+	\[ I^G \to \left( \Res^G_H(I)\right)^H, \quad I^G := \left[ I^{0, G} \to I^{1, G} \to \cdots \right], \;\text{and similarly}. \]
+
+	In the homology case, take a projective resolution $P\to M$. The action on
+	$M$ of the morphism
+	$\mathrm{L}\left((\cdot)_H\right)\circ\Res^G_H
+	\to\mathrm{L}\left((\cdot)_G\right)$ is
+	$\left(\Res^G_H(P)\right)_H\to P_G$.
+\end{remark}
+
+% segment-id: o014.li2.chapter6.change-of-group.le002
+\begin{lemma}\label{prop:change-of-group-compo}
+	Let $F\xleftarrow{\psi}G\xleftarrow{\varphi}H$ be group homomorphisms,
+	$L$ an $F$-module, and $n\in\Z_{\geq0}$. Then the composite
+	$\Hm^n(F,L)\to\Hm^n(G,\psi^*L)\to
+	\Hm^n(H,\varphi^*\psi^*L)$ equals
+	$\Hm^n(F,L)\to\Hm^n(H,(\psi\varphi)^*L)$.
+
+	Likewise, the composite
+	$\Hm_n(H,\varphi^*\psi^*L)\to\Hm_n(G,\psi^*L)\to\Hm_n(F,L)$ equals
+	$\Hm_n(H,(\psi\varphi)^*L)\to\Hm_n(F,L)$.
+
+	Analogous equalities also hold at the level of derived categories.
+\end{lemma}
+% segment-id: o014.li2.chapter6.change-of-group.pf002
+\begin{proof}
+	The assertion about $\Hm^n$ (or $\Hm_n$) is an immediate application of
+	the universal cohomological (or homological) $\delta$-functor property
+	and need only be checked for $n=0$.
+
+	For the derived-category version, the assertion about $\Hm^n$ is replaced
+	by
+% segment-id: o014.li2.chapter6.change-of-group.q008
+	\[ \left[ \mathrm{R}((\cdot)^F) \to \mathrm{R}((\cdot)^G) \circ \psi^* \to \mathrm{R}((\cdot)^H) \circ \varphi^* \circ \psi^* \right] \xlongequal{\text{composite}} \left[ \mathrm{R}((\cdot)^F) \to \mathrm{R}((\cdot)^H) \circ (\psi\varphi)^* \right]. \]
+	For this, it suffices to check the property
+	\eqref{eqn:change-of-groups-univ} for the left-hand side. This reduces to
+	an interesting and straightforward exercise in the composition of
+	2-cells, which the reader is invited to try.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.change-of-group.p009
+We now generalize the canonical homomorphisms
+\eqref{eqn:change-of-group-coh} further.
+
+% segment-id: o014.li2.chapter6.change-of-group.d001
+\begin{definition}\label{def:group-equivariance}
+	Let $M$ be a $G$-module and $N$ an $H$-module. Below, $f$ is always a
+	$\Bbbk$-module homomorphism and $h$ is an arbitrary element of $H$.
+% segment-id: o014.li2.chapter6.change-of-group.l002
+	\begin{itemize}
+% segment-id: o014.li2.chapter6.change-of-group.i003
+		\item If $f:M\to N$ satisfies $f(\varphi(h)x)=hf(x)$ for $x\in M$,
+		then $f$ is called \emph{$\varphi$-equivariant}.
+% segment-id: o014.li2.chapter6.change-of-group.i004
+		\item If $f:N\to M$ satisfies $f(hy)=\varphi(h)f(y)$ for $y\in N$,
+		then $f$ is called \emph{$\varphi$-equivariant}.
+	\end{itemize}
+\end{definition}
+
+% segment-id: o014.li2.chapter6.change-of-group.p010
+Equivariance is also equivalent to saying that $f$ gives an $H$-module
+homomorphism $\varphi^*M\to N$ or $N\to\varphi^*M$. Moreover,
+$\identity_M:M\to\varphi^*M$ and
+$\identity_M:\varphi^*M\to M$ are both $\varphi$-equivariant.
+
+% segment-id: o014.li2.chapter6.change-of-group.d002
+\begin{definition}\label{def:change-of-group-equiv}
+% segment-id: o014.li2.chapter6.change-of-group.x001
+	\index{equivariant homomorphism}
+	If $f:M\to N$ is $\varphi$-equivariant, define a family of canonical
+	homomorphisms
+% segment-id: o014.li2.chapter6.change-of-group.q009
+	\[ \Hm^n(f) := \left[ \Hm^n(G, M) \to \Hm^n(H, \varphi^* M) \to \Hm^n(H, N) \right] \;\text{as the composite}; \]
+	if $f:N\to M$ is $\varphi$-equivariant, define a family of canonical
+	homomorphisms
+% segment-id: o014.li2.chapter6.change-of-group.q010
+	\[ \Hm_n(f) := \left[ \Hm_n(H, N) \to \Hm_n(H, \varphi^* M) \to \Hm_n(G, M) \right] \;\text{as the composite}. \]
+\end{definition}
+
+% segment-id: o014.li2.chapter6.change-of-group.p011
+Notice that $f$ and $\varphi$ point in opposite directions in the cohomology
+case and in the same direction in the homology case. The homomorphisms in
+Definition~\ref{def:change-of-group-equiv} are compatible with long exact
+sequences. They include the functoriality of $\Hm^n$ and $\Hm_n$ (or the
+natural homomorphisms \eqref{eqn:change-of-group-coh}) as the special cases
+$\varphi=\identity_G$ (or $f=\identity_M$). These homomorphisms also lift to
+the level of derived categories.
+
+% segment-id: o014.li2.chapter6.change-of-group.p012
+Equivariant module homomorphisms can also be composed in tandem with group
+homomorphisms; the definition is evident.
+
+% segment-id: o014.li2.chapter6.change-of-group.pr001
+\begin{proposition}[Functoriality with respect to equivariant homomorphisms]
+\label{prop:change-of-group-composite}
+	Consider group homomorphisms
+	$F\xleftarrow{\psi}G\xleftarrow{\varphi}H$ and equivariant module
+	homomorphisms $L\xrightarrow{g}M\xrightarrow{f}N$, where $L$ is an
+	$F$-module, $M$ a $G$-module, and $N$ an $H$-module. For every
+	$n\in\Z$, we have $\Hm^n(fg)=\Hm^n(f)\Hm^n(g)$.
+
+	If instead the equivariant module homomorphisms point in the reverse
+	direction, $L\xleftarrow{g}M\xleftarrow{f}N$, then
+	$\Hm_n(gf)=\Hm_n(g)\Hm_n(f)$. Analogous composition equalities also hold
+	at the level of derived categories.
+\end{proposition}
+% segment-id: o014.li2.chapter6.change-of-group.pf003
+\begin{proof}
+	It suffices to discuss the cohomology case. Fix $n$. By
+	Lemma~\ref{prop:change-of-group-compo}, it is enough to prove that the
+	diagram
+% segment-id: o014.li2.chapter6.change-of-group.g005
+	\[\begin{tikzcd}
+		\Hm^n(F, L) \arrow[d] & & \\
+		\Hm^n(G, \psi^* L) \arrow[r] \arrow[d] & \Hm^n(G, M) \arrow[d] & \\
+		\Hm^n(H, \varphi^* \psi^* L) \arrow[r] & \Hm^n(H, \varphi^* M) \arrow[r] & \Hm^n(H, N)
+	\end{tikzcd}\]
+	commutes. But each square commutes by the functoriality of
+	\eqref{eqn:change-of-group-coh}. The derived-category version is entirely
+	similar.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.change-of-group.ex001
+\begin{example}[Conjugation]\label{eg:change-of-group-conj}
+	Let $H\lhd G$. Every $t\in G$ induces an automorphism of $H$,
+	$a_t:h\mapsto t^{-1}ht$. Now let $M$ be a $G$-module and, to simplify
+	notation, continue to write $M$ for $\Res^G_HM$. The homomorphism
+	$c_t:M\xrightarrow{x\mapsto tx}M$ is equivariant with respect to the
+	oppositely directed group homomorphism $H\xleftarrow{a_t}H$. The
+	corresponding homomorphism
+% segment-id: o014.li2.chapter6.change-of-group.q011
+	\[ \Hm^n(c_t): \Hm^n(H, M) \to \Hm^n(H, M), \]
+	decomposes by definition as
+	$\Hm^n(H,M)\to\Hm^n(H,a_t^*M)\xrightarrow{c_t}\Hm^n(H,M)$; each part is a
+	morphism between cohomological $\delta$-functors.
+% segment-id: o014.li2.chapter6.change-of-group.l003
+	\begin{itemize}
+% segment-id: o014.li2.chapter6.change-of-group.i005
+		\item When $n=0$, the first part is simply
+		$\identity_M:M^H\to a_t^*(M)^H=M^H$.
+% segment-id: o014.li2.chapter6.change-of-group.i006
+		\item When $n=0$, the second part is $c_t:M^H\to M^H$, which depends
+		only on the coset $tH$.
+	\end{itemize}
+	If an injective resolution $M\to I$ of the $G$-module is chosen, applying
+	$c_t:I^{n,H}\to I^{n,H}$ termwise gives $\Hm^n(c_t)$. When $G=H$, the
+	coset $tG=G$, so $\Hm^n(c_t)=\identity$.
+
+	The homology case is similar, but $a_t$ must be replaced by the group
+	automorphism $b_t:h\mapsto tht^{-1}$, which points in the same direction
+	as the homomorphism $c_t$; the reader is invited to verify this.
+\end{example}
+
+% segment-id: o014.li2.chapter6.change-of-group.p013
+Finally, we explain how to define the canonical homomorphisms of
+Definition~\ref{def:group-equivariance} explicitly using the standard complex
+(or standard chain complex) of Proposition~\ref{prop:groupcoh-cochain} (or
+Proposition~\ref{prop:grouph-chain}). This makes all the operations concrete.
+
+% segment-id: o014.li2.chapter6.change-of-group.pr002
+\begin{proposition}\label{prop:grp-equiv}
+	Consider a group homomorphism $\varphi:H\to G$. Let $M$ be a $G$-module,
+	$N$ an $H$-module, and $n\in\Z_{\geq0}$. Identify $\Hm^n(G,M)$ (or
+	$\Hm_n(G,M)$) with the $\Hm^n$ (or $\Hm_n$) of the standard complex
+	$C(G,M)$ (or chain complex $C(G,M)$); do the same after replacing
+	$(G,M)$ by $(H,N)$.
+
+% segment-id: o014.li2.chapter6.change-of-group.l004
+	\begin{itemize}
+% segment-id: o014.li2.chapter6.change-of-group.i007
+		\item Let the module homomorphism $f:M\to N$ be
+		$\varphi$-equivariant. Then $\Hm^n(f)$ is induced by the morphism of
+		complexes
+% segment-id: o014.li2.chapter6.change-of-group.g006
+		\[\begin{tikzcd}[row sep=tiny]
+			C^m(G, M) \arrow[r] & C^m(H, N) \\
+			c \arrow[mapsto, r] & {\left[ (h_1, \ldots, h_m) \mapsto f(c(\varphi(h_1), \ldots, \varphi(h_m))) \right]}.
+		\end{tikzcd}\]
+% segment-id: o014.li2.chapter6.change-of-group.i008
+		\item Let the module homomorphism $f:N\to M$ be
+		$\varphi$-equivariant. Then $\Hm_n(f)$ is induced by the morphism of
+		chain complexes
+% segment-id: o014.li2.chapter6.change-of-group.g007
+		\[\begin{tikzcd}[row sep=tiny]
+			C_m(H, N) \arrow[r] & C_m(G, M) \\
+			(h_1 | \cdots | h_m)^\dagger \otimes y \arrow[mapsto, r] & (\varphi(h_1) | \cdots | \varphi(h_m))^\dagger \otimes f(y).
+		\end{tikzcd}\]
+	\end{itemize}
+	In fact, these formulas give the morphism induced by $f$ at the level of
+	derived categories.
+
+	The result above also applies, with the same formulas, to the normalized
+	standard complex $(\overline{C}^m(G,M))_m$ and normalized chain complex
+	$(\overline{C}_m(G,M))_m$ introduced in
+	Remark~\ref{rem:nor-cochain}.
+\end{proposition}
+% segment-id: o014.li2.chapter6.change-of-group.pf004
+\begin{proof}
+	The problem divides into two parts: first the case $f=\identity_M$, which
+	is an explicit description of the canonical homomorphisms
+	\eqref{eqn:change-of-group-coh}, and second the case
+	$\varphi=\identity$. The latter is straightforward, so we discuss only
+	the former.
+
+	Consider the cohomology case. Proposition~\ref{prop:trivial-mod-resolution}
+	gives a projective resolution of $G$-modules
+	$\mathsf{L}^G\to\Bbbk$ (or a projective resolution of $H$-modules
+	$\mathsf{L}^H\to\Bbbk$). Now consider
+% segment-id: o014.li2.chapter6.change-of-group.q012
+	\[ \Hom^\bullet_G \left( \mathsf{L}^G, \cdot\right) \xrightarrow{\varphi^*} \Hom^\bullet_H\left( \varphi^* (\mathsf{L}^G), \varphi^*(\cdot)\right) \to \Hom^\bullet_H\left(\mathsf{L}^H, \varphi^*(\cdot)\right), \]
+	where the second part comes from the morphism
+	$\mathsf{L}^H\to\varphi^*(\mathsf{L}^G)$
+	(see Lemma~\ref{prop:Shapiro-alpha-beta}). Denote its composite by
+	$\Theta$. The asserted morphism of complexes
+	$C(G,M)\to C(H,\varphi^*(M))$ corresponds to the action of $\Theta$ on
+	the $G$-module $M$.
+
+	We now prove that this formula indeed gives the canonical homomorphism
+	defined above. The first method returns to the definition
+	\eqref{eqn:change-of-group-coh}, which comes from the universal
+	cohomological $\delta$-functor property. It suffices to show that
+	$C(G,M)\to C(H,\varphi^*M)$ induces the embedding
+	$M^G\to(\varphi^*M)^H$ on $\Hm^0$ and is compatible with long exact
+	sequences. Details are left to the reader.
+
+	The second method works in the derived category. The functor
+	$\Hom^\bullet_H(\mathsf{L}^H,\cdot)$ preserves acyclic complexes, so it
+	induces a functor $\cate{D}^+(H)\to\cate{D}^+(\Bbbk)$ at the level of
+	derived categories, with the same notation. This functor can be
+	identified with $\RHom_H(\Bbbk,\cdot)$. Thus verifying
+	\eqref{eqn:change-of-groups-univ} is equivalent to verifying the following
+	equality of vertical composites:
+% segment-id: o014.li2.chapter6.change-of-group.g008
+	\begin{equation*}
+		\begin{tikzcd}[column sep=huge, row sep=large]
+			\cate{K}^+(G) \arrow[r, "{\Hom^\bullet_G(\Bbbk, \cdot)}"] \arrow[d] & \cate{K}^+(\Bbbk) \arrow[d] \arrow[Rightarrow, ld] \\
+			\cate{D}^+(G) \arrow[r, "{\Hom^\bullet_G(\mathsf{L}^G, \cdot)}", ""' {name=D}] \arrow[r, bend right=60, "" {name=U}, "{\Hom^\bullet_H(\mathsf{L}^H, \varphi^*(\cdot))}"'] & \cate{D}^+(\Bbbk) \arrow[Rightarrow, from=D, to=U, "\Theta"']
+		\end{tikzcd} = \begin{tikzcd}[column sep=huge, row sep=large]
+			\cate{K}^+(G) \arrow[d] \arrow[r, "{\varphi^*}"] \arrow[rr, bend left, "{\Hom^\bullet_G(\Bbbk, \cdot)}", "{}"' {name=U}] & \cate{K}^+(H) \arrow[d] \arrow[r, "{\Hom^\bullet_H(\Bbbk, \cdot)}"] \arrow[from=U, Rightarrow] \arrow[Rightarrow, ld, "\sim" sloped] & \cate{K}^+(\Bbbk) \arrow[d] \arrow[Rightarrow, ld] \\
+			\cate{D}^+(G) \arrow[r, "{\varphi^*}"'] & \cate{D}^+(H) \arrow[r, "{\Hom^\bullet_H(\mathsf{L}^H, \cdot)}"'] & \cate{D}^+(\Bbbk) ,
+		\end{tikzcd}
+	\end{equation*}
+	The symbols \rotatebox[origin=c]{45}{$\Leftarrow$} involving
+	$\Hom^\bullet$ come from $\mathsf{L}^G\to\Bbbk$ and
+	$\mathsf{L}^H\to\Bbbk$. The complex-level version of the morphism
+	$(\cdot)^G\to(\cdot)^H\circ\varphi^*$ is readily identified with
+	$\varphi^*:\Hom^\bullet_G(\Bbbk,\cdot)\to
+	\Hom^\bullet_H(\varphi^*\Bbbk,\varphi^*(\cdot))
+	=\Hom^\bullet_H(\Bbbk,\varphi^*(\cdot))$. The desired equality therefore
+	reduces to commutativity of the outer frame of the following diagram of
+	complexes:
+% segment-id: o014.li2.chapter6.change-of-group.g009
+	\[\begin{tikzcd}
+		\Hom^\bullet_G(\Bbbk, \cdot) \arrow[r] \arrow[d, "{\varphi^*}"'] & \Hom^\bullet_G(\mathsf{L}^G, \cdot) \arrow[d, "{\varphi^*}"] \arrow[rd, "\Theta"] & \\
+		\Hom^\bullet_H(\Bbbk, \varphi^*(\cdot)) \arrow[r] \arrow[rr, bend right=30, "{\text{induced by}\; \mathsf{L}^H \to \Bbbk}"] & \Hom^\bullet_H(\varphi^* \mathsf{L}^G, \varphi^*(\cdot)) \arrow[r] & \Hom^\bullet_H(\mathsf{L}^H, \varphi^*(\cdot)).
+	\end{tikzcd}\]
+	It remains only to show that the curved lower part commutes, but this is
+	exactly the content of Lemma~\ref{prop:Shapiro-alpha-beta}. This proves the
+	cohomology case. The homology case is similar.
+
+	Finally, the version for $\overline{C}(G,M)$ is obtained by replacing
+	$\mathsf{L}^G$ and $\mathsf{L}^H$ in the proof with
+	$\overline{\mathsf{L}}^G$ and $\overline{\mathsf{L}}^H$, respectively;
+	everything else is unchanged.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.change-of-group.p014
+Once the explicit formulas of Proposition~\ref{prop:grp-equiv} are available,
+the equalities $\Hm^n(fg)=\Hm^n(f)\Hm^n(g)$ and
+$\Hm_n(gf)=\Hm_n(g)\Hm_n(f)$ in
+Proposition~\ref{prop:change-of-group-composite}, as well as their
+derived-category versions, are immediate at the level of complexes.

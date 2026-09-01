@@ -1,0 +1,693 @@
+% Unit 042 English translation of chapter3.tex lines 1882--2214.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter3.resolutions
+% Coverage: Section 3.11 in full.
+
+% segment-id: o014.li2.chapter3.resolutions.h001
+\section{Resolutions}\label{sec:resolutions}
+\hypertarget{o014.aljabr2.chapter3.resolutions}{ }
+
+% segment-id: o014.li2.chapter3.resolutions.p001
+Let $\mathcal{A}$ be an abelian category, and consider a complex
+$X\in\Obj(\cate{C}(\mathcal{A}))$. If $X^n$ is an injective object
+(respectively a projective object) of $\mathcal{A}$ for every $n\in\Z$, we say
+that $X$ consists of injective objects (respectively projective objects). Recall
+the trivial fact that $0$ is both injective and projective.
+
+% segment-id: o014.li2.chapter3.resolutions.de001
+\begin{definition}\label{def:resolutions}
+	\index{resolution}
+	\index{resolution!injective}
+	\index{resolution!projective}
+	Let $X\in\Obj(\cate{C}(\mathcal{A}))$.
+% segment-id: o014.li2.chapter3.resolutions.l001
+	\begin{itemize}
+% segment-id: o014.li2.chapter3.resolutions.i001
+		\item If $X\to I$ is a quasi-isomorphism in $\cate{C}(\mathcal{A})$,
+		where $I\in\Obj(\cate{C}^+(\mathcal{A}))$ consists of injective
+		objects, then $X\to I$ is called an \emph{injective resolution} of $X$.
+% segment-id: o014.li2.chapter3.resolutions.i002
+		\item If $P\to X$ is a quasi-isomorphism in $\cate{C}(\mathcal{A})$,
+		where $P\in\Obj(\cate{C}^-(\mathcal{A}))$ consists of projective
+		objects, then $P\to X$ is called a \emph{projective resolution} of $X$.
+	\end{itemize}
+\end{definition}
+
+% segment-id: o014.li2.chapter3.resolutions.p002
+Replacing $\mathcal{A}$ by $\mathcal{A}^{\opp}$, that is, reversing all
+arrows, shows that injective and projective resolutions are dual notions.
+
+% segment-id: o014.li2.chapter3.resolutions.ex001
+\begin{example}\label{eg:resolution-single}
+	As the most elementary and classical special case, consider an injective
+	resolution $X\to I$ of $X\in\Obj(\mathcal{A})$. The definition requires
+	only $I\in\Obj(\cate{C}^+(\mathcal{A}))$, but we would like to take
+	$I\in\Obj(\cate{C}^{\geq0}(\mathcal{A}))$. This is possible: use the
+	truncation
+% segment-id: o014.li2.chapter3.resolutions.q001
+	\[ X \to I \to \tau^{\geq 0} I . \]
+	To see that the composite is an injective resolution, two properties must
+	be checked. First, Lemma~\ref{prop:truncation-ses} shows that it remains a
+	quasi-isomorphism. Second, $\tau^{\geq0}I$ still consists of injective
+	objects. Indeed, consider the short exact sequence
+	$0\to\Image(d_I^{n-1})\to I^n\to\Coker(d_I^{n-1})\to0$. Since
+	$d_I^{n-1}=0$ when $n\ll0$, while
+	$\Coker(d_I^{n-1})\simeq\Image(d_I^n)$ when $n<0$,
+	Lemmas~\ref{prop:inj-proj-split} and
+	\ref{prop:prod-injective-projective} show recursively that for $n\leq0$
+% segment-id: o014.li2.chapter3.resolutions.q002
+	\[ I^n \simeq \Image\left(d_I^{n-1} \right) \oplus \Coker\left( d_I^{n-1} \right) , \quad \text{and hence}\; \Coker\left(d_I^{n-1} \right) \;\text{is injective}; \]
+	the recursion starts at $n\ll0$, where this formula becomes
+	$0=0\oplus0$. Taking $n=0$ shows that $\Coker(d_I^{-1})$ is injective,
+	so $\tau^{\geq0}I$ consists of injective objects.
+
+	In practice one is interested in resolutions that extend sufficiently far.
+	The observation above shows that we may replace $X\to I$ by
+	$X\to\tau^{\geq0}I$, so that the injective resolution has the form
+% segment-id: o014.li2.chapter3.resolutions.g001
+	\[\begin{tikzcd}[row sep=small]
+		\cdots 0 \arrow[r] & 0 \arrow[r] \arrow[d] & X \arrow[d] \arrow[r] & 0 \arrow[r] \arrow[d] & 0 \arrow[r] \arrow[d] & \cdots \\
+		\cdots 0 \arrow[r] & 0 \arrow[r] & I^0 \arrow[r] & I^1 \arrow[r] & I^2 \arrow[r] & \cdots
+	\end{tikzcd}\]
+	This can also be flattened and viewed as the exact sequence in
+	$\mathcal{A}$
+% segment-id: o014.li2.chapter3.resolutions.q003
+	\[ 0 \to X \to I^0 \to I^1 \to \cdots, \quad \text{every $I^n$ is injective, $n \geq 0$}. \]
+
+	Similarly, for a projective resolution $P\to X$, replace it by the
+	composite $\tau^{\leq0}P\to P\to X$. We may thus assume that it comes
+	from the exact sequence in $\mathcal{A}$
+% segment-id: o014.li2.chapter3.resolutions.q004
+	\[ \cdots \to P^{-1} \to P^0 \to X \to 0, \quad \text{every $P^n$ is projective, $n \leq 0$.} \]
+	This is usually written in chain-complex notation as
+	$\cdots\to P_1\to P_0\to X\to0$, where $P_n:=P^{-n}$.
+\end{example}
+
+% segment-id: o014.li2.chapter3.resolutions.p003
+The question is whether injective or projective resolutions exist. By duality,
+it is enough to discuss the construction of injective resolutions first. The
+simplest case is again $X\in\Obj(\mathcal{A})$. Assume that $\mathcal{A}$ has
+enough injectives; see Definition~\ref{def:enough-injectives}. Choose a
+monomorphism $X\to I^0$ with $I^0$ injective. Suppose recursively that an exact
+sequence
+% segment-id: o014.li2.chapter3.resolutions.q005
+\[ 0 \to X \to I^0 \to \cdots \to I^n, \quad n \geq 0, \]
+has been constructed with $I^0,\ldots,I^n$ injective. At the initial step
+$n=0$, use the cokernel $\Coker[X\to I^0]$; for $n\geq1$, use
+$\Coker[I^{n-1}\to I^n]$. In either case choose an injective object $I^{n+1}$
+and a monomorphism from that cokernel to $I^{n+1}$. Composition gives
+$I^n\to I^{n+1}$ such that $0\to X\to\cdots\to I^{n+1}$ is still exact.
+Repeating the construction yields an injective resolution of $X$.
+\footnote{Translator's note (O014-C056): the source applies the formula
+$\Coker[I^{n-1}\to I^n]$ also when $n=0$, introducing an undefined
+$I^{-1}$. The initial step has been written with $\Coker[X\to I^0]$, and the
+printed formula restricted to $n\geq1$.}
+
+% segment-id: o014.li2.chapter3.resolutions.p004
+If $\mathcal{A}$ has enough projectives, the construction of a projective
+resolution $\cdots\to P^0\to X\to0$ for $X\in\Obj(\mathcal{A})$ is entirely
+dual. These constructions extend to complexes, subject to boundedness
+conditions, as follows.
+
+% segment-id: o014.li2.chapter3.resolutions.th001
+\begin{theorem}\label{prop:resolution-existence}
+	Let $\mathcal{A}^\flat$ be an additive full subcategory of $\mathcal{A}$,
+	and suppose that for every object $A$ of $\mathcal{A}$ there is a
+	monomorphism $A\hookrightarrow B$ (respectively an epimorphism
+	$B\twoheadrightarrow A$) with $B\in\Obj(\mathcal{A}^\flat)$. Then:
+% segment-id: o014.li2.chapter3.resolutions.l002
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter3.resolutions.i003
+		\item For every object $X$ of $\cate{C}^+(\mathcal{A})$ (respectively
+		$\cate{C}^-(\mathcal{A})$), there is a quasi-isomorphism
+% segment-id: o014.li2.chapter3.resolutions.q006
+		\[ f: X \to I \quad \text{(respectively $f: P \to X$)}, \]
+		where $f$ is a monomorphism (respectively an epimorphism), and
+		$I\in\Obj(\cate{C}^+(\mathcal{A}^\flat))$ (respectively
+		$P\in\Obj(\cate{C}^-(\mathcal{A}^\flat))$).
+% segment-id: o014.li2.chapter3.resolutions.i004
+		\item More precisely, if $m\in\Z$ and
+		$X\in\Obj(\cate{C}^{\geq m}(\mathcal{A}))$ (respectively
+		$X\in\Obj(\cate{C}^{\leq m}(\mathcal{A}))$), then one may take
+		$I\in\Obj(\cate{C}^{\geq m}(\mathcal{A}))$ (respectively
+		$P\in\Obj(\cate{C}^{\leq m}(\mathcal{A}))$).
+	\end{enumerate}
+
+	Consequently, if $\mathcal{A}$ has enough injectives (respectively enough
+	projectives), then every such $X$ has an injective resolution
+	$X\hookrightarrow I$ (respectively a projective resolution
+	$P\twoheadrightarrow X$).
+\end{theorem}
+% segment-id: o014.li2.chapter3.resolutions.pf001
+\begin{proof}
+	By duality, we treat only the version in which $X$ belongs to
+	$\cate{C}^+(\mathcal{A})$. For (i), suppose recursively that we have a
+	commutative diagram
+% segment-id: o014.li2.chapter3.resolutions.g002
+	\[\begin{tikzcd}
+		\cdots \arrow[r] & X^{n-1} \arrow[r, "{d_X^{n-1}}"] \arrow[d, "{f^{n-1}}"'] & X^n \arrow[r, "{d_X^n}"] \arrow[d, "{f^n}"] & X^{n+1} \arrow[r] & \cdots \\
+		\cdots \arrow[r] & I^{n-1} \arrow[r, "{d_I^{n-1}}"'] & I^n & &
+	\end{tikzcd}\]
+	where the second row is a complex of objects of $\mathcal{A}^\flat$,
+	$m\ll0\implies I^m=0$, every $f^m$ is a monomorphism for $m\leq n$, and
+	for $m\leq n-1$ the morphism $f^m$ induces an isomorphism
+	$\Ker(d_X^m)/\Image(d_X^{m-1})\rightiso
+	\Ker(d_I^m)/\Image(d_I^{m-1})$.
+
+	We wish to extend the second row to the right. First suppose that
+% segment-id: o014.li2.chapter3.resolutions.q007
+	\begin{equation}\label{eqn:resolution-existence-aux0}
+		f^n\left( \Image\left(d_X^{n-1} \right) \right) = \Image\left( d^{n-1}_I \right) \cap f^n\left( \Ker\left( d_X^n \right) \right) = \Image\left( d^{n-1}_I \right) \cap f^n(X^n) ;
+	\end{equation}
+	note that the inclusions $\cdots\subset\cdots\subset\cdots$ always hold.
+	The pushout construction gives the diagram
+% segment-id: o014.li2.chapter3.resolutions.g003
+	\begin{equation*}\begin{tikzcd}
+		X^n / \Ker\left( d_X^n \right) \arrow[hookrightarrow, r, "\delta: \text{induced by $d_X^n$}"] \arrow[d, "\alpha: \text{induced by $f^n$}"'] & X^{n+1} \arrow[d, "\beta"] \\
+		I^n / \left( f^n \left( \Ker\left( d_X^n \right) \right) + \Image\left( d_I^{n-1}\right) \right) \arrow[r, "\eta"'] & T \arrow[phantom, lu, "\boxplus" description]
+	\end{tikzcd}\end{equation*}
+	Since $f^n$ is a monomorphism and
+	\eqref{eqn:resolution-existence-aux0} implies
+% segment-id: o014.li2.chapter3.resolutions.q008
+	\begin{multline*}
+		\left( f^n\left( \Ker\left( d_X^n \right) \right) + \Image\left( d_I^{n-1}\right) \right) \cap f^n(X^n) \\
+		\xlongequal{\text{Theorem \ref{prop:subobject-modularity}}} f^n\left( \Ker\left( d_X^n \right) \right) + \left( \Image\left( d_I^{n-1}\right) \cap f^n(X^n) \right) \\
+		= f^n\left( \Ker\left( d_X^n \right) \right) + f^n\left(\Image\left(d_X^{n-1} \right) \right) = f^n\left( \Ker\left( d_X^n \right) \right),
+	\end{multline*}
+	the basic operations discussed in \S\ref{sec:Abel-cat-subobjects} show that
+	$\alpha$ is also a monomorphism.
+
+	Applying Proposition~\ref{prop:Abel-cat-pull-push} twice shows that $\beta$
+	and $\eta$ in the pushout diagram are monomorphisms as well. Choose a
+	monomorphism $T\hookrightarrow I^{n+1}$ with
+	$I^{n+1}\in\Obj(\mathcal{A}^\flat)$. This gives the composite morphisms
+% segment-id: o014.li2.chapter3.resolutions.q009
+	\begin{gather*}
+		d_I^n: I^n \twoheadrightarrow I^n / \left( f^n \left( \Ker\left( d_X^n \right) \right) + \Image\left( d_I^{n-1}\right) \right) \xrightarrow{\eta} T \hookrightarrow I^{n+1}, \\
+		f^{n+1}: X^{n+1} \xrightarrow{\beta} T \hookrightarrow I^{n+1}.
+	\end{gather*}
+	Clearly $d_I^nd_I^{n-1}=0$, $f^{n+1}$ is a monomorphism, and
+	$d_I^nf^n=f^{n+1}d_X^n$. On cohomology, the monomorphism $f^n$ induces
+% segment-id: o014.li2.chapter3.resolutions.q010
+	\begin{align*}
+		\frac{\Ker\left( d_X^n \right)}{\Image\left( d_X^{n-1} \right)} \longrightarrow \frac{\Ker\left( d_I^n \right)}{\Image\left( d_I^{n-1} \right)} & =  \frac{ f^n\left(\Ker d_X^n \right) + \Image\left( d_I^{n-1} \right)}{ \Image\left(d_I^{n-1}\right) } \\
+		\text{($\because$ Theorem \ref{prop:Abel-cat-isom-thm} (iii))} \quad & \simeq \frac{ f^n\left(\Ker d_X^n \right) }{ f^n\left(\Ker d_X^n \right) \cap \Image\left(d_I^{n-1}\right) };
+	\end{align*}
+	by \eqref{eqn:resolution-existence-aux0} and the monicity of $f^n$, this is
+	plainly an isomorphism. The extension to the right is complete.
+
+	We now explain how, in general, to modify $I^n$ so as to reduce to the case
+	where \eqref{eqn:resolution-existence-aux0} holds. Consider the canonical
+	morphisms
+% segment-id: o014.li2.chapter3.resolutions.g004
+	\[\begin{tikzcd}
+		I^n \arrow[hookrightarrow, shift left, r, "\iota_1"] & I^n \oplus \left( X^n / \Image\left( d_X^{n-1} \right) \right) \arrow[twoheadrightarrow, shift left, l, "p_1"] \arrow[twoheadrightarrow, shift right, r, "p_2"'] & X^n / \Image\left( d_X^{n-1} \right) \arrow[hookrightarrow, shift right, l, "\iota_2"'] & X^n \arrow[twoheadrightarrow, l, "q"'] .
+	\end{tikzcd}\]
+	Choose $J\in\Obj(\mathcal{A}^\flat)$ and a monomorphism
+	$j:I^n\oplus(X^n/\Image(d_X^{n-1}))\hookrightarrow J$. Define the
+	composite morphisms
+% segment-id: o014.li2.chapter3.resolutions.q011
+	\begin{gather*}
+		f' : X^n \xrightarrow{(f^n, q)} I^n \oplus \left( X^n / \Image\left( d_X^{n-1} \right) \right) \xrightarrow{j} J, \\
+		d': I^{n-1} \xrightarrow{d_I^{n-1}} I^n \xrightarrow{\iota_1} I^n \oplus \left( X^n / \Image\left( d_X^{n-1} \right) \right) \xrightarrow{j} J.
+	\end{gather*}
+	It is easy to see that $f'$ is a monomorphism,
+	$\Ker(d')=\Ker(d_I^{n-1})$, and $f'd_X^{n-1}=d'f^{n-1}$.
+
+	Moreover, working in
+	$I^n\oplus(X^n/\Image(d_X^{n-1}))$ shows that
+% segment-id: o014.li2.chapter3.resolutions.q012
+	\[ f'(X^n) \cap \Image(d') = f'\left( \Image\left( d_X^{n-1} \right) \right). \]
+	Thus replacing $d_I^{n-1}:I^{n-1}\to I^n$ (respectively
+	$f^n:X^n\to I^n$) by $d':I^{n-1}\to J$ (respectively $f':X^n\to J$)
+	ensures \eqref{eqn:resolution-existence-aux0}.
+
+	Finally consider (ii). In the construction above set
+	$\cdots=I^{m-2}=I^{m-1}=0$. Equation
+	\eqref{eqn:resolution-existence-aux0} plainly holds for $n=m-1$ (all its
+	terms are zero), so extending the diagram to the right produces no nonzero
+	terms in degrees below $m$. This proves the claim.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.resolutions.co001
+\begin{corollary}
+	Suppose that $\mathcal{A}$ has enough injectives (respectively enough
+	projectives). Then $X\in\Obj(\cate{C}(\mathcal{A}))$ has an injective
+	resolution $X\to I$ (respectively a projective resolution $P\to X$) if and
+	only if $\Hm^n(X)=0$ for $n\ll0$ (respectively $n\gg0$).
+\end{corollary}
+% segment-id: o014.li2.chapter3.resolutions.pf002
+\begin{proof}
+	Consider the injective case. The quasi-isomorphism condition in the
+	definition of a resolution gives the ``only if'' direction. Conversely,
+	for $m\ll0$ the truncation functor gives a quasi-isomorphism
+	$X\to\tau^{\geq m}X\in\Obj(\cate{C}^+(\mathcal{A}))$, reducing the ``if''
+	direction to Proposition~\ref{prop:resolution-existence}.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.resolutions.p005
+The theoretical value of injective and projective resolutions is illustrated
+by the following fundamental result, which also implies their uniqueness up to
+homotopy.
+
+% segment-id: o014.li2.chapter3.resolutions.th002
+\begin{theorem}\label{prop:resolution-homotopy}
+	Fix a quasi-isomorphism $\alpha:X\to Y$ in $\cate{C}(\mathcal{A})$.
+% segment-id: o014.li2.chapter3.resolutions.l003
+	\begin{itemize}
+% segment-id: o014.li2.chapter3.resolutions.i005
+		\item Given a morphism $\gamma:X\to I$, where $I$ is an object of
+		$\cate{C}^+(\mathcal{A})$ consisting of injective objects, there is a
+		unique morphism $\beta$ in $\cate{K}(\mathcal{A})$ making the diagram
+		commute:
+% segment-id: o014.li2.chapter3.resolutions.g005
+		\[\begin{tikzcd}[row sep=tiny]
+			& Y \arrow[dd, "\beta"] \\
+			X \arrow[ru, "\alpha"] \arrow[rd, "\gamma"'] & \\
+			& I
+		\end{tikzcd}\]
+% segment-id: o014.li2.chapter3.resolutions.i006
+		\item Given a morphism $\gamma:P\to Y$, where $P$ is an object of
+		$\cate{C}^-(\mathcal{A})$ consisting of projective objects, there is a
+		unique morphism $\beta$ in $\cate{K}(\mathcal{A})$ making the diagram
+		commute:
+% segment-id: o014.li2.chapter3.resolutions.g006
+		\[\begin{tikzcd}[row sep=tiny]
+			& X \arrow[ld, "\alpha"'] \\
+			Y & \\
+			& P \arrow[lu, "\gamma"] \arrow[uu, "\beta"']
+		\end{tikzcd}\]
+	\end{itemize}
+\end{theorem}
+
+% segment-id: o014.li2.chapter3.resolutions.p006
+% future-source-xref: prop:cplx-triangulated (Theorem 4.4.1)
+The two assertions are of course dual. A concise treatment will be given after
+Theorem~\ref{prop:cplx-triangulated}. When $\alpha$ is a monomorphism
+(respectively an epimorphism), one can moreover choose $\beta$ so that the
+first (respectively second) diagram commutes already in
+$\cate{C}(\mathcal{A})$; this is the content of
+Lemma~\ref{prop:ext-alpha-beta} below and its dual. In fact, the exercises for
+this chapter give a direct proof of Theorem~\ref{prop:resolution-homotopy}
+based on that lemma, with a hint, and the reader is encouraged to try it.
+
+% segment-id: o014.li2.chapter3.resolutions.p007
+Whichever approach one takes, the following property is indispensable.
+
+% segment-id: o014.li2.chapter3.resolutions.le001
+\begin{lemma}\label{prop:resolution-homotopy-aux}
+	Let $X$ be an acyclic object of $\cate{C}(\mathcal{A})$.
+% segment-id: o014.li2.chapter3.resolutions.l004
+	\begin{itemize}
+% segment-id: o014.li2.chapter3.resolutions.i007
+		\item If an object $I$ of $\cate{C}^+(\mathcal{A})$ consists of
+		injective objects, then $\Hom_{\cate{K}(\mathcal{A})}(X,I)=0$.
+% segment-id: o014.li2.chapter3.resolutions.i008
+		\item If an object $P$ of $\cate{C}^-(\mathcal{A})$ consists of
+		projective objects, then $\Hom_{\cate{K}(\mathcal{A})}(P,X)=0$.
+	\end{itemize}
+\end{lemma}
+% segment-id: o014.li2.chapter3.resolutions.pf003
+\begin{proof}
+	It is enough to treat the case of $I$. Fix
+	$\alpha\in\Hom_{\cate{C}(\mathcal{A})}(X,I)$. We seek morphisms
+	$h^n:X^n\to I^{n-1}$ such that
+% segment-id: o014.li2.chapter3.resolutions.q013
+	\begin{equation}\label{eqn:alpha-homotopy-aux}
+		\alpha^n = d_I^{n-1} h^n + h^{n+1} d_X^n , \quad n \in \Z.
+	\end{equation}
+
+	Suppose recursively that $\ldots,h^{n-1},h^n$ have been found so that
+	\eqref{eqn:alpha-homotopy-aux} holds for
+	$\ldots,\alpha^{n-2},\alpha^{n-1}$. This is legitimate because all these
+	$h$'s may be taken to be zero when $n\ll0$. We seek the dashed morphisms
+% segment-id: o014.li2.chapter3.resolutions.g007
+	\[\begin{tikzcd}[row sep=large]
+		& I^n & \\
+		X^n \arrow[twoheadrightarrow, r, "{d_X^n}"'] \arrow[ru, "{\alpha^n - d_I^{n-1} h^n}"] & \Image\left( d_X^n \right) \arrow[dashed, u, "\beta"] \arrow[hookrightarrow, r] & X^{n+1} \arrow[dashed, lu, "{h^{n+1}}"']
+	\end{tikzcd}\]%
+	\footnote{Translator's note (O014-C057): the lower-left node is printed as
+	$X$ in the source, although $d_X^n$, $\alpha^n$, and $h^n$ all have domain
+	$X^n$. The node has been restored to $X^n$.}
+	that make the whole diagram commute. First,
+% segment-id: o014.li2.chapter3.resolutions.q014
+	\[ \left( \alpha^n - d_I^{n-1} h^n \right) d_X^{n-1} = d_I^{n-1} \alpha^{n-1} - d_I^{n-1} \left( \alpha^{n-1} - d_I^{n-2} h^{n-1} \right) = 0. \]
+	Since $X$ is acyclic, this induces the displayed morphism $\beta$. Since
+	$I^n$ is injective, $\beta$ extends to a morphism
+	$h^{n+1}:X^{n+1}\to I^n$, as required.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.resolutions.p008
+% future-source-xref: sec:double-cplx-ss (Section 5.6)
+From the perspective of derived categories, Theorems
+\ref{prop:resolution-existence} and \ref{prop:resolution-homotopy} already
+provide enough information to begin studying derived functors. The kinds of
+resolutions introduced next are better suited for use with spectral sequences;
+see \S\ref{sec:double-cplx-ss}. We state the injective versions and first make
+some preparations.
+
+% segment-id: o014.li2.chapter3.resolutions.le002
+\begin{lemma}\label{prop:ext-alpha-beta}
+	Let $\alpha:X\to Y$ be a quasi-isomorphism and a monomorphism in
+	$\cate{C}(\mathcal{A})$. Given a morphism $\gamma:X\to I$ in
+	$\cate{C}(\mathcal{A})$, where
+	$I\in\Obj(\cate{C}^+(\mathcal{A}))$ consists of injective objects, there
+	is a morphism $\beta:Y\to I$ in $\cate{C}(\mathcal{A})$ such that
+	$\gamma=\beta\alpha$.
+\end{lemma}
+% segment-id: o014.li2.chapter3.resolutions.pf004
+\begin{proof}
+	Using $\alpha^n$, regard each $X^n$ as a subobject of $Y^n$, and omit
+	$\alpha^n$ from the notation. We construct $\beta^n$ step by step, taking
+	$\beta^n=0$ when $n\ll0$. Suppose suitable morphisms
+	$\ldots,\beta^{n-2},\beta^{n-1}$ have been found. The desired morphism
+	$\beta^n:Y^n\to I^n$ can and must be defined on the subobjects $X^n$ and
+	$\Image(d_Y^{n-1})$ as follows.
+% segment-id: o014.li2.chapter3.resolutions.l005
+	\begin{itemize}
+% segment-id: o014.li2.chapter3.resolutions.i009
+		\item On $X^n$, the morphism $\beta^n$ equals $\gamma^n$.
+% segment-id: o014.li2.chapter3.resolutions.i010
+		\item On $\Image(d_Y^{n-1})$, it is induced by the composite
+		$Y^{n-1}\xrightarrow{\beta^{n-1}}I^{n-1}
+		\xrightarrow{d_I^{n-1}}I^n$. For this to make sense, we claim that
+		$d_I^{n-1}\beta^{n-1}$ restricts to zero on
+		$\Ker(d_Y^{n-1})$. Consider the commutative diagram
+% segment-id: o014.li2.chapter3.resolutions.g008
+		\[\begin{tikzcd}
+			\Image(d_X^{n-2}) \arrow[r] \arrow[hookrightarrow, d] & \Ker(d_X^{n-1}) \arrow[r] \arrow[hookrightarrow, d] & X^{n-1} \arrow[rd, "{\gamma^{n-1}}"] \arrow[hookrightarrow, d] & & \\
+			\Image(d_Y^{n-2}) \arrow[r] & \Ker(d_Y^{n-1}) \arrow[r] & Y^{n-1} \arrow[r, "{\beta^{n-1}}"'] & I^{n-1} \arrow[r, "{d_I^{n-1}}"'] & I^n .
+		\end{tikzcd}\]
+		The inductive hypothesis on $\ldots,\beta^{n-2},\beta^{n-1}$ and the
+		equality $d_I^{n-1}d_I^{n-2}=0$ show that the composite along the
+		second row is zero. Since $\gamma$ is a morphism of complexes, the
+		composite $\Ker(d_X^{n-1})\to\cdots\to I^n$ is also zero. We obtain a
+		commutative diagram
+% segment-id: o014.li2.chapter3.resolutions.g009
+		\[\begin{tikzcd}
+			\Hm^{n-1}(X) \arrow[d] \arrow[r, "0"] & I^n \\
+			\Hm^{n-1}(Y) \arrow[ru, "\text{induced by $d_I^{n-1} \beta^{n-1}$}"'] &
+		\end{tikzcd}\]
+		But the quasi-isomorphism condition says
+		$\Hm^{n-1}(X)\rightiso\Hm^{n-1}(Y)$, proving the claim.
+	\end{itemize}
+
+	If we can prove the equality of subobjects
+% segment-id: o014.li2.chapter3.resolutions.q015
+	\[ X^n \cap \Image\left(d_Y^{n-1} \right) = \Image\left( d_X^{n-1} \right), \]
+	then the pushout diagram of Proposition
+	\ref{prop:biproduct-sum-intersection} and the universal property of the
+	pushout extend the morphism to $X^n+\Image(d_Y^{n-1})$; injectivity of
+	$I^n$ then extends it to $\beta^n:Y^n\to I^n$. The inclusion $\supset$ is
+	clear.
+
+	The point is to show that any morphism $\phi:T\to Y^n$ in $\mathcal{A}$
+	which factors through $X^n\cap\Image(d_Y^{n-1})$ automatically factors
+	through $\Image(d_X^{n-1})$. Such a $\phi$ induces a morphism
+	$T\to\Ker(d_X^n)=X^n\cap\Ker(d_Y^n)$. Composing along the second row of
+	the commutative diagram
+% segment-id: o014.li2.chapter3.resolutions.g010
+	\[\begin{tikzcd}
+		T \arrow[r, "\phi"] \arrow[d, "\phi"'] & \Ker(d_X^n) \arrow[twoheadrightarrow, r] \arrow[hookrightarrow, d] & \Hm^n(X) \arrow[d] \\
+		\Image(d_Y^{n-1}) \arrow[hookrightarrow, r] & \Ker(d_Y^n) \arrow[twoheadrightarrow, r] & \Hm^n(Y)
+	\end{tikzcd}\]
+	gives zero. Since $\Hm^n(X)\rightiso\Hm^n(Y)$, the composite along the
+	first row is zero as well. Thus $\phi$ factors through
+	$\Image(d_X^{n-1})$.
+
+	By construction, $\beta=(\beta^n)_n$ is a morphism $Y\to I$, and
+	$\gamma=\beta\alpha$ follows from the construction too.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.resolutions.le003
+\begin{lemma}\label{prop:split-differential}
+	Let $A,C\in\Obj(\cate{C}(\mathcal{A}))$. For every $n\in\Z$, define
+	$B^n:=A^n\oplus C^n$, with its evident morphisms
+	$A^n\xrightarrow{i^n}B^n\xrightarrow{p^n}C^n$. There is a bijection
+% segment-id: o014.li2.chapter3.resolutions.q016
+	\[ \Hom_{\cate{C}(\mathcal{A})}(C, A[1]) \xrightarrow{1:1} \left\{\begin{array}{r|l}
+		\text{families of morphisms}\; (d_B^n)_{n \in \Z} & \text{such that}\; (B^n, d_B^n)_n \;\text{is a complex and}  \\
+		& 0 \to A \xrightarrow{(i^n)_n} B \xrightarrow{(p^n)_n} C \to 0 \;\text{is exact}
+	\end{array}\right\}, \]
+	explicitly sending $\delta:C\to A[1]$ to the differential given in matrix
+	form by
+% segment-id: o014.li2.chapter3.resolutions.q017
+	\[ d_B^n = \begin{pmatrix}
+		d_A^n & \delta^n \\
+		0 & d_C^n
+	\end{pmatrix}: B^n \to B^{n+1}. \]
+\end{lemma}
+% segment-id: o014.li2.chapter3.resolutions.pf005
+\begin{proof}
+	Once $(B^n,d_B^n)_n$ is known to be a complex and $(i^n)_n$ and $(p^n)_n$
+	are morphisms of complexes, exactness of $0\to A\to B\to C\to0$ follows
+	by checking it termwise.
+
+	The equalities $d_B^ni^n=i^{n+1}d_A^n$ and
+	$d_C^np^n=p^{n+1}d_B^n$ hold for all $n$ if and only if there are morphisms
+	$\delta^n:C^n\to A^{n+1}$ for which $d_B^n$ has the upper-triangular matrix
+	in the statement. It remains to characterize the families $(\delta^n)_n$
+	for which $d_B^{n+1}d_B^n=0$. A routine calculation gives the necessary
+	and sufficient condition
+	$d_A^{n+1}\delta^n+\delta^{n+1}d_C^n=0$, equivalently
+	$d_{A[1]}^n\delta^n=\delta^{n+1}d_C^n$.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.resolutions.pr001
+\begin{proposition}[Horseshoe Lemma]\label{prop:horseshoe}
+	\index{Horseshoe Lemma}
+	Let $0\to A\to B\to C\to0$ be a short exact sequence in
+	$\cate{C}(\mathcal{A})$, with
+	$A,B,C\in\Obj(\cate{C}^+(\mathcal{A}))$. Choose injective resolutions
+	$\epsilon:A\to I$ and $\eta:C\to K$ with the properties stated in
+	Theorem~\ref{prop:resolution-existence}. These data extend to a
+	commutative diagram with exact rows in $\cate{C}^+(\mathcal{A})$
+% segment-id: o014.li2.chapter3.resolutions.g011
+	\[\begin{tikzcd}
+		0 \arrow[r] & I \arrow[r] & J \arrow[r] & K \arrow[r] & 0 \\
+		0 \arrow[r] & A \arrow[r] \arrow[u, "\epsilon"] & B \arrow[r] \arrow[u, "\kappa"] & C \arrow[r] \arrow[u, "\eta"'] & 0
+	\end{tikzcd}\]
+	such that $\kappa:B\to J$ is also an injective resolution and is a
+	monomorphism.
+\end{proposition}
+
+% segment-id: o014.li2.chapter3.resolutions.p009
+The reader may wish to give a relatively simple proof of the special case
+$A,B,C\in\Obj(\mathcal{A})$.
+
+% segment-id: o014.li2.chapter3.resolutions.pf006
+\begin{proof}
+	Construct the pushout diagram in $\cate{C}(\mathcal{A})$
+% segment-id: o014.li2.chapter3.resolutions.g012
+	\[\begin{tikzcd}
+		0 \arrow[r] & I \arrow[r] & L \arrow[r] \arrow[phantom, ld, "\boxplus" description] & C \arrow[r] & 0 \\
+		0 \arrow[r] & A \arrow[r] \arrow[u, "\epsilon"] & B \arrow[r] \arrow[u] & C \arrow[r] \arrow[u, "\identity"'] & 0
+	\end{tikzcd}\]
+	Here we use two facts:
+% segment-id: o014.li2.chapter3.resolutions.l006
+	\begin{compactitem}
+% segment-id: o014.li2.chapter3.resolutions.i011
+		\item a pushout preserves the cokernel $C$;
+% segment-id: o014.li2.chapter3.resolutions.i012
+		\item Proposition~\ref{prop:Abel-cat-pull-push} and monicity of
+		$A\to B$ imply that $I\to L$ is also a monomorphism.
+	\end{compactitem}
+	Thus the diagram still has exact rows, and
+	$L\in\Obj(\cate{C}^+(\mathcal{A}))$. Another application of
+	Proposition~\ref{prop:Abel-cat-pull-push}, now using the monicity of
+	$\epsilon$, shows that $B\to L$ is a monomorphism too.
+
+	Because $I^n$ is injective, Lemma~\ref{prop:inj-proj-split} implies that
+	$0\to I^n\to L^n\to C^n\to0$ splits for every $n$, giving an isomorphism
+	$\Phi^n:L^n\rightiso I^n\oplus C^n$. Lemma
+	\ref{prop:split-differential} then determines $\delta:C\to I[1]$ so that
+% segment-id: o014.li2.chapter3.resolutions.g013
+	\begin{equation}\label{eqn:horseshoe-aux}\begin{tikzcd}
+		L^n \arrow[r, "{\Phi^n}", "\sim"'] \arrow[d, "{d_L^n}"'] & I^n \oplus C^n \arrow[d, "{e^n}"] \\
+		L^{n+1} \arrow[r, "{\Phi^{n+1}}"', "\sim"] & I^{n+1} \oplus C^{n+1}
+		\end{tikzcd} \quad \text{always commutes, where}\;
+		e^n := \begin{pmatrix} d_I^n & \delta^n \\ 0 & d_C^n \end{pmatrix}.
+	\end{equation}
+
+	Likewise, Lemma~\ref{prop:split-differential} constructs from any
+	$\theta:K\to I[1]$ a complex $J$ such that
+% segment-id: o014.li2.chapter3.resolutions.q018
+	\[ J^n := I^n \oplus K^n, \quad d_J^n := \begin{pmatrix}
+		d_I^n & \theta^n \\
+		0 & d_K^n
+	\end{pmatrix}, \quad 0 \to I \to J \to K \to 0 \;\text{is exact}. \]
+	We want to choose $\theta$ so that the composite
+	$L^n\xrightarrow[\sim]{\Phi^n}I^n\oplus C^n
+	\xrightarrow{(\identity,\eta^n)}J^n$ defines a morphism $L\to J$. If it
+	does, then $L\to J$ is a monomorphism. Let $\kappa$ be the composite
+	$B\to L\to J$; it remains a monomorphism, and the diagram in the statement
+	is readily checked to commute. Since $\epsilon$ and $\eta$ are
+	quasi-isomorphisms, functoriality of the long exact sequences in
+	Proposition~\ref{prop:long-exact-sequence-ses}, together with the Five
+	Lemma (Proposition~\ref{prop:5-lemma}), shows that $\kappa$ is a
+	quasi-isomorphism as well, and hence is the desired injective resolution.
+
+	How should $\theta$ be chosen? By \eqref{eqn:horseshoe-aux}, the displayed
+	maps $L^n\to J^n$ form a morphism of complexes if and only if
+% segment-id: o014.li2.chapter3.resolutions.q019
+	\[\begin{pmatrix}
+		\identity_{I^{n+1}} & 0 \\
+		0 & \eta^{n+1}
+	\end{pmatrix} \begin{pmatrix}
+		d_I^n & \delta^n \\
+		0 & d_C^n
+	\end{pmatrix} = \begin{pmatrix}
+		d_I^n & \theta^n \\
+		0 & d_K^n \\
+	\end{pmatrix} \begin{pmatrix}
+		\identity_{I^n} & 0 \\
+		0 & \eta^n
+	\end{pmatrix}, \quad n \in \Z ; \]%
+	\footnote{Translator's note (O014-C058): the lower-right entry of the
+	left-hand inner matrix is printed as $d_K^n$ in the source. For the
+	composition to be well typed on $I^n\oplus C^n$ and yield the displayed
+	equality, it has been restored to $d_C^n$.}
+	in other words, $\delta=\theta\eta$. Since the quasi-isomorphism $\eta$ is
+	a monomorphism in $\cate{C}(\mathcal{A})$ and $I[1]$ consists of injective
+	objects, Lemma~\ref{prop:ext-alpha-beta} gives such a
+	$\theta:K\to I[1]$.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.resolutions.p010
+To state the next result, for a given complex $X$ and every $p\in\Z$ define
+% segment-id: o014.li2.chapter3.resolutions.q020
+\[ B^p := \Image\left( d_X^{p-1} \right), \quad Z^p := \Ker\left( d_X^p \right), \quad H^p := Z^p/B^p = \Hm^p(X) , \]
+thereby decomposing $X$ into the short exact sequences
+% segment-id: o014.li2.chapter3.resolutions.q021
+\[ 0 \to Z^p \to X^p \xrightarrow{d_X^p} B^{p+1} \to 0, \quad 0 \to B^p \to Z^p \to H^p \to 0. \]
+The Cartan--Eilenberg resolution introduced next may be viewed as a simultaneous
+resolution of these short exact sequences.
+
+% segment-id: o014.li2.chapter3.resolutions.th003
+\begin{theorem}[H.\ Cartan, S.\ Eilenberg]\label{prop:CE-resolution}
+	\index{resolution!Cartan--Eilenberg}
+	Suppose that $\mathcal{A}$ has enough injectives. For every object $X$ of
+	$\cate{C}^+(\mathcal{A})$, there is a double complex $I$ satisfying the
+	following conditions, together with a morphism
+	$\epsilon:X\to(I^{\bullet,0},\dhori^{\bullet,0})$ in
+	$\cate{C}(\mathcal{A})$, where $\dhori$ and $\dvert$ come from the
+	double-complex structure on $I$ (Definition~\ref{def:double-cplx}):
+% segment-id: o014.li2.chapter3.resolutions.l007
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter3.resolutions.i013
+		\item For all $(p,q)\in\Z^2$, one has
+		$q<0\implies I^{p,q}=0$.
+% segment-id: o014.li2.chapter3.resolutions.i014
+		\item Choose $N\in\Z$ such that $n<N\implies X^n=0$. Then, for all
+		$(p,q)\in\Z^2$, one has $p<N\implies I^{p,q}=0$.
+% segment-id: o014.li2.chapter3.resolutions.i015
+		\item For every $p\in\Z$, there is an injective resolution of
+		$X^p\in\Obj(\mathcal{A})$
+% segment-id: o014.li2.chapter3.resolutions.q022
+		\[ 0 \to X^p \xrightarrow{\epsilon^p} I^{p, 0} \xrightarrow{\dvert^{p, 0}} I^{p, 1} \xrightarrow{\dvert^{p,1}} \cdots . \]
+% segment-id: o014.li2.chapter3.resolutions.i016
+		\item The preceding morphisms induce an injective resolution of
+		$Z^p:=\Ker(d_X^p)$
+% segment-id: o014.li2.chapter3.resolutions.q023
+		\[ 0 \to \Ker\left( d_X^p \right) \to \Ker\left( \dhori^{p, 0} \right) \to \Ker\left( \dhori^{p, 1} \right) \to \cdots . \]
+% segment-id: o014.li2.chapter3.resolutions.i017
+		\item Likewise, $B^{p+1}:=\Image(d_X^p)$ has an injective resolution
+% segment-id: o014.li2.chapter3.resolutions.q024
+		\[ 0 \to \Image\left( d_X^p \right) \to \Image\left( \dhori^{p, 0} \right) \to \Image\left( \dhori^{p, 1} \right) \to \cdots . \]
+% segment-id: o014.li2.chapter3.resolutions.i018
+		\item Likewise, $H^p:=\Hm^p(X)$ has an injective resolution
+% segment-id: o014.li2.chapter3.resolutions.q025
+		\[ 0 \to \Hm^p\left(X\right) \to \underbracket{\Hm^p\left( I^{\bullet, 0}, \dhori \right) \to \Hm^p\left( I^{\bullet, 1}, \dhori \right) \to \cdots}_{= \Hm^p_{\mathrm{I}}\left( I \right), \;\text{see \S\ref{sec:double-cplx-coh}} } . \]
+	\end{enumerate}
+	Data $(I,\epsilon)$ with these properties are called a
+	\emph{Cartan--Eilenberg resolution} of $X$.
+\end{theorem}
+% segment-id: o014.li2.chapter3.resolutions.pf007
+\begin{proof}
+	Choose $N\in\Z$ such that $n<N\implies X^n=0$. We have already defined
+	the short exact sequences
+% segment-id: o014.li2.chapter3.resolutions.q026
+	\begin{align*}
+		0 \to Z^N \to X^N \to B^{N+1} \to 0, & & 0 \to B^{N+1} \to Z^{N+1} \to H^{N+1} \to 0, \\
+		0 \to Z^{N+1} \to X^{N+1} \to B^{N+2} \to 0, & & 0 \to B^{N+2} \to Z^{N+2} \to H^{N+2} \to 0, \\
+		\vdots & &
+	\end{align*}
+	For every $H^n$ (respectively $B^n$), choose an injective resolution as in
+	Example~\ref{eg:resolution-single}; when $n<N$ (respectively $n\leq N$),
+	take it to be $0\to0$.
+% segment-id: o014.li2.chapter3.resolutions.l008
+	\begin{compactitem}
+% segment-id: o014.li2.chapter3.resolutions.i019
+		\item Note that $Z^N=H^N$. Proposition~\ref{prop:horseshoe} extends
+		the injective resolutions of $Z^N$ and $B^{N+1}$ simultaneously to an
+		injective resolution $I^{N,\bullet}$ of $X^N$, compatible with the
+		first short exact sequence.
+% segment-id: o014.li2.chapter3.resolutions.i020
+		\item Next use Proposition~\ref{prop:horseshoe} to extend the
+		injective resolutions of $B^{N+1}$ and $H^{N+1}$ simultaneously to an
+		injective resolution of $Z^{N+1}$, compatible with the second short
+		exact sequence.
+% segment-id: o014.li2.chapter3.resolutions.i021
+		\item Repeat the same operation to obtain an injective resolution
+		$I^{N+1,\bullet}$ of $X^{N+1}$ together with an injective resolution
+		of $Z^{N+2}$, compatible with the third and fourth short exact
+		sequences, respectively.
+	\end{compactitem}
+
+	Continuing in this way gives, for every $n$, an injective resolution
+	$X^n\to I^{n,0}\to I^{n,1}\to\cdots$; put $I^{n,\bullet}:=0$ when $n<N$.
+	The construction also specifies maps $I^{n,m}\to I^{n+1,m}$ so as to form
+	a double complex $(I,\dhori,\dvert)$. One must check $\dhori^2=0$, but
+	there is no substantive difficulty.
+	\footnote{Translator's note (O014-C059): where the horizontal differential
+	is being constructed, the source repeats the vertical map
+	$I^{n,m}\to I^{n,m+1}$. The following check of $\dhori^2=0$ determines the
+	intended direction, $I^{n,m}\to I^{n+1,m}$, which has been restored.}
+\end{proof}
+
+% segment-id: o014.li2.chapter3.resolutions.p011
+One may also regard $\epsilon$ as a morphism of double complexes $X\to I$,
+provided $X$ is identified with the double complex concentrated in row $0$
+(the horizontal axis $q=0$).
+
+% segment-id: o014.li2.chapter3.resolutions.rm001
+\begin{remark}\label{rem:CE-split}
+	For all $p,q\in\Z$, consider the short exact sequences occurring in the
+	Cartan--Eilenberg resolution
+% segment-id: o014.li2.chapter3.resolutions.q027
+	\begin{gather*}
+		0 \to \Ker\left( \dhori^{p,q} \right) \to I^{p,q} \xrightarrow{\dhori^{p,q}} \Image\left( \dhori^{p,q} \right) \to 0, \\
+		0 \to \Image\left( \dhori^{p-1,q} \right) \to \Ker\left( \dhori^{p,q} \right) \to \underbracket{\Hm^p\left( I^{\bullet, q}, \dhori \right)}_{=: \Hm_{\mathrm{I}}(I)^{p,q}} \to 0, \\
+		0 \to \Image\left( \dhori^{p-1,q} \right) \to I^{p, q} \to \Coker\left( \dhori^{p-1,q} \right) \to 0.
+	\end{gather*}
+	Their leftmost terms are all injective, so
+	Lemma~\ref{prop:inj-proj-split} implies that they split. Recall that every
+	additive functor $F:\mathcal{A}\to\mathcal{B}$ preserves split short exact
+	sequences. For fixed $q$, the images of the displayed sequences under $F$
+	give the corresponding decompositions of the complex
+	$(F(I^{\bullet,q}),F(\dhori))$. In particular,
+% segment-id: o014.li2.chapter3.resolutions.q028
+	\[ F\Hm^p\left( I^{\bullet, q}, \dhori \right) \simeq \Hm^p\left( F(I^{\bullet, q}), F(\dhori) \right). \]
+	In other words, $F$ preserves horizontal cohomology in a
+	Cartan--Eilenberg resolution.
+\end{remark}
+
+% segment-id: o014.li2.chapter3.resolutions.rm002
+\begin{remark}\label{rem:double-cplx-resolution}
+	A Cartan--Eilenberg resolution gives another, indirect way to construct an
+	injective resolution of $X\in\Obj(\cate{C}^+(\mathcal{A}))$. First regard
+	$X$ as a double complex concentrated in row $0$. It is easy to see that
+	$\epsilon:X\to I$ is a morphism in $\cate{C}^2_f(\mathcal{A})$. In the
+	notation of \S\ref{sec:double-cplx-coh}, first take vertical cohomology
+	$\Hm_{\mathrm{II}}$ of $X$ and $I$, and then horizontal cohomology
+	$\Hm_{\mathrm{I}}$. The induced morphism
+	$\Hm_{\mathrm{I}}\Hm_{\mathrm{II}}(X)\to
+	\Hm_{\mathrm{I}}\Hm_{\mathrm{II}}(I)$ is an isomorphism. Hence
+	Theorem~\ref{prop:double-cplx-tot} shows that
+% segment-id: o014.li2.chapter3.resolutions.q029
+	\[ \tot(\epsilon): X = \tot(X) \to \tot(I) \]
+	is a quasi-isomorphism in $\cate{C}^+(\mathcal{A})$. For every $n\in\Z$,
+	$\tot^n(I)$ is a finite direct sum of injective objects. We have therefore
+	obtained an injective resolution $X\to\tot(I)$.
+\end{remark}

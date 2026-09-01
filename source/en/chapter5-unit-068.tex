@@ -1,0 +1,343 @@
+% Unit 068 English translation of chapter5.tex lines 578--739.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter5.filtered-complex-spectral-sequence
+% Coverage: Complete Section 5.5.
+
+% segment-id: o014.li2.chapter5.filtered-complex-spectral-sequence.h001
+\section{The spectral sequence of a filtered complex}\label{sec:filtered-cplx-ss}
+\hypertarget{o014.aljabr2.chapter5.filtered-complex-spectral-sequence}{ }
+\index{complex!filtered}
+\index{spectral sequence!of a filtered complex}
+
+% segment-id: o014.li2.chapter5.filtered-complex-spectral-sequence.p001
+We continue the line of thought from \S\ref{sec:filtered-diff-ss}, still with
+a fixed Abelian category $\mathcal{A}$. The result of
+Proposition~\ref{prop:filtered-diff-E} for filtered differential objects can
+be extended to allow the morphism $d$ to have a degree. In particular, this
+theory applies to filtered complexes.
+
+% segment-id: o014.li2.chapter5.filtered-complex-spectral-sequence.p002
+Concretely, replace the previous $\mathcal{A}$ by $\mathcal{A}^{\Z}$ and
+denote its translation functor by $T$. By Example~\ref{eg:cplx-as-diff}, an
+object $(X,d)$ of $(\mathcal{A}^{\Z},T)_d$ can be identified with a complex
+$X\in\Obj(\cate{C}(\mathcal{A}))$. If we further take a decreasing filtration
+$(X,d,\mathrm{F}^\bullet X)$, then
+\begin{align*}
+	\Hm(X,d)&=\left(\Hm^n(X)\right)_{n\in\Z}, \\
+	\Hm\left(\mathrm{F}^pX,d\right)
+	&=\left(\Hm^n\left(\mathrm{F}^pX\right)\right)_{n\in\Z}, \\
+	\mathrm{F}^p\Hm^n(X)&:=
+	\Image\left[\mathrm{F}^pX^n\cap\Ker(d_X^n)\to\Hm^n(X)\right]
+	\quad\text{(Definition~\ref{def:induced-filtration-H}).}
+\end{align*}
+
+% segment-id: o014.li2.chapter5.filtered-complex-spectral-sequence.p003
+Thus the $E_r$ in the spectral sequence $\mathscr{E}$ constructed above in
+fact takes values in $\mathcal{A}^{\Z\times\Z}$ and is a bigraded object.
+Besides the filtration degree $p$, there is an ``internal degree'' $n$ coming
+from the complex structure; the corresponding translation functors $S$ and
+$T$ commute strictly. We already know that $d_r$ has degree $r$ with respect
+to $S$; we now determine its degree with respect to $T$.
+
+% segment-id: o014.li2.chapter5.filtered-complex-spectral-sequence.p004
+\begin{itemize}
+	\item In the exact couple $\mathscr{C}_{(1)}$ used to construct
+	$\mathscr{E}$, the morphism $\nwarrow$ has degree $1$ with respect to $T$,
+	while the other morphisms have degree zero. Indeed, $\nwarrow$ comes from
+	the cohomological connecting morphism and hence has degree $1$ with respect
+	to $T$, while the other arrows plainly have degree zero.
+	\item Using the description in Lemma~\ref{prop:exact-couple-Z-B}, the same
+	statement follows recursively for $\mathscr{C}_{(r)}$ for every $r$.
+	\item Consequently, both $d_r$ and the $d$ in $(X,d)$ are morphisms of
+	degree $1$ with respect to $T$. This is also immediate from the description
+	in Proposition~\ref{prop:differential-exact-couple}.
+\end{itemize}
+
+% segment-id: o014.li2.chapter5.filtered-complex-spectral-sequence.p005
+For applications, the customary convention is to use the indices $p$ and
+$q:=n-p$. Thus
+\begin{gather*}
+	E_r=(E_r^{p,q})_{(p,q)\in\Z^2}
+	=\left(Z_r^{p,q}/B_r^{p,q}\right)_{(p,q)\in\Z^2}, \\
+	E_0^{p,q}=\left(\gr^pX\right)^{p+q}, \\
+	E_1^{p,q}=\Hm^{p+q}\left(\gr^pX,\gr^pd\right), \\
+	d_r=\left(d_r^{p,q}:E_r^{p,q}\to E_r^{p+r,q-r+1}\right)_{(p,q)\in\Z^2}
+	:E_r\xrightarrow{(r,-r+1)}E_r.
+\end{gather*}
+In other words, a filtered complex gives a cohomological bigraded spectral
+sequence as in Definition~\ref{def:graded-spectral-sequence}. Dually, a chain
+complex with an increasing filtration gives a homological bigraded spectral
+sequence.
+
+% segment-id: o014.li2.chapter5.filtered-complex-spectral-sequence.e001
+\begin{example}\label{eg:canonically-bdd-ss}
+	Consider a filtered complex $(X,d,\mathrm{F}^\bullet X)$. If for every
+	$n\in\Z$ one has $\mathrm{F}^0X^n=X^n$ and
+	$\mathrm{F}^{n+1}X^n=0$, then $E_0$ lies in the first quadrant
+	(Definition~\ref{def:quadrant-ss}). This follows immediately from
+	$E_0^{p,q}=(\gr^pX)^{p+q}$.
+\end{example}
+
+% segment-id: o014.li2.chapter5.filtered-complex-spectral-sequence.t001
+\begin{proposition}\label{prop:filtered-cplx-ss}
+	For a complex $X\in\Obj(\cate{C}(\mathcal{A}))$ with decreasing filtration
+	$\mathrm{F}^\bullet X$, the associated spectral sequence satisfies
+	\begin{align*}
+		Z_r^{p,q}&=
+		\dfrac{\left(\mathrm{F}^pX^{p+q}\cap
+		d^{-1}\mathrm{F}^{p+r}X^{p+q+1}\right)+\mathrm{F}^{p+1}X^{p+q}}
+		{\mathrm{F}^{p+1}X^{p+q}}, \\
+		B_r^{p,q}&=
+		\dfrac{\left(\mathrm{F}^pX^{p+q}\cap
+		d\mathrm{F}^{p-r+1}X^{p+q-1}\right)+\mathrm{F}^{p+1}X^{p+q}}
+		{\mathrm{F}^{p+1}X^{p+q}},
+	\end{align*}
+	and $d_r^{p,q}:E_r^{p,q}\to E_r^{p+r,q-r+1}$ is induced by
+	\[ d^{-1}\mathrm{F}^{p+r}X^{p+q+1}\xrightarrow{d}
+	\mathrm{F}^{p+r}X^{p+q+1}\cap\Ker(d). \]
+\end{proposition}
+\begin{proof}
+	In Proposition~\ref{prop:filtered-diff-E}, include the complex degree
+	$n=p+q$ and observe that $d$ has degree $1$ with respect to the complex
+	translation functor $T$.
+\end{proof}
+
+% segment-id: o014.li2.chapter5.filtered-complex-spectral-sequence.p006
+Similarly, \eqref{eqn:filtered-diff-infty} has the bigraded version
+\begin{equation}\label{eqn:filtered-cplx-infty}
+	E_\infty^{p,q}=\dfrac{Z_\infty^{p,q}}{B_\infty^{p,q}}
+	=\dfrac{\bigcap_r\left((\mathrm{F}^pX^{p+q}\cap
+	d^{-1}\mathrm{F}^{p+r}X^{p+q+1})+\mathrm{F}^{p+1}X^{p+q}\right)}
+	{\bigcup_r\left((\mathrm{F}^pX^{p+q}\cap
+	d\mathrm{F}^{p-r+1}X^{p+q-1})+\mathrm{F}^{p+1}X^{p,q}\right)},
+\end{equation}
+provided the displayed $\bigcup$ and $\bigcap$ exist. In this case
+$E_\infty=(E_\infty^{p,q})_{(p,q)\in\Z^2}$.
+
+% segment-id: o014.li2.chapter5.filtered-complex-spectral-sequence.p007
+Definition--Proposition~\ref{def:diff-obj-convergence} now becomes a bigraded
+statement: for all $p,q$, the object $\gr^p\Hm^{p+q}(X)$ can be canonically
+realized as a subquotient of $E_\infty^{p,q}$. The convergence properties of
+the spectral sequence are correspondingly refined by the grading.
+
+% segment-id: o014.li2.chapter5.filtered-complex-spectral-sequence.d001
+\begin{definition}\label{def:filtered-cplx-convergence}
+	\index{spectral sequence!weakly convergent, strongly convergent}
+	For a filtered complex $(X,d,\mathrm{F}^\bullet X)$ over $\mathcal{A}$,
+	construct the associated cohomologically graded spectral sequence
+	$(E_r,d_r)_r$. If the $\bigcap_r$ and $\bigcup_r$ in
+	\eqref{eqn:filtered-cplx-infty} exist, then
+	$\gr^p\Hm^{p+q}(X)$ can be canonically realized as a subquotient of
+	$E_\infty^{p,q}$.
+	\begin{itemize}
+		\item If $\gr^p\Hm^{p+q}(X)=E_\infty^{p,q}$ for every
+		$(p,q)\in\Z^2$, then $(E_r,d_r)_r$ is called \emph{weakly convergent}.
+		\item If the sequence is weakly convergent and, for every $n\in\Z$,
+		the filtration $\mathrm{F}^\bullet\Hm^n(X)$ is exhaustive and complete,
+		then $(E_r,d_r)_r$ is called \emph{strongly convergent}.
+	\end{itemize}
+\end{definition}
+
+% segment-id: o014.li2.chapter5.filtered-complex-spectral-sequence.c001
+\begin{convention}\label{con:ss-conv}
+	\index[sym1]{Erpq abuts to H@$E_r^{p,q}\Rightarrow\Hm^{p+q}(X)$}
+	Strong convergence of a spectral sequence is also denoted by
+	$E_r^{p,q}\Rightarrow\Hm^{p+q}(X)$. The subscript $r$ is usually written
+	concretely as $1$, $2$, and so on, depending on which page of the spectral
+	sequence we wish to describe.
+
+	More generally, suppose we are given a cohomological bigraded spectral
+	sequence $\mathscr{E}$, a filtered graded object
+	$(H,\mathrm{F}^\bullet H)$, and isomorphisms
+	$E_\infty^{p,q}\simeq\gr^pH^{p+q}$, with
+	$\mathrm{F}^\bullet H$ exhaustive and complete. We also denote this
+	situation by $E_r^{p,q}\Rightarrow H^{p+q}$. Homological bigraded spectral
+	sequences are treated similarly; in particular,
+	$E^r_{p,q}\Rightarrow H_{p+q}$ entails
+	$E^\infty_{p,q}\simeq\gr_pH_{p+q}$.
+\end{convention}
+
+% segment-id: o014.li2.chapter5.filtered-complex-spectral-sequence.p008
+The following classical convergence theorem is sufficient for initial
+applications. For more general convergence conditions, see \cite{Boa99}.
+
+% segment-id: o014.li2.chapter5.filtered-complex-spectral-sequence.t002
+\begin{theorem}[Classical convergence theorem]\label{prop:classical-convergence}
+	Consider a filtered complex $(X,d,\mathrm{F}^\bullet X)$. Suppose that for
+	every $n\in\Z$,
+	\begin{compactitem}
+		\item the filtration $\mathrm{F}^\bullet X^n$ is exhaustive
+		(Definition~\ref{def:filtration-properties}),
+		\item there is an $N=N(n)$ such that $\mathrm{F}^NX^n=0$.
+	\end{compactitem}
+	Then the associated spectral sequence is strongly convergent
+	(Definition--Proposition~\ref{def:diff-obj-convergence}).
+
+	If the hypotheses are strengthened so that the filtration on every $X^n$
+	is finite (Definition~\ref{def:filtration}), then the induced filtration on
+	$\Hm^n(X)$ is also finite. In this case the associated spectral sequence is
+	bounded (Definition~\ref{def:bdd-ss}).
+\end{theorem}
+\begin{proof}
+	By the graded version of Lemma~\ref{prop:induced-filtration-H}, the induced
+	filtration $\mathrm{F}^\bullet\Hm^n(X)$ is exhaustive and complete. It
+	therefore remains to prove weak convergence.
+
+	We need to recall the proof of
+	Definition--Proposition~\ref{def:diff-obj-convergence}, which explains how
+	to realize $\gr^p\Hm^{p+q}(X)$ as a subquotient of $E_\infty^{p,q}$ for
+	each $(p,q)\in\Z^2$. The key point is
+	\begin{equation*}\begin{split}
+		\bigcap_r&\left(\left(\mathrm{F}^pX^{p+q}\cap
+		d^{-1}\mathrm{F}^{p+r}X^{p+q+1}\right)+\mathrm{F}^{p+1}X^{p+q}\right)
+		\\
+		&\supset(\mathrm{F}^pX^{p+q}\cap\Ker(d))+\mathrm{F}^{p+1}X^{p+q},\\
+		\bigcup_r&\left(\left(\mathrm{F}^pX^{p+q}\cap
+		d\mathrm{F}^{p-r+1}X^{p+q-1}\right)+\mathrm{F}^{p+1}X^{p+q}\right)
+		\\
+		&\subset(\mathrm{F}^pX^{p+q}\cap\Image(d))+\mathrm{F}^{p+1}X^{p+q}.
+	\end{split}\end{equation*}
+	Proving weak convergence is equivalent to strengthening both inclusions to
+	equalities. But when $r\gg0$ relative to $p,q$, the expression inside
+	$\bigcap_r$ in the first line is simply
+	$(\mathrm{F}^pX^{p+q}\cap\Ker(d))+\mathrm{F}^{p+1}X^{p+q}$, so equality
+	holds.
+
+	For the second line, the term $+\mathrm{F}^{p+1}X^{p+q}$ can first be
+	moved outside $\bigcup_r$. Recall that $d(\mathrm{F}^\bullet X^n)$ is an
+	exhaustive filtration of $d(X^n)$. Hence
+	\begin{multline*}
+		\bigcup_r\left(\mathrm{F}^pX^{p+q}\cap
+		d\mathrm{F}^{p-r+1}X^{p+q-1}\right)\\
+		\xlongequal{\because\;\text{\eqref{eqn:exhaustion-intersection}}}
+		\mathrm{F}^pX^{p+q}\cap\bigcup_r
+		d\mathrm{F}^{p-r+1}X^{p+q-1}\\
+		=\mathrm{F}^pX^{p+q}\cap d\bigcup_r
+		\mathrm{F}^{p-r+1}X^{p+q-1}
+		=\mathrm{F}^pX^{p+q}\cap\Image(d).
+	\end{multline*}
+
+	Finally, suppose the filtration on every $X^n$ is finite. Then
+	$\mathrm{F}^\bullet\Hm^n(X)$ is naturally bounded. To show that the
+	spectral sequence is bounded, fix $r,n$ and take $p+q=n$. By the
+	description in Proposition~\ref{prop:filtered-cplx-ss}, when $p\gg0$ the
+	numerator of $Z_r^{p,q}$ is $0$, while when $p\ll0$ its denominator is
+	$X^n$. Thus only finitely many $(p,q)$ satisfy $E_{r+1}^{p,q}\neq0$.
+\end{proof}
+
+% segment-id: o014.li2.chapter5.filtered-complex-spectral-sequence.p009
+The dual version is clear and will not be repeated.
+
+% segment-id: o014.li2.chapter5.filtered-complex-spectral-sequence.t003
+\begin{corollary}[Exact sequence of low-degree terms]
+\label{prop:low-degree-ss}
+	Let the filtered complex $(X,d,\mathrm{F}^\bullet X)$ satisfy
+	\[ \mathrm{F}^0X^n=X^n,\qquad \mathrm{F}^{n+1}X^n=0,
+	\qquad n\in\Z, \]
+	as in Example~\ref{eg:canonically-bdd-ss}. The associated spectral sequence
+	gives the canonical exact sequence
+	\[ 0\to E_2^{1,0}\to\Hm^1(X)\to E_2^{0,1}\xrightarrow{d}E_2^{2,0}
+	\to\Hm^2(X). \]
+	Dually, for a chain complex $X$ with increasing filtration, if
+	$\mathrm{F}_{-1}X=0$ and $\mathrm{F}_nX=X$, there is a canonical exact
+	sequence
+	\[ \Hm_2(X)\to E^2_{2,0}\xrightarrow{d}E^2_{0,1}\to\Hm_1(X)
+	\to E^2_{1,0}\to0. \]
+\end{corollary}
+\begin{proof}
+	Substitute $p=2$ into \eqref{eqn:low-exact-coh} to obtain the exact sequence
+	\[ 0\to E_\infty^{0,1}\to E_2^{0,1}\xrightarrow{d}E_2^{2,0}
+	\to E_\infty^{2,0}\to0. \]
+	By the classical convergence theorem~\ref{prop:classical-convergence},
+	$E_\infty^{0,1}\simeq\gr^0\Hm^1(X)$,
+	$E_\infty^{1,0}\simeq\gr^1\Hm^1(X)$, and
+	$E_\infty^{2,0}\simeq\gr^2\Hm^2(X)$. The hypotheses give
+	\begin{gather*}
+		\gr^2\Hm^2(X)=\mathrm{F}^2\Hm^2(X),\qquad
+		\gr^1\Hm^1(X)=\mathrm{F}^1\Hm^1(X),\\
+		\gr^0\Hm^1(X)=\Hm^1(X)/\mathrm{F}^1\Hm^1(X)
+		=\Hm^1(X)/E_\infty^{1,0}.
+	\end{gather*}
+	Moreover, substituting $p=1$ into \eqref{eqn:edge-ss-coh} gives
+	$E_2^{1,0}=E_\infty^{1,0}$. Splicing these equalities together yields the
+	asserted exact sequence. The homological version is analogous.
+\end{proof}
+
+% segment-id: o014.li2.chapter5.filtered-complex-spectral-sequence.p010
+If $E_r^{p,q}$ is strongly convergent, then once sufficiently many pages
+$(E_r,d_r)$ are known, in principle one can read
+$(\gr^p\Hm^{p+q}(X))_{p,q\in\Z}$ from $E_\infty$. Passing from
+$(\gr^p\Hm^n(X))_p$ to $\Hm^n(X)$, however, amounts to determining a series
+of extensions in $\mathcal{A}$, which is generally difficult unless
+$\Hm^n(X)$ splits. If we consider only coarser properties, a spectral sequence
+can sometimes provide a concise answer. The following example is essentially
+an application of the Euler--Poincar\'e principle.
+
+% segment-id: o014.li2.chapter5.filtered-complex-spectral-sequence.l001
+\begin{lemma}\label{prop:finite-degeneration}
+	Let $\mathscr{E}=(E_r,d_r)_{r\geq1}$ be a cohomological bigraded spectral
+	sequence, and suppose there is an $r$ such that
+	\[ \left\{(p,q)\in\Z^2:E_r^{p,q}\neq0\right\}
+	\quad\text{is a finite set}. \]
+	Then for $r\gg0$, $\mathscr{E}$ degenerates at the $E_r$ page.
+\end{lemma}
+\begin{proof}
+	By the hypothesis, for sufficiently large $r$ all nonzero terms of $E_r$
+	are concentrated in a region of finite length and width. Apply
+	Example~\ref{eg:SS-finite-width}.
+\end{proof}
+
+% segment-id: o014.li2.chapter5.filtered-complex-spectral-sequence.t004
+\begin{proposition}\label{prop:EP-ss}
+	Let the cohomological bigraded spectral sequence $(E_r,d_r)_r$ satisfy the
+	following conditions:
+	\begin{compactitem}
+		\item there is an $r$ such that
+		$\{(p,q)\in\Z^2:E_r^{p,q}\neq0\}$ is a finite set;
+		\item there is strong convergence $E_r^{p,q}\Rightarrow H^{p+q}$ in
+		the sense of Convention~\ref{con:ss-conv}.
+	\end{compactitem}
+	Then in the group $\mathrm{K}_0(\mathcal{A})$ of
+	Definition~\ref{def:K0}, for $r\gg0$ one has
+	\[ \sum_{n\in\Z}(-1)^n[H^n]
+	=\sum_{p,q\in\Z}(-1)^{p+q}[E_r^{p,q}], \]
+	and both sides are finite sums.
+\end{proposition}
+\begin{proof}
+	For $r\gg0$, only finitely many terms on the right are nonzero. Moreover,
+	\[ E_{r+1}^{p,q}\simeq\Hm\left[
+	E_r^{p-r,q+r-1}\xrightarrow{d}E_r^{p,q}
+	\xrightarrow{d}E_r^{p+r,q-r+1}\right]. \]
+	If degree is counted by $n:=p+q$, then $d$ has degree $1$. Take the
+	alternating sum over $n$ in $\mathrm{K}_0(\mathcal{A})$ and apply
+	Theorem~\ref{prop:EP} to obtain
+	\[ \sum_{p,q\in\Z}(-1)^{p+q}[E_r^{p,q}]
+	=\sum_{p,q\in\Z}(-1)^{p+q}[E_{r+1}^{p,q}]. \]
+
+	Lemma~\ref{prop:finite-degeneration} shows that the spectral sequence
+	eventually degenerates. Thus, for $r\gg0$,
+	$E_r^{p,q}=E_\infty^{p,q}$ for every $(p,q)$. Consequently,
+	\[ \sum_{p,q}(-1)^{p+q}[E_r^{p,q}]
+	=\sum_{p,q}(-1)^{p+q}[\gr^p\Hm^{p+q}(X)]
+	=\sum_n(-1)^n\sum_p[\gr^pH^n], \]
+	and the hypotheses ensure that all these sums are finite. By
+	Lemma~\ref{prop:K0-prep}~(v) and the properties of
+	$\mathrm{F}^\bullet H$, we also have
+	$\sum_p[\gr^pH^n(X)]=[\Hm^n(X)]$.
+\end{proof}
+
+% segment-id: o014.li2.chapter5.filtered-complex-spectral-sequence.p011
+If $(E_r,d_r)_r$ comes from a filtered complex
+$(X,d,\mathrm{F}^\bullet)$ and the filtration
+$\mathrm{F}^\bullet X^n$ on every $X^n$ is finite, then
+Theorem~\ref{prop:classical-convergence} ensures that the strong-convergence
+hypothesis $E_r^{p,q}\Rightarrow\Hm^{p+q}(X)$ in
+Proposition~\ref{prop:EP-ss} holds automatically. The condition on
+$\{(p,q):E_r^{p,q}\neq0\}$, however, is not automatic.
+
+% segment-id: o014.li2.chapter5.filtered-complex-spectral-sequence.p012
+Filtered complexes already suffice to produce some simple but useful spectral
+sequences; see the exercises for this chapter. Since algebra is the subject of
+this book, several of the best-known spectral sequences arise from
+bicomplexes. We therefore turn next to the bicomplex case.

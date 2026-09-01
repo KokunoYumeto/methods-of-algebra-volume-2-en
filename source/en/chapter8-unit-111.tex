@@ -1,0 +1,325 @@
+% Unit 111 English translation of chapter8.tex lines 925--1058.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter8.dold-kan-b
+% Coverage: the remainder of Section 8.5, from the Dold--Kan theorem through
+% the remark on cochain-complex and cosimplicial versions; Unit 112 begins Section 8.6 at line 1059.
+
+\hypertarget{o014.aljabr2.chapter8.dold-kan-b}{ }
+% segment-id: o014.aljabr2.chapter8.dold-kan-b.t001
+\begin{theorem}[A.\ Dold, D.\ Kan]\label{prop:Dold-Kan}
+	\index{Dold--Kan correspondence}
+	For every additive category $\mathcal{A}$, the functor
+	$\Gamma:\cate{Ch}_{\geq0}(\mathcal{A})\to\cate{s}\mathcal{A}$ is fully
+	faithful.
+	\begin{itemize}
+		% segment-id: o014.aljabr2.chapter8.dold-kan-b.i001
+		\item If $\mathcal{A}$ is also a Karoubi category as mentioned in
+		\S\ref{sec:direct-sum}, meaning that every idempotent has a kernel,
+		then $\Gamma$ is an equivalence of categories.
+		% segment-id: o014.aljabr2.chapter8.dold-kan-b.i002
+		\item If, in addition, $\mathcal{A}$ is an abelian category (and hence
+		also a Karoubi category), then $\mathrm{N}$ is a quasi-inverse functor
+		to $\Gamma$, and
+		% segment-id: o014.aljabr2.chapter8.dold-kan-b.g001
+		$\begin{tikzcd}
+			\Gamma: \cate{Ch}_{\geq 0}(\mathcal{A}) \arrow[shift left, r] & \cate{s}\mathcal{A} : \mathrm{N} \arrow[shift left, l]
+		\end{tikzcd}$
+		is an adjoint equivalence. The unit and counit morphisms of the
+		adjunction are described in Lemma~\ref{prop:GammaN-adjunction}.
+	\end{itemize}
+\end{theorem}
+% segment-id: o014.aljabr2.chapter8.dold-kan-b.pf001
+\begin{proof}
+	Consider the functor
+	% segment-id: o014.aljabr2.chapter8.dold-kan-b.q001
+	\[ \tilde{h}_{\mathcal{A}}: \mathcal{A} \to \tilde{\mathcal{A}}^\wedge := \cate{Ab}^{(\mathcal{A}^{\opp})}, \quad Y \mapsto \Hom_{\mathcal{A}}(\cdot, Y). \]
+	Its composite with the forgetful functor
+	$\cate{Ab}\to\cate{Set}$ is the Yoneda embedding
+	$h_{\mathcal{A}}:\mathcal{A}\to\mathcal{A}^\wedge$ recalled in
+	\S\ref{sec:Yoneda}. The functor $\tilde{h}_{\mathcal{A}}$ is fully
+	faithful. This is simply the $\cate{Ab}$-enriched version of the Yoneda
+	lemma, but it can also be deduced from the original version. For every
+	$Y_1,Y_2\in\Obj(\mathcal{A})$, the composite map
+	% segment-id: o014.aljabr2.chapter8.dold-kan-b.q002
+	\[ \Hom_{\mathcal{A}}(Y_1, Y_2) \to \Hom_{\tilde{\mathcal{A}}^\wedge}\left(\tilde{h}_{\mathcal{A}}(Y_1), \tilde{h}_{\mathcal{A}}(Y_2) \right) \to \Hom_{\mathcal{A}^\wedge}\left( h_{\mathcal{A}}(Y_1), h_{\mathcal{A}}(Y_2)\right) \]
+	is known to be bijective, while the second map is plainly injective.
+	Therefore both maps are bijective.
+
+	Proposition~\ref{prop:functor-cat-Abel} shows that
+	$\tilde{\mathcal{A}}^\wedge$ is naturally an abelian category. Use the
+	same symbol $\tilde{h}_{\mathcal{A}}$ for the induced functors on chain
+	complexes and simplicial objects, and consider the diagram
+	% segment-id: o014.aljabr2.chapter8.dold-kan-b.e001
+	\begin{equation*}\begin{tikzcd}
+		\cate{Ch}_{\geq 0}(\mathcal{A}) \arrow[d, "{\tilde{h}_{\mathcal{A}}}"'] \arrow[r, "\Gamma"] & \cate{s}\mathcal{A} \arrow[d, "{\tilde{h}_{\mathcal{A}}}"] \\
+		\cate{Ch}_{\geq 0}(\tilde{\mathcal{A}}^\wedge) \arrow[r, "\Gamma"'] & \cate{s}\tilde{\mathcal{A}}^\wedge.
+	\end{tikzcd}\end{equation*}
+	This diagram commutes up to a canonical isomorphism. The observation in the
+	preceding paragraph shows that both vertical arrows are fully faithful,
+	while applying Lemma~\ref{prop:DK-Ab} objectwise shows that the second row
+	is an equivalence of categories. Hence $\Gamma$ in the first row is fully
+	faithful.
+
+	For any functor $F:\mathcal{C}\to\mathcal{C}'$, an object
+	$X'\in\Obj(\mathcal{C}')$ is said to lie in the \emph{essential image} of
+	$F$ if there is an $X\in\Obj(\mathcal{C})$ such that $X'\simeq FX$.
+	Together with the description in Lemma~\ref{prop:DK-Ab} of the
+	quasi-inverse to
+	$\cate{Ch}_{\geq0}(\cate{Ab})\to\cate{s}\cate{Ab}$, this yields the
+	following conclusion: $X\in\Obj(\cate{s}\mathcal{A})$ lies in the
+	essential image of $\Gamma$ if and only if
+	$(\mathrm{N}\tilde{h}_{\mathcal{A}}(X))_n$ lies in the essential image of
+	$\tilde{h}_{\mathcal{A}}:\mathcal{A}\to
+	\tilde{\mathcal{A}}^\wedge$ for every $n\geq0$.
+
+	Notice that
+	$\tilde{h}_{\mathcal{A}}:\mathcal{A}\to\tilde{\mathcal{A}}^\wedge$
+	preserves finite direct sums. If $\mathcal{A}$ is a Karoubi category, the
+	essential image of $\mathcal{A}\to\tilde{\mathcal{A}}^\wedge$ is
+	therefore closed under taking direct summands. Since
+	$(\mathrm{N}\tilde{h}_{\mathcal{A}}(X))_n$ is a direct summand of
+	$(\Gamma\mathrm{N}\tilde{h}_{\mathcal{A}}(X))_n\simeq
+	\tilde{h}_{\mathcal{A}}(X)_n$,\footnote{Translator's note: the final term
+	is printed as $h_{\mathcal{A}}(X)_n$ in the source. The other objects in
+	this isomorphism are $\cate{Ab}$-valued presheaves, so the correctly typed
+	term is $\tilde{h}_{\mathcal{A}}(X)_n$.} in this case $\Gamma$ is fully
+	faithful and essentially surjective, hence an equivalence.
+
+	Finally, the adjoint equivalence theorem
+	\cite[Theorem 2.6.12]{Li1} ensures that a quasi-inverse to
+	$\Gamma:\cate{Ch}_{\geq0}(\mathcal{A})\to\cate{s}\mathcal{A}$ can always
+	be made into its right adjoint. If $\mathcal{A}$ is an abelian category,
+	Lemma~\ref{prop:GammaN-adjunction} has already shown that $\mathrm{N}$ is
+	the right adjoint of $\Gamma$, and hence is also its quasi-inverse. This
+	proves the result.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter8.dold-kan-b.cv001
+\begin{convention}
+	In view of this result, if $\mathcal{A}$ is a Karoubi category, we may
+	choose a quasi-inverse functor to
+	$\Gamma:\cate{Ch}_{\geq0}(\mathcal{A})\to\cate{s}\mathcal{A}$ and
+	naturally denote it by $\mathrm{N}$.
+\end{convention}
+
+% segment-id: o014.aljabr2.chapter8.dold-kan-b.p001
+Although $\mathrm{N}X$ was initially defined as a subobject of
+$\mathrm{C}X$, it can also be understood as a quotient object; the latter
+viewpoint is often more convenient. We now explain this.
+
+% segment-id: o014.aljabr2.chapter8.dold-kan-b.p002
+Let $\mathcal{A}$ be a Karoubi category and
+$X\in\Obj(\cate{s}\mathcal{A})$. For every $n\geq0$, define the morphism
+$\Psi_n$ in $\mathcal{A}$ as the one characterized by the commutativity of
+the following diagram for every $0\leq j<n$:
+% segment-id: o014.aljabr2.chapter8.dold-kan-b.g002
+\[\begin{tikzcd}
+	\bigoplus_{0 \leq i < n} X_{n-1} \arrow[r, "\Psi_n"] & X_n \\
+	X_j \arrow[hookrightarrow, u, "\text{direct summand}"] \arrow[ru, "{s_j}"'] &
+\end{tikzcd}\]
+Thus taking $\Coker(\Psi_n)$ (that is, the coequalizer of $\Psi_n$ and $0$)
+intuitively removes every degenerate part from $X_n$, at least when
+$\mathcal{A}$ is an abelian category. The next result not only guarantees
+that $\Coker(\Psi_n)$ exists, but also identifies it with
+$(\mathrm{N}X)_n$ via the natural embedding
+$u:\mathrm{N}X\to\mathrm{C}X$ in Proposition~\ref{prop:Dold-Kan-u}. This
+gives another perspective on $\mathrm{N}X$.
+
+% segment-id: o014.aljabr2.chapter8.dold-kan-b.pr001
+\begin{proposition}\label{prop:Dold-Kan-v}
+	In the situation above, $\Coker(\Psi_n)$ exists and is canonically
+	isomorphic to $(\mathrm{N}X)_n$. Consider the corresponding composite
+	$v_n:X_n\twoheadrightarrow\Coker(\Psi_n)\rightiso(\mathrm{N}X)_n$.
+	Then $(v_n)_n$ gives a morphism
+	$v:\mathrm{C}X\to\mathrm{N}X$ satisfying
+	$vu=\identity_{\mathrm{N}X}$ for the natural embedding
+	$u:\mathrm{N}X\hookrightarrow\mathrm{C}X$; this construction is
+	functorial in $X$.
+\end{proposition}
+% segment-id: o014.aljabr2.chapter8.dold-kan-b.pf002
+\begin{proof}
+	By Theorem~\ref{prop:Dold-Kan}, we may assume that $X=\Gamma A$, where
+	$A\in\Obj(\cate{Ch}_{\geq0}(\mathcal{A}))$. In this case, $\Psi_n$ can
+	be written as
+	% segment-id: o014.aljabr2.chapter8.dold-kan-b.q003
+	\[ \bigoplus_{0 \leq i < n} \bigoplus_{t: [n-1] \twoheadrightarrow [k]} A_k \to \bigoplus_{t': [n] \twoheadrightarrow [k] } A_k. \]
+	From Definition~\ref{def:DK-Gamma} of the functor $\Gamma$, we see that
+	$\Psi_n$ acts on the $(i,t)$-summand on the left as follows. Form the
+	composite $[n]\xrightarrow{\mathrm{s}^i}[n-1]\xrightarrow{t}[k]$, which
+	is still an order-preserving surjection, and denote it by $t'$; then $A_k$
+	is mapped identically to the $A_k$-summand on the right corresponding to
+	$t'$.
+
+	Observe that $t':[n]\twoheadrightarrow[k]$ arises from such a pair $(i,t)$
+	if and only if $k<n$. Using the $\eta$ of
+	Lemma~\ref{prop:DK-N-unit}, define $v_n$ to be the composite
+	$(\Gamma A)_n\xrightarrow{\text{projection}}A_n
+	\xrightarrow[\sim]{\eta}(\mathrm{N}\Gamma A)_n$. The discussion above
+	shows that
+	% segment-id: o014.aljabr2.chapter8.dold-kan-b.q004
+	\[ [\text{quotient}: (\Gamma A)_n \to \Coker \Psi_n] \simeq [v_n: (\Gamma A)_n \twoheadrightarrow (\mathrm{N}\Gamma A)_n ] . \]
+
+	Expanding the definitions immediately gives
+	$v_nu_n=\identity_{(\mathrm{N}\Gamma A)_n}$. We next show that $(v_n)_n$
+	gives a morphism $v$ in $\cate{Ch}_{\geq0}(\mathcal{A})$. This is
+	equivalent to saying that the outer rectangle of the following diagram
+	commutes:
+	% segment-id: o014.aljabr2.chapter8.dold-kan-b.g003
+	\[\begin{tikzcd}[column sep=large]
+		(\Gamma A)_n \arrow[r, "{\sum_i (-1)^i d^{\Gamma A}_i}"] \arrow[d, "\text{projection}"'] & (\Gamma A)_{n-1} \arrow[d, "\text{projection}"] \\
+		A_n \arrow[r, "{\partial^A_n}"] \arrow[d, "\eta"'] & A_{n-1} \arrow[d, "\eta"] \\
+		(\mathrm{N}\Gamma A)_n \arrow[r, "{\partial^{\mathrm{N}\Gamma A}_n}"'] & (\mathrm{N}\Gamma A)_{n-1}.
+	\end{tikzcd}\]
+	The lower part commutes because $\eta$ is a morphism, while the
+	commutativity of the upper part follows by directly applying the definition
+	of $d_i^{\Gamma A}$ (take $f=\mathrm{d}^i$ in
+	Definition~\ref{def:DK-Gamma}). Finally, the functoriality of $v$ in $X$
+	is clear.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter8.dold-kan-b.p003
+Our next goal is to compare $\mathrm{C}$ and $\mathrm{N}$ more precisely in
+the case of an abelian category. There is a notion of homotopy for morphisms
+between chain complexes; see Definition~\ref{def:homotopy} and
+Remark~\ref{rem:Hom-chain-cplx}. A morphism of chain complexes is called a
+\emph{quasi-isomorphism} if it induces isomorphisms on homology.
+
+% segment-id: o014.aljabr2.chapter8.dold-kan-b.t002
+\begin{theorem}\label{prop:Dold-Kan-N-C}
+	Let $\mathcal{A}$ be an abelian category and
+	$X\in\Obj(\cate{s}\mathcal{A})$. Then
+	$u:\mathrm{N}X\to\mathrm{C}X$ from Lemma~\ref{prop:Dold-Kan-u} and
+	$v:\mathrm{C}X\to\mathrm{N}X$ from Proposition~\ref{prop:Dold-Kan-v}
+	are both quasi-isomorphisms.
+\end{theorem}
+% segment-id: o014.aljabr2.chapter8.dold-kan-b.pf003
+\begin{proof}
+	We know that $vu=\identity_{\mathrm{N}X}$, so it is enough to prove that
+	$v$ is a quasi-isomorphism. Since $v$ has a right inverse, it is an
+	epimorphism. The long exact sequence of chain complexes
+	(Proposition~\ref{prop:long-exact-sequence-ses}) reduces the problem to
+	proving that $\Ker(v)$ is acyclic. By Theorem~\ref{prop:Dold-Kan}, we may
+	henceforth assume that $X=\Gamma A$, where
+	$A\in\Obj(\cate{Ch}_{\geq0}(\mathcal{A}))$. Therefore
+	% segment-id: o014.aljabr2.chapter8.dold-kan-b.q005
+	\begin{gather*}
+		(\mathrm{C}X)_n = \bigoplus_{t: [n] \twoheadrightarrow [k]} A_k, \\
+		\partial_n : (\mathrm{C}X)_n \to (\mathrm{C}X)_{n-1}.
+	\end{gather*}
+
+	For $n\geq0$ and $i\in\Z$, let $(\mathrm{C}^{\leq i}X)_n$ denote the
+	subobject of $(\mathrm{C}X)_n$ cut out by the direct summands satisfying
+	% segment-id: o014.aljabr2.chapter8.dold-kan-b.q006
+	\[ \exists \; j, \quad \max\{n-i, 1\} \leq j \leq n, \quad t(j) = t(j-1). \]
+	We have $i\leq i'\implies(\mathrm{C}^{\leq i}X)_n\subset
+	(\mathrm{C}^{\leq i'}X)_n$.
+
+	Since $v_n$ is simply the projection onto the summand
+	$t=\identity_{[n]}$, if $i\geq n-1$ then
+	$(\mathrm{C}^{\leq i}X)_n=\Ker(v_n)$. We now show that
+	% segment-id: o014.aljabr2.chapter8.dold-kan-b.e002
+	\begin{equation}\label{eqn:Dold-Kan-N-C-aux0}
+		\left( (\mathrm{C}^{\leq i} X)_n \right)_{n \geq 0} \;\text{forms a chain subcomplex of}\; \mathrm{C}X \;\text{denoted by}\; \mathrm{C}^{\leq i} X.
+	\end{equation}
+
+	To prove this, fix a map $t:[n]\twoheadrightarrow[k]$ and an index
+	$\max\{n-i,1\}\leq j\leq n$ satisfying the condition above. From now on
+	write $d_i=d_i^X$ and $s_j=s_j^X$. For every $0\leq h\leq n$, take
+	$m=n-1$ and $f=\mathrm{d}^h:[n-1]\hookrightarrow[n]$ in the diagram
+	\eqref{eqn:Dold-Kan-epi-mono}.
+	\begin{itemize}
+		% segment-id: o014.aljabr2.chapter8.dold-kan-b.i003
+		\item Suppose $h\notin\{j-1,j\}$ and set
+		$j':=(\mathrm{d}^h)^{-1}(j)$. Then
+		$u:[n-1]\twoheadrightarrow[l]$ satisfies $u(j')=u(j'-1)$, and it is
+		easy to see that $n-1-i\leq j'\leq n-1$. In this case,
+		$(-1)^hd_h:X_n\to X_{n-1}$ maps $A_k$ to the direct summand of
+		$(\mathrm{C}^{\leq i}X)_{n-1}$ determined by $u$.
+		% segment-id: o014.aljabr2.chapter8.dold-kan-b.i004
+		\item In the situation of the preceding item, if also
+		$h\geq n-i-1$, the range of $j'$ can be sharpened to
+		$n-i\leq j'\leq n-1$. In other words, the image of $A_k$ then lies
+		in $(\mathrm{C}^{\leq i-1}X)_{n-1}$.
+		% segment-id: o014.aljabr2.chapter8.dold-kan-b.i005
+		\item For $h\in\{j-1,j\}$, verify that
+		$t\mathrm{d}^{j-1}=t\mathrm{d}^j$. It follows that
+		$d_{j-1},d_j:X_n\rightrightarrows X_{n-1}$ agree on the direct
+		summand $A_k$ corresponding to $t$, so $(-1)^{j-1}d_{j-1}$ and
+		$(-1)^jd_j$ cancel on that summand.
+	\end{itemize}
+	This proves \eqref{eqn:Dold-Kan-N-C-aux0}. The second and third items also
+	give the congruence
+	% segment-id: o014.aljabr2.chapter8.dold-kan-b.e003
+	\begin{equation}\label{eqn:Dold-Kan-N-C-aux}
+		\sum_{h=0}^n (-1)^h d_h \equiv \sum_{h=0}^{n-i-2} (-1)^h d_h \pmod{ \mathrm{C}^{\leq i-1} X }.
+	\end{equation}
+
+	Thus it is enough to prove that $\mathrm{C}^{\leq i}X$ is acyclic. Set
+	% segment-id: o014.aljabr2.chapter8.dold-kan-b.q007
+	\[ D:=\mathrm{C}^{\leq i}X/\mathrm{C}^{\leq i-1}X. \]
+	Notice that $\mathrm{C}^{<-1}X=0$. The long exact sequence of chain
+	complexes then reduces the problem to proving inductively that $D$ is
+	acyclic, for $i\geq0$.
+
+	To prove that $D$ is acyclic, consider the family of morphisms
+	% segment-id: o014.aljabr2.chapter8.dold-kan-b.q008
+	\begin{gather*}
+		(-1)^{n-i-1}s_{n-i-1}:X_n\to X_{n+1}, \quad n\geq i+1.
+	\end{gather*}
+	A direct verification shows that these morphisms preserve both
+	$(\mathrm{C}^{\leq i-1}X)_\bullet$ and
+	$(\mathrm{C}^{\leq i}X)_\bullet$ (this choice of bounds is optimal), and
+	therefore induce
+	% segment-id: o014.aljabr2.chapter8.dold-kan-b.q009
+	\[ h_n:D_n\to D_{n+1}. \]
+
+	Extend the definition of $s_k$ by zero to every $k\in\Z$, and thereby
+	extend the definition of $h_n$ by zero to the case $n\leq i$. Notice that
+	$n\leq i\implies D_n=0$, so this is the only reasonable choice. We claim
+	that
+	% segment-id: o014.aljabr2.chapter8.dold-kan-b.q010
+	\[ \partial^D_{n+1}h_n+h_{n-1}\partial^D_n=\identity_{D_n}, \quad n\in\Z. \]
+	This will show that $D$ is acyclic. First, applying
+	\eqref{eqn:Dold-Kan-N-C-aux} gives
+	% segment-id: o014.aljabr2.chapter8.dold-kan-b.q011
+	\[ \partial^D_n = \sum_{j=0}^{n-i-2} (-1)^j d_j \;\bmod\; \mathrm{C}^{\leq i-1}(X)_{n-1}. \]
+	Together with \eqref{eqn:simplicial-identity}, this gives, for
+	$n\geq i+1$,
+	% segment-id: o014.aljabr2.chapter8.dold-kan-b.q012
+	\begin{align*}
+		\partial^D_{n+1} h_n & = (-1)^{n-i-1} \sum_{j=0}^{n-i-1} (-1)^j d_j s_{n-i-1} \; \bmod\; \mathrm{C}^{\leq i-1}(X)_n \\
+		& = (-1)^{n-i-1} \sum_{j=0}^{n-i-2} (-1)^j s_{n-i-2} d_j + \identity_{\mathrm{C}^{\leq i}(X)_n} \; \bmod\; \mathrm{C}^{\leq i-1}(X)_n \\
+		& = -h_{n-1} \partial^D_n + \identity_{D_n}.
+	\end{align*}
+	The identity also holds trivially for $n\leq i$. This proves the claim.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter8.dold-kan-b.r001
+\begin{remark}
+	Naturally, one may ask for corresponding versions of the various theorems
+	in this section, particularly the Dold--Kan correspondence, for the
+	category of complexes $\cate{C}(\mathcal{A})$ or its subcategories
+	$\cate{C}_{\leq0}(\mathcal{A})$ and
+	$\cate{C}_{\geq0}(\mathcal{A})$. There are at least two simple
+	approaches: reflection, and reversal or duality.
+	\begin{enumerate}
+		% segment-id: o014.aljabr2.chapter8.dold-kan-b.i006
+		\item As explained in Remark~\ref{rem:cochain-vs-chain},
+		$\cate{C}(\mathcal{A})$ and $\cate{Ch}(\mathcal{A})$ correspond by
+		$X^n=X_{-n}$ and $d^n=\partial_{-n}$. All the results in this section
+		can be transported to complexes through this correspondence. For
+		example, the reflected version of Theorem~\ref{prop:Dold-Kan} is an
+		adjoint equivalence between $\cate{C}_{\leq0}(\mathcal{A})$ and
+		$\cate{s}\mathcal{A}$.
+		% segment-id: o014.aljabr2.chapter8.dold-kan-b.i007
+		\item Another approach is to consider the category of cosimplicial
+		objects $\cate{cs}\mathcal{A}$. There are equivalences of categories
+		% segment-id: o014.aljabr2.chapter8.dold-kan-b.q013
+		\[ \cate{cs}\mathcal{A} \simeq \cate{s}\left(\mathcal{A}^{\opp}\right)^{\opp} \simeq \cate{Ch}_{\geq 0}(\mathcal{A}^{\opp})^{\opp} \simeq \cate{C}_{\geq 0}(\mathcal{A}), \]
+		where the final step comes from reversing the arrows, as in
+		Remark~\ref{rem:cochain-vs-chain}.
+	\end{enumerate}
+	Operations such as taking the normalized complex can likewise be
+	translated into the category of complexes.
+\end{remark}

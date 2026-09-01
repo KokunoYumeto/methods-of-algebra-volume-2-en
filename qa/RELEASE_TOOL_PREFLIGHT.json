@@ -1,0 +1,110 @@
+{
+  "schema": "o014-english-release-tool-preflight-v1",
+  "verified_at_utc": "2026-08-31T23:23:16.6479334Z",
+  "result": "PASS",
+  "scope": {
+    "root": "C:/Users/Floris/Documents/interlanguage/04_mirrors/en/methods-of-algebra-volume-2-en",
+    "publication_executed": false,
+    "authentication_attempted": false,
+    "git_executed": false,
+    "build_executed": false,
+    "unit_sources_touched": false,
+    "backend_touched": false,
+    "reader_builder_touched": false,
+    "build_outputs_touched": false
+  },
+  "canonical_zenodo_payload": [
+    {"filename": "00_methods-of-algebra-volume-2-independent-english-edition.pdf", "role": "primary reader PDF"},
+    {"filename": "01_complete-xelatex-source.zip", "role": "complete editable XeLaTeX source"},
+    {"filename": "02_semantic-backend.zip", "role": "locale-linked semantic backend"},
+    {"filename": "03_offline-html-reader.zip", "role": "accessible reflowable offline HTML reader"},
+    {"filename": "04_provenance-and-reproducibility.zip", "role": "authority, workflow, QA, hashes, and build tools"},
+    {"filename": "LICENSE", "role": "CC BY 4.0 license text"},
+    {"filename": "README.txt", "role": "reader-first scope and use note"},
+    {"filename": "MANIFEST.csv", "role": "payload inventory"},
+    {"filename": "SHA256SUMS.txt", "role": "payload checksums excluding the checksum file itself"}
+  ],
+  "metadata_boundary": {
+    "title": "Methods of Algebra, Volume 2: Linear Algebra - Independent English Edition",
+    "version": "complete-independent-english-edition-2026-09-01",
+    "access_right": "open",
+    "license": "cc-by-4.0",
+    "language": "eng",
+    "source_creator": "Li, Wen-Wei",
+    "organization_contributors_maximum": 1,
+    "organization_label_absent_from_title_and_description": true,
+    "nonendorsement_required": true,
+    "frozen_source_commit": "9a5803ff77dd3257484cb177f851a73770a59dd3",
+    "frozen_source_tree": "23bd05c2fb8434278df4fdfb636559a6a2b0d2ff"
+  },
+  "findings": [
+    {
+      "id": "PREFLIGHT-001",
+      "severity": "high",
+      "status": "fixed",
+      "summary": "The package and Zenodo gates previously accepted any nine filenames instead of the canonical reader-first inventory.",
+      "resolution": "Both tools now enforce the same exact nine-name set, reject duplicates and extra entries, and verify every byte count and SHA-256 before authentication."
+    },
+    {
+      "id": "PREFLIGHT-002",
+      "severity": "medium",
+      "status": "fixed",
+      "summary": "Generated payload text and ZIP platform metadata were not fully cross-platform deterministic.",
+      "resolution": "Generated text now uses explicit UTF-8 bytes and LF records, and ZIP entries use a fixed timestamp, Unix creator system, fixed permissions, sorted entries, and fixed compression settings."
+    },
+    {
+      "id": "PREFLIGHT-003",
+      "severity": "high",
+      "status": "fixed",
+      "summary": "Zenodo reuse checked title and files before the full metadata, provenance, and nonendorsement boundary.",
+      "resolution": "Reuse and final publication now share one metadata validator; defective prior versions remain on their unambiguous existing concept and are corrected by a new version, while multiple exact-title concepts fail closed."
+    },
+    {
+      "id": "PREFLIGHT-004",
+      "severity": "high",
+      "status": "fixed",
+      "summary": "The GitHub publisher used a dot-wide add/status/commit boundary.",
+      "resolution": "All staging, status, and commit operations now use an explicit publication pathspec; origin identity and public visibility are enforced before push."
+    },
+    {
+      "id": "PREFLIGHT-005",
+      "severity": "high",
+      "status": "fixed",
+      "summary": "The GitHub gate trusted PASS labels without binding the Zenodo anonymous readback to the current package.",
+      "resolution": "GitHub publication now requires an exact package-receipt hash match and identical nine-file byte/hash inventories from the Zenodo public receipt."
+    },
+    {
+      "id": "PREFLIGHT-006",
+      "severity": "medium",
+      "status": "fixed",
+      "summary": "The GitHub public verifier did not verify the configured Pages branch and root path and did not URL-encode page paths.",
+      "resolution": "Anonymous verification now checks gh-pages at /, the canonical Pages URL, the main default branch, the publication boundary, and encoded per-file byte/hash readback."
+    },
+    {
+      "id": "PREFLIGHT-007",
+      "severity": "informational",
+      "status": "pass",
+      "summary": "Zenodo credential handling is secret-safe in the audited path.",
+      "evidence": "The token is read only after anonymous duplicate and payload checks, is sent only in an Authorization header, is never placed in a URL or receipt, and public readback uses a separate anonymous session."
+    }
+  ],
+  "static_checks": {
+    "python_ast_parse": "PASS",
+    "shared_exact_payload_tuple": "PASS",
+    "payload_file_count": 9,
+    "metadata_validator_on_declared_metadata": "PASS",
+    "no_organization_label_in_title_or_description": "PASS",
+    "open_cc_by_4_0": "PASS",
+    "nonendorsement_present": "PASS",
+    "explicit_git_pathspec_count": 10,
+    "pages_source_root_check_present": "PASS"
+  },
+  "files": [
+    {"path": "tools/package_english_release.py", "bytes": 6344, "sha256": "eb14272e20a3e8a8655d0e0bc6b72d7c532cdf01c9e2d85d0137c2a0abe64521", "disposition": "modified"},
+    {"path": "release/publish_zenodo.py", "bytes": 16621, "sha256": "d133d19bbe7d0ab7793b5f8d7c5e79931d16e9ddb5526f33d88626e46a0738e7", "disposition": "modified"},
+    {"path": "release/publish_github.py", "bytes": 5800, "sha256": "f1c842084f5236d578d15fca2c21f3b008a62737c6e50b220e5381ab9216ec66", "disposition": "modified"},
+    {"path": "release/verify_github_public.py", "bytes": 3405, "sha256": "de19e83c155588aa5e6319df7a09ede02e4c971d46b9f17187d0ded138383105", "disposition": "modified"},
+    {"path": ".gitignore", "bytes": 156, "sha256": "afe7701e06064e36f3108732af2338598f782654e5337d5218bad9f45ea85f1c", "disposition": "inspected_only"},
+    {"path": "README.md", "bytes": 3097, "sha256": "62666ca18fe7f85cf6345a072c09d2f49503f56a5aa97ca5a31b8e2bb96cb3d9", "disposition": "inspected_only"}
+  ]
+}

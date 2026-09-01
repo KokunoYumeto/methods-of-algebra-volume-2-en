@@ -1,0 +1,49 @@
+% O014 / D80 -- Methods of Algebra, Volume 2 -- en
+% Source: appendix1.tex, lines 488--531 inclusive.
+% Stable unit ID: o014.aljabr2.appendix-a.exercises
+\begin{Exercises}
+	\item In the discussion of \S\ref{sec:Yoneda}, fix a commutative ring $\Bbbk$, require $\mathcal{C}$ to be a $\Bbbk\dcate{Mod}$-category (Definition~\ref{def:cat-k-linear}), replace $\cate{Set}$ by $\Bbbk\dcate{Mod}$ in the definitions of $\mathcal{C}^\wedge$ and $\mathcal{C}^\vee$, and require the functors to be $\Bbbk$-linear. Formulate the corresponding $\Bbbk$-linear versions of Theorems~\ref{prop:Yoneda} and \ref{prop:Yoneda-density}.
+
+	\item Complete the only-if part of Example~\ref{eg:Mod-cpt}.
+	\begin{hint}
+		Every $R$-module can be written as a filtered $\varinjlim$ of finitely presented $R$-modules, not necessarily its submodules; for simplicity, write $X=\varinjlim\alpha$. Consider a preimage of $\identity_X$ under \eqref{eqn:I-small-gen}. This gives
+		$f_i\in\Hom(X,\alpha(i))$ such that $\iota_i f_i=\identity_X$, and hence a decomposition $\alpha(i)\simeq X\oplus N$. Since $N$ is isomorphic to a quotient of $\alpha(i)$, it is a finitely generated $R$-module. The problem reduces to the fact that the quotient of a finitely presented $R$-module by a finitely generated submodule is still finitely presented.
+	\end{hint}
+
+	\item Explain the relation between the cofinal ordinal sequences introduced in \S\ref{sec:cpt-objects} and the cofinal subcategories of Definition~\ref{def:cofinal}.
+
+	\item (J.\ Adámek, J.\ Rosický) Prove the fact mentioned in Remark~\ref{rem:filtered-poset} as follows: for every small filtered category $I$, there is a small filtered partially ordered set $(\mathcal{P},\leq)$ together with a cofinal functor $\mathcal{P}\to I$.
+	\begin{enumerate}[(i)]
+		\item Suppose that the small filtered category $I$ has the following property: every finite subcategory $\mathcal{A}$ is contained in a finite subcategory $\mathcal{A}'$ having a unique terminal object. Note that a subcategory need not be full, and that a finite category means one with finite sets of objects and morphisms. Let $\mathcal{I}$ be the set of all subcategories having a unique terminal object, partially ordered by inclusion $\subset$. Show that one can define a functor
+		\[ H: \mathcal{I} \to I, \]
+		sending an object $\mathcal{A}$ to its unique terminal object $H\mathcal{A}$ and an inclusion $\mathcal{A}_1\subset\mathcal{A}_2$ to the unique morphism $H\mathcal{A}_1\to H\mathcal{A}_2$ in $\mathcal{A}_2$.
+		\item In the notation above, show that $(\mathcal{I},\subset)$ is a small filtered partially ordered set and that $H$ is cofinal.
+		\item Now let $I$ be any small filtered category. Show that the product category $I\times\omega$ has the property assumed in (i), and that the projection functor $I\times\omega\to I$ is cofinal. Here $\omega$ is the totally ordered set of nonnegative integers.
+
+		\begin{hint}
+			Clearly $I\times\omega$ is filtered. Given a finite subcategory $\mathcal{A}$ of $I\times\omega$, show that there are an object $(i,n)$ of $I\times\omega$ and a cone whose base is the inclusion functor $\mathcal{A}\to I\times\omega$ and whose vertex is $(i,n)$ (Convention~\ref{con:limit-cone}). Adjoin to $\mathcal{A}$ the object $(i,n+1)$, its identity morphism, and all composites of the morphisms $(j,k)\to(i,n)$ in the cone with the canonical morphism $(i,n)\to(i,n+1)$. This produces a finite subcategory $\mathcal{A}'$ having the unique terminal object $(i,n+1)$.
+		\end{hint}
+
+		\item Use (iii) to prove the existence of the required cofinal functor $\mathcal{P}\to I$.
+	\end{enumerate}
+
+	\item Let $\mathcal{C}$ be an accessible category.
+	\begin{enumerate}[(i)]
+		\item Choose a small subset $S\subset\Obj(\mathcal{C})$ as in Definition~\ref{def:presentable-cat}, and let $\mathcal{S}$ be the full subcategory it generates. Prove that the Yoneda embedding restricts to a fully faithful functor
+		$\mathcal{C}\to\cate{Set}^{\mathcal{S}^{\opp}}$.
+		\item Prove that $\mathcal{C}$ is well-powered (Definition~\ref{def:well-powered}).
+		\begin{hint}
+			For every object $F$ of $\cate{Set}^{\mathcal{S}^{\opp}}$ and every $X\in S$, the set $FX$ and its power set are both small. Use this to show that $\mathrm{Sub}_F$ is a small set.
+		\end{hint}
+	\end{enumerate}
+
+	% Reference: Deligne, Categories tannakiennes, 2.18
+	\item Fix a field $\Bbbk$. Let $\mathcal{A}$ be a locally finite $\Bbbk$-linear Abelian category, let $\mathcal{A}'$ be an Abelian subcategory, and write its inclusion functor as $i:\mathcal{A}'\to\mathcal{A}$. Assume that the subset $\Obj(\mathcal{A}')\subset\Obj(\mathcal{A})$ is closed under isomorphism.
+	\begin{enumerate}[(i)]
+		\item Show that for every $X\in\Obj(\mathcal{A})$, the intersection of the partially ordered set of quotient objects $\mathrm{Quot}_X$ (respectively the partially ordered set of subobjects $\mathrm{Sub}_X$) with $\mathcal{A}'$ has a unique greatest element, denoted $i^*(X)$ (respectively $i^!(X)$), and that $i^*$ (respectively $i^!$) gives a left (respectively right) adjoint to $i$.
+		\item Suppose that $\mathcal{A}$ has a projective generator $s$. Prove that $s':=i^*(s)$ is a projective generator of $\mathcal{A}'$.
+		\item For $s,s'$ as above, put $A:=\End(s)$ and $A':=\End(s')$. Prove that
+		\[ A = \Hom(s, s) \to \Hom(s, s') \leftiso \Hom(s', s') = A' \]
+		makes $A'$ a quotient ring of $A$, written $A'=A/\mathfrak{a}$. Prove that $\mathcal{A}$ and $s$ satisfy the hypotheses of Theorem~\ref{prop:identify-ModR-fg}, so that $\mathcal{A}$ is equivalent to $\catesubd{Mod}{\mathrm{fg}}A$, while $\mathcal{A}'$ is equivalent to the full subcategory consisting of modules annihilated by the two-sided ideal $\mathfrak{a}$.
+	\end{enumerate}
+\end{Exercises}

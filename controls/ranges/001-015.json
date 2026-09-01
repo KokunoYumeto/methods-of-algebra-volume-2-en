@@ -1,0 +1,344 @@
+{
+  "schema": "o014-english-range-receipt-v1",
+  "range": {
+    "first_sequence": 1,
+    "last_sequence": 15
+  },
+  "status": "PASS",
+  "source_commit": "9a5803ff77dd3257484cb177f851a73770a59dd3",
+  "validation": {
+    "source_slice_sha256_verified": true,
+    "indonesian_witness_sha256_verified": true,
+    "stable_unit_ids_verified": true,
+    "segment_id_sequence_parity": true,
+    "localized_environment_roles_canonicalized_to_english": true,
+    "environment_role_order_parity": true,
+    "label_sequence_parity": true,
+    "reference_key_coverage_parity": true,
+    "citation_key_sequence_parity": true,
+    "display_formula_order_parity": true,
+    "display_formula_comparison_ignores_translated_text_and_whitespace": true,
+    "balanced_braces_math_delimiters_and_nested_environments": true,
+    "han_residue_count": 0,
+    "indonesian_residue_count": 0,
+    "placeholder_count": 0,
+    "tex_or_git_invoked": false
+  },
+  "units": [
+    {
+      "sequence": 1,
+      "unit_id": "o014.aljabr2.prelude.linear-algebra",
+      "target_path": "source/en/prelude-unit-001.tex",
+      "target_sha256": "248318122c0e48c101064a088ac44063770e84a4bb6b2d18671f86d189c8c802",
+      "bytes": 4688,
+      "lines": 42,
+      "chinese_source": {
+        "path": "prelude.tex",
+        "start_line": 9,
+        "end_line": 29,
+        "sha256": "c16de74127ee74ed37f25401635bb2e48c8b8da3b3460d5275ca0ad46bb8b89e"
+      },
+      "indonesian_witness_sha256": "bf874c48715910f265d197caa02a22951d8c4b84840217b856eaa59e753ec39d",
+      "segments": 7,
+      "environment_tokens": 0,
+      "labels": 0,
+      "references": 0,
+      "citation_keys": 1,
+      "display_math_blocks": 2
+    },
+    {
+      "sequence": 2,
+      "unit_id": "o014.aljabr2.prelude.homology-history",
+      "target_path": "source/en/prelude-unit-002.tex",
+      "target_sha256": "de59548a0d2e89000335459568fec9855de800ec35f6736f11e969ed870fb33a",
+      "bytes": 13829,
+      "lines": 118,
+      "chinese_source": {
+        "path": "prelude.tex",
+        "start_line": 30,
+        "end_line": 103,
+        "sha256": "0e60ab0aae57ffdd8f61a940164cb1fb025b8d372ef43ced35fb8450932e0b7f"
+      },
+      "indonesian_witness_sha256": "519fbf5aba65b19e31630f2ee1430d1f0db1801bcc7b4fddf6f5144bd7952cb2",
+      "segments": 22,
+      "environment_tokens": 8,
+      "labels": 0,
+      "references": 0,
+      "citation_keys": 4,
+      "display_math_blocks": 3
+    },
+    {
+      "sequence": 3,
+      "unit_id": "o014.aljabr2.prelude.book-purpose",
+      "target_path": "source/en/prelude-unit-003.tex",
+      "target_sha256": "161670859134baea0d2f2f990c81d7c86d447bf5221678526f923757ebaa2d27",
+      "bytes": 6013,
+      "lines": 44,
+      "chinese_source": {
+        "path": "prelude.tex",
+        "start_line": 104,
+        "end_line": 126,
+        "sha256": "03cabdc31f004a03e97d1c69a0d7520e699093b2240e3ef7f646a4397acf7007"
+      },
+      "indonesian_witness_sha256": "f02008f89c3889abc6f3f8c1429ecba816154ef1c1e4d8d1b8e5a4f2215f307f",
+      "segments": 10,
+      "environment_tokens": 0,
+      "labels": 0,
+      "references": 1,
+      "citation_keys": 3,
+      "display_math_blocks": 0
+    },
+    {
+      "sequence": 4,
+      "unit_id": "o014.aljabr2.prelude.reader-guide",
+      "target_path": "source/en/prelude-unit-004.tex",
+      "target_sha256": "a5c02228b235e063b93cd864b3b6f3fc016e83da0fd8f8f76f795e2f854b5323",
+      "bytes": 6123,
+      "lines": 54,
+      "chinese_source": {
+        "path": "prelude.tex",
+        "start_line": 127,
+        "end_line": 153,
+        "sha256": "2d0f5a9a613c4220479bd10cca7fdc003bafee46bbebf6ea615bc749927d98b8"
+      },
+      "indonesian_witness_sha256": "0970acbbcf5958a42cd36ae16ce880b09280e1b18b7ef0577294b8b19fe4bc18",
+      "segments": 14,
+      "environment_tokens": 2,
+      "labels": 0,
+      "references": 0,
+      "citation_keys": 1,
+      "display_math_blocks": 0
+    },
+    {
+      "sequence": 5,
+      "unit_id": "o014.aljabr2.prelude.structure-overview",
+      "target_path": "source/en/prelude-unit-005.tex",
+      "target_sha256": "89d59e4ca07a2db8ce75ecf4ca7648e4fe0a39ce91935c734cfe8c9946ea45b9",
+      "bytes": 5837,
+      "lines": 56,
+      "chinese_source": {
+        "path": "prelude.tex",
+        "start_line": 154,
+        "end_line": 183,
+        "sha256": "95e002c50d647c92203adaf800572f6c54f3078673d09d8c06489d2d8fc27365"
+      },
+      "indonesian_witness_sha256": "b16a0f2570e28c5c0d9de4889b95c90a83cfe16aa2d2ce59b2050128ca2e9e75",
+      "segments": 7,
+      "environment_tokens": 6,
+      "labels": 0,
+      "references": 0,
+      "citation_keys": 0,
+      "display_math_blocks": 0
+    },
+    {
+      "sequence": 6,
+      "unit_id": "o014.aljabr2.prelude.acknowledgments",
+      "target_path": "source/en/prelude-unit-006.tex",
+      "target_sha256": "e792701d68d2a4d9f39f1d73b226a288f4a8460c141b44caabd23c209ddc0ea7",
+      "bytes": 3365,
+      "lines": 40,
+      "chinese_source": {
+        "path": "prelude.tex",
+        "start_line": 185,
+        "end_line": 205,
+        "sha256": "780f1199fbdb4aa3e7192d93d28d1929604a58f841fc57ebd0dc732c6e0f2915"
+      },
+      "indonesian_witness_sha256": "c201547d3c0eaaed4185f9bb87501f67511935dcaeb3102f523507c576b9bc46",
+      "segments": 8,
+      "environment_tokens": 6,
+      "labels": 0,
+      "references": 0,
+      "citation_keys": 0,
+      "display_math_blocks": 0
+    },
+    {
+      "sequence": 7,
+      "unit_id": "o014.aljabr2.prelude.conventions",
+      "target_path": "source/en/prelude-unit-007.tex",
+      "target_sha256": "d0a49de113f624dda609356655c707a5f84d75a97adc67535cc2033d6c3b8e2d",
+      "bytes": 36950,
+      "lines": 484,
+      "chinese_source": {
+        "path": "prelude.tex",
+        "start_line": 207,
+        "end_line": 495,
+        "sha256": "2c516c9e6e12912ed86b63d25d25bb88c5958253101ae7590c781d133dc728b5"
+      },
+      "indonesian_witness_sha256": "0517d7cd5be31737874124002748d7320a22432adaac1e8168b97adf3e35a28d",
+      "segments": 95,
+      "environment_tokens": 88,
+      "labels": 0,
+      "references": 3,
+      "citation_keys": 15,
+      "display_math_blocks": 9
+    },
+    {
+      "sequence": 8,
+      "unit_id": "o014.aljabr2.chapter1.overview",
+      "target_path": "source/en/chapter1-unit-008.tex",
+      "target_sha256": "d8b41e6d03dcfbcad1893913067011c5d80dacd1b836f9d105725bb88259f8eb",
+      "bytes": 6391,
+      "lines": 113,
+      "chinese_source": {
+        "path": "chapter1.tex",
+        "start_line": 9,
+        "end_line": 31,
+        "sha256": "bdb29b2999ca8a653fb2f2b8315d8eaf5b99ab5745f9adc1a96cd1319d53e1ac"
+      },
+      "indonesian_witness_sha256": "0e15a350ffc9e14a996802c856dd65571f93092aa50d8e12c4b7d099c463f5fd",
+      "segments": 5,
+      "environment_tokens": 4,
+      "labels": 1,
+      "references": 25,
+      "citation_keys": 2,
+      "display_math_blocks": 0
+    },
+    {
+      "sequence": 9,
+      "unit_id": "o014.aljabr2.chapter1.subquotients",
+      "target_path": "source/en/chapter1-unit-009.tex",
+      "target_sha256": "3a16ef5063206d9918961cd928987bf4e9b49bcc6b9f3865354488af13cb9b2d",
+      "bytes": 12624,
+      "lines": 260,
+      "chinese_source": {
+        "path": "chapter1.tex",
+        "start_line": 33,
+        "end_line": 139,
+        "sha256": "3c1bcab75bb9b58f9b3d8c1ff3cf9ac84ecd77d75389f39c48d40dd8a76b5f8d"
+      },
+      "indonesian_witness_sha256": "f8716e3472d24bb2094156fa3ac418e5347d335bbbb2da3c493890b0cb79e5c2",
+      "segments": 32,
+      "environment_tokens": 38,
+      "labels": 9,
+      "references": 3,
+      "citation_keys": 0,
+      "display_math_blocks": 7
+    },
+    {
+      "sequence": 10,
+      "unit_id": "o014.aljabr2.chapter1.images-coimages-strict",
+      "target_path": "source/en/chapter1-unit-010.tex",
+      "target_sha256": "bdfdb82c6dd52533fe9ed8e107967c54fa99c6455866d94e4ea3e995525aef2b",
+      "bytes": 11942,
+      "lines": 178,
+      "chinese_source": {
+        "path": "chapter1.tex",
+        "start_line": 140,
+        "end_line": 266,
+        "sha256": "31b9d3e83fbad15efb4f5e9524afb1154ec50a0778498fa0deaa773cf18381bc"
+      },
+      "indonesian_witness_sha256": "c5e95adfa772d499bd72611ed3c9ee4917392dad80b3f895f786be6f0afc83ef",
+      "segments": 26,
+      "environment_tokens": 54,
+      "labels": 11,
+      "references": 9,
+      "citation_keys": 0,
+      "display_math_blocks": 8
+    },
+    {
+      "sequence": 11,
+      "unit_id": "o014.aljabr2.chapter1.additive-categories-kernels-cokernels",
+      "target_path": "source/en/chapter1-unit-011.tex",
+      "target_sha256": "cb8e9593cf34c895e2afc57f200b7045d3d0f9399d91528bc1e636592bc09763",
+      "bytes": 28360,
+      "lines": 416,
+      "chinese_source": {
+        "path": "chapter1.tex",
+        "start_line": 267,
+        "end_line": 567,
+        "sha256": "55916070ed2f33eb3af08b01b589608d1344785c8e259aae77599dfc43ea2170"
+      },
+      "indonesian_witness_sha256": "b7d8e27d339d28303c13ac4cca6c422f1726671589b1e3c5920b18d5ccc536b2",
+      "segments": 46,
+      "environment_tokens": 122,
+      "labels": 16,
+      "references": 17,
+      "citation_keys": 8,
+      "display_math_blocks": 25
+    },
+    {
+      "sequence": 12,
+      "unit_id": "o014.aljabr2.chapter1.linear-categories-over-commutative-rings",
+      "target_path": "source/en/chapter1-unit-012.tex",
+      "target_sha256": "1e1916cef13dae45e34080a9250476c5d031fb6b397ae7e3346edb4a5272ba45",
+      "bytes": 8581,
+      "lines": 169,
+      "chinese_source": {
+        "path": "chapter1.tex",
+        "start_line": 568,
+        "end_line": 629,
+        "sha256": "7dda28b5a53a9ff4568ffb3efe2edf927261f383b1b8b91b9ce2543aca948b0f"
+      },
+      "indonesian_witness_sha256": "4a40be63d49a9fae1639788a3daf3316093d3903960ebcd9d042fb02b2fab6cf",
+      "segments": 14,
+      "environment_tokens": 18,
+      "labels": 5,
+      "references": 3,
+      "citation_keys": 2,
+      "display_math_blocks": 5
+    },
+    {
+      "sequence": 13,
+      "unit_id": "o014.aljabr2.chapter1.limits-through-functors",
+      "target_path": "source/en/chapter1-unit-013.tex",
+      "target_sha256": "36ef667d4cd9be4756bdaed93d59edd7e8a4c465fb7145e06b1bf43657a69a14",
+      "bytes": 17799,
+      "lines": 341,
+      "chinese_source": {
+        "path": "chapter1.tex",
+        "start_line": 630,
+        "end_line": 762,
+        "sha256": "01a42e16505d061567248e6b52a46e2f212a418065ee57f131087ef173e76561"
+      },
+      "indonesian_witness_sha256": "092c573d294551cf76d98977ecbec5367cdf8f77ea0e313b69485c4d97a3bc58",
+      "segments": 27,
+      "environment_tokens": 40,
+      "labels": 9,
+      "references": 4,
+      "citation_keys": 3,
+      "display_math_blocks": 8
+    },
+    {
+      "sequence": 14,
+      "unit_id": "o014.aljabr2.chapter1.filtered-inductive-limits",
+      "target_path": "source/en/chapter1-unit-014.tex",
+      "target_sha256": "d2823bea92ab0c312edfe2ca17d82e5e3078f83d291bbc5a0f2459339877c540",
+      "bytes": 20458,
+      "lines": 390,
+      "chinese_source": {
+        "path": "chapter1.tex",
+        "start_line": 763,
+        "end_line": 925,
+        "sha256": "1d53f52915d245c2ef2e10da1aa15525f4341c3400be5585ae40eba08e451f8d"
+      },
+      "indonesian_witness_sha256": "9fc194b333aeeca9848908f7e1a491a0aac067cf90b597b79bc02febd02272e9",
+      "segments": 29,
+      "environment_tokens": 58,
+      "labels": 11,
+      "references": 7,
+      "citation_keys": 3,
+      "display_math_blocks": 14
+    },
+    {
+      "sequence": 15,
+      "unit_id": "o014.aljabr2.chapter1.kan-extensions",
+      "target_path": "source/en/chapter1-unit-015.tex",
+      "target_sha256": "16df36f50811fa71ad7b1624544aa6246518d7de1db4b414a84214bcdbb9f141",
+      "bytes": 26208,
+      "lines": 434,
+      "chinese_source": {
+        "path": "chapter1.tex",
+        "start_line": 926,
+        "end_line": 1140,
+        "sha256": "e522e1efc9a4103b701fafd4c0e2e2d7fa4a7c269f29296d67b7a68a5e64e7b9"
+      },
+      "indonesian_witness_sha256": "be463eb4b0252c44e3b2c952121c3a68e0df2dc35f33c28dbd23ddfe084793a5",
+      "segments": 67,
+      "environment_tokens": 100,
+      "labels": 7,
+      "references": 6,
+      "citation_keys": 5,
+      "display_math_blocks": 17
+    }
+  ]
+}

@@ -1,0 +1,417 @@
+% English translation of chapter7.tex lines 892--1129.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter7.coalgebra-to-hopf-a
+% Coverage: Section 7.5 from its opening through the proof of the monoidal
+% structure on the module category of a bialgebra; continued in Unit 093.
+
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.h001
+\section{From Coalgebras to Hopf Algebras}\label{sec:bialgebra}
+\hypertarget{o014.aljabr2.chapter7.coalgebra-to-hopf-a}{ }
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.p001
+The first aim of this section is to dualize
+Definition~\ref{def:algebra-monoidal} of an algebra. To this end, first note
+that the definition of a monoidal category is self-dual. Let $\mathcal{V}$ be
+a monoidal category. On $\mathcal{V}^{\opp}$, one can retain the original
+bifunctor $\otimes$ and unit object $\munit$, but replace the associativity
+constraint $a$ and $\iota:\munit\otimes\munit\rightiso\munit$ in
+\cite[Definition 3.1.1]{Li1} by their inverses. In this way,
+$\mathcal{V}^{\opp}$ becomes a monoidal category.
+
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.p002
+Similarly, if $\mathcal{V}$ has a braiding $c$ as in
+\cite[Definition 3.3.1]{Li1}, taking inverses gives the corresponding
+braiding on $\mathcal{V}^{\opp}$. Under this correspondence, $\mathcal{V}$ is
+a symmetric monoidal category if and only if $\mathcal{V}^{\opp}$ is one.
+
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.d001
+\begin{definition}[Coalgebra]\label{def:cogebra-monoidal}
+	\index{coalgebra}
+	Let $\mathcal{V}$ be a monoidal category. An algebra over
+	$\mathcal{V}^{\opp}$ is called a \emph{coalgebra} over $\mathcal{V}$. In
+	other words, a coalgebra is data $(C,\Delta,\epsilon)$, where
+	% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.q001
+	\[ C \in \Obj(\mathcal{V}), \quad \Delta = \Delta_C: C \to C \otimes C, \quad \epsilon = \epsilon_C: C \to \munit, \]
+	satisfying the commutative diagrams dual to those in
+	Definition~\ref{def:algebra-monoidal}:
+	% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.q002
+	\[\begin{tikzcd}
+			\munit \otimes C & C \otimes C \arrow[r, "{\identity \otimes \epsilon}"] \arrow[l, "{\epsilon \otimes \identity}"'] & C \otimes \munit \\
+			& C \arrow[lu, "\sim"' sloped] \arrow[ru, "\sim"' sloped] \arrow[u, "\Delta"'] &
+		\end{tikzcd} \quad
+	\begin{tikzcd}[column sep=tiny]
+		(C \otimes C) \otimes C & & C \otimes (C \otimes C) \arrow[ll, "\sim"] \\
+		C \otimes C \arrow[u, "{\Delta \otimes \identity}"] & C \arrow[l, "\Delta"] \arrow[r, "\Delta"'] & C \otimes C . \arrow[u, "{\identity \otimes \Delta}"']
+	\end{tikzcd}\]
+
+	The map $\Delta$ is customarily called the \emph{comultiplication} on $C$,
+	and $\epsilon$ the \emph{counit} of $C$.
+
+	A morphism from a coalgebra $(C,\Delta,\epsilon)$ to
+	$(C',\Delta',\epsilon')$ is defined dually to
+	Definition~\ref{def:algebra-monoidal}: it is a morphism $\phi:C\to C'$ for
+	which the following diagrams commute:
+	% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.q003
+	\[\begin{tikzcd}
+		\munit & C \arrow[d, "\phi"] \arrow[l, "\epsilon"']  \\
+		& C' \arrow[lu, "{\epsilon'}"]
+	\end{tikzcd} \quad \begin{tikzcd}
+		C \otimes C \arrow[r, "{\phi \otimes \phi}"] & C' \otimes C' \\
+		C \arrow[r, "\phi"'] \arrow[u, "\Delta"] & C' . \arrow[u, "{\Delta'}"']
+	\end{tikzcd}\]
+
+	If $\mathcal{V}$ is equipped with a braiding $c$ and $c\Delta=\Delta$,
+	then $(C,\Delta,\epsilon)$ is called \emph{cocommutative}.
+\end{definition}
+
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.p003
+The following definition is simply the dual of
+Definition~\ref{def:module-algebra}.
+
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.d002
+\begin{definition}[Comodule]\label{def:comodule-cogebra}
+	\index{comodule}
+	Let $(C,\Delta,\epsilon)$ be a coalgebra over $\mathcal{V}$. A left
+	$C$-comodule is defined to be data $(M,\rho)$, where
+	% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.q004
+	\[ M \in \Obj(\mathcal{V}), \quad \rho = \rho_M : M \to C \otimes M, \]
+	and $\rho$ may be viewed as scalar comultiplication on the left comodule.
+	The condition is that the following diagrams commute:
+	% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.q005
+	\[\begin{tikzcd}
+		\munit \otimes M & C \otimes M \arrow[l, "{\epsilon \otimes \identity}"'] \\
+		& M \arrow[u, "{\rho}"'] \arrow[lu, "\sim" sloped]
+	\end{tikzcd} \quad \begin{tikzcd}[column sep=small]
+		(C \otimes C) \otimes M & & C \otimes (C \otimes M) \arrow[ll, "\sim"'] \\
+		C \otimes M \arrow[u, "{\Delta \otimes \identity}"] & M \arrow[l, "{\rho}"] \arrow[r, "{\rho}"'] & C \otimes M. \arrow[u, "{\identity \otimes \rho}"']
+	\end{tikzcd}\]
+	A homomorphism from a left comodule $(M,\rho)$ to $(M',\rho')$ is a
+	morphism $f:M\to M'$ satisfying
+	$(\identity\otimes f)\rho=\rho'f$. Right $C$-comodules, bicomodules, and
+	homomorphisms between them are defined similarly.
+\end{definition}
+
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.p004
+An elementary but important example is $C$ itself: with
+$\rho_C:=\Delta:C\to C\otimes C$, it becomes both a left and a right
+comodule.
+
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.p005
+Although the definition of a comodule may seem contrary to one's usual
+intuition, working with comodules need not be more complicated than working
+with modules. For example, take $\mathcal{V}=\Bbbk\dcate{Mod}$, where
+$\Bbbk$ is a commutative ring. Let $M$ be a free $\Bbbk$-module with basis
+$(v_i)_{i\in I}$. Specifying $\rho:M\to M\dotimes{\Bbbk}C$ is equivalent to
+specifying a family of elements $(t_{ij})_{(i,j)\in I^2}$ of $C$ such that,
+for each $i\in I$,
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.q006
+\begin{equation*}
+	\rho(v_i) = \sum_{j \in I} v_j \otimes t_{ji} \quad \text{(finite sum)},
+\end{equation*}
+and the comodule conditions are expressed, for every $i$, by
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.q007
+\begin{equation*}
+	v_i = \sum_j \epsilon(t_{ji}) v_j, \quad \sum_j v_j \otimes \Delta(t_{ji}) = \sum_{j, k} v_k \otimes t_{kj}  \otimes t_{ji}.
+\end{equation*}
+Renaming the indices appropriately, these conditions simplify further, for
+all $i,j$, to
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.q008
+\begin{equation}\label{eqn:comodule-matrix}
+	\begin{aligned}
+		\epsilon(t_{ji}) & = \delta_{j, i}, \\
+		\Delta(t_{ji}) & = \sum_k t_{jk} \otimes t_{ki};
+	\end{aligned}
+\end{equation}
+here $\delta_{j,i}$ is the Kronecker delta, defined to be $1$ when $j=i$ and
+$0$ otherwise.
+\index{Kronecker delta}
+\index[sym1]{delta-ij@$\delta_{ij}$}
+
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.p006
+Continuing the preceding discussion, express a $\Bbbk$-linear map
+$f:M\to M'$ between right comodules relative to the chosen bases as
+$f(v_i)=\sum_jr_{ji}v'_j$, that is, as a matrix with $r_{ji}\in\Bbbk$. A
+similar argument proves that $f$ is a comodule homomorphism if and only if,
+for all $i,k$,
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.q009
+\begin{equation*}\begin{gathered}
+	\sum_j r_{kj} t_{ji} = \sum_j r_{ji} t'_{kj},
+\end{gathered}\end{equation*}
+where $\Bbbk$ acts on $C$ from the left by scalar multiplication. The version
+for left comodules is, of course, similar.
+
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.p007
+We shall continue the discussion of several aspects of comodule theory in
+\S\ref{sec:Morita}.
+
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.r001
+\begin{remark}\label{rem:coalgebra-convolution}
+	\index{convolution}
+	If $(C,\Delta,\epsilon)$ is a coalgebra over $\mathcal{V}$ and
+	$(A,\mu,\eta)$ is an algebra over $\mathcal{V}$, then $\Hom(C,A)$ is
+	equipped with a binary operation $\star$, called \emph{convolution}, as
+	follows:
+	% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.q010
+	\[ f \star g := \mu (f \otimes g) \Delta, \quad f, g \in \Hom(C, A). \]
+	The properties of $\Delta$ and $\mu$ readily show that $\star$ is
+	associative, and the following commutative diagram suffices to show that
+	$(\Hom(C,A),\star)$ is a monoid with unit
+	$\eta\epsilon\in\Hom(C,A)$:
+	% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.q011
+	\[\begin{tikzcd}[column sep=large]
+		A \otimes \munit \arrow[r, "{\mu(\identity \otimes \eta)}"] & A & \munit \otimes A \arrow[l, "{\mu(\eta \otimes \identity)}"'] \\
+		C \otimes \munit \arrow[r] \arrow[u, "{f \otimes \identity}"] & C \arrow[u, "f"] & \munit \otimes C \arrow[l] \arrow[u, "{\identity \otimes f}"'] \\
+		C \otimes C \arrow[u, "{\identity \otimes \epsilon}"] & C \arrow[l, "\Delta"] \arrow[r, "\Delta"'] \arrow[equal, u] & C \otimes C . \arrow[u, "{\epsilon \otimes \identity}"']
+	\end{tikzcd}\]
+	A standard argument shows that if $\varphi:C'\to C$ is a coalgebra
+	morphism and $\psi:A\to A'$ an algebra morphism, then
+	% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.q012
+	\begin{equation}\label{eqn:convolution-functorial}
+		\Hom(C, A) \to \Hom(C', A'), \quad f \mapsto \psi f \varphi
+	\end{equation}
+	is a homomorphism between the convolution monoids.
+\end{remark}
+
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.p008
+From now on, let $\mathcal{V}$ be a braided monoidal category, and write its
+braiding in the usual form
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.q013
+\[ c(X, Y): X \otimes Y \to Y \otimes X. \]
+By \S\ref{sec:alg-in-monoidal-cat}, the category of algebras
+$\cate{Alg}(\mathcal{V})$ (or the category of coalgebras
+$\cate{Alg}(\mathcal{V}^{\opp})^{\opp}$) has a monoidal structure with unit
+$\munit$. We may therefore consider coalgebras in the category of algebras
+(or algebras in the category of coalgebras). A simple but interesting
+observation is that both lead to the same data
+$(A,\mu,\eta,\Delta,\epsilon)$, with $A\in\Obj(\mathcal{V})$. The conditions
+required of the morphisms
+$A\xrightarrow{\Delta}A\otimes A\xrightarrow{\mu}A$ and
+$\munit\xrightarrow{\eta}A\xrightarrow{\epsilon}\munit$ in $\mathcal{V}$
+are:
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.l001
+\begin{enumerate}[(i)]
+	\item $(A,\mu,\eta)$ is an algebra;
+	\item $(A,\Delta,\epsilon)$ is a coalgebra;
+	\item the comultiplication $\Delta:A\to A\otimes A$ and counit
+	$\epsilon:A\to\munit$ are algebra morphisms;
+	\item the multiplication $\mu:A\otimes A\to A$ and unit
+	$\eta:\munit\to A$ are coalgebra morphisms.
+\end{enumerate}
+Once (i) and (ii) are assumed, (iii) and (iv) are equivalent, so it is enough
+to check either one. Both state the compatibility of $(\Delta,\epsilon)$ and
+$(\mu,\eta)$ through four commutative diagrams, one for each possible pair;
+in formulas,
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.q014
+\begin{equation*}\begin{gathered}
+	\Delta \mu = (\mu \otimes \mu)(\identity_A \otimes c(A, A) \otimes \identity_A) (\Delta \otimes \Delta), \\
+	\Delta \eta = \eta \otimes \eta, \quad \epsilon \mu = \epsilon \otimes \epsilon, \quad \epsilon \eta = \identity_{\munit}.
+\end{gathered}\end{equation*}
+
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.d003
+\begin{definition}[Bialgebra]
+	\index{bialgebra}
+	Let $\mathcal{V}$ be a braided monoidal category. If $A$ is an algebra in
+	the category of coalgebras over $\mathcal{V}$, or equivalently a coalgebra
+	in the category of algebras over $\mathcal{V}$, then $A$ is called a
+	\emph{bialgebra} over $\mathcal{V}$. Concretely, a bialgebra consists of
+	the data $(A,\mu,\eta,\Delta,\epsilon)$.
+
+	If $A$ and $A'$ are both bialgebras and $\phi:A\to A'$ is simultaneously
+	an algebra morphism and a coalgebra morphism, then $\phi$ is called a
+	morphism from the bialgebra $A$ to the bialgebra $A'$.
+\end{definition}
+
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.p009
+The full data of a bialgebra are often abbreviated simply as $A$.
+
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.p010
+If $\Bbbk$ is a commutative ring and
+$\mathcal{V}=\Bbbk\dcate{Mod}$, then algebras, coalgebras, and bialgebras
+over $\mathcal{V}$ are also called $\Bbbk$-algebras, $\Bbbk$-coalgebras,
+and $\Bbbk$-bialgebras, respectively, and so forth.
+
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.eg001
+\begin{example}\label{eg:monoid-bialgebra}
+	Let $M$ be a monoid and $\Bbbk$ a commutative ring. Form the monoid algebra
+	$\Bbbk[M]$ over $\Bbbk$; see \cite[Definition 5.6.1]{Li1}. Define the
+	$\Bbbk$-module homomorphism
+	% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.q015
+	\begin{align*}
+		\Delta: \Bbbk[M] & \to \Bbbk[M] \dotimes{\Bbbk} \Bbbk[M] \\
+		m & \mapsto m \otimes m, \quad m \in M
+	\end{align*}
+	and $\epsilon:\Bbbk[M]\to\Bbbk$ by mapping every $m\in M$ to $1$. Let
+	us verify that these data give a $\Bbbk$-bialgebra.
+
+	First, $(\Bbbk[M],\Delta,\epsilon)$ is a coalgebra, since for every
+	$m\in M$,
+	% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.q016
+	\begin{gather*}
+		(\identity \otimes \epsilon)(\Delta(m)) = m = (\epsilon \otimes \identity)(\Delta(m)), \\
+		(\Delta \otimes \identity)(\Delta(m)) = m \otimes m \otimes m = (\identity \otimes \Delta)(\Delta(m)).
+	\end{gather*}
+	Note that $\Bbbk[M]$ is always cocommutative, whereas $\Bbbk[M]$ is
+	commutative if and only if $M$ is commutative.
+
+	Second, check that $\epsilon$ and $\Delta$ are both homomorphisms of
+	$\Bbbk$-algebras. It is enough to verify, for every $m,m'\in M$, that
+	% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.q017
+	\begin{gather*}
+		\epsilon(mm') = 1 = \epsilon(m)\epsilon(m'), \quad \epsilon(1) = 1, \\
+		\Delta(mm') = mm' \otimes mm' = (m \otimes m)(m' \otimes m') = \Delta(m) \Delta(m'), \\
+		\Delta(1) = 1 \otimes 1.
+	\end{gather*}
+\end{example}
+
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.p011
+For an algebra $A$ over $\mathcal{V}$,
+Definition~\ref{def:module-algebra} describes left $A$-modules. If $A$ is a
+bialgebra, we can go further as follows.
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.l002
+\begin{enumerate}
+	\item On the unit object $\munit$, define a left $A$-module structure by
+	taking $\mu_{\munit}:A\otimes\munit\to\munit$ to be the composite
+	$A\otimes\munit\rightiso A\xrightarrow{\epsilon}\munit$.
+	\item For left $A$-modules $M_i$, denote the corresponding scalar
+	multiplication morphisms by $\mu_i$ ($i=1,2$). Define the morphism
+	$\mu_{M_1\otimes M_2}:A\otimes(M_1\otimes M_2)\to M_1\otimes M_2$ to be
+	the composite
+	% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.q018
+	\begin{multline*}
+		A \otimes M_1 \otimes M_2 \xrightarrow{\Delta \otimes \identity_{M_1 \otimes M_2}} A \otimes A \otimes M_1 \otimes M_2 \\
+		\xrightarrow{\identity_A \otimes c(A, M_1) \otimes \identity_{M_2}} A \otimes M_1 \otimes A \otimes M_2 \xrightarrow{\mu_1 \otimes \mu_2} M_1 \otimes M_2.
+	\end{multline*}
+	Here, to simplify notation, parentheses in $\otimes$ operations and the
+	associativity constraints have been suppressed; in other words,
+	$\mathcal{V}$ is treated as a strict monoidal category.
+\end{enumerate}
+
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.p012
+These definitions are intended to give the objects $\munit$ and
+$M_1\otimes M_2$ of $\mathcal{V}$ left $A$-module structures. The case of
+right $A$-modules is, of course, similar.
+
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.pr001
+\begin{proposition}\label{prop:bialgebra-Mod-monoidal}
+	\index[sym1]{Comod@$\cate{Comod}$}
+	Let $A$ be a bialgebra over a braided monoidal category $\mathcal{V}$. The
+	definitions above make the category of left $A$-modules $A\dcate{Mod}$ a
+	monoidal category with unit $(\munit,\mu_{\munit})$. The same holds for the
+	category of right $A$-modules $\cated{Mod}A$.
+
+	Dually, the multiplication and unit of $A$ make the category of left
+	$A$-comodules $A\dcate{Comod}$ and the category of right $A$-comodules
+	$\cated{Comod}A$ into monoidal categories.
+
+	For all four categories above, the forgetful functor to $\mathcal{V}$ is
+	always a monoidal functor.
+\end{proposition}
+% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.pf001
+\begin{proof}
+	By duality, it is enough to prove the first assertion. The verification is
+	lengthy but straightforward; we outline it. First, one must check that
+	scalar multiplication satisfies the commutative diagrams in
+	Definition~\ref{def:module-algebra}. For $(\munit,\mu_{\munit})$, these
+	properties follow from the fact that $\epsilon:A\to\munit$ is an algebra
+	morphism. For the module structure on $M_1\otimes M_2$, the diagram for
+	scalar multiplication by the unit follows from the fact that
+	$\Delta:A\to A\otimes A$ is an algebra morphism, in particular from its
+	compatibility with $\eta$ and $\eta\otimes\eta$.
+
+	For associativity of scalar multiplication, after expanding the
+	definition, the issue is to prove that two maps from
+	$A\otimes A\otimes M_1\otimes M_2$ to $M_1\otimes M_2$ are equal:
+	% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.l003
+	\begin{enumerate}[(a)]
+		\item first apply
+		$\Delta\otimes\Delta\otimes\identity_{M_1}\otimes\identity_{M_2}$,
+		then, taking the braiding into account, successively let the first and
+		third (or second and fourth) copies of $A$ in
+		$A\otimes A\otimes(A\otimes A\otimes M_1\otimes M_2)$ act from the
+		left on $M_1$ (or $M_2$);
+		\item first apply $\mu:A\otimes A\to A$ in the first two positions,
+		then apply $\mu_{M_1\otimes M_2}$. Since
+		% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.q019
+		\[ \Delta\mu = (\mu \otimes \mu) (\identity \otimes c(A, A) \otimes \identity)(\Delta \otimes \Delta), \]
+		this map is the composite
+		% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.q020
+		\begin{multline*}
+			A \otimes A \otimes M_1 \otimes M_2 \xrightarrow{\Delta \otimes \Delta \otimes \identity_{M_1} \otimes \identity_{M_2}} A \otimes A \otimes A \otimes A \otimes M_1 \otimes M_2 \\
+			\xrightarrow{\identity_A \otimes c(A, A) \otimes \identity_A \otimes \identity_{M_1} \otimes \identity_{M_2}} \boxed{A \otimes A \otimes A \otimes A} \otimes M_1 \otimes M_2 \\
+			\xrightarrow{\mu \otimes \mu \otimes \identity_{M_1} \otimes \identity_{M_2}} A \otimes A \otimes M_1 \otimes M_2 \\
+			\xrightarrow{\identity_A \otimes c(A, M_1) \otimes \identity_{M_2}} A \otimes M_1 \otimes A \otimes M_2 \xrightarrow{\mu_1 \otimes \mu_2} M_1 \otimes M_2.
+		\end{multline*}
+		The scalar multiplications $\mu_1$ and $\mu_2$ are each associative and
+		$c$ is functorial. Thus, taking the braiding into account, the last
+		three arrows in this composite may also be regarded as first letting
+		the first and second (or third and fourth) copies of $A$ in the boxed
+		part act successively from the left on $M_1$ (or $M_2$).
+	\end{enumerate}
+
+	Braid diagrams help explain this, as at the end of
+	\cite[\S 7.4]{Li1}. To prove that (a) equals (b), it is enough to verify
+	the following equality\footnote{There is one harmless minor difference:
+	in the cited reference, morphisms are composed from bottom to top, whereas
+	here they are composed in the opposite direction.}
+	% segment-id: o014.li2.chapter7.coalgebra-to-hopf-a.g001
+	\begin{center}\begin{tikzpicture}
+		[baseline=(braid), yscale=0.8]
+		\pic[
+			braid/number of strands = 6,
+			braid/every strand/.style={black},
+			name prefix=braid
+		] at (0, 0) {braid={s_4 s_2 s_3}};
+		\coordinate (braid) at ($(braid-1-s)!0.5!(braid-1-e)$);
+		\node[above] at (braid-1-s) {$A$};
+		\node[below=0.3em] (P) at (braid-1-e) {$A$};
+		\node[above] at (braid-2-s) {$A$};
+		\node[below=0.3em] (R) at (braid-2-e) {$A$};
+		\node[above] at (braid-3-s) {$A$};
+		\node[below=0.3em] at (braid-3-e) {$A$};
+		\node[above] at (braid-4-s) {$A$};
+		\node[below=0.3em] at (braid-4-e) {$A$};
+		\node[above] at (braid-5-s) {$M_1$};
+		\node[below=0.3em] (Q) at (braid-5-e) {$M_1$};
+		\node[above] at (braid-6-s) {$M_2$};
+		\node[below=0.3em] (S) at (braid-6-e) {$M_2$};
+
+		\node (X) [draw, fit=(P) (Q)] {};
+		\node[below=0.2em of X] {act on\; $M_1$};
+		\node (Y) [draw, fit=(R) (S)] {};
+		\node[below=0.2em of Y] {act on\; $M_2$};
+	\end{tikzpicture} \; = \begin{tikzpicture}
+		[baseline=(braid), yscale=0.8]
+		\pic[
+			braid/number of strands=6,
+			braid/every strand/.style = {black},
+			name prefix=braid
+		] at (0, 0) {braid={s_2 s_4 s_3}};
+		\coordinate (braid) at ($(braid-1-s)!0.5!(braid-1-e)$);
+		\node[above] at (braid-1-s) {$A$};
+		\node[below=0.3em] (P) at (braid-1-e) {$A$};
+		\node[above] at (braid-2-s) {$A$};
+		\node[below=0.3em] (R) at (braid-2-e) {$A$};
+		\node[above] at (braid-3-s) {$A$};
+		\node[below=0.3em] at (braid-3-e) {$A$};
+		\node[above] at (braid-4-s) {$A$};
+		\node[below=0.3em] at (braid-4-e) {$A$};
+		\node[above] at (braid-5-s) {$M_1$};
+		\node[below=0.3em] (Q) at (braid-5-e) {$M_1$};
+		\node[above] at (braid-6-s) {$M_2$};
+		\node[below=0.3em] (S) at (braid-6-e) {$M_2$};
+
+		\node (X) [draw, fit=(P) (Q)] {};
+		\node[below=0.2em of X] {act on\; $M_1$};
+		\node (Y) [draw, fit=(R) (S)] {};
+		\node[below=0.2em of Y] {act on\; $M_2$};
+	\end{tikzpicture}\end{center}
+	which is immediately apparent.
+
+	To show that $A\dcate{Mod}$ is a monoidal category, one must still prove
+	that the associativity and unit constraints for $\otimes$ are all
+	morphisms of left $A$-modules. The first assertion is straightforward. The
+	second requires the coalgebra property
+	$(\identity\otimes\epsilon)\Delta=\identity_A=
+	(\epsilon\otimes\identity)\Delta$, after identifying
+	$A\otimes\munit\simeq A\simeq\munit\otimes A$.
+\end{proof}

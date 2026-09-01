@@ -1,0 +1,190 @@
+% Unit 080 English translation of chapter6.tex lines 1540--1631.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter6.lhs-spectral-sequence-a
+% Coverage: Section 6.9, construction and statement of the LHS theorem.
+
+% segment-id: o014.li2.chapter6.lhs-spectral-sequence-a.h001
+\section{The Lyndon--Hochschild--Serre spectral sequence}\label{sec:LHS-SS}
+\hypertarget{o014.aljabr2.chapter6.lhs-spectral-sequence-a}{ }
+
+% segment-id: o014.li2.chapter6.lhs-spectral-sequence-a.p001
+Throughout this section, fix a commutative ring $\Bbbk$, a group $G$, and a
+normal subgroup $H\lhd G$. Recall the restriction functor
+$\Res^G_H:G\dcate{Mod}\to H\dcate{Mod}$ and the inflation functor
+$\mathrm{Infl}^G_{G/H}:G/H\dcate{Mod}\to G\dcate{Mod}$ from
+Definition~\ref{def:Res-Infl}. For every $G$-module $M$, introduce the
+notation
+\[ M^{H\lhd G}:=(\Res^G_HM)^H,\qquad
+	M_{H\lhd G}:=(\Res^G_HM)_H. \]
+Notice that $M^{H\lhd G}$ has an evident left $G/H$-action,
+$(gH)\cdot x:=gx$. Similarly, $M_{H\lhd G}$ has an evident left
+$G/H$-action. This gives two functors
+\[ (\cdot)^{H\lhd G},\ (\cdot)_{H\lhd G}:
+	G\dcate{Mod}\to G/H\dcate{Mod}. \]
+
+% segment-id: o014.li2.chapter6.lhs-spectral-sequence-a.l001
+\begin{lemma}
+	The functor $(\cdot)^{H\lhd G}$ is right adjoint to
+	$\mathrm{Infl}^G_{G/H}$, while $(\cdot)_{H\lhd G}$ is left adjoint to it.
+\end{lemma}
+\begin{proof}
+	This is a straightforward extension of
+	Proposition~\ref{prop:inv-coinv-infl}; verification is left to the reader.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.lhs-spectral-sequence-a.p002
+There are evident commutative diagrams of functors
+\[\begin{tikzcd}[column sep=tiny]
+	G\dcate{Mod} \arrow[rr,"{(\cdot)^{H\lhd G}}"]
+	\arrow[rd,"{(\cdot)^G}"'] & &
+	G/H\dcate{Mod} \arrow[ld,"{(\cdot)^{G/H}}"]\\
+	& \Bbbk\dcate{Mod} &
+\end{tikzcd}\quad\begin{tikzcd}[column sep=tiny]
+	G\dcate{Mod} \arrow[rr,"{(\cdot)_{H\lhd G}}"]
+	\arrow[rd,"{(\cdot)_G}"'] & &
+	G/H\dcate{Mod}. \arrow[ld,"{(\cdot)_{G/H}}"]\\
+	& \Bbbk\dcate{Mod} &
+\end{tikzcd}\]
+
+% segment-id: o014.li2.chapter6.lhs-spectral-sequence-a.p003
+The functor $(\cdot)^{H\lhd G}$ is left exact and preserves injective
+objects, since it has the exact left adjoint $\mathrm{Infl}^G_{G/H}$.
+Similarly, $(\cdot)_{H\lhd G}$ is a right-exact functor that preserves
+projective objects. Theorem~\ref{prop:derived-composite} on deriving composite
+functors therefore gives canonical isomorphisms in the derived category
+$\cate{D}(\Bbbk\dcate{Mod})$ (with appropriate parentheses omitted):
+\begin{equation}\label{eqn:LHS-derived}
+	\begin{gathered}
+		\mathrm{R}(\cdot)^G\rightiso
+		\mathrm{R}(\cdot)^{G/H}\circ\mathrm{R}(\cdot)^{H\lhd G},\\
+		\mathrm{L}(\cdot)_G\leftiso
+		\mathrm{L}(\cdot)_{G/H}\circ\mathrm{L}(\cdot)_{H\lhd G}.
+	\end{gathered}
+\end{equation}
+
+% segment-id: o014.li2.chapter6.lhs-spectral-sequence-a.p004
+The derived functors $\mathrm{R}(\cdot)^{H\lhd G}$ and
+$\mathrm{L}(\cdot)_{H\lhd G}$ in these formulas are not new objects. For
+each of the commutative diagrams
+\[\begin{tikzcd}
+	G\dcate{Mod} \arrow[r,"{(\cdot)^{H\lhd G}}"]
+	\arrow[d,"{\Res^G_H}"'] & G/H\dcate{Mod}
+	\arrow[d,"{\text{forgetful}=\Res^{G/H}_{\{1\}}}"]\\
+	H\dcate{Mod} \arrow[r,"{(\cdot)^H}"'] & \Bbbk\dcate{Mod}
+\end{tikzcd}\quad\begin{tikzcd}
+	G\dcate{Mod} \arrow[r,"{(\cdot)_{H\lhd G}}"]
+	\arrow[d,"{\Res^G_H}"'] & G/H\dcate{Mod}
+	\arrow[d,"\text{forgetful}"]\\
+	H\dcate{Mod} \arrow[r,"{(\cdot)_H}"'] & \Bbbk\dcate{Mod},
+\end{tikzcd}\]
+derive both composites according to Theorem~\ref{prop:derived-composite}.
+Since $\Res^G_H$ is exact and preserves both injective and projective objects
+(Proposition~\ref{prop:Ind-preservation}), while the forgetful functor is
+exact, that theorem gives
+\begin{gather*}
+	\text{forgetful}\circ\mathrm{R}(\cdot)^{H\lhd G}
+	\leftiso\mathrm{R}(\text{composite functor})
+	\rightiso\mathrm{R}(\cdot)^H\circ\Res^G_H,\\
+	\text{forgetful}\circ\mathrm{L}(\cdot)_{H\lhd G}
+	\rightiso\mathrm{L}(\text{composite functor})
+	\leftiso\mathrm{L}(\cdot)_H\circ\Res^G_H.
+\end{gather*}
+In other words, after applying the forgetful functor, the right-derived
+functor $\mathrm{R}(\cdot)^{H\lhd G}$ is the same as
+$\mathrm{R}(\cdot)^H$, and the left-derived functor
+$\mathrm{L}(\cdot)_{H\lhd G}$ is the same as $\mathrm{L}(\cdot)_H$.
+It is therefore natural to write their cohomology and homology as
+\begin{align*}
+	\mathrm{R}^n(\cdot)^{H\lhd G}
+	&=\Hm^n(H,\cdot)\quad\text{with its $G/H$-action},\\
+	\mathrm{L}_n(\cdot)_{H\lhd G}
+	&=\Hm_n(H,\cdot)\quad\text{with its $G/H$-action}.
+\end{align*}
+Notice that we have begun to omit the restriction functor $\Res$ from the
+notation.
+
+% segment-id: o014.li2.chapter6.lhs-spectral-sequence-a.p005
+These actions are easy to describe. For cohomology, let $M$ be a $G$-module
+and $n\in\Z_{\geq0}$. There are at least three viewpoints on the $G/H$-action:
+\begin{enumerate}
+	\item Take an injective resolution $0\to M\to I^0\to\cdots$. It is also an
+	injective resolution of $H$-modules. The group $G/H$ acts naturally on the
+	complex $\cdots\to I^{n,H}\to I^{n+1,H}\to\cdots$, and hence on
+	$\Hm^n(H,M)$. This description comes directly from the abstract
+	construction above.
+	\item The group $G/H$ acts on the functor
+	$(\cdot)^H:G\dcate{Mod}\to\Bbbk\dcate{Mod}$. The universal property of
+	universal cohomological $\delta$-functors then makes it act on
+	$\Hm^n(H,M)$, compatibly with long exact sequences.
+	\item In Example~\ref{eg:change-of-group-conj}, every $t\in G/H$ acts on
+	$\Hm^n(H,M)$ through $\Hm^n(c_t)$.
+\end{enumerate}
+The reader is invited to verify that these three descriptions agree. The key
+is to reduce their comparison to the case $n=0$.
+
+% segment-id: o014.li2.chapter6.lhs-spectral-sequence-a.p006
+The next important step is to extract more concrete information from
+\eqref{eqn:LHS-derived}. This involves the cohomological and homological
+bigraded spectral sequences of Definition~\ref{def:graded-spectral-sequence},
+together with the following preparation.
+
+% segment-id: o014.li2.chapter6.lhs-spectral-sequence-a.l002
+\begin{lemma}\label{prop:LHS-action-aux}
+	For every $G$-module $M$ and every $n$, the canonical homomorphism
+	$\Hm^n(G,M)\to\Hm^n(H,M)$ (see \eqref{eqn:change-of-group-coh}) factors
+	through $\Hm^n(H,M)^{G/H}$. The canonical homomorphism
+	$\Hm_n(H,M)\to\Hm_n(G,M)$ factors through
+	$\Hm_n(H,M)_{G/H}$.
+\end{lemma}
+\begin{proof}
+	We discuss cohomology. Take an injective resolution $M\to I$, with
+	$I=[I^0\to I^1\to\cdots]$, and write
+	$I^H:=[I^{0,H}\to\cdots]$. Since $I$ is also an injective resolution of
+	$M$ as an $H$-module, the inclusion $I^G\hookrightarrow I^H$ induces
+	$\Hm^n(G,M)\to\Hm^n(H,M)$.
+
+	As expected, Remark~\ref{rem:change-of-group-coh} ensures that this map is
+	precisely the canonical homomorphism in question. Now compare it with the
+	discussion of the $G/H$-action above.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.lhs-spectral-sequence-a.t001
+\begin{theorem}[R.\ Lyndon, G.\ Hochschild--J.-P.\ Serre]
+\label{prop:LHS-SS}
+	\index{spectral sequence!Lyndon--Hochschild--Serre}
+	Let $M$ be a $G$-module and $H\lhd G$.
+	\begin{enumerate}[(i)]
+		\item There are first-quadrant cohomological and homological spectral
+		sequences
+		\begin{align*}
+			E_2^{p,q}&\simeq\Hm^p\left(G/H,\Hm^q(H,M)\right)
+			\Rightarrow\Hm^{p+q}(G,M),\\
+			E^2_{p,q}&\simeq\Hm_p\left(G/H,\Hm_q(H,M)\right)
+			\Rightarrow\Hm_{p+q}(G,M).
+		\end{align*}
+		\item Let $n\in\Z_{\geq1}$ and suppose that
+		$\Hm^i(H,M)=0$ for all $1\leq i<n$ in the cohomological case, or
+		$\Hm_i(H,M)=0$ for all $1\leq i<n$ in the homological case. Then there
+		are, respectively, exact sequences
+		\begin{equation*}\begin{split}
+			0\to\Hm^n(G/H,M^H)&\to\Hm^n(G,M)\to\Hm^n(H,M)^{G/H}\\
+			&\to\Hm^{n+1}(G/H,M^H)\to\Hm^{n+1}(G,M),
+		\end{split}\end{equation*}
+		and
+		\begin{equation*}\begin{split}
+			\Hm_{n+1}(G,M)&\to\Hm_{n+1}(G/H,M_H)\\
+			&\to\Hm_n(H,M)_{G/H}\to\Hm_n(G,M)
+			\to\Hm_n(G/H,M_H)\to0.
+		\end{split}\end{equation*}
+		Notice that for $n=1$ the hypothesis is vacuous.
+		\item In the cohomological exact sequence above, every morphism other
+		than $\Hm^n(H,M)^{G/H}\to\Hm^{n+1}(G/H,M^H)$ comes from the equivariant
+		homomorphism $M^H\hookrightarrow M$ (relative to
+		$G/H\twoheadleftarrow G$; see Definition~\ref{def:change-of-group-equiv}),
+		the homomorphism $M\xrightarrow{\identity}M$ (relative to
+		$G\hookleftarrow H$), and the factorization in
+		Lemma~\ref{prop:LHS-action-aux}. The homological exact sequence is
+		similar.
+	\end{enumerate}
+\end{theorem}

@@ -1,0 +1,512 @@
+concept_id,preferred_en,locale,source_course_ids,status,derivation
+math.algebra.ring,ring,en,O013|O014,active,curated_override
+math.algebra.module,module,en,O013|O014,active,curated_override
+math.algebra.field,field,en,O013|O014,active,curated_override
+math.algebra.abelian_group,abelian group,en,O013|O014,active,curated_override
+math.category.category,category,en,O013|O014,active,curated_override
+math.category.functor,functor,en,O013|O014,active,curated_override
+math.category.natural_transformation,natural transformation,en,O013|O014,active,curated_override
+math.category.monoidal_category,monoidal category,en,O013|O014,active,curated_override
+math.category.limit,limit,en,O013|O014,active,curated_override
+math.category.representability,representability,en,O013|O014,active,curated_override
+math.category.enrichment,category enrichment,en,O013|O014,active,curated_override
+math.algebra.tensor_product,tensor product,en,O013|O014,active,curated_override
+math.analysis.completion,completion,en,O013|O014,active,curated_override
+math.algebra.submodule,submodule,en,O013|O014,active,curated_override
+math.algebra.quotient_module,quotient module,en,O013|O014,active,curated_override
+math.algebra.module_homomorphism,module homomorphism,en,O013|O014,active,curated_override
+math.category.morphism,morphism,en,O013|O014,active,curated_override
+math.category.kernel,kernel,en,O013|O014,active,curated_override
+math.category.cokernel,cokernel,en,O013|O014,active,curated_override
+math.category.image,image,en,O013|O014,active,curated_override
+math.algebra.vector_space,vector space,en,O013|O014,active,curated_override
+math.homological.cochain_complex,cochain complex,en,O014,active,curated_override
+math.homological.chain_complex,chain complex,en,O014,active,curated_override
+math.homological.differential,differential,en,O014,active,curated_override
+math.homological.cohomology,cohomology,en,O013|O014,active,curated_override
+math.homological.homology,homology,en,O013|O014,active,curated_override
+math.homological.exact_sequence,exact sequence,en,O013|O014,active,curated_override
+math.homological.acyclic_complex,acyclic complex,en,O014,active,curated_override
+math.homological.abelian_category,abelian category,en,O014,active,curated_override
+math.homological.homological_algebra,homological algebra,en,O014,active,curated_override
+math.topology.genus,genus,en,O014,active,curated_override
+math.topology.betti_number,Betti number,en,O014,active,curated_override
+math.algebra.torsion,torsion,en,O014,active,curated_override
+math.topology.topological_invariant,topological invariant,en,O014,active,curated_override
+math.homological.universal_coefficient_theorem,universal coefficient theorem,en,O014,active,curated_override
+math.homological.cup_product,cup product,en,O014,active,curated_override
+math.homotopy.aspherical_space,aspherical space,en,O014,active,curated_override
+math.homotopy.homotopy_group,homotopy group,en,O014,active,curated_override
+math.homological.group_cohomology,group cohomology,en,O014,active,curated_override
+math.algebra.syzygy,syzygy,en,O014,active,curated_override
+math.homological.free_resolution,free resolution,en,O014,active,curated_override
+math.homological.group_extension,group extension,en,O014,active,curated_override
+math.algebra.derivation,derivation,en,O014,active,curated_override
+math.algebra.inner_derivation,inner derivation,en,O014,active,curated_override
+math.homological.hochschild_homology,Hochschild homology,en,O014,active,curated_override
+math.homological.hochschild_cohomology,Hochschild cohomology,en,O014,active,curated_override
+math.algebra.bimodule,bimodule,en,O014,active,curated_override
+math.geometry.sheaf,sheaf,en,O014,active,curated_override
+math.homological.spectral_sequence,spectral sequence,en,O014,active,curated_override
+math.homological.sheaf_cohomology,sheaf cohomology,en,O014,active,curated_override
+math.homological.injective_module,injective module,en,O014,active,curated_override
+math.homological.projective_module,projective module,en,O014,active,curated_override
+math.homological.injective_resolution,injective resolution,en,O014,active,curated_override
+math.homological.projective_resolution,projective resolution,en,O014,active,curated_override
+math.homological.derived_functor,derived functor,en,O014,active,curated_override
+math.category.additive_category,additive category,en,O014,active,curated_override
+math.category.strict_morphism,strict morphism,en,O014,active,curated_override
+math.homological.delta_functor,δ-functor,en,O014,active,curated_override
+math.category.grothendieck_category,Grothendieck category,en,O014,active,curated_override
+math.homological.derived_category,derived category,en,O014,active,curated_override
+math.homological.quasi_isomorphism,quasi-isomorphism,en,O014,active,curated_override
+math.category.localization,categorical localization,en,O014,active,curated_override
+math.homological.distinguished_triangle,distinguished triangle,en,O014,active,curated_override
+math.homological.shift,shift,en,O014,active,curated_override
+math.homological.triangulated_category,triangulated category,en,O014,active,curated_override
+math.homotopy.cofiber_sequence,cofiber sequence,en,O014,active,curated_override
+math.homological.octahedral_axiom,octahedral axiom,en,O014,active,curated_override
+math.homological.derived_equivalence,derived equivalence,en,O014,active,curated_override
+math.simplicial.simplicial_set,simplicial set,en,O014,active,curated_override
+math.simplicial.simplicial_object,simplicial object,en,O014,active,curated_override
+math.simplicial.nerve,nerve,en,O014,active,curated_override
+math.simplicial.dold_kan_correspondence,Dold–Kan correspondence,en,O014,active,curated_override
+math.category.adjoint_equivalence,adjoint equivalence,en,O014,active,curated_override
+math.homological.bar_construction,bar construction,en,O014,active,curated_override
+math.homotopy.homotopical_algebra,homotopical algebra,en,O014,active,curated_override
+math.ktheory.higher_k_theory,higher K-theory,en,O014,active,curated_override
+math.category.infinity_category,∞-category,en,O014,active,curated_override
+math.homological.complex,complex,en,O014,active,curated_override
+math.homological.t_structure,t-structure,en,O014,active,curated_override
+math.representation.tilting_theory,tilting theory,en,O014,active,curated_override
+math.category.dg_category,dg-category,en,O014,active,curated_override
+math.category.monad_theory,monad theory,en,O014,active,curated_override
+math.higher.higher_algebra,higher algebra,en,O014,active,curated_override
+math.category.functor_category,functor category,en,O014,active,curated_override
+math.category.serre_quotient,Serre quotient,en,O014,active,curated_override
+math.category.diagram_chase,diagram chase,en,O014,active,curated_override
+math.category.small_category,small category,en,O014,active,curated_override
+math.category.fully_faithful,fully faithful,en,O014,active,curated_override
+math.category.exact_embedding,exact embedding,en,O014,active,curated_override
+math.category.freyd_mitchell_theorem,Freyd–Mitchell embedding theorem,en,O014,active,curated_override
+pedagogy.exercise,exercise,en,O014,active,curated_override
+pedagogy.hint,hint,en,O014,active,curated_override
+publishing.cross_reference,cross-reference,en,O014,active,curated_override
+publishing.modular_writing,modular writing,en,O014,active,curated_override
+pedagogy.optional_reading,optional reading,en,O014,active,curated_override
+pedagogy.reading_guidance,reading guidance,en,O014,active,curated_override
+math.category.category_theory,category theory,en,O014,active,curated_override
+math.category.object,object,en,O014,active,curated_override
+math.set_theory.set,set,en,O014,active,curated_override
+math.set_theory.class,class,en,O014,active,curated_override
+math.set_theory.proper_class,proper class,en,O014,active,curated_override
+math.set_theory.grothendieck_universe,Grothendieck universe,en,O014,active,curated_override
+math.set_theory.strongly_inaccessible_cardinal,strongly inaccessible cardinal,en,O014,active,curated_override
+math.probability.probability_theory,probability theory,en,O014,active,curated_override
+math.measure.measure_theory,measure theory,en,O014,active,curated_override
+math.category.kan_extension,Kan extension,en,O014,active,curated_override
+math.category.gabriel_zisman_localization,Gabriel–Zisman localization,en,O014,active,curated_override
+math.homological.bicomplex,bicomplex,en,O014,active,curated_override
+math.homological.mapping_cone,mapping cone,en,O014,active,curated_override
+math.homological.k_injective_resolution,K-injective resolution,en,O014,active,curated_override
+math.homological.k_projective_resolution,K-projective resolution,en,O014,active,curated_override
+math.category.triangulated_functor,triangulated functor,en,O014,active,curated_override
+math.homological.exact_couple,exact couple,en,O014,active,curated_override
+math.homological.filtered_complex,filtered complex,en,O014,active,curated_override
+math.group.group_homology,group homology,en,O014,active,curated_override
+math.group.tate_cohomology,Tate cohomology,en,O014,active,curated_override
+math.group.profinite_group,profinite group,en,O014,active,curated_override
+math.group.profinite_group_cohomology,profinite group cohomology,en,O014,active,curated_override
+math.group.nonabelian_cohomology,nonabelian cohomology,en,O014,active,curated_override
+math.algebra.differential_graded_structure,differential graded structure,en,O014,active,curated_override
+math.algebra.coalgebra,coalgebra,en,O014,active,curated_override
+math.algebra.bialgebra,bialgebra,en,O014,active,curated_override
+math.algebra.hopf_algebra,Hopf algebra,en,O014,active,curated_override
+math.category.beck_monadicity_theorem,Beck monadicity theorem,en,O014,active,curated_override
+math.algebra.morita_theory,Morita theory,en,O014,active,curated_override
+math.descent.flat_descent_modules,flat descent for modules,en,O014,active,curated_override
+math.descent.galois_descent,Galois descent,en,O014,active,curated_override
+math.category.duality,duality,en,O014,active,curated_override
+math.category.reconstruction_theorem,reconstruction theorem,en,O014,active,curated_override
+math.category.tannakian_category,Tannakian category,en,O014,active,curated_override
+math.algebra.representation_theory,representation theory,en,O014,active,curated_override
+math.category.ind_object,ind-object,en,O014,active,curated_override
+math.category.pro_object,pro-object,en,O014,active,curated_override
+math.category.ind_construction,Ind-construction,en,O014,active,curated_override
+publishing.errata,errata,en,O014,active,curated_override
+math.foundations.well_defined,well-defined,en,O014,active,curated_override
+math.order.partially_ordered_set,partially ordered set,en,O014,active,curated_override
+math.order.preordered_set,preordered set,en,O014,active,curated_override
+math.order.maximal_element,maximal element,en,O014,active,curated_override
+math.order.minimal_element,minimal element,en,O014,active,curated_override
+math.order.upper_bound,upper bound,en,O014,active,curated_override
+math.order.lower_bound,lower bound,en,O014,active,curated_override
+math.order.supremum,supremum,en,O014,active,curated_override
+math.order.infimum,infimum,en,O014,active,curated_override
+math.order.order_preserving_map,order-preserving map,en,O014,active,curated_override
+math.order.order_isomorphism,order isomorphism,en,O014,active,curated_override
+math.order.totally_ordered_set,totally ordered set,en,O014,active,curated_override
+math.order.well_ordered_set,well-ordered set,en,O014,active,curated_override
+math.set_theory.ordinal,ordinal,en,O014,active,curated_override
+math.set_theory.cardinal,cardinal,en,O014,active,curated_override
+math.set_theory.small_set,small set,en,O014,active,curated_override
+math.set_theory.small_cardinal,small cardinal,en,O014,active,curated_override
+math.category.monomorphism,monomorphism,en,O014,active,curated_override
+math.category.epimorphism,epimorphism,en,O014,active,curated_override
+math.category.full_subcategory,full subcategory,en,O014,active,curated_override
+math.category.product_category,product category,en,O014,active,curated_override
+math.category.discrete_category,discrete category,en,O014,active,curated_override
+math.category.u_category,U-category,en,O014,active,curated_override
+math.category.large_category,large category,en,O014,active,curated_override
+math.category.size_issues,size issues,en,O014,active,curated_override
+math.category.faithful_functor,faithful functor,en,O014,active,curated_override
+math.category.essentially_surjective_functor,essentially surjective functor,en,O014,active,curated_override
+math.category.two_cell,2-cell,en,O014,active,curated_override
+math.category.opposite_category,opposite category,en,O014,active,curated_override
+math.category.quasi_inverse,quasi-inverse,en,O014,active,curated_override
+math.category.equivalence,equivalence of categories,en,O014,active,curated_override
+math.category.category_isomorphism,isomorphism of categories,en,O014,active,curated_override
+math.algebra.zero_divisor,zero divisor,en,O014,active,curated_override
+math.category.adjunction,adjunction,en,O014,active,curated_override
+math.category.adjunction_unit,unit of an adjunction,en,O014,active,curated_override
+math.category.adjunction_counit,counit of an adjunction,en,O014,active,curated_override
+math.category.triangle_identities,triangle identities,en,O014,active,curated_override
+math.category.colimit,colimit,en,O014,active,curated_override
+math.category.small_limit,small limit,en,O014,active,curated_override
+math.category.complete_category,complete category,en,O014,active,curated_override
+math.category.cocomplete_category,cocomplete category,en,O014,active,curated_override
+math.category.universal_property,universal property,en,O014,active,curated_override
+math.category.equalizer,equalizer,en,O014,active,curated_override
+math.category.coequalizer,coequalizer,en,O014,active,curated_override
+math.category.product,product,en,O014,active,curated_override
+math.category.coproduct,coproduct,en,O014,active,curated_override
+math.algebra.direct_sum,direct sum,en,O014,active,curated_override
+math.category.yoneda_embedding,Yoneda embedding,en,O014,active,curated_override
+math.category.terminal_object,terminal object,en,O014,active,curated_override
+math.category.initial_object,initial object,en,O014,active,curated_override
+math.category.zero_object,zero object,en,O014,active,curated_override
+math.category.zero_morphism,zero morphism,en,O014,active,curated_override
+math.category.fiber_product,fiber product,en,O014,active,curated_override
+math.category.fiber_coproduct,fiber coproduct,en,O014,active,curated_override
+math.category.pullback,pullback,en,O014,active,curated_override
+math.category.pushout,pushout,en,O014,active,curated_override
+math.category.subobject,subobject,en,O014,active,curated_override
+math.category.quotient_object,quotient object,en,O014,active,curated_override
+math.category.coimage,coimage,en,O014,active,curated_override
+math.category.ab_category,Ab-category,en,O014,active,curated_override
+math.category.additive_functor,additive functor,en,O014,active,curated_override
+math.category.k_linear_category,k-linear category,en,O014,active,curated_override
+math.category.preserves_limit,preservation of limits,en,O014,active,curated_override
+math.category.creates_limit,creation of limits,en,O014,active,curated_override
+math.category.cofinal_functor,cofinal functor,en,O014,active,curated_override
+math.category.filtered_inductive_limit,filtered inductive limit,en,O014,active,curated_override
+math.category.absolute_kan_extension,absolute Kan extension,en,O014,active,curated_override
+math.category.multiplicative_system,multiplicative system,en,O014,active,curated_override
+math.category.adjoint_functor_theorem,adjoint functor theorem,en,O014,active,curated_override
+math.category.generator,generator,en,O014,active,curated_override
+math.category.cogenerator,cogenerator,en,O014,active,curated_override
+math.category.left_cancellation_law,left cancellation law,en,O014,active,curated_override
+math.category.right_cancellation_law,right cancellation law,en,O014,active,curated_override
+math.category.subquotient,subquotient,en,O014,active,curated_override
+math.category.canonical_morphism,canonical morphism,en,O014,active,curated_override
+math.set_theory.equivalence_class,equivalence class,en,O014,active,curated_override
+math.order.partial_order_relation,partial order relation,en,O014,active,curated_override
+math.set_theory.injective_map,injective map,en,O014,active,curated_override
+math.set_theory.surjective_map,surjective map,en,O014,active,curated_override
+math.category.isomorphism,isomorphism,en,O014,active,curated_override
+math.category.projection_morphism,projection morphism,en,O014,active,curated_override
+math.category.coimage_image_comparison,coimage–image comparison morphism,en,O014,active,curated_override
+math.category.epi_mono_factorization,epi–mono factorization,en,O014,active,curated_override
+math.category.epi_mono_factorization_category,epi–mono factorization category,en,O014,active,curated_override
+math.category.ab_subcategory,Ab-subcategory,en,O014,active,curated_override
+math.category.biproduct,biproduct,en,O014,active,curated_override
+math.category.diagonal_morphism,diagonal morphism,en,O014,active,curated_override
+math.category.codiagonal_morphism,codiagonal morphism,en,O014,active,curated_override
+math.category.additive_subcategory,additive subcategory,en,O014,active,curated_override
+math.category.direct_sum_summand,direct-sum summand,en,O014,active,curated_override
+math.category.finite_product,finite product,en,O014,active,curated_override
+math.category.finite_coproduct,finite coproduct,en,O014,active,curated_override
+math.category.addition_of_morphisms,addition of morphisms,en,O014,active,curated_override
+math.category.functoriality,functoriality,en,O014,active,curated_override
+math.algebra.bilinear_map,bilinear map,en,O014,active,curated_override
+math.algebra.pointwise_addition,pointwise addition,en,O014,active,curated_override
+math.category.forgetful_functor,forgetful functor,en,O014,active,curated_override
+math.functional_analysis.banach_space,Banach space,en,O014,active,curated_override
+math.functional_analysis.quotient_norm,quotient norm,en,O014,active,curated_override
+math.topology.quotient_topology,quotient topology,en,O014,active,curated_override
+math.topology.induced_topology,induced topology,en,O014,active,curated_override
+math.topology.dense_image,dense image,en,O014,active,curated_override
+math.topology.closure,closure,en,O014,active,curated_override
+math.algebra.commutative_ring,commutative ring,en,O014,active,curated_override
+math.algebra.scalar_multiplication,scalar multiplication,en,O014,active,curated_override
+math.category.k_mod_enriched_category,k-Mod-enriched category,en,O014,active,curated_override
+math.category.k_linear_functor,k-linear functor,en,O014,active,curated_override
+math.algebra.k_algebra,k-algebra,en,O014,active,curated_override
+math.category.identity_functor,identity functor,en,O014,active,curated_override
+math.category.category_center,center of a category,en,O014,active,curated_override
+math.algebra.commutative_monoid,commutative monoid,en,O014,active,curated_override
+math.algebra.ring_homomorphism,ring homomorphism,en,O014,active,curated_override
+math.category.cocone,cocone,en,O014,active,curated_override
+math.category.categorical_cone,cone,en,O014,active,curated_override
+math.category.cone_base,base of a cone,en,O014,active,curated_override
+math.category.cone_apex,apex of a cone,en,O014,active,curated_override
+math.category.diagonal_functor,diagonal functor,en,O014,active,curated_override
+math.category.projective_limit,projective limit,en,O014,active,curated_override
+math.category.reflects_limit,reflection of limits,en,O014,active,curated_override
+math.category.conservative_functor,conservative functor,en,O014,active,curated_override
+math.group.group_homomorphism,group homomorphism,en,O014,active,curated_override
+math.algebra.direct_product,direct product,en,O014,active,curated_override
+math.group.subgroup,subgroup,en,O014,active,curated_override
+math.topology.compact_hausdorff_space,compact Hausdorff space,en,O014,active,curated_override
+math.category.projection_functor,projection functor,en,O014,active,curated_override
+math.category.evaluation_functor,evaluation functor,en,O014,active,curated_override
+math.category.pointwise_limit,pointwise limit,en,O014,active,curated_override
+math.category.connected_category,connected category,en,O014,active,curated_override
+math.category.comma_category,comma category,en,O014,active,curated_override
+math.category.constant_functor,constant functor,en,O014,active,curated_override
+math.category.inclusion_functor,inclusion functor,en,O014,active,curated_override
+math.category.filtered_category,filtered category,en,O014,active,curated_override
+math.order.filtered_poset,filtered poset,en,O014,active,curated_override
+math.category.functor_restriction,functor restriction,en,O014,active,curated_override
+math.category.iterated_limit,iterated limit,en,O014,active,curated_override
+math.set_theory.binary_relation,binary relation,en,O014,active,curated_override
+math.set_theory.equivalence_relation,equivalence relation,en,O014,active,curated_override
+math.set_theory.disjoint_union,disjoint union,en,O014,active,curated_override
+math.category.finite_category,finite category,en,O014,active,curated_override
+math.category.natural_isomorphism,natural isomorphism,en,O014,active,curated_override
+math.category.left_kan_extension,left Kan extension,en,O014,active,curated_override
+math.category.right_kan_extension,right Kan extension,en,O014,active,curated_override
+math.category.precomposition_functor,precomposition functor,en,O014,active,curated_override
+math.category.two_category,2-category,en,O014,active,curated_override
+math.category.vertical_composition,vertical composition,en,O014,active,curated_override
+math.category.horizontal_composition,horizontal composition,en,O014,active,curated_override
+math.category.pointwise_kan_extension,pointwise Kan extension,en,O014,active,curated_override
+math.category.preserves_kan_extension,preservation of Kan extensions,en,O014,active,curated_override
+math.sheaf.presheaf,presheaf,en,O014,active,curated_override
+math.sheaf.direct_image,direct image,en,O014,active,curated_override
+math.sheaf.inverse_image,inverse image,en,O014,active,curated_override
+math.category.localization_functor,localization functor,en,O014,active,curated_override
+math.category.essential_image,essential image,en,O014,active,curated_override
+math.category.left_multiplicative_system,left multiplicative system,en,O014,active,curated_override
+math.category.right_multiplicative_system,right multiplicative system,en,O014,active,curated_override
+math.category.calculus_of_fractions,calculus of fractions,en,O014,active,curated_override
+math.algebra.multiplicative_subset,multiplicative subset,en,O014,active,curated_override
+math.algebra.ring_localization,localization of a ring,en,O014,active,curated_override
+math.algebra.noncommutative_localization,noncommutative localization,en,O014,active,curated_override
+math.category.central_localization,central localization,en,O014,active,curated_override
+math.category.reflective_localization,reflective localization,en,O014,active,curated_override
+math.category.kan_extension_along_localization,Kan extension along a localization,en,O014,active,curated_override
+math.category.resolution_condition,resolution condition,en,O014,active,curated_override
+math.category.weakly_initial_family,weakly initial family,en,O014,active,curated_override
+math.category.weakly_initial_object,weakly initial object,en,O014,active,curated_override
+math.category.weakly_terminal_family,weakly terminal family,en,O014,active,curated_override
+math.category.weakly_terminal_object,weakly terminal object,en,O014,active,curated_override
+math.category.solution_set_condition,solution set condition,en,O014,active,curated_override
+math.category.cosolution_set_condition,cosolution set condition,en,O014,active,curated_override
+math.category.general_adjoint_functor_theorem,general adjoint functor theorem,en,O014,active,curated_override
+math.category.special_adjoint_functor_theorem,special adjoint functor theorem,en,O014,active,curated_override
+math.category.generating_family,generating family,en,O014,active,curated_override
+math.category.cogenerating_family,cogenerating family,en,O014,active,curated_override
+math.category.well_powered_category,well-powered category,en,O014,active,curated_override
+math.category.well_copowered_category,well-copowered category,en,O014,active,curated_override
+math.category.representable_functor,representable functor,en,O014,active,curated_override
+math.topology.stone_cech_compactification,Stone–Čech compactification,en,O014,active,curated_override
+math.group.free_group,free group,en,O014,active,curated_override
+math.group.free_product,free product,en,O014,active,curated_override
+math.group.amalgamated_free_product,amalgamated free product,en,O014,active,curated_override
+math.category.injective_object,injective object,en,O014,active,curated_override
+math.category.projective_object,projective object,en,O014,active,curated_override
+math.homological.snake_lemma,Snake Lemma,en,O014,active,curated_override
+math.homological.five_lemma,Five Lemma,en,O014,active,curated_override
+math.category.abelian_subcategory,abelian subcategory,en,O014,active,curated_override
+math.category.serre_subcategory,Serre subcategory,en,O014,active,curated_override
+math.category.indecomposable_object,indecomposable object,en,O014,active,curated_override
+math.category.simple_object,simple object,en,O014,active,curated_override
+math.algebra.composition_series,composition series,en,O014,active,curated_override
+math.order.lattice_theory,lattice theory,en,O014,active,curated_override
+math.ktheory.k0_group,K₀ group,en,O014,active,curated_override
+math.ktheory.euler_poincare_principle,Euler–Poincaré principle,en,O014,active,curated_override
+math.category.exact_category,exact category,en,O014,active,curated_override
+math.category.krull_remak_schmidt_theorem,Krull–Remak–Schmidt theorem,en,O014,active,curated_override
+math.homological.short_exact_sequence,short exact sequence,en,O014,active,curated_override
+math.category.exactness_criterion,exactness criterion,en,O014,active,curated_override
+math.homological.connecting_morphism,connecting morphism,en,O014,active,curated_override
+math.category.canonicality,canonicality,en,O014,active,curated_override
+math.category.self_dual,self-dual,en,O014,active,curated_override
+math.homological.salamander_lemma,Salamander Lemma,en,O014,active,curated_override
+math.order.lattice,lattice,en,O014,active,curated_override
+math.order.bounded_lattice,bounded lattice,en,O014,active,curated_override
+math.order.modular_lattice,modular lattice,en,O014,active,curated_override
+math.order.complement,complement,en,O014,active,curated_override
+math.order.standard_isomorphism,standard isomorphism,en,O014,active,curated_override
+math.order.refinement,refinement,en,O014,active,curated_override
+math.order.proper_refinement,proper refinement,en,O014,active,curated_override
+math.order.ascending_chain,ascending chain,en,O014,active,curated_override
+math.order.descending_chain,descending chain,en,O014,active,curated_override
+math.order.noetherian,Noetherian,en,O014,active,curated_override
+math.order.artinian,Artinian,en,O014,active,curated_override
+math.order.finite_length,finite length,en,O014,active,curated_override
+math.algebra.idempotent,idempotent,en,O014,active,curated_override
+math.category.karoubian_category,Karoubian category,en,O014,active,curated_override
+math.category.pseudoabelian_category,pseudoabelian category,en,O014,active,curated_override
+math.homological.split_short_exact_sequence,split short exact sequence,en,O014,active,curated_override
+math.category.section,section,en,O014,active,curated_override
+math.category.retraction,retraction,en,O014,active,curated_override
+math.category.double_chain,double chain,en,O014,active,curated_override
+math.category.double_chain_condition,double chain condition,en,O014,active,curated_override
+math.algebra.nilpotent,nilpotent,en,O014,active,curated_override
+math.algebra.local_ring,local ring,en,O014,active,curated_override
+math.category.fitting_lemma,Fitting Lemma,en,O014,active,curated_override
+math.category.subobject_intersection,intersection of subobjects,en,O014,active,curated_override
+math.category.subobject_sum,sum of subobjects,en,O014,active,curated_override
+math.category.increasing_union,increasing union,en,O014,active,curated_override
+math.category.subobject_preimage,preimage of a subobject,en,O014,active,curated_override
+math.category.canonical_isomorphism,canonical isomorphism,en,O014,active,curated_override
+math.category.antidiagonal_morphism,antidiagonal morphism,en,O014,active,curated_override
+math.order.order_reversing_bijection,order-reversing bijection,en,O014,active,curated_override
+math.algebra.isomorphism_theorem,isomorphism theorem,en,O014,active,curated_override
+math.category.semisimple_object,semisimple object,en,O014,active,curated_override
+math.category.split_object,split object,en,O014,active,curated_override
+math.category.semisimple_abelian_category,semisimple abelian category,en,O014,active,curated_override
+math.category.split_abelian_category,split abelian category,en,O014,active,curated_override
+math.algebra.composition_factor,composition factor,en,O014,active,curated_override
+math.algebra.multiplicity,multiplicity,en,O014,active,curated_override
+math.algebra.division_ring,division ring,en,O014,active,curated_override
+math.algebra.schur_lemma,Schur's Lemma,en,O014,active,curated_override
+math.category.exact_functor,exact functor,en,O014,active,curated_override
+math.category.left_exact_functor,left exact functor,en,O014,active,curated_override
+math.category.right_exact_functor,right exact functor,en,O014,active,curated_override
+math.category.faithfully_exact_functor,faithfully exact functor,en,O014,active,curated_override
+math.category.enough_injective_objects,enough injective objects,en,O014,active,curated_override
+math.category.enough_projective_objects,enough projective objects,en,O014,active,curated_override
+math.category.arrow_category,arrow category,en,O014,active,curated_override
+math.category.localization_exactness,exactness of localization,en,O014,active,curated_override
+math.category.weak_serre_subcategory,weak Serre subcategory,en,O014,active,curated_override
+math.category.small_skeleton,small skeleton,en,O014,active,curated_override
+math.algebra.s_torsion_module,S-torsion module,en,O014,active,curated_override
+math.category.strong_generator,strong generator,en,O014,active,curated_override
+math.category.injective_cogenerator,injective cogenerator,en,O014,active,curated_override
+math.category.small_object_argument,small object argument,en,O014,active,curated_override
+math.category.alpha_small_object_relative_to_i,α-small object relative to I,en,O014,active,curated_override
+math.set_theory.regular_small_cardinal,regular small cardinal,en,O014,active,curated_override
+math.set_theory.transfinite_recursion,transfinite recursion,en,O014,active,curated_override
+math.set_theory.successor_ordinal,successor ordinal,en,O014,active,curated_override
+math.set_theory.limit_ordinal,limit ordinal,en,O014,active,curated_override
+math.category.karoubi_envelope,Karoubi envelope,en,O014,active,curated_override
+math.homological.schanuel_lemma,Schanuel's Lemma,en,O014,active,curated_override
+math.homological.complex_homotopy,complex homotopy,en,O014,active,curated_override
+math.homological.hom_complex,Hom complex,en,O014,active,curated_override
+math.homological.total_complex,total complex,en,O014,active,curated_override
+math.homological.long_exact_sequence,long exact sequence,en,O014,active,curated_override
+math.homological.resolution,resolution,en,O014,active,curated_override
+math.homological.truncation_functor,truncation functor,en,O014,active,curated_override
+math.homological.cartan_eilenberg_resolution,Cartan–Eilenberg resolution,en,O014,active,curated_override
+math.homological.hyperderived_functor,hyperderived functor,en,O014,active,curated_override
+math.homological.effaceable_functor,effaceable functor,en,O014,active,curated_override
+math.homological.coeffaceable_functor,coeffaceable functor,en,O014,active,curated_override
+math.category.bifunctor,bifunctor,en,O014,active,curated_override
+math.homological.balanced_bifunctor,balanced bifunctor,en,O014,active,curated_override
+math.homological.mittag_leffler_condition,Mittag–Leffler condition,en,O014,active,curated_override
+math.homological.k_injective_complex,K-injective complex,en,O014,active,curated_override
+math.homological.k_projective_complex,K-projective complex,en,O014,active,curated_override
+math.homological.mapping_cylinder,mapping cylinder,en,O014,active,curated_override
+math.algebra.graded_object,graded object,en,O014,active,curated_override
+math.algebra.differential_graded_object,differential graded object,en,O014,active,curated_override
+math.algebra.bigraded_object,bigraded object,en,O014,active,curated_override
+math.homological.complex_category,category of complexes,en,O014,active,curated_override
+math.homological.concentrated_complex,concentrated complex,en,O014,active,curated_override
+math.algebra.leibniz_rule,Leibniz rule,en,O014,active,curated_override
+math.homological.homotopic_morphism,homotopic morphism,en,O014,active,curated_override
+math.homological.null_homotopic_morphism,null-homotopic morphism,en,O014,active,curated_override
+math.homological.homotopy_category,homotopy category,en,O014,active,curated_override
+math.homological.homotopy_cokernel,homotopy cokernel,en,O014,active,curated_override
+math.homological.homotopy_kernel,homotopy kernel,en,O014,active,curated_override
+math.homological.homotopy_coimage,homotopy coimage,en,O014,active,curated_override
+math.homological.koszul_sign_rule,Koszul sign rule,en,O014,active,curated_override
+math.homological.k_fold_complex,k-fold complex,en,O014,active,curated_override
+math.homological.hom_bicomplex,Hom bicomplex,en,O014,active,curated_override
+math.homological.bicomplex_homotopy,bicomplex homotopy,en,O014,active,curated_override
+math.homological.rotation_axiom,rotation axiom,en,O014,active,curated_override
+math.algebra.tensor_power,tensor power,en,O014,active,curated_override
+math.homological.bar_complex,bar complex,en,O014,active,curated_override
+math.homological.augmented_bar_complex,augmented bar complex,en,O014,active,curated_override
+math.homological.augmentation_morphism,augmentation morphism,en,O014,active,curated_override
+math.category.comonad,comonad,en,O014,active,curated_override
+math.homological.hochschild_complex,Hochschild complex,en,O014,active,curated_override
+math.homological.relative_tor,relative Tor,en,O014,active,curated_override
+math.homological.relative_ext,relative Ext,en,O014,active,curated_override
+math.algebra.center,center,en,O014,active,curated_override
+math.algebra.cocenter,cocenter,en,O014,active,curated_override
+math.algebra.kahler_differentials,Kähler differentials,en,O014,active,curated_override
+math.algebra.universal_derivation,universal derivation,en,O014,active,curated_override
+math.homological.cyclic_bicomplex,cyclic bicomplex,en,O014,active,curated_override
+math.homological.brutal_truncation,brutal truncation,en,O014,active,curated_override
+math.homological.cyclic_homology,cyclic homology,en,O014,active,curated_override
+math.homological.periodic_cyclic_homology,periodic cyclic homology,en,O014,active,curated_override
+math.homological.connes_periodicity_operator,Connes periodicity operator,en,O014,active,curated_override
+math.homological.cyclic_cohomology,cyclic cohomology,en,O014,active,curated_override
+math.homological.periodic_cyclic_cohomology,periodic cyclic cohomology,en,O014,active,curated_override
+math.algebra.linear_dual,linear dual,en,O014,active,curated_override
+math.homological.bounded_complex,bounded complex,en,O014,active,curated_override
+math.homological.bounded_below_complex,bounded-below complex,en,O014,active,curated_override
+math.homological.bounded_above_complex,bounded-above complex,en,O014,active,curated_override
+math.homological.diagonally_finite_bicomplex,diagonally finite bicomplex,en,O014,active,curated_override
+math.homological.row_exact_bicomplex,row-exact bicomplex,en,O014,active,curated_override
+math.homological.column_exact_bicomplex,column-exact bicomplex,en,O014,active,curated_override
+math.homological.complex_of_injective_objects,complex of injective objects,en,O014,active,curated_override
+math.homological.complex_of_projective_objects,complex of projective objects,en,O014,active,curated_override
+math.homological.horseshoe_lemma,Horseshoe Lemma,en,O014,active,curated_override
+math.homological.classical_derived_functor,classical derived functor,en,O014,active,curated_override
+math.homological.right_derived_functor,right derived functor,en,O014,active,curated_override
+math.homological.left_derived_functor,left derived functor,en,O014,active,curated_override
+math.homological.higher_derived_functor,higher derived functor,en,O014,active,curated_override
+math.homological.cohomological_delta_functor,cohomological δ-functor,en,O014,active,curated_override
+math.homological.homological_delta_functor,homological δ-functor,en,O014,active,curated_override
+math.homological.f_acyclic_object,F-acyclic object,en,O014,active,curated_override
+math.homological.dimension_shifting,dimension shifting,en,O014,active,curated_override
+math.homological.universal_cohomological_delta_functor,universal cohomological δ-functor,en,O014,active,curated_override
+math.homological.universal_homological_delta_functor,universal homological δ-functor,en,O014,active,curated_override
+math.homological.inverse_system,inverse system,en,O014,active,curated_override
+math.category.countable_product,countable product,en,O014,active,curated_override
+math.category.countable_coproduct,countable coproduct,en,O014,active,curated_override
+math.homological.exact_countable_product,exact countable product,en,O014,active,curated_override
+math.category.shift_morphism,shift morphism,en,O014,active,curated_override
+math.category.stable_image,stable image,en,O014,active,curated_override
+math.homological.ext_functor,Ext functor,en,O014,active,curated_override
+math.homological.tor_functor,Tor functor,en,O014,active,curated_override
+math.homological.flat_resolution,flat resolution,en,O014,active,curated_override
+math.homological.kunneth_theorem,Künneth theorem,en,O014,active,curated_override
+math.homological.enough_k_injective_complexes,enough K-injective complexes,en,O014,active,curated_override
+math.homological.enough_k_projective_complexes,enough K-projective complexes,en,O014,active,curated_override
+math.homological.split_exact_complex,split exact complex,en,O014,active,curated_override
+math.homological.reduced_bar_complex,reduced bar complex,en,O014,active,curated_override
+math.algebra.square_zero_extension,square-zero extension,en,O014,active,curated_override
+math.category.autoequivalence,autoequivalence,en,O014,active,curated_override
+math.homological.cohomological_functor,cohomological functor,en,O014,active,curated_override
+math.category.verdier_localization,Verdier localization,en,O014,active,curated_override
+math.homological.triangulated_subcategory,triangulated subcategory,en,O014,active,curated_override
+math.homological.bounded_below_derived_category,bounded-below derived category,en,O014,active,curated_override
+math.homological.bounded_above_derived_category,bounded-above derived category,en,O014,active,curated_override
+math.homological.bounded_derived_category,bounded derived category,en,O014,active,curated_override
+math.homological.unbounded_derived_category,unbounded derived category,en,O014,active,curated_override
+math.homological.derived_functor_amplitude,derived functor amplitude,en,O014,active,curated_override
+math.homological.derived_functor_dimension,derived functor dimension,en,O014,active,curated_override
+math.homological.grothendieck_spectral_sequence,Grothendieck spectral sequence,en,O014,active,curated_override
+math.homological.derived_hom_functor,derived Hom functor,en,O014,active,curated_override
+math.homological.derived_bifunctor_theory,derived bifunctor theory,en,O014,active,curated_override
+math.homological.derived_inverse_limit_functor,derived inverse limit functor,en,O014,active,curated_override
+math.homotopy.homotopy_limit,homotopy limit,en,O014,active,curated_override
+math.homological.derived_tensor_product,derived tensor product,en,O014,active,curated_override
+math.homological.triangulated_bifunctor,triangulated bifunctor,en,O014,active,curated_override
+math.category.associativity_constraint,associativity constraint,en,O014,active,curated_override
+math.homological.derived_tensor_hom_adjunction,derived tensor–Hom adjunction,en,O014,active,curated_override
+math.homological.k_flat_resolution,K-flat resolution,en,O014,active,curated_override
+math.homological.effaceability,effaceability,en,O014,active,curated_override
+math.homological.n_extension,n-extension,en,O014,active,curated_override
+math.homological.yoneda_ext_theorem,Yoneda Ext theorem,en,O014,active,curated_override
+math.homological.unbounded_derived_functor,unbounded derived functor,en,O014,active,curated_override
+math.category.category_with_translation,category with translation,en,O014,active,curated_override
+math.category.translation_functor,translation functor,en,O014,active,curated_override
+math.category.morphism_with_degree,morphism of degree,en,O014,active,curated_override
+math.homological.triangle,triangle,en,O014,active,curated_override
+math.homological.pretriangulated_category,pretriangulated category,en,O014,active,curated_override

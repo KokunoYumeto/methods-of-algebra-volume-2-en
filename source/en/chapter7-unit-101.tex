@@ -1,0 +1,336 @@
+% Unit 101 English translation of chapter7.tex lines 2306--2471.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter7.galois-descent
+% Coverage: complete Section 7.10, ``Application: Galois Descent'';
+% stops immediately before Section 7.11 at line 2472.
+
+% segment-id: o014.li2.chapter7.galois-descent.h001
+\section{Application: Galois Descent}\label{sec:descent-Galois}
+\hypertarget{o014.aljabr2.chapter7.galois-descent}{ }
+% segment-id: o014.li2.chapter7.galois-descent.p001
+In what follows, $L|K$ is a Galois extension of fields. This is a useful
+special case of flat descent from \S\ref{sec:descent-modules}, called
+\emph{Galois descent}. Our strategy is to describe the corresponding comonad
+directly. The only tools required are the form of flat descent in
+Theorem~\ref{prop:flat-descent} and its preliminaries; the deeper discussion
+in the second half of \S\ref{sec:descent-modules} is not needed.
+
+% segment-id: o014.li2.chapter7.galois-descent.p002
+From now on, assume that $K$ and $L$ are fields and that $L|K$ is a Galois
+extension. The modules considered above become vector spaces. Write
+% segment-id: o014.li2.chapter7.galois-descent.q001
+\[ \Gamma := \Gal(L|K), \quad \text{equipped with the Krull topology}. \]
+Background on the Krull topology can be found in
+\cite[\S 4.10, \S 9.2]{Li1}; when $L|K$ is finite, this is just the discrete
+topology. In fact, $\Gamma$ is a profinite group as introduced in
+\S\ref{sec:profinite-groups}.
+
+% segment-id: o014.li2.chapter7.galois-descent.p003
+A map $f:\Gamma\to X$ is called \emph{smooth} if, for every
+$\sigma\in\Gamma$, there is an open subgroup $\Gamma_0$ such that
+$\sigma_0\in\Gamma_0\implies f(\sigma\sigma_0)=f(\sigma)$. Write
+% segment-id: o014.li2.chapter7.galois-descent.q002
+\[ \mathrm{Maps}(\Gamma, X)^\infty := \left\{ \text{smooth maps } f: \Gamma \to X \right\}. \]
+
+% segment-id: o014.li2.chapter7.galois-descent.le001
+\begin{lemma}\label{prop:smooth-map-finite}
+	If $f\in\mathrm{Maps}(\Gamma,X)^\infty$, there is an open normal subgroup
+	$\Gamma'$ such that $f$ factors through $\Gamma/\Gamma'$. In particular,
+	$f$ takes only finitely many values.
+\end{lemma}
+% segment-id: o014.li2.chapter7.galois-descent.pf001
+\begin{proof}
+	For every $\sigma\in\Gamma$, there is an open subgroup $\Gamma_0$,
+	depending on $\sigma$, such that $f$ is constant on $\sigma\Gamma_0$.
+	These cosets form an open cover of $\Gamma$. Since $\Gamma$ is compact,
+	there is a finite subcover
+	$\sigma_1\Gamma_{0,1},\ldots,\sigma_r\Gamma_{0,r}$. Now choose an open
+	normal subgroup $\Gamma'$ contained in
+	$\bigcap_{i=1}^r\Gamma_{0,i}$.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.galois-descent.p004
+We use this to describe concretely the comonad
+$\mathbf{L}:M\mapsto L\dotimes{K}M$ determined by $L|K$ on
+$\cate{Vect}(L)$.
+
+% segment-id: o014.li2.chapter7.galois-descent.le002
+\begin{lemma}\label{prop:Galois-descent-comonad-0}
+	For every $L$-vector space $M$, give
+	$\mathrm{Maps}(\Gamma,M)^\infty$ the following $L$-vector space
+	structure: if $\ell\in L$, then
+	$(\ell f)(\sigma)=\sigma(\ell)f(\sigma)$ for every $\sigma\in\Gamma$.
+	There is an isomorphism of $L$-vector spaces
+	% segment-id: o014.li2.chapter7.galois-descent.q003
+	\begin{equation}\label{eqn:comonad-smMap}
+		\begin{tikzcd}[row sep=tiny]
+			\Phi(M): L \dotimes{K} M \arrow[r, "\sim"] & \mathrm{Maps}(\Gamma, M)^\infty \\
+			\ell \otimes m \arrow[mapsto, r] & {\left[ f: \sigma \mapsto \sigma(\ell)m \right]}.
+		\end{tikzcd}
+	\end{equation}
+\end{lemma}
+% segment-id: o014.li2.chapter7.galois-descent.pf002
+\begin{proof}
+	It is clear that $\Phi(M)$ is well-defined
+	($\Stab_\Gamma(\ell)$ is always open, so $f$ is smooth), and it is
+	$L$-linear by definition. It also commutes with arbitrary direct sums:
+	$\Phi(\bigoplus_iM_i)=\bigoplus_i\Phi(M_i)$ (every $f$ takes only
+	finitely many values, so $\mathrm{Maps}(\Gamma,\mathord\cdot)^\infty$
+	commutes with arbitrary direct sums). Choosing a basis of $M$, the
+	verification of \eqref{eqn:comonad-smMap} reduces to the special case
+	$M=L$,
+	% segment-id: o014.li2.chapter7.galois-descent.q004
+	\[\begin{tikzcd}[row sep=tiny]
+		\Phi(L): L \dotimes{K} L \arrow[r, "\sim"] & \mathrm{Maps}(\Gamma, L)^\infty \\
+		\ell \otimes \ell' \arrow[mapsto, r] & {[f: \sigma \mapsto \sigma(\ell)\ell' ]}.
+	\end{tikzcd}\]
+
+	For every finite Galois subextension $L'|K$ of $L|K$, write
+	$\Gamma':=\Gal(L|L')$. We claim that the same map as above gives
+	% segment-id: o014.li2.chapter7.galois-descent.q005
+	\begin{equation}\label{eqn:comonad-smMap-aux}
+		L' \dotimes{K} L' \rightiso \mathrm{Maps}(\Gamma/\Gamma', L') := \left\{\text{maps } f: \Gamma/\Gamma' \to L' \right\}.
+	\end{equation}
+	Once this is granted, since
+	$\mathrm{Maps}(\Gamma,L)^\infty=
+	\bigcup_{L'|K}\mathrm{Maps}(\Gamma/\Gamma',L')$
+	(apply Lemma~\ref{prop:smooth-map-finite}; enlarging $L'$ amounts to
+	shrinking $\Gamma'$), taking the union of both sides of
+	\eqref{eqn:comonad-smMap-aux} over all $L'|K$ shows that $\Phi(L)$ is an
+	isomorphism.
+
+	Choose $\alpha$ such that $L'=K(\alpha)$. Its minimal polynomial
+	$p\in K[X]$ splits over $L'$ as $\prod_{i=1}^d(X-\alpha_i)$, with
+	$\alpha_1=\alpha$ and no repeated roots. The group
+	$\Gamma/\Gamma'=\Gal(L'|K)$ is in bijection with
+	$\alpha_1,\ldots,\alpha_d$ by $\sigma\mapsto\sigma(\alpha)$. Write
+	$\ell\in L'$ as $g(\alpha)$ with $g\in K[X]$. Then
+	% segment-id: o014.li2.chapter7.galois-descent.q006
+	\[\begin{tikzcd}[row sep=tiny, column sep=small]
+		L' \dotimes{K} L' & \dfrac{K[X]}{(p)} \dotimes{K} L' \arrow[l, "\sim"'] \arrow[r, "\sim"] & \dfrac{L'[X]}{\displaystyle\prod_{i=1}^d (X - \alpha_i)} \arrow[r, "\sim"] & \displaystyle\prod_{i=1}^d \underbracket{\dfrac{L'[X]}{(X - \alpha_i)}}_{\text{identified with } L'} \arrow[r, "\sim"] & (L')^{\Gamma/\Gamma'} \\
+		\ell \otimes \ell' & (g + (p)) \otimes \ell' \arrow[mapsto, l] \arrow[mapsto, r] & g\ell' + (p) \arrow[mapsto, r] & \left( g(\alpha_i) \ell' \right)_{i=1}^d \arrow[mapsto, r] & \left( \sigma_i(\ell) \ell' \right)_{i=1}^d.
+	\end{tikzcd}\]
+	This proves \eqref{eqn:comonad-smMap-aux}.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.galois-descent.le003
+\begin{lemma}\label{prop:Galois-descent-comonad-1}
+	Under the canonical isomorphism of
+	Lemma~\ref{prop:Galois-descent-comonad-0}, the comonad
+	$(\mathbf{L},\delta,\epsilon)$ is described by the following commutative
+	diagram, where $M$ is any $L$-vector space:
+	% segment-id: o014.li2.chapter7.galois-descent.q007
+	\[\begin{tikzcd}
+		M \arrow[equal, d] & L \dotimes{K} M \arrow[r, "{\delta_M}"] \arrow[d, "\sim"', sloped] \arrow[l, "{\epsilon_M}"'] & L \dotimes{K} L \dotimes{K} M \arrow[d, "\sim", sloped] \\
+		M & \mathrm{Maps}(\Gamma, M)^\infty \arrow[r, "{\delta'_M}"] \arrow[l, "{\epsilon'_M}"'] & \mathrm{Maps}\left(\Gamma, (\mathrm{Maps}(\Gamma, M)^\infty )\right)^\infty \\
+		f(1) \arrow[phantom, u, "\in" description, sloped] & f \arrow[mapsto, r] \arrow[phantom, u, "\in" description, sloped] \arrow[mapsto, l] & {[\sigma \mapsto [\tau \mapsto f(\tau\sigma) ]]} \arrow[phantom, u, "\in" description, sloped]
+	\end{tikzcd}\]
+	where $1:=1_\Gamma$.
+\end{lemma}
+% segment-id: o014.li2.chapter7.galois-descent.pf003
+\begin{proof}
+	The counit $\epsilon_M:L\dotimes{K}M\to M$ is
+	$\ell\otimes m\mapsto\ell m$, which clearly corresponds under
+	\eqref{eqn:comonad-smMap} to $f\mapsto f(1)$. The comultiplication
+	$\delta_M:L\dotimes{K}M\to L\dotimes{K}L\dotimes{K}M$ requires a little
+	work. If $f\in\mathrm{Maps}(\Gamma,M)^\infty$ corresponds to
+	$\ell\otimes m$, then the image of the latter under $\delta_M$, namely
+	$\ell\otimes(1\otimes m)$, corresponds to the map
+	% segment-id: o014.li2.chapter7.galois-descent.q008
+	\[ \Gamma \ni \sigma \mapsto \sigma(\ell)  \cdot \underbracket{\left[ \tau \mapsto m  \right]}_{\in \mathrm{Maps}(\Gamma, M)^\infty} = \left[ \tau \mapsto \tau(\sigma(\ell))m \xlongequal{\text{\eqref{eqn:comonad-smMap}}} f(\tau\sigma) \right]. \]
+	This proves the claim.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.galois-descent.d001
+\begin{definition}\label{def:semilinear-action}
+	\index{smooth semilinear action}
+	\index[sym1]{Vect-Gamma-infty@$\cate{Vect}^{\Gamma, \infty}$}
+	Suppose that the group $\Gamma=\Gal(L|K)$ acts on the left on an
+	$L$-vector space $M$. The action is called \emph{semilinear} if
+	$\sigma(m+m')=\sigma(m)+\sigma(m')$ and
+	$\sigma(tm)=\sigma(t)\sigma(m)$ for all $\sigma\in\Gamma$, $t\in L$, and
+	$m,m'\in M$. Define the category $\cate{Vect}^{\Gamma,\infty}(L)$ as
+	follows.
+	\begin{itemize}
+		\item Objects: $L$-vector spaces $M$ with a smooth semilinear
+		$\Gamma$-action. Smoothness means that $\Stab_\Gamma(m)$ is an open
+		subgroup of $\Gamma$ for every $m\in M$.
+		\item Morphisms: $L$-linear maps $\varphi$ satisfying
+		$\varphi(\sigma m)=\sigma(\varphi(m))$, also called
+		$\Gamma$-equivariant linear maps.
+	\end{itemize}
+\end{definition}
+
+% segment-id: o014.li2.chapter7.galois-descent.p005
+Return to the comonad $\mathbf{L}$ determined by the Galois extension $L|K$.
+Its category of comodules is denoted $\cate{Vect}(L)^{\mathbf{L}}$.
+
+% segment-id: o014.li2.chapter7.galois-descent.le004
+\begin{lemma}\label{prop:Galois-descent-aux}
+	With the notation above, there is an isomorphism of categories
+	% segment-id: o014.li2.chapter7.galois-descent.q009
+	\[ \cate{Vect}(L)^{\mathbf{L}} \simeq \cate{Vect}^{\Gamma, \infty}(L). \]
+	If $M$ is an object of $\cate{Vect}^{\Gamma,\infty}(L)$, the
+	corresponding object in $\cate{Vect}(L)^{\mathbf{L}}$ is $(M,a)$, where
+	$a$ is characterized by the fact that the composite
+	% segment-id: o014.li2.chapter7.galois-descent.q010
+	\[ M \xrightarrow{a} L \dotimes{K} M \xrightarrow[\sim]{\Phi(M)} \mathrm{Maps}(\Gamma, M)^\infty \]
+	maps $m\in M$ to the map $[\sigma\mapsto\sigma m]$ from $\Gamma$ to $M$.
+\end{lemma}
+% segment-id: o014.li2.chapter7.galois-descent.pf004
+\begin{proof}
+	First observe that $\mathrm{Maps}(\Gamma,\mathord\cdot)^\infty$ is a
+	functor: every map $\varphi:M_1\to M_2$ induces
+	$\mathrm{Maps}(\Gamma,M_1)^\infty\to
+	\mathrm{Maps}(\Gamma,M_2)^\infty$, mapping $f$ to $\varphi f$.
+
+	Next, use Lemma~\ref{prop:Galois-descent-comonad-1} to rewrite and combine
+	the two commutative diagrams defining a comodule into
+	% segment-id: o014.li2.chapter7.galois-descent.q011
+	\[\begin{tikzcd}
+		\mathrm{Maps}\left( \Gamma, \mathrm{Maps}(\Gamma, M)^\infty \right)^\infty & \mathrm{Maps}(\Gamma, M)^\infty \arrow[l, "{\mathrm{Maps}(\Gamma, a')^\infty }"' inner sep=0.8em] \arrow[r, "{\epsilon'_M}"] & M \\
+		\mathrm{Maps}(\Gamma, M)^\infty \arrow[u, "{\delta'_M}"] & M \arrow[l, "{a'}"] \arrow[u, "{a'}"] \arrow[equal, ru] &
+	\end{tikzcd}\]
+	where $a'$ corresponds to $a$. Specifying an $L$-linear map
+	$a':M\to\mathrm{Maps}(\Gamma,M)^\infty$ is equivalent to specifying a
+	map $\beta:\Gamma\times M\to M$ such that
+	\begin{itemize}
+		\item $\beta(\sigma,m+m')=\beta(\sigma,m)+\beta(\sigma,m')$ and
+		$\beta(\sigma,tm)=\sigma(t)\beta(\sigma,m)$, with $t\in L$;
+		\item for every $m\in M$ and $\sigma\in\Gamma$, there is an open
+		subgroup $\Gamma_0$ such that
+		$\sigma_0\in\Gamma_0\implies
+		\beta(\sigma\sigma_0,m)=\beta(\sigma,m)$.
+	\end{itemize}
+	The concrete correspondence is, of course,
+	$\beta(\sigma,m)=a'(m)(\sigma)$. The commutative diagram above then
+	translates into
+	% segment-id: o014.li2.chapter7.galois-descent.q012
+	\[ \beta(\tau\sigma, m) = \beta(\tau, \beta(\sigma, m)), \quad \beta(1, m) = m. \]
+
+	At the level of objects, these conditions are precisely those of a smooth
+	semilinear action of $\Gamma$. The verification on morphisms is immediate.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.galois-descent.le005
+\begin{lemma}\label{prop:Galois-descent-action}
+	If $(M,a)\in\Obj(\cate{Vect}(L)^{\mathbf{L}})$ comes from a $K$-vector
+	space $N$, then the corresponding object of
+	$\cate{Vect}^{\Gamma,\infty}(L)$ is $L\dotimes{K}N$ with the smooth
+	semilinear action
+	% segment-id: o014.li2.chapter7.galois-descent.q013
+	\[ \sigma (\ell \otimes x) = \sigma(\ell) \otimes x, \quad \ell \in L, \; x \in N, \quad \sigma \in \Gamma. \]
+\end{lemma}
+% segment-id: o014.li2.chapter7.galois-descent.pf005
+\begin{proof}
+	We have $M=L\dotimes{K}N$. By \eqref{eqn:N-comonad-action}, the
+	homomorphism $a$ maps $\ell\otimes x$ to $\ell\otimes1\otimes x$. The
+	characterization of the semilinear action therefore gives
+	% segment-id: o014.li2.chapter7.galois-descent.q014
+	\[ \sigma (\ell \otimes x) = \Phi(M)(\ell \otimes (1 \otimes x))(\sigma) = \sigma(\ell) (1 \otimes x) = \sigma(\ell) \otimes x, \]
+	for arbitrary $\ell\in L$ and $x\in N$. This proves the lemma.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.galois-descent.p006
+Take $(M,a)\in\Obj(\cate{Vect}(L)^{\mathbf{L}})$. Since
+$\Phi(M)(1\otimes m)(\sigma)=\sigma(1)m=m$, the description of $a$ in
+Lemma~\ref{prop:Galois-descent-aux} extends to the following commutative
+diagram in $\cate{Vect}(K)$:
+% segment-id: o014.li2.chapter7.galois-descent.q015
+\[\begin{tikzcd}[row sep=large]
+	M \arrow[r, "a"] \arrow[rd, "{m \mapsto [\sigma \mapsto \sigma m]}"'] & L \dotimes{K} M \arrow[d, "\Phi(M)" description] & M. \arrow[l, "{1 \otimes m \mapsfrom m}"'] \arrow[ld, "{[m \mapsfrom \sigma] \mapsfrom m}"] \\
+	& \mathrm{Maps}(\Gamma, M)^\infty &
+\end{tikzcd}\]
+Thus the equalizer in Theorem~\ref{prop:flat-descent} is the operation of
+taking $\Gamma$-invariants,
+% segment-id: o014.li2.chapter7.galois-descent.q016
+\[ M^\Gamma := \left\{ m \in M: \forall \sigma \in \Gamma, \; \sigma m = m \right\}. \]
+
+% segment-id: o014.li2.chapter7.galois-descent.p007
+Notice that $M\mapsto M^\Gamma$ gives a $K$-linear functor between
+$K$-linear categories,
+% segment-id: o014.li2.chapter7.galois-descent.q017
+\[ (\cdot)^{\Gamma}: \cate{Vect}^{\Gamma, \infty}(L) \to \cate{Vect}(K). \]
+
+% segment-id: o014.li2.chapter7.galois-descent.th001
+\begin{theorem}[Galois descent]\label{prop:Galois-descent}
+	\index{descent!Galois}
+	Let $L|K$ be a Galois extension of fields and let
+	$\Gamma=\Gal(L|K)$. Then the functor
+	% segment-id: o014.li2.chapter7.galois-descent.q018
+	\[\begin{tikzcd}[row sep=tiny]
+		\cate{Vect}(K) \arrow[r] & \cate{Vect}^{\Gamma, \infty}(L) \\
+		\text{object } N \arrow[mapsto, r] & L \dotimes{K} N \\
+		\text{morphism } \varphi \arrow[mapsto, r] & \identity \otimes \varphi
+	\end{tikzcd}\]
+	is an equivalence of categories. A quasi-inverse may be taken to be
+	$(\mathord\cdot)^\Gamma:\cate{Vect}^{\Gamma,\infty}(L)
+	\to\cate{Vect}(K)$.
+\end{theorem}
+% segment-id: o014.li2.chapter7.galois-descent.pf006
+\begin{proof}
+	Clearly $L$ is a faithfully flat $K$-algebra.
+	Lemma~\ref{prop:Galois-descent-aux} and the preceding description of the
+	equalizer reduce the assertion to the flat descent
+	Theorem~\ref{prop:flat-descent}.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.galois-descent.p008
+Let us view Theorem~\ref{prop:Galois-descent} from another angle. For every
+$M\in\Obj(\cate{Vect}^{\Gamma,\infty}(L))$, define
+% segment-id: o014.li2.chapter7.galois-descent.q019
+\begin{equation}\label{eqn:Galois-descent-iotaM}
+	\iota_M: L \dotimes{K} (M^{\Gamma}) \to M, \quad
+	\ell \otimes x \mapsto \ell x .
+\end{equation}
+This is clearly a $\Gamma$-equivariant linear map. There is a simple adjoint
+pair
+% segment-id: o014.li2.chapter7.galois-descent.q020
+\begin{equation}\label{eqn:Galois-descent-adjunction}
+	\begin{tikzcd}[row sep=tiny]
+		L \dotimes{K} (\cdot) : \cate{Vect}(K) \arrow[shift left, r] & \cate{Vect}^{\Gamma, \infty}(L) : (\cdot)^{\Gamma}, \arrow[shift left, l] \\
+		\Hom_{\cate{Vect}^{\Gamma, \infty}(L)} (L \dotimes{K} N, M) \arrow[r, "\sim"] & \Hom_{\cate{Vect}(K)}(N, M^{\Gamma}) \\
+		\varphi \arrow[mapsto, r] & \varphi|_{1 \otimes N} \\
+		\iota_M \circ (\identity_L \otimes \psi) & \psi. \arrow[mapsto, l]
+	\end{tikzcd}
+\end{equation}
+% segment-id: o014.li2.chapter7.galois-descent.l001
+\begin{itemize}
+	\item It is easy to see that the unit of the adjunction
+	$N\to(L\dotimes{K}N)^\Gamma$ maps $x$ to $1\otimes x$. This is an
+	isomorphism: choose a basis $B$ of $N$. An element
+	$\sum_{b\in B}\ell_b\otimes b$ (a finite sum) of $L\dotimes{K}N$ is
+	$\Gamma$-invariant if and only if each $\ell_b$ is invariant; equivalently,
+	$\sum_b\ell_b\otimes b=1\otimes\sum_b\ell_b b\in N$.
+	\item The counit morphism is precisely the previously defined $\iota_M$.
+
+	If $M=L\dotimes{K}N$, the preceding item gives
+	$L\dotimes{K}(M^\Gamma)=L\dotimes{K}(1\otimes N)\rightiso
+	L\dotimes{K}N=M$, so $\iota_M$ is an isomorphism in this case.
+\end{itemize}
+
+% segment-id: o014.li2.chapter7.galois-descent.p009
+Once Theorem~\ref{prop:Galois-descent} is accepted, every $M$ comes from some
+$N$, so the discussion above shows that
+$(L\dotimes{K}(\mathord\cdot),(\mathord\cdot)^\Gamma)$ is an adjoint
+equivalence. Conversely, if $\iota_M$ can be shown to be an isomorphism for
+every $M$, the Galois descent Theorem~\ref{prop:Galois-descent} follows anew.
+Although the proof by flat descent has a natural conceptual flow, it is
+admittedly indirect. The exercises will give a direct method for proving that
+$\iota_M$ is an isomorphism; the technique is also useful elsewhere.
+
+% segment-id: o014.li2.chapter7.galois-descent.r001
+\begin{remark}[Galois descent for algebras and modules]\label{rem:Galois-descent-alg}
+	Let $N_1,N_2\in\Obj(\cate{Vect}(K))$. Under
+	\eqref{eqn:change-of-ring-monoidal}, the natural semilinear $\Gamma$-action
+	on $L\dotimes{K}(N_1\dotimes{K}N_2)$ becomes the ``diagonal action'' on
+	$(L\dotimes{K}N_1)\dotimes{L}(L\dotimes{K}N_2)$, namely the simultaneous
+	action on both tensor slots. Specifying a $K$-algebra $N$ is equivalent to
+	specifying an $L$-algebra structure on $M:=L\dotimes{K}N$ such that its
+	algebra operations are compatible with the semilinear $\Gamma$-action:
+	% segment-id: o014.li2.chapter7.galois-descent.q021
+	\[ \sigma(1_M) = 1_M , \quad \sigma (xy) = \sigma(x) \sigma(y). \]
+	Modules over $K$-algebras should be understood in the same way. This is
+	analogous to the idea of Remark~\ref{rem:flat-descent-alg}.
+\end{remark}

@@ -1,0 +1,341 @@
+% Complete English translation of chapter1.tex, lines 630--762.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter1.limits-through-functors
+
+% segment-id: o014.li2.chapter1.limits-through-functors.h001
+\section{Viewing Limits through Functors}\label{sec:limit-functor}
+\hypertarget{o014.aljabr2.chapter1.limits-through-functors}{ }
+
+% segment-id: o014.li2.chapter1.limits-through-functors.p001
+There are two broad kinds of question about the relationship between a functor
+$F: \mathcal{C} \to \mathcal{D}$ and limits. Taking $\varinjlim$ as an
+example, let $\alpha: I \to \mathcal{C}$ be a functor. One may ask:
+% segment-id: o014.li2.chapter1.limits-through-functors.l001
+\begin{itemize}
+	% segment-id: o014.li2.chapter1.limits-through-functors.i001
+	\item Suppose $\varinjlim \alpha$ exists. Does its image
+	$F\left(\varinjlim \alpha\right)$ yield $\varinjlim (F\alpha)$?
+	% segment-id: o014.li2.chapter1.limits-through-functors.i002
+	\item Suppose $\varinjlim F\alpha$ exists. Can this limit be ``lifted'' to
+	$\mathcal{C}$? In what sense is such a lift unique?
+\end{itemize}
+
+% segment-id: o014.li2.chapter1.limits-through-functors.p002
+We focus on the case of $\varinjlim$. These results of course have
+corresponding versions for $\varprojlim$; by duality, there is no need to
+repeat the details.
+
+% segment-id: o014.li2.chapter1.limits-through-functors.p003
+We organize the discussion of $\varinjlim$ in terms of cocones and the category
+$(\alpha/\Delta)$.
+
+% segment-id: o014.li2.chapter1.limits-through-functors.c001
+\begin{convention}\label{con:limit-cone}
+	For a fixed functor $\alpha: I \to \mathcal{C}$, a collection of data
+	$(L, (f_i)_{i \in \Obj(I)})$ in $\mathcal{C}$ satisfying the following
+	conditions is called a \emph{cocone} with base $\alpha$ and vertex $L$:
+	% segment-id: o014.li2.chapter1.limits-through-functors.l002
+	\begin{compactitem}
+		% segment-id: o014.li2.chapter1.limits-through-functors.i003
+		\item $L$ is an object of $\mathcal{C}$;
+		% segment-id: o014.li2.chapter1.limits-through-functors.i004
+		\item each $f_i : \alpha(i) \to L$ is a morphism in $\mathcal{C}$ and
+		satisfies the compatibility condition
+		$f_j \circ \alpha(i \to j) = f_i$, as $[i \to j]$ ranges over
+		$\mathrm{Mor}(I)$.
+	\end{compactitem}
+\end{convention}
+
+% segment-id: o014.li2.chapter1.limits-through-functors.p004
+In the terminology of \cite[\S 2.7]{Li1}, these cocones form a
+category\footnote{More precisely, $\Delta$ here denotes the diagonal functor
+$\mathcal{C} \to \mathcal{C}^I$; see Example
+\sourcecrossref{eg:comma-vs-cone}{1.6.3}. The notation $\Delta$ was chosen from
+the initial letter of the pinyin word \emph{duìjiǎo} (``diagonal''). By a
+pictorial analogy, however, one may just as well picture $\Delta$ as a
+``cocone''; see
+diagram \eqref{eqn:injlim-diagram}.} $(\alpha / \Delta)$. Concretely, once the
+base $\alpha$ is fixed, a morphism from a cocone $(L, (f_i)_i)$ to a cocone
+$(M, (g_i)_i)$ is a commutative diagram
+% segment-id: o014.li2.chapter1.limits-through-functors.g001
+\begin{equation}\label{eqn:injlim-diagram}\begin{tikzcd}
+	& L \arrow[d] & \\
+	\alpha(i) \arrow[bend right, rr, "\alpha(i \to j)"'] \arrow[r, "g_i"] \arrow[ru, "f_i"] & M & \alpha(j) \arrow[l, "{g_j}"'] \arrow[lu, "f_j"']
+\end{tikzcd}\end{equation}
+as $i \to j$ ranges over $\Mor(I)$; composition of morphisms is defined in
+the usual way. By definition, $\varinjlim \alpha$, together with its family
+of canonical morphisms $\iota_i: \alpha(i) \to \varinjlim \alpha$, is an
+initial object of $(\alpha / \Delta)$.
+\index{limit}\index[sym1]{lim}
+
+% segment-id: o014.li2.chapter1.limits-through-functors.p005
+In the evident way, the functor $F$ induces a functor
+$(\alpha/\Delta) \to (F\alpha / \Delta)$ that takes a cocone
+$(L, (f_i)_i)$ to $(FL, (Ff_i)_i)$. Suppose $\varinjlim \alpha$ exists. If
+$\varinjlim F\alpha$ also exists, there is a unique morphism in
+$(F\alpha / \Delta)$
+% segment-id: o014.li2.chapter1.limits-through-functors.q001
+\[ \varinjlim F\alpha \to F(\varinjlim \alpha), \]
+and this morphism is an isomorphism if and only if
+$\left( F(\varinjlim \alpha), (F\iota_i)_i \right)$ gives
+$\varinjlim F\alpha$.
+
+% segment-id: o014.li2.chapter1.limits-through-functors.p006
+Dually, $\varprojlim \alpha$ is characterized as a terminal object of
+$(\Delta/\alpha)$. Assuming that both projective limits under discussion
+exist, there is a unique morphism in $(\Delta/F\alpha)$
+% segment-id: o014.li2.chapter1.limits-through-functors.q002
+\[ F\varprojlim \alpha \to \varprojlim F\alpha. \]
+
+% segment-id: o014.li2.chapter1.limits-through-functors.d001
+\begin{definition}\label{def:create-limit}
+	\index{limit!preserve, reflect, create}
+	Given $F: \mathcal{C} \to \mathcal{D}$ and a functor
+	$\alpha: I \to \mathcal{C}$, consider the induced functor between cocone
+	categories $(\alpha/\Delta) \to (F\alpha/\Delta)$.
+	% segment-id: o014.li2.chapter1.limits-through-functors.l003
+	\begin{itemize}
+		% segment-id: o014.li2.chapter1.limits-through-functors.i005
+		\item The functor $F$ is said to \emph{preserve} this $\varinjlim$ if
+		$(\alpha/\Delta) \to (F\alpha/\Delta)$ takes an initial object, when
+		one exists, to an initial object.
+		% segment-id: o014.li2.chapter1.limits-through-functors.i006
+		\item The functor $F$ is said to \emph{reflect} this $\varinjlim$ if any
+		object of $(\alpha/\Delta)$ whose image is an initial object of
+		$(F\alpha/\Delta)$ is itself an initial object.
+		% segment-id: o014.li2.chapter1.limits-through-functors.i007
+	\item The functor $F$ is said to \emph{create} this $\varinjlim$ if,
+	whenever $\varinjlim F\alpha$ exists, $\varinjlim \alpha$ also exists,
+	and in this situation $F$ preserves this $\varinjlim$ and also reflects
+	this $\varinjlim$.
+	\end{itemize}
+	There are corresponding notions for $\varprojlim$. The notions for
+	$\varinjlim$ and $\varprojlim$ are obtained from one another by replacing
+	$\mathcal{C}$ and $\mathcal{D}$ with $\mathcal{C}^{\opp}$ and
+	$\mathcal{D}^{\opp}$.
+\end{definition}
+
+% segment-id: o014.li2.chapter1.limits-through-functors.p007
+Notice that these notions depend on the particular $\alpha$ under
+consideration. For example, $F$ may well preserve every finite
+$\varinjlim$ without preserving $\varinjlim$ in general.
+
+% segment-id: o014.li2.chapter1.limits-through-functors.p008
+For a fixed $\alpha$, saying that a functor creates $\varinjlim$ (or
+$\varprojlim$) means that the cocone (or cone) in $\mathcal{D}$ defining the
+limit can be lifted uniquely to $\mathcal{C}$, and that the lifted cocone (or
+cone) gives the corresponding limit in $\mathcal{C}$. This uniqueness comes
+from the condition in the definition concerning reflection of $\varinjlim$
+(or $\varprojlim$). This point of view will be evident in
+Example~\ref{eg:Grp-Set-create} and Proposition~\ref{prop:forget-create} below.
+
+% segment-id: o014.li2.chapter1.limits-through-functors.pr001
+\begin{proposition}\label{prop:ff-reflect}
+	Every fully faithful functor reflects every $\varinjlim$ and every
+	$\varprojlim$.
+\end{proposition}
+% segment-id: o014.li2.chapter1.limits-through-functors.pf001
+\begin{proof}
+	It suffices to consider $\varinjlim$. If $F$ is fully faithful, the
+	universal property of an initial object of $(\alpha/\Delta)$ can be checked,
+	after applying $F$, in $(F\alpha/\Delta)$.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.limits-through-functors.p009
+We shall also use the following notion.
+
+% segment-id: o014.li2.chapter1.limits-through-functors.d002
+\begin{definition}\label{def:conservative}
+	\index{functor!conservative}
+	A functor $F$ is called \emph{conservative} if it satisfies the following
+	condition: a morphism $f \in \Mor(\mathcal{C})$ is an isomorphism if and
+	only if $Ff \in \Mor(\mathcal{D})$ is an isomorphism.
+\end{definition}
+
+% segment-id: o014.li2.chapter1.limits-through-functors.r001
+\begin{remark}\label{rem:conservative-reflect}
+	Suppose $F$ is a conservative functor. If
+	$\varinjlim \alpha$ exists and $F$ preserves this $\varinjlim$, the functor
+	$F$ must also reflect it. Indeed, suppose
+	$L \in \Obj((\alpha/\Delta))$ is mapped to an initial object of
+	$(F\alpha/\Delta)$. Consider the unique morphism
+	$\varinjlim \alpha \to L$ in $(\alpha/\Delta)$. Since $F$ preserves this
+	$\varinjlim$, the image of that morphism under $F$ must be an isomorphism.
+	Conservativity then ensures that $\varinjlim \alpha \to L$ is also an
+	isomorphism.
+
+	Under these hypotheses, the condition that $F$ reflect $\varinjlim$ may be
+	omitted from the definition of what it means for $F$ to create
+	$\varinjlim$.
+\end{remark}
+
+% segment-id: o014.li2.chapter1.limits-through-functors.e001
+\begin{example}\label{eg:Grp-Set-create}
+	We verify that the forgetful functor $U$ from the category of groups
+	$\cate{Grp}$ to the category of sets $\cate{Set}$ creates all small
+	$\varprojlim$.
+
+	This follows from the concrete constructions of $\varprojlim$ in
+	$\cate{Grp}$ and $\cate{Set}$; see
+	\cite[Examples 2.7.5 and 2.8.7]{Li1}. More explicitly, take a small category
+	$I$ and a functor $\beta: I^{\opp} \to \cate{Grp}$. As a set,
+	% segment-id: o014.li2.chapter1.limits-through-functors.q003
+	\[ \varprojlim U\beta = \left\{\begin{array}{r|l}
+		(x_i)_i \in \prod_{i \in \Obj(I)} U\beta(i) & \forall [i \to j] \in \mathrm{Mor}(I), \\
+		& \beta(i \to j)(x_j) = x_i
+	\end{array}\right\}, \]
+	and the projection $p_i: \varprojlim U\beta \to U\beta(i)$ maps $(x_j)_j$
+	to $x_i$. Our task is now to:
+	% segment-id: o014.li2.chapter1.limits-through-functors.l004
+	\begin{enumerate}
+		% segment-id: o014.li2.chapter1.limits-through-functors.i008
+		\item equip $\varprojlim U\beta$ with a group structure such that every
+		$p_i$ is a group homomorphism, and show that this group structure is
+		unique;
+		% segment-id: o014.li2.chapter1.limits-through-functors.i009
+		\item verify the universal property of $\varprojlim \beta$ for this group
+		together with the family of projection homomorphisms $(p_i)_i$.
+	\end{enumerate}
+
+	Clearly, $\varprojlim U\beta$ is a subgroup of the direct product
+	$\prod_i \beta(i)$. Regard this subgroup as
+	$\varprojlim \beta \in \Obj(\cate{Grp})$; this is the unique group structure
+	making every $p_i$ a group homomorphism. This completes the first task.
+
+	We next verify the universal property of the cone
+	$\left( \varprojlim \beta, (p_i)_i\right)$. Consider any cone
+	$(L, (q_i)_i)$ in $\cate{Grp}$, with $q_i: L \to \beta(i)$. The universal
+	property gives a unique map $\varphi: UL \to \varprojlim U\beta$ such that
+	$p_i \varphi = q_i$ for every $i$. Concretely, $\varphi$ is in fact given by
+	$y \mapsto (q_i(y))_{i \in \Obj(I)}$, so this map is a group homomorphism
+	$L \to \varprojlim \beta$.\footnote{Translator's note: the source writes
+	$L \to \varinjlim \beta$; the target corrects this to
+	$L \to \varprojlim \beta$, in accordance with the projective limit being
+	proved (O014-C007).} The verification is complete.
+\end{example}
+
+% segment-id: o014.li2.chapter1.limits-through-functors.p010
+By an entirely similar argument, one can show that the forgetful functor from
+the category of compact Hausdorff spaces $\cate{CHaus}$ to $\cate{Set}$ also
+creates all small $\varprojlim$. The corresponding verification is left as an
+exercise in this chapter.
+
+% segment-id: o014.li2.chapter1.limits-through-functors.p011
+The next result concerns a functor category of the form $\mathcal{C}^J$ (which
+may be a ``large'' category, but this causes no problem). We need two
+preparatory steps.
+
+% segment-id: o014.li2.chapter1.limits-through-functors.l005
+\begin{itemize}
+	% segment-id: o014.li2.chapter1.limits-through-functors.i010
+	\item Let $J$ be a set. The product of $J$ copies of $\mathcal{C}$, namely
+	$\mathcal{C}^J$, is defined by
+	$\Obj\left(\mathcal{C}^J\right) = \Obj(\mathcal{C})^J$ and
+	$\mathrm{Mor}\left(\mathcal{C}^J \right) = \mathrm{Mor}(\mathcal{C})^J$.
+	For every $j \in J$ there is an evident projection functor
+	$p_j: \mathcal{C}^J \to \mathcal{C}$.
+
+	% Correction O014-C008: the source duplicates a character in the phrase
+	% meaning ``for every.''
+	Given a category $I$ and a functor $\alpha: I \to \mathcal{C}^J$, if
+	$\varinjlim (p_j \alpha)$ exists for every $j$, then
+	$\varinjlim \alpha$ also exists. It is constructed by taking colimits
+	``pointwise'' or ``objectwise'':
+	$\varinjlim \alpha = \left( \varinjlim (p_j \alpha) \right)_{j \in J}$.
+
+	% segment-id: o014.li2.chapter1.limits-through-functors.i011
+	\item Let $J$ be a category. We may consider the functor category
+	$\mathcal{C}^J$. For each $j \in \Obj(J)$ there is an evaluation functor
+	$\mathrm{ev}_j: \mathcal{C}^J \to \mathcal{C}$, which maps an object $F$
+	to $Fj$ and a morphism
+	$\varphi = (\varphi_{j'})_{j' \in \Obj(J)}$ to $\varphi_j$. We shall later
+	consider functors of the form $\alpha: I \to \mathcal{C}^J$ and their
+	$\varinjlim$. Observe that $\alpha$ can be viewed as a functor
+	$I \times J \to \mathcal{C}$, whose value is denoted $\alpha(i, j)$.
+\end{itemize}
+
+% segment-id: o014.li2.chapter1.limits-through-functors.p012
+The two systems of notation are compatible. If $J$ is a discrete category and
+is viewed as a set, then $\mathcal{C}^J$ is simply the product discussed above.
+For a general $J$, the forgetful functor
+$\mathcal{F}: \mathcal{C}^J \to \mathcal{C}^{\Obj(J)}$ maps an object $F$ to
+$(Fj)_{j \in \Obj(J)}$ and a morphism $\varphi$ to
+$(\varphi_j)_{j \in \Obj(J)}$. Thus $\mathrm{ev}_j = p_j \mathcal{F}$.
+
+% segment-id: o014.li2.chapter1.limits-through-functors.pr002
+\begin{proposition}\label{prop:forget-create}
+	Let $J$ and $\mathcal{C}$ be categories.
+	% segment-id: o014.li2.chapter1.limits-through-functors.l006
+	\begin{enumerate}[(i)]
+		% segment-id: o014.li2.chapter1.limits-through-functors.i012
+		\item The forgetful functor
+		$\mathcal{F}: \mathcal{C}^J \to \mathcal{C}^{\Obj(J)}$ creates
+		$\varinjlim$ and $\varprojlim$.
+		% segment-id: o014.li2.chapter1.limits-through-functors.i013
+		\item Let $I$ be a category and suppose every functor
+		$I \to \mathcal{C}$ has a $\varinjlim$ (or $\varprojlim$). Then all
+		functors of the form $I \to \mathcal{C}^J$ also have a $\varinjlim$ (or
+		$\varprojlim$) in $\mathcal{C}^J$.
+		% segment-id: o014.li2.chapter1.limits-through-functors.i014
+		\item Under the assumption in (ii), for every $j \in \Obj(J)$ the
+		evaluation functor $\mathrm{ev}_j: \mathcal{C}^J \to \mathcal{C}$
+		preserves $\varinjlim$ (or $\varprojlim$) for diagrams of shape $I$.
+		In other words, limits in $\mathcal{C}^J$ are likewise defined
+		``pointwise'' or ``objectwise.''
+	\end{enumerate}
+\end{proposition}
+% segment-id: o014.li2.chapter1.limits-through-functors.pf002
+\begin{proof}
+	It suffices to consider $\varinjlim$. For (i), let
+	$\alpha: I \to \mathcal{C}^J$ and suppose $\varinjlim \mathcal{F}\alpha$
+	exists and is given by the cocone
+	% segment-id: o014.li2.chapter1.limits-through-functors.q004
+	\[ \left( (X(j))_{j \in \Obj(J)}, \; \left( \iota_i = (\iota_{i, j})_{j \in \Obj(J)} \right)_{i \in \Obj(I)} \right) \]
+	with $\iota_{i,j}: \alpha(i, j) \to X(j)$. We wish to lift it to a cocone
+	in $\mathcal{C}^J$ that gives $\varinjlim \alpha$.
+
+	First observe that $X(j) = \varinjlim \alpha(\cdot, j)$ for every $j$.
+	For each morphism $j \to j'$, functoriality of colimits (see
+	\cite[Lemma 2.7.4]{Li1}) gives a unique morphism
+	$X(j \to j'): X(j) \to X(j')$ making the following diagram commute:
+	% segment-id: o014.li2.chapter1.limits-through-functors.g002
+	\[\begin{tikzcd}
+		\alpha(i, j) \arrow[r] \arrow[d, "{\iota_{i, j}}"'] & \alpha(i, j') \arrow[d, "{\iota_{i, j'}}"] \\
+		X(j) \arrow[r, "{X(j \to j')}"'] & X(j')
+	\end{tikzcd} \quad i \in \Obj(I). \]
+	In this way, $j \mapsto X(j)$ extends to a functor
+	$X: J \to \mathcal{C}$, while $\iota_i: \alpha(i, \cdot) \to X$ are
+	morphisms in $\mathcal{C}^J$. It is immediate that
+	$(X, (\iota_i)_i) \in \Obj(\alpha/\Delta)$; we next prove that this object
+	is initial. Since the functor $\mathcal{F}$ is conservative, reflection of
+	$\varinjlim$ need not be checked separately.
+
+	Given $(L, (f_i)_i) \in \Obj(\alpha/\Delta)$, the universal property of
+	$\varinjlim \mathcal{F}\alpha$ determines a unique morphism
+	$\varphi = (\varphi_j)_j : \mathcal{F}X \to \mathcal{F}L$ such that the
+	triangular part of the following diagram commutes for every $(i, j)$:
+	% segment-id: o014.li2.chapter1.limits-through-functors.g003
+	\[\begin{tikzcd}
+		& X(j) \arrow[d, "\varphi_j"] \arrow[r, "{X(j \to j')}" inner sep=0.8em] & X(j') \arrow[d, "\varphi_{j'}"] \\
+		\alpha(i, j) \arrow[ru, "{\iota_{i,j}}"] \arrow[r, "f_{i, j}"' inner sep=0.8em] & L(j) \arrow[r, "{L(j \to j')}"' inner sep=0.8em] & L(j')
+	\end{tikzcd}\]
+	It remains to show that the square commutes for every $j \to j'$, after
+	which the family of components $\varphi$ forms a morphism $X \to L$. The
+	outer frame is already known to commute, so
+	% segment-id: o014.li2.chapter1.limits-through-functors.q005
+	\[ \varphi_{j'} X(j \to j') \iota_{i, j} = L(j \to j') f_{i, j} = L(j \to j') \varphi_j \iota_{i, j} \]
+	for every $i$. Morphisms with domain $X(j)$ are determined by their
+	composites with all the $\iota_{i,j}$, so the square commutes.
+
+	For (ii), consider a functor $\alpha: I \to \mathcal{C}^J$. By the preceding
+	discussion, $\mathcal{F}\alpha: I \to \mathcal{C}^{\Obj(J)}$ has a
+	$\varinjlim$, defined objectwise. By (i), $\mathcal{F}$ creates
+	$\varinjlim \alpha$ in $\mathcal{C}^J$,\footnote{Translator's note: the
+	source writes $\mathcal{C}$ here. The target corrects this to
+	$\mathcal{C}^J$, the domain of the forgetful functor $\mathcal{F}$ and the
+	category containing the newly constructed functor $X: J \to \mathcal{C}$;
+	see correction O014-C009.} while the assertion in (iii) that
+	$\mathrm{ev}_j$ preserves this $\varinjlim$ follows immediately from the
+	construction.
+\end{proof}

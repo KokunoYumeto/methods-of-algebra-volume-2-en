@@ -1,0 +1,173 @@
+% English translation of chapter2.tex lines 35--115.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter2.abelian-category-definition
+
+% segment-id: o014.li2.chapter2.abelian-category-definition.h001
+\section{Definition of an Abelian Category}\label{sec:Abel-cat-def}
+\hypertarget{o014.aljabr2.chapter2.abelian-category-definition}{ }
+
+% segment-id: o014.li2.chapter2.abelian-category-definition.p001
+Section \ref{sec:Ker-Coker} introduced $\cate{Ab}$-categories and additive
+categories. The abelian categories studied in this chapter form a special
+class of additive categories.
+
+% segment-id: o014.li2.chapter2.abelian-category-definition.d001
+\begin{definition}[Abelian category]
+	\index{abelian category}
+	Let $\mathcal{A}$ be an additive category. If every morphism in
+	$\mathcal{A}$ has a kernel and a cokernel, and every morphism is strict
+	(Definition \ref{def:strict-morphism}), then $\mathcal{A}$ is called an
+	\emph{abelian category}.
+
+	If $\mathcal{A}$ is also a $\Bbbk$-linear category (Definition
+	\ref{def:k-linear-cat}), it is called a \emph{$\Bbbk$-linear abelian
+	category}.
+\end{definition}
+
+% segment-id: o014.li2.chapter2.abelian-category-definition.r001
+\begin{remark}\label{rem:Abel-cat-finite-lim}
+	An abelian category has all finite limits and colimits. Indeed, finite
+	products and coproducts exist (both are biproducts), as do equalizers and
+	coequalizers (Remark \ref{rem:equalizer-Ker}); these suffice to construct
+	all finite limits and colimits. See \cite[Theorem 2.8.3]{Li1}.
+\end{remark}
+
+% segment-id: o014.li2.chapter2.abelian-category-definition.p002
+By Example \ref{eg:strict-morphism}, $R\dcate{Mod}$ is an abelian category for
+every ring $R$. Replacing $R$ by $R^{\text{op}}$ shows the same for the
+category $\cated{Mod}R$ of right modules; the special case $R=\Z$ shows that
+$\cate{Ab}$ is abelian. By contrast, the category $\cate{Ban}_{\CC}$ from the
+same example is not abelian, since it has nonstrict morphisms.
+
+% segment-id: o014.li2.chapter2.abelian-category-definition.pr001
+\begin{proposition}\label{prop:abelian-cat-duality}
+	If an additive category $\mathcal{A}$ is abelian, then so is
+	$\mathcal{A}^{\opp}$.
+\end{proposition}
+% segment-id: o014.li2.chapter2.abelian-category-definition.pf001
+\begin{proof}
+	Kernels and cokernels are dual, while Remark \ref{rem:im-coim-duality}
+	shows that the morphism $\Coim(f)\to\Image(f)$ in $\mathcal{A}$ is exactly
+	the morphism $\Coim(f^{\opp})\to\Image(f^{\opp})$ in
+	$\mathcal{A}^{\opp}$.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.abelian-category-definition.p003
+One abstract way to construct new abelian categories from existing ones is to
+form functor categories. First note that if $\mathcal{A}$ is an
+$\cate{Ab}$-category, then for every category $I$\footnote{If one does not
+want $\mathcal{A}^I$ to be large, one should assume that $I$ is small. This
+does not affect the substance here.}, the functor category $\mathcal{A}^I$ is
+naturally an $\cate{Ab}$-category: for functors
+$F,G:I\rightrightarrows\mathcal{A}$, addition in
+$\Hom_{\mathcal{A}^I}(F,G)$ is defined objectwise by
+$(\varphi_i)_i+(\psi_i)_i:=(\varphi_i+\psi_i)_i$.
+
+% segment-id: o014.li2.chapter2.abelian-category-definition.pr002
+\begin{proposition}\label{prop:functor-cat-Abel}
+	If $\mathcal{A}$ is an abelian category, then $\mathcal{A}^I$ is an
+	abelian category for every category $I$.
+\end{proposition}
+% segment-id: o014.li2.chapter2.abelian-category-definition.pf002
+\begin{proof}
+	By Proposition \ref{prop:forget-create}, finite products and coproducts,
+	and kernels and cokernels, are constructed objectwise in $\mathcal{A}^I$.
+	The image and coimage of a morphism, and hence the canonical morphism
+	$\Coim\to\Image$, are likewise constructed objectwise. Thus every abelian
+	category axiom for $\mathcal{A}^I$ reduces to the corresponding axiom for
+	$\mathcal{A}$.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.abelian-category-definition.p004
+Every morphism $f:X\to Y$ in an abelian category has a unique epi--mono
+factorization (Proposition \ref{prop:epi-mono-uniqueness}), concretely
+$X\twoheadrightarrow(\Coim(f)\simeq\Image(f))\hookrightarrow Y$. Lemma
+\ref{prop:mono-epi-ker-coker}(iii) therefore gives immediately
+% segment-id: o014.li2.chapter2.abelian-category-definition.q001
+\[ \Ker(f) = \Ker[X \to \Image(f)], \quad \Coker(f) = \Coker[\Image(f) \to Y]. \]
+
+% segment-id: o014.li2.chapter2.abelian-category-definition.r002
+\begin{remark}\label{rem:Abel-cat-fibered-product}
+	For morphisms $X\xrightarrow{f}Z\xleftarrow{g}Y$ in an abelian category,
+	the construction of the fiber product (see Remark
+	\ref{rem:Abel-cat-finite-lim}) shows that $X\dtimes{Z}Y$ is the equalizer of
+	% segment-id: o014.li2.chapter2.abelian-category-definition.g001
+	$\begin{tikzcd}
+		X \oplus Y \arrow[r, yshift=0.3em, "{(f,0)}"] \arrow[r, yshift=-0.3em, "{(0,g)}"'] & Z
+	\end{tikzcd}$,
+	that is, $\Ker[X\oplus Y\xrightarrow{(f,-g)}Z]$. The morphisms
+	$X\leftarrow X\dtimes{Z}Y\rightarrow Y$ carried by the fiber product come
+	from the projections $X\xleftarrow{p_1}X\oplus Y\xrightarrow{p_2}Y$.
+
+	For $X'\xleftarrow{f'}Z'\xrightarrow{g'}Y'$, the fiber coproduct
+	construction realizes $X'\dsqcup{Z'}Y'$ as
+	$\Coker[Z'\xrightarrow{(-f',g')}X'\oplus Y']$, and the morphisms
+	$X'\rightarrow X'\dsqcup{Z'}Y'\leftarrow Y'$ come from
+	$X'\xrightarrow{\iota_1}X'\oplus Y'\xleftarrow{\iota_2}Y'$. These
+	properties are of course evident for modules.
+\end{remark}
+
+% segment-id: o014.li2.chapter2.abelian-category-definition.p005
+The following result will be used repeatedly.
+
+% segment-id: o014.li2.chapter2.abelian-category-definition.pr003
+\begin{proposition}\label{prop:Abel-cat-pull-push}
+	Suppose that a diagram in an abelian category $\mathcal{A}$
+	% segment-id: o014.li2.chapter2.abelian-category-definition.g002
+	\[\begin{tikzcd}
+		X \arrow[r, "f"] \arrow[d, "a"'] & Y \arrow[d, "b"] \\
+		X' \arrow[r, "g"'] & Y'
+	\end{tikzcd}\]
+	is a pullback (or pushout), and that $g$ is epic (or $f$ is monic). Then the
+	diagram is also a pushout (or pullback), and $f$ is epic (or $g$ is monic).
+\end{proposition}
+% segment-id: o014.li2.chapter2.abelian-category-definition.pf003
+\begin{proof}
+	It suffices to treat the pullback case. We claim that
+	% segment-id: o014.li2.chapter2.abelian-category-definition.l001
+	\begin{compactitem}
+		% segment-id: o014.li2.chapter2.abelian-category-definition.i001
+		\item $X\xrightarrow{(a,f)}X'\oplus Y$ gives
+		$\Ker[X'\oplus Y\xrightarrow{(g,-b)}Y']$;
+		% segment-id: o014.li2.chapter2.abelian-category-definition.i002
+		\item $(g,-b):X'\oplus Y\to Y'$ is epic.
+	\end{compactitem}
+
+	The assertion about the kernel follows from the description of
+	$X\simeq X'\dtimes{Y'}Y$ as a kernel in Remark
+	\ref{rem:Abel-cat-fibered-product}. Since $g=(g,-b)\iota_1$, the fact that
+	$g$ is epic implies that $(g,-b)$ is epic as well.
+
+	Consequently,
+	$Y'=\Image((g,-b))\leftiso\Coker[X\xrightarrow{(a,f)}X'\oplus Y]$.
+	Viewing this from the other direction and applying the description of a
+	fiber coproduct as a cokernel in Remark
+	\ref{rem:Abel-cat-fibered-product} shows at once that
+	% segment-id: o014.li2.chapter2.abelian-category-definition.g003
+	\[\begin{tikzcd}
+		X \arrow[r, "f"] \arrow[d, "-a"'] & Y \arrow[d, "-b"] \\
+		X' \arrow[r, "g"'] & Y'
+	\end{tikzcd}\]
+	is a pushout. Composing the two columns with the automorphisms
+	$-\identity_X$ and $-\identity_Y$, respectively, recovers the original
+	diagram, which is therefore also a pushout. In the pushout case we already
+	know that $\Coker(f)\rightiso\Coker(g)$ (Proposition
+	\ref{prop:pull-back-ker}); hence $f$ is epic (Lemma
+	\ref{prop:mono-epi-ker-coker}).
+\end{proof}
+
+% segment-id: o014.li2.chapter2.abelian-category-definition.co001
+\begin{corollary}\label{prop:Abel-cat-subquotient}
+	A subquotient in an abelian category can equivalently be defined as a
+	quotient object of a subobject or as a subobject of a quotient object.
+\end{corollary}
+% segment-id: o014.li2.chapter2.abelian-category-definition.pf004
+\begin{proof}
+	Proposition \ref{prop:Abel-cat-pull-push} shows that Proposition
+	\ref{prop:subquotient-equiv} applies to every abelian category.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.abelian-category-definition.p006
+For the category $R\dcate{Mod}$ of left modules over any ring $R$, all the
+results above are of course familiar; the same holds for right modules.

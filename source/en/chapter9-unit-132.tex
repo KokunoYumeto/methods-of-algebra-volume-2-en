@@ -1,0 +1,155 @@
+% O014 / D80 -- Methods of Algebra, Volume 2 -- independent English edition
+% Source: chapter9.tex, lines 1724--1804 inclusive.
+% stable-unit-id: o014.aljabr2.chapter9.fiber-functor-isomorphisms
+% Verified source corrections carried from the Indonesian critical witness:
+% omega'_1 on source line 1753 is omega_1; omega_2(X) on source line 1767 is
+% omega_1(Y), as required by the surrounding diagram.
+Finally, we briefly discuss the relationship between fiber functors. Unlike
+the preceding discussion, this part does not involve the reconstruction
+theorem. Let $\mathcal{T}$ be a Tannakian category, and let
+$\omega_1,\omega_2$ be fiber functors over a commutative $\Bbbk$-algebra
+$B$. For every commutative $B$-algebra $B'$, define the set
+\begin{equation*}
+	\iHom^\otimes_B(\omega_2, \omega_1)(B') := \Hom_{\text{monoidal functors}}\left( \omega_2 \dotimes{B} B', \omega_1 \dotimes{B} B' \right).
+\end{equation*}
+As $B'$ varies, this defines a functor
+$B\dcate{CAlg}\to\cate{Set}$. Recall that
+Proposition~\ref{prop:L-bialgebra}~(iii) equips
+$\coHom_B(\omega_1,\omega_2)$ with the structure of a commutative
+$B$-algebra.
+
+\begin{proposition}\label{prop:Isom-Tannakian}
+	For a Tannakian category $\mathcal{T}$ and fiber functors
+	$\omega_1,\omega_2:\mathcal{T}\to\cated{Mod}B$, there is an isomorphism
+	of functors
+	\[ \iHom^\otimes_B(\omega_2, \omega_1) \simeq \Hom_{B\dcate{CAlg}}\left( \coHom_B(\omega_1, \omega_2) , \; \cdot \; \right). \]
+	Composition of homomorphisms on the right is induced by
+	\eqref{eqn:L-comult-prep}.
+\end{proposition}
+\begin{proof}
+	To simplify notation, write $\coHom_B(\omega_1,\omega_2)$ as $\coHom$
+	from now on. Specifying a morphism, without regard to the monoidal
+	structure,
+	\[ \tilde{\varphi}: \omega_2 \dotimes{B} B' \to \omega_1 \dotimes{B} B' \quad (\text{both valued in }\cated{Mod}B') \]
+	is equivalent to specifying a morphism
+	\[ \varphi: \omega_2 \to \omega_1 \dotimes{B} B' \quad (\text{both valued in }\cated{Mod}B), \]
+	which, by the universal property of $\coHom$, is in turn equivalent to
+	specifying a homomorphism of $B$-modules
+	\[ \psi: \coHom \to B'. \]
+	It remains to prove that $\tilde{\varphi}$ preserves the monoidal
+	structure if and only if $\psi$ is a homomorphism of $B$-algebras. The
+	argument is formal, although spelling it out is somewhat lengthy.
+
+	Write the multiplication morphisms as
+	$m:B'\dotimes{B}B'\to B'$ and
+	$\mu:\coHom\dotimes{B}\coHom\to\coHom$. It is immediate that
+	$\tilde{\varphi}$ preserves the unit, respectively $\otimes$, if and only
+	if the left-hand, respectively right-hand, diagram below always commutes:
+	\[\begin{tikzcd}
+		\omega_2(\munit) \arrow[dd, "\sim"' sloped] \arrow[r, "{\varphi_{\munit}}"] & \omega_1(\munit) \dotimes{B} B' \arrow[d, "\sim" sloped] \\
+		& B \dotimes{B} B' \arrow[d, "\sim" sloped] \\
+		B \arrow[r] & B'
+	\end{tikzcd} \quad
+	\begin{tikzcd}
+		\omega_2(X \otimes Y) \arrow[r, "{\varphi_{X \otimes Y}}"] \arrow[dd, "\sim"' sloped] & \omega_1(X \otimes Y) \dotimes{B} B' \arrow[d, "\sim" sloped] \\
+		& \omega_1(X) \dotimes{B} \omega_1(Y) \dotimes{B} B' \\
+		\omega_2(X) \dotimes{B} \omega_2(Y) \arrow[r, "{\varphi_X \otimes \varphi_Y}"'] & \omega_1(X) \dotimes{B} B' \dotimes{B} \omega_1(Y) \dotimes{B} B' . \arrow[u, "{\text{induced by }m}"']
+	\end{tikzcd}\]
+
+	First consider the left-hand diagram. Its first row factors as
+	$\omega_2(\munit)\to\omega_1(\munit)\dotimes{B}\coHom
+	\xrightarrow{\identity\otimes\psi}\omega_1(\munit)\dotimes{B}B'$.
+	After identifying every $\omega_i(\munit)$ with $B$, commutativity of the
+	left-hand diagram is equivalent to commutativity of
+	$\begin{tikzcd}[column sep=small, row sep=small]
+		B \arrow[r] \arrow[d] & B' \\
+		\coHom \arrow[ru, "\psi"'] &
+	\end{tikzcd}$,
+	which in turn is equivalent to $\psi$ preserving the unit.
+
+	We now show that commutativity of the right-hand diagram is equivalent to
+	$\psi$ preserving multiplication. Consider
+	\begin{equation}\label{eqn:Isom-Tannakian-aux0}
+		\begin{tikzcd}
+			\omega_2(X \otimes Y) \arrow[rr, bend left, "{\varphi_{X \otimes Y}}"] \arrow[r] \arrow[dd, "\sim"' sloped] & \omega_1(X \otimes Y) \dotimes{B} \coHom \arrow[r, "{\identity \otimes \psi}"] & \omega_1(X \otimes Y) \dotimes{B} B' \arrow[d, "\sim" sloped] \\
+			& \omega_1(X \otimes Y) \dotimes{B} \coHom \dotimes{B} \coHom \arrow[u, "{\identity \otimes \mu}"] & \omega_1(X) \dotimes{B} \omega_1(Y) \dotimes{B} B' \\
+			\omega_2(X) \dotimes{B} \omega_2(Y) \arrow[rr, bend right, "{\varphi_X \otimes \varphi_Y}"'] \arrow[r] & \omega_1(X) \dotimes{B} \coHom \dotimes{B} \omega_1(Y) \dotimes{B} \coHom \arrow[r, "{(\identity \otimes \psi)^{\otimes 2}}" inner sep=0.6em] \arrow[u, "\sim" sloped] & \omega_1(X) \dotimes{B} B' \dotimes{B} \omega_1(Y) \dotimes{B} B' , \arrow[u, "{\text{induced by }m}"']
+		\end{tikzcd}
+	\end{equation}
+	The upper and lower curved regions always commute, while commutativity of
+	the square on the left reduces to the characterization of $\mu$ in
+	\eqref{eqn:L-bialgebra-prod}.
+
+	Define $\eta:=\omega_1^\vee\dotimes{B}\omega_2$, which is a monoidal
+	functor $\mathcal{T}\to\cated{Mod}B$. The square portion of
+	\eqref{eqn:Isom-Tannakian-aux0} can be rearranged as
+	\begin{equation}\label{eqn:Isom-Tannakian-aux}
+		\begin{tikzcd}
+			\eta(X \otimes Y) \arrow[r] \arrow[d, "\sim"' sloped] & \coHom \arrow[r, "\psi"] & B' \\
+			\eta(X) \dotimes{B} \eta(Y) \arrow[r] & \coHom \dotimes{B} \coHom \arrow[r, "{\psi \otimes \psi}"'] \arrow[u, "\mu"] & B' \dotimes{B} B' , \arrow[u, "m"']
+		\end{tikzcd}
+	\end{equation}
+	The left-hand square still commutes, while $\psi$ preserves multiplication
+	if and only if the right-hand square commutes.
+
+	If $\tilde{\varphi}$ preserves $\otimes$, then the large outer frame in
+	\eqref{eqn:Isom-Tannakian-aux0} commutes, and hence so does the outer frame
+	of its square portion. Thus the outer frame of
+	\eqref{eqn:Isom-Tannakian-aux} commutes. This shows that the right-hand
+	square commutes after precomposition with
+	$\eta(X)\dotimes{B}\eta(Y)\to\coHom\dotimes{B}\coHom$. Since $X$ and
+	$Y$ are arbitrary, the universal property of $\coHom$, or its concrete
+	construction in Proposition~\ref{prop:cogebra-L-universal}, suffices to
+	show that the right-hand square in \eqref{eqn:Isom-Tannakian-aux}
+	commutes.
+
+	Conversely, suppose the right-hand square in
+	\eqref{eqn:Isom-Tannakian-aux} commutes. Then the entire diagram
+	\eqref{eqn:Isom-Tannakian-aux}
+	commutes, so the large outer frame in \eqref{eqn:Isom-Tannakian-aux0}
+	commutes; hence $\tilde{\varphi}$ preserves $\otimes$. This completes the
+	verification.
+\end{proof}
+
+The rigidity of $\mathcal{T}$ implies that every element of
+$\iHom^\otimes_B(\omega_2,\omega_1)(B')$ is an isomorphism; this is an
+application of Proposition~\ref{prop:monoidal-functor-rigidity}. The next
+result is therefore immediate.
+
+\begin{corollary}\label{prop:Aut-Tannakian}
+	\index[sym1]{Aut-tensor@$\Aut^{\otimes}$}
+	For a Tannakian category $\mathcal{T}$, a commutative $\Bbbk$-algebra
+	$B$, and a fiber functor $\omega:\mathcal{T}\to\cated{Mod}B$, write
+	$\Aut^{\otimes}(\omega)$ for the group of monoidal automorphisms of
+	$\omega$. Then, for every commutative $B$-algebra $B'$, there is a
+	canonical isomorphism
+	\[ \Aut^{\otimes}\left( \omega \dotimes{B} B' \right) \simeq \Hom_{B\dcate{CAlg}}\left(\coEnd_B(\omega), B' \right), \]
+	where multiplication in the group on the right is reflected by the
+	comultiplication of $\coEnd_B(\omega)$.
+\end{corollary}
+
+One can further show that the identity element and inversion in the
+automorphism group arise respectively from the counit morphism and the
+antipode of $\coEnd_B(\omega)$. The verification is simple and formal, so it
+is left as an exercise for this chapter. Considering the Yoneda embedding of
+$B\dcate{CAlg}$ gives the following conclusion:
+\[\begin{tikzcd}
+	\text{knowing the functor }\Aut^{\otimes}\left( \omega \dotimes{B} (\cdot)\right): B\dcate{CAlg} \to \cate{Grp} \arrow[Leftrightarrow, d] \\
+	\text{knowing the Hopf $B$-algebra }\coEnd_B(\omega).
+\end{tikzcd}\]
+Thus, once $\Aut^{\otimes}$ is viewed functorially, the entire long story of
+the endomorphism coalgebra ultimately returns to the group of
+$\otimes$-automorphisms of the fiber functor.
+
+In the situation of Proposition~\ref{prop:Isom-Tannakian}, Deligne proved in
+\cite[1.11--1.13]{Del90} that $\coHom_B(\omega_1,\omega_2)$ is faithfully
+flat as a $B$-module; in particular,
+$\coHom_B(\omega_1,\omega_2)\neq0$. We shall not give the detailed proof,
+but its importance in algebraic geometry is worth mentioning. It guarantees
+the existence of a faithfully flat $B$-algebra $B'$ and an isomorphism
+$\omega_1\dotimes{B}B'\simeq\omega_2\dotimes{B}B'$; for example, one may
+take $B'=\coHom_B(\omega_1,\omega_2)$. Thus fiber functors are unique up to
+faithfully flat change of rings, while properties over the original ring $B$
+can in principle be reconstructed from descent data as in
+\S\ref{sec:descent-modules}. This is the principal benefit of faithful
+flatness.

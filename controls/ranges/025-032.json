@@ -1,0 +1,134 @@
+{
+  "schema": "o014-english-range-receipt-v1",
+  "result": "PASS",
+  "range": {
+    "start": 25,
+    "end": 32
+  },
+  "recorded_at_utc": "2026-08-31T18:21:31Z",
+  "source": {
+    "commit": "9a5803ff77dd3257484cb177f851a73770a59dd3",
+    "tree": "23bd05c2fb8434278df4fdfb636559a6a2b0d2ff"
+  },
+  "checks": {
+    "all_eight_units_present": true,
+    "source_slice_hashes_verified": true,
+    "id_witness_hashes_verified": true,
+    "stable_unit_ids_present": true,
+    "segment_ids_exact_and_unique": true,
+    "labels_and_hypertargets_exact": true,
+    "canonical_environment_role_parity": true,
+    "citation_and_reference_keys_exact": true,
+    "index_entry_counts_exact": true,
+    "normalized_math_multiset_parity": true,
+    "structure_balanced": true,
+    "indonesian_and_han_residue_clean": true,
+    "substantive_coverage_verified": true
+  },
+  "units": [
+    {
+      "sequence": 25,
+      "unit_id": "o014.aljabr2.chapter2.direct-sum-decomposition",
+      "path": "source/en/chapter2-unit-025.tex",
+      "bytes": 20292,
+      "sha256": "15a238c3717c3914ee85c61d6396bde141e219fd9a3df3a1b73f3269415f00be",
+      "checks": {
+        "frozen_witnesses": true,
+        "structural_parity": true,
+        "normalized_math_parity": true,
+        "residue_and_balance": true
+      }
+    },
+    {
+      "sequence": 26,
+      "unit_id": "o014.aljabr2.chapter2.subobjects-and-isomorphism-theorems",
+      "path": "source/en/chapter2-unit-026.tex",
+      "bytes": 21378,
+      "sha256": "143b96b6ea25802ef4e4333719ef4a56cb081f7a4f4009a086199f47d3e85a49",
+      "checks": {
+        "frozen_witnesses": true,
+        "structural_parity": true,
+        "normalized_math_parity": true,
+        "residue_and_balance": true
+      }
+    },
+    {
+      "sequence": 27,
+      "unit_id": "o014.aljabr2.chapter2.simplicity-and-semisimplicity",
+      "path": "source/en/chapter2-unit-027.tex",
+      "bytes": 12396,
+      "sha256": "010219cd8fdac5e6a9737485479754e51b32587485b2e2c367a6a86477aa9822",
+      "checks": {
+        "frozen_witnesses": true,
+        "structural_parity": true,
+        "normalized_math_parity": true,
+        "residue_and_balance": true
+      }
+    },
+    {
+      "sequence": 28,
+      "unit_id": "o014.aljabr2.chapter2.exact-functors-injective-projective-objects",
+      "path": "source/en/chapter2-unit-028.tex",
+      "bytes": 37060,
+      "sha256": "abc948ae5b1de67e7a6742b967609db995609237c718fa417d465a0e76eee6af",
+      "checks": {
+        "frozen_witnesses": true,
+        "structural_parity": true,
+        "normalized_math_parity": true,
+        "residue_and_balance": true
+      }
+    },
+    {
+      "sequence": 29,
+      "unit_id": "o014.aljabr2.chapter2.serre-subcategories-and-k0-groups",
+      "path": "source/en/chapter2-unit-029.tex",
+      "bytes": 24236,
+      "sha256": "19472adc31f18eb69c33ea0d21fa9fe780e1dd682b7ff6b44b14cb0d35aa5387",
+      "checks": {
+        "frozen_witnesses": true,
+        "structural_parity": true,
+        "normalized_math_parity": true,
+        "residue_and_balance": true
+      }
+    },
+    {
+      "sequence": 30,
+      "unit_id": "o014.aljabr2.chapter2.grothendieck-categories",
+      "path": "source/en/chapter2-unit-030.tex",
+      "bytes": 42601,
+      "sha256": "c4972c7b0e504812bdc34c6347d7be19a379ba7afe477f3089d945533df98c0f",
+      "checks": {
+        "frozen_witnesses": true,
+        "structural_parity": true,
+        "normalized_math_parity": true,
+        "residue_and_balance": true
+      }
+    },
+    {
+      "sequence": 31,
+      "unit_id": "o014.aljabr2.chapter3.overview",
+      "path": "source/en/chapter3-unit-031.tex",
+      "bytes": 12413,
+      "sha256": "923cc3b6ad0d3c5d28b84bed2c316046fde103fe6652386fd5be03abba282627",
+      "checks": {
+        "frozen_witnesses": true,
+        "structural_parity": true,
+        "normalized_math_parity": true,
+        "residue_and_balance": true
+      }
+    },
+    {
+      "sequence": 32,
+      "unit_id": "o014.aljabr2.chapter3.complexes-over-additive-categories",
+      "path": "source/en/chapter3-unit-032.tex",
+      "bytes": 12928,
+      "sha256": "459882c133a4f1358cda8752dc21c6a8043a24fa9c197211c1b884b953422213",
+      "checks": {
+        "frozen_witnesses": true,
+        "structural_parity": true,
+        "normalized_math_parity": true,
+        "residue_and_balance": true
+      }
+    }
+  ]
+}

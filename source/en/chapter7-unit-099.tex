@@ -1,0 +1,252 @@
+% English translation of chapter7.tex lines 2036--2140.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter7.identifying-module-categories
+% Coverage: all of Section 7.8, ``Recognizing Module Categories''; ends
+% immediately before Section 7.9 at line 2141.
+
+% segment-id: o014.li2.chapter7.identifying-module-categories.h001
+\section{Recognizing Module Categories}\label{sec:module-cat}
+\hypertarget{o014.aljabr2.chapter7.identifying-module-categories}{ }
+% segment-id: o014.li2.chapter7.identifying-module-categories.p001
+Throughout this section, continue to fix a commutative ring $\Bbbk$. All
+abelian categories and functors are understood to be $\Bbbk$-linear unless
+otherwise stated.
+
+% segment-id: o014.li2.chapter7.identifying-module-categories.p002
+Categories of the form $R\dcate{Mod}$ or $\cated{Mod}R$, where $R$ is a
+$\Bbbk$-algebra, are collectively called module categories. In
+\S\ref{sec:Morita}, we specifically studied module categories and functors
+between them. It is also natural to ask which categories are equivalent to
+module categories and how such equivalences can be described concretely.
+This section presents several concise, practical results about these
+questions.
+
+% segment-id: o014.li2.chapter7.identifying-module-categories.p003
+Let $\mathcal{A}$ be an abelian category. Our approach is to consider a
+functor of the form $\Hom_{\mathcal{A}}(s,\mathord\cdot)$, which naturally
+lifts to a functor $\mathcal{A}\to\cated{Mod}R$ with
+$R:=\End_{\mathcal{A}}(s)$. The question is when
+$\Hom_{\mathcal{A}}(s,\mathord\cdot)$ is an equivalence.
+
+\index{compact object}
+% segment-id: o014.li2.chapter7.identifying-module-categories.p004
+Recall Definition~\ref{def:cpt-objects} of a compact object. Suppose
+$\mathcal{A}$ has all small filtered $\varinjlim$ and
+$X\in\Obj(\mathcal{A})$. The object $X$ is called \emph{compact} if, for
+every small filtered category $I$ and functor $\alpha:I\to\mathcal{A}$, the
+following canonical morphism is an isomorphism:
+% segment-id: o014.li2.chapter7.identifying-module-categories.q001
+\[ \varinjlim_i \Hom\left( X, \alpha(i) \right) \to \Hom\left( X, \varinjlim \alpha \right). \]
+
+% segment-id: o014.li2.chapter7.identifying-module-categories.le001
+\begin{lemma}\label{prop:proj-compact}
+	Let $X$ be a projective object in a cocomplete abelian category
+	$\mathcal{A}$. Then $X$ is compact if and only if
+	$\Hom_{\mathcal{A}}(X,\mathord\cdot)$ preserves all small direct sums;
+	that is, for every small set $I$ and family of objects $(Y_i)_{i\in I}$,
+	$\bigoplus_{i\in I}\Hom_{\mathcal{A}}(X,Y_i)\rightiso
+	\Hom_{\mathcal{A}}(X,\bigoplus_{i\in I}Y_i)$.
+	When this condition holds, $\Hom_{\mathcal{A}}(X,\mathord\cdot)$ in fact
+	preserves all small $\varinjlim$.
+\end{lemma}
+% segment-id: o014.li2.chapter7.identifying-module-categories.pf001
+\begin{proof}
+	Suppose $X$ is compact. A direct sum indexed by a small set $I$ is the
+	filtered $\varinjlim$ of the finite direct sums (take all finite subsets
+	of $I$, ordered by inclusion). Since
+	$\Hom_{\mathcal{A}}(X,\mathord\cdot)$ is known to preserve finite direct
+	sums, it also preserves small direct sums.
+
+	Conversely, projectivity is equivalent to
+	$\Hom_{\mathcal{A}}(X,\mathord\cdot)$ preserving cokernels, while a
+	general small $\varinjlim$ can be constructed from small direct sums and
+	cokernels. Hence $\Hom_{\mathcal{A}}(X,\mathord\cdot)$ preserves all
+	small $\varinjlim$.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.identifying-module-categories.eg001
+\begin{example}
+	Let $R$ be a $\Bbbk$-algebra and $M$ a projective right $R$-module. Then
+	$M$ is compact if and only if $M$ is finitely generated.
+	\begin{itemize}
+		\item Necessity: there are a small set $I$ and homomorphisms
+		$i:M\to R^{\oplus I}$ and $p:R^{\oplus I}\to M$ with
+		$pi=\identity_M$. Compactness implies that the image of $i$ is
+		contained in $R^{\oplus I_0}$ for some finite subset $I_0\subset I$.
+		Take $p':=p|_{R^{\oplus I_0}}$; then $p'i=\identity_M$ still holds.
+		Thus $M$ can be realized as a direct summand of a finite-rank free
+		module.
+		\item Sufficiency: apply the criterion of
+		Lemma~\ref{prop:proj-compact}. Every homomorphism
+		$M\to\bigoplus_{i\in I}Y_i$ must land in
+		$\bigoplus_{i\in I_0}Y_i$ for some finite subset $I_0\subset I$ (it
+		is enough to check the images of the generators). Hence $M$ is compact.
+	\end{itemize}
+\end{example}
+
+% segment-id: o014.li2.chapter7.identifying-module-categories.pr001
+\begin{proposition}\label{prop:proj-compact-gen}
+	Let $\mathcal{A}$ be a cocomplete abelian category. Then
+	$s\in\Obj(\mathcal{A})$ is a compact projective generator if and only if
+	$\Hom_{\mathcal{A}}(s,\mathord\cdot):
+	\mathcal{A}\to\Bbbk\dcate{Mod}$ is a faithful exact functor preserving all
+	small $\varinjlim$.
+\end{proposition}
+% segment-id: o014.li2.chapter7.identifying-module-categories.pf002
+\begin{proof}
+	By Proposition~\ref{prop:injective-cogenerator}, being a projective
+	generator is equivalent to $\Hom_{\mathcal{A}}(s,\mathord\cdot)$ being
+	faithful and exact. By Lemma~\ref{prop:proj-compact}, under the
+	projectivity assumption, compactness is equivalent to
+	$\Hom_{\mathcal{A}}(s,\mathord\cdot)$ preserving all small
+	$\varinjlim$.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.identifying-module-categories.th001
+\begin{theorem}[P.\ Gabriel]\label{prop:identify-ModR}
+	Let $s\in\Obj(\mathcal{A})$ and set
+	$R:=\End_{\mathcal{A}}(s)$. Then
+	% segment-id: o014.li2.chapter7.identifying-module-categories.q002
+	\[ \Hom_{\mathcal{A}}(s, \cdot): \mathcal{A} \to \cated{Mod}R \]
+	is an equivalence if and only if $s$ is a compact projective generator of
+	$\mathcal{A}$.
+\end{theorem}
+% segment-id: o014.li2.chapter7.identifying-module-categories.pf003
+\begin{proof}
+	For brevity, write
+	$G:=\Hom_{\mathcal{A}}(s,\mathord\cdot):\mathcal{A}\to\cated{Mod}R$.
+	First prove necessity. Since $G$ is an equivalence and $G(s)=R$, it is
+	enough to check that $R$ is a compact projective generator of
+	$\cated{Mod}R$, which is immediate.
+
+	We now prove sufficiency. Suppose $s$ is a compact projective generator.
+	Proposition~\ref{prop:proj-compact-gen} implies that $G$ is a faithful
+	exact functor preserving all small $\varinjlim$, because its composite with
+	the forgetful functor $\cated{Mod}R\to\Bbbk\dcate{Mod}$ has these
+	properties. Since faithfulness is already known, it is enough to prove
+	that:
+	\begin{compactitem}
+		\item for all $X,Y\in\Obj(\mathcal{A})$, the corresponding map
+		$\Hom_{\mathcal{A}}(X,Y)\to\Hom_R(GX,GY)$ is surjective;
+		\item $G$ is essentially surjective.
+	\end{compactitem}
+
+	First, for every $X\in\Obj(\mathcal{A})$, define a morphism
+	$\phi_X:s^{\oplus\Hom_{\mathcal{A}}(s,X)}\to X$ whose restriction to the
+	direct summand corresponding to $f:s\to X$ is $f$. We show that $\phi_X$
+	is surjective. Otherwise, suppose that $\Coker(\phi_X)\neq0$. The generator
+	property gives a nonzero morphism $s\to\Coker(\phi_X)$
+	(Proposition~\ref{prop:injective-cogenerator}), while projectivity makes
+	this morphism factor as $s\xrightarrow{g}X\to\Coker(\phi_X)$. It follows
+	that the composite
+	$ s^{\oplus\Hom_{\mathcal{A}}(s,X)}\xrightarrow{\phi_X}X
+	\to\Coker(\phi_X)$ is nonzero on the direct summand corresponding to $g$,
+	a contradiction.
+
+	Apply the same construction to the kernel $\Ker(\phi_X)$. Thus every $X$
+	fits into an exact sequence
+	% segment-id: o014.li2.chapter7.identifying-module-categories.q003
+	\[ s^{\oplus J} \to s^{\oplus I} \to X \to 0, \quad I = I_X, \; J = J_X: \text{small sets}. \]
+	Since $G$ preserves all small $\varinjlim$, this gives an exact sequence of
+	right $R$-modules
+	% segment-id: o014.li2.chapter7.identifying-module-categories.q004
+	\[ R^{\oplus J} \to R^{\oplus I} \to GX \to 0. \]
+	The first morphism in each sequence may be regarded as an $I\times J$
+	matrix over $R$ acting by left multiplication; the two are in fact the
+	same matrix.
+
+	Now consider a homomorphism of right $R$-modules $f:GX\to GY$. Choose
+	exact sequences of the preceding form for $X$ and $Y$. It is easy to see
+	that $f$ lifts to a commutative diagram with exact rows
+	% segment-id: o014.li2.chapter7.identifying-module-categories.q005
+	\[\begin{tikzcd}
+		R^{\oplus J_X} \arrow[r] \arrow[d] & R^{\oplus I_X} \arrow[d] \arrow[r] & GX \arrow[d, "f"] \arrow[r] & 0 \\
+		R^{\oplus J_Y} \arrow[r] & R^{\oplus I_Y} \arrow[r] & GY \arrow[r] & 0.
+	\end{tikzcd}\]
+	The four arrows in the left square, however, can all be expressed as
+	matrices over $R$. Those four matrices give the solid part of a
+	commutative diagram with exact rows
+	% segment-id: o014.li2.chapter7.identifying-module-categories.q006
+	\[\begin{tikzcd}
+		s^{\oplus J_X} \arrow[r] \arrow[d] & s^{\oplus I_X} \arrow[d] \arrow[r] & X \arrow[dashed, d] \arrow[r] & 0 \\
+		s^{\oplus J_Y} \arrow[r] & s^{\oplus I_Y} \arrow[r] & Y \arrow[r] & 0,
+	\end{tikzcd}\]
+	and the dashed part is uniquely determined by functoriality of the
+	cokernel. Since $G$ is exact, necessarily $G(X\dashrightarrow Y)=f$.
+
+	A similar argument shows that $G$ is essentially surjective. For a given
+	right $R$-module $M$, there is an exact sequence
+	% segment-id: o014.li2.chapter7.identifying-module-categories.q007
+	\[ R^{\oplus L} \to R^{\oplus K} \to M \to 0, \]
+	where the first morphism is regarded as a $K\times L$ matrix over $R$.
+	The same matrix gives a cokernel exact sequence in $\mathcal{A}$,
+	% segment-id: o014.li2.chapter7.identifying-module-categories.q008
+	\[ s^{\oplus L} \to s^{\oplus K} \to X \to 0. \]
+	Since $G$ preserves all small $\varinjlim$, necessarily $GX\simeq M$.
+	This completes the proof.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.identifying-module-categories.p005
+Another related problem is to recognize categories of finitely generated
+modules. Write $\catesubd{Mod}{\mathrm{fg}}R$ for the category of finitely
+generated right $R$-modules. If $R$ is a right Noetherian ring,
+$\catesubd{Mod}{\mathrm{fg}}R$ remains an abelian category; see
+\cite[Proposition 6.10.3, Lemma 6.10.4]{Li1}.
+\index[sym1]{Modfg@$\cate{Mod}_{\mathrm{fg}}$}
+
+% segment-id: o014.li2.chapter7.identifying-module-categories.th002
+\begin{theorem}\label{prop:identify-ModR-fg}
+	Let $\mathcal{A}$ be an abelian category and $s\in\Obj(\mathcal{A})$.
+	Suppose that:
+	\begin{compactitem}
+		\item every $X\in\Obj(\mathcal{A})$ is a Noetherian object
+		(Definition~\ref{def:finite-length-object});
+		\item $R:=\End_{\mathcal{A}}(s)$ is a right Noetherian ring;
+		\item $s$ is a projective generator of $\mathcal{A}$.
+	\end{compactitem}
+	Then the functor $\Hom_{\mathcal{A}}(s,\mathord\cdot):
+	\mathcal{A}\to\cated{Mod}R$ factors as
+	% segment-id: o014.li2.chapter7.identifying-module-categories.q009
+	\[ \mathcal{A} \xrightarrow{\text{equivalence}} \catesubd{Mod}{\mathrm{fg}}R \subset \cated{Mod}R. \]
+\end{theorem}
+% segment-id: o014.li2.chapter7.identifying-module-categories.pf004
+\begin{proof}
+	First show that every $X\in\Obj(\mathcal{A})$ can be placed in an exact
+	sequence
+	% segment-id: o014.li2.chapter7.identifying-module-categories.q010
+	\begin{equation}\label{eqn:identify-ModR-fg-aux}
+		s^{\oplus m} \to s^{\oplus n} \to X \to 0, \quad n, m \in \Z_{\geq 0}.
+	\end{equation}
+
+	Indeed, since $s$ is a generator, for every $X\neq0$ there is a nonzero
+	morphism $\phi_1:s\to X$. If $\phi_1$ is not surjective, there is a
+	nonzero morphism $s\to\Coker(\phi_1)$; the projectivity of $s$ ensures
+	that this morphism factors as
+	$s\xrightarrow{\psi_1}X\to\Coker(\phi_1)$. We thereby obtain
+	$\phi_2:=(\phi_1,\psi_1):s^{\oplus2}\to X$ with
+	$\Image(\phi_2)\supsetneq\Image(\phi_1)$. If $\phi_2$ is not yet
+	surjective, repeat the same procedure. Since $X$ is a Noetherian object,
+	this process must terminate after finitely many steps and yield a
+	surjective morphism $\phi_X:s^{\oplus n}\twoheadrightarrow X$. Apply the
+	same procedure to $\Ker(\phi_X)$ to obtain
+	\eqref{eqn:identify-ModR-fg-aux}.
+
+	Recall that $s$ is a projective generator if and only if
+	$G:=\Hom_{\mathcal{A}}(s,\mathord\cdot)$ is faithful and exact. Applying
+	$G$ to \eqref{eqn:identify-ModR-fg-aux} gives an exact sequence
+	$R^{\oplus m}\to R^{\oplus n}\to GX\to0$, showing that the image of $G$
+	lies in $\catesubd{Mod}{\mathrm{fg}}R$.
+
+	On the other hand, since $R$ is right Noetherian, every
+	$M\in\Obj(\catesubd{Mod}{\mathrm{fg}}R)$ can also be placed in an exact
+	sequence
+	% segment-id: o014.li2.chapter7.identifying-module-categories.q011
+	\[ R^{\oplus q} \to R^{\oplus p} \to M \to 0, \quad p, q \in \Z_{\geq 0}. \]
+
+	The rest of the proof follows the same idea as the proof of sufficiency in
+	Theorem~\ref{prop:identify-ModR}. In that argument, the compactness of $s$
+	was used only to handle infinite direct sums; here only finite direct sums
+	occur, and every additive functor preserves them. The remainder of the
+	argument is identical and is not repeated.
+\end{proof}

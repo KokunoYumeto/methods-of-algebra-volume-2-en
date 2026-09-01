@@ -1,0 +1,570 @@
+% Unit 102 English translation of chapter7.tex lines 2472--2678.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter7.galois-descent-h1
+% Coverage: complete Section 7.11, the relation between Galois descent and
+% nonabelian H^1, ending immediately before the Exercises.
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.h001
+\section{The Relation between Galois Descent and
+\texorpdfstring{$\Hm^1$}{H1}}\label{sec:Galois-H1}
+\hypertarget{o014.aljabr2.chapter7.galois-descent-h1}{ }
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p001
+Descent is a powerful method for classifying various algebraic or geometric
+objects; its general formulation requires the language of algebraic geometry.
+For ease of exposition, we make two simplifying assumptions in this section.
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.l001
+\begin{enumerate}
+	\item We use only Galois descent
+	(Theorem~\ref{prop:Galois-descent} and the discussion following it), rather
+	than flat descent or more general techniques.
+	\item As far as possible, this book uses algebraic language, especially that
+	of linear algebra, to explain the examples. We must therefore narrow the
+	scope of the classification problem. In fact, we shall consider only a
+	certain class of tensors in finite-dimensional vector spaces.
+\end{enumerate}
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p002
+This viewpoint naturally leads to the nonabelian cohomology $\Hm^1$ of the
+Galois group. The discussion below draws on the tools of
+\S\ref{sec:nonabelian-coh} and \S\ref{sec:descent-Galois}. Since we need to
+allow infinite Galois extensions, we shall also continue to use the language
+of profinite groups; see \S\ref{sec:profinite-groups}. We first introduce the
+necessary notation.
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.cv001
+\begin{convention}
+	Throughout this section, fix a field $K$ and write
+	$\otimes:=\otimes_K$. For a finite-dimensional $K$-vector space $V$, write
+	$V^\vee$ for its dual space. For each $(p,q)\in\Z_{\geq0}^2$, introduce the
+	notation
+	% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q001
+	\[
+	T^{p,q}V:=V^{\otimes p}\otimes(V^\vee)^{\otimes q}.
+	\]
+	Following the convention of differential geometry, the elements of
+	$T^{p,q}V$ are called \emph{tensors of type $(p,q)$ on $V$}.
+	\index{tensor}
+\end{convention}
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p003
+Every isomorphism $g:V\to V'$ between finite-dimensional $K$-vector spaces
+naturally induces an isomorphism
+$T^{p,q}V\rightiso T^{p,q}V'$; for convenience, this induced isomorphism is
+still denoted by $g$. Moreover, finite dimensionality gives a canonical
+isomorphism
+$(V_1\otimes V_2)^\vee\simeq V_1^\vee\otimes V_2^\vee$.
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p004
+In the classification problems considered in this section, the principal
+objects are data of the following form, defined over the field $K$:
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q002
+\begin{equation}\label{eqn:tensor-data}
+	\mathbf{t}=(V,I,(t_i,p_i,q_i)_{i\in I}),
+\end{equation}
+where
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.l002
+\begin{itemize}
+	\item $V$ is a finite-dimensional $K$-vector space;
+	\item $I$ is a set (which may be empty);
+	\item $(p_i,q_i)$ is a family of pairs of nonnegative integers, indexed by
+	$i\in I$;
+	\item $t_i\in T^{p_i,q_i}V$ is a family of tensors, indexed by $i\in I$.
+\end{itemize}
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p005
+In other words, we study a family of tensors of specified types in a
+finite-dimensional vector space. Given another datum
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q003
+\[
+\mathbf{t}'=(V',I,(t'_i,p_i,q_i)_{i\in I}),
+\]
+if there is an isomorphism of $K$-vector spaces $g:V\rightiso V'$ such that
+$gt_i=t'_i$ for every $i$, then $g$ is called an isomorphism between the two
+data, and we write
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q004
+\[
+g\mathbf{t}=\mathbf{t}'\quad\text{or}\quad
+g:\mathbf{t}\rightiso\mathbf{t}'.
+\]
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p006
+We wish to classify such data $\mathbf{t}$ up to isomorphism, or more
+specifically to classify those $\mathbf{t}$ satisfying additional
+conditions. These conditions must be algebraically expressible and preserved
+by isomorphisms. Although the theoretical framework is confined to linear
+algebra, its range of applications is already quite broad. Here are several
+special cases.
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.l003
+\begin{enumerate}
+	\item Consider data $(V,b)$, where
+	$b\in(V^\vee)^{\otimes2}$ is a tensor of type $(0,2)$. Classifying these
+	data is equivalent to classifying bilinear forms on $V$. We may also impose
+	conditions such as symmetry, antisymmetry, or nondegeneracy on $b$; all of
+	these are ``algebraic'' conditions. Multilinear forms may be treated
+	similarly.
+	\item We may also classify $(V,\varphi_1,\ldots,\varphi_n)$, where
+	$\varphi_i\in V\otimes V^\vee$ is a tensor of type $(1,1)$. Since
+	$V\otimes V^\vee\simeq\End_K(V)$, this amounts to classifying $V$ together
+	with a family of linear endomorphisms. Various algebraic relations may be
+	imposed, such as commutativity among the endomorphisms.
+	\item Next consider data $(V,\mu)$, where
+	$\mu\in V\otimes(V^\vee)^{\otimes2}$ is a tensor of type $(1,2)$, which may
+	also be regarded as an element of $\Hom_K(V\otimes V,V)$. This amounts to
+	classifying $V$ together with a bilinear ``multiplication''
+	$V\times V\to V$. If the operation is required to be associative and to
+	have a unit (the latter may be regarded as a tensor of type $(1,0)$), these
+	conditions make $V$ into a $K$-algebra. Other conditions may be imposed on
+	$\mu$ in order to study structures such as Lie algebras and Jordan
+	algebras.
+\end{enumerate}
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p007
+More generally, \eqref{eqn:tensor-data} can be extended in a natural way to
+treat the classification of a family of vector subspaces, or at least lines,
+in $T^{p,q}V$. We shall not pursue this because of space constraints.
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.d001
+\begin{definition}
+	For a finite-dimensional $K$-vector space $V$, write $\GL(V)$ for its group
+	of linear automorphisms. For data $\mathbf{t}$ as in
+	\eqref{eqn:tensor-data}, define the subgroup of $\GL(V)$
+	% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q005
+	\[
+	G(\mathbf{t}):=\{g\in\GL(V):g\mathbf{t}=\mathbf{t}\}.
+	\]
+\end{definition}
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p008
+Choose a basis for $V$ and write the conditions $gt_i=t_i$ in coordinates
+for every $i\in I$. Thus $G(\mathbf{t})$ is cut out inside $\GL(V)$ by a
+family of polynomial equations. In the examples above, if $\mathbf{t}$
+corresponds to a nondegenerate symmetric (respectively, antisymmetric)
+bilinear form $b:V\times V\to K$, then the corresponding $G(\mathbf{t})$ is
+the orthogonal group $\mathrm{O}(V,b)$ (respectively, the symplectic group
+$\mathrm{Sp}(V,b)$). If $\mathbf{t}$ is the tensor of type $(0,\dim V)$ given
+by the determinant, then the corresponding group is the special linear
+group $\SL(V):=\{g:\det g=1\}$.
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.d002
+\begin{definition}\label{def:tL}
+	For every field extension $L|K$ and $K$-vector space $V$, write
+	$V_L:=L\dotimes{K}V$, regarded as an $L$-vector space. Through the canonical
+	isomorphism of $L$-vector spaces
+	% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q006
+	\[
+	(T^{p,q}V)_L\simeq T^{p,q}(V_L),
+	\]
+	every datum $\mathbf{t}$ on $V$ of the form \eqref{eqn:tensor-data}
+	induces a datum $\mathbf{t}_L$ on $V_L$, defined over the extension field
+	$L$.
+\end{definition}
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p009
+Field extension does not change the numerical part of the data,
+$(\dim V,I,(p_i,q_i)_i)$.
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p010
+Recall that when $L|K$ is a Galois extension, $\Gal(L|K)$ acts smoothly and
+semilinearly on $V_L$ (Lemma~\ref{prop:Galois-descent-action}); we write the
+action on the left. In fact, it acts smoothly and semilinearly on every
+$T^{p,q}(V_L)$ (Definition~\ref{def:semilinear-action}), ``diagonally'' on
+tensor products and by $\check v\mapsto\check v\sigma^{-1}$ on the dual space
+$V^\vee$ (the contragredient action, or ``inverse step''). Relative to the
+isomorphism above, its invariant subspace is
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q007
+\[
+T^{p,q}(V_L)^{\Gal(L|K)}=T^{p,q}V.
+\]
+This is precisely Galois descent at the level of objects. At the level of
+morphisms, it is expressed by the following result.
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.lm001
+\begin{lemma}
+	Let $V$ and $W$ be finite-dimensional $K$-vector spaces. For every
+	$h\in\Hom_L(V_L,W_L)$ and $\sigma\in\Gal(L|K)$, define
+	% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q008
+	\[
+	{}^\sigma h:=\sigma h\sigma^{-1}:V_L\to W_L.
+	\]
+	This map is again $L$-linear. The formula gives a smooth semilinear action
+	of $\Gal(L|K)$ on the $L$-vector space $\Hom_L(V_L,W_L)$. This action is
+	compatible with composition of linear maps, and
+	% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q009
+	\[
+	\Hom_L(V_L,W_L)^{\Gal(L|K)}=\Hom_K(V,W).
+	\]
+	Here $\Hom_K(V,W)$ is embedded in $\Hom_L(V_L,W_L)$ by
+	$f\mapsto f_L:=\identity_L\otimes f$.
+\end{lemma}
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.pf001
+\begin{proof}
+	The reader may check directly that ${}^\sigma h$ is indeed $L$-linear.
+	For smoothness, choose bases of $V$ and $W$ and identify the elements of
+	$\Hom_L(V_L,W_L)$ with matrices. Then $\Gal(L|K)$ acts in the standard way
+	on every matrix entry. Since $h$ involves only finitely many matrix entries,
+	they are all contained in some finite subextension $E|K$ of $L|K$. Hence the
+	open subgroup $\Gal(L|E)$ fixes $h$. The remaining assertions about the
+	action $(\sigma,h)\mapsto{}^\sigma h$ are readily verified.
+
+	The equality
+	$\Hom_L(V_L,W_L)^{\Gal(L|K)}=\Hom_K(V,W)$ follows directly from Galois
+	descent and is also easy to see directly from matrices.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p011
+Taking the special case $V=W$, we see that $\Gal(L|K)$ acts on $\GL(V_L)$
+by $(\sigma,g)\mapsto{}^\sigma g$, and that
+$\GL(V_L)^{\Gal(L|K)}=\GL(V)$.
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.lm002
+\begin{lemma}
+	For data $\mathbf{t}$ of the form \eqref{eqn:tensor-data}, the smooth action
+	of $\Gal(L|K)$ on $\GL(V_L)$ preserves $G(\mathbf{t}_L)$. Thus
+	$G(\mathbf{t}_L)$ becomes a smooth $\Gal(L|K)$-group in the sense of
+	Remark~\ref{rem:pro-finite-coh-nonabelian}; its invariant subgroup satisfies
+	% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q010
+	\[
+	G(\mathbf{t}_L)^{\Gal(L|K)}=G(\mathbf{t}).
+	\]
+\end{lemma}
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.pf002
+\begin{proof}
+	Let $g\in G(\mathbf{t}_L)$ and $\sigma\in\Gal(L|K)$. Then
+	% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q011
+	\[
+	({}^\sigma g)\mathbf{t}_L
+	=({}^\sigma g)(\sigma\mathbf{t}_L)
+	=\sigma g\sigma^{-1}(\sigma\mathbf{t}_L)
+	=\sigma(g\mathbf{t}_L)
+	=\sigma(\mathbf{t}_L)
+	=\mathbf{t}_L.
+	\]
+	Thus the action of $\Gal(L|K)$ preserves $G(\mathbf{t}_L)$. The remaining
+	assertions follow immediately.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p012
+In practice, the classification of data \eqref{eqn:tensor-data} usually
+becomes simpler after extending scalars to a sufficiently large field $L$.
+For example, the isomorphism class of a nondegenerate quadratic form over an
+algebraically closed field is completely determined by its dimension,
+whereas the situation is more complicated over a general field such as
+$\R$, $\Q_p$, or $\Q$.
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p013
+Conditions imposed in the classification problems above, such as
+nondegeneracy or associativity of multiplication, can usually be checked
+after any field extension. The problem therefore splits into two parts:
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.l004
+\begin{enumerate}
+	\item Over a sufficiently large field $L$, classify data of the form
+	\eqref{eqn:tensor-data} satisfying the desired conditions; a typical choice
+	is to take $L$ to be a separably closed field.
+	\item Choose data $\mathbf{t}_0$ defined over $K$, take a sufficiently large
+	Galois extension $L|K$, and study the data $\mathbf{t}$ satisfying
+	$\mathbf{t}_L\simeq\mathbf{t}_{0,L}$.
+\end{enumerate}
+The first part may be called geometric, while the second is arithmetic. This
+section focuses on the arithmetic part, which motivates the following
+definition.
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.d003
+\begin{definition}
+	Let $\mathbf{t}_0$ be data of the form \eqref{eqn:tensor-data} defined over
+	the field $K$, and let $L|K$ be a Galois extension. Set
+	% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q012
+	\[
+	\mathcal{T}(\mathbf{t}_0):=
+	\left\{
+	\begin{array}{r|l}
+		\mathbf{t}:\text{ data of the form \eqref{eqn:tensor-data}}
+		& \text{there exists an isomorphism }h:\mathbf{t}_{0,L}\rightiso\mathbf{t}_L \\
+		\text{defined over the field $K$}&
+	\end{array}
+	\right\}.
+	\]
+	Also write
+	$\mathscr{T}(\mathbf{t}_0):=\mathcal{T}(\mathbf{t}_0)/\simeq$.
+\end{definition}
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p014
+This definition requires only the existence of an isomorphism $h$, without
+specifying a choice; any two choices differ by right multiplication by an
+element of $G(\mathbf{t}_{0,L})$. Write
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q013
+\[
+\Gamma:=\Gal(L|K),\qquad\text{equipped with the Krull topology}.
+\]
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p015
+If $\sigma\in\Gamma$ and
+$h:\mathbf{t}_{0,L}\rightiso\mathbf{t}_L$ (that is,
+$h(\mathbf{t}_{0,L})=\mathbf{t}_L$), then
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q014
+\[
+{}^\sigma h(\mathbf{t}_{0,L})
+={}^\sigma h(\sigma\mathbf{t}_{0,L})
+=\sigma(h(\mathbf{t}_{0,L}))
+=\sigma(\mathbf{t}_L)
+=\mathbf{t}_L.
+\]
+Consequently, there is a unique map
+$c:\Gamma\to G(\mathbf{t}_{0,L})$ such that
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q015
+\[
+{}^\sigma h=hc(\sigma),\qquad \sigma\in\Gal(L|K).
+\]
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p016
+From
+${}^{\sigma\tau}h={}^\sigma(hc(\tau))={}^\sigma h\cdot
+{}^\sigma c(\tau)=h\cdot c(\sigma)\cdot{}^\sigma c(\tau)$, we obtain
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q016
+\[
+c(\sigma\tau)=c(\sigma)\cdot{}^\sigma c(\tau),
+\qquad \sigma,\tau\in\Gamma.
+\]
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p017
+Without loss of generality, suppose that $\mathbf{t}_0$ and $\mathbf{t}$ are
+realized on spaces $V$ and $W$, respectively, so that
+$h\in\Hom_L(V_L,W_L)$. Since the action of $\Gamma$ is smooth, there is an
+open subgroup $\Gamma_0\subset\Gamma$ that fixes $h$; consequently, $c$
+factors through $\Gamma/\Gamma_0$.
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p018
+If the choice of $h$ is changed to $h'=ha$, where
+$a\in G(\mathbf{t}_{0,L})$, then the corresponding $c'$ satisfies
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q017
+\[
+c'(\sigma)=(h')^{-1}\cdot{}^\sigma h'
+=a^{-1}\cdot h^{-1}\cdot{}^\sigma h\cdot{}^\sigma a
+=a^{-1}\cdot c(\sigma)\cdot{}^\sigma a.
+\]
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p019
+Comparing these observations one by one with
+Definition~\ref{def:nonabelian-H} of nonabelian $\Hm^1$, and using
+Remark~\ref{rem:pro-finite-coh-nonabelian} for the profinite version, we
+obtain a map
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q018
+\begin{equation}\label{eqn:Galois-H1-prep}
+	\begin{aligned}
+		\mathcal{T}(\mathbf{t}_0)&\longrightarrow
+		\Hm^1\left(\Gamma,G(\mathbf{t}_{0,L})\right),\\
+		\mathbf{t}&\longmapsto[c]:=\text{the equivalence class of }c.
+	\end{aligned}
+\end{equation}
+This map is canonical and independent of all auxiliary choices.
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p020
+Recall also that $\Hm^1\left(\Gamma,G(\mathbf{t}_{0,L})\right)$ is generally
+not a group, but a pointed set whose base point is represented by the
+constant map $\Gamma\to G(\mathbf{t}_{0,L})$ with value the identity
+automorphism $1$. On the other hand, $\mathcal{T}(\mathbf{t}_0)$ has the
+obvious base point $\mathbf{t}_0$, as does its quotient
+$\mathscr{T}(\mathbf{t}_0)$. The map \eqref{eqn:Galois-H1-prep} clearly
+preserves base points, as one sees by taking $h=\identity$.
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.t001
+\begin{theorem}\label{prop:Galois-H1}
+	For data $\mathbf{t}_0$ and a Galois extension $L|K$ as above, with
+	$\Gamma:=\Gal(L|K)$, the map \eqref{eqn:Galois-H1-prep} induces a
+	base-point-preserving bijection
+	% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q019
+	\[
+	\mathscr{T}(\mathbf{t}_0)\;\xrightarrow{1:1}\;
+	\Hm^1\left(\Gamma,G(\mathbf{t}_{0,L})\right).
+	\]
+\end{theorem}
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.pf003
+\begin{proof}
+	First we show that \eqref{eqn:Galois-H1-prep} factors through
+	$\mathscr{T}(\mathbf{t}_0)$. Let
+	$f:\mathbf{t}\rightiso\mathbf{t}'$, so that
+	$f_L:\mathbf{t}_L\rightiso\mathbf{t}'_L$. From
+	$h:\mathbf{t}_{0,L}\rightiso\mathbf{t}_L$ we obtain
+	$f_Lh:\mathbf{t}_{0,L}\rightiso\mathbf{t}'_L$. Since
+	${}^\sigma f_L=f_L$, we have
+	$(f_Lh)^{-1}\cdot{}^\sigma(f_Lh)=h^{-1}\cdot{}^\sigma h$, and hence the
+	corresponding $c$ is unchanged.
+
+	Next we show that
+	$\mathscr{T}(\mathbf{t}_0)\to
+	\Hm^1\left(\Gamma,G(\mathbf{t}_{0,L})\right)$ is injective. Suppose that
+	data $\mathbf{t}$ and $\mathbf{t}'$ and isomorphisms
+	% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q020
+	\[
+	\mathbf{t}'_L\xleftarrow[\sim]{h'}\mathbf{t}_{0,L}
+	\xrightarrow[\sim]{h}\mathbf{t}_L,
+	\]
+	are given, and that there is an $a\in G(\mathbf{t}_{0,L})$ satisfying
+	% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q021
+	\[
+	(h')^{-1}\cdot{}^\sigma h'
+	=a^{-1}\cdot h^{-1}\cdot{}^\sigma h\cdot{}^\sigma a,
+	\qquad\sigma\in\Gamma.
+	\]
+	Consequently,
+	% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q022
+	\[
+	ha(h')^{-1}
+	={}^\sigma h\cdot{}^\sigma a\cdot{}^\sigma(h')^{-1},
+	\qquad\sigma\in\Gamma.
+	\]
+	In other words,
+	$ha(h')^{-1}:\mathbf{t}'_L\rightiso\mathbf{t}_L$ is invariant under the
+	$\Gamma$-action and therefore descends to an isomorphism
+	$\mathbf{t}'\rightiso\mathbf{t}$.
+
+	Finally, we show that
+	$\mathscr{T}(\mathbf{t}_0)\to
+	\Hm^1\left(\Gamma,G(\mathbf{t}_{0,L})\right)$ is surjective. Take
+	$c\in Z^1(\Gamma,G(\mathbf{t}_{0,L}))$. Since
+	$c(\sigma)\in\GL(V_L)$, we may use it to define a new $\Gamma$-action,
+	denoted by $\odot$, on $V_L$:
+	% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q023
+	\[
+	\sigma\odot v:=c(\sigma)(\sigma v),
+	\qquad\sigma\in\Gamma,\quad v\in V_L.
+	\]
+
+	From $c(\identity)=1$ and
+	% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q024
+	\[
+	\sigma\odot(\tau\odot v)
+	=c(\sigma)\sigma(c(\tau)(\tau v))
+	=c(\sigma)\bigl({}^\sigma c(\tau)(\sigma\tau v)\bigr)
+	=(\sigma\tau)\odot v,
+	\]
+	it follows that $\odot$ is indeed a $\Gamma$-action, while the smoothness
+	of $c$ ensures that $\odot$ is still a smooth semilinear action. Define the
+	$K$-vector space
+	$W:=(V_L)^{\Gamma,\;\odot\text{-action}}$. By Galois descent, we obtain an
+	isomorphism of $L$-vector spaces that preserves the semilinear
+	$\Gamma$-actions,
+	% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q025
+	\begin{gather*}
+		h:(V_L,\;\odot\text{-action})\rightiso
+		(W_L,\;\text{natural action}),\\
+		w\in W\implies h(w)=1\otimes w.
+	\end{gather*}
+
+	On the other hand, $\Gamma$ also acts semilinearly through $\odot$ on each
+	$T^{p,q}(V_L)$ (see the discussion following
+	Definition~\ref{def:tL}), and because
+	$c(\sigma)\in G(\mathbf{t}_{0,L})$, we have
+	% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q026
+	\[
+	\sigma\odot\mathbf{t}_{0,L}
+	=c(\sigma)(\sigma\mathbf{t}_{0,L})
+	=c(\sigma)\mathbf{t}_{0,L}
+	=\mathbf{t}_{0,L}.
+	\]
+	Thus, relative to $\odot$, the datum $\mathbf{t}_{0,L}$ descends to a datum
+	$\mathbf{t}$ on $W$, characterized by
+	$h(\mathbf{t}_{0,L})=\mathbf{t}_L$.
+
+	It follows that $\mathbf{t}\in\mathcal{T}(\mathbf{t}_0)$. The corresponding
+	isomorphism $h$ satisfies
+	$\sigma(h(v))=h(\sigma\odot v)=(hc(\sigma)\sigma)(v)$, that is, the identity
+	$\sigma h=hc(\sigma)\sigma$. Rewriting this as
+	$h^{-1}\cdot{}^\sigma h=c(\sigma)$ shows that $\mathbf{t}$ maps to $[c]$
+	under \eqref{eqn:Galois-H1-prep}. This proves the assertion.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p021
+The simplest and most direct application is the following. It follows from
+the general fact that every finite-dimensional vector space has a basis, so
+that dimension determines the isomorphism class of a finite-dimensional
+vector space.
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.t002
+\begin{theorem}[Hilbert's Theorem 90: the $\GL$ version]\label{prop:Hilbert-90-GL}
+	\index{Hilbert 90}
+	Let $V$ be a finite-dimensional $K$-vector space and let $L|K$ be a Galois
+	extension. Thus $\Gamma:=\Gal(L|K)$ acts smoothly on the group $\GL(V_L)$.
+	Then
+	% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q027
+	\[
+	\Hm^1(\Gamma,\GL(V_L))=1.
+	\]
+\end{theorem}
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.pf004
+\begin{proof}
+	Apply Theorem~\ref{prop:Galois-H1}, but take data $\mathbf{t}_0$ with
+	$I=\emptyset$. In other words, the data specify only a finite-dimensional
+	$K$-vector space $V$, with no tensors. In this case, the elements of
+	$\mathscr{T}(\mathbf{t}_0)$ correspond bijectively to the isomorphism
+	classes of $K$-vector spaces $W$ satisfying $W_L\simeq V_L$, equivalently
+	$\dim W=\dim V$. Clearly, there is only one such isomorphism class.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p022
+Similarly, over a field of characteristic $\neq2$, the general fact that
+every symplectic space $(V,\omega)$ has a symplectic basis leads to the
+following result.
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.t003
+\begin{theorem}
+	Let $\mathrm{char}(K)\neq2$, let $V$ be a $K$-vector space, and let
+	$\omega:V\times V\to K$ be a nondegenerate antisymmetric bilinear form
+	(also called a \emph{symplectic form}, while the datum $(V,\omega)$ is
+	called a \emph{symplectic space}). The corresponding symplectic group is
+	defined by
+	% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q028
+	\begin{align*}
+		\Sp(V)&=\Sp(V,\omega)\\
+		&:=\{g\in\GL(V):\forall v_1,v_2\in V,\;
+		\omega(gv_1,gv_2)=\omega(v_1,v_2)\}.
+	\end{align*}
+
+	Let $L|K$ be a Galois extension. Define the group $\Sp(V_L)$ and the
+	action of $\Gamma:=\Gal(L|K)$ on it similarly; this action is smooth. Then
+	% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q029
+	\[
+	\Hm^1(\Gamma,\Sp(V_L))=1.
+	\]
+\end{theorem}
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.pf005
+\begin{proof}
+	The data $\mathbf{t}_0$ under consideration consist of the space $V$ and
+	the tensor $\omega$ of type $(0,2)$. The nondegeneracy and antisymmetry of
+	a bilinear form can be checked after any field extension. Therefore the
+	elements of $\mathscr{T}(\mathbf{t}_0)$ correspond bijectively to the
+	isomorphism classes of symplectic spaces $(W,\eta)$ over $K$ satisfying
+	$(W_L,\eta_L)\simeq(V_L,\omega_L)$. By the structure theorem for
+	symplectic spaces---namely, that their dimension determines their
+	isomorphism class---such data $(W,\eta)$ form a single isomorphism class.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.eg001
+\begin{example}\label{eg:multiplicative-90-finite}
+	Take $\dim V=1$ in Theorem~\ref{prop:Hilbert-90-GL}. Since
+	$\GL(V_L)\simeq L^\times$ with the standard $\Gamma$-action, we obtain
+	% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q030
+	\[
+	\Hm^1(\Gamma,L^\times)=0.
+	\]
+	Since $L^\times$ is abelian, additive notation is used in this equation.
+	If $L|K$ is finite, it can be written in terms of the Tate cohomology of
+	Definition~\ref{def:TaHm} as $\TaHm^1(\Gamma,L^\times)=0$.
+
+	If $L|K$ is further assumed to be cyclic, the periodicity stated in
+	Example~\ref{eg:TaHm-periodic} gives
+	% segment-id: o014.aljabr2.chapter7.galois-descent-h1.q031
+	\[
+	\TaHm^{-1}(\Gamma,L^\times)
+	\simeq\TaHm^1(\Gamma,L^\times)=0.
+	\]
+	Thus we naturally recover the multiplicative version of Hilbert's Theorem
+	90; see \cite[Theorem 9.6.9]{Li1}.
+\end{example}
+
+% segment-id: o014.aljabr2.chapter7.galois-descent-h1.p023
+In general, directly computing $\Hm^1$ in order to classify mathematical
+objects may be rather difficult. Its value lies in the new perspective that
+it provides, as well as in the availability of cohomological tools such as
+the long exact sequence (Theorem~\ref{prop:nonabelian-long}) for studying
+classification problems.

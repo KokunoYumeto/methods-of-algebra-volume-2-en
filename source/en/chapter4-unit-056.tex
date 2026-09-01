@@ -1,0 +1,426 @@
+% Unit 056 English translation of chapter4.tex lines 1314--1512.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter4.triangulated-functor-localization
+% Coverage: complete Section 4.6; stops before Section 4.7 at line 1513.
+
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.h001
+\section{Triangulated Functors and Localization}\label{sec:triangulated-functor-localization}
+\hypertarget{o014.aljabr2.chapter4.triangulated-functor-localization}{ }
+
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.p001
+Fix a triangulated category $\mathcal{D}$ and a saturated triangulated
+subcategory $\mathcal{N}$, and denote the corresponding Verdier localization
+by $Q: \mathcal{D} \to \mathcal{D}/\mathcal{N}$. Likewise, consider a
+triangulated category $\mathcal{D}'$ and
+$Q': \mathcal{D}' \to \mathcal{D}'/\mathcal{N}'$.
+
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.p002
+Let $F: \mathcal{D} \to \mathcal{D}'$ be a triangulated functor. Consider the
+diagram whose solid part is given:
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.g001
+\begin{equation}\label{eqn:derived-situation}\begin{tikzcd}
+	\mathcal{D} \arrow[r, "F"] \arrow[d, "Q"'] & \mathcal{D}' \arrow[d, "{Q'}"] \\
+	\mathcal{D}/\mathcal{N} \arrow[dashed, r] & \mathcal{D}'/\mathcal{N}'
+\end{tikzcd}\end{equation}
+The naive hope is to complete the dashed part so that the entire diagram
+commutes. If
+$F\left(\Obj(\mathcal{N})\right) \subset \Obj(\mathcal{N}')$, then $Q'F$
+annihilates $\mathcal{N}$, and the universal property in
+Theorem~\ref{prop:Verdier-localization} induces the dashed functor. In practice,
+however, $F$ rarely has this property. We therefore settle for less and turn to
+the Kan extensions introduced in \S\ref{sec:Kan-extension}.
+
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.d001
+\begin{definition}[Derived functors of a triangulated functor]\label{def:Verdier-localization-functor}
+	\index{derived functor}
+	\index[sym1]{RNF@$\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}} F$}
+	\index[sym1]{LNF@$\mathrm{L}^{\mathcal{N}'}_{\mathcal{N}} F$}
+	Let $F: \mathcal{D} \to \mathcal{D}'$ be as above.
+	\begin{itemize}
+		\item If $\Lan_Q(Q' F)$ exists and is a triangulated functor, denote it by
+		$\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}} F:
+		\mathcal{D}/\mathcal{N} \to \mathcal{D}'/\mathcal{N}'$;
+		\item if $\Ran_Q(Q' F)$ exists and is a triangulated functor, denote it by
+		$\mathrm{L}^{\mathcal{N}'}_{\mathcal{N}} F:
+		\mathcal{D}/\mathcal{N} \to \mathcal{D}'/\mathcal{N}'$.
+	\end{itemize}
+	We call $\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}} F$ (respectively,
+	$\mathrm{L}^{\mathcal{N}'}_{\mathcal{N}} F$) the \emph{right derived
+	functor} (respectively, \emph{left derived functor}) of the triangulated
+	functor $F$. Its uniqueness up to unique isomorphism follows from the
+	uniqueness of Kan extensions.
+\end{definition}
+
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.p003
+By Definition~\ref{def:Kan-extension} of Kan extensions, these data fit into
+the $2$-cell diagrams
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.g002
+\begin{equation}\label{eqn:derived-can-morphism}\begin{tikzcd}
+	\mathcal{D} \arrow[r, "F"] \arrow[d, "Q"'] & \mathcal{D}' \arrow[d, "{Q'}"] \arrow[Rightarrow, ld] \\
+	\mathcal{D}/\mathcal{N} \arrow[r, "{\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}} F}"'] & \mathcal{D}'/\mathcal{N}'
+\end{tikzcd} \quad \begin{tikzcd}
+	\mathcal{D} \arrow[r, "F"] \arrow[d, "Q"'] & \mathcal{D}' \arrow[d, "{Q'}"] \\
+	\mathcal{D}/\mathcal{N} \arrow[r, "{\mathrm{L}^{\mathcal{N}'}_{\mathcal{N}} F}"'] \arrow[Rightarrow, ru] & \mathcal{D}'/\mathcal{N}' .
+\end{tikzcd}\end{equation}
+The universal property says that every way of filling
+\eqref{eqn:derived-situation} with a $2$-cell is obtained uniquely by
+``pushing out'' the diagram for
+$\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}}F$, or uniquely by ``pulling into''
+the diagram for $\mathrm{L}^{\mathcal{N}'}_{\mathcal{N}}F$, according to the
+direction of the filling.
+
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.p004
+As an illustration, we explain how the universal property of the $2$-cell
+derives a canonical morphism
+$\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}}F \to
+\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}}G$ from a morphism of functors
+$F \to G$, assuming that these derived functors exist. Examine the diagram on
+the left:
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.g003
+\[\begin{tikzcd}[column sep=large]
+	\mathcal{D} \arrow[r, bend left=45, "F", ""' {name=U}] \arrow[r, "G"', "" {name=D}] \arrow[d] & \mathcal{D}' \arrow[d] \arrow[Rightarrow, ld] \\
+	\mathcal{D}/\mathcal{N} \arrow[r, "{\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}}G }"'] & \mathcal{D}'/\mathcal{N}' \arrow[Rightarrow, from=U, to=D]
+\end{tikzcd} \xlongequal{\text{vertical composition}} \begin{tikzcd}[column sep=large, row sep=large]
+	\mathcal{D} \arrow[r, "F"] \arrow[d] & \mathcal{D}' \arrow[d] \arrow[Rightarrow, ld] \\
+	\mathcal{D}/\mathcal{N} \arrow[r, "{\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}}F }", ""' {name=U}] \arrow[bend right=60, r, "{\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}}G }"', "" {name=D}] & \mathcal{D}'/\mathcal{N}' \arrow[Rightarrow, from=U, to=D, "{\exists!}"' near start]
+\end{tikzcd}\]
+By the universal property of \eqref{eqn:derived-can-morphism}, the vertical
+composite in the left-hand diagram is uniquely the pushout of the diagram
+corresponding to $\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}}F$, as shown on the
+right. This ``push'' is the desired canonical morphism. The case of left
+derived functors is of course dual. The next remark shows that these canonical
+morphisms are compatible with translation.
+
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.r001
+\begin{remark}\label{rem:derived-can-morphism}
+	Suppose that $\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}}F$ (respectively,
+	$\mathrm{L}^{\mathcal{N}'}_{\mathcal{N}}F$) exists. If $(L,\xi)$
+	(respectively, $(R,\delta)$) in the universal property of the Kan extension
+	is taken to consist of a triangulated functor and a morphism compatible with
+	translation (see Definition~\ref{def:category-with-translation}), then the
+	determined morphism
+	$\chi: \mathrm{R}^{\mathcal{N}'}_{\mathcal{N}}F \to L$ (respectively,
+	$\theta: R \to \mathrm{L}^{\mathcal{N}'}_{\mathcal{N}}F$) is automatically
+	compatible with translation as well. This follows immediately from
+	uniqueness.
+\end{remark}
+
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.p005
+Definition~\ref{def:Verdier-localization-functor} raises two questions. First,
+how can the existence of $\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}}F$ (or
+$\mathrm{L}^{\mathcal{N}'}_{\mathcal{N}}F$) be guaranteed? Second, how do
+these functors relate to composition of functors? We address the two questions
+in order.
+
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.d002
+\begin{definition}\label{def:F-injective}
+	\index{$\cdots$-injective subcategory}
+	\index{$\cdots$-projective subcategory}
+	Let $\mathcal{N}$, $\mathcal{N}'$, and
+	$F: \mathcal{D} \to \mathcal{D}'$ be as above, and let $\mathcal{I}$ be a
+	triangulated subcategory of $\mathcal{D}$. If the following conditions hold,
+	\begin{description}
+		\item[Resolution condition] for every $X \in \Obj(\mathcal{D})$ there is
+		a morphism $X \to Y$ (respectively, $Y \to X$) in $S\mathcal{N}$ with
+		$Y \in \Obj(\mathcal{I})$;
+		\item[$\mathcal{N}$-preservation condition]
+		$F\left(\Obj(\mathcal{N}\cap\mathcal{I})\right)
+		\subset \Obj(\mathcal{N}')$,
+	\end{description}
+	then $\mathcal{I}$ is called \emph{$F$-injective} (respectively,
+	\emph{$F$-projective}).
+\end{definition}
+
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.p006
+For example, if
+$F\left(\Obj(\mathcal{N})\right) \subset \Obj(\mathcal{N}')$, then
+$\mathcal{D}$ itself is both $F$-injective and $F$-projective.
+
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.p007
+The condition
+$F\left(\Obj(\mathcal{N}\cap\mathcal{I})\right)\subset\Obj(\mathcal{N}')$,
+together with the universal property of Verdier localization, gives a
+triangulated functor
+$F^\flat: \mathcal{I}/(\mathcal{I}\cap\mathcal{N})
+\to \mathcal{D}'/\mathcal{N}'$.
+
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.pr001
+\begin{proposition}\label{prop:localization-injective}
+	If $\mathcal{I}$ is an $F$-injective (respectively, $F$-projective)
+	triangulated subcategory, then
+	$\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}}F$ (respectively,
+	$\mathrm{L}^{\mathcal{N}'}_{\mathcal{N}}F$) exists, and the following
+	diagram commutes up to isomorphism:
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.g004
+	\[\begin{tikzcd}
+		\mathcal{D}/\mathcal{N} \arrow[r, "\text{desired functor}"] & \mathcal{D}'/\mathcal{N}' . \\
+		\mathcal{I}/(\mathcal{I} \cap \mathcal{N}) \arrow[u, "{i: \text{equivalence}}"] \arrow[ru, "{F^\flat}"'] &
+	\end{tikzcd}\]
+\end{proposition}
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.pf001
+\begin{proof}
+	Consider the case of $\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}}F$. The
+	existence of the left Kan extension $\Lan_Q(Q'F)$ follows from
+	Proposition~\ref{prop:injective-localization} (ii). The only point requiring
+	verification is that $Q'F$ sends
+	$S\mathcal{N}\cap\Mor(\mathcal{I})
+	\xlongequal{\eqref{eqn:S-N-D}}S(\mathcal{N}\cap\mathcal{I})$ to
+	isomorphisms. Take $f:A\to B$ in this set and complete it to a distinguished
+	triangle $A\xrightarrow{f}B\to C\xrightarrow{+1}$, where
+	$C\in\Obj(\mathcal{N}\cap\mathcal{I})$. Then the distinguished triangle
+	$FA\xrightarrow{Ff}FB\to FC\xrightarrow{+1}$ has
+	$FC\in\Obj(\mathcal{N}')$, ensuring that $(Q'F)(f)$ is an isomorphism.
+
+	Proposition~\ref{prop:triangulated-i-equiv} implies that $i$ has a
+	triangulated quasi-inverse $i^{-1}$. Consequently,
+	$\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}}F:=F^\flat\circ i^{-1}$ gives
+	$\Lan_Q(Q'F)$ and is at the same time a triangulated functor.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.t001
+\begin{theorem}\label{prop:localization-triangulated-composite}
+	Consider triangulated categories $\mathcal{D}$, $\mathcal{D}'$, and
+	$\mathcal{D}''$, with saturated triangulated subcategories
+	$\mathcal{N}$, $\mathcal{N}'$, and $\mathcal{N}''$. Let triangulated
+	functors
+	$\mathcal{D}\xrightarrow{F}\mathcal{D}'\xrightarrow{F'}\mathcal{D}''$
+	be given.
+	\begin{enumerate}[(i)]
+		\item Suppose that the right derived functors
+		$\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}}F$,
+		$\mathrm{R}^{\mathcal{N}''}_{\mathcal{N}'}F'$, and
+		$\mathrm{R}^{\mathcal{N}''}_{\mathcal{N}}(F'F)$ exist. There is then a
+		corresponding canonical morphism
+		\[ \mathrm{R}^{\mathcal{N}''}_{\mathcal{N}} (F' F) \to \left( \mathrm{R}^{\mathcal{N}''}_{\mathcal{N}'} F' \right) \left( \mathrm{R}^{\mathcal{N}'}_{\mathcal{N}} F \right). \]
+		\item The analogous statement holds for left derived functors, with the
+		corresponding canonical morphism
+		\[ \left( \mathrm{L}^{\mathcal{N}''}_{\mathcal{N'}} F' \right) \left( \mathrm{L}^{\mathcal{N}'}_{\mathcal{N}} F \right) \to \mathrm{L}^{\mathcal{N}''}_{\mathcal{N}} (F' F). \]
+		\item Fix a triangulated subcategory $\mathcal{I}$ of $\mathcal{D}$
+		(and a triangulated subcategory $\mathcal{I}'$ of $\mathcal{D}'$). If
+		$\mathcal{I}$ is $F$-injective, $\mathcal{I}'$ is $F'$-injective, and
+		$F(\Obj(\mathcal{I}))\subset\Obj(\mathcal{I}')$, then $\mathcal{I}$ is
+		$F'F$-injective and the canonical morphism in (i) is an isomorphism.
+		\item The analogous statement holds with ``injective'' replaced by
+		``projective.'' In this case, $\mathcal{I}$ is $F'F$-projective and the
+		canonical morphism in (ii) is an isomorphism.
+	\end{enumerate}
+\end{theorem}
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.pf002
+\begin{proof}
+	Clearly, (i), (iii) are respectively dual to (ii), (iv), so it suffices to
+	consider the former pair.
+
+	For (i), write $R:=\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}}F$ and
+	$R':=\mathrm{R}^{\mathcal{N}''}_{\mathcal{N}'}F'$. Consider the $2$-cell
+	diagram
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.g005
+	\[\begin{tikzcd}
+		\mathcal{D} \arrow[r, "F"] \arrow[d, "Q"'] & \mathcal{D}' \arrow[r, "{F'}"] \arrow[d, "{Q'}"] \arrow[Rightarrow, ld] & \mathcal{D}'' \arrow[d, "{Q''}"] \arrow[Rightarrow, ld] \\
+		\mathcal{D}/\mathcal{N} \arrow[r, "R"'] & \mathcal{D}'/\mathcal{N}' \arrow[r, "{R'}"'] & \mathcal{D}''/\mathcal{N}''
+	\end{tikzcd}\]
+	The universal property of the left Kan extension gives
+	$\mathrm{R}^{\mathcal{N}''}_{\mathcal{N}}(F'F)\to R'R$, characterized by
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.g006
+	\begin{equation}\label{eqn:R-composite-aux}\begin{tikzcd}[column sep=large]
+			\mathcal{D} \arrow[r, "{F' F}"] \arrow[d, "Q"'] & \mathcal{D}'' \arrow[d, "{Q''}"] \arrow[Rightarrow, ld] \\
+			\mathcal{D}/\mathcal{N} \arrow[r, "{\mathrm{R}^{\mathcal{N}''}_{\mathcal{N}} (F'F) }"' {below, name=R}] \arrow[r, "{R' R}"{below, name=RR, pos=0.465}, rounded corners, to path={-- ([yshift=-2em]\tikztostart.south) -- ([yshift=-2em] \tikztotarget.south) [midway]\tikztonodes -- (\tikztotarget) }] & \mathcal{D}''/\mathcal{N}''
+			\arrow[Rightarrow, from=R, to=RR]
+			% The hack pos=0.465 is for cosmetic reasons...
+		\end{tikzcd} \;\text{composed with}\; = \begin{tikzcd}
+			\mathcal{D} \arrow[r, "{F' F}"] \arrow[d, "Q"'] & \mathcal{D}'' \arrow[d, "{Q''}"] \arrow[Rightarrow, ld] \\
+			\mathcal{D}/\mathcal{N} \arrow[r, "{R'R}"' inner sep=0.8em] & \mathcal{D}''/\mathcal{N}'' .
+		\end{tikzcd}\end{equation}
+
+	For (iii), the fact that $\mathcal{I}$ is $F'F$-injective follows directly
+	from Definition~\ref{def:F-injective} and the condition
+	$F(\Obj(\mathcal{I}))\subset\Obj(\mathcal{I}')$. Let
+	$Y\in\Obj(\mathcal{I})$. The construction in
+	Proposition~\ref{prop:localization-injective} gives
+	\begin{gather*}
+		RQY = Q'FY \in \Obj \left(\mathcal{I}'/(\mathcal{N}'\cap\mathcal{I}')\right), \\
+		(R'R)QY = R'(Q'FY) = Q'' F'FY = \mathrm{R}^{\mathcal{N}''}_{\mathcal{N}} (F' F)(QY).
+	\end{gather*}
+
+	For a general object $QX\in\Obj(\mathcal{D}/\mathcal{N})$, with
+	$X\in\Obj(\mathcal{D})$, there is a morphism $X\to Y$ in
+	$S\mathcal{N}$ with $Y\in\Obj(\mathcal{I})$, so that
+	$QX\rightiso QY$. Applying the preceding step yields an isomorphism
+	$\mathrm{R}^{\mathcal{N}''}_{\mathcal{N}}(F'F)(QX)\simeq R'R(QX)$.
+	The interested reader may check that these isomorphisms are indeed
+	compatible with the morphism
+	$\mathrm{R}^{\mathcal{N}''}_{\mathcal{N}}(F'F)\to R'R$ characterized by
+	\eqref{eqn:R-composite-aux}.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.r002
+\begin{remark}[P.\ Deligne's definition]\label{rem:Deligne-derived-functor}
+	\index{derived functor!Deligne's definition}
+	By Proposition~\ref{prop:injective-localization} (iii), under the hypotheses
+	of Proposition~\ref{prop:localization-injective}, the derived functors can be
+	written as
+	\begin{align*}
+		(\mathrm{R}_{\mathcal{N}}^{\mathcal{N}'} F)(QX) & \simeq \varinjlim_{(X \to Y) \in \Obj(S\mathcal{N}_{X/})} (Q'F)Y, \\
+		(\mathrm{L}_{\mathcal{N}}^{\mathcal{N}'} F)(QX) & \simeq \varprojlim_{(Y \to X) \in \Obj(S\mathcal{N}_{/X}^{\opp})} (Q'F)Y.
+	\end{align*}
+	These isomorphisms are canonical and, by means of resolutions, each limit
+	is attained by some $Y$. In \cite[Exp XVII, Déf 1.2.1]{SGA4-3}, Deligne
+	defines $(\mathrm{R}F_{\mathcal{N}}^{\mathcal{N}'} F)(QX)$ and
+	$(\mathrm{L}_{\mathcal{N}}^{\mathcal{N}'} F)(QX)$ respectively as the
+	above limits, provided that the limit in question is actually attained by
+	some $Y$. One advantage of this definition is that it can be applied to a
+	single object $X$, and hence can be made ``partial.''
+
+	The formulas above also describe the morphisms that come with the derived
+	functors as Kan extensions,
+	$Q'F\to(\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}}F)Q$ and
+	$(\mathrm{L}^{\mathcal{N}'}_{\mathcal{N}}F)Q\to Q'F$. They correspond,
+	respectively, to the terms $Y=X$ in $\varinjlim$ and $\varprojlim$.
+\end{remark}
+
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.p008
+We now turn to bifunctors. Let $\mathcal{D}_1$, $\mathcal{D}_2$, and
+$\mathcal{D}'$ be triangulated categories, with translation functors
+$T_1$, $T_2$, and $T'$, respectively.
+
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.d003
+\begin{definition}\label{def:triangulated-bifunctor}
+	\index{bifunctor!triangulated}
+	A \emph{triangulated bifunctor} from
+	$\mathcal{D}_1\times\mathcal{D}_2$ to $\mathcal{D}'$ consists of the
+	following data.
+	\begin{itemize}
+		\item A bifunctor $F:\mathcal{D}_1\times\mathcal{D}_2\to\mathcal{D}'$
+		endowed with the structure of a triangulated functor in each variable.
+		\item For all $X\in\Obj(\mathcal{D}_1)$ and
+		$Y\in\Obj(\mathcal{D}_2)$, the following diagram is anticommutative
+		(that is, its two composites differ by a minus sign)\footnote{Compare
+		Proposition~\ref{prop:tot-shift}.}
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.g007
+		\[\begin{tikzcd}
+			F(T_1 X, T_2 Y) \arrow[r] \arrow[d] & T' F(X, T_2 Y) \arrow[d] \\
+			T' F(T_1 X, Y) \arrow[r] & (T')^2(X, Y)
+		\end{tikzcd}\]
+		The arrows come from the triangulated-functor structures of $F$ in the
+		two variables.
+	\end{itemize}
+\end{definition}
+
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.p009
+In the situation above, take $\mathcal{N}_1$, $\mathcal{N}_2$, and
+$\mathcal{N}'$ to be saturated triangulated subcategories of
+$\mathcal{D}_1$, $\mathcal{D}_2$, and $\mathcal{D}'$, respectively. Denote
+the corresponding localization functors by
+$Q_i:\mathcal{D}_i\to\mathcal{D}_i/\mathcal{N}_i$ ($i=1,2$) and
+$Q':\mathcal{D}'\to\mathcal{D}'/\mathcal{N}'$. Now fix a triangulated
+bifunctor $F:\mathcal{D}_1\times\mathcal{D}_2\to\mathcal{D}'$. For this
+bifunctor we may study the functor-extension problem in the diagram
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.g008
+\[\begin{tikzcd}
+	\mathcal{D}_1 \times \mathcal{D}_2 \arrow[d, "{(Q_1, Q_2)}"'] \arrow[r, "F"] & \mathcal{D}' \arrow[d, "{Q'}"] \\
+	(\mathcal{D}_1 / \mathcal{N}_1) \times (\mathcal{D}_2 / \mathcal{N}_2) \arrow[r, dashed] & \mathcal{D}'/\mathcal{N}' .
+\end{tikzcd}\]
+Since $(Q_1,Q_2)$ is the localization at the multiplicative system
+$S\mathcal{N}_1\times S\mathcal{N}_2$
+(Remark~\ref{rem:localization-product-cat}), we can still speak of the two Kan
+extensions of $Q'F$ along $(Q_1,Q_2)$.
+
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.d004
+\begin{definition}[Derived functors of a triangulated bifunctor]\label{def:bifunctor-triangulated-localization}
+	\index{derived bifunctor}
+	\index[sym1]{RNNF@$\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}_1 \times \mathcal{N}_2} F$}
+	\index[sym1]{LNNF@$\mathrm{L}^{\mathcal{N}'}_{\mathcal{N}_1 \times \mathcal{N}_2} F$}
+	For the data above, if
+	\[ \Lan_{(Q_1, Q_2)} (Q' F), \quad \text{(respectively, $\Ran_{(Q_1, Q_2)}(Q' F)$)} \]
+	exists and is a triangulated bifunctor, denote it by
+	$\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}_1\times\mathcal{N}_2}F$
+	(respectively,
+	$\mathrm{L}^{\mathcal{N}'}_{\mathcal{N}_1\times\mathcal{N}_2}F$) and call
+	it the \emph{right derived bifunctor} (respectively, \emph{left derived
+	bifunctor}) of $F$.
+\end{definition}
+
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.d005
+\begin{definition}\label{def:F-injective-bifunctor}
+	\index{$\cdots$-injective subcategory}
+	\index{$\cdots$-projective subcategory}
+	Consider a triangulated bifunctor
+	$F:\mathcal{D}_1\times\mathcal{D}_2\to\mathcal{D}'$, together with
+	$\mathcal{N}_1$, $\mathcal{N}_2$, and $\mathcal{N}'$ as above. Let
+	$\mathcal{I}_i$ be a triangulated subcategory of $\mathcal{D}_i$. We call
+	$(\mathcal{I}_1,\mathcal{I}_2)$ \emph{$F$-injective} (respectively,
+	\emph{$F$-projective}) if the following properties hold simultaneously:
+	\begin{itemize}
+		\item for every $X_1\in\Obj(\mathcal{I}_1)$, the subcategory
+		$\mathcal{I}_2$ is $F(X_1,\cdot)$-injective (respectively, projective);
+		\item for every $X_2\in\Obj(\mathcal{I}_2)$, the subcategory
+		$\mathcal{I}_1$ is $F(\cdot,X_2)$-injective (respectively, projective).
+	\end{itemize}
+\end{definition}
+
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.p010
+For $\mathcal{I}_j$ as above ($j=1,2$), the universal property of Verdier
+localization gives
+$i_j:\mathcal{I}_j/(\mathcal{I}_j\cap\mathcal{N}_j)
+\to\mathcal{D}_j/\mathcal{N}_j$. The following is the counterpart of
+Proposition~\ref{prop:localization-injective}.
+
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.pr002
+\begin{proposition}\label{prop:localization-injective-bifunctor}
+	Suppose that $(\mathcal{I}_1,\mathcal{I}_2)$ is $F$-injective.
+	\begin{enumerate}[(i)]
+		\item The right derived bifunctor
+		$\mathrm{R}F:=\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}_1\times\mathcal{N}_2}F$
+		exists, and the following diagram commutes up to isomorphism:
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.g009
+		\[\begin{tikzcd}
+			\mathcal{D}_1 /\mathcal{N}_1 \times \mathcal{D}_2 /\mathcal{N}_2 \arrow[r, "\mathrm{R}F"] & \mathcal{D}'/\mathcal{N}' \\
+			\mathcal{I}_1 /(\mathcal{I}_1 \cap \mathcal{N}_1) \times \mathcal{I}_2 /(\mathcal{I}_2 \cap \mathcal{N}_2) \arrow[u, "{i = (i_1, i_2): \text{equivalence}}"] \arrow[ru, "{F^\flat}"'] &
+		\end{tikzcd}\]
+		where $F^\flat$ is determined by the universal property of localization.
+		\item For $X_1\in\Obj(\mathcal{I}_1)$ and
+		$X_2\in\Obj(\mathcal{I}_2)$, there are canonical isomorphisms
+		\[ (\mathrm{R}F)(Q_1 X_1, \cdot) \simeq \mathrm{R}^{\mathcal{N}'}_{\mathcal{N}_2} F(X_1, \cdot), \quad (\mathrm{R}F)(\cdot, Q_2 X_2) \simeq \mathrm{R}^{\mathcal{N}'}_{\mathcal{N}_1} F(\cdot, X_2). \]
+	\end{enumerate}
+	The corresponding statements remain valid if $F$-injective is replaced by
+	$F$-projective and $\mathrm{R}F$ by $\mathrm{L}F$.
+\end{proposition}
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.pf003
+\begin{proof}
+	It suffices to treat the $F$-injective case. First,
+	Proposition~\ref{prop:injective-localization} (i) implies that $i$ is an
+	equivalence. The hypotheses show that $Q'F$ sends
+	$S\mathcal{N}_1\cap\Mor(\mathcal{I}_1)\times
+	S\mathcal{N}_2\cap\Mor(\mathcal{I}_2)$ to isomorphisms; this need only be
+	checked in each variable separately. Proposition~\ref{prop:injective-localization}
+	(ii) implies that $Q'F$ has a left Kan extension along $(Q_1,Q_2)$, namely
+	$\mathrm{R}F$, which makes the diagram above commute up to isomorphism.
+
+	We next show that $\mathrm{R}F$ is a triangulated bifunctor. By
+	Proposition~\ref{prop:localization-triangulated}, the relevant properties
+	can be transported along the equivalence $i$ and checked for $F$ on
+	$\mathcal{I}_1\times\mathcal{I}_2$. This proves (i).
+
+	For (ii), by symmetry it suffices to fix
+	$X_1\in\Obj(\mathcal{I}_1)$. In this case
+	$F^\flat(Q_1X_1,\cdot):
+	\mathcal{I}_2/(\mathcal{I}_2\cap\mathcal{N}_2)
+	\to\mathcal{D}'/\mathcal{N}'$ is determined from $Q'F(X_1,\cdot)$ by the
+	universal property of localization, and the following diagram of functors
+	commutes up to isomorphism:
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.g010
+	\[\begin{tikzcd}[column sep=large, row sep=large]
+		\mathcal{D}_2 / \mathcal{N}_2 \arrow[r, "{\mathrm{R}F(Q_1 X_1, \cdot)}" inner sep=0.6em] & \mathcal{D}'/ \mathcal{N}' \\
+		\mathcal{I}_2 / \mathcal{I}_2 \cap \mathcal{N}_2 \arrow[u, "{i_2: \text{equivalence}}"] \arrow[ru, "{F^\flat(Q_1 X_1, \cdot)}" description] & \mathcal{I}_2 \arrow[l] \arrow[u, "{Q' F(X_1, \cdot)}"']
+	\end{tikzcd}\]
+	Since $\mathcal{I}_2$ is $F(X_1,\cdot)$-injective, comparison with the
+	construction in Proposition~\ref{prop:localization-injective} shows that
+	$(\mathrm{R}F)(Q_1X_1,\cdot)$ is precisely
+	$\mathrm{R}^{\mathcal{N}'}_{\mathcal{N}_2}F(X_1,\cdot)$.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.triangulated-functor-localization.p011
+Once $F$-injective (respectively, $F$-projective) data
+$(\mathcal{I}_1,\mathcal{I}_2)$ are available, the limit formulas in
+Remark~\ref{rem:Deligne-derived-functor} also apply to the left (respectively,
+right) derived bifunctor of $F$.

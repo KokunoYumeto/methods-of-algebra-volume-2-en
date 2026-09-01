@@ -1,0 +1,253 @@
+% English translation of chapter3.tex lines 57--162.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter3.complexes-over-additive-categories
+% Scope: complete Section 3.1.
+
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.h001
+\section{Complexes over Additive Categories}\label{sec:additive-cplx}
+\hypertarget{o014.aljabr2.chapter3.complexes-over-additive-categories}{ }
+
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.p001
+Definition~\ref{def:complex} briefly introduced complexes and their usual
+notation. Let $\mathcal{A}$ be an additive category, and consider unbounded
+complexes over it, that is, complexes without endpoint terms,
+$X=(X^n,d^n)_{n\in\Z}$. The morphism $d^n$ is often denoted by $d_X^n$.
+For historical reasons, the morphisms $d_X^n$ are also called
+``differentials.''
+\index{differential}
+
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.d001
+\begin{definition}\label{def:cplx-cat}
+	\index{complex}
+	\index[sym1]{CA@$\cate{C}(\mathcal{A})$}
+	A morphism from a complex $X$ to a complex $Y$ is defined to be data
+	$(f^n)_{n\in\Z}$, also abbreviated to $f$, where
+	$f^n\in\Hom_{\mathcal{A}}(X^n,Y^n)$ satisfies
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.q001
+	\[ d_Y^n f^n=f^{n+1}d_X^n,\quad n\in\Z. \]
+
+	All complexes and their morphisms form a category $\cate{C}(\mathcal{A})$.
+	The identity morphism of a complex $X$ is determined by
+	$(\identity_X)^n:=\identity_{X^n}$, and composition is defined by
+	$(gf)^n=g^nf^n$. Addition
+	$f+g:=(f^n+g^n)_{n\in\Z}$ makes
+	$\Hom_{\cate{C}(\mathcal{A})}(X,Y)$ an abelian group.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.p002
+If $\mathcal{A}$ is a $\Bbbk$-linear category in the sense of
+Definition~\ref{def:k-linear-cat}, for a fixed commutative ring $\Bbbk$,
+then $\Hom_{\cate{C}(\mathcal{A})}(X,Y)$ is also a $\Bbbk$-module under
+termwise scalar multiplication. In every result of this section, ``additive''
+may be replaced by the more general term ``$\Bbbk$-linear.'' For brevity,
+only the additive version will be stated.
+
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.p003
+The key property in the definition of a complex is $d^{n+1}d^n=0$. It can
+also be recast in the language of differential graded objects.%
+\footnote{The related discussion continues in
+\S~\sourcecrossref{sec:spectral-sequence}{5.2}.}
+
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.d002
+\begin{definition}[Graded objects]\label{def:graded-obj}
+	\index{graded object}
+	\index{graded object!$\Z^m$-graded; bigraded}
+	Let $\mathcal{A}$ be an arbitrary category. Recall the construction of the
+	product category $\mathcal{A}^{\Z}$:
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.l001
+	\begin{compactitem}
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.i001
+		\item its objects are of the form $X=(X^n)_{n\in\Z}$, where
+		$X^n\in\Obj(\mathcal{A})$;
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.i002
+		\item its morphisms are of the form
+		$f=(f^n:X^n\to Y^n)_{n\in\Z}$, with no further condition, and
+		composition is performed termwise (or degreewise), so that
+		$(gf)^n=g^nf^n$;
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.i003
+		\item define an automorphism $T$ of $\mathcal{A}^{\Z}$ by the following
+		``shift'' functor: $(TX)^n=X^{n+1}$ and $(Tf)^n=f^{n+1}$.
+	\end{compactitem}
+	An object $X=(X^n)_n$ is also called a \emph{$\Z$-graded object} over
+	$\mathcal{A}$, or simply a \emph{graded object}.
+
+	More generally, objects of $\mathcal{A}^{\Z^m}$ are called
+	$\Z^m$-graded objects and are written
+	$(X^{n_1,\ldots,n_m})_{n_1,\ldots,n_m}$; their morphisms are written
+	$(f^{n_1,\ldots,n_m})_{n_1,\ldots,n_m}$. This category carries a family
+	of mutually commuting shift functors $T_1,\ldots,T_m$. The special case
+	$m=2$ is also called a \emph{bigraded object}.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.p004
+If $\mathcal{A}$ is additive, then so is $\mathcal{A}^{\Z^m}$: addition of
+morphisms, direct sums of objects, and all other operations are performed
+degreewise.
+
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.d003
+\begin{definition}[Differential graded objects]
+	\index{differential graded object}
+	Let $\mathcal{A}$ be an additive category. A differential graded object
+	over $\mathcal{A}$ is data $(X,d)$, where
+	$X\in\Obj(\mathcal{A}^{\Z})$ and $d:X\to TX$ satisfies $(Td)d=0$. A
+	morphism $(X,d_X)\to(Y,d_Y)$ is a morphism
+	$f\in\Hom_{\mathcal{A}^{\Z}}(X,Y)$ satisfying $(Tf)d_X=d_Yf$.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.p005
+Writing $d$ in a differential graded object $(X,d)$ concretely as a family
+of morphisms $d_X^n:X^n\to X^{n+1}$, the condition on $d$ is
+$d_X^{n+1}d_X^n=0$, while the condition on a morphism is
+$f^{n+1}d_X^n=d_Y^nf^n$. We have thus recovered
+Definition~\ref{def:cplx-cat}. Hence the category of differential graded
+objects over $\mathcal{A}$ is isomorphic to the category of complexes. We
+shall pass between these two viewpoints without further comment.
+
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.p006
+The first step in studying complexes is to understand the various limits in
+$\cate{C}(\mathcal{A})$. The version for the product category
+$\mathcal{A}^{\Z}$ is straightforward: limits can be formed at each
+$n\in\Z$, that is, termwise or degreewise in $\mathcal{A}$. We now explain
+how to lift this construction to $\cate{C}(\mathcal{A})$. Write
+$U:\cate{C}(\mathcal{A})\to\mathcal{A}^{\Z}$ for the forgetful functor
+sending a differential graded object $(X,d)$ to its underlying graded object
+$X$.
+
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.le001
+\begin{lemma}[Termwise construction of limits]\label{prop:limits-cplx}
+	For any functor $\alpha:I\to\cate{C}(\mathcal{A})$, write
+	$\overline{\alpha}:=U\alpha$. Suppose that
+	$\varinjlim\overline{\alpha}$ exists. It admits a unique structure as an
+	object of $\cate{C}(\mathcal{A})$ for which it is $\varinjlim\alpha$.
+	The corresponding statement holds for $\varprojlim$.
+
+	In the language of Definition~\ref{def:create-limit}, this says that the
+	forgetful functor $U$ creates $\varinjlim$ and $\varprojlim$.
+\end{lemma}
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.pf001
+\begin{proof}
+	Suppose that $\alpha:I\to\cate{C}(\mathcal{A})$ sends
+	$i\in\Obj(I)$ to the differential graded object
+	$\alpha(i)=(\overline{\alpha}(i),d_i)$. If
+	$\varinjlim\overline{\alpha}$ exists, the morphisms $d_i$ determine
+	$d:\varinjlim\overline{\alpha}\to
+	(T\varinjlim\overline{\alpha}\simeq
+	\varinjlim T\overline{\alpha})$; here the automorphism $T$ automatically
+	preserves $\varinjlim$. This morphism is characterized by the commutative
+	diagram
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.g001
+	\[\begin{tikzcd}
+		\varinjlim \overline{\alpha} \arrow[r, "d"] & \varinjlim T\overline{\alpha} \arrow[r, "\sim"] & T\varinjlim \overline{\alpha} \\
+		\overline{\alpha}(i) \arrow[u] \arrow[r, "{d_i}"'] & T\overline{\alpha}(i) \arrow[u] \arrow[ru] &
+	\end{tikzcd} \qquad (i \in \Obj(I)) . \]
+
+	The relations $(Td_i)d_i=0$ imply $(Td)d=0$, so
+	$(\varinjlim\overline{\alpha},d)$ is an object of
+	$\cate{C}(\mathcal{A})$. The diagram also shows that this is the unique
+	choice making all maps
+	$(\overline{\alpha}(i),d_i)\to
+	(\varinjlim\overline{\alpha},d)$ morphisms.
+
+	We verify its universal property as $\varinjlim\alpha$ in
+	$\cate{C}(\mathcal{A})$. Suppose a compatible family of morphisms
+	$f_i:\alpha(i)\to L$ in $\cate{C}(\mathcal{A})$ is given. Forgetting the
+	differentials gives $f_i:\overline{\alpha}(i)\to U(L)$, which determines a
+	unique $f:\varinjlim\overline{\alpha}\to U(L)$. The key point is to show
+	that $f$ is a morphism in $\cate{C}(\mathcal{A})$. Although this is to be
+	expected, we write the diagram explicitly:
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.g002
+	\[\begin{tikzcd}
+		\varinjlim \overline{\alpha} \arrow[dd, "f"'] \arrow[rr, "d"] & & \varinjlim T\overline{\alpha} \arrow[r, "\sim"] & T\varinjlim \overline{\alpha} \arrow[dd, "{Tf}"] \\
+		& \overline{\alpha}(i) \arrow[lu] \arrow[ld, "{f_i}"] \arrow[r, "d_i"] & T\overline{\alpha}(i) \arrow[ru] \arrow[rd, "{Tf_i}"] \arrow[u] & \\
+		U(L) \arrow[rrr, "d_L"'] & & & TU(L)
+	\end{tikzcd} \qquad (i \in \Obj(I)). \]
+	Commutativity of every part follows directly from the definitions or the
+	construction. Thus the composites of $d_Lf$ and $(Tf)d$ with every map
+	$\overline{\alpha}(i)\to\varinjlim\overline{\alpha}$ agree. Therefore
+	$d_Lf=(Tf)d$, as required.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.pr001
+\begin{proposition}\label{prop:additive-cat-cplx}
+	The category $\cate{C}(\mathcal{A})$ is additive. If $\mathcal{A}$ is
+	complete (respectively, cocomplete), then $\cate{C}(\mathcal{A})$ is also
+	complete (respectively, cocomplete).
+\end{proposition}
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.pf002
+\begin{proof}
+	Use Lemma~\ref{prop:limits-cplx} to reduce every required limit to a
+	degreewise limit in $\mathcal{A}$.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.d004
+\begin{definition}[Translation functors]\label{def:translation-functor}
+	\index{translation functor}
+	\index[sym1]{[n]@$[n]$}
+	Let $X$ be an object of $\cate{C}(\mathcal{A})$ and let $n\in\Z$. Define
+	the complex $X[n]$ as follows:%
+	\footnote{Inserting $(-1)^n$ in the definition of $d_{X[n]}$ is useful.
+	This version is also isomorphic to the signless version
+	$X[n]^\circ:=\left(X^{n+k},d_X^{k+n}\right)_k$. For $n=1$, define
+	$X[1]\rightiso X[1]^\circ$ using the sign pattern
+	$\cdots,+,-,+,\cdots$.}
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.q002
+	\[ \left(X[n]\right)^k:=X^{k+n},\quad
+	d_{X[n]}^k:=(-1)^nd_X^{k+n}. \]
+	This construction gives an additive functor
+	$[n]:\cate{C}(\mathcal{A})\to\cate{C}(\mathcal{A})$. If $f:X\to Y$ is a
+	morphism of complexes, then $f[n]:X[n]\to Y[n]$ is given by
+	$f[n]^k:=f^{n+k}$.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.p007
+It is clear that $X[n]$ is again a complex, so the functor is well defined.
+The following properties are also immediate.
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.l002
+\begin{itemize}
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.i004
+	\item $[0]=\identity_{\cate{C}(\mathcal{A})}$.
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.i005
+	\item $[n][m]=[n+m]$. Thus $[n]$ is an automorphism of
+	$\cate{C}(\mathcal{A})$, with inverse $[-n]$.
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.i006
+	\item The family $(d_X^n)_{n\in\Z}$ gives a morphism of complexes
+	$d_X:X\to X[1]$ (Hint: $d_X^{n+1}d_X^n=0$).
+\end{itemize}
+
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.c001
+\begin{convention}\label{con:concentrated-cplx}
+	Every object $S$ of $\mathcal{A}$ may be regarded as a complex
+	$(S^n,d_S^n)_{n\in\Z}$ with $S^0:=S$, every other term equal to $0$, and
+	every $d_S^n$ the zero morphism. This identification gives a fully faithful
+	additive functor $\mathcal{A}\hookrightarrow\cate{C}(\mathcal{A})$. More
+	generally, for every $n\in\Z$, $S[-n]$ is the complex concentrated in
+	degree $n$: it places $S$ in degree $n$ and $0$ in every other degree.
+\end{convention}
+
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.p008
+The following result is immediate.
+
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.pr002
+\begin{proposition}\label{prop:CA-functoriality}
+	\index[sym1]{CF@$\cate{C}F$}
+	For an additive functor $F:\mathcal{A}\to\mathcal{A}'$, the assignment
+	$(X^n,d_X^n)_n\mapsto(FX^n,Fd_X^n)_n$ defines a functor
+	$\cate{C}F:\cate{C}(\mathcal{A})\to\cate{C}(\mathcal{A}')$. It commutes
+	with translation functors:
+	$[m]\circ\cate{C}F=\cate{C}F\circ[m]$ for every $m\in\Z$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.r001
+\begin{remark}\label{rem:chain-cplx-translation}
+	\index{translation functor}
+	\index[sym1]{[n]}
+	Every result in this section also applies to the chain complexes
+	$(X_\bullet,d_\bullet)$ mentioned in Remark~\ref{rem:cochain-vs-chain}.
+	The translation functor on the category of chain complexes is defined by
+% segment-id: o014.li2.chapter3.complexes-over-additive-categories.q003
+	\[ X[n]_k:=X_{k+n},\quad d^{X[n]}_k=(-1)^nd^X_{n+k} \]
+	If one passes between the two conventions via $X_n=X^{-n}$ and
+	$d_n=d^{-n}$, then the translation $[1]$ for chain complexes corresponds
+	to the translation $[-1]$ for cochain complexes.
+\end{remark}

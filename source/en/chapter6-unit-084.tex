@@ -1,0 +1,277 @@
+% Unit 084 English translation of chapter6.tex, lines 2313--2457.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter6.profinite-cohomology-a
+% Coverage: Section 6.12 through smooth modules, the definition of profinite
+% cohomology, and continuous standard complexes through its first theorem.
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.h001
+\section{Cohomology of Profinite Groups}\label{sec:profinite-cohomology}
+\hypertarget{o014.aljabr2.chapter6.profinite-cohomology-a}{ }
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.p001
+This section presupposes the basic definitions and results on profinite groups
+from \S\ref{sec:profinite-groups}.
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.p002
+Let $G$ be a profinite group and $M$ a $G$-module. It is not difficult to
+verify that the following conditions are equivalent:
+\begin{enumerate}[(i)]
+	\item $M=\bigcup_KM^K$, where $K$ ranges over the open normal subgroups of
+	$G$;
+	\item for every $x\in M$, the stabilizer subgroup $\Stab_G(x)$ is open;
+	\item the action map $G\times M\to M$ is continuous when $M$ is given the
+	discrete topology.
+\end{enumerate}
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.d001
+\begin{definition}
+	\index{$G$-module!smooth}
+	\index[sym1]{G-Mod-infty@$G\dcate{Mod}^\infty$}
+	Let $G$ be a profinite group. If any of the conditions above holds, the
+	$G$-module $M$ is called \emph{smooth}\footnote{In view of~(iii), many
+	sources call it discrete.}. All smooth $G$-modules form a full subcategory
+	$G\dcate{Mod}^\infty$ of $G\dcate{Mod}$.
+\end{definition}
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.p003
+Although the condition on $G$ itself is topological, characterization~(i) or
+~(ii) of a smooth $G$-module is entirely algebraic: smoothness is a property
+of a $G$-module, not additional structure. It follows readily that
+$G\dcate{Mod}^\infty$ is an abelian subcategory of $G\dcate{Mod}$. The
+operations of Definition~\ref{def:Res-Infl} have natural analogues here.
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.d002
+\begin{definition-proposition}
+	Let $\varphi:H\to G$ be a continuous homomorphism of profinite groups and
+	let $M$ be a smooth $G$-module. Then the $H$-module $\varphi^*M$ is still
+	smooth. This gives a functor
+	\[ \varphi^*:G\dcate{Mod}^\infty\to H\dcate{Mod}^\infty. \]
+\end{definition-proposition}
+\begin{proof}
+	For every open normal subgroup $K\lhd G$, its inverse image
+	$\varphi^{-1}(K)\lhd H$ is again open and normal. If $x\in M^K$, then
+	$x\in(\varphi^*M)^{\varphi^{-1}K}$. Thus
+	\[ \varphi^*M=
+	\bigcup_{L\lhd H:\,\text{open}}(\varphi^*M)^L, \]
+	which proves that $\varphi^*M$ is smooth.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.p004
+Note that the functor $\varphi^*$ is always exact. We single out two special
+cases:
+\begin{description}
+	\item[Restriction] If $H$ is a closed subgroup of $G$, take $\varphi$ to
+	be the inclusion homomorphism $H\hookrightarrow G$. The corresponding
+	functor is denoted by
+	\[ \Res^G_H:G\dcate{Mod}^\infty\to H\dcate{Mod}^\infty. \]
+	\item[Inflation] For a closed normal subgroup $H\lhd G$, take $\varphi$ to
+	be the quotient homomorphism $G\twoheadrightarrow G/H$. The corresponding
+	functor is denoted by
+	\[ \mathrm{Infl}^G_{G/H}:G/H\dcate{Mod}^\infty
+	\to G\dcate{Mod}^\infty. \]
+
+	The groups $H$ and $G/H$ mentioned above are automatically profinite, so
+	these definitions make sense.
+\end{description}
+\index[sym1]{ResGH}
+\index[sym1]{InflGH}
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.d003
+\begin{definition-proposition}\label{def:smooth-part}
+	For every $G$-module $M$, define
+	$M^\infty:=\bigcup_KM^K$, where $K$ ranges over the open normal subgroups
+	of $G$. This is a smooth $G$-module, and $M$ is smooth if and only if
+	$M=M^\infty$.
+
+	For every smooth $G$-module $M'$, we have
+	\[ \Hom_G(M',M)=\Hom_G(M',M^\infty). \]
+	In other words,
+	$\text{inclusion}:G\dcate{Mod}^\infty
+	\leftrightarrows G\dcate{Mod}:(\cdot)^\infty$ is an adjoint pair.
+\end{definition-proposition}
+\begin{proof}
+	Clear.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.p005
+The elements of $M^\infty$ are also called the \emph{smooth elements} of
+$M$. Since $(\cdot)^\infty$ is the right adjoint of an exact functor, it
+preserves injective objects
+(Proposition~\ref{prop:adjoint-injective-projective}).
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.t001
+\begin{corollary}
+	The abelian category $G\dcate{Mod}^\infty$ has enough injective objects.
+\end{corollary}
+\begin{proof}
+	Let $M$ be a smooth $G$-module and embed it in an injective $G$-module
+	$I$. Then $M=M^\infty\hookrightarrow I^\infty$, while $I^\infty$ is an
+	injective smooth $G$-module.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.r001
+\begin{remark}
+	In general, $G\dcate{Mod}^\infty$ does not have enough projective objects.
+	This is the principal reason why this section studies cohomology rather
+	than homology.
+\end{remark}
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.p006
+Since $G\dcate{Mod}^\infty$ has enough injective objects, we can discuss the
+right derived functors of the invariants functor $(\cdot)^G$. Our approach is
+first to give a direct definition that reduces to the case of finite groups,
+and then to identify it with the right derived functors in
+Proposition~\ref{prop:profinite-cohomology-identification}. For now we use
+only classical language and do not invoke derived categories.
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.p007
+First take a profinite group $G$ and an open normal subgroup $K$. For every
+smooth $G$-module $M$, the submodule of $K$-invariants
+$M^K=(\Res^G_KM)^K$ naturally becomes a $G/K$-module. This gives a functor
+$(\cdot)^K:G\dcate{Mod}^\infty\to G/K\dcate{Mod}$ and the evident adjoint
+pair
+\begin{equation}\label{eqn:invariant-adjunction-profinite}
+	\begin{tikzcd}[row sep=tiny]
+		\mathrm{Infl}^G_{G/K}:G/K\dcate{Mod} \arrow[shift left,r] &
+		G\dcate{Mod}^\infty:(\cdot)^K \arrow[shift left,l]\\
+		\Hom_G(\mathrm{Infl}^G_{G/K}(M'),M) \arrow[equal,r] &
+		\Hom_{G/K}(M',M^K).
+	\end{tikzcd}
+\end{equation}
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.p008
+If open normal subgroups $K,K'$ of $G$ satisfy $K'\supset K$, then the
+inclusion $M^{K'}\hookrightarrow M^K$ is equivariant with respect to the
+oppositely directed quotient homomorphism $G/K'\twoheadleftarrow G/K$
+(Definition~\ref{def:group-equivariance}). Hence for every
+$n\in\Z_{\geq0}$ there is a canonical homomorphism
+\[ \rho^{K'}_K:\Hm^n(G/K',M^{K'})\to\Hm^n(G/K,M^K). \]
+If $K_1\subset K_2\subset K_3$ are open normal subgroups of $G$, then
+$\rho^{K_2}_{K_1}\rho^{K_3}_{K_2}=\rho^{K_3}_{K_1}$. Thus the following
+definition makes sense.
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.d004
+\begin{definition}
+	\index{group cohomology!profinite case}
+	\index[sym1]{HnGM}
+	Let $G$ be a profinite group and $M$ a smooth $G$-module. For every
+	$n\in\Z_{\geq0}$, define
+	\[ \Hm^n(G,M):=\varinjlim_K\Hm^n(G/K,M^K), \]
+	where $K$ ranges over the open normal subgroups of $G$, and $\varinjlim$
+	is taken with respect to the partial order
+	$K'\preceq K\iff K\subset K'$ and the morphisms $\rho^{K'}_K$.
+\end{definition}
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.p009
+All open normal subgroups form a filtered partially ordered set: they are
+closed under finite intersections. If $G$ is finite, then $\{1\}$ is its
+unique maximal element, and $\Hm^n(G,M)$ reduces to the original version in
+\S\ref{sec:group-coh-sub}. In general,
+\[ \Hm^0(G,M)=\varinjlim_K(M^K)^{G/K}=M^G. \]
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.p010
+Let $f:M_1\to M_2$ be a homomorphism of smooth $G$-modules. For every open
+normal subgroup $K$, it restricts to
+$f_K:M_1^K\to M_2^K$. Clearly, $K'\supset K$ implies
+$\Hm^n(f_K)\rho^{K'}_K=\rho^{K'}_K\Hm^n(f_{K'})$, so for every
+$n\in\Z_{\geq0}$ there is a homomorphism
+\[ \Hm^n(f):\Hm^n(G,M_1)\to\Hm^n(G,M_2). \]
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.e001
+\begin{example}
+	Let $E|F$ be a Galois extension of fields. Since
+	$E=\bigcup_{L|F}E^{\Gal(E|L)}=\bigcup_{L|F}L$, where $L|F$ ranges over
+	the finite Galois subextensions, the action of $\Gal(E|F)$ on $E$ is
+	smooth. Applying Example~\ref{eg:additive-90-finite} to every $L|F$
+	gives
+	\[ n\geq1\implies\Hm^n(\Gal(E|F),E)
+	=\varinjlim_{L|F}\Hm^n(\Gal(L|F),L)=0. \]
+\end{example}
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.p011
+Just as in Proposition~\ref{prop:groupcoh-cochain} and
+Remark~\ref{rem:nor-cochain} for groups without topology, the cohomology of a
+profinite group can be computed by the standard complex or its normalized
+version; the difference lies in the continuity condition.
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.d005
+\begin{definition}
+	\index{standard complex}
+	\index[sym1]{CGM}
+	For a smooth $G$-module $M$, give $M$ the discrete topology and define its
+	\emph{standard complex} $C(G,M)=(C^n(G,M))_n$ by
+	\[ C^n(G,M):=\{\text{continuous maps }f:G^n\to M\},
+	\qquad n\in\Z_{\geq0}. \]
+	Terms of negative degree are defined to be $0$, while
+	$d^n:C^n(G,M)\to C^{n+1}(G,M)$ is given by
+	\begin{multline*}
+		(d^nf)(g_1,\ldots,g_{n+1})
+		=g_1f(g_2,\ldots,g_{n+1})\\
+		+\sum_{k=1}^n(-1)^kf(\ldots,g_kg_{k+1},\ldots)
+		+(-1)^{n+1}f(g_1,\ldots,g_n).
+	\end{multline*}
+
+	\index[sym1]{CGMbar}
+	Define the \emph{normalized standard complex} to be the following
+	subcomplex $\overline{C}(G,M)$ of $C(G,M)$
+	(see Remark~\ref{rem:nor-cochain}):
+	\[ \overline{C}^n(G,M)=\left\{\begin{array}{r|l}
+		f\in C^n(G,M)&\exists 1\leq k\leq n,\; g_k=1_G\\
+		&\implies f(g_1,\ldots,g_n)=0
+	\end{array}\right\}. \]
+\end{definition}
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.p012
+For every open normal subgroup $K\lhd G$, there are evident inclusions of
+complexes
+$C(G/K,M^K)\hookrightarrow C(G,M)$ and
+$\overline{C}(G/K,M^K)\hookrightarrow\overline{C}(G,M)$.
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.p013
+Since $M$ is discrete, a map $f:G^n\to M$ is continuous if and only if it is
+locally constant. Compactness of $G$ then gives an open normal subgroup
+$K_1\lhd G$ such that $f$ factors through $(G/K_1)^n\to M$. In particular,
+$f$ assumes only finitely many values; smoothness gives an open normal
+subgroup $K_2\lhd G$ such that the values of $f$ lie in $M^{K_2}$. Set
+$K:=K_1\cap K_2$. It follows that
+\[ C^n(G,M)\simeq\varinjlim_{K\lhd G\;\text{open}}C^n(G/K,M^K),\qquad
+	\overline{C}^n(G,M)\simeq
+	\varinjlim_{K\lhd G\;\text{open}}\overline{C}^n(G/K,M^K). \]
+As $n$ varies, these give isomorphisms of complexes.
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.p014
+As before, define the submodules of $C^n(G,M)$
+\[ Z^n(G,M):=\Ker(d^n),\qquad B^n(G,M):=\Image(d^{n-1}), \]
+with $B^0(G,M):=\{0\}$. Then
+$\Hm^n(C(G,M))=Z^n(G,M)/B^n(G,M)$. Define the normalized versions
+$\overline{Z}^n(G,M)$ and $\overline{B}^n(G,M)$ similarly.
+
+% segment-id: o014.li2.chapter6.profinite-cohomology-a.t002
+\begin{theorem}\label{prop:profinite-group-standard}
+	Let $G$ be a profinite group. For all $n\in\Z_{\geq0}$ and every smooth
+	$G$-module $M$, there are canonical isomorphisms
+	\[ \Hm^n(C(G,M))\simeq\Hm^n(G,M)
+	\simeq\Hm^n(\overline{C}(G,M)). \]
+\end{theorem}
+\begin{proof}
+	Cohomology takes values in $\cate{Ab}$, or in $\Bbbk\dcate{Mod}$ if a
+	coefficient ring $\Bbbk$ has been specified. Filtered colimits are exact
+	in these categories \cite[Theorem 6.2.2]{Li1}. Hence
+	\[ Z^n(G,M)=\varinjlim_KZ^n(G/K,M^K),\qquad
+	B^n(G,M)=\varinjlim_KB^n(G/K,M^K), \]
+	and therefore
+	\begin{multline*}
+		\Hm^n(C(G,M))
+		=\dfrac{\varinjlim_KZ^n(G/K,M^K)}
+		{\varinjlim_KB^n(G/K,M^K)}\simeq\\
+		\varinjlim_K\frac{Z^n(G/K,M^K)}{B^n(G/K,M^K)}
+		=\varinjlim_K\Hm^n(C(G/K,M^K)).
+	\end{multline*}
+	Apply Proposition~\ref{prop:groupcoh-cochain} to the last term to obtain
+	$\varinjlim_K\Hm^n(G/K,M^K)$, namely $\Hm^n(G,M)$.
+% Editorial correction carried from the Indonesian witness: the Chinese source
+% has $\Hm^n(G,K)$ here, with $K$ in place of the coefficient module $M$.
+
+	The case of $\overline{C}(G,M)$ is similar.
+\end{proof}

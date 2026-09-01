@@ -1,0 +1,218 @@
+% Unit 107 English translation of chapter8.tex lines 175--281.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter8.simplicial-sets
+% Coverage: complete Section 8.2, ``Simplicial Sets'';
+% stops immediately before Section 8.3 at line 282.
+
+% segment-id: o014.li2.chapter8.simplicial-sets.h001
+\section{Simplicial Sets}\label{sec:simplicial-set}
+\hypertarget{o014.aljabr2.chapter8.simplicial-sets}{ }
+% segment-id: o014.li2.chapter8.simplicial-sets.p001
+The simplicial objects of Definition~\ref{def:simplicial-obj} in the case
+$\mathcal{C}=\cate{Set}$ are called simplicial sets. Relative to a fixed
+Grothendieck universe, the precise meaning of $\cate{Set}$ in this book is the
+category of all small sets; these details do not affect the content of this
+section.
+
+% segment-id: o014.li2.chapter8.simplicial-sets.d001
+\begin{definition}
+	\index{simplicial set}
+	\index{cosimplicial set}
+	A simplicial object in the category of sets $\cate{Set}$ is called a
+	\emph{simplicial set}; a cosimplicial object in it is called a
+	\emph{cosimplicial set}.
+\end{definition}
+
+% segment-id: o014.li2.chapter8.simplicial-sets.p002
+By Definition~\ref{def:simplicial-obj}, all simplicial sets (or cosimplicial
+sets) form the category
+$\cate{sSet}:=\cate{Set}^{\simpDelta^{\opp}}$ (or
+$\cate{csSet}:=\cate{Set}^{\simpDelta}$).
+\index[sym1]{sSet@$\cate{sSet}, \cate{csSet}$}
+
+% segment-id: o014.li2.chapter8.simplicial-sets.d002
+\begin{definition}\label{def:standard-simplicial-set}
+	\index[sym1]{Delta-n@$\Delta^n$}
+	For every $n\in\Z_{\geq0}$, write $\Delta^n$ for the simplicial set
+	determined by
+	$\Hom_{\simpDelta}(\mathord\cdot,[n]):
+	\simpDelta^{\opp}\to\cate{Set}$. It is called the \emph{standard
+	$n$-simplex}.
+\end{definition}
+
+% segment-id: o014.li2.chapter8.simplicial-sets.p003
+Thus $(\Delta^n)_m=\Hom_{\simpDelta}([m],[n])$ is the set of all
+order-preserving maps $[m]\to[n]$. The map
+$(\Delta^n)_{m'}\to(\Delta^n)_m$ induced by an order-preserving map
+$\phi:[m]\to[m']$ is precisely pullback of maps,
+$\phi^*:f\mapsto f\phi$.
+
+% segment-id: o014.li2.chapter8.simplicial-sets.eg001
+\begin{example}\label{eg:boundary-horn}
+	\index[sym1]{partial-Delta-n@$\partial \Delta^n$}
+	\index[sym1]{Lambda-n-k@$\Lambda^n_k$}
+	\index{horn}
+	We introduce two common subobjects of the standard $n$-simplex $\Delta^n$.
+	\begin{description}
+		\item[Boundary] Define the subfunctor $\partial\Delta^n$ of $\Delta^n$
+		by
+		% segment-id: o014.li2.chapter8.simplicial-sets.q001
+		\[ (\partial \Delta^n)_m := \left\{ f: [m] \to [n] \; \text{order-preserving}, \Image(f) \neq [n] \right\}, \quad m \in \Z_{\geq 0}. \]
+		If $m<n$, then $(\partial\Delta^n)_m=(\Delta^n)_m$; if $m\geq n$,
+		the elements of $(\partial\Delta^n)_m$ are obtained by repeated
+		degeneracies from $(\Delta^n)_h$ for $0\leq h<n$.
+		\item[Horn] For $0\leq k\leq n$, define the subfunctor $\Lambda^n_k$
+		of $\Delta^n$ by
+		% segment-id: o014.li2.chapter8.simplicial-sets.q002
+		\[ (\Lambda^n_k)_m := \left\{ f: [m] \to [n] \;\text{order-preserving}, \Image(f) \not\supset [n] \smallsetminus \{k\} \right\}, \quad m \in \Z_{\geq 0}. \]
+		We call $k$ the vertex of the horn.
+	\end{description}
+
+	Every pullback $\phi^*:f\mapsto f\phi$ clearly preserves the conditions
+	above, so both are subfunctors. The exercises in this chapter will show how
+	$\Lambda^n_i$ (or $\partial\Delta^n$) can be expressed precisely as a
+	gluing of $n$ (or $n+1$) copies of $\Delta^{n-1}$.
+\end{example}
+
+% segment-id: o014.li2.chapter8.simplicial-sets.p004
+The constant simplicial set given by the empty set,
+$\mathrm{const}(\emptyset)$, is abbreviated to $\emptyset$. Thus
+$\partial\Delta^0=\emptyset$.
+
+% segment-id: o014.li2.chapter8.simplicial-sets.p005
+In \S\ref{sec:geom-realization} we will give an intuitive interpretation of
+simplicial sets. In particular, we will depict the geometric images of
+$\Delta^n\supset\Lambda^n_i\supset\partial\Delta^n$.
+
+% segment-id: o014.li2.chapter8.simplicial-sets.p006
+The Yoneda lemma (Theorem~\ref{prop:Yoneda}) immediately gives the following
+canonical isomorphism, where $n\in\Z_{\geq0}$ and
+$X\in\Obj(\cate{sSet})$:
+% segment-id: o014.li2.chapter8.simplicial-sets.q003
+\begin{equation}\begin{gathered}
+	\begin{tikzcd}[row sep=tiny]
+		\Hom_{\cate{sSet}}\left( \Delta^n, X \right) \arrow[r, "\sim"] & X_n \\
+		\phi \arrow[mapsto, r] & \phi([n])(\identity_{[n]})
+	\end{tikzcd} \\
+	\phi([n]): \End([n]) = \Delta^n([n]) \to X([n]) =: X_n.
+\end{gathered}\end{equation}
+
+% segment-id: o014.li2.chapter8.simplicial-sets.d003
+\begin{definition}\label{def:simplex}
+	\index{simplex}
+	\index{simplex!non-degenerate}
+	An element of $X_n$ is called an \emph{$n$-simplex} of the simplicial set
+	$X$. If $x\in X_n$ lies in the image of some $s_j$, it is called
+	\emph{degenerate}; otherwise it is called \emph{non-degenerate}.
+\end{definition}
+
+% segment-id: o014.li2.chapter8.simplicial-sets.p007
+As a simple exercise, verify that the non-degenerate $m$-simplices of
+$\Delta^n$ correspond to the order-preserving injections
+$[m]\hookrightarrow[n]$; there are $\binom{n+1}{m+1}$ of them.
+
+% segment-id: o014.li2.chapter8.simplicial-sets.p008
+Furthermore, the Yoneda lemma ensures that
+$h_{\simpDelta}:[n]\mapsto\Delta^n$ defines a fully faithful functor
+$\simpDelta\to\cate{sSet}$. Every morphism $f:[m]\to[n]$ in $\simpDelta$
+induces $f:\Delta^m\to\Delta^n$. Specifying an $(m+1)$-element subset
+$\{k_0,\ldots,k_m\}\subset[n]$ is equivalent to specifying an
+order-preserving injection $[m]\hookrightarrow[n]$. The corresponding
+morphism between standard simplices is also written
+% segment-id: o014.li2.chapter8.simplicial-sets.q004
+\[ \Delta^m \xrightarrow{\{k_0, \ldots, k_m\}} \Delta^n . \]
+
+% segment-id: o014.li2.chapter8.simplicial-sets.p009
+The intuitive meaning of simplicial sets will be explained by geometric
+realization in \S\ref{sec:geom-realization}. Before that, we introduce a
+series of abstract constructions, beginning with the join and the left and
+right cones of simplicial sets.
+
+% segment-id: o014.li2.chapter8.simplicial-sets.p010
+Write $\cate{FinLin}_+$ for the full subcategory of the category of finite
+totally ordered sets (also called finite linearly ordered sets)
+$\cate{FinLin}$ obtained by removing the empty set; its morphisms are
+order-preserving maps. Since $\simpDelta$ is a skeleton of
+$\cate{FinLin}_+$, a simplicial set can equivalently be viewed as a functor
+$\cate{FinLin}_+^{\opp}\to\cate{Set}$.
+
+% segment-id: o014.li2.chapter8.simplicial-sets.cv001
+\begin{convention}
+	Let $J$ be an object of $\cate{FinLin}_+$. Every subset $I\subset J$ is
+	automatically a finite totally ordered set. If it also satisfies
+	% segment-id: o014.li2.chapter8.simplicial-sets.q005
+	\[ \forall (i, j) \in I \times J, \quad j \leq i \implies j \in I, \]
+	then $I$ is called an \emph{initial segment} of $J$, written
+	$I\sqsubset J$.
+\end{convention}
+
+% segment-id: o014.li2.chapter8.simplicial-sets.d004
+\begin{definition}\label{def:simplicial-join}
+	\index{simplicial set!join}
+	The \emph{join} $X\star X'$ of simplicial sets $X$ and $X'$ is defined as
+	the following functor $\cate{FinLin}_+^{\opp}\to\cate{Set}$:
+	% segment-id: o014.li2.chapter8.simplicial-sets.q006
+	\[ (X \star X')(J) = \bigsqcup_{I \sqsubset J} X(I) \times X'(J \smallsetminus I). \]
+	Here (and only here), $X(\emptyset)$ and $X'(\emptyset)$ are defined to be
+	one-point sets. For every order-preserving map $f:J_1\to J$ and
+	$I\sqsubset J$, set $I_1:=f^{-1}(I)$. Then $I_1\sqsubset J_1$ and there
+	is a map
+	% segment-id: o014.li2.chapter8.simplicial-sets.q007
+	\[ X(I) \times X'(J \smallsetminus I) \to X(I_1) \times X'(J_1 \smallsetminus I_1). \]
+	This yields an induced morphism
+	$f^*:(X\star X')(J)\to(X\star X')(J_1)$, which determines the simplicial
+	structure on $X\star X'$.
+\end{definition}
+
+% segment-id: o014.li2.chapter8.simplicial-sets.p011
+There are canonical morphisms $X\to X\star Y\leftarrow Y$. The definition
+can also be written in the earlier notation as
+% segment-id: o014.li2.chapter8.simplicial-sets.q008
+\[ (X \star Y)_n = X_n \sqcup Y_n \sqcup \bigsqcup_{j+k = n-1} X_j \times Y_k . \]
+The morphisms $d_i$ and $s_i$ are obtained directly from the corresponding
+morphisms on $X$ and $Y$. For example, for
+$d_i:(X\star Y)_n\to(X\star Y)_{n-1}$, its restrictions to the subsets
+$X_n$ and $Y_n$ are the original $d_i$, while on $X_j\times Y_k$ it is
+given by
+% segment-id: o014.li2.chapter8.simplicial-sets.q009
+\begin{equation}\label{eqn:join-formulas}\begin{gathered}
+		d_i(x, y) = \begin{cases}
+			(d_i x, y), & i \leq j, \; j \neq 0 \\
+			(x, d_{i-j-1} y), & i > j, \; k \neq 0,
+		\end{cases} \\
+		j=0 \implies d_0(x, y) = y \in Y_{n-1}, \\
+		k=0 \implies d_n(x, y) = x \in X_{n-1}.
+\end{gathered}\end{equation}
+
+% segment-id: o014.li2.chapter8.simplicial-sets.pr001
+\begin{proposition}\label{prop:join-nd}
+	\index[sym1]{Xnd@$X^{\mathrm{nd}}$}
+	Write $X_n^{\mathrm{nd}}\subset X_n$ for the subset of non-degenerate
+	$n$-simplices of the simplicial set $X$
+	(Definition~\ref{def:simplex}). For all $X$ and $Y$,
+	% segment-id: o014.li2.chapter8.simplicial-sets.q010
+	\[ (X \star Y)^{\mathrm{nd}}_n = X^{\mathrm{nd}}_n \sqcup Y^{\mathrm{nd}}_n \sqcup \bigsqcup_{j+k=n-1} X^{\mathrm{nd}}_j \times Y^{\mathrm{nd}}_k. \]
+\end{proposition}
+% segment-id: o014.li2.chapter8.simplicial-sets.pf001
+\begin{proof}
+	Let $Z$ be a simplicial set. For every nonempty finite totally ordered set
+	$J$, an element $x\in Z(J)$ is degenerate if and only if there is an
+	order-preserving surjection that is not injective,
+	$f:J\twoheadrightarrow J_0$, such that
+	$x\in\Image[f^*:Z(J_0)\to Z(J)]$. The rest follows immediately from this
+	observation.
+\end{proof}
+
+% segment-id: o014.li2.chapter8.simplicial-sets.d005
+\begin{definition}\label{def:cone-simplicial}
+	\index{simplicial set!cone}
+	The \emph{left cone} with base a simplicial set $X$ is
+	$X^{\lhd}:=\Delta^0\star X$, while the \emph{right cone} is
+	$X^{\rhd}:=X\star\Delta^0$.
+\end{definition}
+
+% segment-id: o014.li2.chapter8.simplicial-sets.p012
+An intuitive interpretation of cones is given in
+Example~\ref{eg:cone-realization}. The exercises will examine further
+properties of the join operation.

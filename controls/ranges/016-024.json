@@ -1,0 +1,218 @@
+{
+  "schema": "o014-english-range-receipt-v1",
+  "range": {
+    "first_sequence": 16,
+    "last_sequence": 24
+  },
+  "status": "PASS",
+  "source_commit": "9a5803ff77dd3257484cb177f851a73770a59dd3",
+  "validation": {
+    "source_slice_sha256_verified": true,
+    "indonesian_witness_sha256_verified": true,
+    "stable_unit_ids_verified": true,
+    "segment_id_sequence_parity": true,
+    "localized_environment_roles_canonicalized_to_english": true,
+    "environment_role_order_parity": true,
+    "label_sequence_parity": true,
+    "reference_key_coverage_parity": true,
+    "citation_key_sequence_parity": true,
+    "display_formula_order_parity": true,
+    "display_formula_comparison_ignores_translated_text_and_whitespace": true,
+    "balanced_braces_math_delimiters_and_nested_environments": true,
+    "han_residue_count": 0,
+    "indonesian_residue_count": 0,
+    "placeholder_count": 0,
+    "tex_or_git_invoked": false
+  },
+  "units": [
+    {
+      "sequence": 16,
+      "unit_id": "o014.aljabr2.chapter1.kan-extensions-as-limits",
+      "target_path": "source/en/chapter1-unit-016.tex",
+      "target_sha256": "57b3b4703da87b004cea7ee3f3be4f5f507bf2e243e1df904480078e9b3e3866",
+      "bytes": 11926,
+      "lines": 227,
+      "chinese_source": {
+        "path": "chapter1.tex",
+        "start_line": 1141,
+        "end_line": 1229,
+        "sha256": "7553fbbc9b8c8d899344c94ea6e584d0ff5748a93ac4d4653fdebe9ff47a89b3"
+      },
+      "indonesian_witness_sha256": "4bc168011039b35f14f0d8e0cc41af5e899925bc52f9bc68cf676f5d37f6544e",
+      "segments": 11,
+      "environment_tokens": 32,
+      "labels": 5,
+      "references": 16,
+      "citation_keys": 1,
+      "display_math_blocks": 9
+    },
+    {
+      "sequence": 17,
+      "unit_id": "o014.aljabr2.chapter1.gabriel-zisman-localization",
+      "target_path": "source/en/chapter1-unit-017.tex",
+      "target_sha256": "9280f2cc95c99fc5fc7c59c79a474e33960bcdad942a71f42f1b0d1e45e484f5",
+      "bytes": 38631,
+      "lines": 737,
+      "chinese_source": {
+        "path": "chapter1.tex",
+        "start_line": 1230,
+        "end_line": 1582,
+        "sha256": "8d6063a530350e4dfda51c965c404983d53d469ca320b08e96b2b098970af9e0"
+      },
+      "indonesian_witness_sha256": "ae9aebd0da213fc817873a8e7d752f15747b1526c9f996099a41ed419c893e36",
+      "segments": 50,
+      "environment_tokens": 136,
+      "labels": 19,
+      "references": 30,
+      "citation_keys": 5,
+      "display_math_blocks": 30
+    },
+    {
+      "sequence": 18,
+      "unit_id": "o014.aljabr2.chapter1.kan-extensions-along-localization",
+      "target_path": "source/en/chapter1-unit-018.tex",
+      "target_sha256": "5aa67a05dc317e2d8796eca3e55d07f880f1dab2c3f3c41a86513037fd5a234f",
+      "bytes": 16174,
+      "lines": 303,
+      "chinese_source": {
+        "path": "chapter1.tex",
+        "start_line": 1583,
+        "end_line": 1707,
+        "sha256": "5f229d0ba8c2ea8059f8d5146ff0cab31c7723692cda8f23123e72b94714de9f"
+      },
+      "indonesian_witness_sha256": "1f62a17b47b15d663d53138808823674cd6d5d9227c1ad448e48e50661ab623c",
+      "segments": 33,
+      "environment_tokens": 42,
+      "labels": 5,
+      "references": 23,
+      "citation_keys": 0,
+      "display_math_blocks": 10
+    },
+    {
+      "sequence": 19,
+      "unit_id": "o014.aljabr2.chapter1.adjoint-functor-theorem",
+      "target_path": "source/en/chapter1-unit-019.tex",
+      "target_sha256": "f662655498d0b3495adb22d1c691472115afc43c666c578cc0648752018b3829",
+      "bytes": 42409,
+      "lines": 852,
+      "chinese_source": {
+        "path": "chapter1.tex",
+        "start_line": 1708,
+        "end_line": 2079,
+        "sha256": "98db944bbfa82a570cac62b57d4f30e262ff70bdc0daf5024d0535399360fed4"
+      },
+      "indonesian_witness_sha256": "794234b8ff25bfc6a620a3beb3b2865fac28ea5d66e4c3ac54c9d6d14cd43679",
+      "segments": 126,
+      "environment_tokens": 136,
+      "labels": 17,
+      "references": 48,
+      "citation_keys": 13,
+      "display_math_blocks": 21
+    },
+    {
+      "sequence": 20,
+      "unit_id": "o014.aljabr2.chapter2.overview",
+      "target_path": "source/en/chapter2-unit-020.tex",
+      "target_sha256": "f92187b487cf7c88e76b14d5e60ba8fa46cdca74478de3fda2e0116c0fb96e6a",
+      "bytes": 6910,
+      "lines": 120,
+      "chinese_source": {
+        "path": "chapter2.tex",
+        "start_line": 9,
+        "end_line": 32,
+        "sha256": "fe8aad79bbfe634abd2ae5680059f7ae714b8f890403aeec3acfe3a6cf5e986a"
+      },
+      "indonesian_witness_sha256": "05e7678a70751b7a59676ebe4ef4ebd66a212e23f748b5b73e46472f63178ba2",
+      "segments": 11,
+      "environment_tokens": 4,
+      "labels": 1,
+      "references": 21,
+      "citation_keys": 2,
+      "display_math_blocks": 0
+    },
+    {
+      "sequence": 21,
+      "unit_id": "o014.aljabr2.chapter2.abelian-category-definition",
+      "target_path": "source/en/chapter2-unit-021.tex",
+      "target_sha256": "86b85ff540c9859bb8172dd218a65a945cde870880fdd734928a342d5c2870b6",
+      "bytes": 8424,
+      "lines": 173,
+      "chinese_source": {
+        "path": "chapter2.tex",
+        "start_line": 35,
+        "end_line": 115,
+        "sha256": "52d5af389a06909c9c6d725827b29913affc73da22027b0e39ff138844ce5738"
+      },
+      "indonesian_witness_sha256": "4744f6a56e6d5173f031022e8c083a3376498d5ad14fe9ebf5b8dbbc36e5b9af",
+      "segments": 19,
+      "environment_tokens": 30,
+      "labels": 7,
+      "references": 16,
+      "citation_keys": 1,
+      "display_math_blocks": 3
+    },
+    {
+      "sequence": 22,
+      "unit_id": "o014.aljabr2.chapter2.first-look-at-complexes",
+      "target_path": "source/en/chapter2-unit-022.tex",
+      "target_sha256": "7c8a40388efdad3aafa02567cf07ac390864a6d4ed0430250ca7836aaefe3735",
+      "bytes": 19927,
+      "lines": 385,
+      "chinese_source": {
+        "path": "chapter2.tex",
+        "start_line": 116,
+        "end_line": 292,
+        "sha256": "f2ea791a1f33d1f3cc75d2a31041d56c1c80675b48201324b2401b4463cdd76c"
+      },
+      "indonesian_witness_sha256": "7adf06f121b3d5fa2a608af292e9bc4166b74467ea54dda5a1a3458c143b0f14",
+      "segments": 25,
+      "environment_tokens": 60,
+      "labels": 10,
+      "references": 30,
+      "citation_keys": 0,
+      "display_math_blocks": 19
+    },
+    {
+      "sequence": 23,
+      "unit_id": "o014.aljabr2.chapter2.diagram-lemmas",
+      "target_path": "source/en/chapter2-unit-023.tex",
+      "target_sha256": "65ce863946f2f3f4fa33f4aa088f59e6aa82ed8403e93f8939e1c269e6863a5d",
+      "bytes": 24152,
+      "lines": 463,
+      "chinese_source": {
+        "path": "chapter2.tex",
+        "start_line": 293,
+        "end_line": 518,
+        "sha256": "3be24467bb3f58a982a52f3bd649453901d3be1f8c84a57e077bcb971c8cacd0"
+      },
+      "indonesian_witness_sha256": "51af8dd1944ea4bfd6b2308672d8ee37dbc3420177d179021aecf557a4cc6eaa",
+      "segments": 29,
+      "environment_tokens": 80,
+      "labels": 11,
+      "references": 32,
+      "citation_keys": 5,
+      "display_math_blocks": 23
+    },
+    {
+      "sequence": 24,
+      "unit_id": "o014.aljabr2.chapter2.glimpse-of-lattice-theory",
+      "target_path": "source/en/chapter2-unit-024.tex",
+      "target_sha256": "02fd91a6a187f2746a5408f0dfe2b77dc393214a91b453c191aafd4ff0cae0db",
+      "bytes": 21852,
+      "lines": 425,
+      "chinese_source": {
+        "path": "chapter2.tex",
+        "start_line": 519,
+        "end_line": 720,
+        "sha256": "acac220f78e67338b5db1b324c64b005ab70ca6cf57d2a644e33b79bbfcc2090"
+      },
+      "indonesian_witness_sha256": "00cee676fd890a3221a5368feeff701abac1b5dc363f5fcdb97dba8b9287e333",
+      "segments": 38,
+      "environment_tokens": 66,
+      "labels": 16,
+      "references": 16,
+      "citation_keys": 2,
+      "display_math_blocks": 16
+    }
+  ]
+}

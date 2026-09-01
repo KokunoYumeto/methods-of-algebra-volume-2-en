@@ -1,0 +1,863 @@
+% English translation of chapter2.tex lines 1756--2132.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter2.grothendieck-categories
+% This unit covers Section 2.10 and all exercises in Chapter 2.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.h001
+\section{Grothendieck Categories}\label{sec:Grothendieck-cat}
+\hypertarget{o014.aljabr2.chapter2.grothendieck-categories}{ }
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.p001
+All the main statements in this section are formulated relative to a chosen
+Grothendieck universe, rather than in terms of unqualified ``large''
+categories.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.p002
+Recall the notions of small limits, completeness, and generators
+(Definition~\ref{def:generators}).
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.d001
+\begin{definition}[Grothendieck category {\cite{Gr57}}]\label{def:Grothendieck-cat}
+	\index{Grothendieck category}
+	Let $\mathcal{A}$ be an abelian category. It is called a
+	\emph{Grothendieck category} if the following conditions hold.
+% segment-id: o014.li2.chapter2.grothendieck-categories.l001
+	\begin{itemize}
+% segment-id: o014.li2.chapter2.grothendieck-categories.i001
+		\item $\mathcal{A}$ is cocomplete; in other words, it has all small
+		$\varinjlim$;
+% segment-id: o014.li2.chapter2.grothendieck-categories.i002
+		\item $\mathcal{A}$ has a generator;
+% segment-id: o014.li2.chapter2.grothendieck-categories.i003
+		\item for every small filtered category $I$ (see
+		\S\ref{sec:filtered-indlim}), the functor
+		$\varinjlim:\mathcal{A}^I\to\mathcal{A}$ is exact. Equivalently, for
+		every diagram $\alpha\to\beta\to\gamma$ in $\mathcal{A}^I$,
+% segment-id: o014.li2.chapter2.grothendieck-categories.g001
+		\begin{multline*}
+			\forall i\in\Obj(I),\quad
+			0\to\alpha(i)\to\beta(i)\to\gamma(i)\to0
+			\quad\text{is exact} \\
+			\implies 0\to\varinjlim\alpha\to\varinjlim\beta
+			\to\varinjlim\gamma\to0\quad\text{is exact}.
+		\end{multline*}
+	\end{itemize}
+\end{definition}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.p003
+Example~\ref{eg:limit-exactness} has already shown that $\varinjlim$ preserves
+cokernels. Therefore, by Remark~\ref{rem:exactness-mono-epi}, the last
+condition is also equivalent to saying that every small filtered
+$\varinjlim$ preserves monomorphisms. The following argument illustrates the
+usefulness of this condition.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.pr001
+\begin{proposition}\label{prop:Grothendieck-cat-coprod-exact}
+Let $\mathcal{A}$ be a Grothendieck category. For every small set $I$, taking
+direct sums (that is, coproducts) gives an exact functor
+$\bigoplus_I:\mathcal{A}^I\to\mathcal{A}$.
+\end{proposition}
+% segment-id: o014.li2.chapter2.grothendieck-categories.pf001
+\begin{proof}
+The finite case is clear, while Proposition~\ref{prop:limit-filtered-approx}
+expresses $\bigoplus_I$ as a filtered $\varinjlim$ of finite direct sums.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.p004
+We next obtain a seemingly simple but very useful property; it too rests on
+the exactness of filtered $\varinjlim$.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.pr002
+\begin{proposition}\label{prop:Grothendieck-cat-intersection}
+Fix a small filtered partially ordered set $(I,\leq)$. Let $\mathcal{A}$ be a
+Grothendieck category, or more generally suppose that
+$\varinjlim:\mathcal{A}^{(I,\leq)}\to\mathcal{A}$ exists and is exact. For
+every
+% segment-id: o014.li2.chapter2.grothendieck-categories.l002
+\begin{compactitem}
+% segment-id: o014.li2.chapter2.grothendieck-categories.i004
+	\item $X\in\Obj(\mathcal{A})$ and subobject $Y\subset X$,
+% segment-id: o014.li2.chapter2.grothendieck-categories.i005
+	\item family of subobjects $\left(X_i\right)_{i\in I}$ of $X$ satisfying
+	$i\leq j\implies X_i\subset X_j$,
+\end{compactitem}
+with the notation of Convention~\ref{con:increasing-union}, one has
+% segment-id: o014.li2.chapter2.grothendieck-categories.g002
+\begin{gather*}
+	\varinjlim_{i\in I}X_i\rightiso\bigcup_{i\in I}X_i\subset X,\\
+	Y\cap\left(\bigcup_{i\in I}X_i\right)
+	=\bigcup_{i\in I}(Y\cap X_i)\;\in\mathrm{Sub}_X.
+\end{gather*}
+\end{proposition}
+% segment-id: o014.li2.chapter2.grothendieck-categories.pf002
+\begin{proof}
+Since $\varinjlim_i$ is exact, the canonical morphism
+$\iota:\varinjlim_iX_i\to X$ determined by all the maps
+$X_i\hookrightarrow X$ and the universal property of $\varinjlim$ remains a
+monomorphism. If all $X_i\hookrightarrow X$ factor through a subobject
+$Z\subset X$, that universal property gives a factorization of $\iota$ as
+$\varinjlim_iX_i\to Z\subset X$. Thus
+$\iota:\varinjlim_iX_i\hookrightarrow X$ indeed gives the supremum of
+$(X_i)_{i\in I}$ in $\mathrm{Sub}_X$. This proves the first equality.
+
+Next write the quotient morphism $X\to X/Y$ as $q$. Then $Y=\Ker(q)$ and
+$Y\cap X_i=\Ker(q|_{X_i})$. Consider the compatible family of morphisms
+$q|_{X_i}:X_i\to X/Y$. Since taking $\varinjlim_i$ preserves kernels, the
+preceding paragraph gives
+$Y\cap\left(\bigcup_{i\in I}X_i\right)=
+\bigcup_{i\in I}(Y\cap X_i)$.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.e001
+\begin{example}[Module categories]
+Let $R$ be a ring. Then $R\dcate{Mod}$ is a Grothendieck category. Indeed, its
+cocompleteness is already known \cite[Theorem 6.2.2]{Li1}, while exactness of
+filtered $\varinjlim$ is given by \cite[Lemma 6.8.3]{Li1}. In the special case
+$R=\Z$, the category $\cate{Ab}$ is a Grothendieck category.
+\end{example}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.p005
+To develop the theory further, we need some preparation concerning generators.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.d002
+\begin{definition}\index{generator!strong}
+Let $s$ be a generator of a category $\mathcal{C}$. If, for every
+monomorphism $i:S_1\hookrightarrow S_2$ in $\mathcal{C}$, the associated map
+$i_*:\Hom(s,S_1)\hookrightarrow\Hom(s,S_2)$ is bijective if and only if $i$
+is an isomorphism, then $s$ is called a \emph{strong generator} of
+$\mathcal{C}$.
+\end{definition}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.pr003
+\begin{proposition}\label{prop:strong-generator-well-powered}
+Let $s$ be a strong generator of a category $\mathcal{C}$ and suppose that,
+for every object $X$ and monomorphisms $S_i\hookrightarrow X$ with $i=1,2$,
+the fiber product $S_1\cap S_2:=S_1\dtimes{X}S_2$ exists. If
+$\kappa:=|\Hom(s,X)|$, then $|\mathrm{Sub}_X|\leq2^\kappa$.
+\end{proposition}
+% segment-id: o014.li2.chapter2.grothendieck-categories.pf003
+\begin{proof}
+Let $s$ be a strong generator and $X$ any object. We shall show that
+% segment-id: o014.li2.chapter2.grothendieck-categories.g003
+\begin{align*}
+	\mathrm{Sub}_X&\longrightarrow
+	\left\{\text{subsets of }\Hom(s,X)\right\}\\
+	S&\longmapsto\Hom(s,S)
+\end{align*}
+is injective, which gives the desired inequality.
+
+Take $S_1,S_2\in\mathrm{Sub}_X$ such that
+$\Hom(s,S_1)=\Hom(s,S_2)$. If $S_1\subset S_2$, the definition of a strong
+generator immediately gives $S_1=S_2$. In general,
+$S_1\cap S_2\subset S_i$ for $i=1,2$ (see
+Definition~\ref{def:intersection-sum}), and as subsets of $\Hom(s,X)$,
+% segment-id: o014.li2.chapter2.grothendieck-categories.q001
+\[\Hom\left(s,S_1\cap S_2\right)
+=\Hom(s,S_1)\cap\Hom(s,S_2)=\Hom(s,S_i),\qquad i=1,2.\]
+The preceding step gives $S_1=S_1\cap S_2=S_2$, as claimed.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.pr004
+\begin{proposition}\label{prop:Abel-strong-generator}
+Every generator in an abelian category is automatically a strong generator.
+\end{proposition}
+% segment-id: o014.li2.chapter2.grothendieck-categories.pf004
+\begin{proof}
+Let $\mathcal{A}$ be an abelian category and let $s$ be a generator. Given a
+monomorphism $i:S_1\hookrightarrow S_2$, consider the pair of morphisms
+% segment-id: o014.li2.chapter2.grothendieck-categories.g004
+\[\begin{tikzcd}[column sep=large]
+	S_2\arrow[shift left,r,"q:\text{ quotient morphism}"]
+	\arrow[shift right,r,"0"']&S_2/S_1
+\end{tikzcd}\]
+If $i$ is not an isomorphism, then $q\neq0$. Thus, by the definition of a
+generator, there is an $\epsilon\in\Hom(s,S_2)$ such that
+$q\epsilon\neq0\epsilon=0$; this morphism $\epsilon$ cannot factor through
+$S_1=\Ker(q)$.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.c001
+\begin{corollary}\label{prop:Grothendieck-cat-wellpowered}
+Every Grothendieck category is both well-powered and co-well-powered
+(Definition~\ref{def:well-powered}).
+\end{corollary}
+% segment-id: o014.li2.chapter2.grothendieck-categories.pf005
+\begin{proof}
+An abelian category has all finite fiber products, while every $\Hom$ set is
+small by assumption. Thus well-poweredness follows from
+Proposition~\ref{prop:strong-generator-well-powered} and
+Proposition~\ref{prop:Abel-strong-generator}. Moreover, in an abelian category
+$\mathrm{Sub}_X$ and $\mathrm{Quot}_X$ always have the same cardinality.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.c002
+\begin{corollary}\label{prop:Grothendieck-cat-complete}
+Every Grothendieck category $\mathcal{A}$ is complete; in other words, it has
+all small $\varprojlim$.
+\end{corollary}
+% segment-id: o014.li2.chapter2.grothendieck-categories.pf006
+\begin{proof}
+The category $\mathcal{A}$ is cocomplete and co-well-powered. Apply
+Corollary~\ref{prop:SAFT-completeness}.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.p006
+Thus a Grothendieck category has all small direct sums and small direct
+products. The exercises in this chapter show that the canonical morphism
+$\delta:\bigoplus_{i\in I}X_i\to\prod_{i\in I}X_i$ in
+\eqref{eqn:coprod-prod-delta} is a monomorphism; for module categories this is
+of course already clear.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.c003
+\begin{corollary}\label{prop:Grothendieck-cat-rep1}
+Let $\mathcal{A}$ be a Grothendieck category. A functor
+$G:\mathcal{A}^{\opp}\to\cate{Set}$ is representable if and only if $G$
+preserves all small $\varprojlim$; more concretely, $G$ turns every small
+$\varinjlim$ in $\mathcal{A}$ into a small $\varprojlim$ in $\cate{Set}$.
+\end{corollary}
+% segment-id: o014.li2.chapter2.grothendieck-categories.pf007
+\begin{proof}
+Apply Corollary~\ref{prop:cogenerator-representability} to
+$\mathcal{A}^{\opp}$.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.p007
+Although the definition of a Grothendieck category is not self-dual, the dual
+version of the preceding result still holds; see
+Corollary~\ref{prop:Grothendieck-cat-rep2}.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.p008
+We shall now show that Grothendieck categories have enough injectives. In fact,
+not only does a monomorphism $X\hookrightarrow I$ as in
+Definition~\ref{def:enough-injectives} exist, but $I$ can also be chosen
+functorially in $X$.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.le001
+\begin{lemma}\label{prop:Grothendieck-injective-criterion}
+Let $\mathcal{A}$ be a Grothendieck category and let $s$ be a generator. An
+object $I$ is injective if and only if, for every monomorphism
+$X\hookrightarrow s$, every morphism $X\to I$ extends to a morphism
+$s\to I$; in other words, the data can be completed to a commutative diagram
+% segment-id: o014.li2.chapter2.grothendieck-categories.g005
+$\begin{tikzcd}[row sep=small,column sep=small]
+	X\arrow[r]\arrow[hookrightarrow,d]&I\\
+	s\arrow[dashed,ru,"\exists"']&
+\end{tikzcd}$.
+\end{lemma}
+% segment-id: o014.li2.chapter2.grothendieck-categories.pf008
+\begin{proof}
+Injectivity is equivalent to the following statement: for every monomorphism
+$A\hookrightarrow B$, every morphism $f:A\to I$ extends to a morphism
+$B\to I$. Thus the ``only if'' direction is clear.
+
+We now prove the converse. Recall that $\mathcal{A}$ is well-powered. Given
+data $I\xleftarrow{f}A\hookrightarrow B$ as above, consider the small set
+% segment-id: o014.li2.chapter2.grothendieck-categories.q002
+\[\mathcal{S}:=\left\{\begin{array}{r|l}
+	(A',f')&A\subset A'\subset B\quad\text{(as subobjects)},\\
+	&f':A'\to I\quad\text{extends }f
+\end{array}\right\},\]
+partially ordered by extension. By exactness of filtered $\varinjlim$, every
+totally ordered subset $\mathcal{T}$ of $\mathcal{S}$ has an upper bound
+% segment-id: o014.li2.chapter2.grothendieck-categories.q003
+\[\widetilde{A}:=\varinjlim_{(A',f')\in\mathcal{T}}A',\qquad
+\widetilde{f}:=\varinjlim_{(A',f')\in\mathcal{T}}f':\widetilde{A}\to I.\]
+Zorn's lemma shows that $\mathcal{S}$ has a maximal element $(A',f')$. We
+claim that $A'=B$. Otherwise, because $s$ is a strong generator, there is a
+$g:s\to B$ that does not factor through $A'\hookrightarrow B$. We shall show
+that $f'$ extends to $A'+g(s)\to I$, contradicting the maximality of
+$(A',f')$.
+
+Set $Y:=A'\cap g(s)$. Consider the solid part of the following commutative
+diagram:
+% segment-id: o014.li2.chapter2.grothendieck-categories.g006
+\[\begin{tikzcd}[row sep=large]
+	\Ker(g)\arrow[hookrightarrow,r]&g^{-1}(Y)
+	\arrow[twoheadrightarrow,r,"g"]\arrow[hookrightarrow,d]
+	&Y\arrow[hookrightarrow,r]\arrow[hookrightarrow,d]
+	&A'\arrow[r,"{f'}"]&I\\
+	&s\arrow[twoheadrightarrow,r,"g"']
+	\arrow[dashed,rrru,crossing over,"\varphi" description]
+	&g(s)\arrow[dashed,bend right,rru,"{f''}" description]&&
+\end{tikzcd}\]
+By assumption, a $\varphi$ as shown by the dashed arrow exists and makes the
+triangular part commute. Since $\varphi$ vanishes on $\Ker(g)$, there is also
+an $f''$ as shown by the dashed arrow such that $\varphi=f''g$. Pulling back
+along $g^{-1}(Y)\twoheadrightarrow Y$ (an epimorphism by
+Proposition~\ref{prop:Abel-cat-pull-push}), we find that the restrictions of
+$f'$ and $f''$ to $Y$ agree. By the universal property of the fibered
+coproduct, they can therefore be glued to a morphism $A'+g(s)\to I$. This
+proves the claim.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.p009
+We now introduce a variant of the so-called ``small object argument.'' The
+reader should briefly review Definition~\sourcecrossref{def:regular-cardinal}{A.2.7}
+and the related discussion of regular cardinals; what follows uses their basic
+operations and properties.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.d003
+\begin{definition}\label{def:I-small}
+	\index{small object argument}
+	Let $\mathcal{C}$ be a category with all small filtered $\varinjlim$, let
+	$I\subset\Mor(\mathcal{C})$ be a subset, and let $\alpha$ be a small
+	regular cardinal.
+% segment-id: o014.li2.chapter2.grothendieck-categories.l003
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter2.grothendieck-categories.i006
+		\item An object $X\in\Obj(\mathcal{C})$ is called
+		\emph{$\alpha$-small relative to $I$} if the following condition holds.
+		Let $\widetilde{\alpha}$ be a small regular cardinal with
+		$\widetilde{\alpha}\geq\alpha$. For every functor
+		$\beta\mapsto Y_\beta$ from the ordinal $\widetilde{\alpha}$, regarded
+		as a small filtered category, to $\mathcal{C}$, if
+		$Y_\beta\to Y_{\beta'}$ belongs to $I$ whenever
+		$\beta\leq\beta'$, then the canonical map
+% segment-id: o014.li2.chapter2.grothendieck-categories.q004
+		\[\varinjlim_\beta\Hom\left(X,Y_\beta\right)
+		\longrightarrow\Hom\left(X,\varinjlim_\beta Y_\beta\right)\]
+		(see Equation~\sourcecrossref{eqn:I-small-gen}{A.2.1}) is a bijection.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.i007
+		\item If $X$ is $\alpha$-small relative to
+		$\Mor(\mathcal{C})$, then $X$ is called an \emph{$\alpha$-small
+		object}.
+	\end{enumerate}
+\end{definition}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.p010
+Relative to the chosen $I$, if $\alpha\leq\alpha'$, then $\alpha$-smallness
+implies $\alpha'$-smallness.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.le002
+\begin{lemma}\label{prop:alpha-small}
+Let $\mathcal{A}$ be a Grothendieck category, let $X$ be an object of
+$\mathcal{A}$, and let $\alpha$ be a small regular cardinal. If
+$\alpha>\kappa:=|\mathrm{Sub}_X|$, then $X$ is $\alpha$-small relative to all
+monomorphisms (Definition~\ref{def:I-small}).
+\end{lemma}
+% segment-id: o014.li2.chapter2.grothendieck-categories.pf009
+\begin{proof}
+Consider data $\beta\mapsto Y_\beta$ from
+Definition~\ref{def:I-small}~(i), with the condition that
+$Y_\beta\to Y_{\beta'}$ is a monomorphism whenever $\beta\leq\beta'$. We may
+take $\alpha=\widetilde{\alpha}$ in that definition without loss of
+generality.
+
+Since filtered $\varinjlim$ in $\mathcal{A}$ is exact, every
+$Y_\beta\to\varinjlim_\gamma Y_\gamma$ remains a monomorphism. Exactness of
+filtered $\varinjlim$ in $\cate{Ab}$ also implies that the map
+\[
+\varinjlim_{\gamma<\alpha}\Hom(X,Y_\gamma)
+\longrightarrow\Hom\left(X,\varinjlim_{\gamma<\alpha}Y_\gamma\right)
+\]
+is injective; it therefore remains to prove surjectivity. We henceforth regard
+each $Y_\beta$ as a subobject of $\varinjlim_\gamma Y_\gamma$.
+
+For a morphism $f:X\to\varinjlim_\gamma Y_\gamma$, every $\beta<\alpha$
+determines a subobject $f^{-1}(Y_\beta)$ of $X$. We may assume that
+$f^{-1}(Y_\beta)\neq X$ for every $\beta$, since otherwise there is nothing
+left to prove. Recall that $f^{-1}$ is given by a fiber product. Using
+exactness of filtered $\varinjlim$ once more, we obtain a natural isomorphism
+% segment-id: o014.li2.chapter2.grothendieck-categories.q005
+\[\varinjlim_\beta f^{-1}(Y_\beta)
+\simeq f^{-1}\left(\varinjlim_\beta Y_\beta\right)=X.\]
+There are at most $\kappa$ subobjects $f^{-1}(Y_\beta)$, so there is a subset
+$S$ of $\alpha$ with $|S|\leq\kappa$ such that the left-hand side may be
+replaced by $\varinjlim_{\beta\in S}$.
+
+Consider the ordinal $\sigma:=\sup S\leq\alpha$. We claim that
+$\sigma<\alpha$. Otherwise, $|S|\leq\kappa<\alpha$ and
+$|S|\geq\mathrm{cf}(\alpha)$
+(Proposition~\sourcecrossref{prop:cf-generalities}{A.2.8}~(ii)) would give
+$\mathrm{cf}(\alpha)<\alpha$, contradicting the regularity of $\alpha$.
+This claim ensures that $f^{-1}(Y_\beta)$ is a subobject of
+$f^{-1}(Y_\sigma)$ for every $\beta\in S$. Consequently,
+$f^{-1}(Y_\sigma)=X$, so $f$ factors through $Y_\sigma$.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.th001
+\begin{theorem}[A.\ Grothendieck]\label{prop:Grothendieck-injective}
+Let $\mathcal{A}$ be a Grothendieck category. Write $\mathcal{I}$ for the full
+subcategory of $\mathcal{A}$ consisting of injective objects, and write its
+inclusion functor as $\iota:\mathcal{I}\to\mathcal{A}$. There are a functor
+$F:\mathcal{A}\to\mathcal{I}$ and a natural transformation
+$\varphi:\identity_{\mathcal{A}}\to\iota F$ such that every
+% segment-id: o014.li2.chapter2.grothendieck-categories.q006
+\[\varphi_X:X\to F(X),\qquad X\in\Obj(\mathcal{A})\]
+is a monomorphism in $\mathcal{A}$. In particular, $\mathcal{A}$ has enough
+injectives.
+\end{theorem}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.pf010
+\begin{proof}
+	Choose a generator $s$. Let $F_0$ be the identity functor
+	$\identity_{\mathcal{A}}$. The first step is to form, for every object $X$,
+	the pushout diagram
+% segment-id: o014.li2.chapter2.grothendieck-categories.g007
+	\[\begin{tikzcd}
+		\bigoplus_{Y \in \mathrm{Sub}_s} \bigoplus_{\varphi: Y \to X} Y \arrow[r] \arrow[hookrightarrow, d] & X \arrow[d, "{\varphi(0, 1)_X}"] \\
+		\bigoplus_{Y \in \mathrm{Sub}_s} \bigoplus_{\varphi: Y \to X} s \arrow[r] & F_1(X) \arrow[phantom, lu, "\boxplus" description]
+	\end{tikzcd}\]
+	Proposition~\ref{prop:Abel-cat-pull-push} ensures that
+	$\varphi(0,1)_X:X\to F_1(X)$ in this diagram is a monomorphism. As $X$
+	varies, the assignment $X\mapsto F_1(X)$ becomes an endofunctor of
+	$\mathcal{A}$, and $\varphi(0,1):F_0\to F_1$ becomes a natural
+	transformation.
+
+	More generally, for every small ordinal $\alpha$ we shall construct a
+	functor $F_\alpha:\mathcal{A}\to\mathcal{A}$ together with a family of
+	natural transformations $\varphi(\beta,\alpha):F_\beta\to F_\alpha$ for
+	$\beta\leq\alpha$, having the following properties.
+% segment-id: o014.li2.chapter2.grothendieck-categories.l004
+	\begin{compactitem}
+% segment-id: o014.li2.chapter2.grothendieck-categories.i008
+		\item $\varphi(\alpha,\alpha)=\identity_{F_\alpha}$;
+% segment-id: o014.li2.chapter2.grothendieck-categories.i009
+		\item $\varphi(\beta,\alpha)_X:F_\beta(X)\to F_\alpha(X)$ is a
+		monomorphism for every $X$;
+% segment-id: o014.li2.chapter2.grothendieck-categories.i010
+		\item if $\gamma\leq\beta\leq\alpha$, then
+		$\varphi(\beta,\alpha)\varphi(\gamma,\beta)=\varphi(\gamma,\alpha)$.
+	\end{compactitem}
+	The construction proceeds by transfinite recursion \cite[\S 1.3]{Li1}.
+	Starting with $\alpha=0$, suppose that $F_\beta$ and the family of
+	transformations $\varphi(\beta',\beta)$ have been defined for every ordinal
+	$\beta<\alpha$. Set
+% segment-id: o014.li2.chapter2.grothendieck-categories.q007
+	\[ F_\alpha(X) := \begin{cases}
+		F_1(F_\beta(X)), & \alpha = \beta + 1:\ \text{a successor ordinal}, \\
+		\varinjlim_{\beta < \alpha} F_\beta(X), & \alpha: \text{a limit ordinal},
+	\end{cases}\]
+	where the $\varinjlim$ is formed with respect to
+	$(\varphi(\beta',\beta))_{\beta'\leq\beta<\alpha}$. The properties of
+	$F_1$ and the fact that filtered $\varinjlim$ preserves monomorphisms
+	determine the evident choices of $\varphi(\beta,\alpha)$.
+
+	By Lemma~\sourcecrossref{prop:enough-regular-cardinal}{A.2.10}, choose a
+	small regular cardinal $\alpha$ such that
+	$\alpha>|\mathrm{Sub}_s|$. We show that $F_\alpha X$ is injective for every
+	$X$. Given $Y\hookrightarrow s$ and $f:Y\to F_\alpha X$, the definition of
+	a regular cardinal \sourcecrossref{def:regular-cardinal}{A.2.7} implies that
+	$\alpha$ is a limit ordinal. The construction of $F_\alpha$, the inclusion
+	$\mathrm{Sub}_Y\subset\mathrm{Sub}_s$, and Lemma~\ref{prop:alpha-small}
+	show that $f$ factors through some $\varphi:Y\to F_\beta X$ with
+	$\beta+1<\alpha$. Consider the commutative diagram
+% segment-id: o014.li2.chapter2.grothendieck-categories.g008
+	\[\begin{tikzcd}
+		Y \arrow[r, "{\text{through}\; (Y, \varphi)}" inner sep=0.8em] \arrow[hookrightarrow, d] & \bigoplus_{Y' \in \mathrm{Sub}_s} \bigoplus_{\varphi': Y' \to F_\beta X} Y' \arrow[r] \arrow[hookrightarrow, d] & F_\beta X \arrow[d] \arrow[rd] & \\
+		s \arrow[r, "{\text{through}\; (Y, \varphi)}"' inner sep=0.8em] & \bigoplus_{Y' \in \mathrm{Sub}_s} \bigoplus_{\varphi': Y' \to F_\beta X} s \arrow[r] & F_{\beta + 1} X \arrow[phantom, lu, "\boxplus" description] \arrow[r] & F_\alpha X
+	\end{tikzcd}\]
+	This diagram shows directly that $f$ extends to a morphism
+	$s\to F_\alpha X$. Lemma~\ref{prop:Grothendieck-injective-criterion} then
+	implies that $F_\alpha X$ is injective. Finally, take
+	$F:=F_\alpha:\mathcal{A}\to\mathcal{I}$ and
+	$\varphi:=\varphi(0,\alpha)$.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.c004
+\begin{corollary}\label{prop:Grothendieck-cat-cogenerator}
+	Every Grothendieck category has an injective cogenerator.
+\end{corollary}
+% segment-id: o014.li2.chapter2.grothendieck-categories.pf011
+\begin{proof}
+	Choose a generator $s$ of the Grothendieck category $\mathcal{A}$. The set
+	$\mathrm{Quot}_s$ is known to be small. Choose an injective object $I$ and
+	a monomorphism
+	$\bigoplus_{Q\in\mathrm{Quot}_s}Q\hookrightarrow I$. We use the criterion
+	in Proposition~\ref{prop:injective-cogenerator} to show that $I$ is a
+	cogenerator.
+
+	Let $T\in\Obj(\mathcal{A})$ be nonzero. There is a nonzero morphism
+	$s\to T$, which factors as $s\twoheadrightarrow Q'\hookrightarrow T$.
+	Consequently there is a
+% segment-id: o014.li2.chapter2.grothendieck-categories.q008
+	\[ Q' \stackrel{\text{evident}}{\hookrightarrow}
+	\bigoplus_{Q \in \mathrm{Quot}_s} Q \hookrightarrow I. \]
+	By the definition of an injective object, this composite extends to a
+	morphism $T\to I$, and the extension is plainly nonzero. This proves the
+	claim.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.c005
+\begin{corollary}\label{prop:Grothendieck-cat-rep2}
+	Let $\mathcal{A}$ be a Grothendieck category. A functor
+	$F:\mathcal{A}\to\cate{Set}$ is representable if and only if it preserves
+	all small $\varprojlim$.
+\end{corollary}
+% segment-id: o014.li2.chapter2.grothendieck-categories.pf012
+\begin{proof}
+	The category $\mathcal{A}$ has a cogenerator; apply
+	Corollary~\ref{prop:cogenerator-representability}.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.p011
+Another characterization of Grothendieck categories is given by the
+Gabriel--Popescu--Kuhn theorem \sourcecrossref{prop:GP}{A.3.2} in the appendix
+to this book.
+
+% Page break forced here for typographical reasons.
+\vfill
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.x001
+\begin{Exercises}
+% segment-id: o014.li2.chapter2.grothendieck-categories.ex001
+	\item Show that the full additive subcategory of $\Z\dcate{Mod}$ formed by
+	free $\Z$-modules is not an abelian category.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.ex002
+	\item Let $X$ be an object of an abelian category and let
+	$Y,Z\in\mathrm{Sub}_X$. Consider the isomorphisms of partially ordered sets
+% segment-id: o014.li2.chapter2.grothendieck-categories.g009
+	\[\begin{tikzcd}
+		\left[Y \cap Z, Y \right] \arrow[d, "\simeq"] \arrow[r, "\sim"] & \left[ Z, Y+Z \right] \arrow[d, "\simeq"] \\
+		\mathrm{Sub}_{Y/(Y \cap Z)} \arrow[r, "\sim"] & \mathrm{Sub}_{(Y+Z)/Z}
+	\end{tikzcd}\]
+	where the vertical arrows come from Theorem
+	\ref{prop:Abel-cat-isom-thm} (ii), the lower horizontal arrow comes from
+	the isomorphism $Y/(Y\cap Z)\simeq(Y+Z)/Z$ in Theorem
+	\ref{prop:Abel-cat-isom-thm} (iii), and the upper horizontal arrow is the
+	map $W\mapsto W+Z$ of Proposition \ref{prop:lattice-diamond-isom}. Show
+	that the diagram commutes.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.ex003
+	\item Let $\Bbbk$ be a commutative ring and $\mathcal{A}$ a
+	$\Bbbk$-linear abelian category. Prove that if $\Hom(X,X)$ is an Artinian
+	$\Bbbk$-module for every $X\in\Obj(\mathcal{A})$, then $\mathcal{A}$
+	satisfies the bi-chain condition of Definition \ref{def:bichain}.
+% segment-id: o014.li2.chapter2.grothendieck-categories.hn001
+	\begin{hint}
+		For a bi-chain $(X_n,\alpha_n,\beta_n)_{n=0}^\infty$, the assignment
+		$f\mapsto\beta_n f\alpha_n$ defines a sequence of monomorphisms of
+		$\Bbbk$-modules
+		$\Hom(X_{n+1},X_{n+1})\hookrightarrow\Hom(X_n,X_n)$. Show that this
+		morphism is an isomorphism if and only if both $\alpha_n$ and $\beta_n$
+		are isomorphisms.
+	\end{hint}
+
+	\index{category!Karoubian}
+% segment-id: o014.li2.chapter2.grothendieck-categories.ex004
+	\item Let $\mathcal{K}$ be an $\cate{Ab}$-category with a zero object. If
+	$\Ker(e)$ exists for every $X\in\Obj(\mathcal{K})$ and every idempotent
+	$e\in\End(X)$, then $\mathcal{K}$ is called a \emph{Karoubian category}.
+% segment-id: o014.li2.chapter2.grothendieck-categories.l005
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter2.grothendieck-categories.i011
+		\item Prove that every idempotent $e$ in a Karoubian category has a
+		cokernel, and that there is a canonical isomorphism
+		$\Ker(e)\simeq\Coker(e)$.
+% segment-id: o014.li2.chapter2.grothendieck-categories.i012
+		\item For every $\cate{Ab}$-category $\mathcal{C}$ with a zero object,
+		canonically construct a Karoubian category $\mathrm{kar}(\mathcal{C})$
+		together with a fully faithful additive functor
+		$\varphi_{\mathcal{C}}:\mathcal{C}\to\mathrm{kar}(\mathcal{C})$ such
+		that, for every Karoubian category $\mathcal{K}$, the functor
+% segment-id: o014.li2.chapter2.grothendieck-categories.q009
+		\[ \varphi_{\mathcal{C}}^*:
+		\mathcal{K}^{\mathrm{kar}(\mathcal{C})}\to
+		\mathcal{K}^{\mathcal{C}},\quad F\mapsto F\varphi_{\mathcal{C}} \]
+		is an equivalence. Here $\mathcal{K}^{\mathcal{C}}$ denotes the functor
+		category whose objects are all additive functors
+		$\mathcal{C}\to\mathcal{K}$, and similarly for the other notation.
+% segment-id: o014.li2.chapter2.grothendieck-categories.i013
+		\item If $\Bbbk$ is a commutative ring and $\mathcal{C}$ is
+		$\Bbbk$-linear, then $\mathrm{kar}(\mathcal{C})$ also carries a natural
+		$\Bbbk$-linear structure.
+	\end{enumerate}
+% segment-id: o014.li2.chapter2.grothendieck-categories.p012
+	The category $\mathrm{kar}(\mathcal{C})$ is usually called the
+	\emph{Karoubi envelope} of $\mathcal{C}$; it is obtained by formally
+	adjoining all direct summands to $\mathcal{C}$.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.hn002
+	\begin{hint}
+		Take the objects of $\mathrm{kar}(\mathcal{C})$ to be pairs $(X,e)$,
+		where $X\in\Obj(\mathcal{C})$ and $e\in\End(X)$ is idempotent. A
+		morphism $(X,p)\to(Y,q)$ is a morphism $f:X\to Y$ in $\mathcal{C}$
+		satisfying $qf=f=fp$, while
+		$\varphi_{\mathcal{C}}(X)=(X,\identity_X)$.
+	\end{hint}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.ex005
+	\item For a ring $R$, verify that all projective $R$-modules form a
+	Karoubian category that is not abelian.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.ex006
+	\item Let the abelian category $\mathcal{A}$ have all small direct sums
+	$\bigoplus_{i\in I}$ (respectively, all small products
+	$\prod_{i\in I}$). Prove that a small set
+	$\Sigma\subset\Obj(\mathcal{A})$ is a family of generators (respectively,
+	a family of cogenerators) if and only if, for every
+	$X\in\Obj(\mathcal{A})$, there is a small direct sum (respectively, small
+	product) $S$ of members of $\Sigma$, together with an epimorphism
+	$S\twoheadrightarrow X$ (respectively, a monomorphism $X\hookrightarrow S$).
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.hn003
+	\begin{hint}
+		For a family of generators, the ``if'' direction is easy. For the
+		``only if'' direction, take the evident morphism
+% segment-id: o014.li2.chapter2.grothendieck-categories.q010
+		\[ f: \bigoplus_{s \in \Sigma} \bigoplus_{\varphi \in \Hom(s, X)} s \to X; \]
+		every morphism $\varphi$ factors through $f$. Hence every composite
+		$s\xrightarrow{\varphi'}X\to\Coker(f)$ is $0$; conclude that
+		$\Coker(f)=0$.
+	\end{hint}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.ex007
+	\item Let $A,B,C$ be subobjects of an object $X$ in an abelian category,
+	and suppose that $A\cap(B+C)=0=B\cap C$. Prove that $A\cap B=0$ and
+	$(A+B)\cap C=0$.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.hn004
+	\begin{hint}
+		Construct a monomorphism $(A+B)\cap C\to A$, then show that it factors
+		through $A\cap(B+C)$. You may first try the case of a module category.
+	\end{hint}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.ex008
+	\item Prove that the abelian category of finitely generated $\Z$-modules
+	has enough projective objects but does not have enough injective objects.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.ex009
+	\item (Schanuel's lemma) Let $P,Q$ be projective objects in an abelian
+	category and consider the short exact sequences
+% segment-id: o014.li2.chapter2.grothendieck-categories.g010
+	\begin{gather*}
+		0 \to K \to P \xrightarrow{\phi} M \to 0, \\
+		0 \to L \to Q \xrightarrow{\psi} M \to 0.
+	\end{gather*}
+	From these data, form the pullback diagram
+% segment-id: o014.li2.chapter2.grothendieck-categories.g011
+	\[\begin{tikzcd}
+		X \arrow[r, "{\psi'}"] \arrow[d, "{\phi'}"'] & P \arrow[d, "\phi"] \\
+		Q \arrow[r, "\psi"'] & M \arrow[phantom, lu, "\Box" description] .
+	\end{tikzcd}\]
+	Show that there are short exact sequences
+	$0\to L\to X\xrightarrow{\psi'}P\to0$ and
+	$0\to K\to X\xrightarrow{\phi'}Q\to0$, and then prove that there is an
+	isomorphism $K\oplus Q\simeq L\oplus P$.
+% segment-id: o014.li2.chapter2.grothendieck-categories.hn005
+	\begin{hint} Apply Propositions \ref{prop:pull-back-ker} and
+	\ref{prop:Abel-cat-pull-push}. \end{hint}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.ex010
+	\item Prove that $\Q/\Z$ is an injective cogenerator for $\cate{Ab}$.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.ex011
+	\item Verify in detail the adjunctions in Example
+	\ref{eg:A2-injective-projective}.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.ex012
+	\item Let $\mathcal{C}$ be a nonempty category and $\mathcal{A}$ an
+	abelian category. For every $c\in\Obj(\mathcal{C})$, the evaluation functor
+	$\mathrm{ev}_c:\mathcal{A}^{\mathcal{C}}\to\mathcal{A}$ sends $F$ to
+	$Fc$.
+% segment-id: o014.li2.chapter2.grothendieck-categories.l006
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter2.grothendieck-categories.i014
+		\item Suppose that $\mathcal{A}$ has all direct sums of the forms
+		$\bigoplus_{c\in\Obj(\mathcal{C})}$ and
+		$\bigoplus_{f\in\Hom_{\mathcal{C}}(c,c')}$. For every
+		$c\in\Obj(\mathcal{C})$, define a functor
+		$\mathcal{L}_c:\mathcal{A}\to\mathcal{A}^{\mathcal{C}}$ on objects by
+		$(\mathcal{L}_cX)(c')=\bigoplus_{\Hom(c,c')}X$. Complete its definition
+		on morphisms so that $\mathcal{L}_c$ is left adjoint to
+		$\mathrm{ev}_c$.
+%		\begin{hint}
+%			Given $c'\to c''$, the definition of the functor on morphisms is determined by
+%			$\Hom(c,c')\to\Hom(c,c'')$ and $\identity_X$.
+%		\end{hint}
+% segment-id: o014.li2.chapter2.grothendieck-categories.i015
+		\item Under the preceding assumptions, prove that if $\mathcal{A}$ has
+		enough projective objects, then so does $\mathcal{A}^{\mathcal{C}}$.
+% segment-id: o014.li2.chapter2.grothendieck-categories.i016
+		\item Investigate the dual version. Suppose that $\mathcal{A}$ has all
+		products of the forms $\prod_{c\in\Obj(\mathcal{C})}$ and
+		$\prod_{f\in\Hom_{\mathcal{C}}(c',c)}$. Define a functor
+		$\mathcal{R}_c:\mathcal{A}\to\mathcal{A}^{\mathcal{C}}$ by
+		$(\mathcal{R}_cX)(c')=\prod_{\Hom(c',c)}X$ that is right adjoint to
+		$\mathrm{ev}_c$. Then prove that if $\mathcal{A}$ has enough injective
+		objects, so does $\mathcal{A}^{\mathcal{C}}$.
+% segment-id: o014.li2.chapter2.grothendieck-categories.i017
+		\item Investigate the relation of these constructions to Example
+		\ref{eg:A2-injective-projective} when $\mathcal{C}=\mathbf{2}$.
+	\end{enumerate}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.ex013
+	\item With the notation of the preceding exercise, let $\mathcal{C}$ be a
+	small category. Prove that if $s$ is a generator (respectively,
+	cogenerator) for $\mathcal{A}$, then all the $\mathcal{L}_c(s)$
+	(respectively, $\mathcal{R}_c(s)$), as $c$ ranges over
+	$\Obj(\mathcal{C})$, form a family of generators (respectively,
+	cogenerators) for $\mathcal{A}^{\mathcal{C}}$, provided the required direct
+	sums (respectively, direct products) exist.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.hn006
+	\begin{hint}
+		For the generator case, for every $c\in\Obj(\mathcal{C})$ and every
+		morphism $f:X\to Y$ in $\mathcal{A}^{\mathcal{C}}$ there is a
+		commutative diagram
+% segment-id: o014.li2.chapter2.grothendieck-categories.g012
+		\[\begin{tikzcd}
+			\Hom_{\mathcal{A}}(s, Y(c)) \arrow[r, "\sim"] & \Hom_{\mathcal{A}^{\mathcal{C}}}(\mathcal{L}_c(s), Y) \\
+			\Hom_{\mathcal{A}}(s, X(c)) \arrow[r, "\sim"'] \arrow[u, "{f(c)_*}"] & \Hom_{\mathcal{A}^{\mathcal{C}}}(\mathcal{L}_c(s), X) \arrow[u, "{f_*}"'] .
+		\end{tikzcd}\]
+		The condition for a family to be a family of generators is equivalent
+		to saying that, as $c$ ranges over $\Obj(\mathcal{C})$, all the maps
+		$f_*$ in the second column determine $f$ uniquely.
+	\end{hint}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.ex014
+	\item (Direct construction of the Serre quotient) For a Serre subcategory
+	$\mathcal{T}$ of an abelian category $\mathcal{A}$, define a new category
+	whose set of objects is $\Obj(\mathcal{A})$, and whose set of morphisms
+	from $X$ to $Y$ is
+% segment-id: o014.li2.chapter2.grothendieck-categories.q011
+	\[ \varinjlim_{X' \subset X, Y' \subset Y} \Hom_{\mathcal{A}}(X', Y/Y'),
+	\quad \text{where}\; X/X',\;Y'\in\Obj(\mathcal{T}). \]
+% segment-id: o014.li2.chapter2.grothendieck-categories.l007
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter2.grothendieck-categories.i018
+		\item Complete the definition of composition of morphisms and show that
+		this category is equivalent to the Serre quotient
+		$\mathcal{A}/\mathcal{T}$ of Theorem \ref{prop:Serre-quotient}.
+% segment-id: o014.li2.chapter2.grothendieck-categories.hn007
+		\begin{hint}
+			% Reference: Gelfand--Manin, p. 121.
+			Verify that this category has the universal property stated in
+			Theorem \ref{prop:Serre-quotient}.
+		\end{hint}
+% segment-id: o014.li2.chapter2.grothendieck-categories.i019
+		\item Use this construction to show that if $\mathcal{A}$ is
+		well-powered (Definition \ref{def:well-powered}), then
+		$\mathcal{A}/\mathcal{T}$ is also a $\mathcal{U}$-category, where
+		$\mathcal{U}$ is the chosen Grothendieck universe.
+	\end{enumerate}
+	\index{size issue}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.ex015
+	\item Let $\mathcal{B}$ be an abelian subcategory of $\mathcal{A}$, and
+	suppose that for every $X\in\Obj(\mathcal{A})$ there is a sequence of
+	subobjects $0=X_0\subset\cdots\subset X_n=X$ such that
+	$X_i/X_{i-1}\in\Obj(\mathcal{B})$. Prove that the inclusion functor
+	$\mathcal{B}\to\mathcal{A}$ induces an isomorphism of groups
+	$\mathrm{K}_0(\mathcal{B})\rightiso\mathrm{K}_0(\mathcal{A})$.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.hn008
+	\begin{hint}
+		Use the Schreier refinement theorem
+		\ref{prop:Schreier-refinement} to show that
+		$[X]\mapsto\sum_{i=1}^n[X_i/X_{i-1}]$ gives an inverse map independent
+		of the choice of the sequence of subobjects.
+	\end{hint}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.ex016
+	\item Let $\mathrm{isom}$ be the set of isomorphism classes of all objects
+	in an additive category $\mathcal{A}$. Write $\lrangle{X}$ for the image of
+	the isomorphism class of an object $X$ in the free $\Z$-module
+	$\Z^{\oplus\mathrm{isom}}$. Define the direct-sum version of the
+	$\mathrm{K}_0$ group by
+% segment-id: o014.li2.chapter2.grothendieck-categories.q012
+	\[ \mathrm{K}_{\oplus}(\mathcal{A}) := \Z^{\oplus \mathrm{isom}} \big/
+	\text{the submodule generated by all}\;
+	\lrangle{X \oplus Y} - \lrangle{X} - \lrangle{Y}. \]
+
+	Let $\mathrm{ind}$ be the set of isomorphism classes of indecomposable
+	objects. Prove that if $\mathcal{A}$ is Karoubian and every nonzero object
+	has a finite direct-sum decomposition
+	$X\simeq X_1\oplus\cdots\oplus X_k$, with $X_i\neq0$ and
+	$\End(X_i)$ a local ring (see the discussion before Corollary
+	\ref{prop:indecomposable-local-ring}), then there is a canonical
+	isomorphism
+% segment-id: o014.li2.chapter2.grothendieck-categories.q013
+	\[ \Z^{\oplus \mathrm{ind}} \rightiso \mathrm{K}_{\oplus}(\mathcal{A}). \]
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.hn009
+	\begin{hint}
+		Recall that if $\End(X_i)$ is a local ring, then $X_i$ is
+		indecomposable; prove this directly or see \cite[Lemma 6.12.6]{Li1}.
+		Then use \cite[Theorem 6.12.8]{Li1} to obtain uniqueness of the
+		decomposition.
+	\end{hint}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.ex017
+	\item Let $\mathcal{A}$ be a Grothendieck category and
+	$(X_i)_{i\in I}$ a family of objects indexed by a small set $I$. Prove
+	that the canonical morphism
+	$\delta:\bigoplus_{i\in I}X_i\to\prod_{i\in I}X_i$ in
+	\eqref{eqn:coprod-prod-delta} is a monomorphism.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.hn010
+	\begin{hint}
+		For every finite subset $F\subset I$, consider the commutative diagram
+% segment-id: o014.li2.chapter2.grothendieck-categories.g013
+		\[\begin{tikzcd}
+			\bigoplus_{i \in I} X_i \arrow[r, "\delta"] & \prod_{i \in I} X_i \\
+			\bigoplus_{i \in F} X_i \arrow[r, "\sim", "\delta_F"'] \arrow[hookrightarrow, u] & \prod_{i \in F} X_i \arrow[hookrightarrow, u, "{\iota_F}"']
+		\end{tikzcd}\]
+		Take the filtered $\varinjlim$ of $\iota_F\delta_F$ over all finite
+		$F\subset I$, and conclude that $\delta$ is a monomorphism; see
+		Proposition \ref{prop:limit-filtered-approx}.
+	\end{hint}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.ex018
+	\item Prove that if $\mathcal{A}$ is a Grothendieck category, then the
+	category of complexes $\cate{C}(\mathcal{A})$ (see
+	\S\sourcecrossref{sec:additive-cplx}{3.1}) and the functor category
+	$\mathcal{A}^{\mathcal{C}}$ are both Grothendieck categories, where
+	$\mathcal{C}$ is any small category.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.ex019
+	\item (Characterization of direct sums) Let $\mathcal{A}$ be a
+	Grothendieck category. Consider $X\in\Obj(\mathcal{A})$ and a family of
+	subobjects $(X_i)_{i\in I}$, where $I$ is a small set. The restriction of
+	the canonical morphism $\bigoplus_{i\in I}X_i\to X$ to each $X_i$ is the
+	inclusion $X_i\hookrightarrow X$. Prove that
+	$\bigoplus_{i\in I}X_i\rightiso X$ if and only if the following
+	properties hold.
+% segment-id: o014.li2.chapter2.grothendieck-categories.l008
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter2.grothendieck-categories.i020
+		\item $X=\sum_{i\in I}X_i$;
+% segment-id: o014.li2.chapter2.grothendieck-categories.i021
+		\item for every $i\in I$ one has
+		$X_i\cap\sum_{\substack{j\in I\\j\neq i}}X_j=0$.
+	\end{enumerate}
+	Observe that condition (ii) need only be checked on finite subsets of
+	$I$. If $I$ itself is finite, the preceding statement holds in any abelian
+	category.
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.hn011
+	\begin{hint}
+		Property (i) is equivalent to the canonical morphism being an
+		epimorphism, while (ii) is equivalent to its being a monomorphism. The
+		first is immediate; for the second, use filtered $\varinjlim$ to reduce
+		to the case of finite $I$.
+	\end{hint}
+
+% segment-id: o014.li2.chapter2.grothendieck-categories.ex020
+	\item Consider an object $X$ in a Grothendieck category $\mathcal{A}$.
+% segment-id: o014.li2.chapter2.grothendieck-categories.l009
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter2.grothendieck-categories.i022
+		\item Supply a detailed proof of Remark
+		\ref{rem:Grothendieck-ss-decomp}.
+% segment-id: o014.li2.chapter2.grothendieck-categories.hn012
+		\begin{hint}
+			Use the preceding exercise to handle infinite direct sums.
+		\end{hint}
+% segment-id: o014.li2.chapter2.grothendieck-categories.i023
+		\item Under the following hypothesis, prove that if $X$ is split, then
+		$X$ is semisimple: for every nonzero $Y\in\Obj(\mathcal{A})$, there is
+		a nonzero subobject $Y_0\subset Y$ such that every chain in the
+		partially ordered set $\mathrm{Sub}_{Y_0}\smallsetminus\{Y_0\}$ has an
+		upper bound. Verify this hypothesis for $\mathcal{A}=R\dcate{Mod}$.
+% segment-id: o014.li2.chapter2.grothendieck-categories.hn013
+		\begin{hint}
+			You may follow the implication (iii) $\implies$ (i) in the proof of
+			\cite[Proposition 6.11.4]{Li1}, together with the proof of
+			\cite[Lemma 6.11.3]{Li1}.
+		\end{hint}
+	\end{enumerate}
+\end{Exercises}

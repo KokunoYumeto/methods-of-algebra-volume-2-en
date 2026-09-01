@@ -1,0 +1,115 @@
+% O014 / D80 -- Methods of Algebra, Volume 2 -- en
+% Source: appendix2.tex, lines 661--770 inclusive.
+% Stable unit ID: o014.aljabr2.appendix-b.exercises
+% Original source copyright 2024 Wen-Wei Li, CC BY 4.0.
+
+\begin{Exercises}
+	\item Let $E$ be a Hausdorff topological group, let $M$ be a finite normal subgroup of $E$, and suppose that $E/M$ is a profinite group with respect to the quotient topology. Prove that $E$ is also profinite.
+
+	\item Define $\hat{\mathbb{N}}$ to be the set of all maps $n:\{\text{primes}\}\to\Z_{\geq 0}\sqcup\{+\infty\}$; its elements may be written formally as products $\prod_{p:\text{prime}}p^{n_p}$. Via prime factorization, $\Z_{\geq 1}$ embeds as a subset of $\hat{\mathbb{N}}$. Multiplication, greatest common divisors, least common multiples, and the notion of being relatively prime are defined for these expressions in the evident way. Let $H$ be a closed subgroup of a profinite group $G$. Define
+	\[ (G:H) := \text{the least common multiple of all}\; (G/K : H/(H \cap K)) \;\text{in $\hat{\mathbb{N}}$}, \]
+	where $K$ ranges over the open normal subgroups of $G$.
+	\begin{enumerate}[(i)]
+		\item Prove that $(G:H)$ is also the least common multiple of all $(G:L)$, where $L$ ranges over the open subgroups containing $H$.
+		\begin{hint}
+			Every such $L$ must contain an open subgroup of the form $HK$, with $K$ as above.
+		\end{hint}
+		\item Prove that if $H_2\subset H_1\subset G$, then $(G:H_2)=(G:H_1)(H_1:H_2)$.
+
+		\begin{hint}
+			Set $G_K=G/K$ and $H_{i,K}=H_i/H_i\cap K$. It is known that $(G_K:H_{2,K})=(G_K:H_{1,K})(H_{1,K}:H_{2,K})$; take least common multiples on both sides of the equality.
+		\end{hint}
+		\item Let $H_1\supset H_2\supset\cdots$ be a descending sequence of closed subgroups, and put $H:=\bigcap_iH_i$. Prove that $(G:H)$ is the least common multiple of all $(G:H_i)$.
+		% Hint: Consider each chosen K
+		\item Prove that $H$ is open if and only if $(G:H)\in\Z_{\geq 1}$.
+	\end{enumerate}
+
+	\item Let $p$ be a prime and let $G$ be a profinite group. A closed subgroup $P$ satisfying
+	\begin{inparaenum}
+		\item $P$ is a pro-$p$ group,
+		\item $(G:P)\in\hat{\mathbb{N}}$ is relatively prime to $p$,
+	\end{inparaenum}
+	is called a \emph{pro-$p$ Sylow subgroup} of $G$.
+	\begin{enumerate}[(i)]
+		\item Prove that $G$ always has a pro-$p$ Sylow subgroup.
+		\begin{hint}
+			Every $G/K$ has a Sylow $p$-subgroup $P_K$. Apply the fact that a filtered $\varprojlim$ of nonempty finite sets is nonempty (the next exercise) to choose $P_K$ compatibly for every $G/K$, and then consider $\varprojlim_KP_K\hookrightarrow G$.
+		\end{hint}
+		\item For the profinite completion $\hat{\Z}:=\varprojlim_{n\geq 1}\Z/n\Z$ of $\Z$, verify that the additive group of the ring of $p$-adic integers $\Z_p$ is a pro-$p$ Sylow subgroup of $\hat{\Z}$.
+		\item Prove that any two pro-$p$ Sylow subgroups are conjugate.
+		\begin{hint}
+			As in the argument for (i), reduce to the case of finite groups.
+		\end{hint}
+		\item Prove that every pro-$p$ subgroup of $G$ is contained in a pro-$p$ Sylow subgroup.\footnote{Translator's note: in this item the source says ``Sylow $p$-subgroup,'' whereas the object defined and discussed here is a pro-$p$ Sylow subgroup.}
+	\end{enumerate}
+
+	\item (N.\ Bourbaki \cite[III.58 Th\'eor\`eme 1]{BouE}) Let $(I,\leq)$ be a nonempty filtered partially ordered set, and let a functor $X:I^{\opp}\to\cate{Set}$ be given, written as $(X_i)_{i\in\Obj(I)}$; denote the map corresponding to $i\leq j$ by $f_{ij}:X_j\to X_i$. By the following method, prove that if every $X_i$ is a nonempty finite set, then $\varprojlim_iX_i\neq\emptyset$.
+	\begin{enumerate}[(i)]
+		\item Consider families of sets $(A_i)_{i\in\Obj(I)}$ satisfying
+		\[ \emptyset \neq A_i \subset X_i, \quad i \leq j \implies f_{ij}(A_j) \subset A_i . \]
+		These families form a set $\Sigma$. Give it the partial order $\preceq$ defined as follows: $(A_i)_i\preceq(A'_i)_i$ means that $A'_i\subset A_i$ for every $i$. Use Zorn's lemma to show that $(\Sigma,\preceq)$ has a maximal element.
+
+		\begin{hint}
+			Clearly $\Sigma$ is nonempty. For a chain in $(\Sigma,\preceq)$, check that taking intersections at each index $i$ still gives an element of $\Sigma$, and hence gives an upper bound for the chain. Nonemptiness requires the hypothesis that the sets are finite.
+		\end{hint}
+
+		\item Prove that if $(A_i)_i$ is a maximal element of $(\Sigma,\preceq)$, then $f_{ij}(A_j)=A_i$ for every $i\leq j$.
+
+		\begin{hint}
+			Set $A'_i:=\bigcap_{i\leq j}f_{ij}(A_j)\subset A_i$. It suffices to prove that $(A'_i)_i\in\Sigma$. Nonemptiness follows from the finiteness hypothesis; the only other point to prove is that $f_{ij}(A'_j)\subset A'_i$. First observe that $f_{ij}(A'_j)\subset\bigcap_{j\leq k}f_{ik}(A_k)$. Then use filteredness to show that $\bigcap_{j\leq k}f_{ik}(A_k)=\bigcap_{i\leq h}f_{ih}(A_h)=A'_i$.
+		\end{hint}
+
+		\item Continuing from the preceding parts, prove that every $A_i$ in a maximal element $(A_i)_i$ is a singleton, and thereby prove that $\varprojlim_iX_i\neq\emptyset$.
+
+		\begin{hint}
+			Choose $i\in\Obj(I)$ and $x_i\in A_i$. For each $j$, define
+			\[ B_j := \begin{cases}
+				A_j \cap f_{ij}^{-1}(x_i), & i \leq j \\
+				A_j, & \text{otherwise}.
+			\end{cases} \]
+			Prove that $(B_j)_j\in\Sigma$, so that $A_j=B_j$ always, including when $i=j$.
+		\end{hint}
+	\end{enumerate}
+	Observe that the case $(I,\leq)=(\Z_{\geq 0},\leq)$ can be handled by Lemma~\ref{prop:ML-nonempty}.
+
+	\item Form the category $\cate{ext}_{\mathrm{alg}}(F)$ (respectively, $\cate{ext}_{\mathrm{f}}(F)$) of all algebraic extensions (respectively, finite extensions) of a field $F$. Show that $\cate{ext}_{\mathrm{alg}}(F)$ is equivalent to $\IndC\left(\cate{ext}_{\mathrm{f}}(F)\right)$.
+
+	\item Let $A$ be a coalgebra over a field $\Bbbk$, that is, a coalgebra in the monoidal category $\left(\cate{Vect}(\Bbbk),\otimes_{\Bbbk}\right)$ (Definition~\ref{def:cogebra-monoidal}). Write $\cated{Comod}A$ for the category of right $A$-comodules (Definition~\ref{def:comodule-cogebra}), and write $\catesubd{Comod}{\mathrm{f}}A$ for its full subcategory consisting of finite-dimensional right $A$-comodules. Prove that $\cated{Comod}A$ is equivalent to $\IndC\left(\catesubd{Comod}{\mathrm{f}}A\right)$.
+
+	\begin{hint}
+		As in the case of vector spaces in Example~\ref{eg:Ind-Vect}, apply Lemma~\ref{prop:comodule-fd-union}.
+	\end{hint}
+
+	\item Consider a full subcategory $\mathcal{C}'\subset\mathcal{C}$ and a functor $F':\mathcal{C}'\to\mathcal{D}$. Assume that
+	\begin{compactitem}
+		\item $\mathcal{C}'$ is small, and all its objects are compact in $\mathcal{C}$;
+		\item every object of $\mathcal{C}$ can be written as a small filtered $\varinjlim$ of objects of $\mathcal{C}'$;
+		\item $\mathcal{D}$ has small filtered $\varinjlim$.
+	\end{compactitem}
+	Prove that under these hypotheses $F'$ extends to a functor $F:\mathcal{C}\to\mathcal{D}$ that preserves small filtered $\varinjlim$; up to isomorphism, $F$ is unique.
+	% \cite[Tag 0FWY]{stacks}
+
+	\begin{hint}
+		First extend $F'$ to $\widehat{F'}:\IndC(\mathcal{C}')\to\mathcal{D}$ (Definition--Proposition~\ref{def:Ind-hat-functor}), and then obtain $F:\mathcal{C}\to\mathcal{D}$ via the equivalence in Proposition~\ref{prop:recognition-Ind}. We also need Proposition~\ref{prop:Ind-hat-small}.
+
+		For uniqueness, observe that if an object $X$ of $\mathcal{C}$ is written as $\varinjlim_iX_i$, where $I\to\mathcal{C}'$ is a functor and $I$ is a small filtered category, then necessarily $F(X)\simeq\varinjlim_iF'(X_i)$.
+	\end{hint}
+
+	\item Suppose that the category $\mathcal{C}$ has finite $\varinjlim$. Prove that $\IndC\mathcal{C}$ is an $\aleph_0$-presentable category in the sense of Definition~\ref{def:presentable-cat}.
+
+	\index{Stone space}
+	\index{profinite set}
+	\item A compact Hausdorff totally disconnected topological space is called a \emph{Stone space}; by convention, topological spaces are by default realized on small sets. Write $\cate{Stone}$ for the category of all Stone spaces, and $\cate{FinSet}$ for the category of all finite small sets.
+	\begin{enumerate}[(i)]
+		\item Prove that the Cantor set and $\Z_p$ are Stone spaces, for any prime $p$.
+		\item Prove that $\cate{Stone}$ is equivalent to $\ProC(\cate{FinSet})$; thus Stone spaces may be regarded as profinite sets.
+		\item Prove that profinite groups are precisely the group objects in $\cate{Stone}$.
+		\item Prove that the category of locally compact Hausdorff totally disconnected topological spaces is equivalent to $\IndC\ProC(\cate{FinSet})$; prove that $\Q_p$ is such a space.
+	\end{enumerate}
+
+	\item Check the details of Remark~\ref{rem:Ind-k-linear}.
+
+	\item Show that $\IndC\mathcal{C}$ can be characterized by the following property: for every category $\mathcal{D}$ with small filtered $\varinjlim$, the functor induced by $\mathcal{C}\to\IndC\mathcal{C}$,
+	\[ \mathrm{Fct}^0(\IndC\mathcal{C}, \mathcal{D}) \to \mathrm{Fct}(\mathcal{C}, \mathcal{D}) \]
+	is an equivalence. Here $\mathrm{Fct}(\cdots)$ denotes a functor category, while the superscript $0$ denotes the full subcategory consisting of functors that preserve small filtered $\varinjlim$.
+\end{Exercises}

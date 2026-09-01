@@ -1,0 +1,194 @@
+% Unit 071 English translation of chapter5.tex lines 1066--1148.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter5.exercises
+% Coverage: All Chapter 5 exercises.
+
+% segment-id: o014.li2.chapter5.exercises.h001
+\begin{Exercises}
+	% segment-id: o014.li2.chapter5.exercises.ex001
+	\item For an Abelian category $\mathcal{A}$, verify the following
+	properties of the category of filtered objects
+	$\mathrm{Fil}^\bullet(\mathcal{A})$.
+	\begin{enumerate}[(i)]
+		\item It is an additive category, and every morphism has a kernel,
+		cokernel, image, and coimage. Describe them as concretely as possible.
+		\item For a morphism $f:X\to Y$ in
+		$\mathrm{Fil}^\bullet(\mathcal{A})$, if
+		$f(\mathrm{F}^nX)\to f(X)\cap\mathrm{F}^nY$ is an isomorphism for
+		every $n$, then $f$ is called a strict morphism. Prove that this notion
+		is equivalent to the version in Definition~\ref{def:strict-morphism}.
+
+		\begin{hint}
+			This is equivalent to saying that the two natural filtrations on
+			$f(X)$ coincide: one is the image of $\mathrm{F}^\bullet X$, and
+			the other is the restriction of $\mathrm{F}^\bullet Y$. The former
+			corresponds to $\Coim(f)$ in
+			$\mathrm{Fil}^\bullet(\mathcal{A})$, and the latter to $\Image(f)$.
+		\end{hint}
+		\item Give an example showing that
+		$\mathrm{Fil}^\bullet(\mathcal{A})$ is not an Abelian category in
+		general.
+	\end{enumerate}
+	Although filtered objects do not form an Abelian category, geometry still
+	requires the filtered derived category $\cate{DF}(\mathcal{A})$ in the
+	case of finite filtrations. Its definition requires rather deeper
+	techniques; see \cite[Tag 05RX]{stacks}.
+	\index{derived category!filtered}
+
+	% segment-id: o014.li2.chapter5.exercises.ex002
+	\item For a filtered differential object
+	$(X,d,\mathrm{F}^\bullet X)$ over an Abelian category $\mathcal{A}$,
+	prove that $d_1^p:E_1^p\to E_1^{p+1}$ in the spectral sequence is the
+	connecting morphism induced by the short exact sequence of differential
+	objects
+	\[ 0\to\gr^{p+1}X\to\mathrm{F}^pX/\mathrm{F}^{p+2}X
+	\to\gr^pX\to0. \]
+
+	% segment-id: o014.li2.chapter5.exercises.ex003
+	\item (Bockstein spectral sequence) Let $f$ be a non-zero-divisor in a
+	commutative ring $R$. For every $R$-module $M$, define
+	$M[f]:=\{m\in M:fm=0\}$; call $M$ \emph{$f$-torsion-free} if
+	$M[f]=\{0\}$. Let $C$ be a chain complex and suppose every $C_n$ is
+	$f$-torsion-free. Multiplication by $f$ gives a monomorphism of chain
+	complexes $\alpha:C\to C$. For the data $(C,\alpha)$,
+	Proposition~\ref{prop:differential-exact-couple} gives the exact couple
+	\[\begin{tikzcd}[column sep=tiny]
+		\Hm_\bullet(C) \arrow[rr, "{\Hm_\bullet(\alpha)}"] & &
+		\Hm_\bullet(C) \arrow[ld] \\
+		& \Hm_\bullet\left(C\dotimes{R}R/(f)\right) \arrow[lu, "{-1}"] &
+	\end{tikzcd}\]
+	and the associated homologically graded spectral sequence
+	$(E^r_q)_{\substack{r\geq0\\q\in\Z}}$. Describe every page
+	$(E^r,d^r)$ and $E^\infty$ as explicitly as possible.
+	\index{spectral sequence!Bockstein}
+
+	% segment-id: o014.li2.chapter5.exercises.ex004
+	\item In the preceding problem, take $R=\Z$ and $f=p$, with $p$ prime,
+	and suppose every $C_n$ is a free $\Z$-module of finite rank. For every
+	$\Z$-module $M$, write $M_{\mathrm{tor}}$ for the submodule of all its
+	torsion elements and define its torsion-free quotient
+	$M_{\mathrm{tf}}:=M/M_{\mathrm{tor}}$. Prove that
+	\[ E^\infty_q\simeq\Hm_q(C)_{\mathrm{tf}}\dotimes{\Z}\F_p,
+	\qquad q\in\Z. \]
+	Deduce that
+	\[ \dim_{\F_p}\Hm_q\left(C\dotimes{\Z}\F_p\right)
+	\geq\dim_{\F_p}\left(\Hm_q(C)_{\mathrm{tf}}\dotimes{\Z}\F_p\right). \]
+	Give an example in which the inequality is strict.
+
+	% segment-id: o014.li2.chapter5.exercises.ex005
+	\item (Two-column and two-row spectral sequences) Let a strongly
+	convergent spectral sequence $E_2^{p,q}\Rightarrow H^{p+q}$ be given, in
+	the sense of Convention~\ref{con:ss-conv}.
+	\begin{enumerate}[(i)]
+		\item Prove that if $E_2^{p,q}$ is nonzero only for
+		$p\in\{0,1\}$, then for every $q\in\Z$ there is a canonical short
+		exact sequence
+		\[ 0\to E_2^{1,q-1}\to H^q\to E_2^{0,q}\to0. \]
+		\item Prove that if $E_2^{p,q}$ is nonzero only for
+		$q\in\{0,1\}$, then for every $p\in\Z$ there is a canonical exact
+		sequence
+		\[ \cdots\to H^{p-1}\to E_2^{p-2,1}\xrightarrow{d_2}E_2^{p,0}
+		\to H^p\to E_2^{p-1,1}\xrightarrow{d_2}E_2^{p+1,0}
+		\to H^{p+1}\to\cdots. \]
+		\item Treat the version $E^2_{p,q}\Rightarrow H_{p+q}$.
+		\begin{hint}
+			Interchange superscripts and subscripts, reverse the arrows, and
+			leave everything else unchanged.
+		\end{hint}
+	\end{enumerate}
+
+	% segment-id: o014.li2.chapter5.exercises.ex006
+	\item Consider left-exact functors $F'$ and $F$ satisfying the hypotheses
+	of Theorem~\ref{prop:Grothendieck-ss}, and suppose in addition that
+	$\mathrm{R}F'$ and $\mathrm{R}F$ are both of finite dimension.
+	\begin{enumerate}[(i)]
+		\item Prove that $F'F$ is also of finite dimension, and give an upper
+		bound for its dimension.
+		\item Consider the homomorphism
+		$\chi_F:\mathrm{K}_0(\mathcal{A})\to\mathrm{K}_0(\mathcal{A}')$
+		determined by the triangulated functor $\mathrm{R}F$, and the analogous
+		homomorphisms $\chi_{F'}$, $\chi_{F'F}$ determined by
+		$\mathrm{R}F'$, $\mathrm{R}(F'F)$; see the exercises in
+		\CHref{sec:cplx}. Prove that
+		$\chi_{F'F}=\chi_{F'}\circ\chi_F$.
+	\end{enumerate}
+	These properties can also be proved using derived categories. The case of
+	right-exact functors and $\mathrm{L}F',\mathrm{L}F$ is of course dual.
+
+	% segment-id: o014.li2.chapter5.exercises.ex007
+	\item Let $\mathcal{A}$ be an Abelian category with enough injective
+	objects, and let $X\in\Obj(\mathcal{A})$ carry a finite filtration
+	$X=\mathrm{F}^0X\supset\cdots\supset\mathrm{F}^{N+1}X=0$. Let
+	$G:\mathcal{A}\to\mathcal{A}'$ be a left-exact additive functor. Prove
+	that there is a strongly convergent spectral sequence
+	\[ E_1^{p,q}=\mathrm{R}^{p+q}G(\gr^pX)
+	\Rightarrow\mathrm{R}^{p+q}G(X). \]
+	% Reference: [Knapp-Vogan 1995, Proposition D.57]
+	\begin{hint}
+		One method is to imitate the construction of a Cartan--Eilenberg
+		resolution (Theorem~\ref{prop:CE-resolution}, which uses
+		Proposition~\ref{prop:horseshoe}). Starting from $\mathrm{F}^NX$, choose
+		a suitable series of injective resolutions
+		\[\begin{tikzcd}[row sep=small]
+			\vdots & & \vdots \\
+			\mathrm{F}^0I^1 \arrow[u]
+			\arrow[phantom,r,"\supset" description] & \cdots
+			\arrow[phantom,r,"\supset" description] & \mathrm{F}^NI^1 \arrow[u] \\
+			\mathrm{F}^0I^0 \arrow[u]
+			\arrow[phantom,r,"\supset" description] & \cdots
+			\arrow[phantom,r,"\supset" description] & \mathrm{F}^NI^0 \arrow[u] \\
+			\mathrm{F}^0X \arrow[u]
+			\arrow[phantom,r,"\supset" description] & \cdots
+			\arrow[phantom,r,"\supset" description] & \mathrm{F}^NX \arrow[u] \\
+			0 \arrow[u] & & 0 \arrow[u]
+		\end{tikzcd}\]
+		such that applying $\cate{C}G$ to $\mathrm{F}^\bullet(I)$ still gives
+		a filtered complex and the associated spectral sequence has the
+		required form.
+	\end{hint}
+
+	% segment-id: o014.li2.chapter5.exercises.ex008
+	\item Let $R$ be a ring, let $C=(C_n,d^C_n)_n$ be a chain complex of right
+	$R$-modules, and let $D$ be a left $R$-module. Suppose every $C_n$ is flat
+	and $n\ll0\implies C_n=0$. Take a projective resolution
+	$\cdots\to P_1\to P_0\to D\to0$ and construct the bicomplex
+	$C_\bullet\dotimes{R}P_\bullet$.
+	\begin{enumerate}[(i)]
+		\item Show that the associated homological bigraded spectral sequence
+		$\mathscr{E}_{\mathrm{I}}$ degenerates at the
+		$E_{\mathrm{I}}^2$ page.
+		\item Show that
+		$(E_{\mathrm{II}}^2)_{p,q}=\Tor^R_p(\Hm_q(C),D)
+		\Rightarrow\Hm_{p+q}(C_\bullet\dotimes{R}D)$.
+		\item Prove that if every $\Image(d^C_n)$ is flat, this gives the short
+		exact sequence in the homological K\"unneth theorem
+		\ref{prop:Kunneth-homology}.
+		\begin{hint}
+			The flat resolution
+			$0\to\Image(d_C^{n+1})\to\Ker(d_C^n)\to\Hm_n(C)\to0$
+			causes the nonzero terms of $E_{\mathrm{II}}^2$ to be concentrated
+			at $p\in\{0,1\}$.
+		\end{hint}
+	\end{enumerate}
+
+	% segment-id: o014.li2.chapter5.exercises.ex009
+	\item Let $R,S$ be rings, let $X$ be a right $R$-module, $Y$ an
+	$(R,S)$-bimodule, and $Z$ a left $S$-module. Construct a bicomplex such
+	that the corresponding spectral sequences satisfy
+	\[ (E_{\mathrm{I}}^2)_{p,q}
+	=\Tor^R_p\left(X,\Tor^S_q(Y_S,Z)\right),\qquad
+	(E_{\mathrm{II}}^2)_{p,q}
+	=\Tor^S_p\left(\Tor^R_q(X,{}_RY),Z\right). \]
+	\begin{hint}
+		Take resolutions of $X$ and $Z$. Readers familiar with derived
+		categories may compare this with
+		Proposition~\ref{prop:otimesL-associativity-constraint} on the
+		associativity constraint (take $A=\Bbbk=B$).
+	\end{hint}
+
+	% segment-id: o014.li2.chapter5.exercises.ex010
+	\item Describe explicitly the canonical homomorphism
+	$\Ext^n_R(Y,{}_RX)\to\Hom_S(\Tor^R_n(S_R,Y),X)$ in the short exact
+	sequence of Example~\ref{eg:change-of-rings-SS-bis}.
+\end{Exercises}

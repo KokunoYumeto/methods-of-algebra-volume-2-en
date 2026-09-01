@@ -1,0 +1,421 @@
+% Unit 123 English translation of chapter9.tex, lines 580--817.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter9.trace-and-dimension
+% Coverage: all of Section 9.2, Duality: Trace and Dimension, ending
+% immediately before Section 9.3.
+% Carried mathematical/editorial correction: the closing formula from source
+% line 816 is parenthesized so that it correctly reads dim(X tensor Y),
+% rather than (dim X) tensor Y.
+
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.h001
+\section{Duality: Trace and Dimension}\label{sec:symm-monoidal-dual}
+\hypertarget{o014.aljabr2.chapter9.trace-and-dimension}{ }
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.p001
+In \S\ref{sec:monoidal-dual} we introduced several concepts related to
+duality. Each comes in left and right versions, depending on the position of
+the object in $\otimes$. In many applications the monoidal category under
+consideration is symmetric, so there is no need to distinguish the two. We
+begin with the case of a braided monoidal category. As usual, its braiding is
+written in the form
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.q001
+\[ c(X,Y): X \otimes Y \rightiso Y \otimes X \]
+The braiding is symmetric precisely when $c(X,Y)^{-1}=c(Y,X)$. Braid diagrams
+may be used together with the string-diagram techniques introduced in
+\S\ref{sec:monoidal-dual}.
+
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.l001
+\begin{lemma}\label{prop:braided-dual}
+	Let $\mathcal{C}$ be a braided monoidal category. If $X^*$ is a right dual
+	of $X\in\Obj(\mathcal{C})$, then $X^*$ is also a left dual of $X$. More
+	precisely, define
+	% segment-id: o014.aljabr2.chapter9.trace-and-dimension.q002
+	\begin{align*}
+		\mathrm{ev}' & := \mathrm{ev} \circ c(X, X^*)^{-1}: X^* \otimes X \to \munit, \\
+		\mathrm{coev}' & := c(X^*, X) \circ \mathrm{coev}: \munit \to X \otimes X^* ,
+	\end{align*}
+	Then $(X^*,X,\mathrm{ev}',\mathrm{coev}')$ is duality data. The case of a
+left dual ${}^*X$ is similar. If $\mathcal{C}$ is symmetric monoidal, then
+$\mathrm{ev}''=\mathrm{ev}$ and $\mathrm{coev}''=\mathrm{coev}$ as well.
+\end{lemma}
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.pf001
+\begin{proof}
+	This is an application of the axioms of a braiding. For example,
+	$(\identity\otimes\mathrm{ev}')(\mathrm{coev}'\otimes\identity)
+	=\identity$ reduces to the commutativity of the following diagram:
+	% segment-id: o014.aljabr2.chapter9.trace-and-dimension.g001
+	\[\begin{tikzcd}
+		X \otimes \munit \arrow[d, "{c(X, \munit)}"] \arrow[r, "{\identity \otimes \mathrm{coev}}"] & X \otimes X^* \otimes X \arrow[d, "{c(X, X^* \otimes X)}"] \arrow[rrr, "{\mathrm{ev} \otimes \identity}"] & & & \munit \otimes X \arrow[d, "{c(\munit, X)}"'] \\
+		\munit \otimes X \arrow[r, "{\mathrm{coev} \otimes \identity}"' inner sep=0.6em] & X^* \otimes X \otimes X \arrow[r, "{c(X^*, X) \otimes \identity}"' inner sep=0.6em] & X \otimes X^* \otimes X \arrow[r, "{\identity \otimes c(X, X^*)^{-1}}"' inner sep=0.6em] & X \otimes X \otimes X^* \arrow[r, "{\identity \otimes \mathrm{ev}}"' inner sep=0.6em] & X \otimes \munit
+	\end{tikzcd}\]
+	The small square commutes by functoriality of the braiding, whereas the
+large square on the right is a standard braid-diagram argument; compare
+\S\ref{sec:alg-in-monoidal-cat}.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.p002
+Thus an object $X$ in a braided monoidal category has a left dual if and only
+if it has a right dual. In a symmetric monoidal category we may identify the
+two versions and uniformly denote dual objects and dual morphisms by $X^*$
+and $f^*$.
+
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.p003
+The most typical example is, of course, the category of modules over a
+commutative ring. With the tensor product of modules it is a symmetric
+monoidal category, and duality in it has a simple characterization.
+
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.pr001
+\begin{proposition}\label{prop:dualizable-module}
+	Let $R$ be a commutative ring, and make $R\dcate{Mod}$ into a symmetric
+	monoidal category via $\otimes_R$. An $R$-module $M$ has a dual $M^*$ if
+	and only if $M$ is finitely generated and projective. In that case one may
+	take $M^*:=\Hom_R(M,R)$, with $\mathrm{ev}_M$ and $\mathrm{coev}_M$ as in
+	Definition~\ref{def:bimodule-ev-coev} (take $A=B=\Bbbk=R$ and $P=M$;
+	the present $M^*$ is denoted there by $M^\vee$), up to possibly reversing
+	the order of the tensor factors.
+\end{proposition}
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.pf002
+\begin{proof}
+	The ``if'' direction is easier, since the choice of
+	$(M^*,\mathrm{ev}_M,\mathrm{coev}_M)$ is explicit. In the special case
+	$M=R$, we may identify $M^*$ with $R$, and then
+	$\mathrm{ev}_M(x\otimes y)=xy$ and $\mathrm{coev}_M(1)=1\otimes1$; all
+	required identities are immediate.
+
+	The construction of $(M^*,\mathrm{ev}_M,\mathrm{coev}_M)$ is plainly
+compatible with direct sums, giving the case $M=R^{\oplus n}$. Every finitely
+generated projective module $M$ is a direct summand of some $R^{\oplus n}$;
+hence $M$ has a dual.
+
+	Now consider the ``only if'' direction. Suppose the $R$-module $M$ has a
+dual $M^*$. By Proposition~\ref{prop:dual-internal-Hom} (ii), for every
+$R$-module $M'$ there is an isomorphism of $R$-modules
+	% segment-id: o014.aljabr2.chapter9.trace-and-dimension.g002
+	\[\begin{tikzcd}[row sep=tiny]
+		\Hom_R(M, M') & \Hom_R(R, M^* \dotimes{R} M') \arrow[l, "\sim"'] \arrow[r, "\sim"] & M^* \dotimes{R} M' \\
+		(\mathrm{ev}_M \otimes \identity_{M'}) (\identity_M \otimes \varphi) & \varphi \arrow[mapsto, l] \arrow[mapsto, r] & \varphi(1).
+	\end{tikzcd}\]
+
+	Taking $M'=R$, we obtain
+	$\Hom_R(M,R)\simeq\Hom_R(R,M^*)\simeq M^*$. This isomorphism sends
+$\lambda\in M^*$ to the following homomorphism:
+	% segment-id: o014.aljabr2.chapter9.trace-and-dimension.g003
+	\[\begin{tikzcd}[row sep=tiny]
+		M \arrow[r, "\sim"] & M \dotimes{R} R \arrow[r, "{\identity_M \otimes \lambda}"] & M \dotimes{R} M^* \arrow[r, "{\mathrm{ev}_M}"] & R \\ 
+		m \arrow[mapsto, r] & m \otimes 1 \arrow[mapsto, r] & m \otimes \lambda \arrow[mapsto, r] & \mathrm{ev}_M(m \otimes \lambda).
+	\end{tikzcd}\]
+	Thus $M^*$ may be identified with $\Hom_R(M,R)$ and $\mathrm{ev}_M$ with
+evaluation.
+
+	Consider the identity
+	$(\mathrm{ev}_M\otimes\identity_M)
+	(\identity_M\otimes\mathrm{coev}_M)=\identity_M$. Write
+	$\mathrm{coev}_M(1)=\sum_{i=1}^n\lambda_i\otimes m_i$. This identity is
+	equivalent to $\sum_i\lambda_i(m)m_i=m$ for every $m$, that is,
+$\identity_M$ factors as
+	% segment-id: o014.aljabr2.chapter9.trace-and-dimension.q003
+	\[ M \xrightarrow{(\lambda_1, \ldots, \lambda_n)} R^{\oplus n} \xrightarrow{(m_1, \ldots, m_n)} M, \]
+	This shows that $M$ is a direct summand of $R^{\oplus n}$.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.d001
+\begin{definition}\label{def:rigid-cat-braided}
+	\index{monoidal category!rigid}
+	For a braided monoidal category, left rigidity and right rigidity in
+	Definition~\ref{def:rigid-cat} are equivalent. A braided monoidal category
+	satisfying either condition is called a \emph{rigid category}.
+\end{definition}
+
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.p004
+Once an abelian category structure is added, the unit object of a rigid
+braided monoidal category displays a special property. We first prove that
+$\otimes$ is automatically additive in each variable.
+
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.pr002
+\begin{proposition}\label{prop:rigid-additive}
+	Let $\mathcal{C}$ be a rigid braided monoidal category. If $\mathcal{C}$ is
+	also an additive category, then $\otimes$ is an additive bifunctor.
+\end{proposition}
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.pf003
+\begin{proof}
+	Fix $X\in\Obj(\mathcal{C})$. Proposition~\ref{prop:dual-internal-Hom}
+	(iii) implies that the functor $X\otimes(\cdot)$ has right adjoint
+$X^*\otimes(\cdot)$. Thus Corollary~\ref{prop:automatic-additivity} (v)
+ensures that $X\otimes(\cdot)$ is additive. By the braiding, the same holds
+for $(\cdot)\otimes X$.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.pr003
+\begin{proposition}\label{prop:rigid-unit-simple}
+	Let $\mathcal{C}$ be both a rigid braided monoidal category and an abelian
+category. If $\iota:U\hookrightarrow\munit$ is a subobject, then
+$\munit=U\oplus\Ker(\iota^*)$. Consequently:
+	\begin{enumerate}[(i)]
+		\item the object $\munit$ is split (Definition~\ref{def:semisimple});
+		\item if $\End_{\mathcal{C}}(\munit)$ is a field, then $\munit$ is a
+		simple object.
+	\end{enumerate}
+\end{proposition}
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.pf004
+\begin{proof}
+	Set $V:=\Coker(\iota)$. We know that $\otimes$ is an exact additive functor
+in each variable (Corollary~\ref{prop:rigid-exact} and
+Proposition~\ref{prop:rigid-additive}). We therefore obtain the following
+commutative diagram, whose solid-line rows are exact:
+	% segment-id: o014.aljabr2.chapter9.trace-and-dimension.g004
+	\[\begin{tikzcd}
+		0 \arrow[r] & U \arrow[r, "\iota"] & \munit \arrow[r] & V \arrow[r] & 0 \\
+		0 \arrow[r] & U \otimes U \arrow[hookrightarrow, u, "{\iota \otimes \identity}"] \arrow[r, "{\identity \otimes \iota}"'] & U \arrow[hookrightarrow, u, "\iota"] \arrow[r] \arrow[dashed, ru] & U \otimes V \arrow[hookrightarrow, u, "{\iota \otimes \identity}"'] \arrow[r] & 0
+	\end{tikzcd}\]
+	The composite represented by the dashed arrow is $0$. Hence
+$U\otimes V=0$ and $U\otimes U\simeq U$.
+
+	For every object $T$, the same argument gives a monomorphism
+$\iota\otimes\identity_T:U\otimes T\hookrightarrow T$. Thus
+$U\otimes T=0$ if and only if $\iota\otimes\identity_T=0$. In turn, this is
+equivalent to the vanishing of the corresponding morphism
+$T\to U^*\otimes T$ under Proposition~\ref{prop:dual-internal-Hom} (iii).
+It is not hard to show that the latter morphism is precisely
+$\iota^*\otimes\identity_T$ (exercise in this chapter). Therefore, for every
+object $X$, the largest subobject $T\subset X$ satisfying $U\otimes T=0$
+is the largest subobject for which
+$T\to U^*\otimes T\hookrightarrow U^*\otimes X$ vanishes, and this is also
+	% segment-id: o014.aljabr2.chapter9.trace-and-dimension.q004
+	\[ \Ker\left[ \iota^* \otimes \identity_X: X \to U^* \otimes X \right] \simeq \Ker(\iota^*) \otimes X. \]
+	\begin{itemize}
+		\item Apply this to $X=V$ and use $U\otimes V=0$; we obtain
+		$\Ker(\iota^*)\otimes V\simeq V$.
+		\item Apply this to $X=U$. Since every subobject $T$ of $U$ is also a
+		subobject of $\munit$, we have $U\otimes T\supset T\otimes T\simeq T$.
+		Consequently, $\Ker(\iota^*)\otimes U=0$.
+	\end{itemize}
+
+	Substituting these two results into the short exact sequence
+	% segment-id: o014.aljabr2.chapter9.trace-and-dimension.q005
+	\[ 0 \to \Ker(\iota^*) \otimes U \to \Ker(\iota^*) \to \Ker(\iota^*) \otimes V \to 0, \]
+	immediately gives $\munit\supset\Ker(\iota^*)\rightiso V$. This splits the
+sequence $0\to U\to\munit\to V\to0$. Since $U$ was an arbitrary subobject,
+this is precisely the assertion that $\munit$ is split.
+
+	Finally, Corollary~\ref{prop:indecomposable-criterion} implies that if
+$\End_{\mathcal{C}}(\munit)$ is a field, then $\munit$ is indecomposable;
+hence $\munit$ is simple.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.p005
+In any monoidal category $\mathcal{C}$, $\End(\munit)$ is a monoid, and it is
+easy to prove that it is commutative; see \cite[Chapter 3 exercises]{Li1}.
+The unit constraint $X\simeq\munit\otimes X$ makes every element of
+$\End(\munit)$ act on each $X$ by an endomorphism. These endomorphisms
+determine a monoid homomorphism $\End(\munit)\to Z(\mathcal{C})$, where
+$Z(\mathcal{C})$ denotes the center of the category $\mathcal{C}$. By the
+general properties of the center, composition of morphisms is bilinear with
+respect to the action of $\End(\munit)$:
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.q006
+\[ (z f) g = z(f g) = f (z g), \quad X \xrightarrow{g} Y \xrightarrow{f} Z, \quad z \in \End(\munit). \]
+
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.p006
+Moreover, the axioms of $\otimes$ (see \cite[\S 3.1]{Li1}) readily imply
+that $\otimes$ is bilinear as well:
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.q007
+\[ (zf_1) \otimes f_2 = z(f_1 \otimes f_2) = f_1 \otimes (z f_2), \quad f_i \in \Hom(X_i, Y_i), \quad z \in \End(\munit). \]
+
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.p007
+Thus $\End(\munit)$ may be regarded as providing a kind of ``scalars'' for
+the monoidal category $\mathcal{C}$.
+
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.d002
+\begin{definition}
+	\index{trace}
+	Let $f\in\End(X)$ be an endomorphism in a braided monoidal category
+$\mathcal{C}$, and suppose $X$ has a dual. Define the left trace of $f$
+(abbreviated simply to \emph{trace}) by
+	% segment-id: o014.aljabr2.chapter9.trace-and-dimension.q008
+	\[ \Tr(f) = \Tr_{\text{left}}(f) := \mathrm{ev}_X \left( f \otimes \identity_{X^*} \right) \mathrm{coev}'_X \; \in \End(\munit), \]
+	and define its right trace by
+	% segment-id: o014.aljabr2.chapter9.trace-and-dimension.q009
+	\[ \Tr_{\text{right}}(f) := \mathrm{ev}'_X \left( \identity_{X^*} \otimes f \right) \mathrm{coev}_X, \]
+	where $\mathrm{coev}'_X$ and $\mathrm{ev}'_X$ are as in
+Lemma~\ref{prop:braided-dual}. By Definition--Proposition
+\ref{def:dual-uniqueness}, neither trace depends on the choice of duality
+data.
+\end{definition}
+
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.d003
+\begin{definition}
+	\index{dimension}
+	Let $X$ be an object of a braided monoidal category $\mathcal{C}$, and
+suppose $X$ has a dual. Its left dimension (abbreviated simply to
+\emph{dimension}) is defined by
+	% segment-id: o014.aljabr2.chapter9.trace-and-dimension.q010
+	\[ \dim X = \dim_{\text{left}} X := \Tr(\identity_X) \; \in \End(\munit), \]
+	and its right dimension is defined by
+$\dim_{\text{right}}X:=\Tr_{\text{right}}(\identity_X)$.
+\end{definition}
+
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.g005
+The left and right traces are depicted, respectively, as follows:
+\[\Tr_{\text{left}}(f) = \begin{tikzpicture}[baseline=(M), bend angle=70]
+	\node (A) {$X$};
+	\node (B) [right=of A] {$X^*$};
+	\node (C) [below=of A] {$X$};
+	\node (D) [below=of B] {$X^*$};
+	
+	\path (A) edge[bend left] node[auto] {$\mathrm{coev}'_X$} (B);
+	\path (B) edge (D);
+	\path (A) edge node[midway, name=M, draw, fill=white] {$f$} (C);
+	\path (D) edge[bend left] node[auto, swap] {$\mathrm{ev}_X$} (C);
+\end{tikzpicture}
+\xlongequal{\text{abbrev.}}\;
+\begin{tikzpicture}[baseline=(M)]
+	\coordinate (A) at (0, 0);
+	\coordinate (B) at (1, 0);
+	\coordinate (C) at (0, -1);
+	\coordinate (D) at (1, -1);
+	\draw (A) arc[start angle=180, end angle=0, radius=0.5] -- (D) arc[start angle=360, end angle=180, radius=0.5] -- (A);
+	\node[draw, fill=white] (M) at ($(A)!.5!(C)$) {$f$};
+\end{tikzpicture} \qquad
+\Tr_{\text{right}}(f) \xlongequal{\text{abbrev.}}\; \begin{tikzpicture}[baseline=(M)]
+	\coordinate (A) at (0, 0);
+	\coordinate (B) at (1, 0);
+	\coordinate (C) at (0, -1);
+	\coordinate (D) at (1, -1);
+	\draw (A) arc[start angle=175, end angle=0, radius=0.5] -- (D) arc[start angle=360, end angle=180, radius=0.5] -- (A);
+	\node[draw, fill=white] (M) at ($(B)!.5!(D)$) {$f$};
+\end{tikzpicture}\]
+
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.p008
+If $\mathcal{C}$ is a symmetric monoidal category, the left and right
+versions of both trace and dimension always agree. This is the principal
+setting for later applications.
+
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.p009
+When the role of the category $\mathcal{C}$ needs to be emphasized, we use
+notation such as $\Tr_{\mathcal{C}}$ and $\dim_{\mathcal{C}}$. Some authors
+also call these the quantum trace and quantum dimension.
+Example~\ref{eg:Vect-trace} will explain their relation to the classical
+versions.
+
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.pr004
+\begin{proposition}
+	Let $F:\mathcal{C}\to\mathcal{D}$ be a monoidal functor between braided
+	monoidal categories that preserves the braiding. For every endomorphism
+	$f\in\End(X)$ in $\mathcal{C}$, provided $X$ has a dual, we have
+$F\left(\Tr_{\mathcal{C}}(f)\right)=\Tr_{\mathcal{D}}(Ff)$; the same holds
+for the right trace. In particular,
+$F\left(\dim_{\mathcal{C}}X\right)=\dim_{\mathcal{D}}(FX)$.
+\end{proposition}
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.pf005
+\begin{proof}
+	The proof is exactly the same as that of
+	Proposition~\ref{prop:monoidal-functor-dual}.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.p010
+The trace defined above has properties analogous to those of the trace of a
+linear map.
+
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.pr005
+\begin{proposition}\label{prop:trace}
+	Let $\mathcal{C}$ be a braided monoidal category. In the following
+	statements, whenever an endomorphism $f\in\End(X)$ is considered, it is
+	understood that $X$ has a dual.
+	\begin{enumerate}[(i)]
+		\item We have
+		$\Tr_{\text{left}}(f)=\Tr_{\text{right}}({}^*f)$ and
+		$\Tr_{\text{right}}(f)=\Tr_{\text{left}}(f^*)$.
+		\item Suppose $X$ and $Y$ both have duals. For every
+		$\begin{tikzcd} X \arrow[shift left, r, "f"] & Y \arrow[shift left, l, "g"] \end{tikzcd}$,
+		we have
+		$\Tr_{\text{left}}(gf)=\Tr_{\text{left}}(({}^{**}f)g)$ and
+		$\Tr_{\text{right}}(gf)=\Tr_{\text{right}}((f^{**})g)$.
+		Observe that if $\mathcal{C}$ is symmetric monoidal, then
+		${}^{**}f=f=f^{**}$.
+		\item For every $f\in\End(X)$ and $g\in\End(Y)$, we have
+		$\Tr(f\otimes g)=\Tr(f)\Tr(g)$.
+		\item If $a\in\End(\munit)$, then
+		$\Tr(af)=a\Tr(f)$.
+		\item Suppose $\mathcal{C}$ is an $\cate{Ab}$-category and $\otimes$
+		is additive in the first (respectively, second) variable. Then for every
+		$f,g\in\End(X)$ we have
+		$\Tr_{\text{left}}(f+g)=\Tr_{\text{left}}(f)+\Tr_{\text{left}}(g)$
+		(respectively,
+		$\Tr_{\text{right}}(f+g)=\Tr_{\text{right}}(f)+\Tr_{\text{right}}(g)$).
+	\end{enumerate}
+	In (iii) and (iv), $\Tr$ may mean either the left trace or the right trace.
+\end{proposition}
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.pf006
+\begin{proof}
+	As usual, the proof relies chiefly on pictures. By symmetry it suffices to
+consider the left trace. First, in the trace diagrams, closing off the bottom
+of every term in \eqref{eqn:f-dual-coev} immediately gives (i). Similarly,
+(ii) is depicted using \eqref{eqn:f-dual-ev} as follows.
+	% segment-id: o014.aljabr2.chapter9.trace-and-dimension.g006
+	\[\begin{tikzpicture}[baseline=(O)]
+		\coordinate (A) at (0, 0);
+		\coordinate (B) at (1, 0);
+		\coordinate (C) at (0, -1);
+		\coordinate (D) at (1, -1);
+		\coordinate (O) at (0, -0.5);
+		\draw (A) arc[start angle=180, end angle=0, radius=0.5] -- (D) arc[start angle=360, end angle=180, radius=0.5] -- (A);
+		\node[draw, fill=white] (M) at ($(A)!.2!(C)$) {$f$};
+		\node[draw, fill=white] (N) at ($(A)!.8!(C)$) {$g$};
+	\end{tikzpicture} = \begin{tikzpicture}[baseline=(O)]
+		\coordinate (A) at (0, 0);
+		\coordinate (B) at (1, 0);
+		\coordinate (C) at (0, -1);
+		\coordinate (D) at (1, -1);
+		\coordinate (O) at (0, -0.5);
+		\draw (A) arc[start angle=180, end angle=0, radius=0.5] -- (D) arc[start angle=360, end angle=180, radius=0.5] -- (A);
+		\node[draw, fill=white] (M) at ($(B)!.5!(D)$) {${}^* f$};
+		\node[draw, fill=white] (N) at ($(A)!.5!(C)$) {$g$};
+	\end{tikzpicture} = \begin{tikzpicture}[baseline=(O)]
+		\coordinate (A) at (0, 0);
+		\coordinate (B) at (1, 0);
+		\coordinate (C) at (0, -1);
+		\coordinate (D) at (1, -1);
+		\coordinate (O) at (0, -0.5);
+		\draw (A) arc[start angle=180, end angle=0, radius=0.5] -- (D) arc[start angle=360, end angle=180, radius=0.5] -- (A);
+		\node[draw, fill=white] (M) at ($(A)!.2!(C)$) {$g$};
+		\node[draw, fill=white] (N) at ($(A)!.8!(C)$) {${}^{**} f$};
+	\end{tikzpicture}\]
+
+	For (iii), the key is the intuitive identity
+	% segment-id: o014.aljabr2.chapter9.trace-and-dimension.g007
+	\[\begin{tikzpicture}[baseline=(O)]
+		\coordinate (O) at (0, 0);
+		\draw (O) circle[radius=1];
+		\draw (O) circle[radius=0.4];
+		\node[draw, fill=white] at ($(O) + (180:1)$) {$f$};
+		\node[draw, fill=white] at ($(O) + (180:0.4)$) {$g$};
+	\end{tikzpicture} \; = \;
+	\begin{tikzpicture}[baseline=(A)]
+		\coordinate (A) at (0, 0);
+		\coordinate (B) at (1.2, 0);
+		\draw (A) circle[radius=0.4];
+		\draw (B) circle[radius=0.4];
+		\node[draw, fill=white] at ($(A) + (180:0.4)$) {$f$};
+		\node[draw, fill=white] at ($(B) + (180:0.4)$) {$g$};
+	\end{tikzpicture} \; = \;
+	\begin{tikzpicture}[baseline=(O)]
+		\coordinate (A) at (0, 1);
+		\coordinate (B) at (0, 0);
+		\coordinate (O) at ($(A)!.5!(B)$);
+		\draw (A) circle[radius=0.4];
+		\draw (B) circle[radius=0.4];
+		\node[draw, fill=white] at ($(A) + (180:0.4)$) {$f$};
+		\node[draw, fill=white] at ($(B) + (180:0.4)$) {$g$};
+	\end{tikzpicture}\]
+	Its formal proof is based on the various naturality properties of the unit
+object.
+
+	Assertion (iv) follows from the bilinearity of morphism composition and
+$\otimes$ with respect to $\End(\munit)$. Assertion (v) follows directly
+from the written definitions of the left and right traces, without recourse
+to diagrams.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter9.trace-and-dimension.p011
+Proposition~\ref{prop:trace} (iv) and (v) may be understood as the linearity
+properties of the trace. As a special case of (iii), we also have
+$\dim(X\otimes Y)=\dim X\,\dim Y$.

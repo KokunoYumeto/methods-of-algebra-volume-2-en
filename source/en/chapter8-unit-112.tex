@@ -1,0 +1,390 @@
+% Unit 112 English translation of chapter8.tex lines 1059--1228.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter8.homology-computation
+% Coverage: all of Section 8.6, Homology Computation, ending immediately before Section 8.7.
+% Mathematical/editorial corrections to the source are recorded in the segment map:
+% the H_0 coefficient, normalization of ZS, the Delta^1 interval, the augmented
+% differential index, the order of augmentation composition, the E Gamma contraction
+% formula, and the degreewise interpretation of Z(X x Y).
+
+% segment-id: o014.aljabr2.chapter8.homology-computation.h001
+\section{Homology Computation}\label{sec:homology-computation}
+\hypertarget{o014.aljabr2.chapter8.homology-computation}{ }
+% segment-id: o014.aljabr2.chapter8.homology-computation.p001
+A classical application of the functors $\mathrm{C}$ and $\mathrm{N}$ is the
+definition of the homology of a simplicial set, which is closely connected to
+the study of algebraic topology.
+
+% segment-id: o014.aljabr2.chapter8.homology-computation.d001
+\begin{definition}\label{def:free-simplicial-Ab}
+	For every $K\in\Obj(\cate{sSet})$, define
+	$\Z K\in\Obj(\cate{sAb})$ by taking $(\Z K)_n$ to be the free
+	$\Z$-module with basis $K_n$, with the maps $d_i,s_j$ induced by the
+	corresponding maps on $K$. This construction gives a functor
+	$\Z(\cdot):\cate{sSet}\to\cate{sAb}$.
+\end{definition}
+
+% segment-id: o014.aljabr2.chapter8.homology-computation.pr001
+\begin{proposition}\label{prop:free-simplicial-Ab-adjunction}
+	There is a natural adjunction
+	% segment-id: o014.aljabr2.chapter8.homology-computation.g001
+	$\begin{tikzcd}
+		\Z(\cdot):\cate{sSet}\arrow[shift left,r]
+		&\cate{sAb}:\text{forgetful}\arrow[shift left,l]
+	\end{tikzcd}$.
+\end{proposition}
+% segment-id: o014.aljabr2.chapter8.homology-computation.pf001
+\begin{proof}
+	Both $\Z(\cdot)$ and the forgetful functor are defined degreewise. The
+	entire assertion follows directly from the free--forgetful adjunction
+	$\cate{Set}\leftrightarrows\cate{Ab}$.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter8.homology-computation.p002
+Consequently, for every $X\in\Obj(\cate{sAb})$, specifying a morphism
+$\Z\Delta^n\to X$ is equivalent to specifying an element of $X_n$.
+
+% segment-id: o014.aljabr2.chapter8.homology-computation.p003
+Moreover, $\Z(X\times Y)\simeq\Z X\otimes\Z Y$, where the tensor product on
+the right is formed degreewise, with $n$-th term
+$\Z X_n\dotimes{\Z}\Z Y_n$.
+
+% segment-id: o014.aljabr2.chapter8.homology-computation.d002
+\begin{definition}\label{def:simplicial-set-homology}
+	\index[sym1]{Hn}
+	\index[sym1]{Hnn}
+	For a simplicial set $K$ and every $n\in\Z_{\geq0}$, write
+	$\Hm_n(K;\Z):=\Hm_n\bigl(\mathrm{C}(\Z K)\bigr)$; this group is called
+	the \emph{$n$-th homology group of $K$}. The construction gives a family
+	of functors $\Hm_n(\cdot;\Z):\cate{sSet}\to\cate{Ab}$.
+	% segment-id: o014.aljabr2.chapter8.homology-computation.l001
+	\begin{itemize}
+		\item More generally, for a $\Z$-module $M$, homology with coefficients
+		in $M$ is defined by
+		$\Hm_n(K;M):=\Hm_n\bigl(\mathrm{C}(\Z K)\otimes M\bigr)$, where
+		$\mathord\cdot\otimes M$ means taking
+		$\mathord\cdot\dotimes{\Z}M$ in every term of the chain complex.
+
+		\item Cohomology with coefficients in $M$ is defined by
+		$\Hm^n(K;M):=\Hm^n\bigl(\Hom_{\Z}(\mathrm{C}(\Z K),M)\bigr)$, with
+		the expression in parentheses regarded as a complex. By the universal
+		property of $\Z(\cdot)$, the $n$-th term of this complex can also be
+		identified with
+		% segment-id: o014.aljabr2.chapter8.homology-computation.q001
+		\[
+		\mathrm{Maps}(K_n,M):=\{\text{maps }K_n\to M\}.
+		\]
+		This set becomes a $\Z$-module under pointwise operations, and its
+		differential homomorphism is identified with $\sum_i(-1)^i(d_i)^*$.
+	\end{itemize}
+\end{definition}
+
+% segment-id: o014.aljabr2.chapter8.homology-computation.p004
+If $\mathrm{C}(\Z K)$ in the definition above is replaced by
+$\mathrm{N}(\Z K)$, the resulting homology (or cohomology) groups are
+canonically isomorphic; this is a consequence of
+Theorem~\ref{prop:Dold-Kan-N-C}. Using $\mathrm{N}(\Z K)$ is sometimes
+simpler, because Proposition~\ref{prop:Dold-Kan-v} gives
+% segment-id: o014.aljabr2.chapter8.homology-computation.q002
+\[
+\mathrm{N}(\Z K)_n=\bigoplus_{x\in K_n^{\mathrm{nd}}}\Z x.
+\]
+Here $K_n^{\mathrm{nd}}\subset K_n$ is the subset of nondegenerate
+$n$-simplices, while the map
+$\mathrm{N}(\Z K)_n\to\mathrm{N}(\Z K)_{n-1}$ is obtained by first taking
+$\sum_{i=0}^n(-1)^id_i$ and then projecting to the
+$K_{n-1}^{\mathrm{nd}}$ part. For example,
+% segment-id: o014.aljabr2.chapter8.homology-computation.q003
+\begin{align*}
+	\mathrm{N}(\Z\Delta^0)&=\Z\;\text{placed in degree $0$},\\
+	\mathrm{C}(\Z\Delta^0)&=
+	\left[\cdots\xrightarrow{1}\Z\xrightarrow{0}\Z
+	\xrightarrow{1}\Z\xrightarrow{0}\Z\right].
+\end{align*}
+
+% segment-id: o014.aljabr2.chapter8.homology-computation.eg001
+\begin{example}\label{eg:homology-poset-e}
+	As a useful special case, let $(Q,\leq)$ be a nonempty small poset with a
+	least element $e$. This gives order-preserving maps
+	% segment-id: o014.aljabr2.chapter8.homology-computation.q004
+	\[
+	[0]\xrightarrow{0\mapsto e}Q\longrightarrow[0].
+	\]
+	Regard $Q$ as a category and take the nerve $S:=\mathrm{N}(Q)$ from
+	Example~\ref{eg:nerve-cat}. By the original definition of the nerve, we
+	also have $\mathrm{N}([n])=\Delta^n$. We thus obtain morphisms in
+	$\cate{sSet}$
+	% segment-id: o014.aljabr2.chapter8.homology-computation.q005
+	\[
+	\Delta^0\xrightarrow{i}S\xrightarrow{q}\Delta^0,
+	\qquad qi=\identity_{\Delta^0}.
+	\]
+	It follows that we have
+	% segment-id: o014.aljabr2.chapter8.homology-computation.q006
+	\begin{gather*}
+		\Z=\mathrm{N}(\Z\Delta^0)
+		\xrightarrow{\mathrm{N}i}\mathrm{N}(\Z S)
+		\xrightarrow{\mathrm{N}q}\Z,
+	\end{gather*}
+	where $\Z$ is regarded as a chain complex placed in degree $0$. We claim
+	that $\mathrm{N}i$ and $\mathrm{N}q$ are mutually inverse in the homotopy
+	category of chain complexes. In particular,
+	$\Hm_0(Q;M)\simeq M$, while $\Hm_n(Q;M)=\{0\}$ for $n\neq0$.
+
+	Since $qi=\identity$, it remains only to construct a homotopy from
+	$\mathrm{N}i\mathrm{N}q$ to $\identity$. For every $n\geq0$, observe that
+	the elements of $S_n^{\mathrm{nd}}$ are the chains in $Q$ of the form
+	$q_0<\cdots<q_n$. Define
+	% segment-id: o014.aljabr2.chapter8.homology-computation.q007
+	\begin{align*}
+		h_n:S_n^{\mathrm{nd}}&\longrightarrow
+		S_{n+1}^{\mathrm{nd}}\cup\{0\},\qquad n\geq0,\\
+		q_0<\cdots<q_n&\longmapsto
+		\begin{cases}
+			e<q_0<\cdots<q_n,&q_0\neq e,\\
+			0,&q_0=e.
+		\end{cases}
+	\end{align*}
+	Extend this map linearly to
+	$\Z S_n^{\mathrm{nd}}\simeq\mathrm{N}(\Z S)_n$. It readily satisfies
+	the conditions for a homotopy; the details are left to the reader as an
+	exercise.
+\end{example}
+
+% segment-id: o014.aljabr2.chapter8.homology-computation.p005
+The computation of homology is inseparable from homotopy. Under the
+Dold--Kan correspondence, homotopies of chain complexes reflect homotopies of
+simplicial objects, and the latter can be defined combinatorially.
+
+% segment-id: o014.aljabr2.chapter8.homology-computation.d003
+\begin{definition}[Simplicial homotopy]\label{def:simplicial-homotopy}
+	\index{homotopy!simplicial}
+	Let $X$ and $Y$ be simplicial objects in a category $\mathcal{C}$, and let
+	$f,g:X\rightrightarrows Y$ be a pair of morphisms. A \emph{simplicial
+	homotopy from $g$ to $f$} is a family of morphisms
+	% segment-id: o014.aljabr2.chapter8.homology-computation.q008
+	\[
+	h_i=h_i^n:X_n\to Y_{n+1},\qquad0\leq i\leq n,
+	\]
+	briefly denoted by $h$, satisfying
+	% segment-id: o014.aljabr2.chapter8.homology-computation.q009
+	\begin{align*}
+		d_0h_0&=f_n,\\
+		d_{n+1}h_n&=g_n,\\
+		d_ih_j&=
+		\begin{cases}
+			h_{j-1}d_i,&0\leq i<j,\\
+			d_ih_{i-1},&1\leq i=j,\\
+			h_jd_{i-1},&i>j+1,
+		\end{cases}\\
+		s_ih_j&=
+		\begin{cases}
+			h_{j+1}s_i,&i\leq j,\\
+			h_js_{i-1},&i>j.
+		\end{cases}
+	\end{align*}
+\end{definition}
+
+% Reference: Weibel, Theorem 8.3.12
+% segment-id: o014.aljabr2.chapter8.homology-computation.p006
+The definition above is combinatorial. When $\mathcal{C}=\cate{Set}$,
+however, it is the same as \eqref{eqn:simplicial-homotopy-prep}, which is
+based on topological intuition. Why is this so? For every
+$n\in\Z_{\geq0}$, write
+$(\Delta^1)_n=\{\alpha_{-1},\ldots,\alpha_n\}$ explicitly, where
+$\alpha_i:[n]\to[1]$ maps the numbers $\leq i$ to $0$ and all the others
+to $1$. Then specifying $H_n:(X\times\Delta^1)_n\to Y_n$ is equivalent to
+specifying $H_{-1}^n,\ldots,H_n^n:X_n\to Y_n$.
+% segment-id: o014.aljabr2.chapter8.homology-computation.l002
+\begin{itemize}
+	\item Given the data $(h_i^n)_{i,n}$ of a simplicial homotopy, define
+	$H_{-1}^n=g$, $H_n^n=f$, and $H_i^n=d_{n+1}h_i^n$ for
+	$0\leq i\leq n-1$.
+	\item Given the data $H$ of the commutative diagram
+	\eqref{eqn:simplicial-homotopy-prep}, define
+	$h_i^n:=H_i^{n+1}s_i:X_n\to Y_{n+1}$.
+\end{itemize}
+A routine verification shows that the two maps are well defined and mutually
+inverse.
+
+% segment-id: o014.aljabr2.chapter8.homology-computation.p007
+For the case $\mathcal{C}=\cate{Ab}$, simply replace
+$X\times\Delta^1$ in \eqref{eqn:simplicial-homotopy-prep} by
+$X\otimes\Z\Delta^1$ and work in $\cate{sAb}$; the same argument applies
+without change. The following result is therefore entirely unsurprising.
+
+% segment-id: o014.aljabr2.chapter8.homology-computation.pr002
+\begin{proposition}
+	Consider a pair of morphisms $f,g:X\rightrightarrows Y$ in
+	$\cate{s}\mathcal{A}$. If $h$ is a simplicial homotopy from $g$ to $f$,
+	then $\bigl(\sum_{j=0}^n(-1)^jh_j^n\bigr)_{n\geq0}$ defines a homotopy
+	between $\mathrm{C}f,\mathrm{C}g:\mathrm{C}X\rightrightarrows
+	\mathrm{C}Y$.
+\end{proposition}
+% segment-id: o014.aljabr2.chapter8.homology-computation.pf002
+\begin{proof}
+	As usual, denote all face morphisms of $X$ and $Y$ uniformly by $d_i$,
+	and omit the superscripts on $h_j$; this creates no ambiguity. We have the
+	following equality in $\Hom_{\mathcal{A}}(X_n,Y_n)$:
+	% segment-id: o014.aljabr2.chapter8.homology-computation.q010
+	\begin{multline*}
+		\sum_{i=0}^{n+1}(-1)^id_i\sum_{j=0}^n(-1)^jh_j
+		+\sum_{j=0}^{n-1}(-1)^jh_j\sum_{i=0}^n(-1)^id_i\\
+		=f_n-g_n
+		+\sum_{\substack{0\leq i\leq n+1\\0\leq j\leq n\\
+		(i,j)\neq(0,0),(n+1,n)}}(-1)^{i+j}d_ih_j
+		+\sum_{\substack{0\leq i\leq n\\0\leq j\leq n-1}}
+		(-1)^{i+j}h_jd_i.
+	\end{multline*}
+	The first sum on the last line can be rewritten as
+	% segment-id: o014.aljabr2.chapter8.homology-computation.q011
+	\begin{align*}
+		&\sum_{\substack{0\leq i\leq n+1\\i<j\leq n}}
+		(-1)^{i+j}h_{j-1}d_i
+		+\sum_{i=1}^nd_ih_i-\sum_{i=1}^nd_ih_{i-1}
+		+\sum_{\substack{1\leq i\leq n+1\\0\leq j<i-1}}
+		(-1)^{i+j}h_jd_{i-1}\\
+		&\qquad=-\sum_{\substack{0\leq i\leq n\\i\leq j\leq n-1}}
+		(-1)^{i+j}h_jd_i
+		-\sum_{\substack{0\leq i\leq n\\0\leq j<i}}
+		(-1)^{i+j}h_jd_i.
+	\end{align*}
+	Here we used $1\leq i\leq n\implies d_ih_i=d_ih_{i-1}$. This expression
+	cancels the second sum and leaves only $f_n-g_n$.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter8.homology-computation.p008
+We next consider augmented semisimplicial objects
+(Remark~\ref{rem:semisimplicial}) and their corresponding chain complexes;
+these results will be used in \S\ref{sec:bar-resolution}. Unless stated
+otherwise, the augmentation morphism of an augmented semisimplicial object
+$X$ will always be denoted by $\epsilon:X_0\to X_{-1}$.
+
+% segment-id: o014.aljabr2.chapter8.homology-computation.d004
+\begin{definition}\label{def:augmented-C-cplx}
+	\index[sym1]{CXaug@$\mathrm{C}^{\mathrm{aug}} X$}
+	For an augmented semisimplicial object $X$ in an additive category
+	$\mathcal{A}$, the corresponding complex $\mathrm{C}X$ can be extended
+	to the chain complex
+	% segment-id: o014.aljabr2.chapter8.homology-computation.q012
+	\begin{equation*}
+		\begin{gathered}
+			\mathrm{C}^{\mathrm{aug}}X:=
+			\left[\cdots\xrightarrow{\partial_3}X_2
+			\xrightarrow{\partial_2}X_1
+			\xrightarrow{\partial_1}X_0
+			\xrightarrow{\partial_0:=\epsilon}X_{-1}
+			\to0\to\cdots\right],\\
+			\partial_n:=\sum_{i=0}^n(-1)^id_i:X_n\to X_{n-1},
+			\qquad n\geq1.
+		\end{gathered}
+	\end{equation*}
+\end{definition}
+
+% segment-id: o014.aljabr2.chapter8.homology-computation.p009
+The equality $\epsilon d_0=\epsilon d_1$ shows that
+$\mathrm{C}^{\mathrm{aug}}X$ is indeed an object of
+$\cate{Ch}_{\geq-1}(\mathcal{A})$. It can also be regarded as the following
+morphism in $\cate{Ch}_{\geq0}(\mathcal{A})$:
+% segment-id: o014.aljabr2.chapter8.homology-computation.q013
+\[
+\epsilon:\mathrm{C}X\to
+\underbracket{X_{-1}}_{\text{placed in degree $0$}},
+\qquad\text{$\epsilon$ in degree $0$, and $0$ in every other degree}.
+\]
+
+% segment-id: o014.aljabr2.chapter8.homology-computation.d005
+\begin{definition}\label{def:contractible-aug}
+	\index{contractible}
+	Let $X$ be an augmented semisimplicial object in an arbitrary category
+	$\mathcal{C}$. If there is a family of morphisms
+	$k_n:X_n\to X_{n+1}$, with $n\in\Z_{\geq-1}$, call $X$
+	\emph{left contractible} or \emph{right contractible}, according to which
+	column of conditions below is satisfied:
+	% segment-id: o014.aljabr2.chapter8.homology-computation.tb001
+	\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		Left contractible&Right contractible\\\hline
+		$\epsilon k_{-1}=\identity_{X_{-1}}$
+		&$\epsilon k_{-1}=\identity_{X_{-1}}$\\
+		$d_0k_n=\identity_{X_n}$
+		&$d_{n+1}k_n=\identity_{X_n}$\\
+		$d_ik_n=k_{n-1}d_{i-1}\;(1\leq i\leq n+1,\;n\geq1)$
+		&$d_ik_n=k_{n-1}d_i\;(0\leq i\leq n,\;n\geq1)$\\
+		$d_1k_0=k_{-1}\epsilon$
+		&$d_0k_0=k_{-1}\epsilon$\\\hline
+	\end{tabular}
+	\end{center}
+\end{definition}
+
+% segment-id: o014.aljabr2.chapter8.homology-computation.p010
+The reader may verify that left and right contractibility are order-reversal
+duals in the sense of Remark~\ref{rem:simpDelta-order-reversal}. Moreover,
+both are ``absolute'' properties: if $X$ is left (or right) contractible,
+with corresponding data $(k_n)_{n\geq-1}$, then for every functor
+$F:\mathcal{C}\to\mathcal{D}$ the data $(Fk_n)_{n\geq-1}$ make $F(X)$
+left (or right) contractible.
+
+% segment-id: o014.aljabr2.chapter8.homology-computation.eg002
+\begin{example}\label{eg:classifying-contractible}
+	For any monoid $\Gamma$, make the $\mathrm{E}\Gamma$ of
+	Example~\ref{eg:classifying-space} into an augmented simplicial set by
+	taking $(\mathrm{E}\Gamma)_{-1}=\{1\}$ and the augmentation morphism
+	$\epsilon:(\mathrm{E}\Gamma)_0\to(\mathrm{E}\Gamma)_{-1}$ to be the
+	constant map. This object is right contractible: for $n\geq-1$, define
+	$k_n:(\mathrm{E}\Gamma)_n\to(\mathrm{E}\Gamma)_{n+1}$ by
+	$(g_1,\ldots,g_{n+1})\mapsto(g_1,\ldots,g_{n+1},1)$.
+	This map plainly satisfies $\epsilon k_{-1}=\identity$; after expanding
+	the definitions, the verifications that $d_{n+1}k_n=\identity$,
+	$d_ik_n=k_{n-1}d_i$ for $0\leq i\leq n$, $n\geq1$, and
+	$d_0k_0=k_{-1}\epsilon$ are also immediate.
+
+	If $\Bbbk$ is a commutative ring, identify the chain complex
+	$\mathrm{C}(\Bbbk\mathrm{E}\Gamma)$ with the chain complex
+	$\mathsf{L}=(\mathsf{L}_n,\partial'_n)_n$ from
+	Definition~\ref{def:resolution-trivial-module}, as in
+	Example~\ref{eg:classifying-space-std-cplx}. The augmentation
+	$\mathsf{L}\to\Bbbk$ is precisely the augmentation of the resolution in
+	Proposition~\ref{prop:trivial-mod-resolution}. In view of the next
+	proposition, the contractibility of $\mathrm{E}\Gamma$ (and hence of
+	$\Bbbk\mathrm{E}\Gamma$) gives a topological explanation for the fact
+	that $\mathsf{L}\to\Bbbk$ is a quasi-isomorphism.
+\end{example}
+
+% segment-id: o014.aljabr2.chapter8.homology-computation.pr003
+\begin{proposition}\label{prop:contractible-null-homotopic}
+	Let $\mathcal{A}$ be an additive category and let $X$ be a left or right
+	contractible augmented semisimplicial object in $\mathcal{A}$. Then the
+	identity morphism from $\mathrm{C}^{\mathrm{aug}}X$ to itself is
+	null-homotopic.
+\end{proposition}
+% segment-id: o014.aljabr2.chapter8.homology-computation.pf003
+\begin{proof}
+	First consider the left-contractible case, and take the family of
+	morphisms $k_n:X_n\to X_{n+1}$ from its definition. Define $k_n=0$ for
+	$n<-1$ (or $\partial_n=0$ for $n<0$), and also define
+	$\partial_0=\epsilon$. We want to use $(k_n)_n$ as a witness to the null
+	homotopy, that is, to prove
+	% segment-id: o014.aljabr2.chapter8.homology-computation.q014
+	\[
+	\partial_{n+1}k_n+k_{n-1}\partial_n=\identity_{X_n}.
+	\]
+
+	For $n<-1$, both sides equal $0$. For $n=-1$, the left-hand side is
+	$\identity_{X_{-1}}$. For $n=0$, the left-hand side is
+	$d_0k_0-d_1k_0+k_{-1}\epsilon=\identity_{X_0}$. For $n\geq1$,
+	computing the left-hand side gives
+	% segment-id: o014.aljabr2.chapter8.homology-computation.q015
+	\begin{multline*}
+		\sum_{i=0}^{n+1}(-1)^id_ik_n
+		+\sum_{i=0}^n(-1)^ik_{n-1}d_i\\
+		=\identity_{X_n}
+		+\sum_{i=1}^{n+1}(-1)^ik_{n-1}d_{i-1}
+		+\sum_{i=0}^n(-1)^ik_{n-1}d_i
+		=\identity_{X_n}.
+	\end{multline*}
+
+	For the right-contractible case, use
+	$\bigl((-1)^{n+1}k_n\bigr)_n$ instead.
+\end{proof}

@@ -1,0 +1,371 @@
+% Unit 110 English translation of chapter8.tex lines 760--924.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter8.dold-kan-a
+% Coverage: Section 8.5 from its opening through the Dold--Kan lemma for abelian groups;
+% continued by Unit 111 at line 925.
+% Editorial correction: the unused condition 0 <= k <= n in the source's
+% definition of the normalized complex is omitted.
+
+% segment-id: o014.li2.chapter8.dold-kan-a.h001
+\section{The Dold--Kan Correspondence}\label{sec:Dold-Kan}
+\hypertarget{o014.aljabr2.chapter8.dold-kan-a}{ }
+% segment-id: o014.li2.chapter8.dold-kan-a.p001
+Following the conventions of algebraic topology, for an additive category
+$\mathcal{A}$ we consider the category of chain complexes over it
+(Definition~\ref{def:complex}), denoted by $\cate{Ch}(\mathcal{A})$, together
+with its subcategory
+% segment-id: o014.li2.chapter8.dold-kan-a.q001
+\[ \cate{Ch}_{\geq 0}(\mathcal{A}) := \left\{ A = (A_n, \partial_n)_{n \in \Z} : \text{chain complex}, \; \forall n < 0, \; A_n = 0 \right\}, \]
+where $\partial_n=\partial_n^A:A_n\to A_{n-1}$. For an object of
+$\cate{Ch}_{\geq0}(\mathcal{A})$, it plainly suffices to specify the data
+$(A_n)_{n\geq0}$ and $(\partial_n)_{n\geq1}$. The category
+$\cate{Ch}_{\geq m}(\mathcal{A})$ is defined similarly; compare the cochain
+complex version in Definition~\ref{def:cplx-cat-variant}.
+\index[sym1]{ChA@$\cate{Ch}(\mathcal{A})$}
+
+% segment-id: o014.li2.chapter8.dold-kan-a.p002
+By enlarging the chosen Grothendieck universe if necessary, we may assume that
+$\mathcal{A}$ is a small additive category; see
+\cite[Assumption 1.5.2]{Li1}. From $\mathcal{A}$ one can define the category
+$\cate{s}\mathcal{A}$ of simplicial objects; the constant simplicial object
+corresponding to $0$ is still denoted by
+$0\in\Obj(\cate{s}\mathcal{A})$. This section aims to give a first account of
+the relationships among these categories. More precisely, we shall define
+three functors
+% segment-id: o014.li2.chapter8.dold-kan-a.q002
+\[\begin{tikzcd}
+	\cate{Ch}_{\geq 0}(\mathcal{A}) \arrow[r, "\Gamma" description] & \cate{s}\mathcal{A} \arrow[bend left, l, "{\mathrm{N}}"] \arrow[bend right, l, "{\mathrm{C}}"']
+\end{tikzcd}\]
+where $\mathrm{N}$ is defined only when $\mathcal{A}$ is an abelian category.
+Both $\mathrm{C}$ and $\mathrm{N}$ extend to the semisimplicial objects of
+Remark~\ref{rem:semisimplicial}; in other words, neither of them involves the
+degeneracy morphisms.
+
+% segment-id: o014.li2.chapter8.dold-kan-a.p003
+Our treatment follows \cite[\S 1.2]{LuHA}. We begin by making the relevant
+definitions explicit.
+
+% segment-id: o014.li2.chapter8.dold-kan-a.d001
+\begin{definition}[Unnormalized chain complex]\label{def:unnormalized-chain}
+	\index{unnormalized chain complex}
+	\index{Moore chain complex}
+	\index[sym1]{CX@$\mathrm{C}X$}
+	For a semisimplicial object $X$ in $\mathcal{A}$ and every
+	$n\in\Z_{\geq1}$, define
+	% segment-id: o014.li2.chapter8.dold-kan-a.q003
+	\[ \partial_n := \sum_{i=0}^n (-1)^i d_i: X_n \to X_{n-1}. \]
+	The objects $(X_n)_{n\geq0}$ together with $(\partial_n)_n$ form an
+	object $\mathrm{C}X$ of $\cate{Ch}_{\geq0}(\mathcal{A})$, called the
+	\emph{unnormalized chain complex}, or \emph{Moore chain complex}, given
+	by $X$. Thus $(\mathrm{C}X)_n=X_n$.
+\end{definition}
+
+% segment-id: o014.li2.chapter8.dold-kan-a.p004
+We must show that $\partial_{n-1}\partial_n=0$ when $n>1$. Indeed, the
+identity $i<j\implies d_id_j=d_{j-1}d_i$ in
+\eqref{eqn:simplicial-identity} gives
+% segment-id: o014.li2.chapter8.dold-kan-a.q004
+\begin{multline*}
+	\partial_{n-1} \partial_n = \sum_{i=0}^{n-1} \sum_{j=0}^n (-1)^{i+j} d_i d_j \\
+	= \sum_{0 \leq i < j \leq n} (-1)^{i+j} d_{j-1} d_i + \sum_{n-1 \geq i \geq j \geq 0} (-1)^{i+j} d_i d_j = 0.
+\end{multline*}
+This construction is plainly canonical in $X$ and gives the functor
+$\mathrm{C}$.
+
+% segment-id: o014.li2.chapter8.dold-kan-a.eg001
+\begin{example}\label{eg:classifying-space-std-cplx}
+	Let $\Bbbk$ be a commutative ring and
+	$\mathcal{A}=\Bbbk\dcate{Mod}$. For a group $\Gamma$,
+	Example~\ref{eg:classifying-space} gives the corresponding simplicial set
+	$\mathrm{E}\Gamma$. Define a simplicial object
+	$\Bbbk\mathrm{E}\Gamma$ in $\Bbbk\dcate{Mod}$ whose term in degree $n$
+	is the free $\Bbbk$-module with basis $(\mathrm{E}\Gamma)_n$, and whose
+	$d_i$ and $s_i$ are extended linearly. We claim that
+	$\mathrm{C}(\Bbbk\mathrm{E}\Gamma)$ is precisely the chain complex
+	$\mathsf{L}:=(\mathsf{L}_n,\partial'_n)_n$ introduced in
+	Definition~\ref{def:resolution-trivial-module}. First,
+	$\mathsf{L}_n$ is by definition the free $\Bbbk$-module with basis
+	$\Gamma^{n+1}$. Take the map from
+	$(\mathrm{E}\Gamma)_n=\Gamma^{n+1}$ to $\mathsf{L}_n$
+	% segment-id: o014.li2.chapter8.dold-kan-a.q005
+	\[ \left( g_1, \ldots, g_{n+1} \right) \mapsto \left(g_1 \cdots g_{n+1}, \; \ldots , \; g_n g_{n+1}, \; g_{n+1}\right). \]
+	Extend it linearly to $(\Bbbk\mathrm{E}\Gamma)_n$. The reader may verify
+	that $\sum_i(-1)^id_i$ thereby corresponds to
+	$\partial'_n:\mathsf{L}_n\to\mathsf{L}_{n-1}$, giving the asserted
+	isomorphism.
+
+	Moreover, $\Gamma$ acts on the right on each $(\mathrm{E}\Gamma)_n$ by
+	$(g_1,\ldots,g_{n+1})\xmapsto{g}(g_1,\ldots,g_n,g_{n+1}g)$. In the basis
+	coordinates of $\mathsf{L}_n$, this action becomes
+	$(g_0,\ldots,g_n)\xmapsto{g}(g_0g,\ldots,g_ng)$. Thus we recover the
+	right $\Gamma$-action on $\mathsf{L}$ from
+	Definition~\ref{def:resolution-trivial-module}. Consequently, the
+	complexes obtained by taking degreewise $\Gamma$-coinvariants of the
+	chain complexes $\mathrm{C}(\Bbbk\mathrm{E}\Gamma)$ and $\mathsf{L}$
+	are also isomorphic. On the $\mathrm{C}(\Bbbk\mathrm{E}\Gamma)$ side,
+	this amounts to taking the degreewise quotient of $\mathrm{E}\Gamma$ and
+	then the free $\Bbbk$-module. It follows that
+	% segment-id: o014.li2.chapter8.dold-kan-a.q006
+	\[ \mathrm{C}(\Bbbk\mathrm{B}\Gamma) \simeq \mathsf{L} \dotimes{\Bbbk[\Gamma]} \Bbbk, \]
+	where the tensor product involves the augmentation homomorphism
+	$\Bbbk[\Gamma]\to\Bbbk$. As a consequence, group homology
+	(Definition~\ref{def:group-coh-ho}) is interpreted as
+	% segment-id: o014.li2.chapter8.dold-kan-a.q007
+	\[ \Hm_n(\mathrm{B}\Gamma; \Bbbk) := \Hm_n \mathrm{C}(\Bbbk\mathrm{B}\Gamma) \simeq \Hm_n(\Gamma, \Bbbk), \quad n \in \Z_{\geq 0}. \]
+
+	The left-hand side features the homology of a simplicial set, a general
+	construction to be introduced in
+	Definition~\ref{def:simplicial-set-homology}. The exercises in this
+	chapter will give a similar isomorphism for the normalized version
+	$\overline{\mathsf{L}}$ of $\mathsf{L}$, corresponding to the normalized
+	chain complex $\mathrm{N}(\Bbbk\mathrm{E}\Gamma)$ to be discussed in
+	Definition~\ref{def:normalized-cplx}.
+\end{example}
+
+% segment-id: o014.li2.chapter8.dold-kan-a.d002
+\begin{definition}\label{def:DK-Gamma}
+	Let $(A_n,\partial_n)_{n\geq0}$ be an object of
+	$\cate{Ch}_{\geq0}(\mathcal{A})$. Define an object $\Gamma(A)$ of
+	$\cate{s}\mathcal{A}$ as follows:
+	% segment-id: o014.li2.chapter8.dold-kan-a.q008
+	\[ (\Gamma A)_n := \bigoplus_{t: [n] \twoheadrightarrow [k]} A_k. \]
+
+	For every morphism $f:[m]\to[n]$ in $\simpDelta$, the corresponding
+	morphism $f^*:(\Gamma A)_n\to(\Gamma A)_m$ is represented, with respect
+	to the direct-sum decomposition above, by the matrix
+	% segment-id: o014.li2.chapter8.dold-kan-a.q009
+	\[ \left( \Phi_{u, t} : A_k \to A_l \right)_{\substack{ u: [m] \twoheadrightarrow [l] \\ t: [n] \twoheadrightarrow [k] }}. \]
+	This matrix is determined as follows. Given
+	$t:[n]\twoheadrightarrow[k]$, take the surjection--injection
+	factorization of $tf$,
+	% segment-id: o014.li2.chapter8.dold-kan-a.q010
+	\begin{equation}\label{eqn:Dold-Kan-epi-mono}\begin{tikzcd}[row sep=tiny]
+		& {[n]} \arrow[twoheadrightarrow, rd, "t"] & \\
+		{[m]} \arrow[ru, "f"] \arrow[twoheadrightarrow, rd, "u"'] & & {[k]} \\
+		& {[l]} \arrow[hookrightarrow, ru, "v"'] &
+	\end{tikzcd}\end{equation}
+	\begin{itemize}
+		\item if $l=k$, set $\Phi_{u,t}=\identity$;
+		\item if $l=k-1$ and $v=\mathrm{d}^0$ (the order-preserving
+		injection omitting $0$), set
+		$\Phi_{u,t}=\partial_k:A_k\to A_{k-1}$;
+		\item in all other cases, set $\Phi_{u,t}=0$.
+	\end{itemize}
+	Notice that once $f$ and $t$ are given, there is at most one $u$ for which
+	$\Phi_{u,t}\neq0$.
+\end{definition}
+
+% segment-id: o014.li2.chapter8.dold-kan-a.p005
+The verification that $\Gamma A\in\Obj(\cate{s}\mathcal{A})$ is somewhat
+tedious and is omitted. The heart of the construction lies in the direct
+summand $A_n$ of $(\Gamma A)_n$ and its behavior under order-preserving
+injections. All lower-degree direct summands $A_k$ arise from degeneracies
+induced by surjections $[n]\twoheadrightarrow[k]$; the definition of $f^*$
+in the general case merely implements this idea.
+
+% segment-id: o014.li2.chapter8.dold-kan-a.p006
+The construction above is canonical and gives a functor
+$\Gamma:\cate{Ch}_{\geq0}(\mathcal{A})\to\cate{s}\mathcal{A}$.
+
+% segment-id: o014.li2.chapter8.dold-kan-a.d003
+\begin{definition}\label{def:normalized-cplx}
+	\index{normalized chain complex}
+	\index[sym1]{NX@$\mathrm{N}X$}
+	Let $\mathcal{A}$ be an abelian category. For a semisimplicial object $X$
+	in $\mathcal{A}$ and every $n\in\Z_{\geq0}$, define
+	% segment-id: o014.li2.chapter8.dold-kan-a.q011
+	\begin{align*}
+		(\mathrm{N} X)_n & := \bigcap_{i=1}^n \Ker\left[ d_i: X_n \to X_{n-1} \right], \quad n \geq 1, \\
+		(\mathrm{N} X)_0 & := X_0.
+	\end{align*}
+
+	The morphisms $\mathrm{N}X_n\to\mathrm{N}X_{n-1}$ induced by
+	$X_n\xrightarrow{d_0}X_{n-1}$ (verify this using
+	\eqref{eqn:simplicial-identity}) are henceforth denoted by $\partial_n$.
+	Together with these objects, they form an object $\mathrm{N}X$ of
+	$\cate{Ch}_{\geq0}(\mathcal{A})$, called the \emph{normalized chain
+	complex} corresponding to $X$.
+\end{definition}
+
+% segment-id: o014.li2.chapter8.dold-kan-a.pr001
+\begin{proposition}\label{prop:Dold-Kan-u}
+	For $X$ as above and every $n\geq0$, write
+	$u_n:(\mathrm{N}X)_n\hookrightarrow X_n$ for the natural inclusion. Then
+	$(u_n)_{n\geq0}$ forms a monomorphism
+	$u:\mathrm{N}X\to\mathrm{C}X$ in
+	$\cate{Ch}_{\geq0}(\mathcal{A})$; this construction is functorial in $X$.
+\end{proposition}
+% segment-id: o014.li2.chapter8.dold-kan-a.pf001
+\begin{proof}
+	This follows directly from the definitions of $\mathrm{N}X$ and
+	$\mathrm{C}X$.
+\end{proof}
+
+% segment-id: o014.li2.chapter8.dold-kan-a.p007
+The next few results are preparations for the Dold--Kan theorem,
+Theorem~\ref{prop:Dold-Kan}.
+
+% segment-id: o014.li2.chapter8.dold-kan-a.le001
+\begin{lemma}\label{prop:DK-N-unit}
+	Let $\mathcal{A}$ be an abelian category. For every
+	$A\in\Obj(\cate{Ch}_{\geq0}(\mathcal{A}))$ and $n\geq0$, we have
+	$\mathrm{N}\Gamma(A)_n=A_n$. These identifications give an isomorphism
+	of functors
+	$\eta:\identity_{\cate{Ch}_{\geq0}(\mathcal{A})}\rightiso
+	\mathrm{N}\Gamma$.
+\end{lemma}
+% segment-id: o014.li2.chapter8.dold-kan-a.pf002
+\begin{proof}
+	Given $t:[n]\twoheadrightarrow[k]$ with $k<n$, one can always choose
+	$1\leq i\leq n$ such that $t^{-1}(t(i))$ has at least two elements.
+	Consequently $t\mathrm{d}^i$ is surjective, and the following diagram
+	commutes:
+	% segment-id: o014.li2.chapter8.dold-kan-a.q012
+	\[\begin{tikzcd}[row sep=tiny]
+		& {[n]} \arrow[twoheadrightarrow, rd, "t"] & \\
+		{[n-1]} \arrow[ru, "{\mathrm{d}^i}"] \arrow[twoheadrightarrow, rd, "{t\mathrm{d}^i}"'] & & {[k]} \\
+		& {[k]} \arrow[ru, "{\identity}"'] &
+	\end{tikzcd}\]
+	Definition~\ref{def:DK-Gamma} then shows that
+	$\mathrm{N}\Gamma(A)_n$ is contained in the direct summand $A_n$
+	corresponding to $\identity:[n]\to[n]$. The same definition readily
+	gives $\mathrm{N}\Gamma(A)_n=A_n$ and shows that
+	$\mathrm{N}\Gamma(A)_{n+1}\to\mathrm{N}\Gamma(A)_n$ is precisely
+	$\partial_{n+1}:A_{n+1}\to A_n$. This proves the result.
+\end{proof}
+
+% segment-id: o014.li2.chapter8.dold-kan-a.le002
+\begin{lemma}\label{prop:GammaN-adjunction}
+	Let $\mathcal{A}$ be an abelian category. The functors above form an
+	adjunction
+	% segment-id: o014.li2.chapter8.dold-kan-a.q013
+	\[\begin{tikzcd}
+		\Gamma: \cate{Ch}_{\geq 0}(\mathcal{A}) \arrow[shift left, r] & \cate{s}\mathcal{A} : \mathrm{N} \arrow[shift left, l].
+	\end{tikzcd}\]
+	\begin{itemize}
+		\item Its unit morphism is the isomorphism $\eta$ of
+		Lemma~\ref{prop:DK-N-unit}.
+		\item Its counit morphism
+		$\epsilon:\Gamma\mathrm{N}\to\identity_{\cate{s}\mathcal{A}}$ is
+		described as follows. For $t:[n]\twoheadrightarrow[k]$, on the
+		corresponding direct summand $(\mathrm{N}X)_k$ of
+		$\Gamma\mathrm{N}(X)_n$, the map $\epsilon_{X,n}$ is the composite
+		$(\mathrm{N}X)_k\subset X_k\xrightarrow{t^*}X_n$.
+	\end{itemize}
+\end{lemma}
+% segment-id: o014.li2.chapter8.dold-kan-a.pf003
+\begin{proof}
+	For $A\in\Obj(\cate{Ch}_{\geq0}(\mathcal{A}))$ and
+	$X\in\Obj(\cate{s}\mathcal{A})$, we first prove that the composite
+	% segment-id: o014.li2.chapter8.dold-kan-a.q014
+	\[ \Hom_{\cate{s}\mathcal{A}}(\Gamma(A), X) \xrightarrow{\mathrm{N}} \Hom_{\cate{Ch}_{\geq 0}(\mathcal{A})}(\mathrm{N}\Gamma(A), \mathrm{N}(X)) \xrightarrow{\eta_A^*} \Hom_{\cate{Ch}_{\geq 0}(\mathcal{A})}(A, \mathrm{N}(X)) \]
+	is a bijection. Its inverse is defined concretely as follows. Given
+	$\phi=(\phi_n)_{n\geq0}:A\to\mathrm{N}(X)$, define a morphism
+	% segment-id: o014.li2.chapter8.dold-kan-a.q015
+	\[ \Phi_n: (\Gamma A)_n = \bigoplus_{t: [n] \twoheadrightarrow [k]} A_k \to X_n \]
+	whose restriction to the direct summand corresponding to
+	$t:[n]\twoheadrightarrow[k]$ is the composite
+	% segment-id: o014.li2.chapter8.dold-kan-a.q016
+	\[ A_k \xrightarrow{\phi_k} (\mathrm{N}X)_k \subset X_k \xrightarrow{t^*} X_n. \]
+	For such a $t$ and an arbitrary $f:[m]\to[n]$, take the
+	surjection--injection factorization of $tf$ as in
+	\eqref{eqn:Dold-Kan-epi-mono}, and consider the following diagram in
+	$\mathcal{A}$ (see Definition~\ref{def:DK-Gamma}):
+	% segment-id: o014.li2.chapter8.dold-kan-a.q017
+	\[\begin{tikzcd}[column sep=large]
+		A_k \arrow[r, "\phi_k"] \arrow[d, "{\Phi_{u, t}}"'] & (\mathrm{N}X)_k \arrow[hookrightarrow, r] \arrow[d, "{v^*|_{(\mathrm{N}X)_k}}"] & X_k \arrow[r, "{t^*}"] \arrow[d, "{v^*}"] & X_n \arrow[d, "{f^*}"] \\
+		A_l \arrow[r, "\phi_l"'] & (\mathrm{N}X)_l \arrow[hookrightarrow, r] & X_l \arrow[r, "{u^*}"'] & X_m.
+	\end{tikzcd}\]
+	The left square commutes by the definition of the normalized chain complex
+	$\mathrm{N}X$, the middle square plainly commutes, and the right square
+	commutes because $tf=vu$. Thus $\Phi=(\Phi_n)_n$ is a morphism in
+	$\cate{s}\mathcal{A}$.
+
+	The verification that $\eta_A^*\mathrm{N}$ and $\phi\mapsto\Phi$ are
+	mutually inverse is routine. In the description of $\phi\mapsto\Phi$,
+	take $\phi=\identity_{\mathrm{N}X}$; the result is exactly the asserted
+	$\epsilon$.
+\end{proof}
+
+% segment-id: o014.li2.chapter8.dold-kan-a.le003
+\begin{lemma}\label{prop:DK-Ab}
+	Take $\mathcal{A}=\cate{Ab}$. Then $\Gamma$ is an equivalence; more
+	precisely, the adjunction
+	% segment-id: o014.li2.chapter8.dold-kan-a.q018
+	$\begin{tikzcd}
+		\Gamma: \cate{Ch}_{\geq 0}(\cate{Ab}) \arrow[shift left, r] & \cate{s}\cate{Ab} : \mathrm{N} \arrow[shift left, l]
+	\end{tikzcd}$
+	is an adjoint equivalence in the sense of
+	\cite[Theorem 2.6.12]{Li1}.
+\end{lemma}
+% segment-id: o014.li2.chapter8.dold-kan-a.pf004
+\begin{proof}
+	It suffices to prove that the counit morphism $\epsilon$ of
+	Lemma~\ref{prop:GammaN-adjunction} is an isomorphism. Let
+	$X\in\Obj(\cate{s}\mathcal{A})$. We claim that
+	$\epsilon_{X,n}:\Gamma(\mathrm{N}X)_n\to X_n$ is injective for every
+	$n\geq0$. Let $x=(x_t)_t$ be an element of its domain, where $t$ ranges
+	over all order-preserving surjections $[n]\twoheadrightarrow[k]$. For a
+	given $t$, define the order-preserving injection
+	% segment-id: o014.li2.chapter8.dold-kan-a.q019
+	\begin{align*}
+		s = s_t : [k] & \hookrightarrow [n] \\
+		i & \mapsto \min t^{-1}(i),
+	\end{align*}
+	which satisfies $ts=\identity_{[k]}$. Suppose that $x\neq0$, and write
+	% segment-id: o014.li2.chapter8.dold-kan-a.q020
+	\[ S := \left\{t: x_t \neq 0 \right\} \neq \emptyset. \]
+	Choose the smallest $k$ for which there is a
+	$t:[n]\twoheadrightarrow[k]$ in $S$, then choose such a $t$ minimizing
+	$\sum_{i=0}^k\min t^{-1}(i)$, and construct $s$. We shall prove that
+	$s^*(\epsilon_{X,n}(x))=x_t\in X_k$, which shows that
+	$\epsilon_{X,n}(x)\neq0$.
+
+	By the concrete description of $\epsilon_{X,n}$, it is enough to show
+	that for every $t':[n]\twoheadrightarrow[k']$,
+	$s^*(t')^*(x_{t'})\neq0$ implies $t=t'$. Set
+	$u:=t's:[k]\to[k']$. If $t'\notin S$, then $x_{t'}=0$. Thus it remains
+	to consider $t'\in S$ satisfying
+	$s^*(t')^*(x_{t'})=u^*(x_{t'})\neq0$.
+
+	Since $t$ is order-preserving and surjective, $\min t^{-1}(0)=0$, and
+	the same holds for $t'$, so $u(0)=0$. Moreover,
+	$x_{t'}\in(\mathrm{N}X)_{k'}$ implies that
+	$u^*(x_{t'})\neq0$ is possible only if
+	$\Image(u)\supset\{1,\ldots,k'\}$. Hence we may assume that $u$ is
+	surjective. The minimality of $k$ then forces $k'=k$ and
+	$u=\identity$.
+
+	Consequently, $t'(\min t^{-1}(i))=i$ for $i=0,\ldots,k$, and hence
+	$\min(t')^{-1}(i)\leq\min t^{-1}(i)$. By the choice of $t$, we obtain
+	$\min(t')^{-1}(i)=\min t^{-1}(i)$ for every $0\leq i\leq k$.
+	An order-preserving surjection is determined by the initial points of its
+	fibers, so this is equivalent to $t=t'$. Thus $\epsilon_{X,n}$ is
+	injective.
+
+	We now prove by induction on $n$ that $\epsilon_{X,n}$ is surjective. We
+	claim that, for every $0\leq i\leq n$,
+	% segment-id: o014.li2.chapter8.dold-kan-a.q021
+	\[ \Image\left( \epsilon_{X, n} \right) \supset X(i)_n := \bigcap_{i < j \leq n} \Ker(d_j) \subset X_n. \]
+
+	For $i=0$, we have $X(i)_n=(\mathrm{N}X)_n$, and the inclusion above
+	follows readily from the concrete description of $\epsilon_{X,n}$. Our
+	goal is the case $i=n$. Let $n\geq i\geq1$ and $y\in X(i)_n$. The
+	induction hypothesis for $n-1$ and the description of $\epsilon_{X,n}$
+	give
+	% segment-id: o014.li2.chapter8.dold-kan-a.q022
+	\[ s_{i-1} d_i(y) \in s_{i-1}\left( \Image\left(\epsilon_{X, n-1}\right) \right) \subset \Image\left( \epsilon_{X, n} \right). \]
+
+	On the other hand, the simplicial identities
+	\eqref{eqn:simplicial-identity} give
+	% segment-id: o014.li2.chapter8.dold-kan-a.q023
+	\begin{gather*}
+		d_i s_{i-1} d_i = d_i, \\
+		j > i \implies d_j s_{i-1} d_i = s_{i-1} d_{j-1} d_i = s_{i-1} d_i d_j.
+	\end{gather*}
+	Thus $y-s_{i-1}d_i(y)\in X(i-1)_n$, and the induction hypothesis for
+	$i-1$ shows that this element lies in
+	$\Image(\epsilon_{X,n})$. Therefore
+	$y\in\Image(\epsilon_{X,n})$, as required.
+\end{proof}

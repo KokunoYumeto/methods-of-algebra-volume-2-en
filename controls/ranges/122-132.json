@@ -1,0 +1,406 @@
+{
+  "schema": "o014-english-range-receipt-v1",
+  "range": {
+    "first_sequence": 122,
+    "last_sequence": 132
+  },
+  "status": "PASS",
+  "source_commit": "9a5803ff77dd3257484cb177f851a73770a59dd3",
+  "validation": {
+    "source_slice_sha256_verified": true,
+    "indonesian_witness_sha256_verified": true,
+    "stable_unit_ids_verified": true,
+    "segment_id_sequence_parity": true,
+    "localized_environment_roles_canonicalized_to_english": true,
+    "environment_role_order_parity": true,
+    "label_sequence_parity": true,
+    "hypertarget_sequence_parity": true,
+    "reference_key_coverage_parity": true,
+    "citation_key_sequence_parity": true,
+    "item_count_parity": true,
+    "index_command_count_parity": true,
+    "diagram_count_parity": true,
+    "display_formula_order_and_content_verified_after_documented_source_corrections": true,
+    "balanced_braces_math_delimiters_and_nested_environments": true,
+    "manual_semantic_and_mathematical_review": true,
+    "natural_english_review": true,
+    "han_residue_count": 0,
+    "indonesian_residue_count": 0,
+    "placeholder_count": 0,
+    "tex_or_git_invoked": false
+  },
+  "automated_audit": {
+    "command": "python -B tools\\audit_english_range.py --start 122 --end 132 --pretty",
+    "raw_result": "FAIL",
+    "units_expected": 11,
+    "units_audited": 11,
+    "units_passing_all_automated_checks": 9,
+    "failed_check_name": "normalized_display_math_counter_exact",
+    "adjudication": "PASS",
+    "adjudicated_units": [
+      {
+        "sequence": 127,
+        "reason": "The checker does not mask the translated bare TikZ labels canonical/kanonik. The same display also deliberately corrects source line 1192 from omega'_2 boxtimes omega'_2 to the well-typed omega_2 boxtimes omega'_2. Equation L-tensor deliberately replaces the undefined comma notation on source line 1226 with the tensor product required by the coend-bracket convention. Diagram order, nodes, arrows, mathematical roles, and all structural counters were independently verified."
+      },
+      {
+        "sequence": 130,
+        "reason": "The second duality square deliberately restores the omitted omega on source line 1574: the arrow between omega({}^*Y) and omega({}^*X) is omega({}^*f), as its source, target, and the following displayed correspondence require. All other display content and all structural counters were independently verified."
+      }
+    ]
+  },
+  "documented_source_corrections": [
+    {
+      "sequence": 123,
+      "source_line": 816,
+      "correction": "Parenthesized X tensor Y in the closing dimension identity so the left side is dim(X tensor Y), not (dim X) tensor Y."
+    },
+    {
+      "sequence": 126,
+      "source_line": 1105,
+      "correction": "Restored the canonical coaction direction omega_2(TX) to omega_1(TX) tensor coHom(omega_1,omega_2)."
+    },
+    {
+      "sequence": 127,
+      "source_line": 1185,
+      "correction": "Used coHom_B consistently in the B-linear construction."
+    },
+    {
+      "sequence": 127,
+      "source_line": 1192,
+      "correction": "Corrected the second coHom argument to omega_2 boxtimes omega'_2; the source repeats the primed functor and is ill-typed."
+    },
+    {
+      "sequence": 127,
+      "source_line": 1211,
+      "correction": "Used omega_2(X) and omega'_2(X') in the four-variable colimit, matching its indices and target."
+    },
+    {
+      "sequence": 127,
+      "source_line": 1226,
+      "correction": "Replaced the undefined comma inside the coend bracket with the tensor product specified by the bracket convention."
+    },
+    {
+      "sequence": 128,
+      "source_line": 1275,
+      "correction": "Used the category of right A-modules, cated{Mod}A, in the Morita setting."
+    },
+    {
+      "sequence": 128,
+      "source_line": 1331,
+      "correction": "Required N'_2 to contain Image(f restricted to N'_1), rather than an image under omega having the wrong ambient module."
+    },
+    {
+      "sequence": 130,
+      "source_line": 1574,
+      "correction": "Restored omega({}^*f) as the lower arrow between omega-images in the duality diagram."
+    },
+    {
+      "sequence": 130,
+      "source_line": 1578,
+      "correction": "Corrected the source class from [phi tensor phi] to [phi tensor x], matching the definition of S."
+    },
+    {
+      "sequence": 131,
+      "source_line": 1693,
+      "correction": "Required H to be a commutative Hopf algebra so that its comodule category is symmetric monoidal and hence neutral Tannakian as claimed."
+    },
+    {
+      "sequence": 132,
+      "source_line": 1753,
+      "correction": "Used omega_1 rather than the undefined omega'_1 in the tensor-compatibility diagram."
+    },
+    {
+      "sequence": 132,
+      "source_line": 1767,
+      "correction": "Used omega_1(Y) rather than omega_2(X) in the upper-right tensor factor, as required by the surrounding diagram."
+    }
+  ],
+  "units": [
+    {
+      "sequence": 122,
+      "unit_id": "o014.aljabr2.chapter9.duality-rigidity-b",
+      "target_path": "source/en/chapter9-unit-122.tex",
+      "target_sha256": "c5f6888c6137c3336cd9e6a932c0a46b72bbc63e2e1b7a61b84c4811871ab73f",
+      "bytes": 16109,
+      "lines": 300,
+      "chinese_source": {
+        "path": "chapter9.tex",
+        "start_line": 306,
+        "end_line": 579,
+        "sha256": "c9d5ebaa8eee2806787d03b7aac04fb313082a867fd1069293001a09f8b141af"
+      },
+      "indonesian_witness_sha256": "959edb4b02219397f79cf281e21c999e8c30cfa7012ff33196a9ac7356e793d0",
+      "segments": 28,
+      "environment_tokens": 92,
+      "labels": 6,
+      "references": 10,
+      "citation_keys": 0,
+      "display_math_blocks": 7,
+      "diagrams": 24,
+      "items": 5,
+      "index_commands": 0,
+      "automated_pass": true,
+      "manual_pass": true
+    },
+    {
+      "sequence": 123,
+      "unit_id": "o014.aljabr2.chapter9.trace-and-dimension",
+      "target_path": "source/en/chapter9-unit-123.tex",
+      "target_sha256": "0ce0bcb4d32758a0ff32f0f0c54cf2cda4939823221b143e8253d2cb12faa8d5",
+      "bytes": 21445,
+      "lines": 421,
+      "chinese_source": {
+        "path": "chapter9.tex",
+        "start_line": 580,
+        "end_line": 817,
+        "sha256": "6754798ac4ecfa0394cab389a4e8dbf9d800d2686bae5f6bd2e41837ada30906"
+      },
+      "indonesian_witness_sha256": "9512346f1f18cd8d22122e95c5d4143215e569daa19c4c50ca54daca517110a2",
+      "segments": 31,
+      "environment_tokens": 66,
+      "labels": 7,
+      "references": 20,
+      "citation_keys": 2,
+      "display_math_blocks": 17,
+      "diagrams": 14,
+      "items": 9,
+      "index_commands": 3,
+      "automated_pass": true,
+      "manual_pass": true
+    },
+    {
+      "sequence": 124,
+      "unit_id": "o014.aljabr2.chapter9.duality-examples-a",
+      "target_path": "source/en/chapter9-unit-124.tex",
+      "target_sha256": "33e9852cc34892a07ac2fc16a04f642850fe7fff32d1e06f95c270d807ec8f7a",
+      "bytes": 14707,
+      "lines": 283,
+      "chinese_source": {
+        "path": "chapter9.tex",
+        "start_line": 818,
+        "end_line": 950,
+        "sha256": "f84ce42cf4988f9c6b00ee4d187ecfca2d95521ae264823b0845716711139945"
+      },
+      "indonesian_witness_sha256": "79b5c744bf95499ac26306a0dde0ea584838f441a341761558332fe60936a5c7",
+      "segments": 8,
+      "environment_tokens": 42,
+      "labels": 3,
+      "references": 12,
+      "citation_keys": 1,
+      "display_math_blocks": 14,
+      "diagrams": 10,
+      "items": 16,
+      "index_commands": 2,
+      "automated_pass": true,
+      "manual_pass": true
+    },
+    {
+      "sequence": 125,
+      "unit_id": "o014.aljabr2.chapter9.duality-examples-b",
+      "target_path": "source/en/chapter9-unit-125.tex",
+      "target_sha256": "807baa28f08e68bd74c6afaa85e492a37f3cefa394a0b2c0cf8f1b298f8a026c",
+      "bytes": 11772,
+      "lines": 212,
+      "chinese_source": {
+        "path": "chapter9.tex",
+        "start_line": 951,
+        "end_line": 1042,
+        "sha256": "7797f8551650a25c97ec8f7ee583dd665a7941f7db007646e1c5b71b51a4906e"
+      },
+      "indonesian_witness_sha256": "c3323abfd4a475c23b98535e6a28c575b8456a765740533d4a5f6a6b6bc62b5e",
+      "segments": 16,
+      "environment_tokens": 22,
+      "labels": 3,
+      "references": 10,
+      "citation_keys": 0,
+      "display_math_blocks": 12,
+      "diagrams": 0,
+      "items": 5,
+      "index_commands": 1,
+      "automated_pass": true,
+      "manual_pass": true
+    },
+    {
+      "sequence": 126,
+      "unit_id": "o014.aljabr2.chapter9.coendomorphism-coalgebra-a",
+      "target_path": "source/en/chapter9-unit-126.tex",
+      "target_sha256": "35dd341405be58b602ba29b6c5855c28ab4410e9eb665665541ff165669f517f",
+      "bytes": 14384,
+      "lines": 262,
+      "chinese_source": {
+        "path": "chapter9.tex",
+        "start_line": 1043,
+        "end_line": 1156,
+        "sha256": "186e14c5e43672cd019f71bd9f41190e25ddb374723c53e210fc3865410ccfe6"
+      },
+      "indonesian_witness_sha256": "8cf6ac52c386ed2e74669a711ccdd3c13aa257f98addc1d0af7ebc3ec0d81f54",
+      "segments": 25,
+      "environment_tokens": 40,
+      "labels": 10,
+      "references": 10,
+      "citation_keys": 1,
+      "display_math_blocks": 16,
+      "diagrams": 3,
+      "items": 4,
+      "index_commands": 1,
+      "automated_pass": true,
+      "manual_pass": true
+    },
+    {
+      "sequence": 127,
+      "unit_id": "o014.aljabr2.chapter9.coendomorphism-coalgebra-b",
+      "target_path": "source/en/chapter9-unit-127.tex",
+      "target_sha256": "ca563aa99a73ada3006b20c48000d3300ddaf8d962aee6466e60ab3dcca896dc",
+      "bytes": 11798,
+      "lines": 137,
+      "chinese_source": {
+        "path": "chapter9.tex",
+        "start_line": 1157,
+        "end_line": 1256,
+        "sha256": "4d798d6fefdc108f57b934cf7e3d20ba001d8c1627b4b4e0ce7b2581839aeca0"
+      },
+      "indonesian_witness_sha256": "816bf38d23e5be5e1fed1481613afa235d5198ee344478a5cd874b4bdb31988e",
+      "segments": 28,
+      "environment_tokens": 42,
+      "labels": 7,
+      "references": 11,
+      "citation_keys": 1,
+      "display_math_blocks": 14,
+      "diagrams": 3,
+      "items": 3,
+      "index_commands": 0,
+      "automated_pass": false,
+      "manual_pass": true
+    },
+    {
+      "sequence": 128,
+      "unit_id": "o014.aljabr2.chapter9.reconstruction-a",
+      "target_path": "source/en/chapter9-unit-128.tex",
+      "target_sha256": "8f2fe7709d47d948dc5a082b1674aa7410c40c8c3ae2ceda357d1594fdf12a11",
+      "bytes": 12837,
+      "lines": 237,
+      "chinese_source": {
+        "path": "chapter9.tex",
+        "start_line": 1257,
+        "end_line": 1367,
+        "sha256": "ff524ccee0447bf9a98d66a5d569524ea9b334a606f838506c91e1398439c673"
+      },
+      "indonesian_witness_sha256": "6fe7a57551f0bc6aee93d795e472aa63af08b5431c3e5ccc966df1db8c6aecf8",
+      "segments": 15,
+      "environment_tokens": 36,
+      "labels": 5,
+      "references": 24,
+      "citation_keys": 0,
+      "display_math_blocks": 17,
+      "diagrams": 5,
+      "items": 10,
+      "index_commands": 0,
+      "automated_pass": true,
+      "manual_pass": true
+    },
+    {
+      "sequence": 129,
+      "unit_id": "o014.aljabr2.chapter9.reconstruction-b",
+      "target_path": "source/en/chapter9-unit-129.tex",
+      "target_sha256": "da9a443bb9282cbc0bfa55e3c1bfc909b49a0cb9c3026ad6ca1cdaad3e0d1949",
+      "bytes": 11163,
+      "lines": 218,
+      "chinese_source": {
+        "path": "chapter9.tex",
+        "start_line": 1369,
+        "end_line": 1456,
+        "sha256": "fc37db8e58ec39607ccfa3c649917bdcba3378fc9871c911df73edd2329328ab"
+      },
+      "indonesian_witness_sha256": "702e9a2297f0e97fcbbe281c12256f596743e31efa2b46198c24a47e62c2e59d",
+      "segments": 6,
+      "environment_tokens": 24,
+      "labels": 4,
+      "references": 24,
+      "citation_keys": 0,
+      "display_math_blocks": 10,
+      "diagrams": 1,
+      "items": 11,
+      "index_commands": 1,
+      "automated_pass": true,
+      "manual_pass": true
+    },
+    {
+      "sequence": 130,
+      "unit_id": "o014.aljabr2.chapter9.hopf-reconstruction",
+      "target_path": "source/en/chapter9-unit-130.tex",
+      "target_sha256": "94a16f0e01042ebd9ce2cfbc118018b87dfbc7fb44f4033eedb86f133ea0ea12",
+      "bytes": 17862,
+      "lines": 338,
+      "chinese_source": {
+        "path": "chapter9.tex",
+        "start_line": 1457,
+        "end_line": 1625,
+        "sha256": "7d26bda82a41e41f4632ba36b47970635d4a9c27b5629beef80a524819748e4e"
+      },
+      "indonesian_witness_sha256": "1d3f405ed59ea2aa1ce4e73bacba982f3f95f7ab30bd0a68ef756056450fc252",
+      "segments": 0,
+      "environment_tokens": 56,
+      "labels": 9,
+      "references": 26,
+      "citation_keys": 0,
+      "display_math_blocks": 19,
+      "diagrams": 8,
+      "items": 6,
+      "index_commands": 1,
+      "automated_pass": false,
+      "manual_pass": true
+    },
+    {
+      "sequence": 131,
+      "unit_id": "o014.aljabr2.chapter9.tannakian-a",
+      "target_path": "source/en/chapter9-unit-131.tex",
+      "target_sha256": "ecfadc01b553062e38da39035ad34ccb43f3a1e4875596cfafee18902ae03f07",
+      "bytes": 12699,
+      "lines": 258,
+      "chinese_source": {
+        "path": "chapter9.tex",
+        "start_line": 1626,
+        "end_line": 1722,
+        "sha256": "2f3cb00107cc3b16bdd8d2280f676b02a64c0c4fea3ac3fb60db436024ab7dc8"
+      },
+      "indonesian_witness_sha256": "5a2f04502eb99b84ebe18a1db2ebd7cc48eb4a57bd8edc57d9df21186f65c35b",
+      "segments": 12,
+      "environment_tokens": 24,
+      "labels": 4,
+      "references": 24,
+      "citation_keys": 3,
+      "display_math_blocks": 10,
+      "diagrams": 0,
+      "items": 10,
+      "index_commands": 3,
+      "automated_pass": true,
+      "manual_pass": true
+    },
+    {
+      "sequence": 132,
+      "unit_id": "o014.aljabr2.chapter9.fiber-functor-isomorphisms",
+      "target_path": "source/en/chapter9-unit-132.tex",
+      "target_sha256": "01f1ec1a13bf83caf1891302f4224c0d548cb1a86d214d472c6d353c68df8df8",
+      "bytes": 8959,
+      "lines": 155,
+      "chinese_source": {
+        "path": "chapter9.tex",
+        "start_line": 1724,
+        "end_line": 1804,
+        "sha256": "9edb0b36151ddbb614acb17156a80c40c77cd955f1196ba5f87ef96b2a7ec3e1"
+      },
+      "indonesian_witness_sha256": "13c5b5f32a9f6a9d38800bed60009fc95bb180a4e5c63f36251a3b7c3cad2311",
+      "segments": 0,
+      "environment_tokens": 24,
+      "labels": 4,
+      "references": 14,
+      "citation_keys": 1,
+      "display_math_blocks": 10,
+      "diagrams": 6,
+      "items": 0,
+      "index_commands": 0,
+      "automated_pass": true,
+      "manual_pass": true
+    }
+  ]
+}

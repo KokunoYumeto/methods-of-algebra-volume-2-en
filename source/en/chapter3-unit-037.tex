@@ -1,0 +1,259 @@
+% Unit 037 English translation of chapter3.tex lines 946--1060.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter3.abelian-category-complexes
+% Coverage: Section 3.6 in full.
+
+% segment-id: o014.li2.chapter3.abelian-category-complexes.h001
+\section{Complexes on an Abelian Category}\label{sec:Abel-cplx}
+\hypertarget{o014.aljabr2.chapter3.abelian-category-complexes}{ }
+
+% segment-id: o014.li2.chapter3.abelian-category-complexes.p001
+In this section, $\mathcal{A}$ is assumed to be an abelian category. As usual,
+all statements about additivity in this section also extend to the case in
+which $\mathcal{A}$ is a $\Bbbk$-linear category.
+
+% segment-id: o014.li2.chapter3.abelian-category-complexes.p002
+For a complex $X$ on an abelian category, we can discuss its cohomology
+(Definition~\ref{def:cohomology}). Recall that $[n]$ not only shifts the
+superscripts of a complex but also multiplies $d_X^\bullet$ by the sign
+$(-1)^n$. This sign change does not alter the kernel or image of any $d_X$.
+Thus
+% segment-id: o014.li2.chapter3.abelian-category-complexes.q001
+\[ \Hm^k\left( X[n] \right) = \Hm^{n+k} \left(X \right), \quad k, n \in \Z . \]
+
+% segment-id: o014.li2.chapter3.abelian-category-complexes.p003
+Proposition~\ref{prop:additive-cat-cplx} has already shown that
+$\cate{C}(\mathcal{A})$ is an additive category. We now show that it is also
+abelian.
+
+% segment-id: o014.li2.chapter3.abelian-category-complexes.pr001
+\begin{proposition}\label{prop:abelian-cat-cplx}
+	The category $\cate{C}(\mathcal{A})$ is abelian. More precisely, for all
+	$X,Y\in\Obj(\cate{C}(\mathcal{A}))$,
+	$X \oplus Y = (X^n \oplus Y^n, (d_X^n, d_Y^n))_{n \in \Z}$, and for
+	every morphism $f:X\to Y$ one may take
+% segment-id: o014.li2.chapter3.abelian-category-complexes.q002
+	\begin{gather*}
+		\Ker(f) = \left( \Ker(f^n) \right)_{n \in \Z}, \quad
+		\Coker(f) = \left( \Coker(f^n) \right)_{n \in \Z}, \\
+		\Image(f) = \left( \Image(f^n) \right)_{n \in \Z}, \quad
+		\Coim(f) = \left( \Coim(f^n) \right)_{n \in \Z}.
+	\end{gather*}%
+	\footnote{Translator's note (O014-C040): the source writes
+	$\Ker(f)^n$, $\Coker(f)^n$, $\Image(f)^n$, and $\Coim(f)^n$ on the left
+	but equates each with an entire family indexed by $n$ on the right. This
+	translation removes the superscript $n$ on the left so that all four are
+	identities of complexes; their degree-$n$ components remain exactly those
+	shown on the right.}
+
+	Suppose morphisms $f$ and $g$ in $\cate{C}(\mathcal{A})$ are composable
+	and $gf=0$. Then
+	$H:=\Hm\left[X\xrightarrow{f}Y\xrightarrow{g}Z\right]$ is the following
+	complex:
+% segment-id: o014.li2.chapter3.abelian-category-complexes.l001
+	\begin{itemize}
+% segment-id: o014.li2.chapter3.abelian-category-complexes.i001
+		\item its degree-$n$ term is
+		$H^n:=\Hm\left[X^n\xrightarrow{f^n}Y^n\xrightarrow{g^n}Z^n\right]$;
+% segment-id: o014.li2.chapter3.abelian-category-complexes.i002
+		\item the morphism $d_H^n:H^n\to H^{n+1}$ is determined by $d_X^n$,
+		$d_Y^n$, and $d_Z^n$, together with the functoriality of
+		$\Hm[\cdots]$ (Proposition~\ref{prop:homology-functoriality}).%
+		\footnote{Translator's note (O014-C041): the source mentions only
+		$d_X^n$ and $d_Y^n$. This translation adds $d_Z^n$, which is needed to
+		give a morphism between the two three-term diagrams and hence to induce
+		$d_H^n$.}
+	\end{itemize}
+	Consequently, $X\xrightarrow{f}Y\xrightarrow{g}Z$ is exact if and only if
+	$X^n\xrightarrow{f^n}Y^n\xrightarrow{g^n}Z^n$ is exact for every
+	$n\in\Z$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter3.abelian-category-complexes.pf001
+\begin{proof}
+	Proposition~\ref{prop:additive-cat-cplx} explained how to use the forgetful
+	functor from complexes to graded objects,
+	$U:\cate{C}(\mathcal{A})\to\mathcal{A}^{\Z}$, to reduce the required
+	$\varinjlim$ and $\varprojlim$ to degreewise constructions in
+	$\mathcal{A}$. The point is that $U$ creates $\varinjlim$ and
+	$\varprojlim$ (Lemma~\ref{prop:limits-cplx}). This gives degreewise
+	constructions of $X\oplus Y$, $\Ker(f)$, $\Coker(f)$, and so forth.
+
+	In particular, by the characterization \eqref{eqn:strict-morphism}, the
+	canonical morphism $\Coim(f)\to\Image(f)$ is given by the morphisms
+	$\Coim(f^n)\to\Image(f^n)$ in $\mathcal{A}$. A degreewise isomorphism is
+	an isomorphism of complexes. Thus every morphism in
+	$\cate{C}(\mathcal{A})$ is strict. Therefore
+	$\cate{C}(\mathcal{A})$ is an abelian category.%
+	\footnote{Translator's note (O014-C042): the closing sentence of the
+	source names $\mathcal{A}$, although that category was already assumed
+	abelian; the category just proved abelian is $\cate{C}(\mathcal{A})$.
+	This translation corrects the category name.} The description of
+	$\Hm[X\to Y\to Z]$ follows in the same way.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.abelian-category-complexes.r001
+\begin{remark}
+	The same method proves that the category of double complexes
+	$\cate{C}^2(\mathcal{A})$, and even the category of $k$-fold complexes
+	$\cate{C}^k(\mathcal{A})$, remains abelian for $k\in\Z_{\geq1}$; see
+	Remark~\ref{rem:k-fold-cplx}.
+\end{remark}
+
+% segment-id: o014.li2.chapter3.abelian-category-complexes.p004
+Next consider a morphism $f:X\to Y$ in $\cate{C}(\mathcal{A})$. For every
+$n\in\Z$, Proposition~\ref{prop:homology-functoriality} uniquely determines
+$\Hm^n(f):\Hm^n(X)\to\Hm^n(Y)$ so that the following diagram commutes:
+% segment-id: o014.li2.chapter3.abelian-category-complexes.g001
+\begin{equation}\label{eqn:induced-morphism-cohomology}\begin{tikzcd}
+	\Ker(d_X^n) \arrow[twoheadrightarrow, r] \arrow[d, "\text{induced by $f$}"'] & \Hm^n(X) \arrow[hookrightarrow, r] \arrow[d, "{\Hm^n(f)}"] & \Coker(d_X^{n-1}) \arrow[d, "\text{induced by $f$}"] \\
+	\Ker(d_Y^n) \arrow[twoheadrightarrow, r] & \Hm^n(Y) \arrow[hookrightarrow, r] & \Coker(d_Y^{n-1}) .
+\end{tikzcd}\end{equation}
+
+% segment-id: o014.li2.chapter3.abelian-category-complexes.p005
+For composable morphisms $X\xrightarrow{f}Y\xrightarrow{g}Z$, this
+characterization immediately gives
+$\Hm^n(gf)=\Hm^n(g)\Hm^n(f)$; moreover,
+$\Hm^n(\identity_X)=\identity_{\Hm^n(X)}$.
+
+% segment-id: o014.li2.chapter3.abelian-category-complexes.pr002
+\begin{proposition}[Cohomology as a functor]\label{prop:H-functor}
+	\index[sym1]{Hn}
+	For every $n\in\Z$, the definition above gives an additive functor
+	$\Hm^n:\cate{C}(\mathcal{A})\to\mathcal{A}$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter3.abelian-category-complexes.pf002
+\begin{proof}
+	The properties $\Hm^n(gf)=\Hm^n(g)\Hm^n(f)$ and
+	$\Hm^n(\identity)=\identity$ follow directly from the characterization
+	\eqref{eqn:induced-morphism-cohomology}. In the same way one obtains
+	$\Hm^n(f_1+f_2)=\Hm^n(f_1)+\Hm^n(f_2)$ and
+	$\Hm^n(tf)=t\Hm^n(f)$ when $\mathcal{A}$ is $\Bbbk$-linear and
+	$t\in\Bbbk$.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.abelian-category-complexes.p006
+A short exact sequence of complexes automatically induces a long exact
+sequence in cohomology. This is the most elementary form of a long exact
+sequence in homology theory.
+
+% segment-id: o014.li2.chapter3.abelian-category-complexes.pr003
+\begin{proposition}[A short exact sequence induces a long exact sequence]\label{prop:long-exact-sequence-ses}
+	\index{long exact sequence}
+	Let $0\to X\xrightarrow{f}Y\xrightarrow{g}Z\to0$ be a short exact
+	sequence in $\cate{C}(\mathcal{A})$. Then Theorem~\ref{prop:snake-lemma}
+	gives the following canonical exact sequence in $\mathcal{A}$:
+
+% segment-id: o014.li2.chapter3.abelian-category-complexes.g002
+	\begin{equation*}\begin{tikzcd}[row sep=large]
+	\cdots \arrow[r] & \Hm^{n-1}(Y) \arrow[r, "{\Hm^{n-1}(g)}" inner sep=0.7em] \arrow[phantom, d, ""{coordinate, name=A}] & \Hm^{n-1}(Z) \arrow[dll, rounded corners, "{\delta^{n-1}}" description, to path={
+		-- ([xshift=2ex]\tikztostart.east)
+		|- (A) [near end]\tikztonodes
+		-| ([xshift=-2ex]\tikztotarget.west)
+		-- (\tikztotarget)}] \\
+	\Hm^n(X) \arrow[r, "{\Hm^n(f)}"] & \Hm^n(Y) \arrow[r, "{\Hm^n(g)}"] \arrow[phantom, d, ""{coordinate, name=B}] & \Hm^n(Z) \arrow[dll, rounded corners, "{\delta^n}" description, to path={
+		-- ([xshift=2ex]\tikztostart.east)
+		|- (B) [near end]\tikztonodes
+		-| ([xshift=-2ex]\tikztotarget.west)
+		-- (\tikztotarget)}] \\
+	\Hm^{n+1}(X) \arrow[r, "{\Hm^{n+1}(f)}"' inner sep=0.7em] & \Hm^{n+1}(Y) \arrow[r] & \cdots
+	\end{tikzcd}\end{equation*}
+
+	This sequence has the following functoriality. If there is a commutative
+	diagram in $\cate{C}(\mathcal{A})$ whose rows are exact,
+% segment-id: o014.li2.chapter3.abelian-category-complexes.g003
+	\[\begin{tikzcd}[row sep=small]
+		0 \arrow[r] & X \arrow[r] \arrow[d] & Y \arrow[r] \arrow[d] & Z \arrow[d] \arrow[r] & 0 \\
+		0 \arrow[r] & \underline{X} \arrow[r] & \underline{Y} \arrow[r] & \underline{Z} \arrow[r] & 0
+	\end{tikzcd}\]
+	then one obtains a commutative diagram
+% segment-id: o014.li2.chapter3.abelian-category-complexes.g004
+	\[\begin{tikzcd}[column sep=small, row sep=small]
+		\cdots \arrow[r] & \Hm^n(X) \arrow[d] \arrow[r] & \Hm^n(Y) \arrow[r] \arrow[d] & \Hm^n(Z) \arrow[r] \arrow[d] & \Hm^{n+1}(X) \arrow[r] \arrow[d] & \cdots \\
+		\cdots \arrow[r] & \Hm^n(\underline{X}) \arrow[r] & \Hm^n(\underline{Y}) \arrow[r] & \Hm^n(\underline{Z}) \arrow[r] & \Hm^{n+1}(\underline{X}) \arrow[r] & \cdots .
+	\end{tikzcd}\]
+\end{proposition}
+
+% segment-id: o014.li2.chapter3.abelian-category-complexes.pf003
+\begin{proof}
+	For every $n\in\Z$ there is an exact sequence
+	$\Coker(d_X^{n-1})\to\Coker(d_Y^{n-1})\to\Coker(d_Z^{n-1})\to0$.
+	Indeed, take the $\Coker$ part of the exact sequence in
+	Theorem~\ref{prop:snake-lemma} applied to the diagram
+% segment-id: o014.li2.chapter3.abelian-category-complexes.g005
+	\[\begin{tikzcd}
+		0 \arrow[r] & X^{n-1} \arrow[r] \arrow[d] & Y^{n-1} \arrow[r] \arrow[d] & Z^{n-1} \arrow[r] \arrow[d] & 0 \\
+		0 \arrow[r] & X^n \arrow[r] & Y^n \arrow[r] & Z^n \arrow[r] & 0
+	\end{tikzcd}\]%
+	\footnote{Translator's note (O014-C043): the source states the sequence
+	$\Coker(d_X^n)\to\Coker(d_Y^n)\to\Coker(d_Z^n)\to0$, while the vertical
+	arrows in the diagram immediately following it are $d_X^{n-1}$,
+	$d_Y^{n-1}$, and $d_Z^{n-1}$. This translation aligns the cokernel indices
+	with the diagram; renaming the index then gives the row indexed by $n-2$
+	used below.}
+	Similarly, there is an exact sequence
+	$0\to\Ker(d_X^n)\to\Ker(d_Y^n)\to\Ker(d_Z^n)$. The two sequences fit
+	into the following commutative diagram with exact rows:
+% segment-id: o014.li2.chapter3.abelian-category-complexes.g006
+	\begin{equation}\label{eqn:long-exact-sequence-ses-aux}\begin{tikzcd}
+		& \Coker(d_X^{n-2}) \arrow[r] \arrow[d] & \Coker(d_Y^{n-2}) \arrow[r] \arrow[d] & \Coker(d_Z^{n-2}) \arrow[d] \arrow[r] & 0 \\
+		0 \arrow[r] & \Ker(d_X^n) \arrow[r] & \Ker(d_Y^n) \arrow[r] & \Ker(d_Z^n) &
+	\end{tikzcd}\end{equation}
+	The vertical arrows are induced respectively by $d_X^{n-1}$,
+	$d_Y^{n-1}$, and $d_Z^{n-1}$ and have epi--mono factorizations of the
+	form
+	$\Coker(d^{n-2})\stackrel{d^{n-1}}{\twoheadrightarrow}
+	\Image(d^{n-1})\hookrightarrow\Ker(d^n)$, with subscripts suppressed.
+
+	By Lemma~\ref{prop:mono-epi-ker-coker} (iii), the epimorphism
+	$\Coker(d^{n-2})\twoheadrightarrow\Image(d^{n-1})$ determines the
+	kernels of the vertical arrows in
+	\eqref{eqn:long-exact-sequence-ses-aux}; then
+	\eqref{eqn:homology-3} gives in turn $\Hm^{n-1}(X)$, $\Hm^{n-1}(Y)$,
+	and $\Hm^{n-1}(Z)$. Likewise, the monomorphism
+	$\Image(d^{n-1})\hookrightarrow\Ker(d^n)$ determines their cokernels,
+	giving in turn $\Hm^n(X)$, $\Hm^n(Y)$, and $\Hm^n(Z)$. Applying
+	Theorem~\ref{prop:snake-lemma} now yields the connecting morphism
+	$\delta^{n-1}:\Hm^{n-1}(Z)\to\Hm^n(X)$ and the portion of the long exact
+	sequence containing the terms $\Hm^n$ and $\Hm^{n-1}$. Its functoriality
+	follows from Remark~\ref{rem:connecting-canonical}.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.abelian-category-complexes.d001
+\begin{definition}[Quasi-isomorphism]\label{def:quasi-isomorphism}
+	\index{quasi-isomorphism}
+	Let $f:X\to Y$ be a morphism in $\cate{C}(\mathcal{A})$. If $\Hm^n(f)$
+	is an isomorphism for every $n\in\Z$, then $f$ is called a
+	\emph{quasi-isomorphism}.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.abelian-category-complexes.pr004
+\begin{proposition}\label{prop:null-homotopic-cohomology}
+	Let $f:X\to Y$ be a morphism in $\cate{C}(\mathcal{A})$ and let
+	$n\in\Z$. If $f$ is null-homotopic, then $\Hm^n(f)=0$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter3.abelian-category-complexes.pf004
+\begin{proof}
+	Choose $h\in\Hom^{-1}(X,Y)$ such that $f=d_Yh+hd_X$. The composite
+	$\Ker(d_X^n)\hookrightarrow X^n\xrightarrow{h^{n+1}d_X^n}Y^n$ is zero.
+	On the other hand, $d_Y^{n-1}h^n$ factors through
+	$\Image(d_Y^{n-1})$. Together these facts give $\Hm^n(f)=0$.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.abelian-category-complexes.co001
+\begin{corollary}
+	For every $n\in\Z$, the cohomology functor
+	$\Hm^n:\cate{C}(\mathcal{A})\to\mathcal{A}$ factors uniquely through
+	$\cate{K}(\mathcal{A})$. The notion of quasi-isomorphism therefore extends
+	to morphisms in $\cate{K}(\mathcal{A})$. If $f:X\to Y$ is an isomorphism
+	in $\cate{K}(\mathcal{A})$, then $f$ is a quasi-isomorphism.
+\end{corollary}
+
+% segment-id: o014.li2.chapter3.abelian-category-complexes.pf005
+\begin{proof}
+	Combine Propositions~\ref{prop:homotopy-category-universal-property} and
+	\ref{prop:null-homotopic-cohomology}.
+\end{proof}

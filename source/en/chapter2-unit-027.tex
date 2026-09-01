@@ -1,0 +1,259 @@
+% English translation of chapter2.tex lines 1133--1244.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter2.simplicity-and-semisimplicity
+
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.h001
+\section{Simple and Semisimple Objects}\label{sec:semisimple}
+\hypertarget{o014.aljabr2.chapter2.simplicity-and-semisimplicity}{ }
+
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.p001
+Throughout this section, let $\mathcal{A}$ be an abelian category.
+
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.c001
+\begin{convention}\label{con:direct-sum}
+	\index{direct sum}
+	By convention, the coproduct $\coprod_{i \in I} X_i$ of a family of
+	objects $(X_i)_{i \in I}$ in an abelian category, whenever it exists, is
+	written $\bigoplus_{i \in I} X_i$ and called their \emph{direct sum}. If
+	$I$ is finite, all the conventions of Definition~\ref{def:additive-category}
+	apply.
+\end{convention}
+
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.d001
+\begin{definition}\index{simple object}
+	A nonzero object $X$ of $\mathcal{A}$ is called \emph{simple} if
+	$\mathrm{Sub}_X=\left\{0,X\right\}$.
+\end{definition}
+
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.p002
+Simplicity of $X$ means that for every short exact sequence
+$0\to X'\to X\to X''\to0$, exactly one of $X'=0$ and $X'\rightiso X$
+holds; equivalently, exactly one of $X\rightiso X''$ and $X''=0$ holds.
+Consequently, $X$ is simple in $\mathcal{A}$ if and only if it is simple in
+$\mathcal{A}^{\opp}$.
+
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.p003
+Notice that $X\neq0$ if and only if $\identity_X\neq0$, and this is also
+equivalent to $\End(X)$ being a nonzero ring.
+
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.lm001
+\begin{lemma}[Schur's lemma]
+	Let $X,Y$ be objects. If $X$ (respectively, $Y$) is simple, then every
+	nonzero morphism in $\Hom(X,Y)$ is a monomorphism (respectively, an
+	epimorphism). Consequently, if $X$ is simple, then $\End(X)$ is a division
+	ring.
+\end{lemma}
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.pf001
+\begin{proof}
+	Suppose that $X$ is simple and that $f:X\to Y$ is nonzero. Then necessarily
+	$\Ker(f)=0$. The case in which $Y$ is simple follows by duality. A morphism
+	that is both a monomorphism and an epimorphism is an isomorphism
+	(Proposition~\ref{prop:strict-isomorphism}); taking $X=Y$ therefore shows
+	that $\End(X)$ is a division ring.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.p004
+We know that $\mathrm{Sub}_X$ is a bounded modular lattice
+(Theorem~\ref{prop:subobject-modularity}). Lemma~\ref{prop:lattice-composition-series}
+shows that $X$ has finite length if and only if the partially ordered set
+$[0,X]$ has a composition series; such a series is also called a composition
+series of $X$. For an object $X$ of finite length, its \emph{length} is
+defined by \index{length}
+\index[sym1]{lX@$\ell(X)$}
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.q001
+\[ \ell(X) := \text{the length of }\mathrm{Sub}_X\;\in\Z_{\geq0}; \]
+see Definition~\ref{def:lattice-length}. Notice that
+$\ell(X)=0\iff X=0$. By convention, $Y\subsetneq Z$ means $Y\subset Z$ and
+$Y\neq Z$.
+
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.dt001
+\begin{definition-theorem}[Jordan--H\"older theorem]\label{def:JH}
+	\index{Jordan--Holder theorem@Jordan--H\"older theorem}
+	\index{composition factor}
+	\index[sym1]{JH@$\mathrm{JH}(X)$}
+	\sloppy
+	Let $X$ be an object of finite length, and choose a composition series
+	$X=X_0\supsetneq\cdots\supsetneq X_r=0$. The objects $X_i/X_{i+1}$,
+	considered up to isomorphism, are called the \emph{composition factors} of
+	$X$. They are simple. Their multiset, with multiplicities, is denoted
+	$\mathrm{JH}(X)$ and is independent of the chosen composition series.
+	\fussy
+\end{definition-theorem}
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.pf002
+\begin{proof}
+	The composition factors must be simple, for otherwise
+	$X_0\supsetneq\cdots\supsetneq X_r$ would admit a proper refinement. Let
+	$X=X'_0\supsetneq\cdots\supsetneq X'_s$ be another composition series.
+	Theorem~\ref{prop:lattice-JH} says that it is equivalent to
+	$X_0\supsetneq\cdots\supsetneq X_r$. In particular, there is a bijection
+	$i\leftrightarrow j$ between their index sets such that the intervals
+	$\left[X_{i+1},X_i\right]$ and $\left[X'_{j+1},X'_j\right]$ can be linked by standard
+	isomorphisms $[a\wedge b,a]\rightiso[b,a\vee b]$ in a modular lattice;
+	see Proposition~\ref{prop:lattice-diamond-isom}.
+
+	So far everything has been phrased in lattice-theoretic language. However,
+	Theorem~\ref{prop:Abel-cat-isom-thm}(iii) shows that such interval
+	isomorphisms correspond to isomorphisms of quotient objects in
+	$\mathcal{A}$,
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.q002
+	\[ X_i/X_{i+1} \simeq X'_j/X'_{j+1}. \]
+	As $i\leftrightarrow j$ varies, this proves that the composition factors
+	are independent of the chosen composition series, up to isomorphism and
+	reordering.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.p005
+The number of elements of $\mathrm{JH}(X)$, counted with multiplicity, is
+exactly $\ell(X)$. Multisets also have a union operation, which adds
+multiplicities; it will again be denoted by $\cup$.
+
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.lm002
+\begin{lemma}
+	Given a short exact sequence $0\to X'\to X\to X''\to0$, the object $X$
+	has finite length if and only if both $X'$ and $X''$ do. In that case,
+	$\mathrm{JH}(X)=\mathrm{JH}(X')\cup\mathrm{JH}(X'')$, and hence
+	$\ell(X)=\ell(X')+\ell(X'')$.
+\end{lemma}
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.pf003
+\begin{proof}
+	Theorem~\ref{prop:Abel-cat-isom-thm}(ii) identifies
+	$\mathrm{Sub}_{X'}$ and $\mathrm{Sub}_{X''}$ with the intervals $[0,X']$
+	and $[X',X]$ in $\mathrm{Sub}_X$, respectively. Thus finite length of $X$
+	implies finite length of $X'$ and $X''$. Conversely, suppose that $X'$ and
+	$X''$ have finite length, and choose composition series
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.q003
+	\[ X'=X'_0\supsetneq\cdots\supsetneq X'_r=0,\quad
+	X''=X''_0\supsetneq\cdots\supsetneq X''_s=0. \]
+	By Theorem~\ref{prop:Abel-cat-isom-thm}(ii), lift every $X''_i$ to a
+	subobject $Y_i$ of $X$ satisfying $Y_i\supset X'$. In particular, $Y_0=X$ and
+	$Y_s=X'$, so
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.q004
+	\[ X=Y_0\supsetneq\cdots\supsetneq Y_s\supsetneq X'_1\supsetneq\cdots
+	\supsetneq X'_r=0 \]
+	is a composition series whose subquotients form
+	$\mathrm{JH}(X')\cup\mathrm{JH}(X'')$.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.d002
+\begin{definition}\label{def:semisimple}
+	\index{object!semisimple}
+	\index{object!split}
+	\index{abelian category!semisimple}
+	\index{abelian category!split}
+	An object $X$ is called
+	\begin{itemize}
+		% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.i001
+		\item \emph{semisimple} if
+		$X=\bigoplus_{i\in I}X_i$ for some family of simple objects
+		$(X_i)_{i\in I}$;
+		% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.i002
+		\item \emph{split} if every short exact sequence
+		$0\to X'\to X\to X''\to0$ splits.
+	\end{itemize}
+	If every object of $\mathcal{A}$ is semisimple (respectively, split), then
+	$\mathcal{A}$ is called a semisimple (respectively, split) abelian
+	category.\footnote{Terminology in the literature is not uniform; some
+	authors call what is termed a split abelian category here a semisimple
+	abelian category.}
+\end{definition}
+
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.p006
+Many sources require $I$ to be finite in the definition of a semisimple
+object.
+
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.lm003
+\begin{lemma}
+	If $X=\bigoplus_{i=1}^nX_i$, where $X_1,\ldots,X_n$ are simple, then $X$
+	has finite length,
+	$\mathrm{JH}(X)=\left\{X_1,\ldots,X_n\right\}$, counted with multiplicity, and
+	$\ell(X)=n$.
+\end{lemma}
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.pf004
+\begin{proof}
+	Consider the composition series
+	$\bigoplus_{i=1}^nX_i\supsetneq\bigoplus_{i=1}^{n-1}X_i\supsetneq\cdots
+	\supsetneq0$.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.rem001
+\begin{remark}
+	For a general semisimple object $X=\bigoplus_{i\in I}X_i$, the
+	Noetherian, Artinian, and finite-length properties of $X$ are all
+	equivalent to finiteness of $I$. Indeed, by adding (or removing) direct
+	summands indexed by $I$, one can readily construct a strictly ascending
+	(or strictly descending) chain in $\mathrm{Sub}_X$.
+\end{remark}
+
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.p007
+We wish to understand the relation between split and semisimple objects. The
+argument is similar to the module case \cite[Proposition 6.11.4]{Li1}.
+
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.pr001
+\begin{proposition}
+	Let $X$ be a split object. Then every subobject and every quotient object of
+	$X$ is split. If, in addition, $X$ is Artinian, then $X$ is a semisimple
+	object of finite length.
+\end{proposition}
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.pf005
+\begin{proof}
+	Given a short exact sequence $0\to X'\to X\to X''\to0$, the hypothesis
+	implies $X\simeq X'\oplus X''$, so $X''$ embeds as a subobject of $X$.
+	It is therefore enough to show that every subobject $X'$ of $X$ is split.
+	Given $X'_0\subset X'$, there is a $Y\subset X$ such that
+	$X=X'_0\oplus Y$. It remains to prove
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.q005
+	\[ X'=X'_0\oplus(Y\cap X'). \]
+	This follows from Proposition~\ref{prop:biproduct-sum-intersection}. On the
+	one hand, $X'_0\cap(Y\cap X')\subset X'_0\cap Y=0$. On the other hand,
+	$\mathrm{Sub}_X$ is modular, and hence
+	$X'_0+(Y\cap X')=X'\cap(Y+X'_0)=X'\cap X=X'$. This proves the displayed
+	decomposition.
+
+	Now suppose also that $X$ is Artinian. If $X\neq0$, it has a minimal
+	nonzero subobject $X_1$, which must be simple, and there is a direct-sum
+	decomposition $X=X_1\oplus Y_1$. The object $Y_1$ is still Artinian and
+	split. If $Y_1\neq0$, continue by writing $Y_1=X_2\oplus Y_2$, and so on.
+	The Artinian condition ensures that the strictly descending chain
+	$X\supsetneq Y_1\supsetneq Y_2\cdots$ terminates after finitely
+	many steps, giving the required decomposition
+	$X=X_1\oplus\cdots\oplus X_n$.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.p008
+We may ask conversely whether semisimple objects are split. For a general
+abelian category, a finiteness assumption is again needed.
+
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.pr002
+\begin{proposition}\label{prop:ss-decomp}
+	For an object $X$, consider the following properties.
+	\begin{enumerate}[(i)]
+		% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.i003
+		\item $X=\sum_{Y\in\mathcal{F}}Y$, where $\mathcal{F}$ is a finite
+		subset of $\mathrm{Sub}_X$ and every $Y\in\mathcal{F}$ is simple;
+		% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.i004
+		\item $X=\bigoplus_{Y\in\mathcal{F}}Y$, where $\mathcal{F}$ is a
+		finite subset of $\mathrm{Sub}_X$ and every $Y\in\mathcal{F}$ is
+		simple;
+		% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.i005
+		\item $X$ is split.
+	\end{enumerate}
+	Then (i) $\implies$ (ii) $\implies$ (iii).
+\end{proposition}
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.pf006
+\begin{proof}
+	Repeat the proof of (i) $\implies$ (ii) $\implies$ (iii) in
+	\cite[Proposition 6.11.4]{Li1}.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.simplicity-and-semisimplicity.rem002
+\begin{remark}\label{rem:Grothendieck-ss-decomp}
+	To extend Proposition~\ref{prop:ss-decomp} to an infinite subset
+	$\mathcal{F}\subset\mathrm{Sub}_X$, one must require $\mathcal{A}$ to be
+	a Grothendieck category, as introduced in
+	\S~\sourcecrossref{sec:Grothendieck-cat}{2.10}. Every semisimple object in
+	a Grothendieck category is then split, and every semisimple Grothendieck
+	category is automatically split. Once the relevant definitions are in
+	place, the argument is similar to the module case and is left as an
+	exercise in this chapter.
+\end{remark}

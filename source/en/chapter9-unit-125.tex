@@ -1,0 +1,212 @@
+% Unit 125 English translation of chapter9.tex, lines 951--1042.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter9.duality-examples-b
+% Coverage: end of Section 9.3, duality for Hopf modules and comodules.
+
+% segment-id: o014.li2.chapter9.duality-examples-b.p001
+Finally, we discuss how duality appears for modules and comodules over Hopf
+algebras; see \S\ref{sec:bialgebra}. Let $\Bbbk$ be a field and let
+$(A,\mu,\eta,\Delta,\epsilon)$ be a $\Bbbk$-bialgebra, that is, a bialgebra
+in $\cate{Vect}(\Bbbk)$. Proposition~\ref{prop:bialgebra-Mod-monoidal}
+explained how the algebra and coalgebra structures are used together to equip
+the categories
+% segment-id: o014.li2.chapter9.duality-examples-b.q001
+\[ A\dcate{Mod}, \quad \cated{Mod}A, \quad A\dcate{Comod}, \quad \cated{Comod}A \]
+with natural monoidal structures. We wish to characterize duality in them.
+Only the cases of right modules and right comodules are described below.
+
+% segment-id: o014.li2.chapter9.duality-examples-b.p002
+Since the forgetful functor from $\cated{Mod}A$ (respectively,
+$\cated{Comod}A$) to $\cate{Vect}(\Bbbk)$ is monoidal, if a right $A$-module
+(respectively, right $A$-comodule) $M$ has a left or right dual, then:
+\begin{itemize}
+	\item $\dim_{\Bbbk}M<\infty$;
+	\item both the left and right dual must be realized on the dual vector
+	space $M^\vee:=\Hom_{\Bbbk}(M,\Bbbk)$;
+	\item at the level of $\cate{Vect}_{\mathrm f}(\Bbbk)$, the morphisms
+	$\mathrm{ev}$ and $\mathrm{coev}$ are determined, up to isomorphism, as in
+	Example~\ref{eg:Vect-trace}.
+\end{itemize}
+
+% segment-id: o014.li2.chapter9.duality-examples-b.p003
+An $A$-module (respectively, $A$-comodule) is called finite-dimensional if
+it is finite-dimensional as a $\Bbbk$-vector space. We henceforth focus on
+finite-dimensional $M$; the corresponding categories are denoted by
+$\catesubd{Mod}{\mathrm f}A$, and so forth.\footnote{Do not confuse this
+with $\catesubd{Mod}{\mathrm{fg}}A$ in
+Theorem~\ref{prop:identify-ModR-fg}, the category of finitely generated right
+$A$-modules.} Readers familiar with commutative ring theory will have no
+difficulty generalizing the following results to an arbitrary commutative
+ring $\Bbbk$, provided $M$ is required to be a finitely generated projective
+$\Bbbk$-module.
+\index[sym1]{Modf@$\cate{Mod}_{\mathrm{f}}$}
+
+% segment-id: o014.li2.chapter9.duality-examples-b.p004
+The key is to equip $M^\vee$ with a suitable right $A$-module (respectively,
+right $A$-comodule) structure. Write $\otimes:=\otimes_{\Bbbk}$. The dual
+functor in the finite-dimensional case extends to
+% segment-id: o014.li2.chapter9.duality-examples-b.q002
+\[ (\cdot)^\vee := \Hom_{\Bbbk}(\cdot, \Bbbk): \cate{Vect}(\Bbbk)^{\opp} \to \cate{Vect}(\Bbbk). \]
+This functor is only right lax monoidal: there is a canonical morphism
+$N^\vee\otimes M^\vee\to(M\otimes N)^\vee$. We also have the family of
+evaluation morphisms
+% segment-id: o014.li2.chapter9.duality-examples-b.q003
+\[ \mathrm{ev}_M: M \otimes M^\vee \to \Bbbk. \]
+
+% segment-id: o014.li2.chapter9.duality-examples-b.p005
+First suppose $M$ is a right $A$-module, with scalar multiplication given by
+$a:M\otimes A\to M$. Since $\cate{Vect}(\Bbbk)$ is a concrete category, the
+language of elements and maps is more direct. Take the following transpose
+${}^ta:A\otimes M^\vee\to M^\vee$, which makes $M^\vee$ a left $A$-module:
+% segment-id: o014.li2.chapter9.duality-examples-b.q004
+\[ \mathrm{ev}\left(m, {}^t a(t \otimes \lambda)\right) = \mathrm{ev}\left( a(m \otimes t), \lambda \right), \]
+where $m\in M$, $\lambda\in M^\vee$, and $t\in A$.
+
+% segment-id: o014.li2.chapter9.duality-examples-b.p006
+For a right $A$-comodule $M$, choose a basis $v_1,\ldots,v_n$ of $M$ and the
+dual basis $\check v_1,\ldots,\check v_n$ of $M^\vee$. Its comodule structure
+may be written as
+% segment-id: o014.li2.chapter9.duality-examples-b.q005
+\begin{equation}\label{eqn:comodule-basis}
+	\rho(v_i) = \sum_{j=1}^n v_j \otimes t_{ji}, \quad t_{ji} \in A, \quad 1 \leq i \leq n.
+\end{equation}
+The preceding transpose operation has a dual version for $\rho$: define
+% segment-id: o014.li2.chapter9.duality-examples-b.q006
+\[ {}^t \rho: M^\vee \to A \otimes M^\vee, \quad \check{v}_i \mapsto \sum_{j=1}^n t_{ij} \otimes \check{v}_j. \]
+It follows from \eqref{eqn:comodule-matrix} and its left-comodule version that
+${}^t\rho$ makes $M^\vee$ a left $A$-comodule; one can also check that this
+structure is independent of the choice of basis.
+
+% segment-id: o014.li2.chapter9.duality-examples-b.p007
+The question is how to return to right $A$-modules and right $A$-comodules.
+This can be done canonically when $A$ is a Hopf algebra, as follows.
+
+% segment-id: o014.li2.chapter9.duality-examples-b.pr001
+\begin{proposition}\label{prop:Hopf-module-dual}
+	\index{duality!Hopf module}
+	Let $\Bbbk$ be a field and let $A$ be a Hopf $\Bbbk$-algebra with
+	antipode $S$ (Definition~\ref{def:Hopf-algebra}), with data
+	$(A,\mu,\eta,\Delta,\epsilon)$. If $M$ is a finite-dimensional right
+	$A$-module (respectively, right $A$-comodule), then $M$ has both a left
+	dual and a right dual, both realized on the dual vector space $M^\vee$, as
+	follows.
+	\begin{itemize}
+		\item Suppose the right $A$-module structure on $M$ is given by
+		$a:M\otimes A\to M$. Then:
+		% segment-id: o014.li2.chapter9.duality-examples-b.q007
+		\begin{center}\begin{tabular}{|c|c|} \hline
+			Left dual & Right dual \\ \hline
+			${}^\vee a: M^\vee \otimes A \to M^\vee$ & $a^\vee: M^\vee \otimes A \to M^\vee$ \\
+			${}^\vee a(\lambda \otimes t) = {}^t a\left( S^{-1} t \otimes \lambda\right)$ & $a^\vee(\lambda \otimes t) = {}^t a\left(St \otimes \lambda \right)$
+			\\ \hline
+		\end{tabular}\end{center}
+		where ${}^ta$ is the transpose defined above, $\lambda\in M^\vee$, and
+		$t\in A$.
+		\item Suppose the right $A$-comodule structure on $M$ is given by
+		$\rho:M\to M\otimes A$ and, after choosing a basis, is described as in
+		\eqref{eqn:comodule-basis}. Then:
+		% segment-id: o014.li2.chapter9.duality-examples-b.q008
+		\begin{center}\begin{tabular}{|c|c|} \hline
+			Left dual & Right dual \\ \hline
+			${}^\vee \rho: M^\vee \to M^\vee \otimes A$ & $\rho^\vee: M^\vee \to M^\vee \otimes A$ \\
+			${}^\vee \rho (\check{v}_i) = \sum_j \check{v}_j \otimes St_{ij}$ & $\rho^\vee (\check{v}_i) = \sum_j \check{v}_j \otimes S^{-1} t_{ij}$
+			\\ \hline
+		\end{tabular}\end{center}
+	\end{itemize}
+
+	Consequently, the category $\catesubd{Mod}{\mathrm f}A$ of
+	finite-dimensional right $A$-modules (respectively, the category
+	$\catesubd{Comod}{\mathrm f}A$ of finite-dimensional right $A$-comodules)
+	is both left and right rigid. The cases of left $A$-modules or comodules
+	are entirely similar, with left and right interchanged.
+\end{proposition}
+\begin{proof}
+	First consider a right $A$-module $M$. With the notation above, since $S$
+	gives a homomorphism $A\to A^{\mathrm{op}}_{\mathrm{cop}}$
+	(Proposition~\ref{prop:Hopf-antiautomorphism}) and the braiding of
+	$\cate{Vect}(\Bbbk)$ is symmetric, both constructions in the table make
+	$M^\vee$ a right $A$-module. We claim that, for the right $A$-module
+	structure on $M^\vee$ given by $a^\vee$,
+	$\mathrm{ev}:M\otimes M^\vee\to\Bbbk$ is a homomorphism of right
+	$A$-modules.
+
+	Write $a$ and $a^\vee$ directly as right multiplication, as is customary
+	in ring theory; also write $\mu:A\otimes A\to A$ as multiplication and
+	omit $\eta:\Bbbk\to A$ from the notation. Let
+	$\Delta(t)=\sum_i t_i^{(1)}\otimes t_i^{(2)}$. Right-multiplying
+	$m\otimes\lambda\in M\otimes M^\vee$ by $t$ and then evaluating gives
+	% segment-id: o014.li2.chapter9.duality-examples-b.q009
+	\[ \mathrm{ev}\left( \sum_i m t_i^{(1)}, \lambda t_i^{(2)} \right) = \mathrm{ev}\left( \sum_i m t_i^{(1)} S\left(t_i^{(2)}\right), \lambda \right). \]
+	The definition of the antipode gives
+	$\sum_i t_i^{(1)}S(t_i^{(2)})=\epsilon(t)$, so this expression becomes
+	$\epsilon(t)\mathrm{ev}(m\otimes\lambda)$. Since the $A$-module structure
+	on $\Bbbk$ is induced by $\epsilon$, this proves that $\mathrm{ev}$ is a
+	homomorphism of right $A$-modules.
+
+	Next, check that $\mathrm{coev}:\Bbbk\to M^\vee\otimes M$ is a
+	homomorphism of right $A$-modules, still using the structure $a^\vee$ on
+	$M^\vee$. Identify $M^\vee\otimes M$ with $\End_{\Bbbk}(M)$; then
+	$\mathrm{coev}(1)=\identity_M$. It suffices to check that for every
+	$t\in A$,
+	% segment-id: o014.li2.chapter9.duality-examples-b.q010
+	\[ \epsilon(t) \cdot \identity_M = \sum_i \left( t_i^{(2)} \;\text{acting on the right} \right) \circ \identity_M \circ \left( S t_i^{(1)} \;\text{acting on the right} \right). \]
+	This is equivalent to proving
+	$\epsilon(t)=\sum_iS(t_i^{(1)})t_i^{(2)}$, which again follows directly
+	from the definition of the antipode.
+
+	Thus $M^\vee$, with the structure $a^\vee$, gives the right dual of $M$
+	and is denoted by $M^*$. The left dual can be handled similarly, or reduced
+	to the following simple observation. Equip $M^\vee$ with the right
+	$A$-module structure ${}^\vee a$ and denote the result by ${}^*M$. It is
+	easy to see that $({}^*M)^*$, as given by the preceding construction,
+	returns to $M$; hence ${}^*M$ is a left dual of $M$.
+
+	For a finite-dimensional right $A$-comodule $M$, we use the method of
+	undetermined coefficients. Suppose $M^\vee$ has a right comodule structure
+	determined by an $n\times n$ matrix over $A$, $U=(u_{ij})_{i,j}$, via
+	% segment-id: o014.li2.chapter9.duality-examples-b.q011
+	\[ \check{v}_i \mapsto \sum_{j=1}^n \check{v}_j \otimes u_{ji}, \quad 1 \leq i \leq n. \]
+	The necessary and sufficient conditions for $U$ to define a right comodule
+	structure were listed in \eqref{eqn:comodule-matrix}.
+
+	Recall that $\mathrm{ev}(v_i,\check v_j)=\delta_{i,j}$, where $\delta$ is
+	the Kronecker symbol, and $\mathrm{coev}(1)=\sum_i\check v_i\otimes v_i$.
+	The condition that $\mathrm{ev}$ and $\mathrm{coev}$ be homomorphisms of
+	right $A$-comodules can then be written as
+	% segment-id: o014.li2.chapter9.duality-examples-b.q012
+	\begin{equation}\label{eqn:Hopf-module-dual-aux}
+		\sum_k t_{ki} u_{kj} = \delta_{i, j} = \sum_k u_{ik} t_{jk}.
+	\end{equation}
+	Write $T=(t_{ij})_{i,j}$ and let ${}^tT$ denote its transpose. In matrix
+	language the preceding condition becomes
+	% segment-id: o014.li2.chapter9.duality-examples-b.q013
+	\[ ({}^t T) U = 1_{n \times n} = U ({}^t T). \]
+	Thus finding a right dual of $M$ amounts to finding $({}^tT)^{-1}$.
+	Similarly, finding a left dual of $M$ amounts to finding
+	${}^t(T^{-1})$. The assertions about the right and left duals reduce,
+	respectively, to checking
+	% segment-id: o014.li2.chapter9.duality-examples-b.q014
+	\begin{align*}
+		\sum_k t_{ki} S^{-1}(t_{jk}) & = \delta_{i, j} = \sum_k S^{-1} (t_{ki}) t_{jk}, \\
+		\sum_k t_{ik} S(t_{kj}) & = \delta_{i, j} = \sum_k S(t_{ik}) t_{kj}.
+	\end{align*}
+
+	This is immediate. Since $\Delta(t_{ij})=\sum_k t_{ik}\otimes t_{kj}$,
+	the definition of the antipode shows that both sides in the second line
+	equal $\epsilon(t_{ij})=\delta_{i,j}$. Apply $S^{-1}$ to both equalities in
+	the second line and use the fact that $S$ preserves the unit and reverses
+	the order of multiplication; rearranging yields the first line. This proves
+	the assertion.
+\end{proof}
+
+% segment-id: o014.li2.chapter9.duality-examples-b.p008
+If $A$ is noncommutative, ${}^t(T^{-1})$ and $({}^tT)^{-1}$ need not be
+equal. Thus the argument above also shows that left and right duals do not in
+general coincide.
+
+% segment-id: o014.li2.chapter9.duality-examples-b.p009
+In fact, Corollary~\ref{prop:Hopf-vs-dual} below will show conversely how the
+rigidity of the category of finite-dimensional comodules determines a Hopf
+structure on a bialgebra. A sequence of theoretical preparations will be
+needed first.

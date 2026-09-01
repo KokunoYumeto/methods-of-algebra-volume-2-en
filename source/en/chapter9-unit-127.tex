@@ -1,0 +1,137 @@
+% Unit 127 English translation of chapter9.tex, lines 1157--1256.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b
+% Verified source corrections: line 1185 requires coHom_B throughout; in
+% line 1192 the second argument is omega_2 boxtimes omega'_2; line 1211 uses
+% the colimit variables X and X'; and line 1226 uses the tensor product inside
+% the coend bracket rather than an undefined comma notation.
+
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.p001
+For a functor $\omega: \mathcal{A} \to \catesubd{Mod}{\mathrm{pfg}}B$, the evaluation homomorphism $\mathrm{ev}_{\omega(X)}: \omega(X)^\vee \dotimes{\Bbbk} \omega(X) \to B$ is a homomorphism of $(B, B)$-bimodules. The canonical homomorphism that it determines is precisely the previously defined homomorphism
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.eq001
+\begin{equation}\label{eqn:L-counit}
+	\begin{aligned}
+		\epsilon: \coEnd(\omega) & \to B \\
+		[t] & \mapsto \mathrm{ev}_{\omega(X)}(t).
+	\end{aligned}
+\end{equation}
+
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.p002
+If $\omega_1(X)$ is free, choose a $B$-basis $(v_i)_{i=1}^n$ and its dual basis $(\check{v}_i)_{i=1}^n$. Then $\lambda_X: \omega_2(X) \to \omega_1(X) \dotimes{B} \coHom(\omega_1, \omega_2)$ may be written as
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.eq002
+\begin{equation}\label{eqn:L-coaction}\begin{aligned}
+	w & \mapsto \sum_{i=1}^n v_i \otimes [\check{v}_i \otimes w];
+\end{aligned}\end{equation}
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.p003
+It follows that for arbitrary $\omega_1, \omega_2, \omega_3$, if $\omega_1(X)$ and $\omega_2(X)$ are free, $\lambda \in \omega_1(X)^\vee$, and $w \in \omega_3(X)$, then
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.eq003
+\begin{equation}\label{eqn:L-comult}\begin{aligned}
+	\coHom(\omega_1, \omega_3) & \to \coHom(\omega_1, \omega_2) \dotimes{B} \coHom(\omega_2, \omega_3) \\
+	[\lambda \otimes w] & \mapsto \sum_i [\lambda \otimes v_i] \otimes [\check{v}_i \otimes w].
+\end{aligned}\end{equation}
+
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.p004
+The next step is to introduce a monoidal structure. For this, $B$ must be commutative and we must take $\Bbbk = B$ in the preceding construction. Then $\cated{Mod}B$ and $\catesubd{Mod}{\mathrm{pfg}}B$ are both symmetric monoidal categories under $\otimes_B$, with $B$ as unit. To emphasize this setting, we denote the corresponding $\coHom$ and $\coEnd$ by $\coHom_B$ and $\coEnd_B$; in this case, a $(B, B)$-bimodule is the same thing as a $B$-module.
+
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.p005
+Let $\mathcal{A}$, $\mathcal{A}'$, and so forth be arbitrary categories. First take functors
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.eq004
+\[ \omega_i: \mathcal{A} \to \cated{Mod}B, \quad \omega'_i: \mathcal{A}' \to \cated{Mod}B, \quad i =1, 2. \]
+Define $\omega_i \boxtimes \omega'_i: \mathcal{A} \times \mathcal{A}' \to \cated{Mod}B$ by sending an object $(X, X')$ to $\omega_i(X) \dotimes{B} \omega'_i(X')$.
+
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.p006
+Assuming that the relevant $\coHom$ objects exist, apply the universal property to the family of morphisms
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.eq005
+\begin{align*}
+	\omega_2(X) \dotimes{B} \omega'_2(X') & \to \omega_1(X) \dotimes{B} \coHom_B(\omega_1, \omega_2) \dotimes{B} \omega'_1(X') \dotimes{B} \coHom_B(\omega'_1, \omega'_2) \\
+	& \simeq \omega_1(X) \dotimes{B} \omega'_1(X') \dotimes{B} \coHom_B(\omega_1, \omega_2) \dotimes{B} \coHom_B(\omega'_1, \omega'_2)
+\end{align*}
+to obtain a canonical morphism
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.eq006
+\[ \nu: \coHom_B(\omega_1 \boxtimes \omega'_1, \omega_2 \boxtimes \omega'_2) \to \coHom_B(\omega_1, \omega_2) \dotimes{B} \coHom_B(\omega'_1, \omega'_2), \]
+that makes the following diagram commute for every $(X, X') \in \Obj(\mathcal{A} \times \mathcal{A}')$:
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.fig001
+\[\begin{tikzpicture}
+	\node (A) {$\omega_2(X) \dotimes{B} \omega'_2(X')$};
+	\node (B) [right=of A] {$\omega_1(X) \dotimes{B} \omega'_1(X') \dotimes{B} \coHom_B(\omega_1 \boxtimes \omega'_1, \omega_2 \boxtimes \omega'_2)$};
+	\node (C) [below=of B] {$\omega_1(X) \dotimes{B} \omega'_1(X') \dotimes{B} \coHom_B(\omega_1, \omega_2) \dotimes{B} \coHom_B(\omega'_1, \omega'_2)$.};
+	
+	\draw[->] (A) -- (B) node[midway, above] {\scriptsize canonical};
+	\draw[->] (A) -- (C.north west) node[midway, below left] {\scriptsize canonical};
+	\draw[->] (B) -- (C) node[midway, auto] {\scriptsize $\identity \otimes \identity \otimes \nu$};
+\end{tikzpicture}\]
+
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.lem001
+\begin{lemma}
+	With the notation above, suppose in addition that all $\omega_i$ and $\omega'_i$ take values in $\catesubd{Mod}{\mathrm{pfg}}B$. Then $\omega_i \boxtimes \omega'_i$ also takes values there and, in this setting, $\nu$ is an isomorphism. Following Convention \ref{con:coend-bracket}, it can be described explicitly by
+	% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.eq007
+	\begin{equation*}
+		\nu: \left[ (\phi \otimes \phi') \otimes (x \otimes x') \right] \mapsto [\phi \otimes x] \otimes [\phi' \otimes x'].
+	\end{equation*}
+\end{lemma}
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.proof001
+\begin{proof}
+	Since $\catesubd{Mod}{\mathrm{pfg}}B$ is closed under $\otimes_B$, the functor $\omega \boxtimes \omega'$ takes values there. Returning to the construction in \eqref{eqn:cogebra-L} and Proposition \ref{prop:cogebra-L-universal} immediately gives the explicit description of $\nu$.
+	
+	Next we show that $\nu$ is an isomorphism. By the construction in Proposition \ref{prop:cogebra-L-universal}, $\coHom_B(\omega_1, \omega_2)$ may suitably be expressed as $\varinjlim_{X, Y} \omega_1(Y)^\vee \dotimes{B} \omega_2(X)$, with the relevant morphisms coming from \eqref{eqn:cogebra-L}; the same is of course true for the other $\coHom_B$ objects involved in $\nu$. Thus the assertion that $\nu$ is an isomorphism is equivalent to saying that the evident morphism
+	% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.eq008
+	\begin{multline*}
+		\varinjlim_{X, X', Y, Y'} \omega_1(Y)^\vee \dotimes{B} \omega'_1(Y')^\vee \dotimes{B} \omega_2(X) \dotimes{B} \omega'_2(X') \\
+		\to \varinjlim_{X, Y} \left( \omega_1(Y)^\vee \dotimes{B} \omega_2(X) \right) \dotimes{B} \varinjlim_{X', Y'} \left( \omega'_1(Y')^\vee \dotimes{B} \omega'_2(X') \right)
+	\end{multline*}
+	is an isomorphism. This in turn reduces to the standard fact from module theory that $\dotimes{B}$ preserves all small $\varinjlim$ \cite[Proposition 6.9.2]{Li1}.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.p007
+We continue the preceding discussion. Consider the functors
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.eq009
+\begin{gather*}
+	\otimes: \mathcal{A} \times \mathcal{A}' \to \mathcal{A}'' , \\
+	\omega_i: \mathcal{A} \to \catesubd{Mod}{\mathrm{pfg}}B, \quad \omega'_i: \mathcal{A}' \to \catesubd{Mod}{\mathrm{pfg}}B, \quad \omega''_i: \mathcal{A}'' \to \catesubd{Mod}{\mathrm{pfg}}B \quad i =1, 2,
+\end{gather*}
+together with isomorphisms $\theta_i: \omega_i \boxtimes \omega'_i \rightiso \omega''_i \circ \otimes$, whose dual versions are denoted by $\theta_i^\vee$. The preceding preparations give a $B$-linear homomorphism
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.eq010
+\begin{equation}\label{eqn:L-tensor}
+	\begin{tikzcd}[row sep=tiny, column sep=small]
+		\coHom_B(\omega_1, \omega_2) \dotimes{B} \coHom_B(\omega'_1, \omega'_2) \arrow[r, "{\nu^{-1}}", "{\theta_1, \theta_2}"' inner sep=0.6em] & \coHom_B(\omega''_1 \circ \otimes, \; \omega''_2 \circ \otimes) \arrow[r, "{\text{Remark \ref{rem:L-cogebra-functoriality}}}" inner sep=0.6em] & \coHom_B(\omega''_1, \omega''_2) \\
+		{[\phi \otimes x]} \otimes {[\phi' \otimes x']} \arrow[mapsto, rr] & & {\left[ \theta_1^\vee(\phi \otimes \phi') \otimes \theta_2(x \otimes x') \right]} .
+	\end{tikzcd}
+\end{equation}
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.p008
+The preceding commutative diagram for $\nu$ implies that the following diagram commutes; the details are left to the reader.
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.eq011
+\begin{equation}\label{eqn:L-bialgebra-prod}
+	\begin{tikzcd}[row sep=small, column sep=small]
+		\omega''_2(X \otimes X') \arrow[d, "{\theta_2^{-1}}", "\sim"' sloped] \arrow[r, "\text{canonical}"] & \omega''_1(X \otimes X') \dotimes{B} \coHom_B(\omega''_1, \omega''_2) \\
+		\omega_2(X) \dotimes{B} \omega'_2(X') \arrow[d, "\text{canonical}" inner sep=0.6em] &  \\
+		\omega_1(X) \dotimes{B} \omega'_1(X') \dotimes{B} \coHom_B(\omega_1, \omega_2) \dotimes{B} \coHom_B(\omega'_1, \omega'_2) \arrow[r, "\text{\eqref{eqn:L-tensor}}"' inner sep=0.6em] & \omega_1(X) \dotimes{B} \omega'_1(X') \dotimes{B} \coHom_B(\omega''_1, \omega''_2). \arrow[uu, "{\theta_1 \otimes \identity}"', "\sim" sloped]
+	\end{tikzcd}
+\end{equation}
+
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.p009
+Now suppose further that $\mathcal{A} = \mathcal{A}' = \mathcal{A}''$ is a monoidal category, $\otimes$ is its product, and $\omega''_i = \omega'_i = \omega_i$ are monoidal functors ($i=1,2$). Write $\mathcal{A}_0$ for the category with just one object and one morphism (the identity), and define $\iota: \mathcal{A}_0 \to \mathcal{A}$ by sending its unique object to $\munit$. A direct manipulation of the definitions gives
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.eq012
+\[ \coHom_B(\omega_1 \iota, \omega_2 \iota) \simeq B \dotimes{B} B \simeq B. \]
+Functoriality in Remark \ref{rem:L-cogebra-functoriality} then gives the canonical map
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.eq013
+\begin{equation}\label{eqn:L-bialgebra-unit}
+	B \simeq \coHom_B(\omega_1 \iota, \omega_2 \iota) \to \coHom_B(\omega_1, \omega_2), \quad b \mapsto [b \otimes 1] = [1 \otimes b].
+\end{equation}
+
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.prop001
+\begin{proposition}\label{prop:L-bialgebra}
+	In the setting above, suppose $\mathcal{A} = \mathcal{A}' = \mathcal{A}''$ is a monoidal category, $\omega_1$ and $\omega_2$ are monoidal functors, and $\omega''_i = \omega'_i = \omega_i$.
+	\begin{enumerate}[(i)]
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.item001
+		\item The corresponding homomorphism $\coHom_B(\omega_1, \omega_2) \dotimes{B} \coHom_B(\omega_1, \omega_2) \to \coHom_B(\omega_1, \omega_2)$ makes $\coHom_B(\omega_1, \omega_2)$ a $B$-algebra, with \eqref{eqn:L-bialgebra-unit} as its unit.
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.item002
+		\item In the special case $\omega_1 = \omega = \omega_2$, this structure makes $\coEnd_B(\omega)$ a bialgebra.
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.item003
+		\item If $\mathcal{A}$ is a symmetric monoidal category and $\omega_1$, $\omega_2$ are compatible with the braiding, then $\coHom_B(\omega_1, \omega_2)$ is a commutative $B$-algebra.
+	\end{enumerate}
+\end{proposition}
+% segment-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-b.proof002
+\begin{proof}
+	Since the multiplication on $\coHom_B(\omega_1, \omega_2)$ has a natural characterization through \eqref{eqn:L-tensor} and \eqref{eqn:L-bialgebra-prod}, all the remaining assertions merely reflect the monoidal structure and require only formal arguments; the details are omitted.
+\end{proof}

@@ -1,0 +1,303 @@
+% English translation of chapter1.tex lines 1583--1707.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter1.kan-extensions-along-localization
+
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.h001
+\section{Kan Extensions Along Localization}\label{sec:functor-localization}
+\hypertarget{o014.aljabr2.chapter1.kan-extensions-along-localization}{ }
+
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.p001
+Suppose that the localization of $\mathcal{C}$ at
+$S\subset\Mor(\mathcal{C})$, namely
+$Q:\mathcal{C}\to\mathcal{C}[S^{-1}]$, exists. This section investigates the
+problem of extending functors: given a category $\mathcal{E}$ and a functor
+$F:\mathcal{C}\to\mathcal{E}$, can one obtain the following commutative
+diagram?
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.g001
+\[\begin{tikzcd}
+	\mathcal{C} \arrow[d, "Q"'] \arrow[rd, bend left, "F"'] & \\
+	\mathcal{C}{[S^{-1}]} \arrow[dashed, r, "\exists? "'] & \mathcal{E}
+\end{tikzcd}\]
+
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.p002
+Since $F$ need not send the morphisms in $S$ to isomorphisms, the functor
+indicated by the dashed arrow need not exist. Nevertheless, we may still seek
+the best possible approximations to such an extension: the left Kan extension
+$(\Lan_QF,\eta)$ and the right Kan extension $(\Ran_QF,\varepsilon)$. We will
+omit $\eta$ and $\varepsilon$ from the notation from now on. The aim of this
+section is to give sufficient conditions, for fixed $\mathcal{C}$, $S$, and
+$F$, under which $\Lan_QF$ and $\Ran_QF$ exist; once they do, Proposition
+\ref{prop:Kan-uniqueness} guarantees their uniqueness. These results will be
+used in the study of derived functors; see \S~4.6.
+
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.p003
+The idea is to choose a suitable subcategory of $\mathcal{C}$. We retain the
+convention of \S\ref{sec:cat-localization}: morphisms belonging to $S$ are
+marked by $\rightarrowtail$.
+
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.p004
+The arguments in this section make no assumptions about set size.
+
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.pr001
+\begin{proposition}\label{prop:subcat-localization}
+	Let $\mathcal{I}$ be a full subcategory of $\mathcal{C}$, let
+	$S\subset\Mor(\mathcal{C})$ be a left (or right) multiplicative system,
+	and set $T:=S\cap\Mor(\mathcal{I})$.
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.l001
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.i001
+		\item If $T$ is assumed to be a left (or right) multiplicative system
+		in $\mathcal{I}$, these data induce a functor
+		$\mathcal{I}[T^{-1}]^l\to\mathcal{C}[S^{-1}]^l$ (or
+		$\mathcal{I}[T^{-1}]^r\to\mathcal{C}[S^{-1}]^r$\footnote{Translator's
+		note: in the right-hand case, the source gives the target as
+		$\mathcal{C}[T^{-1}]^r$. It has been corrected to
+		$\mathcal{C}[S^{-1}]^r$, since $T\subset\Mor(\mathcal{I})$ whereas
+		$S\subset\Mor(\mathcal{C})$ (O014-C019).}).
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.i002
+		\item Assume the following condition: for every morphism $s:W\to Y$ (or
+		$s:Y\to W$) in $S$ with $Y\in\Obj(\mathcal{I})$, there is a morphism
+		$g:V\to W$ such that $sg\in T$ (or $g:W\to V$ such that $gs\in T$).
+		Then $T$ is a left (or right) multiplicative system, and the functor in
+		(i) is fully faithful.
+	\end{enumerate}
+\end{proposition}
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.pf001
+\begin{proof}
+	By duality, it suffices to consider a left multiplicative system. The
+	functor in (i) comes from the universal property of localization; on
+	morphisms it sends every equivalence class $[U;s,a]$ relative to $T$ to
+	the same class $[U;s,a]$ relative to $S$.
+
+	For (ii), first verify that $T$ is a left multiplicative system. Conditions
+	(S1) and (S2) of Definition \ref{def:multiplicative-family} are immediate.
+	For (S3), given
+	$X\stackrel{t}{\rightarrowtail}Z\stackrel{f}{\leftarrow}Y$, construct in
+	$\mathcal{C}$ the diagram
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.g002
+	\[\begin{tikzcd}
+		X \arrow[rightarrowtail, d, "{t \in T}"'] & W \arrow[l, "{f'}"'] \arrow[rightarrowtail, d, "{s' \in S}"] \\
+		Z & Y \arrow[l, "f"] ;
+	\end{tikzcd}\]
+	then choose $g:V\to W$ such that $s'g\in T$. The morphisms $s'g$ and
+	$f'g$ meet the requirements of (S3). The argument for (S4) is the same.
+
+	Let $X,Y\in\Obj(\mathcal{I})$. For a morphism in
+	$\mathcal{C}[S^{-1}]^l$ represented by $X\leftarrowtail U\to Y$, the
+	condition allows us to choose $V\to U$ so that the composite
+	$V\to U\to X$ belongs to $T$. Thus
+	$\Hom_{\mathcal{I}[T^{-1}]^l}(X,Y)\to
+	\Hom_{\mathcal{C}[S^{-1}]^l}(X,Y)$ is surjective. A similar argument
+	shows that every equivalence $\sim$ in $M_{X,Y}^l$ can be realized inside
+	$\mathcal{I}$, proving that the same map is injective.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.p005
+The following lemma is stated only for a right multiplicative system $S$; the
+case of a left multiplicative system is dual.
+
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.le001
+\begin{lemma}\label{prop:injective-localization-prep}
+	Let $S\subset\Mor(\mathcal{C})$ be a right multiplicative system. For a
+	given $\underline{X}:=QX\in
+	\Obj\left(\mathcal{C}[S^{-1}]\right)$, define the category
+	$(Q/\underline{X})$ as in Definition \ref{def:comma-category}. We shall
+	represent an object $(Y,QY\to\underline{X})$ of $(Q/\underline{X})$,
+	nonuniquely, by a diagram
+	$Y\xrightarrow{a}U\stackrel{s}{\leftarrowtail}X$ in $\mathcal{C}$.
+
+	Define $S_{X/}$ as in \S\ref{sec:cat-localization}. The functor
+	$S_{X/}\to(Q/\underline{X})$ that sends an object
+	$[X\stackrel{t}{\rightarrowtail}V]$ to the diagram
+	$V=V\stackrel{t}{\leftarrowtail}X$, which determines
+	$(V,QV\to\underline{X})$, is cofinal (Definition \ref{def:cofinal}).
+\end{lemma}
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.pf002
+\begin{proof}
+	For $[X\stackrel{t}{\rightarrowtail}V]$ as in the statement, specifying a
+	morphism from $(Y,QY\to\underline{X})$ to the corresponding
+	$(V,QV\to\underline{X})$ amounts to specifying a morphism $b:Y\to V$ in
+	$\mathcal{C}$ such that the diagram
+	$Y\xrightarrow{b}V\stackrel{t}{\leftarrowtail}X$ represents the morphism
+	$QY\to\underline{X}$ in $\mathcal{C}[S^{-1}]$.
+
+	Given $Y\xrightarrow{a}U\stackrel{s}{\leftarrowtail}X$, the following
+	diagram maps $(Y,QY\to\underline{X})$ to an object coming from $S_{X/}$:
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.g003
+	\begin{equation*}\begin{tikzcd}
+		Y \arrow[r] \arrow[d] & U \arrow[equal, d] & X \arrow[rightarrowtail, l] \arrow[equal, d] & (Y, QY \to \underline{X}) \arrow[d, "a"] \\
+		U \arrow[equal, r] & U & X \arrow[rightarrowtail, l] & (U, QU \to \underline{X})
+	\end{tikzcd}\end{equation*}
+
+	Next, consider objects $[X\stackrel{t_i}{\rightarrowtail}V_i]$ of
+	$S_{X/}$ and morphisms from $(Y,QY\to\underline{X})$ to their images,
+	determined by $b_i:Y\to V_i$ for $i=1,2$. Using the right-hand diagram in
+	\eqref{eqn:localization-sim}, choose a commutative diagram
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.g004
+	\[\begin{tikzcd}
+		& V_1 \arrow[d, "{u_1}"'] & \\
+		Y \arrow[r, "b"'] \arrow[ru, "{b_1}"] \arrow[rd, "{b_2}"'] & W & X \arrow[rightarrowtail, l, "u"] \arrow[rightarrowtail, lu, "{t_1}"'] \arrow[rightarrowtail, ld, "{t_2}"] \\
+		& V_2 \arrow[u, "{u_2}"] &
+	\end{tikzcd}\]
+	Thus $u_i:[X\rightarrowtail V_i]\to
+	[X\stackrel{u}{\rightarrowtail}W]$, while $b$ also determines a morphism
+	from $(Y,QY\to\underline{X})$ to the object
+	$(W,QW\to\underline{X})$ corresponding to $u$. All the conditions needed
+	for cofinality now follow readily.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.n001
+% Ref: [KS, Lemma 7.1.21, Proposition 7.3.3]
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.pr002
+\begin{proposition}\label{prop:injective-localization}
+	Let $\mathcal{I}$ be a full subcategory of $\mathcal{C}$, let
+	$S\subset\Mor(\mathcal{C})$ be a left (or right) multiplicative system,
+	and put $T:=S\cap\Mor(\mathcal{I})$. Assume the following ``resolution
+	condition'': for every $X\in\Obj(\mathcal{C})$, there is a morphism
+	$s:U\to X$ (or $s:X\to U$), where $U\in\Obj(\mathcal{I})$ and $s\in S$.
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.l002
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.i003
+		\item Then $T\subset\Mor(\mathcal{I})$ is a left (or right)
+		multiplicative system, and
+		$\mathcal{I}[T^{-1}]\to\mathcal{C}[S^{-1}]$ is an equivalence.
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.i004
+		\item Suppose further that a functor
+		$F:\mathcal{C}\to\mathcal{E}$ sends the elements of $T$ to
+		isomorphisms. Then $\Ran_QF$ (or $\Lan_QF$) exists, and the following
+		diagram commutes up to isomorphism:
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.g005
+		\[\begin{tikzcd}[column sep=huge]
+			\mathcal{C}[S^{-1}] \arrow[r, "{\Ran_Q F \;\text{or}\; \Lan_Q F }" inner sep=1em] & \mathcal{E} \\
+			\mathcal{I}[T^{-1}] \arrow[u, "\text{equivalence}"] \arrow[ru]
+		\end{tikzcd}\]
+		Here $\mathcal{I}[T^{-1}]\to\mathcal{E}$ is determined by the universal
+		property of localization.
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.i005
+		\item For $X\in\Obj(\mathcal{C})$, define the categories $S_{/X}$ and
+		$S_{X/}$ as in \S\ref{sec:cat-localization}. Under the assumptions of
+		(ii), there are canonical isomorphisms\footnote{The limit in the first
+		formula is indexed by $\Obj(S_{/X}^{\opp})$ because we use
+		$\varprojlim_i\beta(i)$ to denote the limit of a functor
+		$\beta:I^{\opp}\to\mathcal{C}$.}
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.q001
+		\begin{align*}
+			\left(\Ran_Q F\right)(QX) &\simeq \varprojlim_{[X \leftarrowtail Y] \in \Obj(S_{/X}^{\opp})} FY, \\
+			\left(\Lan_Q F\right)(QX) &\simeq \varinjlim_{[X \rightarrowtail Y] \in \Obj(S_{X/})} FY.
+		\end{align*}
+	\end{enumerate}
+
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.p006
+	The canonical morphism of the Kan extension
+	$\varepsilon:(\Ran_QF)Q\to F$ (or $\eta:F\to(\Lan_QF)Q$) is, in the
+	situation of (iii), determined by the term $FX$ corresponding to
+	$\identity_X\in\Obj(S_{/X}^{\opp})$ (or
+	$\identity_X\in\Obj(S_{X/})$).
+\end{proposition}
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.pf003
+\begin{proof}
+	It suffices to discuss a right multiplicative system. The condition in
+	Proposition \ref{prop:subcat-localization}(ii) plainly holds, so $T$ is a
+	right multiplicative system. Denote its localization by
+	$Q':\mathcal{I}\to\mathcal{I}[T^{-1}]$, and denote the fully faithful
+	functor $\mathcal{I}[T^{-1}]\to\mathcal{C}[S^{-1}]$ of Proposition
+	\ref{prop:subcat-localization}(ii) by $\iota_Q$. The resolution condition
+	also ensures that $\iota_Q$ is essentially surjective, hence an
+	equivalence. This proves (i).
+
+	Now consider (ii). Write $\iota:\mathcal{I}\to\mathcal{C}$ for the
+	inclusion functor. By the universal property, there is a functor
+	$F':\mathcal{I}[T^{-1}]\to\mathcal{E}$ making the following diagram
+	commute:
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.g006
+	\[\begin{tikzcd}
+		& \mathcal{C} \arrow[d, "Q"'] \arrow[rd, "F"] & \\
+		\mathcal{I} \arrow[ru, "\iota"] \arrow[rd, "{Q'}"'] & {\mathcal{C}[S^{-1}]} & \mathcal{E} \\
+		& {\mathcal{I}[T^{-1}]} \arrow[u, "\iota_Q"] \arrow[ru, "{F'}"'] &
+	\end{tikzcd}\]
+
+	Choose any quasi-inverse $\iota_Q^{-1}$ to $\iota_Q$. We will show that
+	$F'\circ\iota_Q^{-1}$ gives the left Kan extension $\Lan_QF$; equivalently,
+	$\Lan_QF$ exists and $F'\simeq(\Lan_QF)\circ\iota_Q$.
+
+	To prove the existence of $\Lan_QF$, define
+	$\Pi_{/\underline{X}}:(Q/\underline{X})\to\mathcal{C}$ as in Definition
+	\ref{def:comma-category}, where
+	$\underline{X}:=QX\in\Obj(\mathcal{C}[S^{-1}])$. In view of Theorem
+	\ref{prop:Kan-limit}(i), it is enough to show that
+	$\varinjlim F\Pi_{/\underline{X}}$ exists for every $\underline{X}$.
+
+	Apply the cofinal functor $S_{X/}\to(Q/\underline{X})$ of Lemma
+	\ref{prop:injective-localization-prep} and Proposition
+	\ref{prop:cofinal-lim}. This reduces
+	$\varinjlim F\Pi_{/\underline{X}}$ to
+	$\varinjlim_{[X\rightarrowtail U]}FU$, with the colimit taken over
+	$S_{X/}$.
+
+	Since $S_{X/}$ is filtered (Lemma \ref{prop:S-filtered}), the resolution
+	condition together with Proposition \ref{prop:cofinal-filtered} ensures
+	that the objects $[X\rightarrowtail U]$ with
+	$U\in\Obj(\mathcal{I})$ form a cofinal full subcategory of $S_{X/}$.
+	Another application of Proposition \ref{prop:cofinal-lim} therefore lets
+	us restrict the colimit to $U\in\Obj(\mathcal{I})$.
+
+	We seek to prove that $\varinjlim F\Pi_{/\underline{X}}$, or equivalently
+	$\varinjlim_{[X\rightarrowtail U]}FU$, exists. The original problem depends
+	only on the isomorphism class of $\underline{X}$, so (i) reduces it to the
+	case $X\in\Obj(\mathcal{I})$. But the following diagram gives a morphism in
+	$S_{X/}$:
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.g007
+	\begin{equation*}
+		\begin{tikzcd}
+			U & X \arrow[rightarrowtail, l] \\
+			X \arrow[rightarrowtail, u] & X \arrow[equal, l] \arrow[equal, u]
+		\end{tikzcd} \quad
+		\text{where} \quad U \in \Obj(\mathcal{I})
+	\end{equation*}
+	All arrows marked $\rightarrowtail$ become isomorphisms under $F$. Thus in
+	this case $\varinjlim FU$ not only exists but is isomorphic to $FX$.
+	This also proves $F'\simeq(\Lan_QF)\circ\iota_Q$. Statement (ii) follows.
+
+	Finally consider (iii). For $X\in\Obj(\mathcal{C})$, the preceding
+	argument shows that
+	$\varinjlim_{[X\rightarrowtail Y]\in\Obj(S_{X/})}FY$ exists and gives
+	$(\Lan_QF)(QX)$. Under this correspondence, the canonical morphism
+	$\eta_X$ of the left Kan extension is naturally determined by the term
+	corresponding to $[X\stackrel{\identity}{\rightarrowtail}X]$; see the
+	construction in \S\ref{sec:Kan-as-limit}.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.pr003
+\begin{proposition}\label{prop:localization-functor-abs}
+	Under the hypotheses of Proposition \ref{prop:injective-localization},
+	$\Ran_QF$ (or $\Lan_QF$) is the absolute right (or left) Kan extension of
+	$F$ along $Q$; see Definition \ref{def:absolute-Kan}.
+\end{proposition}
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.pf004
+\begin{proof}
+	The first condition in Proposition \ref{prop:injective-localization}
+	concerns only the left (or right) multiplicative system $S$ in
+	$\mathcal{C}$ and the subcategory $\mathcal{I}$, not $F$; the second only
+	requires $F$ to send $T:=S\cap\Mor(\mathcal{I})$ to isomorphisms. In
+	particular, for any functor $M:\mathcal{E}\to\mathcal{F}$, the condition
+	on $F$ is inherited at once by $MF:\mathcal{C}\to\mathcal{F}$.
+
+	We discuss only $\Lan_QF$. With the notation from the proof of Proposition
+	\ref{prop:injective-localization}, $\Lan_QF$ is concretely taken to be the
+	composite
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.q002
+	\[ \mathcal{C}[S^{-1}] \xrightarrow{\iota_Q^{-1}} \mathcal{I}[T^{-1}] \xrightarrow{F'} \mathcal{E} \]
+	Here $\iota_Q$ and $F'$ both come from the universal property of
+	localization. Hence $M(\Lan_QF)=MF'\iota_Q^{-1}$. The commutative diagram
+% segment-id: o014.li2.chapter1.kan-extensions-along-localization.g008
+	\[\begin{tikzcd}
+		\mathcal{I} \arrow[hookrightarrow, r] \arrow[rd] & \mathcal{C} \arrow[r, "F"] & \mathcal{E} \arrow[r, "M"] & \mathcal{F} \\
+		& \mathcal{I}[T^{-1}] \arrow[ru, "{F'}" description] \arrow[rru, "{MF'}" description] & &
+	\end{tikzcd}\]
+	shows that $MF'$ is also induced by the universal property of localization.
+	Apply the construction of Proposition \ref{prop:injective-localization} to
+	$\mathcal{C}\xrightarrow{MF}\mathcal{F}$; it yields
+	$\Lan_Q(MF)=MF'\iota_Q^{-1}$. In other words, $\Lan_QF$ is preserved by
+	$M$.
+\end{proof}

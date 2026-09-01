@@ -1,0 +1,237 @@
+% Unit 128 English translation of chapter9.tex, lines 1257--1367.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter9.reconstruction-a
+% Coverage: Section 9.5 through the reconstruction lemma with a projective
+% generator.
+% Carried necessary source corrections: line 1275 uses the category of right
+% modules cated{Mod}A; line 1331 requires N'_2 to contain Image(f|N'_1), not
+% Image omega(f|N'_1), which has the type of a submodule of omega(N'_2).
+
+% segment-id: o014.li2.chapter9.reconstruction-a.h001
+\section{The Reconstruction Theorem}\label{sec:Tannaka-coend}
+\hypertarget{o014.aljabr2.chapter9.reconstruction-a}{ }
+% segment-id: o014.li2.chapter9.reconstruction-a.p001
+Throughout this section, $\Bbbk$ is a fixed commutative ring. Unless stated
+otherwise, all categories and functors considered below are $\Bbbk$-linear;
+in particular, the bifunctor $\otimes$ of a monoidal category is understood
+to be $\Bbbk$-linear in each variable. For a $\Bbbk$-algebra $B$,
+Convention~\ref{con:Mod-pfg} defined the essentially small categories
+$\catesubd{Mod}{\mathrm{pfg}}B\subset
+\catesubd{Mod}{\mathrm{fg}}B$. If $C$ is a coalgebra in the monoidal
+category $(B,B)\dcate{Mod}$, write $\cated{Comod}C$ for the category of right
+$C$-comodules; these comodule structures are superimposed on structures in
+$\cated{Mod}B$, as explained after Definition~\ref{def:cogebroid}.
+Imposing projectivity and finiteness conditions as right $B$-modules gives
+the full subcategories
+% segment-id: o014.li2.chapter9.reconstruction-a.q001
+\[ \underbracket{\catesubd{Comod}{\mathrm{pf}}C}_{\text{projective + finitely generated}} \subset \underbracket{\catesubd{Comod}{\mathrm{f}}C}_{\text{finitely generated}} \subset \cated{Comod}C. \]
+\index[sym1]{Comodpfg@$\cate{Comod}_{\mathrm{pf}}, \cate{Comod}_{\mathrm{f}}$}
+
+% segment-id: o014.li2.chapter9.reconstruction-a.p002
+Finite generation ensures that $\catesubd{Comod}{\mathrm f}C$ is also an
+essentially small category in the sense of
+Definition~\ref{def:essentially-small-cat}.
+
+% segment-id: o014.li2.chapter9.reconstruction-a.p003
+To gain a more concrete understanding of
+$\coEnd(\omega)=\coEnd_{\Bbbk}(\omega)$ from \S\ref{sec:coend}, consider
+the setting of Proposition~\ref{prop:Morita-comonad}. Take $\Bbbk$-algebras
+$A,B$, not necessarily commutative, and an $(A,B)$-bimodule $P$. Suppose
+$P$ is finitely generated and projective as a right $B$-module. Let
+$\mathcal{A}$ be a full subcategory of $\cated{Mod}A$ satisfying
+\begin{itemize}
+	\item $A\in\Obj(\mathcal{A})$;
+	\item $\omega:=(\mathord\cdot)\dotimes{A}P$ defines a functor
+	$\mathcal{A}\to\catesubd{Mod}{\mathrm{pfg}}B$.
+\end{itemize}
+
+% segment-id: o014.li2.chapter9.reconstruction-a.p004
+Proposition~\ref{prop:Morita-comonad} asserts that the $(B,B)$-bimodule
+$P^\vee\dotimes{A}P$ is the coalgebra corresponding to the comonad
+determined by the adjoint pair
+% segment-id: o014.li2.chapter9.reconstruction-a.q002
+\begin{equation*}\begin{tikzcd}
+	(\cdot) \dotimes{A} P : \cated{Mod}A \arrow[shift left, r] & \cated{Mod}B: (\cdot) \dotimes{B} P^\vee \arrow[shift left, l].
+\end{tikzcd}\end{equation*}
+The coalgebra $P^\vee\dotimes{A}P$ naturally coacts on every
+$\omega(N)=N\dotimes{A}P$. Explicitly, the coaction is
+% segment-id: o014.li2.chapter9.reconstruction-a.q003
+\[ N \dotimes{A} P \xrightarrow{\identity_N \otimes \mathrm{coev} \otimes \identity_P} N \dotimes{A} P \dotimes{B} P^\vee \dotimes{A} P, \quad N \in \Obj(\cated{Mod}A). \]
+
+% segment-id: o014.li2.chapter9.reconstruction-a.p005
+Definition--Proposition~\ref{def:cogebra-L} then gives a canonical coalgebra
+homomorphism
+% segment-id: o014.li2.chapter9.reconstruction-a.q004
+\[ \coEnd(\omega) \to P^\vee \dotimes{A} P. \]
+
+% segment-id: o014.li2.chapter9.reconstruction-a.pr001
+\begin{proposition}\label{prop:endomorphism-vs-P}
+	In the setting above, the homomorphism
+	$\coEnd(\omega)\to P^\vee\dotimes{A}P$ is an isomorphism.
+\end{proposition}
+\begin{proof}
+	Let $\mathcal{A}^\flat$ be the full subcategory of $\cated{Mod}A$ with
+	$\Obj(\mathcal{A}^\flat)=\{A\}$, and write $i$ for the inclusion functor.
+	Remark~\ref{rem:L-cogebra-functoriality} gives the commutative diagram
+	% segment-id: o014.li2.chapter9.reconstruction-a.q005
+	\[\begin{tikzcd}[column sep=tiny]
+		\coEnd(\omega i) \arrow[rr] \arrow[rd] & & \coEnd(\omega), \arrow[ld] \\
+		& P^\vee \dotimes{A} P &
+	\end{tikzcd}\]
+	The reader can check directly that
+	$\coEnd(\omega i)\rightiso P^\vee\dotimes{A}P$. Hence
+	$\coEnd(\omega i)\to\coEnd(\omega)$ has a left inverse. If this morphism
+	is surjective, then $\coEnd(\omega i)\rightiso\coEnd(\omega)$, and
+	consequently $\coEnd(\omega)\rightiso P^\vee\dotimes{A}P$.
+
+	By the concrete constructions of $\coEnd(\omega)$ and
+	$\coEnd(\omega i)$, it remains to prove, for every
+	$Y\in\Obj(\mathcal{A})$, that
+	% segment-id: o014.li2.chapter9.reconstruction-a.q006
+	\[ \Image\left[ \omega(Y)^\vee \dotimes{\Bbbk} \omega(Y) \to \coEnd(\omega) \right] \subset \Image\left[ \omega(A)^\vee \dotimes{\Bbbk} \omega(A) \to \coEnd(\omega) \right]. \]
+
+	Write $t\in\omega(Y)^\vee\dotimes{\Bbbk}\omega(Y)$ as a finite sum
+	$\sum_i\lambda_i\otimes o_i$. By the concrete form of $\omega$, each
+	$o_i\in\omega(Y)$ is a finite linear combination of elements of the form
+	$\omega(f)(x)$, where $x\in\omega(A)$ and
+	$f\in\Hom_{\mathcal{A}}(A,Y)$. Thus the problem further reduces to the
+	case $t=\lambda\otimes\omega(f)(x)$. This follows by considering the image
+	of $\lambda\otimes x\in\omega(Y)^\vee\dotimes{\Bbbk}\omega(A)$ in the
+	commutative diagram
+	% segment-id: o014.li2.chapter9.reconstruction-a.q007
+	\[\begin{tikzcd}
+		\omega(Y)^\vee \dotimes{\Bbbk} \omega(A) \arrow[r, "{\omega(f)^\vee \otimes \identity}" inner sep=0.6em] \arrow[d, "{\identity \otimes \omega(f)}"'] & \omega(A)^\vee \dotimes{\Bbbk} \omega(A) \arrow[d] \\
+		\omega(Y)^\vee \dotimes{\Bbbk}  \omega(Y) \arrow[r] & \coEnd(\omega).
+	\end{tikzcd}\]
+\end{proof}
+
+% segment-id: o014.li2.chapter9.reconstruction-a.p006
+For any essentially small category $\mathcal{A}$ and any functor
+$\omega:\mathcal{A}\to\catesubd{Mod}{\mathrm{pfg}}B$,
+Definition--Proposition~\ref{def:cogebra-L} canonically factors $\omega$ as
+% segment-id: o014.li2.chapter9.reconstruction-a.q008
+\begin{equation}\label{eqn:L-canonical-decomp}
+	\mathcal{A} \xrightarrow{\overline{\omega}} \catesubd{Comod}{\mathrm{pf}}\coEnd(\omega) \xrightarrow{U} \catesubd{Mod}{\mathrm{pfg}}B,
+\end{equation}
+where $U$ is the forgetful functor. We wish to determine when
+$\overline\omega$ is an equivalence.
+
+% segment-id: o014.li2.chapter9.reconstruction-a.p007
+The following lemma underlies the various reconstruction theorems below.
+The core of its proof uses Beck's Monadicity Theorem~\ref{prop:Beck}. We
+will also need the characterization of faithful exact functors from
+Proposition~\ref{prop:faithful-exact}, the notion of a locally finite
+abelian category from Definition~\ref{def:locally-finite}, and some
+Ind-completion techniques from \CHref{sec:app-Ind}.
+
+% segment-id: o014.li2.chapter9.reconstruction-a.l001
+\begin{lemma}\label{prop:Tannaka-projective-generator}
+	Let $\Bbbk$ be a field, let $\mathcal{A}$ be a locally finite abelian
+	category, and let $s$ be a projective generator of $\mathcal{A}$. Consider
+	a faithful exact functor
+	% segment-id: o014.li2.chapter9.reconstruction-a.q009
+	\[ \omega: \mathcal{A} \to \cated{Mod}B, \]
+	and suppose that it takes values in
+	$\catesubd{Mod}{\mathrm{pfg}}B$.
+	\begin{enumerate}[(i)]
+		\item The coalgebra $\coEnd(\omega)$ can be written concretely as
+		$P^\vee\dotimes{A}P$, where
+		$A=\End_{\mathcal{A}}(s)$ and $P=\omega(s)$.
+		\item The functor $\overline\omega$ in the canonical factorization
+		\eqref{eqn:L-canonical-decomp} is an equivalence of categories.
+		\item We have
+		$\catesubd{Comod}{\mathrm{pf}}\coEnd(\omega)=
+		\catesubd{Comod}{\mathrm f}\coEnd(\omega)$.
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	Observe that $A$ is a finite-dimensional $\Bbbk$-algebra. All the
+	hypotheses of Theorem~\ref{prop:identify-ModR-fg} hold, and
+	$\Hom_{\mathcal{A}}(s,\mathord\cdot)$ gives an equivalence
+	$\mathcal{A}\to\catesubd{Mod}{\mathrm{fg}}A$. Thus the problem reduces
+	to the case $\mathcal{A}=\catesubd{Mod}{\mathrm{fg}}A$ and $s=A$.
+	The first observation is that $\omega$ now extends canonically to a
+	functor
+	% segment-id: o014.li2.chapter9.reconstruction-a.q010
+	\[ \Omega: \cated{Mod}A \to \cated{Mod}B, \]
+	by the following construction.
+	\begin{description}
+		\item[On objects] Take the small filtered colimit
+		% segment-id: o014.li2.chapter9.reconstruction-a.q011
+		\begin{equation}\label{eqn:Tannaka-tilde-omega}
+			\Omega(N) = \varinjlim_{\substack{N' \subset N \\ \text{finitely generated}}} \omega(N').
+		\end{equation}
+		\item[On morphisms] For a homomorphism of right $A$-modules
+		$f:N_1\to N_2$, take
+		% segment-id: o014.li2.chapter9.reconstruction-a.q012
+		\begin{align*}
+			\Omega(f) & = \varprojlim_{N'_1 \subset N_1} \varinjlim_{\substack{N'_2 \subset N_2 \\ N'_2 \supset \Image(f|_{N'_1}) }} \left[ \omega(f|_{N'_1}): \omega(N'_1) \to \omega(N'_2) \right] \\
+			& \in \varprojlim_{N'_1 \subset N_1} \varinjlim_{N'_2 \subset N_2} \Hom_{\cated{Mod}B}\left( \omega(N'_1), \omega(N'_2)\right).
+		\end{align*}
+		The right-hand side determines a homomorphism
+		$\Omega(N_1)\to\Omega(N_2)$ in the evident way.
+	\end{description}
+
+	For readers using the theory of Ind-completion from
+	\S\S\ref{sec:ind-pro}--\ref{sec:Indization}, this construction merely
+	identifies $\cated{Mod}A$ with
+	$\IndC(\catesubd{Mod}{\mathrm{fg}}A)$ and then uses the cocompleteness of
+	$\cated{Mod}B$ to extend $\omega$ to
+	$\IndC(\catesubd{Mod}{\mathrm{fg}}A)$ by filtered colimits; see
+	Definition--Proposition~\ref{def:Ind-hat-functor}.
+
+	The following properties are general facts about Ind-completion and can
+	also be checked directly from the construction of $\Omega$.
+	\begin{itemize}
+		\item The restriction of $\Omega$ to
+		$\catesubd{Mod}{\mathrm{fg}}A$ is isomorphic to $\omega$.
+		\item $\Omega$ is an exact $\Bbbk$-linear functor; see
+		Proposition~\ref{prop:Ind-ext-exactness}(ii) and the preceding
+		discussion, which use the exactness of $\omega$ and the fact that
+		$\cated{Mod}B$ is a Grothendieck category.
+		\item $\Omega$ preserves all small colimits; see
+		Proposition~\ref{prop:Ind-ext-exactness}(iii), which uses the fact
+		that $\catesubd{Mod}{\mathrm{fg}}A$ is essentially small.
+	\end{itemize}
+
+	Moreover, since $\omega$ is left exact, for all finitely generated
+	submodules $N'\subset N''$ of $N$, the transition homomorphism
+	$\omega(N')\to\omega(N'')$ in \eqref{eqn:Tannaka-tilde-omega} is
+	monic. The elementary construction of filtered colimits in the category
+	of modules then gives
+	% segment-id: o014.li2.chapter9.reconstruction-a.q013
+	\[ \Omega(N) = 0 \iff \forall N', \; \omega(N') = 0 \stackrel{\because \;\omega\;\text{faithful}}{\iff} \; \forall N', \; N' = 0 \iff N = 0. \]
+	Thus $\Omega$ is faithful and exact.
+
+	We may now apply Theorem~\ref{prop:Morita} to $\Omega$ to obtain
+	% segment-id: o014.li2.chapter9.reconstruction-a.q014
+	\[ \Omega \simeq (\cdot) \dotimes{A} P, \quad P := \Omega(A) = \omega(A) \in \Obj(\catesubd{Mod}{\mathrm{pfg}}B). \]
+	Its restriction to $\catesubd{Mod}{\mathrm{fg}}A$ gives the original
+	functor $\omega$. Together with
+	Proposition~\ref{prop:endomorphism-vs-P}, this also gives the description
+	of $\coEnd(\omega)$ in (i).
+
+	Since $\Omega$ is faithful and exact,
+	Proposition~\ref{prop:Morita-descent} shows that the adjoint pair
+	% segment-id: o014.li2.chapter9.reconstruction-a.q015
+	\begin{equation*}\begin{tikzcd}
+		(\cdot) \dotimes{A} P : \cated{Mod}A \arrow[shift left, r] & \cated{Mod}B: (\cdot) \dotimes{B} P^\vee \arrow[shift left, l]
+	\end{tikzcd}\end{equation*}
+	is comonadic, with corresponding coalgebra $P^\vee\dotimes{A}P$. Thus
+	$\Omega$ factors canonically as an equivalence followed by the forgetful
+	functor:
+	% segment-id: o014.li2.chapter9.reconstruction-a.q016
+	\[ \cated{Mod}A \xrightarrow[\sim]{\overline{\Omega}} \cated{Comod}\left(P^\vee \dotimes{A} P\right) \xrightarrow{U} \cated{Mod}B. \]
+
+	By Proposition~\ref{prop:Morita-comonad-ft}, this factorization restricts
+	to the commutative diagram
+	% segment-id: o014.li2.chapter9.reconstruction-a.q017
+	\[\begin{tikzcd}
+		\catesubd{Mod}{\mathrm{fg}}A \arrow[r, "\sim"'] \arrow[rd, bend right] & \catesubd{Comod}{\mathrm{f}} \left(P^\vee \dotimes{A} P\right) \arrow[r, "U"]  \arrow[d, "\sim" sloped, "{\text{(i)}}"'] & \catesubd{Mod}{\mathrm{fg}}B. \\
+		& \catesubd{Comod}{\mathrm{f}}\coEnd(\omega) &
+	\end{tikzcd}\]
+	The composite of the first row is $\omega$, which is known to take values
+	in $\catesubd{Mod}{\mathrm{pfg}}B$; this proves (iii). The curved arrow in
+	the diagram is therefore $\overline\omega$, and (ii) follows.
+\end{proof}

@@ -1,0 +1,258 @@
+% Unit 131 independent English translation of chapter9.tex, lines 1626--1722.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter9.tannakian-a
+% Coverage: Section 9.7 from the definition of Tannakian categories through
+% the example of gradings.
+% Verified source correction: source line 1693 requires H to be commutative;
+% otherwise its comodule category is not symmetric monoidal and hence is not
+% a neutral Tannakian category in the sense just defined.
+
+% segment-id: o014.li2.chapter9.tannakian-a.h001
+\section{Tannakian Categories}\label{sec:Tannakian-cat}
+\hypertarget{o014.aljabr2.chapter9.tannakian-a}{ }
+% segment-id: o014.li2.chapter9.tannakian-a.p001
+The theory of Tannakian categories is a thorough reformulation, due to
+Saavedra Rivano and Deligne \cite{Sa72,Del90}, of the work of Tadao Tannaka
+\cite{Ta38} and M.\ Krein \cite{Kr49} on representations of compact groups;
+its guiding ideas originate with Grothendieck. Related ideas were later
+developed far more broadly in Lurie and Bhatt's work on derived algebraic
+geometry. We shall broadly follow Deligne's treatment.
+
+% segment-id: o014.li2.chapter9.tannakian-a.p002
+Unless stated otherwise, throughout this section we retain the assumptions of
+\S\ref{sec:Tannaka-coend}, with a fixed field $\Bbbk$.
+
+% segment-id: o014.li2.chapter9.tannakian-a.d001
+\begin{definition}\label{def:Tannakian-cat}
+	\index{Tannakian category}
+	\index{fiber functor}
+	Let $\mathcal{T}$ be an essentially small abelian category
+	(Definition~\ref{def:essentially-small-cat}) equipped with a symmetric
+	monoidal structure for which $\otimes$ is $\Bbbk$-linear in each
+	variable. The category $\mathcal{T}$ is called a \emph{Tannakian category
+	over the field $\Bbbk$} if it has the following properties.
+	\begin{itemize}
+		\item If $\munit$ denotes the unit of $\mathcal{T}$, then
+		$\End_{\mathcal{T}}(\munit)=\Bbbk$.
+		\item As a symmetric monoidal category, $\mathcal{T}$ is rigid
+		(Definition~\ref{def:rigid-cat-braided}).
+		\item There exist a commutative $\Bbbk$-algebra $B$, taken by
+		convention to be nonzero, and a right-exact monoidal functor compatible
+		with the braiding
+		% segment-id: o014.li2.chapter9.tannakian-a.q001
+		\[ \omega: \mathcal{T} \to \cated{Mod}B. \]
+		Such a functor is called a \emph{fiber functor} for $\mathcal{T}$ over
+		$B$.\footnote{The term comes from the Grothendieck school and is rooted
+		in an analogy with the theory of covering spaces.}
+	\end{itemize}
+
+	A fiber functor over $\Bbbk$ is called \emph{neutral}. If a Tannakian
+	category $\mathcal{T}$ has a neutral fiber functor, then $\mathcal{T}$ is
+	called a \emph{neutral Tannakian category}.
+\end{definition}
+
+% segment-id: o014.li2.chapter9.tannakian-a.p003
+By the definition of the dual of a morphism in
+Definition~\ref{def:dual-morphism}, the duality functor
+$(\mathord\cdot)^*$ of a Tannakian category is necessarily
+$\Bbbk$-linear.
+
+% segment-id: o014.li2.chapter9.tannakian-a.p004
+The preceding definition is quite flexible. If $\omega$ is a fiber functor
+over $B$ and $B\to B'$ is a homomorphism of commutative $\Bbbk$-algebras,
+then $\omega\dotimes{B}B'$ is a fiber functor over $B'$. These axioms have
+several nontrivial consequences, in which duality plays a key role.
+
+% segment-id: o014.li2.chapter9.tannakian-a.l001
+\begin{lemma}\label{prop:Tannaka-generalities}
+	Let $\mathcal{T}$ be a Tannakian category.
+	\begin{enumerate}[(i)]
+		\item For every commutative $\Bbbk$-algebra $B$, every fiber functor
+		$\omega$ over $B$ takes values in
+		$\catesubd{Mod}{\mathrm{pfg}}B$ and is automatically faithful and
+		exact.
+		\item There exist a field extension $\Bbbk'|\Bbbk$ and a fiber functor
+		over $\Bbbk'$.
+		\item If $\omega$ is a fiber functor over $B$, the canonical map
+		% segment-id: o014.li2.chapter9.tannakian-a.q002
+		\[ \Hom_{\mathcal{T}}(X,Y)\dotimes{\Bbbk}B\to
+		\Hom_{\cated{Mod}B}(\omega(X),\omega(Y)) \]
+		is injective.
+		\item The category $\mathcal{T}$ is locally finite
+		(Definition~\ref{def:locally-finite}).
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	For (i), since $\omega$ is monoidal and $\mathcal{T}$ is rigid,
+	Proposition~\ref{prop:dualizable-module} shows that $\omega$ takes values
+	in $\catesubd{Mod}{\mathrm{pfg}}B$. We next prove that $\omega$ is left
+	exact. Consider any exact sequence in $\mathcal{T}$
+	% segment-id: o014.li2.chapter9.tannakian-a.q003
+	\[ 0 \to X \to Y \to Z. \]
+	Its dual is also exact, so applying $\omega$ gives an exact sequence in
+	$\cated{Mod}B$
+	% segment-id: o014.li2.chapter9.tannakian-a.q004
+	\[ \omega(Z)^\vee \to \omega(Y)^\vee \to \omega(X)^\vee \to 0. \]
+	Apply
+	$(\mathord\cdot)^\vee=\Hom_{\cated{Mod}B}(\mathord\cdot,B)$ once more.
+	Together with Proposition~\ref{prop:Hom-left-exact} and
+	$\omega(\mathord\cdot)^{\vee\vee}\simeq\omega(\mathord\cdot)$, this
+	yields the exact sequence
+	% segment-id: o014.li2.chapter9.tannakian-a.q005
+	\[ 0 \to \omega(X) \to \omega(Y) \to \omega(Z). \]
+
+	For faithfulness, the definition of duality shows that $X\neq0$ if and
+	only if $\mathrm{ev}_X:X\otimes X^*\to\munit$ is nonzero. Meanwhile,
+	Proposition~\ref{prop:rigid-unit-simple} and
+	$\End_{\mathcal{T}}(\munit)=\Bbbk$ show that this is equivalent to
+	$\mathrm{ev}_X$ being an epimorphism. Since $\omega$ is both monoidal and
+	exact, $X\neq0$ therefore gives an epimorphism
+	$\omega(X)\dotimes{B}\omega(X)^\vee\twoheadrightarrow B$, and hence
+	$\omega(X)\neq0$.
+
+	For (ii), choose a fiber functor $\omega$ over $B$ and a maximal ideal
+	$\mathfrak m$ of $B$, and put $\Bbbk':=B/\mathfrak m$. Then
+	$\omega\dotimes{B}\Bbbk'$ is a fiber functor over $\Bbbk'$.
+
+	For (iii), take linearly independent elements
+	$f_1,\ldots,f_n\in\Hom_{\mathcal{T}}(X,Y)$. In the notation of
+	Corollary~\ref{prop:rigid-Hom-internal}, they define a morphism
+	$\Phi:\munit^{\oplus n}\to\iHom(X,Y)$. We claim that $\Phi$ is a
+	monomorphism. Indeed, $\munit$ is simple
+	(Proposition~\ref{prop:rigid-unit-simple}), so $\Ker(\Phi)$ has finite
+	length. If $\Ker(\Phi)\neq0$, all its composition factors are $\munit$;
+	see \S\ref{sec:semisimple}. In particular there is a monomorphism
+	$\munit\hookrightarrow\Ker(\Phi)\hookrightarrow\munit^{\oplus n}$.
+	Since $\End_{\mathcal{T}}(\munit)=\Bbbk$, composing with $\Phi$ gives a
+	morphism $\munit\to\iHom(X,Y)$ that is zero on the one hand, but on the
+	other hand corresponds to
+	$\sum_{i=1}^na_if_i\in\Hom_{\mathcal{T}}(X,Y)$ for some
+	$a_1,\ldots,a_n\in\Bbbk$ not all zero. This contradicts linear
+	independence.
+
+	Applying the exact monoidal functor $\omega$ to $\Phi$ gives a
+	monomorphism of $B$-modules
+	$B^{\oplus n}\hookrightarrow
+	\Hom_{\cated{Mod}B}(\omega(X),\omega(Y))$. This is precisely the
+	restriction of the canonical map under consideration to
+	$\bigoplus_{i=1}^n\Bbbk f_i\dotimes{\Bbbk}B$.
+
+	For (iv), first use (ii) to obtain a fiber functor $\omega$ over a field
+	extension $\Bbbk'$. The faithful exactness in (i) already implies that
+	every $X\in\Obj(\mathcal{T})$ has finite length. Next, (iii) gives a
+	$\Bbbk'$-linear embedding
+	% segment-id: o014.li2.chapter9.tannakian-a.q006
+	\[ \Hom_{\mathcal{T}}(X,Y)\dotimes{\Bbbk}\Bbbk'
+	\hookrightarrow\Hom_{\cate{Vect}_{\mathrm f}(\Bbbk')}
+	(\omega(X),\omega(Y)). \]
+	The right-hand side is finite-dimensional, and hence
+	$\Hom_{\mathcal{T}}(X,Y)$ is a finite-dimensional $\Bbbk$-vector space.
+\end{proof}
+
+% segment-id: o014.li2.chapter9.tannakian-a.p005
+By Lemma~\ref{prop:Tannaka-generalities}, the theoretical framework of
+\S\ref{sec:Tannaka-coend} applies to every Tannakian category $\mathcal{T}$
+and every fiber functor
+$\omega:\mathcal{T}\to\catesubd{Mod}{\mathrm{pfg}}B$ over a commutative
+$\Bbbk$-algebra $B$. From the viewpoint of algebraic geometry,
+$\catesubd{Mod}{\mathrm{pfg}}B$ corresponds to the category of vector
+bundles on the affine scheme $\Spec B$. It is therefore necessary to
+consider general $B$, although doing so also requires additional theoretical
+tools. The reconstruction theorem below treats only the case $B=\Bbbk$.
+
+% segment-id: o014.li2.chapter9.tannakian-a.th001
+\begin{theorem}\label{prop:Tannaka-neutral}
+	\index{reconstruction theorem}
+	Let $\mathcal{T}$ be a neutral Tannakian category and let
+	$\omega:\mathcal{T}\to\cate{Vect}_{\mathrm f}(\Bbbk)$ be a neutral
+	fiber functor. Then $\omega$ factors canonically as
+	% segment-id: o014.li2.chapter9.tannakian-a.q007
+	\[ \mathcal{T} \xrightarrow{\overline{\omega}} \catesubd{Comod}{\mathrm{f}}\coEnd(\omega) \xrightarrow{U} \cate{Vect}_{\mathrm{f}}(\Bbbk), \]
+	where $\coEnd(\omega)$ carries a canonical commutative Hopf algebra
+	structure, and $\overline\omega$ is an equivalence of symmetric monoidal
+	categories.
+\end{theorem}
+\begin{proof}
+	Since $\mathcal{T}$ is now known to be locally finite, the assertion
+	follows immediately from Theorems~\ref{prop:Tannaka-aux1}
+	and~\ref{prop:Tannaka-aux2}.
+\end{proof}
+
+% segment-id: o014.li2.chapter9.tannakian-a.eg001
+\begin{example}
+	Let $H$ be a commutative Hopf $\Bbbk$-algebra.
+	Proposition~\ref{prop:Hopf-module-dual} shows that the category of
+	finite-dimensional comodules $\catesubd{Comod}{\mathrm f}H$ is naturally
+	a neutral Tannakian category, with the forgetful functor as its standard
+	neutral fiber functor:
+	% segment-id: o014.li2.chapter9.tannakian-a.q008
+	\[ \omega: \catesubd{Comod}{\mathrm{f}}H \to \cate{Vect}_{\mathrm{f}}(\Bbbk), \quad M \mapsto (M\;\text{as a vector space}). \]
+	Theorem~\ref{prop:Tannaka-neutral} says that, up to equivalence, this
+	family of examples exhausts all neutral Tannakian categories.
+\end{example}
+
+% segment-id: o014.li2.chapter9.tannakian-a.eg002
+\begin{example}
+	Let $(\Gamma,+)$ be an abelian group and put
+	$\mathcal{T}=\cate{Vect}_{\Gamma,\mathrm f}(\Bbbk)$, in the notation of
+	Examples~\ref{eg:Tannakian-I-graded-0} and
+	\ref{eg:Tannakian-I-graded}. Equip $\mathcal{T}$ with the standard
+	braiding
+	% segment-id: o014.li2.chapter9.tannakian-a.q009
+	\begin{align*}
+		c(M, N): M \otimes N & \rightiso N \otimes M \\
+		x \otimes y & \mapsto y \otimes x, \quad x \in M^\gamma, \; y \in N^\eta.
+	\end{align*}
+	This makes $\mathcal{T}$ a neutral Tannakian category, with
+	$\omega_\Gamma:(M^\gamma)_{\gamma\in\Gamma}\mapsto
+	\bigoplus_\gamma M^\gamma$ as neutral fiber functor. The key point is
+	rigidity, which is precisely the multivariable version of
+	Example~\ref{eg:Vect-trace}. The corresponding endomorphism coalgebra is
+	already known: it is the Hopf algebra $\Bbbk[\Gamma]$.
+
+	Although $\Gamma=\Z$ and $\Z/2\Z$ are both allowed, the braiding here
+	does not involve the Koszul sign rule~\eqref{eqn:Koszul-braiding}; if it
+	did, $\omega_\Gamma$ would not preserve the braiding. The theory of
+	Tannakian categories therefore cannot be applied directly to categories
+	such as the category of super vector spaces
+	$\cate{Vect}^-_{\Z/2\Z,\mathrm f}(\Bbbk)$, because it has no fiber
+	functor to $\cate{Vect}_{\mathrm f}(\Bbbk)$.
+\end{example}
+
+% segment-id: o014.li2.chapter9.tannakian-a.r001
+\begin{remark}
+	Some assertions of linear algebra---that is, assertions about fiber
+	functors---can be translated into the language of Hopf algebras by
+	Theorem~\ref{prop:Tannaka-neutral}. As a simple and useful example, for a
+	neutral fiber functor $\omega$ and an abelian group $(\Gamma,+)$,
+	consider the following three kinds of data.
+	\begin{enumerate}[(i)]
+		\item Equip each $\omega(X)$ with a $\Gamma$-grading; that is, specify
+		a family of isomorphisms
+		% segment-id: o014.li2.chapter9.tannakian-a.q010
+		\[ \alpha_X: \omega(X) \rightiso \omega_\Gamma(FX), \quad FX \in \Obj\left( \cate{Vect}_{\Gamma, \mathrm{f}}(\Bbbk) \right), \]
+		with $FX$ and $\alpha_X$ functorial in $X$, and such that
+		$\omega(\munit)\simeq\Bbbk$ and
+		$\omega(X\otimes X')\simeq\omega(X)\otimes\omega(X')$ both lift to
+		the level of $\Gamma$-graded vector spaces.
+		\item Specify a monoidal functor
+		$F:\mathcal{T}\to\cate{Vect}_{\Gamma,\mathrm f}(\Bbbk)$ together with
+		an isomorphism of monoidal functors
+		$\alpha:\omega\rightiso\omega_\Gamma F$.
+		\item Specify a homomorphism of $\Bbbk$-bialgebras
+		$\coEnd(\omega)\to\Bbbk[\Gamma]$.
+	\end{enumerate}
+
+	Data (i) and (ii) differ only in wording. In the language of
+	Definition~\ref{def:Fib-cat}, (ii) is the same as specifying the morphism
+	in $\cate{Fib}^{\otimes}(\Bbbk)$
+	$(F,\alpha):(\mathcal{T},\omega)\to
+	(\cate{Vect}_{\Gamma,\mathrm f}(\Bbbk),\omega_\Gamma)$. Hence the
+	Reconstruction Theorem~\ref{prop:Tannaka-reconstruction} ensures that
+	(ii) and (iii) are equivalent.
+
+	For example, for the most common grading $\Gamma=\Z$, data (iii) amount
+	to giving a homomorphism of Hopf algebras
+	$\coEnd(\omega)\to\Bbbk[T,T^{-1}]$, where $T$ is an indeterminate.
+\end{remark}

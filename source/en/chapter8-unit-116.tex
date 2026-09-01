@@ -1,0 +1,292 @@
+% Unit 116 English translation of chapter8.tex lines 1566--1703.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter8.bisimplicial-b
+% Coverage: Section 8.8 from the Eilenberg--Zilber maps through monoidal structures.
+
+% segment-id: o014.li2.chapter8.bisimplicial-b.p001
+Definition~\ref{def:bisimplicial-diagonal} gives an additive functor
+$d:\cate{s}^2\mathcal{A}\to\cate{s}\mathcal{A}$. The aim of this section is
+to explain, under the assumption that $\mathcal{A}$ is an abelian category,
+the relationship between the functors
+% segment-id: o014.li2.chapter8.bisimplicial-b.q001
+\[ \tot \circ \mathrm{C}^2 , \; \mathrm{C} \circ d: \; \cate{s}^2 \mathcal{A} \rightrightarrows \cate{Ch}_{\geq 0}(\mathcal{A}). \]
+This relationship involves the $(p,q)$-shuffle $\sigma$ of
+Definition~\ref{def:pq-shuffle} and its sign $\sgn(\sigma)$ from
+Definition~\ref{def:pq-shuffle-sgn}.
+
+% segment-id: o014.li2.chapter8.bisimplicial-b.d001
+\begin{definition}\label{def:Eilenberg-Zilber}
+	\index{Eilenberg--Zilber map}
+	\index{Alexander--Whitney map}
+	Let $\mathcal{A}$ be an additive category and $X$ a bisimplicial object
+	in $\mathcal{A}$. For a fixed $(p,q)\in\Z_{\geq0}^2$, write $n:=p+q$.
+	\begin{enumerate}[(i)]
+		\item Define $\overline{\mathrm{EZ}}_{p,q}:X_{p,q}\to X_{n,n}$ by
+		% segment-id: o014.li2.chapter8.bisimplicial-b.q002
+		\[ \overline{\mathrm{EZ}}_{p, q} := \sum_{\sigma: (p,q)\text{-shuffle}}
+			\sgn(\sigma) \left( \sigma_- \times \sigma_+ : [n] \times [n] \to [p] \times [q] \right)^*. \]
+		A lengthy but straightforward argument, omitted here, shows that these
+		maps combine to form a morphism of chain complexes called the
+		\emph{shuffle morphism}, or \emph{Eilenberg--Zilber morphism}:
+		% segment-id: o014.li2.chapter8.bisimplicial-b.q003
+		\[ \overline{\mathrm{EZ}}: \tot(\mathrm{C}^2 X) \to \mathrm{C}(dX). \]
+		\item Define
+		$\overline{\mathrm{AW}}_n:=\sum_{p+q=n}\overline{\mathrm{AW}}_{p,q}:
+		\mathrm{C}(dX)_n\to\tot(\mathrm{C}^2X)_n$, where
+		$\overline{\mathrm{AW}}_{p,q}:X_{n,n}\to X_{p,q}$ is defined as
+		$(\lambda^n_p\times\rho^n_q)^*$, with
+		% segment-id: o014.li2.chapter8.bisimplicial-b.q004
+		\[\begin{array}{rl}
+			\lambda^n_p: [p] \hookrightarrow [n], & i \mapsto i, \\
+			\rho^n_q: [q] \hookrightarrow [n], & i \mapsto n - q + i.
+		\end{array}\]
+		Similarly, these maps combine to form a morphism of chain complexes
+		$\overline{\mathrm{AW}}:\mathrm{C}(dX)\to\tot(\mathrm{C}^2X)$,
+		called the \emph{Alexander--Whitney morphism}.
+	\end{enumerate}
+\end{definition}
+
+% segment-id: o014.li2.chapter8.bisimplicial-b.p002
+These morphisms are functorial not only in $X$, but also in the category
+$\mathcal{A}$ and in functors between such categories. They were originally
+introduced in topology in connection with the homology of product spaces.
+
+% segment-id: o014.li2.chapter8.bisimplicial-b.p003
+We next introduce the normalized versions of $\overline{\mathrm{EZ}}$ and
+$\overline{\mathrm{AW}}$.
+
+% segment-id: o014.li2.chapter8.bisimplicial-b.p004
+Let $\mathcal{A}$ be a monoidal abelian category such that
+$\otimes:\mathcal{A}\times\mathcal{A}\to\mathcal{A}$ is additive in each
+variable. Take $A,B\in\Obj(\cate{s}\mathcal{A})$. Since
+$\mathrm{C}^2(A\boxtimes B)=\mathrm{C}A\boxtimes\mathrm{C}B$, we have
+% segment-id: o014.li2.chapter8.bisimplicial-b.q005
+\[ \mathrm{C}A \otimes \mathrm{C}B := \tot\left( \mathrm{C}A \boxtimes \mathrm{C}B \right) = \tot \, \mathrm{C}^2 (A \boxtimes B). \]
+We also use the simplified notation
+% segment-id: o014.li2.chapter8.bisimplicial-b.q006
+\begin{gather*}
+	A \otimes B := d(A \boxtimes B), \\
+	\mathrm{N}A \otimes \mathrm{N}B := \tot\left( \mathrm{N}A \boxtimes \mathrm{N}B \right).
+\end{gather*}
+
+% segment-id: o014.li2.chapter8.bisimplicial-b.l001
+\begin{lemma}\label{prop:EZ-aux}
+	\index[sym1]{EZ@$\overline{\mathrm{EZ}}, \mathrm{EZ}$}
+	\index[sym1]{AW@$\overline{\mathrm{AW}}, \mathrm{AW}$}
+	Consider the monoidal abelian category $\mathcal{A}$ above. Recall that,
+	for every $Y\in\Obj(\cate{s}(\mathcal{A}))$,
+	Proposition~\ref{prop:Dold-Kan-v} identifies $\mathrm{N}Y$ with
+	$\mathrm{C}Y/\text{degenerate part}$. Under this identification, the
+	morphisms $\overline{\mathrm{AW}}$ and $\overline{\mathrm{EZ}}$ each
+	factor uniquely through the following commutative diagram:
+	% segment-id: o014.li2.chapter8.bisimplicial-b.q007
+	\[\begin{tikzcd}
+		\mathrm{C}A \otimes \mathrm{C}B \arrow[r, "{\overline{\mathrm{EZ}}}"] \arrow[twoheadrightarrow, d] & \mathrm{C}(A \otimes B) \arrow[r, "{\overline{\mathrm{AW}}}"] \arrow[twoheadrightarrow, d] & \mathrm{C}A \otimes \mathrm{C}B \arrow[twoheadrightarrow, d] \\
+		\mathrm{N}A \otimes \mathrm{N}B \arrow[r, "\mathrm{EZ}"'] & \mathrm{N}(A \otimes B) \arrow[r, "{\mathrm{AW}}"'] & \mathrm{N}A \otimes \mathrm{N}B .
+	\end{tikzcd}\]
+\end{lemma}
+\begin{proof}
+	For $\mathrm{AW}$, it is enough to verify, for all $p,q\geq0$ and
+	$n:=p+q$, the following equalities of morphisms in $\simpDelta$:
+	% segment-id: o014.li2.chapter8.bisimplicial-b.q008
+	\begin{align*}
+		\lambda^n_p \circ \mathrm{s}^j & = \mathrm{s}^j \circ \lambda^{n+1}_{p+1}, \\
+		\rho^n_q \circ \mathrm{s}^j & = \mathrm{s}^{j+n-q} \circ \rho^{n+1}_{q+1},
+	\end{align*}
+	where the respective conditions on $j$ are $0\leq j\leq p$ and
+	$0\leq j\leq q$. This verification is immediate.
+
+	For $\mathrm{EZ}$, let $\sigma$ be a $(p,q)$-shuffle and let
+	$0\leq j\leq p-1$. Consider the restriction of
+	$\overline{\mathrm{EZ}}_{p,q}$ to $\Image(s_j)\otimes B_q$. The earlier
+	discussion of $(p,q)$-shuffles shows that there is a unique
+	$0\leq k<n:=p+q$ such that $\sigma_-(k)=j$ and
+	$\sigma_-(k+1)=j+1$; at the same time,
+	$\sigma_+(k+1)=\sigma_+(k)$. This gives the equalities in $\simpDelta$
+	% segment-id: o014.li2.chapter8.bisimplicial-b.q009
+	\begin{align*}
+		\mathrm{s}^j \sigma_- \underbracket{\mathrm{d}^k \mathrm{s}^k}_{[n] \leftarrow [n]} & = \mathrm{s}^j \sigma_- : [n] \to [p-1] , \\
+		\sigma_+ \mathrm{d}^k \mathrm{s}^k & = \sigma_+ : [n] \to [q] .
+	\end{align*}
+
+	Pulling back along these equalities, we see that
+	$\overline{\mathrm{EZ}}_{p,q}|_{\Image(s_j)\otimes B_q}$ is contained
+	in the part degenerate through $s_k$. The case $0\leq j\leq q-1$ and
+	$\overline{\mathrm{EZ}}_{p,q}|_{A_p\otimes\Image(s_j)}$ is handled in
+	the same way.
+\end{proof}
+
+% segment-id: o014.li2.chapter8.bisimplicial-b.p005
+The following result is also called the generalized Eilenberg--Zilber theorem.
+
+% segment-id: o014.li2.chapter8.bisimplicial-b.th001
+\begin{theorem}[S.\ Eilenberg, J.\ A.\ Zilber, P.\ Cartier]\label{prop:Eilenberg-Zilber}
+	\index{Eilenberg--Zilber theorem}
+	Let $\mathcal{A}$ be an abelian category and
+	$X\in\Obj(\cate{s}^2\mathcal{A})$. The canonical morphisms defined above,
+	% segment-id: o014.li2.chapter8.bisimplicial-b.q010
+	$\begin{tikzcd}
+		\tot \left(\mathrm{C}^2(X)\right) \arrow[shift left, r, "\overline{\mathrm{EZ}}"] & \mathrm{C}(d(X)) \arrow[shift left, l, "\overline{\mathrm{AW}}"]
+	\end{tikzcd}$
+	are mutually inverse on homology; in particular, both are
+	quasi-isomorphisms.
+\end{theorem}
+\begin{proof}
+	% Reference: Kerodon, Proof of Theorem 2.5.7.14
+	Since $\cate{s}^2\mathcal{A}\simeq\cate{s}(\cate{s}\mathcal{A})$ and
+	$\cate{Ch}^2_{\geq0}(\mathcal{A})\simeq
+	\cate{Ch}_{\geq0}(\cate{Ch}_{\geq0}(\mathcal{A}))$, the Dold--Kan
+	correspondence has a double version, which we continue to denote by the
+	equivalence of categories
+	$\Gamma:\cate{Ch}^2_{\geq0}(\mathcal{A})\to\cate{s}^2\mathcal{A}$.
+	We may therefore assume that $X=\Gamma A$ for
+	$A\in\Obj(\cate{Ch}^2_{\geq0}(\mathcal{A}))$. If $p+q>n$ implies
+	$A_{p,q}=0$, we say that $A$ has degree $\leq n$.
+
+	First suppose that $\mathcal{A}=\cate{Ab}$, with the monoidal structure
+	from the tensor product $\otimes=\otimes_{\Z}$. Observe that $\tot$,
+	$\mathrm{C}^2$, $\mathrm{C}$, and $d$ are all right-exact additive
+	functors and preserve arbitrary direct sums. The canonical morphisms
+	$\overline{\mathrm{EZ}}$ and $\overline{\mathrm{AW}}$ are likewise
+	compatible with arbitrary direct sums. Write $A$ as a filtered union of
+	bounded subobjects. Since the filtered colimit $\varinjlim$ preserves
+	homology, the problem reduces to the case where $A$ has degree $\leq n$
+	for a fixed $n\geq0$. We argue by induction on $n$.
+
+	Brutal truncation of $A$ gives a short exact sequence
+	$0\to A'\to A\to A''\to0$, where
+	\begin{compactitem}
+		\item $A'$ has degree $\leq n-1$;
+		\item all nonzero terms of $A''$ lie in the part $p+q=n$;
+		\item the short exact sequence splits in every bidegree $(p,q)$.
+	\end{compactitem}
+	The description of the functor $\Gamma$ shows that
+	$0\to\Gamma A'\to\Gamma A\to\Gamma A''\to0$ is likewise a degreewise
+	split short exact sequence in $\cate{s}^2\cate{Ab}$. Strictly speaking,
+	the double version of $\Gamma$ is needed here, but its form is analogous.
+
+	We therefore obtain a commutative diagram of chain complexes with exact
+	rows:
+	% segment-id: o014.li2.chapter8.bisimplicial-b.q011
+	\[\begin{tikzcd}
+		0 \arrow[r] & \tot\left( \mathrm{C}^2(\Gamma A') \right) \arrow[shift left, d, "\overline{\mathrm{EZ}}"] \arrow[r] & \tot\left( \mathrm{C}^2(\Gamma A) \right) \arrow[shift left, d] \arrow[r] & \tot\left( \mathrm{C}^2(\Gamma A'') \right) \arrow[shift left, d] \arrow[r] & 0 \\
+		0 \arrow[r] & \mathrm{C}(d\Gamma A') \arrow[shift left, u, "\overline{\mathrm{AW}}"] \arrow[r] & \mathrm{C}(d\Gamma A) \arrow[shift left, u] \arrow[r] & \mathrm{C}(d\Gamma A'') \arrow[shift left, u] \arrow[r] & 0.
+	\end{tikzcd}\]
+	This diagram inductively reduces the problem to the case of $A''$. In
+	other words, under the induction hypothesis, the original problem depends
+	only on $(A_{p,q})_{p+q=n}$.
+
+	It therefore suffices to handle the case in which $A$ is a direct sum of
+	several copies of
+	$C\otimes(\mathrm{N}(\Z\Delta^p)\boxtimes
+	\mathrm{N}(\Z\Delta^q))$, with $p+q=n$ and
+	$C\in\Obj(\cate{Ab})$. We can further reduce to a single copy for one
+	pair $(p,q)$, and then factor $\identity_C$ out of all the maps to reduce
+	to the special case $C=\Z$. Notice that the part of
+	$\mathrm{N}(\Z\Delta^p)$ in degrees below $p$ does not affect the
+	problem; the same holds with $q$ in place of $p$. Correspondingly,
+	$X=\Gamma A\simeq\Z(\Delta^p\times\Delta^q)$. By
+	Theorem~\ref{prop:Dold-Kan-N-C} and Lemma~\ref{prop:EZ-aux}, it suffices
+	to prove that
+	% segment-id: o014.li2.chapter8.bisimplicial-b.q012
+	\begin{equation}\label{eqn:Eilenberg-Zilber-aux}
+		\begin{tikzcd}
+			\mathrm{N}(\Z\Delta^p) \otimes \mathrm{N}(\Z\Delta^q) \arrow[shift left, r, "\mathrm{EZ}"] & \mathrm{N}(\Z(\Delta^p \times \Delta^q)) \arrow[shift left, l, "\mathrm{AW}"]
+		\end{tikzcd}
+		\; \text{are mutually inverse on homology.}
+	\end{equation}
+
+	The posets $[p]$, $[q]$, and $[p]\times[q]$ each have a least element,
+	$0$ or $(0,0)$, so the homotopy equivalences $\mathrm{N}i$ and
+	$\mathrm{N}q$ from Example~\ref{eg:homology-poset-e} apply. It is easy
+	to verify that the following diagram commutes:
+	% segment-id: o014.li2.chapter8.bisimplicial-b.q013
+	\begin{equation*}\begin{tikzcd}
+		\Z \otimes \Z \arrow[d, "{\mathrm{N}i \otimes \mathrm{N}i}"'] \arrow[r, "\sim", "\text{standard}"'] & \Z \arrow[d, "{\mathrm{N}i}"] \arrow[r, "\sim", "\text{standard}"'] & \Z \otimes \Z \arrow[d, "{\mathrm{N}i \otimes \mathrm{N}i}"'] \\
+		\mathrm{N}(\Z\Delta^p) \otimes \mathrm{N}(\Z\Delta^q) \arrow[r, "\mathrm{EZ}"'] & \mathrm{N}(\Z(\Delta^p \times \Delta^q)) \arrow[r, "\mathrm{AW}"'] & \mathrm{N}(\Z\Delta^p) \otimes \mathrm{N}(\Z\Delta^q).
+	\end{tikzcd}\end{equation*}
+	The first row is concentrated in degree zero, and the standard isomorphism
+	$\Z\otimes\Z\simeq\Z$ maps $1\otimes1$ to $1$. The verification of
+	commutativity involves only the degree-zero terms of $\mathrm{EZ}$ and
+	$\mathrm{AW}$, and is therefore immediate. This proves
+	\eqref{eqn:Eilenberg-Zilber-aux}.
+
+	We now return to a general category $\mathcal{A}$. Suppose there is a
+	faithful exact functor (Proposition~\ref{prop:faithful-exact})
+	$F:\mathcal{A}\to\cate{Ab}$. By definition, $\tot$, $\mathrm{C}^2$,
+	$\mathrm{C}$, and $d$ commute with $F$, while
+	$\overline{\mathrm{EZ}}$ and $\overline{\mathrm{AW}}$ are plainly
+	compatible with $F$. Faithfulness and exactness then reduce the problem to
+	the known case $\mathcal{A}=\cate{Ab}$.
+
+	If $\mathcal{A}$ has a projective generator, for example
+	$\mathcal{A}=\cated{Mod}R$ for a ring $R$, there is always a faithful
+	exact functor to $\cate{Ab}$. For a general abelian category
+	$\mathcal{A}$, the existence of $F$ is guaranteed by the Freyd--Mitchell
+	theorem \ref{prop:FM}; for this purpose, the Grothendieck universe may be
+	enlarged as necessary to make $\mathcal{A}$ a small category.
+\end{proof}
+
+% segment-id: o014.li2.chapter8.bisimplicial-b.r001
+\begin{remark}[Monoidal structures]
+	Let $\mathcal{A}$ be a monoidal category and suppose that $\otimes$ is
+	additive in each variable. Lemma~\ref{prop:EZ-aux} has already given
+	canonical morphisms of the form
+	% segment-id: o014.li2.chapter8.bisimplicial-b.q014
+	\[\begin{tikzcd}[row sep=tiny]
+		\mathrm{C}A \otimes \mathrm{C}B \arrow[r, "{\overline{\mathrm{EZ}}}"] & \mathrm{C}(A \otimes B) \arrow[r, "{\overline{\mathrm{AW}}}"] & \mathrm{C}A \otimes \mathrm{C}B, \\
+		\mathrm{N}A \otimes \mathrm{N}B \arrow[r, "\mathrm{EZ}"'] & \mathrm{N}(A \otimes B) \arrow[r, "{\mathrm{AW}}"'] & \mathrm{N}A \otimes \mathrm{N}B
+	\end{tikzcd}\]
+	for $A,B\in\Obj(\cate{s}\mathcal{A})$. The special case of the
+	generalized Eilenberg--Zilber theorem with $X=A\boxtimes B$ states that
+	these morphisms are mutually inverse on homology. Recall that
+	$\cate{Ch}_{\geq0}(\mathcal{A})$ is also a monoidal category
+	(Example~\ref{eg:tensor-bisimplicial}), and there are the evident morphisms
+	% segment-id: o014.li2.chapter8.bisimplicial-b.q015
+	\[\begin{tikzcd}[column sep=large]
+		\munit \;\text{in degree zero} \arrow[r, "\sim"] & \mathrm{N}(\mathrm{const}(\munit)) \arrow[shift left, r, "\text{inclusion}"] & \mathrm{C}(\mathrm{const}(\munit)). \arrow[shift left, l, "\text{quotient by the degenerate part}"]
+	\end{tikzcd}\]
+
+	From an abstract viewpoint, the shuffle morphism (respectively, the
+	Alexander--Whitney morphism) equips $\mathrm{C}$ and $\mathrm{N}$ with
+	the structure of right-lax (respectively, left-lax) monoidal functors; see
+	\cite[Remark 3.1.8]{Li1}. For the shuffle morphism, this roughly means
+	that $\overline{\mathrm{EZ}}_{p,q}$ and $\mathrm{EZ}_{p,q}$ are
+	associative and compatible with the unit; the case of
+	$\overline{\mathrm{AW}}$ and $\mathrm{AW}$ is dual. These assertions can
+	also be verified directly, though at length. For example, associativity
+	of the shuffle morphism involves \eqref{eqn:shuffle-sign-1}, while the
+	case of the Alexander--Whitney morphism is simpler.
+
+	If $\mathcal{A}$ is a symmetric monoidal category,
+	$\overline{\mathrm{EZ}}$ and $\mathrm{EZ}$ also preserve the Koszul
+	braiding introduced in \eqref{eqn:Koszul-braiding}. For
+	$\overline{\mathrm{EZ}}$, this is equivalent to the commutativity of the
+	following diagram in $\mathcal{A}$:
+	% segment-id: o014.li2.chapter8.bisimplicial-b.q016
+	\[\begin{tikzcd}
+		(\mathrm{C}A)_p \otimes (\mathrm{C}B)_q \arrow[r, "{\overline{\mathrm{EZ}}_{p, q}}"] \arrow[d, "{(-1)^{pq} \mathrm{swap}}"'] & \mathrm{C}(A \otimes B)_{p+q} \arrow[d, "{\mathrm{C}(\mathrm{swap})}"] \\
+		(\mathrm{C}B)_q \otimes (\mathrm{C}A)_p \arrow[r, "{\overline{\mathrm{EZ}}_{q, p}}"'] & \mathrm{C}(B \otimes A)_{q+p}.
+	\end{tikzcd}\]
+	Here $p,q\in\Z_{\geq0}$. The maps $\mathrm{swap}$ in the two columns
+	come from the braiding $c(X,Y):X\otimes Y\rightiso Y\otimes X$ on
+	$\mathcal{A}$ and its induced degreewise action on simplicial objects;
+	the maps themselves involve no sign. The proof follows directly from the
+	definition and \eqref{eqn:shuffle-sign-0}. By contrast,
+	$\overline{\mathrm{AW}}$ and $\mathrm{AW}$ need not be compatible with
+	the braiding.
+
+	Broadly speaking, the Dold--Kan correspondence functor $\mathrm{N}$ of
+	Theorem~\ref{prop:Dold-Kan}, together with its unnormalized version
+	$\mathrm{C}$, is monoidal in both the right-lax and left-lax senses. The
+	required data are supplied respectively by the shuffle morphism and the
+	Alexander--Whitney morphism. If $\mathcal{A}$ is symmetric monoidal, the
+	right-lax monoidal functor structure is also symmetric. The concept of a
+	bilax monoidal functor \cite[Chapters 3, 5]{AM10} gives a more precise
+	formulation of these structures.
+
+	% The symmetry of the shuffle morphism also gives an a priori explanation
+	% of the Koszul braiding: the swap of simplicial objects involves no sign,
+	% and under the Dold--Kan correspondence it becomes the Koszul braiding on chain complexes.
+\end{remark}

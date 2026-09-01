@@ -1,0 +1,340 @@
+% Unit 041 English translation of chapter3.tex lines 1710--1881.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter3.double-complex-cohomology
+% Coverage: Section 3.10 in full.
+
+% segment-id: o014.li2.chapter3.double-complex-cohomology.h001
+\section{Cohomology of double complexes}\label{sec:double-cplx-coh}
+\hypertarget{o014.aljabr2.chapter3.double-complex-cohomology}{ }
+
+% segment-id: o014.li2.chapter3.double-complex-cohomology.p001
+This section examines the cohomology of a double complex $X$ in the horizontal
+and vertical directions, and its relationship with the cohomology of the total
+complex. The results will be used to study derived functors of bifunctors; the
+argument follows \cite[\S 12.5]{KS06}.
+
+% segment-id: o014.li2.chapter3.double-complex-cohomology.p002
+Let $\mathcal{A}$ be an abelian category. As always, when $\mathcal{A}$ is a
+$\Bbbk$-linear abelian category, all the results have corresponding
+generalizations.
+
+% segment-id: o014.li2.chapter3.double-complex-cohomology.p003
+Recall that Definition~\ref{def:bicplx-F1} (or the more explicit diagram
+\eqref{eqn:bicplx-diagram}) introduced a pair of invertible additive functors
+% segment-id: o014.li2.chapter3.double-complex-cohomology.g001
+\[\begin{tikzcd}
+	\cate{C}^2(\mathcal{A}) \arrow[r, shift left, "{F_{\mathrm{I}}}"] \arrow[r, shift right, "{F_{\mathrm{II}}}"'] & \cate{C}(\cate{C}(\mathcal{A})) .
+\end{tikzcd}\]
+Using them, define for every double complex $X$ (with $p,q,n\in\Z$ below)
+% segment-id: o014.li2.chapter3.double-complex-cohomology.q001
+\begin{align*}
+	\Hm_{\mathrm{I}}^p(X) & := (\Hm^p \circ F_{\mathrm{I}})(X)
+	= \text{the complex}\; \left[ \begin{tikzcd}[row sep=small]
+		\vdots \\
+		\Hm^p(X^{\bullet, q+1}, \dhori) \arrow[u, "{\dvert}" inner sep=0.6em] \\
+		\Hm^p(X^{\bullet, q}, \dhori) \arrow[u, "{\dvert}" inner sep=0.6em] \\
+		\vdots \arrow[u, "{\dvert}" inner sep=0.6em]
+	\end{tikzcd}\right] \quad \text{(see Proposition~\ref{prop:abelian-cat-cplx})}, \\
+	\Hm_{\mathrm{II}}^q(X) & := (\Hm^q \circ F_{\mathrm{II}})(X) \\
+	& = \text{the complex}\; \left[ \cdots \xrightarrow{\dhori} \Hm^q(X^{p, \bullet}, \dvert) \xrightarrow{\dhori} \Hm^q(X^{p+1, \bullet}, \dvert) \xrightarrow{\dhori} \cdots \right] , \\
+	\tau_{\mathrm{I}}^{\leq n} & := (F_{\mathrm{I}})^{-1} \circ \tau^{\leq n} \circ F_{\mathrm{I}}, \\
+	\tau_{\mathrm{II}}^{\leq n} & := (F_{\mathrm{II}})^{-1} \circ \tau^{\leq n} \circ F_{\mathrm{II}},
+\end{align*} \index[sym1]{HmIpX@$\Hm_{\mathrm{I}}^p(X)$, $\Hm_{\mathrm{II}}^q(X)$} \index[sym1]{tauI@$\tau_{\mathrm{I}}^{\leq n}$, $\tau_{\mathrm{II}}^{\leq n}, \ldots$}%
+\footnote{Translator's note (O014-C054): in the first two definitions the
+source prints only the composite functors $\Hm^p\circ F_{\mathrm{I}}$ and
+$\Hm^q\circ F_{\mathrm{II}}$ on the right, although the left-hand sides are
+their values on the double complex $X$. The argument $X$ has been restored.}
+There are likewise functors $\tilde{\tau}_{\mathrm{I}}^{\leq n}$,
+$\tau_{\mathrm{I}}^{\geq n}$, $\tilde{\tau}_{\mathrm{I}}^{\geq n}$ and
+$\tilde{\tau}_{\mathrm{II}}^{\leq n}$,
+$\tau_{\mathrm{II}}^{\geq n}$, $\tilde{\tau}_{\mathrm{II}}^{\geq n}$.
+Thus there are still morphisms of functors
+% segment-id: o014.li2.chapter3.double-complex-cohomology.q002
+\begin{gather*}
+	\tau_{\mathrm{I}}^{\leq n} \to \tilde{\tau}_{\mathrm{I}}^{\leq n} \to \identity_{\cate{C}^2(\mathcal{A})} \to \tilde{\tau}_{\mathrm{I}}^{\geq n} \to \tau_{\mathrm{I}}^{\geq n}, \\
+	\tau_{\mathrm{II}}^{\leq n} \to \tilde{\tau}_{\mathrm{II}}^{\leq n} \to \identity_{\cate{C}^2(\mathcal{A})} \to \tilde{\tau}_{\mathrm{II}}^{\geq n} \to \tau_{\mathrm{II}}^{\geq n}.
+\end{gather*}
+
+% segment-id: o014.li2.chapter3.double-complex-cohomology.de001
+\begin{definition}\label{def:Cf-Supp}
+	\index[sym1]{SuppX@$\Supp(X)$}
+	\index[sym1]{C2f@$\cate{C}^2_f(\mathcal{A})$}
+	For a double complex $X$, write
+	$\Supp(X) := \left\{ (p,q) \in \Z^2 : X^{p,q} \neq 0 \right\}$.
+	Let $\cate{C}^2_f(\mathcal{A})$ be the full subcategory consisting of
+	those objects $X$ of $\cate{C}^2(\mathcal{A})$ for which the set
+	$\{(p,q)\in\Supp(X):p+q=n\}$ is finite for every $n\in\Z$.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.double-complex-cohomology.ex001
+\begin{example}
+	If $\Supp(X)\subset\Z_{\geq 0}^2$ (the first quadrant), if
+	$\Supp(X)\subset\Z_{\leq 0}^2$ (the third quadrant), or if $\Supp(X)$
+	is the union of finitely many rows or columns, then $X$ is an object of
+	$\cate{C}^2_f(\mathcal{A})$.
+\end{example}
+
+% segment-id: o014.li2.chapter3.double-complex-cohomology.p004
+The total complexes $\tot_{\oplus}(X)$ and $\tot_{\Pi}(X)$ are defined for
+every object $X$ of $\cate{C}^2_f(\mathcal{A})$, with no additional assumption
+on $\mathcal{A}$. Moreover, $\tot_{\oplus}(X)=\tot_{\Pi}(X)$ in this case.
+We therefore obtain an additive functor
+$\tot:\cate{C}^2_f(\mathcal{A})\to\cate{C}(\mathcal{A})$.
+
+% segment-id: o014.li2.chapter3.double-complex-cohomology.p005
+We now make a simple but necessary observation. Given an object $X$ of
+$\cate{C}^2_f(\mathcal{A})$ and $n\in\Z$, there is a finite subset
+$S\subset\Z^2$ such that $\Hm^n(\tot(X))$ is completely determined by the
+data $\left(X^{p,q},\dhori^{p,q},\dvert^{p,q}\right)_{(p,q)\in S}$.
+
+% segment-id: o014.li2.chapter3.double-complex-cohomology.le001
+\begin{lemma}\label{prop:tot-exact}
+	The total-complex functor
+	$\tot:\cate{C}^2_f(\mathcal{A})\to\cate{C}(\mathcal{A})$ is exact
+	(Definition~\ref{def:exact-functor}).
+\end{lemma}
+% segment-id: o014.li2.chapter3.double-complex-cohomology.pf001
+\begin{proof}
+	Let $X\xrightarrow{f}Y\xrightarrow{g}Z$ be an exact sequence in
+	$\cate{C}^2_f(\mathcal{A})$. Recalling the relevant definitions, such as
+	Proposition~\ref{prop:abelian-cat-cplx}, it suffices to show that for every
+	$n\in\Z$ the sequence
+% segment-id: o014.li2.chapter3.double-complex-cohomology.q003
+	\[ \bigoplus_{p+q=n} X^{p,q} \xrightarrow{\bigoplus_{p+q=n} f^{p,q}} \bigoplus_{p+q=n} Y^{p,q} \xrightarrow{\bigoplus_{p+q=n} g^{p,q}} \bigoplus_{p+q=n} Z^{p,q} \]
+	is exact in $\mathcal{A}$. Since these direct sums are finite, this reduces
+	to the exactness of
+	$X^{p,q}\xrightarrow{f^{p,q}}Y^{p,q}\xrightarrow{g^{p,q}}Z^{p,q}$.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.double-complex-cohomology.p006
+Although the next lemma may look complicated, it is merely an exercise in the
+definitions and applies to every additive category $\mathcal{A}$.
+
+% segment-id: o014.li2.chapter3.double-complex-cohomology.le002
+\begin{lemma}\label{prop:double-cplx-tot-aux0}
+	Let $h\in\Z$ and let $Y$ be an object of $\cate{C}(\mathcal{A})$. Form
+% segment-id: o014.li2.chapter3.double-complex-cohomology.l001
+	\begin{compactitem}
+% segment-id: o014.li2.chapter3.double-complex-cohomology.i001
+		\item the object $Y[-h]$ of $\cate{C}(\mathcal{A})$;
+% segment-id: o014.li2.chapter3.double-complex-cohomology.i002
+		\item the object $Y_{\mathrm{I}}[-h]$ of
+		$\cate{C}(\cate{C}(\mathcal{A}))$, whose term in degree $h$ is $Y$
+		and whose other terms are $0$.
+	\end{compactitem}
+	There are then canonical isomorphisms in $\cate{C}(\mathcal{A})$
+% segment-id: o014.li2.chapter3.double-complex-cohomology.q004
+	\begin{gather*}
+		(\tot \circ F_{\mathrm{I}}^{-1}) \Cone\left( \identity_{Y_{\mathrm{I}}[-h]} \right) \simeq \Cone\left( \identity_{Y[-h]} \right), \\
+		(\tot \circ F_{\mathrm{I}}^{-1}) \left( Y_{\mathrm{I}}[-h] \right) \simeq Y[-h].
+	\end{gather*}
+\end{lemma}
+% segment-id: o014.li2.chapter3.double-complex-cohomology.pf002
+\begin{proof}
+	By definition,
+	$\Cone\left(\identity_{Y_{\mathrm{I}}[-h]}\right)$ is the object
+	$Y\xrightarrow{\identity_Y}Y$ of
+	$\cate{C}^{[h-1,h]}(\cate{C}(\mathcal{A}))$, concentrated in degrees
+	$h-1$ and $h$. Hence
+	$Z:=F_{\mathrm{I}}^{-1}\Cone\left(\identity_{Y_{\mathrm{I}}[-h]}\right)$
+	is the double complex shown below:
+% segment-id: o014.li2.chapter3.double-complex-cohomology.g002
+	\[\begin{tikzcd}
+		n \in \Z & \vdots & \vdots \\
+		(q = n-h+1) & Y^{n-h+1} \arrow[u, "d_Y"] \arrow[r, "\identity"] & Y^{n-h+1} \arrow[u, "d_Y"] \\
+		(q = n-h) & Y^{n-h} \arrow[r, "\identity"] \arrow[u, "d_Y"] & Y^{n-h} \arrow[u, "d_Y"] \\
+		& (p = h-1) \arrow[phantom, u, "\cdots" description, sloped] & (p = h) \arrow[phantom, u, "\cdots" description, sloped]
+	\end{tikzcd}\]
+	All columns corresponding to $p\notin\{h-1,h\}$ are zero. The definition
+	of the total complex (Definition~\ref{def:total-cplx}) now gives at once
+% segment-id: o014.li2.chapter3.double-complex-cohomology.q005
+	\begin{align*}
+		\tot(Z)^n & = Y^{n-h+1} \oplus Y^{n-h} = Y[-h]^{n+1} \oplus Y[-h]^n \\
+		& = \Cone\left( \identity_{Y[-h]} \right)^n , \\
+		d_{\tot(Z)}^n & = \begin{pmatrix}
+			(-1)^{h-1} d_Y^{n-h+1} & 0 \\
+			\identity_{Y^{n-h+1}} & (-1)^{h} d_Y^{n-h}
+		\end{pmatrix}
+		= \begin{pmatrix}
+			- d_{Y[-h]}^{n+1} & 0 \\
+			\identity_{Y[-h]^{n+1}} & d_{Y[-h]}^n
+		\end{pmatrix} \\
+		& = d_{\Cone\left( \identity_{Y[-h]} \right)}^n .
+	\end{align*}
+	The second isomorphism can be checked similarly, but more easily, and is
+	left to the reader.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.double-complex-cohomology.le003
+\begin{lemma}\label{prop:double-cplx-tot-aux}
+	Let $X$ be an object of $\cate{C}^2_f(\mathcal{A})$ and let $q\in\Z$.
+% segment-id: o014.li2.chapter3.double-complex-cohomology.l002
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter3.double-complex-cohomology.i003
+		\item The natural morphism
+		$\tot\left(\tau_{\mathrm{I}}^{\leq q}X\right)\to
+		\tot\left(\tilde{\tau}_{\mathrm{I}}^{\leq q}X\right)$ is a
+		quasi-isomorphism.
+% segment-id: o014.li2.chapter3.double-complex-cohomology.i004
+		\item There is a canonical short exact sequence
+% segment-id: o014.li2.chapter3.double-complex-cohomology.q006
+		\[ 0 \to \tot\left( \tilde{\tau}_{\mathrm{I}}^{\leq q-1} (X) \right) \to \tot\left( \tau_{\mathrm{I}}^{\leq q}(X) \right) \to \Hm_{\mathrm{I}}^q(X)[-q] \to 0. \]
+	\end{enumerate}
+\end{lemma}
+% segment-id: o014.li2.chapter3.double-complex-cohomology.pf003
+\begin{proof}
+	Apply Lemma~\ref{prop:truncation-ses} in
+	$\cate{C}(\cate{C}(\mathcal{A}))$ to obtain the short exact sequences
+% segment-id: o014.li2.chapter3.double-complex-cohomology.q007
+	\begin{gather*}
+		0 \to \tau^{\leq q} F_{\mathrm{I}} (X) \to \tilde{\tau}^{\leq q} F_{\mathrm{I}} (X) \to \Cone\left( \identity_{\Image\left( d^q_{F_{\mathrm{I}} X} \right)_{\mathrm{I}} [-q-1]} \right) \to 0, \\
+		0 \to \tilde{\tau}^{\leq q-1} F_{\mathrm{I}}(X) \to \tau^{\leq q} F_{\mathrm{I}}(X) \to \Hm^q_{\mathrm{I}}(X)_{\mathrm{I}}[-q] \to 0.
+	\end{gather*}
+	The notation $(\cdots)_{\mathrm{I}}[\cdots]$ has the meaning specified in
+	Lemma~\ref{prop:double-cplx-tot-aux0}. Apply
+	$\tot\circ F_{\mathrm{I}}^{-1}$ to these short exact sequences.
+	Lemma~\ref{prop:tot-exact} says that $\tot$ is exact, and
+	$F_{\mathrm{I}}^{-1}$ is of course exact as well. Substitution from
+	Lemma~\ref{prop:double-cplx-tot-aux0} gives short exact sequences in
+	$\cate{C}(\mathcal{A})$
+% segment-id: o014.li2.chapter3.double-complex-cohomology.q008
+	\begin{gather*}
+		0 \to \tot\left(\tau_{\mathrm{I}}^{\leq q} X\right) \to \tot\left( \tilde{\tau}_{\mathrm{I}}^{\leq q} X \right) \to \Cone\left( \identity_{\Image( d_{F_{\mathrm{I}} X}^q )[-q-1]} \right) \to 0, \\
+		0 \to \tot\left( \tilde{\tau}_{\mathrm{I}}^{\leq q-1} X \right) \to \tot\left( \tau_{\mathrm{I}}^{\leq q}X \right) \to \Hm_{\mathrm{I}}^q(X)[-q] \to 0.
+	\end{gather*}
+	The second is precisely (ii). Part (i) follows from the first together with
+	Propositions~\ref{prop:long-exact-sequence-ses} and
+	\ref{prop:cone-homotopy}~(i).
+\end{proof}
+
+% segment-id: o014.li2.chapter3.double-complex-cohomology.p007
+For any object $X$ of $\cate{C}^2(\mathcal{A})$, let
+$\Hm_{\mathrm{I}}(X)$ and $\Hm_{\mathrm{II}}(X)$ denote the following double
+complexes ($p,q\in\Z$):
+\index[sym1]{HmIX@$\Hm_{\mathrm{I}}(X)$, $\Hm_{\mathrm{II}}(X)$}
+% segment-id: o014.li2.chapter3.double-complex-cohomology.q009
+\begin{equation}\label{eqn:HIHII}\begin{aligned}
+	\left( \Hm_{\mathrm{I}}(X)^{p, \bullet}, \dvert_{\Hm_{\mathrm{I}}(X)}^{p, \bullet} \right) & := \Hm_{\mathrm{I}}^p(X), &
+	\dhori_{\Hm_{\mathrm{I}}(X)}^{\bullet, \bullet} := 0, \\
+	\left( \Hm_{\mathrm{II}}(X)^{\bullet, q}, \dhori_{\Hm_{\mathrm{II}}(X)}^{\bullet, q} \right) & := \Hm_{\mathrm{II}}^q(X), &
+	\dvert_{\Hm_{\mathrm{II}}(X)}^{\bullet, \bullet} := 0,
+\end{aligned}\end{equation}
+In other words, $\Hm_{\mathrm{I}}(X)$ (respectively
+$\Hm_{\mathrm{II}}(X)$) is obtained by taking the cohomology of $X$ in the
+$\dhori$-direction (respectively the $\dvert$-direction). Both are endofunctors
+of $\cate{C}^2(\mathcal{A})$. We may then define
+$\Hm_{\mathrm{II}}\Hm_{\mathrm{I}}(X)$ and
+$\Hm_{\mathrm{I}}\Hm_{\mathrm{II}}(X)$; both satisfy
+$\dhori=0=\dvert$.
+
+% segment-id: o014.li2.chapter3.double-complex-cohomology.th001
+\begin{theorem}\label{prop:double-cplx-tot}
+	Let $f:X\to Y$ be a morphism in $\cate{C}^2_f(\mathcal{A})$. If the
+	induced morphism
+	$\Hm_{\mathrm{II}}\Hm_{\mathrm{I}}(X)\to
+	\Hm_{\mathrm{II}}\Hm_{\mathrm{I}}(Y)$ is an isomorphism, then
+	$\tot(f):\tot(X)\to\tot(Y)$ is a quasi-isomorphism.
+
+	The same conclusion holds if instead the induced morphism
+	$\Hm_{\mathrm{I}}\Hm_{\mathrm{II}}(X)\to
+	\Hm_{\mathrm{I}}\Hm_{\mathrm{II}}(Y)$ is assumed to be an isomorphism.
+\end{theorem}
+% segment-id: o014.li2.chapter3.double-complex-cohomology.pf004
+\begin{proof}
+	The condition is equivalent to saying that the morphism
+	$\Hm_{\mathrm{I}}^n(f):\Hm_{\mathrm{I}}^n(X)\to
+	\Hm_{\mathrm{I}}^n(Y)$ in $\cate{C}(\mathcal{A})$ is a quasi-isomorphism
+	for every $n\in\Z$. The first step is to reduce to the case in which
+% segment-id: o014.li2.chapter3.double-complex-cohomology.q010
+	\begin{equation}\label{eqn:double-cplx-tot-aux}
+		q \ll 0 \implies \tilde{\tau}_{\mathrm{I}}^{\leq q}(X) = 0 = \tilde{\tau}_{\mathrm{I}}^{\leq q}(Y).
+	\end{equation}
+	Indeed, let $r\in\Z$. Functorial truncation as in
+	Lemma~\ref{prop:truncation-ses} shows that the original condition implies
+	that
+	$\Hm_{\mathrm{I}}^n(\tau_{\mathrm{I}}^{\geq r}f):
+	\Hm_{\mathrm{I}}^n(\tau_{\mathrm{I}}^{\geq r}X)\to
+	\Hm_{\mathrm{I}}^n(\tau_{\mathrm{I}}^{\geq r}Y)$ is also a
+	quasi-isomorphism for every $n$. For a fixed $n$, however, the definition
+	of $\cate{C}^2_f(\mathcal{A})$ shows that when $r\ll0$ there is a
+	commutative diagram
+% segment-id: o014.li2.chapter3.double-complex-cohomology.g003
+	\begin{equation}\label{eqn:double-cplx-tot-aux2}\begin{tikzcd}
+		\Hm^n(\tot(X)) \arrow[r, "{\Hm^n(\tot(f))}"] \arrow[d, "\sim"' sloped] & \Hm^n(\tot(Y)) \arrow[d, "\sim" sloped] \\
+		\Hm^n\left( \tot(\tau_{\mathrm{I}}^{\geq r} X) \right) \arrow[r, "{\Hm^n\left( \tot (\tau_{\mathrm{I}}^{\geq r} f) \right)}"' inner sep=0.8em] & \Hm^n\left( \tot(\tau_{\mathrm{I}}^{\geq r} Y) \right)
+	\end{tikzcd}\end{equation}
+	The double complexes in the second row satisfy
+	\eqref{eqn:double-cplx-tot-aux}. We may therefore replace $f$ by
+	$\tau_{\mathrm{I}}^{\geq r}f$ from now on and assume
+	\eqref{eqn:double-cplx-tot-aux}. Our goal is to prove that
+	$\Hm^n(\tot(f))$ is an isomorphism for the chosen $n$.
+
+	For every $q\in\Z$, Lemma~\ref{prop:double-cplx-tot-aux}~(ii) gives a
+	commutative diagram with exact rows
+% segment-id: o014.li2.chapter3.double-complex-cohomology.g004
+	\[\begin{tikzcd}
+		0 \arrow[r] & \tot\left( \tilde{\tau}_{\mathrm{I}}^{\leq q-1} X \right) \arrow[r] \arrow[d, "{\alpha_{q-1}}"] & \tot\left( \tau_{\mathrm{I}}^{\leq q} X \right) \arrow[d, "{\beta_q}"] \arrow[r] & \Hm_{\mathrm{I}}^q(X)[-q] \arrow[d, "{\Hm_{\mathrm{I}}^q(f)[-q]}" description] \arrow[r] & 0 \\
+		0 \arrow[r] & \tot\left( \tilde{\tau}_{\mathrm{I}}^{\leq q-1} Y \right) \arrow[r] & \tot\left( \tau_{\mathrm{I}}^{\leq q} Y \right) \arrow[r] & \Hm_{\mathrm{I}}^q(Y)[-q] \arrow[r] & 0
+	\end{tikzcd}\]%
+	\footnote{Translator's note (O014-C055): the source labels the right-hand
+	vertical arrow only by $\simeq$. The theorem's hypothesis says that this
+	morphism is the quasi-isomorphism $\Hm_{\mathrm{I}}^q(f)[-q]$, not
+	necessarily an isomorphism of complexes; the morphism has therefore been
+	named and its precise property stated.}
+	The right-hand vertical arrow is a quasi-isomorphism, and all the vertical
+	arrows come from $f$. We shall prove that both $\alpha_q$ and $\beta_q$ are
+	quasi-isomorphisms. If $\alpha_{q-1}$ is a quasi-isomorphism, then
+	functoriality of the associated long exact sequences
+	(Proposition~\ref{prop:long-exact-sequence-ses}), together with
+	Proposition~\ref{prop:5-lemma}, implies that $\beta_q$ is also a
+	quasi-isomorphism. On the other hand,
+	Lemma~\ref{prop:double-cplx-tot-aux}~(i) gives the commutative diagram
+% segment-id: o014.li2.chapter3.double-complex-cohomology.g005
+	\[\begin{tikzcd}
+		\tot\left( \tau_{\mathrm{I}}^{\leq q} X \right) \arrow[r, "\text{quasi-isomorphism}"] \arrow[d, "{\beta_q}"'] & \tot\left( \tilde{\tau}_{\mathrm{I}}^{\leq q} X \right) \arrow[d, "{\alpha_q}"] \\
+		\tot\left( \tau_{\mathrm{I}}^{\leq q} Y \right) \arrow[r, "\text{quasi-isomorphism}"'] & \tot\left( \tilde{\tau}_{\mathrm{I}}^{\leq q} Y \right)
+	\end{tikzcd}\]
+	Thus, if $\beta_q$ is a quasi-isomorphism, then so is $\alpha_q$. Since
+	$\alpha_q$ is simply $0\rightiso0$ when $q\ll0$, recursion shows that
+	$\alpha_q$ and $\beta_q$ are quasi-isomorphisms for all $q$.
+
+	Recall that $n\in\Z$ has been fixed. By an argument similar to that for
+	\eqref{eqn:double-cplx-tot-aux2}, when $q\gg0$ there is a commutative
+	diagram
+% segment-id: o014.li2.chapter3.double-complex-cohomology.g006
+	\[\begin{tikzcd}
+		\Hm^n(\tot(X)) \arrow[r, "{\Hm^n(\tot(f))}"] & \Hm^n(\tot(Y)) \\
+		\Hm^n\left( \tot(\tau_{\mathrm{I}}^{\leq q} X) \right) \arrow[r, "{\Hm^n(\beta_q)}"' inner sep=0.8em, "\sim"] \arrow[u, "\sim" sloped] & \Hm^n\left( \tot(\tau_{\mathrm{I}}^{\leq q} Y) \right) \arrow[u, "\sim"' sloped]
+	\end{tikzcd}\]
+	Hence $\Hm^n(\tot(f))$ is indeed an isomorphism.
+
+	Finally, the same argument applies when
+	$\Hm_{\mathrm{I}}\Hm_{\mathrm{II}}(X)\rightiso
+	\Hm_{\mathrm{I}}\Hm_{\mathrm{II}}(Y)$. Alternatively, one may use
+	Proposition~\ref{prop:double-cplx-swap} to interchange
+	$\Hm_{\mathrm{I}}$ and $\Hm_{\mathrm{II}}$.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.double-complex-cohomology.p008
+The proof above is rather involved. Example~\sourcecrossref{eg:double-cplx-tot-ss}{in \S~5.6}
+will give another proof based on spectral sequences.
+
+% segment-id: o014.li2.chapter3.double-complex-cohomology.co001
+\begin{corollary}\label{prop:acyclic-assembly}
+	Let $X$ be an object of $\cate{C}_f^2(\mathcal{A})$. If $X$ is row-exact,
+	that is, if $\left(X^{\bullet,q},\dhori\right)$ is exact for every
+	$q\in\Z$, then $\tot(X)$ is exact. Likewise, if $X$ is column-exact, then
+	$\tot(X)$ is exact.
+\end{corollary}
+% segment-id: o014.li2.chapter3.double-complex-cohomology.pf005
+\begin{proof}
+	If $X$ is row-exact, then
+	$\Hm_{\mathrm{II}}\Hm_{\mathrm{I}}(X)=0$. Theorem~\ref{prop:double-cplx-tot}
+	therefore implies that $\tot(X)\to\tot(0)=0$ is a quasi-isomorphism; in
+	other words, $\tot(X)$ is exact.
+
+	The argument in the column-exact case is identical. Alternatively, the two
+	cases can be deduced from one another by
+	Proposition~\ref{prop:double-cplx-swap}.
+\end{proof}

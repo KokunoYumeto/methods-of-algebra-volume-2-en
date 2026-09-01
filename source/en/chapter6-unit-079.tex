@@ -1,0 +1,361 @@
+% Unit 079 English translation of chapter6.tex lines 1361--1539.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter6.finite-index-subgroups
+% Coverage: Section 6.8 in full; ends immediately before Section 6.9.
+
+% segment-id: o014.li2.chapter6.finite-index-subgroups.h001
+\section{Finite-index subgroups}\label{sec:group-finite-index}
+\hypertarget{o014.aljabr2.chapter6.finite-index-subgroups}{ }
+% segment-id: o014.li2.chapter6.finite-index-subgroups.p001
+In this section, with a commutative ring $\Bbbk$ fixed, we consider a group
+$G$ and its subgroup $H$. Our aim is to discuss some special phenomena that
+occur when the index $(G:H)$ is finite.
+
+% segment-id: o014.li2.chapter6.finite-index-subgroups.p002
+Definition~\ref{def:induced-module} defines the induced $G$-modules
+$\Ind^G_H(N)$ and $\iInd^G_H(N)$ for every $H$-module $N$. Our first step in
+this section is to realize them as certain spaces of maps; at this stage,
+$(G:H)$ need not be finite.
+
+% segment-id: o014.li2.chapter6.finite-index-subgroups.p003
+For every $\Bbbk$-module $V$, give the set of maps $\{f:G\to V\}$ the
+following $G$-module structure. Its $\Bbbk$-module structure comes from
+pointwise operations on maps, while the $G$-action is
+% segment-id: o014.li2.chapter6.finite-index-subgroups.q001
+\[ (g f)(x) = f(xg), \quad f: G \to V, \; g, x \in G. \]
+
+% segment-id: o014.li2.chapter6.finite-index-subgroups.p004
+For every map $f:G\to V$, write
+$\Supp(f):=\{x\in G:f(x)\neq0\}$. To make the statement convenient, choose
+representatives $(g_i)_{i\in I}$ for the coset decompositions such that
+\footnote{Editorial correction: the Chinese source indexes the
+representatives by $i\in H$, whereas the decompositions themselves are
+indexed by the set $I$.}
+% segment-id: o014.li2.chapter6.finite-index-subgroups.q002
+\[ G = \bigsqcup_{i \in I} g_i H = \bigsqcup_{i \in I} Hg_i^{-1}. \]
+
+% segment-id: o014.li2.chapter6.finite-index-subgroups.le001
+\begin{lemma}[Induced modules as spaces of maps]\label{prop:Ind-as-mappings}
+	There are canonical isomorphisms of $G$-modules as follows.
+% segment-id: o014.li2.chapter6.finite-index-subgroups.q003
+	\begin{equation*}\begin{gathered}
+% segment-id: o014.li2.chapter6.finite-index-subgroups.g001
+		\begin{tikzcd}[column sep=small, row sep=tiny, ampersand replacement=\&]
+			\Ind^G_H(N) \arrow[leftrightarrow, r, "\sim"] \& \left\{\begin{array}{r|l}
+				f: G \to N & \forall h \in H, \forall x \in G, \\
+				& f(hx) = h \cdot f(x)
+			\end{array}\right\} \\
+			\varphi \arrow[mapsto, r] \& {\varphi|_{G \subset \Bbbk[G]}} \\
+			{\left[\sum_g a_g g \mapsto \sum_g a_g f(g)\right]} \& f, \arrow[mapsto, l]
+		\end{tikzcd} \\
+% segment-id: o014.li2.chapter6.finite-index-subgroups.g002
+		\begin{tikzcd}[column sep=small, row sep=tiny, ampersand replacement=\&]
+			\iInd^G_H(N) \arrow[leftrightarrow, r, "\sim"] \& \left\{\begin{array}{r|l}
+				f: G \to N & \text{as above, but}\; H \backslash \Supp(f) \;\text{is finite}
+			\end{array}\right\} \\
+			g_i \otimes y \arrow[mapsto, r] \& {\left[ h g_i^{-1} \mapsto h y, \;\text{equal to $0$ outside $Hg_i^{-1}$} \right]} \\
+			\sum_i g_i \otimes f(g_i^{-1}) \& f, \arrow[mapsto, l]
+		\end{tikzcd}
+	\end{gathered}\end{equation*}
+	where $g\in G$, $y\in N$, and $i\in I$. The right-hand sides of the
+	isomorphisms are given the $G$-module structure discussed above. These
+	maps do not depend on the choice of representatives $g_i$.
+\end{lemma}
+% segment-id: o014.li2.chapter6.finite-index-subgroups.pf001
+\begin{proof}
+	Verify directly that all the maps are well-defined, $G$-equivariant,
+	mutually inverse, and independent of the choice of representatives.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.finite-index-subgroups.p005
+The isomorphisms of Proposition~\ref{prop:pullback-two-adjoint} are easily
+rewritten using the spaces of maps above. For example,
+% segment-id: o014.li2.chapter6.finite-index-subgroups.g003
+\begin{equation}\label{eqn:Ind-as-mappings}
+	\begin{tikzcd}[row sep=tiny]
+		\Hom_H\left(\Res^G_H M, N \right) \arrow[r, "\sim"] & \Hom_G\left(M, \Ind^G_H N \right) \\
+		\theta \arrow[mapsto, r] & {\left[ x \mapsto [g \mapsto \theta(gx)] \right]}, \\
+		\Hom_H\left(N, \Res^G_H M\right) \arrow[r, "\sim"] & \Hom_G\left(\iInd^G_H N, M\right) \\
+		\psi \arrow[mapsto, r] & {\left[ f \mapsto \sum_{\text{cosets}\; gH} g \psi(f(g^{-1})) \right]}.
+	\end{tikzcd}
+\end{equation}
+
+% segment-id: o014.li2.chapter6.finite-index-subgroups.co001
+\begin{corollary}\label{prop:iInd-Ind}
+	For every $H$-module $N$, $\iInd^G_H(N)$ embeds canonically as a
+	$G$-submodule of $\Ind^G_H(N)$. If $(G:H)$ is finite, the two are equal.
+\end{corollary}
+% segment-id: o014.li2.chapter6.finite-index-subgroups.pf002
+\begin{proof}
+	The $G$-modules on the right-hand sides of
+	Lemma~\ref{prop:Ind-as-mappings} have an evident inclusion. If $(G:H)$ is
+	finite, every map $f:G\to N$ has $H\backslash\Supp(f)$ finite.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.finite-index-subgroups.p006
+We next define corestriction maps under the assumption that $(G:H)$ is
+finite. To simplify notation, for a $G$-module $M$ we write the $H$-module
+$\Res^G_H(M)$ simply as $M$ below.
+
+% segment-id: o014.li2.chapter6.finite-index-subgroups.l001
+\begin{itemize}
+% segment-id: o014.li2.chapter6.finite-index-subgroups.i001
+	\item The family of canonical homomorphisms in
+	\eqref{eqn:change-of-group-coh}, with $\varphi$ taken to be the inclusion
+	$H\hookrightarrow G$, is called \emph{restriction} and is denoted by
+% segment-id: o014.li2.chapter6.finite-index-subgroups.q004
+	\[ \mathrm{res}^n: \Hm^n(G, M) \to \Hm^n(H, M), \quad n \in \Z_{\geq 0}. \]
+% segment-id: o014.li2.chapter6.finite-index-subgroups.i002
+	\item Likewise, in the homology case there is a canonical homomorphism in
+	the opposite direction,
+% segment-id: o014.li2.chapter6.finite-index-subgroups.q005
+	\[ \mathrm{res}_n: \Hm_n(H, M) \to \Hm_n(G, M), \quad n \in \Z_{\geq 0}. \]
+\end{itemize}
+% segment-id: o014.li2.chapter6.finite-index-subgroups.p007
+When $\mathrm{res}^n$ is described through the standard cochain complex by
+Proposition~\ref{prop:grp-equiv}, its effect is simply to restrict a map
+$G^n\to M$ to $H^n$, whence the name. Section~\ref{sec:change-of-group} has
+already lifted these operations to the derived category.
+\index[sym1]{res-n@$\mathrm{res}_n$, $\mathrm{res}^n$}
+
+% segment-id: o014.li2.chapter6.finite-index-subgroups.d001
+\begin{definition}\label{def:cor-zero}
+	\index[sym1]{nu-GH@$\nu_{G\mid H}$, $\nu^{G\mid H}$}
+	Assume $(G:H)$ is finite. For every $G$-module $M$, define the following
+	$\Bbbk$-module homomorphisms:
+% segment-id: o014.li2.chapter6.finite-index-subgroups.g004
+	\[\begin{tikzcd}[row sep=tiny]
+		\nu^{G|H}: M^H \arrow[r] & M^G \\
+		x \arrow[mapsto, r] & \sum_{\bar{g} \in G/H} gx, \\
+		\nu_{G|H}: M_G \arrow[r] & M_H \\
+		(x\;\text{viewed in the quotient}) \arrow[mapsto, r] & \sum_{\bar{g} \in H \backslash G} (gx\;\text{viewed in the quotient}),
+	\end{tikzcd}\]
+	where $g\in G$ is any representative of the coset $\bar g$. Both
+	homomorphisms are functorial in $M$.
+\end{definition}
+
+% segment-id: o014.li2.chapter6.finite-index-subgroups.p008
+In the first row of the definition, $gx$ clearly depends only on the coset
+$\bar g=gH$. The second row requires a little explanation. For a given
+$x\in M$, the image of $gx$ in $M_H$ depends only on the coset $Hg$.
+Therefore, for every coset $t\in H\backslash G$, we can choose an arbitrary
+representative $\theta(t)\in G$ and sum the images of $\theta(t)x$ as $t$
+ranges over $H\backslash G$. If $x$ is replaced by $g'x$, with $g'\in G$,
+then $(\theta(t)g')_{t\in H\backslash G}$ is still a family of
+representatives ranging over $H\backslash G$, and hence
+% segment-id: o014.li2.chapter6.finite-index-subgroups.q006
+\[ \sum_t (\theta(t) g' x\;\text{viewed in the quotient}) = \sum_t (\theta(t) x\;\text{viewed in the quotient}). \]
+Thus $\nu_{G|H}$ is well-defined at the level of $M_G$.
+
+% segment-id: o014.li2.chapter6.finite-index-subgroups.dp001
+\begin{definition-proposition}\label{def:cor}
+	\index[sym1]{cor-n@$\mathrm{cor}_n$, $\mathrm{cor}^n$}
+	\index{corestriction}
+	Assume $(G:H)$ is finite and let $M$ be a $G$-module.
+% segment-id: o014.li2.chapter6.finite-index-subgroups.l002
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter6.finite-index-subgroups.i003
+		\item There is a family of canonical homomorphisms
+% segment-id: o014.li2.chapter6.finite-index-subgroups.q007
+		\[ \mathrm{cor}^n: \Hm^n(H, M) \to \Hm^n(G, M), \quad n \in \Z_{\geq 0}, \]
+		compatible with long exact sequences and giving
+		$\nu^{G|H}:M^H\to M^G$ in degree $0$.
+% segment-id: o014.li2.chapter6.finite-index-subgroups.i004
+		\item Likewise, there is a family of canonical homomorphisms compatible
+		with long exact sequences,
+% segment-id: o014.li2.chapter6.finite-index-subgroups.q008
+		\[ \mathrm{cor}_n: \Hm_n(G, M) \to \Hm_n(H, M), \]
+		giving $\nu_{G|H}:M_G\to M_H$ in degree $0$.
+	\end{enumerate}
+	Both families of homomorphisms are called \emph{corestriction}, since they
+	point in the direction opposite to restriction\footnote{With good reason,
+	many sources call the corestriction homomorphism the “transfer.” This book
+	uses the term transfer homomorphism in a narrower sense; see the discussion
+	below.}.
+\end{definition-proposition}
+% segment-id: o014.li2.chapter6.finite-index-subgroups.pf003
+\begin{proof}
+	First consider cohomology. We give two explanations. For the first,
+	$\Res^G_H:G\dcate{Mod}\to H\dcate{Mod}$ is an exact functor preserving
+	injective objects. Consequently, $M\mapsto\Hm^n(H,M)$ is the $n$th
+	right-derived functor of $M\mapsto M^H$, for $n\in\Z_{\geq0}$.
+	Functoriality of $\nu^{G|H}$ therefore makes it induce a morphism of
+	cohomological $\delta$-functors
+	$\Hm^n(H,\cdot)\to\Hm^n(G,\cdot)$.
+
+	The second explanation involves the derived category. The argument above
+	is easily upgraded to the derived-category level, but here we give another
+	viewpoint based on adjunction. First, we assert that the adjunction between
+	$\iInd^G_H$ and $\Res^G_H$ lifts to the $\RHom$ level, giving
+% segment-id: o014.li2.chapter6.finite-index-subgroups.q009
+	\[ \RHom_G\left(\iInd^G_H(\Bbbk), M\right) \simeq \RHom_H(\Bbbk, M). \]
+	A similar idea appeared in the proof of Theorem~\ref{prop:Shapiro}. The key
+	is to interpret $\iInd^G_H$ as the change-of-rings functor
+	$\Bbbk[H]\dcate{Mod}\to\Bbbk[G]\dcate{Mod}$ induced by
+	$\Bbbk[H]\to\Bbbk[G]$, note that it is exact
+	(Proposition~\ref{prop:Ind-preservation}), and then apply
+	Example~\ref{eg:change-of-ring-adjunction}.
+
+	Furthermore, the assumption that $(G:H)$ is finite, together with
+	Corollary~\ref{prop:iInd-Ind}, gives
+% segment-id: o014.li2.chapter6.finite-index-subgroups.q010
+	\[ \RHom_G\left(\iInd^G_H(\Bbbk), M\right) \simeq \RHom_G\left( \Ind^G_H(\Bbbk), M \right) \to \RHom_G(\Bbbk, M), \]
+	where the last part comes from $\Bbbk\to\Ind^G_H(\Bbbk)$. This is the
+	unit of the adjoint pair $(\Res^G_H,\Ind^G_H)$ evaluated at $\Bbbk$, and
+	it can also be described more concretely using
+	Lemma~\ref{prop:Ind-as-mappings}: an element $t\in\Bbbk$ is sent to the
+	corresponding constant map $G\to\Bbbk$.
+
+	This yields a canonical morphism
+	$\RHom_H(\Bbbk,M)\to\RHom_G(\Bbbk,M)$. Taking $\Hm^n$ on both sides gives
+	the desired result. Determining its behavior for $n=0$ amounts to
+	replacing $\RHom$ by $\Hom$ in the operations above. More explicitly, if
+	$\iInd^G_H\subset\Ind^G_H$ is realized as spaces of maps and the adjunction
+	isomorphisms are described using \eqref{eqn:Ind-as-mappings}, then
+% segment-id: o014.li2.chapter6.finite-index-subgroups.g005
+	\[\begin{tikzcd}[row sep=tiny, column sep=small]
+		\Hom_H(\Bbbk, M) \arrow[r, "\sim"] & \Hom_G\left(\iInd^G_H \Bbbk, M\right) \arrow[equal, r] & \Hom_G\left(\Ind^G_H \Bbbk, M\right) \arrow[r] & \Hom_G(\Bbbk, M) \\
+		{[1 \mapsto x]} \arrow[mapsto, rr] & & {[f \mapsto \sum_{gH} f(g^{-1}) gx]} \arrow[mapsto, r] & {[1 \mapsto \sum_{gH} gx]}.
+	\end{tikzcd}\]
+	\footnote{Editorial correction: the Chinese source writes $\Res^G_M$ and
+	$\Hom_H(\Ind^G_H\Bbbk,M)$; the adjunction and module types require
+	$\Res^G_H$ and $\Hom_G(\Ind^G_H\Bbbk,M)$, as displayed here.}
+	The composite above is plainly $\nu^{G|H}:M^H\to M^G$. This proves the
+	assertion.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.finite-index-subgroups.pr001
+\begin{proposition}\label{prop:res-cor}
+	Assume $(G:H)$ is finite. For every $G$-module $M$ and
+	$n\in\Z_{\geq0}$, the composites of homomorphisms
+% segment-id: o014.li2.chapter6.finite-index-subgroups.q011
+	\begin{gather*}
+		\Hm^n(G, M) \xrightarrow{\mathrm{res}^n} \Hm^n(H, M) \xrightarrow{\mathrm{cor}^n} \Hm^n(G, M), \\
+		\Hm_n(G, M) \xrightarrow{\mathrm{cor}_n} \Hm_n(H, M) \xrightarrow{\mathrm{res}_n} \Hm_n(G, M)
+	\end{gather*}
+	are both the endomorphism given by multiplication by $(G:H)$.
+\end{proposition}
+% segment-id: o014.li2.chapter6.finite-index-subgroups.pf004
+\begin{proof}
+	First consider the case $n=0$. In cohomology the map is
+	$M^G\hookrightarrow M^H\xrightarrow{\nu^{G|H}}M^G$, which plainly sends
+	$x\in M^G$ to $(G:H)x$. In homology the map is
+	$M_G\xrightarrow{\nu_{G|H}}M_H\twoheadrightarrow M_G$; a direct check
+	gives the same conclusion.
+
+	Now suppose $n\geq1$. In the cohomology case, choose an embedding
+	$M\hookrightarrow I$ with $I$ an injective $G$-module; then $I$ is also
+	an injective $H$-module. Write $L:=I/M$. Functoriality of restriction and
+	corestriction, together with the long exact sequences, gives a commutative
+	diagram with exact columns:
+% segment-id: o014.li2.chapter6.finite-index-subgroups.g006
+	\[\begin{tikzcd}
+		\Hm^{n-1}(G, L) \arrow[r, "{\mathrm{res}^{n-1}}"] \arrow[twoheadrightarrow, d] & \Hm^{n-1}(H, L) \arrow[r, "{\mathrm{cor}^{n-1}}"] \arrow[twoheadrightarrow, d] & \Hm^{n-1}(G, L) \arrow[twoheadrightarrow, d] \\
+		\Hm^n(G, M) \arrow[r, "{\mathrm{res}^n}"] & \Hm^n(H, M) \arrow[r, "{\mathrm{cor}^n}"] & \Hm^n(G, M),
+	\end{tikzcd}\]
+	By induction, the composite in the first row is multiplication by
+	$(G:H)$. Since all the vertical arrows are surjective, the same is true
+	of the composite in the second row. The homology argument is similar:
+	take an epimorphism $P\twoheadrightarrow M$ with $P$ a projective
+	$G$-module.
+
+	Notice that the case $n=0$ also lets us conclude at the derived-category
+	level that the composite
+	$\RHom_G(\Bbbk,M)\to\RHom_H(\Bbbk,M)\to\RHom_G(\Bbbk,M)$ is
+	$(G:H)\identity$. The homology case is analogous.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.finite-index-subgroups.co002
+\begin{corollary}\label{prop:group-coh-torsion}
+	Let $|G|=m\in\Z_{\geq1}$. For every $G$-module $M$, we have
+% segment-id: o014.li2.chapter6.finite-index-subgroups.q012
+	\[ n \geq 1 \implies m \Hm^n(G, M) = m \Hm_n(G, M) = \{0\}. \]
+\end{corollary}
+% segment-id: o014.li2.chapter6.finite-index-subgroups.pf005
+\begin{proof}
+	In Proposition~\ref{prop:res-cor}, take $H=\{1\}$ and use the elementary
+	fact that if $n\geq1$, then $\Hm^n(\{1\},M)$ and $\Hm_n(\{1\},M)$ both
+	vanish.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.finite-index-subgroups.p009
+For the rest of the section, take $\Bbbk=\Z$ and regard $\Z$ as a trivial
+$G$-module. Example~\ref{eg:group-H1-further} gives canonical isomorphisms
+$\Hm_1(G,\Z)\simeq G_{\mathrm{ab}}$ and
+$\Hm_1(H,\Z)\simeq H_{\mathrm{ab}}$. If $(G:H)$ is finite, then
+$\mathrm{cor}_1:\Hm_1(G,\Z)\to\Hm_1(H,\Z)$ corresponds to the group
+homomorphism
+% segment-id: o014.li2.chapter6.finite-index-subgroups.q013
+\begin{equation*}
+	\mathrm{Ver}_{G|H}: G_{\mathrm{ab}} \to H_{\mathrm{ab}},
+\end{equation*}
+called the \emph{transfer homomorphism} from $G$ to $H$ (German:
+\textit{die Verlagerung}).
+\index{transfer!Verlagerung}
+
+% segment-id: o014.li2.chapter6.finite-index-subgroups.p010
+The key is to give a group-theoretic description of
+$\mathrm{Ver}_{G|H}$. Recall that $G$ acts on the right of
+$H\backslash G$ by right multiplication.
+
+% segment-id: o014.li2.chapter6.finite-index-subgroups.pr002
+\begin{proposition}
+	Assume $(G:H)$ is finite. Choose a representative in $G$ for every coset
+	in $H\backslash G$, expressed as a map $\theta:H\backslash G\to G$. For
+	every $s\in G$ and $t\in H\backslash G$, there is a unique
+	$h_{t,s}\in H$ such that
+% segment-id: o014.li2.chapter6.finite-index-subgroups.q014
+	\[ \theta(t)s = h_{t, s} \theta(ts). \]
+	The transfer homomorphism defined above can be described by
+% segment-id: o014.li2.chapter6.finite-index-subgroups.q015
+	\[ \mathrm{Ver}_{G|H}(\underbracket{s\;\text{as a class}}_{\in G_{\mathrm{ab}}}) = \prod_{t \in H \backslash G} \underbracket{h_{t, s}\;\text{as a class}}_{\in H_{\mathrm{ab}}}. \]
+\end{proposition}
+% segment-id: o014.li2.chapter6.finite-index-subgroups.pf006
+\begin{proof}
+	Take the short exact sequence of $G$-modules
+	$0\to\mathfrak{I}_G\to\Z[G]\to\Z\to0$, where $\mathfrak{I}_G$ is the
+	augmentation ideal of $\Z[G]$ (Example~\ref{eg:group-H1}). The inclusion
+	$\Z[H]\subset\Z[G]$ gives an $H$-submodule
+	$\mathfrak{I}_H\subset\mathfrak{I}_G$. Since $\mathrm{cor}_n$ is
+	compatible with long exact sequences, and $\Z[G]$ is projective both as a
+	$G$-module and as an $H$-module, we obtain the commutative diagram
+% segment-id: o014.li2.chapter6.finite-index-subgroups.g007
+	\[\begin{tikzcd}
+		G_{\mathrm{ab}} \arrow[r, "\sim"'] \arrow[dd, "{\mathrm{Ver}_{G|H}}"'] &
+		\Hm_1(G, \Z) \arrow[d, "{\mathrm{cor}_1}"'] \arrow[r, "\sim"] & \Hm_0(G, \mathfrak{I}_G) \arrow[d, "{\mathrm{cor}_0}"] \arrow[equal, r] &  \mathfrak{I}_G/\mathfrak{I}_G^2 \arrow[d, "{\nu_{G|H}}"] \\
+		& \Hm_1(H, \Z) \arrow[equal, d] \arrow[hookrightarrow, r] & \Hm_0(H, \mathfrak{I}_G) \arrow[equal, r] & \mathfrak{I}_G / \mathfrak{I}_H \mathfrak{I}_G \\
+		H_{\mathrm{ab}} \arrow[r, "\sim"] & \Hm_1(H, \Z) \arrow[r, "\sim"] & \Hm_0(H, \mathfrak{I}_H) \arrow[equal, r] \arrow[u] & \mathfrak{I}_H / \mathfrak{I}_H^2 \arrow[u]
+	\end{tikzcd}\]
+
+	We check the required equality in
+	$\mathfrak{I}_G/\mathfrak{I}_H\mathfrak{I}_G$. The end of
+	Example~\ref{eg:group-H1-further} shows that the image of $s\in G$ in
+	$G_{\mathrm{ab}}$ corresponds through the first row to the image of
+	$1_G-s$ in $\mathfrak{I}_G/\mathfrak{I}_G^2$. Applying
+	$\nu_{G|H}$ to it gives
+% segment-id: o014.li2.chapter6.finite-index-subgroups.q016
+	\begin{align*}
+		\sum_{t \in H \backslash G} \theta(t)(1_G - s) & = \sum_t (\theta(t) - \theta(t)s) = \sum_t (\theta(t) - h_{t, s}\theta(ts)) \\
+		& = \sum_t \theta(t) - \sum_t h_{t, s} \theta(ts) \\
+		& = \sum_t \theta(ts) - \sum_t h_{t, s} \theta(ts) \;\in \mathfrak{I}_G
+	\end{align*}
+	in $\mathfrak{I}_G/\mathfrak{I}_H\mathfrak{I}_G$. The last equality
+	holds because, as $t$ varies, both $t$ and $ts$ range over
+	$H\backslash G$. The final expression is also equal to
+	$\sum_t(1_G-h_{t,s})\theta(ts)$.
+
+	Finally, observe that
+	$(1_G-h_{t,s})\theta(ts)\equiv1_G-h_{t,s}
+	\pmod{\mathfrak{I}_H\mathfrak{I}_G}$, while the right-hand side
+	corresponds to the image of $h_{t,s}\;\bmod\mathfrak{I}_H$ in
+	$\mathfrak{I}_H/\mathfrak{I}_H^2$ through the third row. This proves the
+	assertion.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.finite-index-subgroups.p011
+The map described above,
+$s\bmod G_{\mathrm{der}}\mapsto\prod_t h_{t,s}\bmod H_{\mathrm{der}}$, is a
+classical construction in group theory. Having identified it with
+$\mathrm{cor}_1$, we have also proved that it is independent of the choice of
+$\theta$.

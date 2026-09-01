@@ -1,0 +1,131 @@
+% Stable unit: appendix1-unit-138; source appendix1.tex, lines 372--487.
+% Stable unit ID: o014.aljabr2.appendix1.locally-finite-abelian-categories
+\section{Locally Finite Abelian Categories}\label{sec:locally-finite-Abel-cat}
+The aim of this section is to introduce a finiteness condition on Abelian categories that supplies the technical support needed in \S\ref{sec:Tannaka-coend}. Readers are advised first to learn the statements of Definition~\ref{def:essentially-small-cat}, Definition~\ref{def:locally-finite}, and Proposition~\ref{prop:subcat-union}, while skipping the subsequent lemmas and proofs. We fix a Grothendieck universe $\mathcal{U}$ in order to discuss what is meant by small sets and small categories.
+
+\begin{definition}\label{def:essentially-small-cat}
+	\index{category!essentially small}
+	\index{size issues}
+	A category $\mathcal{C}$ is called \emph{essentially small} if it is equivalent to a small category, or equivalently if $\Obj(\mathcal{C})/\simeq$ is a small set.
+\end{definition}
+
+Fix a field $\Bbbk$. All Abelian categories $\mathcal{A}$ considered below are understood to be $\Bbbk$-linear.
+
+\begin{definition}\label{def:locally-finite}
+	\index{Abelian category!locally finite}
+	Relative to the fixed field $\Bbbk$, an essentially small Abelian category $\mathcal{A}$ (Definition~\ref{def:essentially-small-cat}) is called \emph{locally finite} if it has the following properties:
+	\begin{equation*}
+		\forall X, Y \in \Obj(\mathcal{A}) \quad
+		\left\{\begin{array}{l}
+			X\; \text{is an object of finite length (Definition \ref{def:finite-length-object})}, \\
+			\dim_{\Bbbk} \Hom_{\mathcal{A}}(X, Y) < \infty.
+		\end{array}\right.
+	\end{equation*}
+\end{definition}
+
+\begin{convention}
+	\index[sym1]{X-bracket@$\lrangle{X}$}
+	For an Abelian category $\mathcal{A}$ and $X\in\Obj(\mathcal{A})$, define the Abelian subcategory $\lrangle{X}$ of $\mathcal{A}$ by
+	\[ Y \in \Obj(\lrangle{X}) \iff \exists n \in \Z_{\geq 0} \; \text{such that}\; Y \;\text{is a subquotient of}\; X^{\oplus n}. \]
+\end{convention}
+
+It is easy to see that $\mathcal{A}$ is the union of all the subcategories $\lrangle{X}$. Moreover, $\lrangle{X}\subset\lrangle{X\oplus Y}\supset\lrangle{Y}$ shows that this union is filtered. We are interested in locally finite Abelian categories of the form $\lrangle{X}$.
+
+\begin{proposition}[O.\ Gabber]\label{prop:subcat-union}
+	Let $\mathcal{A}$ be a locally finite Abelian category, and suppose there is an $X\in\Obj(\mathcal{A})$ such that $\mathcal{A}=\lrangle{X}$. Then $\mathcal{A}$ has a projective generator.
+\end{proposition}
+
+The proof requires some preparation.
+
+\begin{definition}
+	\index{essential extension}
+	In any Abelian category, let $\alpha:E\twoheadrightarrow Y$ be an epimorphism. If there is no proper subobject $E'$ of $E$ for which $\alpha|_{E'}$ is still epic, then $\alpha$ is called an \emph{essential extension}.
+\end{definition}
+
+\begin{lemma}\label{prop:essential-ext-aux0}
+	Let $S$ be a simple object in any Abelian category, and let $\alpha:E\twoheadrightarrow S$ be an essential extension. Then, for every simple object $T$, pullback along $\alpha$ gives an isomorphism $\alpha^*:\Hom(S,T)\to\Hom(E,T)$.
+\end{lemma}
+\begin{proof}
+	Pullback along the epimorphism $\alpha$ is always injective; we prove surjectivity. Let $\phi\in\Hom(E,T)\smallsetminus\{0\}$. Since $\alpha|_{\Ker(\phi)}$ is not epic, simplicity of $S$ implies $\Ker(\phi)\subset\Ker(\alpha)$. The induced morphism
+	$T\simeq E/\Ker(\phi)\twoheadrightarrow E/\Ker(\alpha)\simeq S$ must be an isomorphism, so $\Ker(\phi)=\Ker(\alpha)$. Hence there is a $\phi'\in\Hom(S,T)$ such that
+	$\phi=\phi'\alpha=\alpha^*(\phi')$.
+\end{proof}
+
+For an object $Y$ of finite length in an Abelian category, write $\mathrm{JH}(Y)$ for the multiset of its composition factors, counted with multiplicity (Definition--Theorem~\ref{def:JH}).
+
+\begin{lemma}\label{prop:essential-ext}
+	Let $\mathcal{A}$ be an Abelian category and $X$ an object of finite length. Consider a simple object $S$ of $\lrangle{X}$ and an essential extension $\alpha:E\twoheadrightarrow S$. For every $Y\in\Obj(\lrangle{X})$, let $\ell_S(Y)$ be the number, counted with multiplicity, of composition factors in $\mathrm{JH}(Y)$ isomorphic to $S$. Then
+	\begin{equation}\label{eqn:essential-ext-aux}
+		\dim_{\Bbbk} \Hom(E, Y) \leq \ell_S(Y) \dim_{\Bbbk} \End(S);
+	\end{equation}
+	if $Y$ is simple, equality holds.
+
+	In addition, the following statements are equivalent:
+	\begin{enumerate}[(i)]
+		\item $E$ is a projective object of $\lrangle{X}$;
+		\item equality holds in \eqref{eqn:essential-ext-aux} for every $Y\in\Obj(\lrangle{X})$;
+		\item equality holds in \eqref{eqn:essential-ext-aux} for $Y=X$.
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	As a function of $Y$, the right-hand side of \eqref{eqn:essential-ext-aux} is additive on short exact sequences $0\to Y'\to Y\to Y''\to0$. On the other hand, $\Hom(E,\cdot)$ is left exact, so the left-hand side of \eqref{eqn:essential-ext-aux} is subadditive:
+	\[ \dim_{\Bbbk} \Hom(E, Y) \leq \dim_{\Bbbk} \Hom(E, Y') + \dim_{\Bbbk} \Hom(E, Y''). \]
+	Equality in this formula holds for every short exact sequence if and only if $E$ is projective in $\lrangle{X}$.
+
+	If $Y$ is simple, Lemma~\ref{prop:essential-ext-aux0} implies that the left-hand side of \eqref{eqn:essential-ext-aux} is $\dim_{\Bbbk}\End(S)$ when $Y\simeq S$, and is $0$ otherwise. The right-hand side has the same property, so equality in \eqref{eqn:essential-ext-aux} holds in this case. For general $Y$, consider a composition series and apply the first paragraph. This proves both the inequality \eqref{eqn:essential-ext-aux} and (i) $\implies$ (ii). Conversely, equality in \eqref{eqn:essential-ext-aux} makes $\dim_{\Bbbk}\Hom(E,\cdot)$ additive, proving (ii) $\implies$ (i).
+
+	Clearly (ii) $\implies$ (iii). We prove (iii) $\implies$ (ii). Since the inequality \eqref{eqn:essential-ext-aux} has already been established, the first paragraph shows that if equality holds for $Y$, it also holds for $Y'$ and $Y''$. By assumption it holds for $X$, hence for every $X^{\oplus n}$ and all its subquotients. This gives (ii).
+\end{proof}
+
+We now return to the goal of this section.
+
+\begin{proof}[Proposition \ref{prop:subcat-union}]
+	We may assume that $X\neq0$. First suppose that, for every element $S$ of $\mathrm{JH}(X)$ without multiplicities, there is an epimorphism $P_S\twoheadrightarrow S$ such that $P_S$ is projective in $\lrangle{X}$. We show that the direct sum $P$ of all these $P_S$ is a projective generator of $\lrangle{X}$.
+
+	Indeed, $P$ is automatically projective in $\lrangle{X}$. By Proposition~\ref{prop:injective-cogenerator}, it remains to show that
+	$Y\neq0\implies\Hom(P,Y)\neq0$ for every $Y\in\Obj(\lrangle{X})$. Choose a simple quotient $Y\twoheadrightarrow S$. Projectivity of $P_S$ factors $P_S\twoheadrightarrow S$ as
+	$P_S\to Y\twoheadrightarrow S$, and this gives a nonzero morphism
+	$P\xrightarrow{\text{projection}}P_S\to Y$.
+
+	Now fix a simple object $S$ of $\lrangle{X}$ and construct $P_S\twoheadrightarrow S$. Choose a composition series of $X$
+	\[ X = X_0 \supsetneq \cdots \supsetneq X_r = 0, \quad r \geq 1. \]
+	For $i=1,\ldots,r$, we shall recursively construct a sequence of essential extensions $P_i\twoheadrightarrow S$ such that
+	\[ \dim_{\Bbbk} \Hom(P_i, X/X_i) = \ell_S(X/X_i) \dim_{\Bbbk} \End(S). \]
+	Once this is proved, Lemma~\ref{prop:essential-ext} shows that $P_r$ is projective in $\lrangle{X}$, and $P_S:=P_r\twoheadrightarrow S$ is the desired morphism.
+
+	Take $P_1=S$; Lemma~\ref{prop:essential-ext} shows that the equality holds. Now let $1\leq i<r$ and suppose $P_i$ has been constructed. Choose a $\Bbbk$-basis $\phi_1,\ldots,\phi_n$ of $\Hom(P_i,X/X_i)$. Form the fiber products
+	\[\begin{tikzcd}
+		Q_j \arrow[d] \arrow[r, "{\psi_j}"] & X/X_{i+1} \arrow[twoheadrightarrow, d] \\
+		P_i \arrow[r, "{\phi_j}"'] & X/X_i \arrow[phantom, lu, "\Box" description]
+	\end{tikzcd} \quad 1 \leq j \leq n.\]
+	Notice that $Q_j\twoheadrightarrow P_i$ (Proposition~\ref{prop:Abel-cat-pull-push}). Let $Q$ be the fiber product of $Q_1,\ldots,Q_n$ over $P_i$. Since fiber products may be formed one step at a time, the same reasoning shows that $Q\to P_i$ is epic. Choose a subobject $P_{i+1}$ of $Q$ such that the composite
+	$P_{i+1}\hookrightarrow Q\to P_i$, denoted $p^{i+1}_i$, is epic, and such that $P_{i+1}$ is minimal with this property. By construction, the composite
+	$P_{i+1}\xrightarrow{p^{i+1}_i}P_i\twoheadrightarrow S$ is an essential extension. Also write $t_j$ for the composite
+	$P_{i+1}\hookrightarrow Q\xrightarrow{\text{projection}}Q_j$.
+
+	We claim that
+	$(p^{i+1}_i)^*:\Hom(P_i,X/X_i)\to\Hom(P_{i+1},X/X_i)$
+	is an isomorphism. It is injective, and the dimension of the left-hand side is known to be
+	$\ell_S(X/X_i)\dim_{\Bbbk}\End(S)$, while Lemma~\ref{prop:essential-ext} bounds the dimension of the right-hand side by the same number. This proves the claim.
+
+	Denote the map
+	$\Hom(P_{i+1},X/X_{i+1})\to\Hom(P_{i+1},X/X_i)$ by $\Phi_i$. By the claim, we can define a reverse $\Bbbk$-linear map $\Psi_i$ by sending
+	$\phi_jp^{i+1}_i$ to $\psi_jt_j$, for $1\leq j\leq n$. We verify that $\Phi_i\Psi_i=\identity$. On each $\phi_jp^{i+1}_i$, this follows immediately from the commutative diagram
+	\[\begin{tikzcd}
+		P_{i+1} \arrow[r, "{t_j}"] \arrow[d, "{p^{i+1}_i}"'] & Q_j \arrow[r, "{\psi_j}"] \arrow[ld] & X/X_{i+1} \arrow[twoheadrightarrow, d] \\
+		P_i \arrow[rr, "{\phi_j}"'] & & X/X_i ,
+	\end{tikzcd}\]
+	which says precisely that $\Phi_i(\psi_jt_j)=\phi_jp^{i+1}_i$.
+
+	We therefore have a split short exact sequence
+	\[\begin{tikzcd}[row sep=tiny, column sep=small]
+		0 \arrow[r] & \Hom(P_{i+1}, \underbracket{X_i/X_{i+1}}_{\text{simple object}}) \arrow[r] & \Hom(P_{i+1}, X/X_{i+1}) \arrow[r, "{\Phi_i}"] & \Hom(P_{i+1}, X/X_i) \arrow[r] & 0. \\
+		& & & \Hom(P_i , X/X_i) \arrow[u, "\sim" sloped] &
+	\end{tikzcd}\]
+	Lemma~\ref{prop:essential-ext} and the induction hypothesis show that the dimensions of the terms at the left and right are respectively
+	\[ \ell_S(X_i/X_{i+1}) \dim_{\Bbbk} \End(S), \quad \ell_S(X/X_i) \dim_{\Bbbk} \End(S). \]
+	By additivity of $\ell_S(\cdot)$, the middle term therefore has the required dimension. This completes the proof.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%

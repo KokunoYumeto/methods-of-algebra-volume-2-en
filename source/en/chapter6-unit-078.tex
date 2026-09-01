@@ -1,0 +1,254 @@
+% Unit 078 English translation of chapter6.tex lines 1222--1360.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter6.cyclic-and-free-groups
+% Coverage: Section 6.7 in full.
+
+% segment-id: o014.li2.chapter6.cyclic-and-free-groups.h001
+\section{Examples: cyclic groups and free groups}\label{sec:coh-cyclic-free}
+\hypertarget{o014.aljabr2.chapter6.cyclic-and-free-groups}{ }
+
+% segment-id: o014.li2.chapter6.cyclic-and-free-groups.p001
+For $m\in\Z_{\geq1}$, in this section $C_m$ denotes the cyclic group of order
+$m$ with a chosen generator $\sigma$, and its group operation is written
+multiplicatively. We begin with a general construction.
+
+% segment-id: o014.li2.chapter6.cyclic-and-free-groups.d001
+\begin{definition-proposition}\label{def:group-norm}
+	\index[sym1]{nu-G@$\nu$, $\nu^G$}
+	Let $\Bbbk$ be a commutative ring. If $G$ is finite, define
+	\[ \nu=\nu^G:=\sum_{g\in G}g\in\Bbbk[G]. \]
+	If $G$ acts on $\Bbbk[G]$ by left multiplication, then
+	$\Bbbk[G]^G=\Bbbk\nu$. If $G$ is infinite, then
+	$\Bbbk[G]^G=\{0\}$.
+\end{definition-proposition}
+\begin{proof}
+	For $e=\sum_{g\in G}a_gg\in\Bbbk[G]$, the condition
+	$e\in\Bbbk[G]^G$ is equivalent to all the coefficients $a_g$ being
+	equal.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.cyclic-and-free-groups.p002
+Similarly, if $G$ is finite, then $\nu$ is also invariant under right
+multiplication by $G$. It lies in the center of $\Bbbk[G]$.
+
+% segment-id: o014.li2.chapter6.cyclic-and-free-groups.c001
+\begin{convention}\label{con:G-mod-equalizer}
+	Let $A$ be a $G$-module. For any $e,e'\in\Bbbk[G]$, write
+	\[ A^{e=e'}:=\{a\in A:ea=e'a\}. \]
+\end{convention}
+
+% segment-id: o014.li2.chapter6.cyclic-and-free-groups.p003
+We now consider group cohomology with coefficients in $\Z$. The group algebra
+$\Z[C_m]$ is commutative, and writing $1:=1_{C_m}\in\Z[C_m]$ causes no
+confusion. Clearly $A^{C_m}=A^{\sigma=1}$ for every $C_m$-module $A$. In
+this case,
+\begin{equation*}
+	\nu=1+\sigma+\cdots+\sigma^{m-1}\in\Z[C_m],
+\end{equation*}
+and the equality $(\sigma-1)\nu=\sigma^m-1=0$ in $\Z[C_m]$ implies
+\[ \nu A\subset A^{\sigma=1},\qquad
+	(\sigma-1)A\subset A^{\nu=0}. \]
+
+% segment-id: o014.li2.chapter6.cyclic-and-free-groups.p004
+We now show that, in the special case $A=\Z[C_m]$, both inclusions above are
+equalities.
+
+% segment-id: o014.li2.chapter6.cyclic-and-free-groups.l001
+\begin{lemma}\label{prop:cyclic-resolution-prep}
+	Write $\mathfrak{I}\subset\Z[C_m]$ for the augmentation ideal of
+	Remark~\ref{rem:augmentation-kG}. We have
+	\begin{align*}
+		\nu\Z[C_m]&=\Z[C_m]^{\sigma=1}=\Z\nu,\\
+		(\sigma-1)\Z[C_m]&=\Z[C_m]^{\nu=0}=\mathfrak{I}.
+	\end{align*}
+\end{lemma}
+\begin{proof}
+	For the first part, we have already shown that
+	$\Z[C_m]^{\sigma=1}=\Z[C_m]^{C_m}=\Z\nu$. Since
+	$\nu\sigma^k=\nu=\sigma^k\nu$ for every $k$, we have
+	$\nu\Z[C_m]=\Z\nu$.
+
+	For the second part, take
+	$e=\sum_{k\in\Z/m\Z}e_k\sigma^k$. Then
+	$\nu e=(\sum_{k\in\Z/m\Z}e_k)\nu$ is zero if and only if
+	$\sum_{k\in\Z/m\Z}e_k=0$, which is equivalent to
+	$e\in\mathfrak{I}$. This gives the second equality. Moreover,
+	$\sigma^k-1=(\sigma-1)(1+\cdots+\sigma^{k-1})$ implies
+	$\mathfrak{I}\subset(\sigma-1)\Z[C_m]$, so the first equality holds as
+	well.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.cyclic-and-free-groups.l002
+\begin{lemma}\label{prop:cyclic-resolution}
+	The trivial $C_m$-module $\Z$ has a free resolution
+	\[ \cdots\xrightarrow{\nu}\Z[C_m]\xrightarrow{\sigma-1}\Z[C_m]
+	\xrightarrow{\nu}\Z[C_m]\xrightarrow{\sigma-1}\Z[C_m]
+	\to\Z\to0, \]
+	where $\Z[C_m]\twoheadrightarrow\Z$ is the augmentation homomorphism and
+	the remaining arrows repeat with period $2$.
+\end{lemma}
+\begin{proof}
+	Lemma~\ref{prop:cyclic-resolution-prep} gives short exact sequences
+	\begin{gather*}
+		0\to\mathfrak{I}\to\Z[C_m]\xrightarrow{\nu}\Z\nu\to0,\\
+		0\to\Z\nu\to\Z[C_m]\xrightarrow{\sigma-1}\mathfrak{I}\to0.
+	\end{gather*}
+	In addition, there is an isomorphism
+	$\Z\nu\xrightarrow[\sim]{\nu\mapsto1}\Z$. Splicing the two sequences
+	alternately gives the asserted resolution.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.cyclic-and-free-groups.t001
+\begin{proposition}\label{prop:group-cohomology-cyclic}
+	% Editorial clarification: the Chinese prose says “canonical
+	% homomorphisms,” while its displayed \simeq signs and the Indonesian
+	% witness make clear that these are canonical isomorphisms.
+	Let $A$ be a $C_m$-module and $n\in\Z_{\geq0}$. There are canonical
+	isomorphisms
+	\begin{align*}
+		\Hm^n(C_m,A)&\simeq
+		\begin{cases}
+			A^{\sigma=1},&n=0,\\
+			A^{\nu=0}/(\sigma-1)A,&n>0\ \text{odd},\\
+			A^{\sigma=1}/\nu A,&n>0\ \text{even},
+		\end{cases}\\
+		\Hm_n(C_m,A)&\simeq
+		\begin{cases}
+			A/(\sigma-1)A,&n=0,\\
+			A^{\sigma=1}/\nu A,&n>0\ \text{odd},\\
+			A^{\nu=0}/(\sigma-1)A,&n>0\ \text{even}.
+		\end{cases}
+	\end{align*}
+\end{proposition}
+\begin{proof}
+	By Lemma~\ref{prop:cyclic-resolution}, the cohomology and homology of $A$
+	are computed, respectively, by the one-sided, 2-periodic cochain and chain
+	complexes
+	\begin{gather*}
+		0\to\underbracket{A}_{\text{degree }0}
+		\xrightarrow{\sigma-1}\underbracket{A}_{\text{degree }1}
+		\xrightarrow{\nu}A\xrightarrow{\sigma-1}\cdots,\\
+		\cdots\xrightarrow{\sigma-1}A\xrightarrow{\nu}
+		\underbracket{A}_{\text{degree }1}\xrightarrow{\sigma-1}
+		\underbracket{A}_{\text{degree }0}\to0.
+	\end{gather*}
+\end{proof}
+
+% segment-id: o014.li2.chapter6.cyclic-and-free-groups.p005
+We next study the homology and cohomology of free groups
+\cite[Definition 4.8.2]{Li1}, with the infinite cyclic group $\Z$ as the
+simplest special case.
+
+% segment-id: o014.li2.chapter6.cyclic-and-free-groups.p006
+Write the free group on a set $X$ as $G:=\mathbf{F}(X)$. We first describe
+the structure of the augmentation ideal $\mathfrak{I}\subset\Z[G]$.
+
+% segment-id: o014.li2.chapter6.cyclic-and-free-groups.l003
+\begin{lemma}\label{prop:free-group-augmentation}
+	Let $X$ be a set and $G:=\mathbf{F}(X)$. Then $\mathfrak{I}$ is the free
+	left $\Z[G]$-module with basis
+	$\{x-1_G:x\in X\}$.
+\end{lemma}
+\begin{proof}
+	Write $X-1_G:=\{x-1_G:x\in X\}\subset\mathfrak{I}$. We first show that
+	this set generates the left $\Z[G]$-module $\mathfrak{I}$. For every
+	$x\in X$, write $G(x)$ (respectively, $G(x^{-1})$) for the set of
+	elements of $G$ whose reduced expression ends in $x$ (respectively,
+	$x^{-1}$). Then $G\smallsetminus\{1_G\}$ is the disjoint union of all
+	the $G(x)$ and $G(x^{-1})$ as $x$ ranges over $X$. We know that
+	$\{h-1_G:h\in G,\ h\neq1_G\}$ is a $\Z$-basis of $\mathfrak{I}$, and
+	\begin{align*}
+		gx\in G(x)&\implies gx-1_G=g(x-1_G)+(g-1_G),\\
+		&\ell(gx)=\ell(g)+1,\\
+		gx^{-1}\in G(x^{-1})&\implies
+		gx^{-1}-1_G=-(gx^{-1})(x-1_G)+(g-1_G),\\
+		&\ell(gx^{-1})=\ell(g)+1.
+	\end{align*}
+	Induction on length shows that $X-1_G$ generates $\mathfrak{I}$.
+
+	To show that $X-1_G$ is a basis, take an arbitrary $G$-module $A$ and a
+	map $\varphi:X-1_G\to A$. We claim that there is a $G$-module
+	homomorphism $\widetilde{\varphi}:\mathfrak{I}\to A$ making the following
+	diagram commute:
+	\[\begin{tikzcd}
+		X-1_G \arrow[hookrightarrow,r,"\text{inclusion}"]
+		\arrow[rd,"\varphi"'] & \mathfrak{I} \arrow[d,"{\widetilde{\varphi}}"]\\
+		& A.
+	\end{tikzcd}\]
+	Since $X-1_G$ generates $\mathfrak{I}$, the homomorphism
+	$\widetilde{\varphi}$ in this diagram is automatically unique. It therefore
+	suffices to prove the universal property of the free module.
+
+	Use the $G$-module structure on $A$ to form the semidirect product
+	$E:=A\rtimes G$. Consider the map of sets $X\to E$ sending $x$ to
+	$(\varphi(x-1_G),x)$. The universal property of the free group extends
+	this map uniquely to a group homomorphism $\Phi:G\to E$. Looking at the
+	second coordinate shows that the composite
+	$G\xrightarrow{\Phi}E\xrightarrow{\text{projection}}G$ is
+	$\identity_G$. Hence Proposition~\ref{prop:crossed-semidirect-product}
+	gives a crossed homomorphism $\psi:G\to A$ such that
+	$\Phi(g)=(\psi(g),g)$. By
+	Proposition~\ref{prop:crossed-augmentation}, the crossed homomorphism
+	$\psi$ corresponds to a $G$-module homomorphism
+	$\widetilde{\varphi}:\mathfrak{I}\to A$ satisfying
+	$\widetilde{\varphi}(g-1_G)=\psi(g)$. Therefore
+	\[ \widetilde{\varphi}(x-1_G)=\psi(x)=\varphi(x-1_G),
+	\qquad x\in X. \]
+	This proves the assertion.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.cyclic-and-free-groups.t002
+\begin{proposition}\label{prop:free-group-coh}
+	Let $X$ be a set and $G:=\mathbf{F}(X)$. The short exact sequence from the
+	augmentation homomorphism,
+	$0\to\mathfrak{I}\to\Z[G]\to\Z\to0$, is a free resolution of the trivial
+	$G$-module $\Z$. Consequently:
+	\begin{enumerate}[(i)]
+		\item for every $G$-module $A$,
+		\[ n\geq2\implies\Hm^n(G,A)=0=\Hm_n(G,A); \]
+		\item if $A$ is an abelian group with trivial $G$-action, then
+		$\Hm^1(G,A)\simeq A^X$ and
+		$\Hm_1(G,A)\simeq A^{\oplus X}$.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	The first part and assertion~(i) follow immediately from
+	Lemma~\ref{prop:free-group-augmentation}. Assertion~(ii) can be read off
+	from the free resolution and the description of $\mathfrak{I}$ in
+	Lemma~\ref{prop:free-group-augmentation}; the reader is invited to verify
+	it.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.cyclic-and-free-groups.d002
+\begin{definition}\label{def:group-dim}
+	\index{dimension!homological/cohomological}
+	For a group $G$, define the following elements of
+	$\Z_{\geq0}\sqcup\{\infty\}$:
+	\begin{align*}
+		\mathrm{cd}(G)&:=\sup\{n\in\Z_{\geq0}:\exists M\in\Obj(G\dcate{Mod}),
+		\ \Hm^n(G,M)\neq0\},\\
+		\mathrm{hd}(G)&:=\sup\{n\in\Z_{\geq0}:\exists M\in\Obj(G\dcate{Mod}),
+		\ \Hm_n(G,M)\neq0\}.
+	\end{align*}
+	The quantity $\mathrm{cd}(G)$ (respectively, $\mathrm{hd}(G)$) is called
+	the \emph{cohomological dimension} (respectively, \emph{homological
+	dimension}) of $G$.
+\end{definition}
+
+% segment-id: o014.li2.chapter6.cyclic-and-free-groups.p007
+By Proposition~\ref{prop:inv-coinv-Hom}, the above $\mathrm{cd}(G)$
+(respectively, $\mathrm{hd}(G)$) also equals the projective dimension
+(respectively, $\Tor$-dimension) of the trivial $G$-module $\Z$. See
+Example~\ref{eg:Tor-dimension} and Proposition~\ref{prop:id-pd-Ext}.
+
+% segment-id: o014.li2.chapter6.cyclic-and-free-groups.t003
+\begin{corollary}
+	If $G$ is a nontrivial free group, then
+	$\mathrm{cd}(G)=\mathrm{hd}(G)=1$.
+\end{corollary}
+
+% segment-id: o014.li2.chapter6.cyclic-and-free-groups.p008
+For cohomology, the converse of the result above also holds:
+$\mathrm{cd}(G)=1$ implies that $G$ is a free group. This is known as the
+Stallings--Swan theorem \cite{Sw69}.

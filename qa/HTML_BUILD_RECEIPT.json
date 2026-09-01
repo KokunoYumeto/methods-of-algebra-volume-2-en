@@ -1,0 +1,796 @@
+{
+  "schema": "o014-english-html-build-v1",
+  "built_at_utc": "2026-09-01T00:24:51.742753+00:00",
+  "result": "PASS",
+  "index_bytes": 4499295,
+  "index_sha256": "894749f6fc9e19d37ff981a0e5a2681539d2dc04b33952967ac989b3d70abff3",
+  "dist_files": 31,
+  "dist_bytes": 6200748,
+  "validation": {
+    "status": "pass",
+    "html_files": 2,
+    "units_and_bridges": 148,
+    "mathml_elements": 0,
+    "mathjax_source_elements": 28445,
+    "images": 0,
+    "diagram_alt_texts_applied": 907,
+    "ledger_diagrams": 907,
+    "local_references_checked": 3609,
+    "logical_sections": 149,
+    "unsupported_math_residue": [],
+    "unsupported_raw_residue": [],
+    "errors": [],
+    "limitations": [
+      "MathML pronunciation depends on the browser and assistive technology.",
+      "Complex diagram alt text is a summary, not a complete substitute for the visual relation.",
+      "No WCAG conformance level or tagged-PDF claim is made."
+    ]
+  },
+  "commands": [
+    {
+      "command": [
+        "python.exe",
+        "reader/tools/build_pandoc_reader.py",
+        "--project",
+        ".",
+        "--reader",
+        "reader"
+      ],
+      "returncode": 0,
+      "stdout_tail": "",
+      "stderr_tail": ""
+    },
+    {
+      "command": [
+        "python.exe",
+        "reader/tools/validate_reader.py",
+        "--dist",
+        "reader/dist",
+        "--master",
+        "source/en/Al-jabr-2-en-complete-draft.tex",
+        "--ledger",
+        "backend/figure-alt-text-en.csv"
+      ],
+      "returncode": 0,
+      "stdout_tail": "{\"status\": \"pass\", \"html_files\": 2, \"units_and_bridges\": 148, \"mathml_elements\": 0, \"mathjax_source_elements\": 28445, \"images\": 0, \"diagram_alt_texts_applied\": 907, \"ledger_diagrams\": 907, \"local_references_checked\": 3609, \"logical_sections\": 149, \"unsupported_math_residue\": [], \"unsupported_raw_residue\": [], \"errors\": [], \"limitations\": [\"MathML pronunciation depends on the browser and assistive technology.\", \"Complex diagram alt text is a summary, not a complete substitute for the visual relation.\", \"No WCAG conformance level or tagged-PDF claim is made.\"]}\n",
+      "stderr_tail": ""
+    }
+  ],
+  "reader_build_report_sha256": "0b528d343ff30d9d7fe983589d8f4b517b23ba237922e51df0821e6576dcbcc9",
+  "source_inputs": {
+    "master": {
+      "path": "source/en/Al-jabr-2-en-complete-draft.tex",
+      "sha256": "a51b13e91fd9511f3bb400775e318dc83f67594f5d44bccf1b19005291805f89"
+    },
+    "bibliography": {
+      "path": "source/en/Al-jabr.bib",
+      "sha256": "1114bf4fe47e94d90658f288ae3d72c1a38f8bc297cbd88acd450ca004240306"
+    },
+    "macro_file": {
+      "path": "source/en/mycommand.sty",
+      "sha256": "a0ee58270f72078a71c065fda51b027bec7b40fc49721997d996c1c10683496a"
+    },
+    "diagram_ledger": {
+      "path": "backend/figure-alt-text-en.csv",
+      "sha256": "aa15c68e8e0f19ee58dc9329199c4ff84db1deb1df9bf58dd5a11105ff293937"
+    },
+    "units": [
+      {
+        "path": "source/en/prelude-unit-001.tex",
+        "sha256": "248318122c0e48c101064a088ac44063770e84a4bb6b2d18671f86d189c8c802"
+      },
+      {
+        "path": "source/en/prelude-unit-002.tex",
+        "sha256": "de59548a0d2e89000335459568fec9855de800ec35f6736f11e969ed870fb33a"
+      },
+      {
+        "path": "source/en/prelude-unit-003.tex",
+        "sha256": "161670859134baea0d2f2f990c81d7c86d447bf5221678526f923757ebaa2d27"
+      },
+      {
+        "path": "source/en/prelude-unit-004.tex",
+        "sha256": "a5c02228b235e063b93cd864b3b6f3fc016e83da0fd8f8f76f795e2f854b5323"
+      },
+      {
+        "path": "source/en/prelude-unit-005.tex",
+        "sha256": "89d59e4ca07a2db8ce75ecf4ca7648e4fe0a39ce91935c734cfe8c9946ea45b9"
+      },
+      {
+        "path": "source/en/prelude-unit-006.tex",
+        "sha256": "e792701d68d2a4d9f39f1d73b226a288f4a8460c141b44caabd23c209ddc0ea7"
+      },
+      {
+        "path": "source/en/prelude-unit-007.tex",
+        "sha256": "d0a49de113f624dda609356655c707a5f84d75a97adc67535cc2033d6c3b8e2d"
+      },
+      {
+        "path": "source/en/chapter1-unit-008.tex",
+        "sha256": "d8b41e6d03dcfbcad1893913067011c5d80dacd1b836f9d105725bb88259f8eb"
+      },
+      {
+        "path": "source/en/chapter1-unit-009.tex",
+        "sha256": "3a16ef5063206d9918961cd928987bf4e9b49bcc6b9f3865354488af13cb9b2d"
+      },
+      {
+        "path": "source/en/chapter1-unit-010.tex",
+        "sha256": "bdfdb82c6dd52533fe9ed8e107967c54fa99c6455866d94e4ea3e995525aef2b"
+      },
+      {
+        "path": "source/en/chapter1-unit-011.tex",
+        "sha256": "cb8e9593cf34c895e2afc57f200b7045d3d0f9399d91528bc1e636592bc09763"
+      },
+      {
+        "path": "source/en/chapter1-unit-012.tex",
+        "sha256": "1e1916cef13dae45e34080a9250476c5d031fb6b397ae7e3346edb4a5272ba45"
+      },
+      {
+        "path": "source/en/chapter1-unit-013.tex",
+        "sha256": "36ef667d4cd9be4756bdaed93d59edd7e8a4c465fb7145e06b1bf43657a69a14"
+      },
+      {
+        "path": "source/en/chapter1-unit-014.tex",
+        "sha256": "d2823bea92ab0c312edfe2ca17d82e5e3078f83d291bbc5a0f2459339877c540"
+      },
+      {
+        "path": "source/en/chapter1-unit-015.tex",
+        "sha256": "16df36f50811fa71ad7b1624544aa6246518d7de1db4b414a84214bcdbb9f141"
+      },
+      {
+        "path": "source/en/chapter1-unit-016.tex",
+        "sha256": "57b3b4703da87b004cea7ee3f3be4f5f507bf2e243e1df904480078e9b3e3866"
+      },
+      {
+        "path": "source/en/chapter1-unit-017.tex",
+        "sha256": "9280f2cc95c99fc5fc7c59c79a474e33960bcdad942a71f42f1b0d1e45e484f5"
+      },
+      {
+        "path": "source/en/chapter1-unit-018.tex",
+        "sha256": "5aa67a05dc317e2d8796eca3e55d07f880f1dab2c3f3c41a86513037fd5a234f"
+      },
+      {
+        "path": "source/en/chapter1-unit-019.tex",
+        "sha256": "f662655498d0b3495adb22d1c691472115afc43c666c578cc0648752018b3829"
+      },
+      {
+        "path": "source/en/chapter2-unit-020.tex",
+        "sha256": "f92187b487cf7c88e76b14d5e60ba8fa46cdca74478de3fda2e0116c0fb96e6a"
+      },
+      {
+        "path": "source/en/chapter2-unit-021.tex",
+        "sha256": "86b85ff540c9859bb8172dd218a65a945cde870880fdd734928a342d5c2870b6"
+      },
+      {
+        "path": "source/en/chapter2-unit-022.tex",
+        "sha256": "7c8a40388efdad3aafa02567cf07ac390864a6d4ed0430250ca7836aaefe3735"
+      },
+      {
+        "path": "source/en/chapter2-unit-023.tex",
+        "sha256": "65ce863946f2f3f4fa33f4aa088f59e6aa82ed8403e93f8939e1c269e6863a5d"
+      },
+      {
+        "path": "source/en/chapter2-unit-024.tex",
+        "sha256": "02fd91a6a187f2746a5408f0dfe2b77dc393214a91b453c191aafd4ff0cae0db"
+      },
+      {
+        "path": "source/en/chapter2-unit-025.tex",
+        "sha256": "15a238c3717c3914ee85c61d6396bde141e219fd9a3df3a1b73f3269415f00be"
+      },
+      {
+        "path": "source/en/chapter2-unit-026.tex",
+        "sha256": "143b96b6ea25802ef4e4333719ef4a56cb081f7a4f4009a086199f47d3e85a49"
+      },
+      {
+        "path": "source/en/chapter2-unit-027.tex",
+        "sha256": "010219cd8fdac5e6a9737485479754e51b32587485b2e2c367a6a86477aa9822"
+      },
+      {
+        "path": "source/en/chapter2-unit-028.tex",
+        "sha256": "abc948ae5b1de67e7a6742b967609db995609237c718fa417d465a0e76eee6af"
+      },
+      {
+        "path": "source/en/chapter2-unit-029.tex",
+        "sha256": "19472adc31f18eb69c33ea0d21fa9fe780e1dd682b7ff6b44b14cb0d35aa5387"
+      },
+      {
+        "path": "source/en/chapter2-unit-030.tex",
+        "sha256": "c4972c7b0e504812bdc34c6347d7be19a379ba7afe477f3089d945533df98c0f"
+      },
+      {
+        "path": "source/en/chapter3-unit-031.tex",
+        "sha256": "923cc3b6ad0d3c5d28b84bed2c316046fde103fe6652386fd5be03abba282627"
+      },
+      {
+        "path": "source/en/chapter3-unit-032.tex",
+        "sha256": "459882c133a4f1358cda8752dc21c6a8043a24fa9c197211c1b884b953422213"
+      },
+      {
+        "path": "source/en/chapter3-unit-033.tex",
+        "sha256": "6b01697f4cc137db97edebeb0c78c38df3108c9b211f2c088c62e2813733332f"
+      },
+      {
+        "path": "source/en/chapter3-unit-034.tex",
+        "sha256": "a0a01c1d6ad88fca0a1342518bbf5287b83ba78f57ad64afca540a63d9285e68"
+      },
+      {
+        "path": "source/en/chapter3-unit-035.tex",
+        "sha256": "909b732309579e5815a92c4eecf2534fd848f006aed7ad794edc1fe69aa300a4"
+      },
+      {
+        "path": "source/en/chapter3-unit-036.tex",
+        "sha256": "19d8806261ceb444319a0441db7e6c609b5e548ca4e3cc2bbe7e2974afbacdb5"
+      },
+      {
+        "path": "source/en/chapter3-unit-037.tex",
+        "sha256": "206451f9e042699e30881d1f8a0085b95e626166dd56fb638286effec90ab759"
+      },
+      {
+        "path": "source/en/chapter3-unit-038.tex",
+        "sha256": "6644e9587a2dcceed53a5f4335730581f84a979f3f6e662d316744a7f96a24a7"
+      },
+      {
+        "path": "source/en/chapter3-unit-039.tex",
+        "sha256": "3a4e5d128f60f6cccd1e4642c749077104a2cf83480e8bbd3cb4f4f30b912a68"
+      },
+      {
+        "path": "source/en/chapter3-unit-040.tex",
+        "sha256": "0a1b949a00e640e80b4bcb199cc29bc844955e4af0cbb6a157759874279fe878"
+      },
+      {
+        "path": "source/en/chapter3-unit-041.tex",
+        "sha256": "d53cb8040f2e1a95fa9f91266d6a2ccef0ea38d80ef8370b8cc8c10c6877d746"
+      },
+      {
+        "path": "source/en/chapter3-unit-042.tex",
+        "sha256": "e12cdf6e4236f8786e5e0c2bc38c78220b4f59442125c3ff48792d3138a4d46f"
+      },
+      {
+        "path": "source/en/chapter3-unit-043.tex",
+        "sha256": "c6460e4841b0bb0fb9e9301a12ad02dbec8616ed6c5bc900a39edbae968bba1d"
+      },
+      {
+        "path": "source/en/chapter3-unit-044.tex",
+        "sha256": "4bee1c185ad84fc2958e9aef474b301d75d25f7206729538bc77db2e78ef735c"
+      },
+      {
+        "path": "source/en/chapter3-unit-045.tex",
+        "sha256": "e9676389e9ca1399b1ea0a367af51276da97805031133bb886d4069dc4dcf583"
+      },
+      {
+        "path": "source/en/chapter3-unit-046.tex",
+        "sha256": "3242dda88ea5c55b3c4e46208af26a3cdec72caa5916aa37befb667bec3f423b"
+      },
+      {
+        "path": "source/en/chapter3-unit-047.tex",
+        "sha256": "ef16a9060d5ada2f4f0272bb9fd314d03d7df9b1312a1c743d9bff7617ed94c7"
+      },
+      {
+        "path": "source/en/chapter4-unit-048.tex",
+        "sha256": "ead325be1b1d04a2dcb941c8916170dc668cd2e26f5c1a2501a2e0d8b366bda3"
+      },
+      {
+        "path": "source/en/chapter4-unit-049.tex",
+        "sha256": "21427c6a7c49183a9cab28157816b2d8199041cb22eb4cd16903c53aca968708"
+      },
+      {
+        "path": "source/en/chapter4-unit-050.tex",
+        "sha256": "5c5087f9f7a983c1e9aabf58de88dab3f75e76e0866e81ae11bec9e8c817f332"
+      },
+      {
+        "path": "source/en/chapter4-unit-051.tex",
+        "sha256": "9d58170a6f35ca29c97a230fdb9627fdae112f5c06163b4d99c0f419cda56814"
+      },
+      {
+        "path": "source/en/chapter4-unit-052.tex",
+        "sha256": "cb362b021765bf96b2ffb8ad9fc8ab267b1574420c034f826b34a989ced0889c"
+      },
+      {
+        "path": "source/en/chapter4-unit-053.tex",
+        "sha256": "34c18e43c2aa2c4bedda7e7bd65f2393a4493f12f97f691ca3db7bbcac386a21"
+      },
+      {
+        "path": "source/en/chapter4-unit-054.tex",
+        "sha256": "7ccf18cd2884cb94d1937269e55f5a2ecbacae5cc733d715d1a30ceb062105d4"
+      },
+      {
+        "path": "source/en/chapter4-unit-055.tex",
+        "sha256": "1c10c315593fa7cec9bb0550e254907d9fc25ba100c08285f1839ffcdb77659d"
+      },
+      {
+        "path": "source/en/chapter4-unit-056.tex",
+        "sha256": "84b32ccf185f4b94f0b233b41cdd808166730dda480abe92fc7bbd0a2a984c07"
+      },
+      {
+        "path": "source/en/chapter4-unit-057.tex",
+        "sha256": "743b278c968b3eac7ff62bcaa708ee321385374848a06f99c6e7df84ad70b3d9"
+      },
+      {
+        "path": "source/en/chapter4-unit-058.tex",
+        "sha256": "a571ee959483b02a0a755d314a1d346269aebb150eba78aa2754844bc6855f32"
+      },
+      {
+        "path": "source/en/chapter4-unit-059.tex",
+        "sha256": "aadcb8f5270f16dedde1846063f1d8f38fba636165b660a5839eccd919c7e749"
+      },
+      {
+        "path": "source/en/chapter4-unit-060.tex",
+        "sha256": "e9a4f30617bb1b430b2daf546a90dc03a6161818b567e6ae14d7b1b02cc32ec3"
+      },
+      {
+        "path": "source/en/chapter4-unit-061.tex",
+        "sha256": "1822a0c5463f9464b8c380389e8186de79de9e111ca446476cbea00bc82ba170"
+      },
+      {
+        "path": "source/en/chapter4-unit-062.tex",
+        "sha256": "e3bc656117326ea0e4fad4a38a8961c428bc7f64a75cd4d2b5fa56154e734754"
+      },
+      {
+        "path": "source/en/chapter4-unit-063.tex",
+        "sha256": "712f3277addcf14951363c6f19ac75a9b7077f3bac70230e1ec1850f1ba53cc6"
+      },
+      {
+        "path": "source/en/chapter5-unit-064.tex",
+        "sha256": "e29c2a43819cb356f49f1e1c525a83ba72062a316a0b096dd52df5b634a7e124"
+      },
+      {
+        "path": "source/en/chapter5-unit-065.tex",
+        "sha256": "473a73f0e4479d1f4bd6bbbf7dd58fdfb030276e39a7c68786c3188da2a55b37"
+      },
+      {
+        "path": "source/en/chapter5-unit-066.tex",
+        "sha256": "0031b8d0c2f550f56367547e9e0cb921f02fc39ea610202d616c754ed44438e4"
+      },
+      {
+        "path": "source/en/chapter5-unit-067.tex",
+        "sha256": "c9509a4a9b7e43f9bf883e9c8e1ee2ad12c09c2b50f3891272f076903d970ed4"
+      },
+      {
+        "path": "source/en/chapter5-unit-068.tex",
+        "sha256": "2c3e4e653b9c0e36844c233aa6276dcac81a0aa95a4d02bd85dce7dddbbe4a6d"
+      },
+      {
+        "path": "source/en/chapter5-unit-069.tex",
+        "sha256": "784d96bed846d9a155bd531b4b48b0baaa542e308dfb798f081d9a8510078a37"
+      },
+      {
+        "path": "source/en/chapter5-unit-070.tex",
+        "sha256": "06e0f2bd28d7a12a12e48c555c3cb6ff0cc4429c11056296483e755a3ad2f51c"
+      },
+      {
+        "path": "source/en/chapter5-unit-071.tex",
+        "sha256": "eb1384674393479b58c9a6fae492d586238ed38fe08a0dfcd912203064593164"
+      },
+      {
+        "path": "source/en/chapter6-unit-072.tex",
+        "sha256": "14ef45338c6f8b0c5a649824600f8d8d9c6aa5693b8066362291e2d4d369e2b7"
+      },
+      {
+        "path": "source/en/chapter6-unit-073.tex",
+        "sha256": "ce88be5939d5a1dd1c273a0aece2bd0c5869bf7353b5bd3bdf18b1382ed7be1f"
+      },
+      {
+        "path": "source/en/chapter6-unit-074.tex",
+        "sha256": "e41aeed95ceb080f1c5844856159e4ca0205ba79a1998b71e0c200d2c9adf73e"
+      },
+      {
+        "path": "source/en/chapter6-unit-075.tex",
+        "sha256": "a43d1b006df6081bdd96c1ddd67f2d98315cd7976319fe83e4efde97bc956545"
+      },
+      {
+        "path": "source/en/chapter6-unit-076.tex",
+        "sha256": "defd6dce94a1fa82cbfc8360a194ab57337d3c8fc3e719b226966146696166d3"
+      },
+      {
+        "path": "source/en/chapter6-unit-077.tex",
+        "sha256": "18acae0fa0ec392cfdac417046e2db0932dc34ca78a584498b506cce8c29e5d9"
+      },
+      {
+        "path": "source/en/chapter6-unit-078.tex",
+        "sha256": "01ae6fa145d8bb971d71cc55f909ac115f346842c0073ca7a0ab913364bfcfe8"
+      },
+      {
+        "path": "source/en/chapter6-unit-079.tex",
+        "sha256": "bc622d340771b5adfb5a5b2374ede458e1781dc899517754668743f35d5ed8c4"
+      },
+      {
+        "path": "source/en/chapter6-unit-080.tex",
+        "sha256": "55d9e22ddc02ba30446e79037d798a5bafc2eb0e3ccd454f2e6cf584f7d9e308"
+      },
+      {
+        "path": "source/en/chapter6-unit-081.tex",
+        "sha256": "63fda72185c8faae1de0f19480547aef86e251e94eb511bc83115f25c6bd8bfd"
+      },
+      {
+        "path": "source/en/chapter6-unit-082.tex",
+        "sha256": "dfe392ba980243833e3b9b4d24f7a3ec8975109128ce48c5db0ff856f8a729f1"
+      },
+      {
+        "path": "source/en/chapter6-unit-083.tex",
+        "sha256": "cfa4c20179bb5bf170c84f9b92959c966af88889b9f10e4c46240964e772a571"
+      },
+      {
+        "path": "source/en/chapter6-unit-084.tex",
+        "sha256": "64549bb89423e42c0cc985e0ecc1a56501906d1bdfadd38b7854b69822c1f4ce"
+      },
+      {
+        "path": "source/en/chapter6-unit-085.tex",
+        "sha256": "10b878afc0641e7c0a5519e0dc15bed94deb9296d71d69677eb5c7adccf4c4f9"
+      },
+      {
+        "path": "source/en/chapter6-unit-086.tex",
+        "sha256": "bb61fc285f5517e8ef99214372be3a827796c200dfbdeb4b0d2ab3bd6dba2e5d"
+      },
+      {
+        "path": "source/en/chapter6-unit-087.tex",
+        "sha256": "c903eb8f65b092ef8b9c09f56c64da655ab1ab51ed3fa46467a3c23fe4379611"
+      },
+      {
+        "path": "source/en/chapter7-unit-088.tex",
+        "sha256": "a54579463b92a3d12f64ea5f2606e932590ca8655832e31ac60097faf5da91a8"
+      },
+      {
+        "path": "source/en/chapter7-unit-089.tex",
+        "sha256": "8abb9bbda52781c4a6af2b00197a62dc3d3515f404a35e7405000a3db8c08531"
+      },
+      {
+        "path": "source/en/chapter7-unit-090.tex",
+        "sha256": "1d0e6f912f1cd77cf91ed205a1c69aa84952b7e1ea4d7c7071cb8f9416d18fb1"
+      },
+      {
+        "path": "source/en/chapter7-unit-091.tex",
+        "sha256": "3e44e60faa355810966eabafc47f39484b780f588e6ad1e07d531996fd5aa0c3"
+      },
+      {
+        "path": "source/en/chapter7-unit-092.tex",
+        "sha256": "a44f575872a8b424b19fd4c8c18d55904f71eb20a0668342004fb30f5c2b2470"
+      },
+      {
+        "path": "source/en/chapter7-unit-093.tex",
+        "sha256": "15489fd304cd613516109492e4ca2d89b32002007c57edf2d7dac87bd3c63d1e"
+      },
+      {
+        "path": "source/en/chapter7-unit-094.tex",
+        "sha256": "0f6655db030ba06516ce93c39fb20b5af5a683c50d7976a0234bc71ce4c1b9f7"
+      },
+      {
+        "path": "source/en/chapter7-unit-095.tex",
+        "sha256": "60fc13499001a96a9b4af8df48900f3043f915241dc8799de036e15aafd0de0f"
+      },
+      {
+        "path": "source/en/chapter7-unit-096.tex",
+        "sha256": "ad3c661340d9d10f31dca14461931ac426da1f0ccb7150d5f059fe06c36ef2ee"
+      },
+      {
+        "path": "source/en/chapter7-unit-097.tex",
+        "sha256": "07a2308565082725d6e8259c055e92c436199889ded333ae2ae576e1d2d76561"
+      },
+      {
+        "path": "source/en/chapter7-unit-098.tex",
+        "sha256": "3d4643f95e047f2f8b1a7d8c6b707cda366c64322ae87f1e8c6676acca672a7a"
+      },
+      {
+        "path": "source/en/chapter7-unit-099.tex",
+        "sha256": "1c2a88d3a2759c05e6759c6dce2adc22337cde6cef5ae1af1e700e3902eb1470"
+      },
+      {
+        "path": "source/en/chapter7-unit-100.tex",
+        "sha256": "56706f04e0fb0a8eb17a7d5dfd2f82851d6562c4a648bbf872c933d1a8c572d6"
+      },
+      {
+        "path": "source/en/chapter7-unit-101.tex",
+        "sha256": "275e51becd9c750a3f206991e5e7dc1c7eb875e19bb78cd1456b08e600d869f1"
+      },
+      {
+        "path": "source/en/chapter7-unit-102.tex",
+        "sha256": "6be024dd14537467aa0aa523c988852ac78a444b5a8a47a48b2d3a51c87a22f9"
+      },
+      {
+        "path": "source/en/chapter7-unit-103.tex",
+        "sha256": "0f7c91413be4620fb3fd019d4e69b3bd423c16cf26f0c25e7bc1ead9f14e298e"
+      },
+      {
+        "path": "source/en/chapter7-unit-104.tex",
+        "sha256": "6b8e51e5e4e2762e5782f6012a267e7aad78cb805960191dd5bc553237d03561"
+      },
+      {
+        "path": "source/en/chapter7-unit-105.tex",
+        "sha256": "631a16dbd43a097c264c92a700ceaf6894ec059e4ca6723ac9f0e56dcc294c88"
+      },
+      {
+        "path": "source/en/chapter8-unit-106.tex",
+        "sha256": "f569c60fd700e40037b9d2c1876425ba0923a5eaba7094bef4ee967ae3c287f7"
+      },
+      {
+        "path": "source/en/chapter8-unit-107.tex",
+        "sha256": "0c70df15d2547c55d95763f546cc766e8aef48ab6d96a0dda960f172d7589973"
+      },
+      {
+        "path": "source/en/chapter8-unit-108.tex",
+        "sha256": "8a403f83c35a6496d16f3070a76d0c8eee5cc150a743e74159aff6a1403ad83c"
+      },
+      {
+        "path": "source/en/chapter8-unit-109.tex",
+        "sha256": "409830f1bff9719422cfd53b82b5ab2379f067da4c5f9c73b7f10a9d9099c1af"
+      },
+      {
+        "path": "source/en/chapter8-unit-110.tex",
+        "sha256": "00ea267f731b589afea395c04c1d508877f8505d7e76ccc611bab210481d55f6"
+      },
+      {
+        "path": "source/en/chapter8-unit-111.tex",
+        "sha256": "6e7c0cff5a8a47e5f4024eef3555e4e331f5da316427f150cd272104a705789e"
+      },
+      {
+        "path": "source/en/chapter8-unit-112.tex",
+        "sha256": "1015fe6ba40c2efe1320dff6243e6fb53dc3b0b53aa03febc31a59f9a97c3437"
+      },
+      {
+        "path": "source/en/chapter8-unit-113.tex",
+        "sha256": "b5283026362c58100a237104131566fb1f3c502023543f8d686d95d0144fc3cf"
+      },
+      {
+        "path": "source/en/chapter8-unit-114.tex",
+        "sha256": "9a589c0c162751a6bbfa0f66bf8718ce1dc7731156d95fdf157076040f83c1da"
+      },
+      {
+        "path": "source/en/chapter8-unit-115.tex",
+        "sha256": "68d83dfa5898ad54a10bea2a74726aa2ce90c089b536f77bb75a7b2016101a28"
+      },
+      {
+        "path": "source/en/chapter8-unit-116.tex",
+        "sha256": "15d109399eecad4676e4d688ac650b50a2a786bec53df4cd6d24ea83b1664192"
+      },
+      {
+        "path": "source/en/chapter8-unit-117.tex",
+        "sha256": "99d32b101570d48056c595949a06ebef965fe4dc01a0a4d0b23f93e6d925690f"
+      },
+      {
+        "path": "source/en/chapter8-unit-118.tex",
+        "sha256": "297d9e2fc4e327b705c4d92f380ea58051480b4242b1815476748da8fcb98cf9"
+      },
+      {
+        "path": "source/en/chapter8-unit-119.tex",
+        "sha256": "45c2c179178cdd301f76a9c1d475601588f4c8ae88aec2cf5463c5e5e5584223"
+      },
+      {
+        "path": "source/en/chapter8-unit-120.tex",
+        "sha256": "1774eba47024250bd4ebff4194782ff2ed9c685d6a1253e528bc78494a62e51e"
+      },
+      {
+        "path": "source/en/chapter9-unit-121.tex",
+        "sha256": "5073c5620c6c317656706e4823b233ee22c4cad3b4976d3d4e0b67fd6941013a"
+      },
+      {
+        "path": "source/en/chapter9-unit-122.tex",
+        "sha256": "c5f6888c6137c3336cd9e6a932c0a46b72bbc63e2e1b7a61b84c4811871ab73f"
+      },
+      {
+        "path": "source/en/chapter9-unit-123.tex",
+        "sha256": "0ce0bcb4d32758a0ff32f0f0c54cf2cda4939823221b143e8253d2cb12faa8d5"
+      },
+      {
+        "path": "source/en/chapter9-unit-124.tex",
+        "sha256": "33e9852cc34892a07ac2fc16a04f642850fe7fff32d1e06f95c270d807ec8f7a"
+      },
+      {
+        "path": "source/en/chapter9-unit-125.tex",
+        "sha256": "807baa28f08e68bd74c6afaa85e492a37f3cefa394a0b2c0cf8f1b298f8a026c"
+      },
+      {
+        "path": "source/en/chapter9-unit-126.tex",
+        "sha256": "35dd341405be58b602ba29b6c5855c28ab4410e9eb665665541ff165669f517f"
+      },
+      {
+        "path": "source/en/chapter9-unit-127.tex",
+        "sha256": "ca563aa99a73ada3006b20c48000d3300ddaf8d962aee6466e60ab3dcca896dc"
+      },
+      {
+        "path": "source/en/chapter9-unit-128.tex",
+        "sha256": "8f2fe7709d47d948dc5a082b1674aa7410c40c8c3ae2ceda357d1594fdf12a11"
+      },
+      {
+        "path": "source/en/chapter9-unit-129.tex",
+        "sha256": "da9a443bb9282cbc0bfa55e3c1bfc909b49a0cb9c3026ad6ca1cdaad3e0d1949"
+      },
+      {
+        "path": "source/en/chapter9-unit-130.tex",
+        "sha256": "94a16f0e01042ebd9ce2cfbc118018b87dfbc7fb44f4033eedb86f133ea0ea12"
+      },
+      {
+        "path": "source/en/chapter9-unit-131.tex",
+        "sha256": "ecfadc01b553062e38da39035ad34ccb43f3a1e4875596cfafee18902ae03f07"
+      },
+      {
+        "path": "source/en/chapter9-unit-132.tex",
+        "sha256": "01f1ec1a13bf83caf1891302f4224c0d548cb1a86d214d472c6d353c68df8df8"
+      },
+      {
+        "path": "source/en/chapter9-unit-133.tex",
+        "sha256": "a277c7e98b3abf84f297eaf9d149cd6598db87cca530ae84db03798a2e3c77bf"
+      },
+      {
+        "path": "source/en/chapter9-unit-134.tex",
+        "sha256": "9d7f4b4ca1de7dc5f802d3aed60f571507cfd7a52378ac5563c49815f3442c02"
+      },
+      {
+        "path": "source/en/appendix1-unit-135.tex",
+        "sha256": "b3d693790d2f7aec6769540801fc423736c78c7a9e03a297837322a410486a00"
+      },
+      {
+        "path": "source/en/appendix1-unit-136.tex",
+        "sha256": "5816d8fde62658c6984c49364237ba3bfac17ec84359b4ac924f95fde1bb5e07"
+      },
+      {
+        "path": "source/en/appendix1-unit-137.tex",
+        "sha256": "638dec4235bf63210f3c3e9151faf97bbd2a410c975035148e8ac8c472517340"
+      },
+      {
+        "path": "source/en/appendix1-unit-138.tex",
+        "sha256": "7144b9da2d8f81f4438b304fd82e9f58f371ecdeb8948da2d02e9db4fc25de61"
+      },
+      {
+        "path": "source/en/appendix1-unit-139.tex",
+        "sha256": "4dc57fb9f11ffe1281019316c39eed805c37c73927a8028d82c230c6f09c17a0"
+      },
+      {
+        "path": "source/en/appendix2-unit-140.tex",
+        "sha256": "0e1cf5f82a8816f4e856ebe6ac147b0828cd16d85664fcb28e85465536006292"
+      },
+      {
+        "path": "source/en/appendix2-unit-141.tex",
+        "sha256": "7abb74920baff2e98a63741dcc2f2629a4798c86f73cc8c53bbf18529801195a"
+      },
+      {
+        "path": "source/en/appendix2-unit-142.tex",
+        "sha256": "776a23af4960bbf9eba6f2c88ba0bc5763d038a98998e927fa85e2ba5a7568ba"
+      },
+      {
+        "path": "source/en/appendix2-unit-143.tex",
+        "sha256": "f35dbcfdfb8533e1737635425f0935a4797b5d2e7a2cba73fd23bf697049c218"
+      },
+      {
+        "path": "source/en/appendix2-unit-144.tex",
+        "sha256": "040362f59e0b728b658d509ad4acfed066b2d5ff00095225b98a46d498e15112"
+      },
+      {
+        "path": "source/en/appendix2-unit-145.tex",
+        "sha256": "a2916b63b5f1fab33318ba7fbfe08df0f4d23f8430898d1aece0f7ee0759b0d5"
+      },
+      {
+        "path": "source/en/appendix2-unit-146.tex",
+        "sha256": "3d40cc380e76fe2318b2945a33314b93b39e00e60a97fd331dbfd0b8c40f27aa"
+      },
+      {
+        "path": "source/en/mastery-bridge-001-diagram-chasing.tex",
+        "sha256": "ed17bd2b07b08d367e5a6bf86c349c4ea51663bb6ed44e57c0f7132e195d4072"
+      },
+      {
+        "path": "source/en/mastery-bridge-002-derived-functors-spectral-sequences.tex",
+        "sha256": "20e7498059a531a3f95e94bb03c32a663b5c14a6ea8fa0dffe38e4ef0c5e103e"
+      }
+    ]
+  },
+  "reader_inputs": {
+    "stylesheet": {
+      "path": "reader/reader.css",
+      "sha256": "fd9b89f0a29aa64ee452707d1220f4038658d3ade179079ea4f4ba16662d04a6"
+    },
+    "accessibility_page": {
+      "path": "reader/accessibility.html",
+      "sha256": "a69e06aaa543262a13a94d3e48caa8789bcdba4894bb661f2e2baef50b721faf"
+    },
+    "diagram_overrides": {
+      "path": "reader/diagram-description-overrides-en.json",
+      "sha256": "9add81ab178d6c523387ae648b50e28ff6b42bf449e8faa6624eeee8cb46cd42"
+    },
+    "mathjax_files": [
+      {
+        "path": "reader/vendor/mathjax-3.2.2/LICENSE-MathJax.txt",
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff",
+        "sha256": "3de784d07b9fa8f104c10928a878ee879cf3305cae5195cba663c9c2bb0195eb"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff",
+        "sha256": "af04542b29eaac04550a140c5f1760a649783989426f2540855bf4157819367d"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff",
+        "sha256": "26683bf201fb258a2237d9754616de9d4ecf4cc1cd39dd1902476df7d75f1d16"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff",
+        "sha256": "721921bab0d001ebff0206c24cb5de6ca136467bf1843a7aa32030ba061d1e92"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff",
+        "sha256": "870673df72e70f87c91a5a317d558c2c3b54392264ad79bbadc6d424ae8765fe"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff",
+        "sha256": "88b98cad3688915e50da55553ff6ad185e0dce134b47f176e91b100f8a9b175c"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff",
+        "sha256": "355254db9ca10a09a3b5f0929d74eb4670f44fbe864c07526a06213e0a0caf6c"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff",
+        "sha256": "1cb1c39ea642f26a4dfed230b4aea1c3c218689421f6e9c0a7c1811693c4fa07"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff",
+        "sha256": "8ea8dbb1b02e6f730f55b4cb5d413b785b9f5c39807d0a0fa7da206a0824a457"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff",
+        "sha256": "a009bea404f7a500ded48f8b9ad9cf16e12504b3195dd9e25975289b8256b0f0"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Regular.woff",
+        "sha256": "c01d3321e89b403c4b811aa153c4e618eda3421f92d8a072a02c8d190782a191"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff",
+        "sha256": "32792104b5ef69eded905b6d1598ed05d8087684d38e7a94d52e3c38ba16f47e"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff",
+        "sha256": "fc6ddf5df402b263cfb158aed8e89972542c34b719cd87b1db30461985f7bd5b"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff",
+        "sha256": "b418136e3b384baaadecb70bd3c48a8da9825210130b2897db808c44efc883cb"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff",
+        "sha256": "af96f67d7accf5fd2a4a682d0b9f8b339f8ea6fe34c310c1694c8ba7f6ddc96f"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff",
+        "sha256": "c49810b53ecc0d87d8028762c518924197dd9d3f905b08f99ea241301085b9cb"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff",
+        "sha256": "30e889b58cbc51adfbb038ab1a96dc4025aa3542a3cff7712fc55ece510675e2"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff",
+        "sha256": "5cda41563a095bd70c78e2dda13d0f8cb922c71c90fffd0a0044c65173a66e83"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff",
+        "sha256": "3bc6ecaae7ecf6f8d7f8ea07bddbaca8601e2cb6e89d6aef58e78d9f6d8a398f"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff",
+        "sha256": "c56da8d69f1a0208b8e0703656c3264b6dd748bd452524c82b0385b60f6a68c1"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff",
+        "sha256": "36e0d72d8a7afc696a3e7a5c7369807634640de9b02257bca447bdf126221a27"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff",
+        "sha256": "72bc573386dd1d48c5bbd286302ca9e3400c5eb0f298e7cfbf945b9d08fc688f"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Zero.woff",
+        "sha256": "481e39042508ae313a60618af1e37146ab93e9324c98e4c78b8f17fe55d41e0b"
+      },
+      {
+        "path": "reader/vendor/mathjax-3.2.2/tex-chtml-full.js",
+        "sha256": "91b005503c5d1f0958bf4d73ada1a3be33596b2c4ab5da22277f1b0d3149b5a4"
+      }
+    ]
+  },
+  "builder_inputs": {
+    "tools/build_english_reader.py": "3ddb110903bf206a273559eeff6c98c8e16def3f285ccb7f4ab8fbc2ed55d2b2",
+    "reader/tools/build_pandoc_reader.py": "97e29d5640fde593dee852bb1db34b2f91bb2db20dfe6e00c7405ce4fe3e5330",
+    "reader/tools/validate_reader.py": "9c6bda5be1ca0a598b8d1cf00338f194c5dbf154bedc6c1512d68e3748b4a00f"
+  },
+  "source_freeze_sha256": "468b07a489f4bfef79a799b19fbe2b948f8fc3503e48aee16e7f669f8778974f",
+  "source_commit": "9a5803ff77dd3257484cb177f851a73770a59dd3",
+  "source_tree": "23bd05c2fb8434278df4fdfb636559a6a2b0d2ff"
+}

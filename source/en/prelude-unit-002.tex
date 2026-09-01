@@ -1,0 +1,118 @@
+% English translation of prelude.tex, lines 30--103.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.prelude.homology-history
+
+\section*{A Brief History of Homology}
+\addcontentsline{toc}{section}{A Brief History of Homology}
+\hypertarget{o014.aljabr2.prelude.homology-history}{ }
+
+% segment-id: o014.li2.prelude.homology-history.p001
+Mathematics need not be grounded in history; nevertheless, looking back to understand what lies ahead can only be beneficial. We shall divide the development of homology theory, somewhat artificially, into several stages.
+
+\subsection*{The Formative Period}
+
+% segment-id: o014.li2.prelude.homology-history.p002
+The first impetus for the development of homological algebra came from topology. In the latter half of the nineteenth century, B.\ Riemann and E.\ Betti studied the genus of surfaces and its higher-dimensional generalizations, now called Betti numbers. Around the turn of the century, H.\ Poincaré developed these ideas into a more rigorous theory. Roughly speaking, Poincaré's original idea was to decompose a space into polygons, polyhedra, or higher-dimensional analogues glued together; compute Betti numbers and their torsion analogues from matrices encoding the gluing; and prove that these quantities are topological invariants.
+
+% segment-id: o014.li2.prelude.homology-history.p003
+In a short paper from 1925, E.\ Noether explained how homology could be defined as an abelian group, with the Betti numbers and their torsion analogues merely numerical invariants derived from it. This already comes close to the modern definition in algebraic topology: for a decomposed space $E$ and an abelian group $A$, one defines a chain complex $C(E,A)$ that records how the pieces are glued; the homology groups of $E$ with coefficients in $A$ are then $\Hm_n(E;A):=\Hm_n(C(E,A))$, while the cohomology groups $\Hm^n(E;A)$ are defined dually.
+
+% segment-id: o014.li2.prelude.homology-history.p004
+From then until about 1950, algebraic topology entered an extraordinarily fertile period. From the algebraic point of view, notable developments included:
+\begin{itemize}
+	% segment-id: o014.li2.prelude.homology-history.p005
+	\item the universal coefficient theorem for homology (or cohomology), which says that the case of integer coefficients suffices to determine homology (or cohomology) with coefficients in an arbitrary abelian group $A$; its explicit description involves the $\Tor$ (or $\Ext$) functor, to be studied in depth later;
+	% segment-id: o014.li2.prelude.homology-history.p006
+	\item the cup product on cohomology, a multiplicative structure carried by cohomology groups;
+	% segment-id: o014.li2.prelude.homology-history.p007
+	\item aspherical spaces: connected spaces $E$ satisfying $n>1\implies\pi_n(E)=0$, where $\pi_n(E)$ denotes the $n$th homotopy group relative to a chosen base point. W.\ Hurewicz proved that the homology and cohomology groups of an aspherical space are entirely determined by $\pi_1(E)$ and can be described algebraically. This marked the beginning of group cohomology.
+\end{itemize}
+
+% segment-id: o014.li2.prelude.homology-history.p008
+Another impetus for homological algebra came from within algebra itself. The classical example is Hilbert's syzygy theorem in invariant theory (1890): in modern language, it states that every module over the polynomial ring $\Bbbk[X_1,\ldots,X_n]$ has a free resolution of length $\leq n$.
+
+% segment-id: o014.li2.prelude.homology-history.p009
+The $\Ext$ functor likewise arises from algebraic questions. For abelian groups $A$ and $B$, a short exact sequence of abelian groups $0\to A\to E\to B\to0$ is also called a group extension; equivalence classes of such extensions correspond bijectively to the elements of $\Ext^1(B,A)$. Moreover, if $B$ is replaced by an arbitrary group $G$, the classification of group extensions leads naturally to an algebraic definition of group cohomology $\Hm^2(G,A)$.
+
+% segment-id: o014.li2.prelude.homology-history.p010
+Derivations on rings attracted algebraists' attention early on. In 1942, G.\ Hochschild defined invariants of a ring $R$ now called Hochschild homology and cohomology; the degree-one cohomology group classifies derivations modulo inner derivations.\footnote{Translator's note: the source says that the degree-one term ``classifies all derivations.'' This has been corrected here: $\Hm^1_{\mathrm{Hoch}}(R,R)$ classifies derivations modulo inner derivations; see correction O014-C001.} These constructions extend to arbitrary $(R,R)$-bimodules $M$ and continue to play an important role at the frontiers of modern mathematics.
+
+% segment-id: o014.li2.prelude.homology-history.p011
+Also worth mentioning is J.\ Leray's wartime work on sheaves and spectral sequences, motivated initially by fixed-point problems related to partial differential equations. Sheaves are geometric structures that carry local--global information, while spectral sequences provide powerful tools for computing sheaf cohomology. Influenced by Leray's theory and Kiyoshi Oka's work in several complex variables, H.\ Cartan and others set about rewriting the foundations of algebraic topology after the war; homological algebra thereby took on an entirely new form.
+
+\subsection*{The Cartan--Eilenberg Revolution}
+
+% segment-id: o014.li2.prelude.homology-history.p012
+The monumental and far-reaching work of H.\ Cartan and S.\ Eilenberg \cite{CE56} was long regarded as the canonical reference. It marked a new period in the development of homological algebra. Its main contributions include:
+\begin{itemize}
+	% segment-id: o014.li2.prelude.homology-history.p013
+	\item defining injective and projective modules, and injective and projective resolutions of modules;
+	% segment-id: o014.li2.prelude.homology-history.p014
+	\item defining right and left derived functors in the framework of module theory, thereby giving general definitions of $\Ext$ and $\Tor$, and introducing the injective and projective dimensions of a module---tools that soon proved highly effective in the theory of commutative rings;
+	% segment-id: o014.li2.prelude.homology-history.p015
+	\item using this machinery to explain earlier constructions, such as group cohomology and Hochschild homology and cohomology;
+	% segment-id: o014.li2.prelude.homology-history.p016
+	\item systematically establishing the general theory of spectral sequences and their multiplicative structures.
+\end{itemize}
+
+% segment-id: o014.li2.prelude.homology-history.p017
+The term ``homological algebra'' also originates in \cite{CE56}. With the emergence of this grand theory, homological algebra entered its youth.
+
+\subsection*{Abelian Categories}
+
+% segment-id: o014.li2.prelude.homology-history.p018
+From a geometric---more precisely, sheaf-theoretic---viewpoint, the module-theoretic framework for homological algebra is too restrictive. One seeks categories $\mathcal A$ more general than the category $R\dcate{Mod}$ of left $R$-modules, while retaining some ``linear'' character. An early attempt appeared in D.\ Buchsbaum's 1955 doctoral thesis, also included as an appendix to \cite{CE56}; he abstracted the notion of an exact sequence from module theory.
+
+% segment-id: o014.li2.prelude.homology-history.p019
+The now standard approach comes from A.\ Grothendieck's paper \cite{Gr57}; it led to what are now called abelian categories. An abelian category is an additive category with kernels and cokernels in which every morphism $f:M\to N$ is strict. Roughly speaking, strictness corresponds to the familiar module-theoretic isomorphism theorem $M/\Ker(f)\rightiso\Image(f)$. In the same work, Grothendieck also:
+\begin{itemize}
+	% segment-id: o014.li2.prelude.homology-history.p020
+	\item used long exact sequences to define $\delta$-functors and universal $\delta$-functors, characterized the universal ones, and showed that derived functors are special cases of universal $\delta$-functors;
+	% segment-id: o014.li2.prelude.homology-history.p021
+	\item gave the Grothendieck spectral sequence for deriving a composite of functors;
+	% segment-id: o014.li2.prelude.homology-history.p022
+	\item defined a special class of abelian categories, now called Grothendieck categories, and established the existence of injective resolutions in them.
+\end{itemize}
+
+% segment-id: o014.li2.prelude.homology-history.p023
+These theories made it possible to study sheaf cohomology on more general spaces and were crucial to the development of geometry.
+
+\subsection*{Derived Categories}
+
+% segment-id: o014.li2.prelude.homology-history.p024
+In his 1963 doctoral thesis, J.-L.\ Verdier defined the derived category $\cate{D}(\mathcal A)$ of an abelian category $\mathcal A$. The motivation came from difficulties Grothendieck encountered while studying duality in algebraic geometry. Those obstacles prompted the search for a framework in which one works with complexes themselves rather than merely with their cohomology, formally inverting the quasi-isomorphisms in the category of complexes $\cate{C}(\mathcal A)$. A quasi-isomorphism is a morphism of complexes $f:X\to Y$ inducing isomorphisms $\Hm^n(f):\Hm^n(X)\rightiso\Hm^n(Y)$ on cohomology. The operation of formally inverting these morphisms is called Gabriel--Zisman localization, a categorical generalization of ring localization.
+
+% segment-id: o014.li2.prelude.homology-history.p025
+The derived category $\cate{D}(\mathcal A)$ contains more information than cohomology alone, and its formalism is correspondingly different: sequences of morphisms in $\cate{D}(\mathcal A)$ called distinguished triangles,
+\[ X \xrightarrow{f} Y \xrightarrow{g} Z \xrightarrow{h} X[1] \]
+play the role of short exact sequences in $\mathcal A$ or in $\cate{C}(\mathcal A)$. Here $X[1]$ is the shift of the complex $X$:
+\[ X[1]^n=X^{n+1},\quad d_{X[1]}^n=-d_X^n. \]
+Verdier further abstracted these constructions into structures called triangulated categories. From the topological viewpoint, the triangulated structure of a derived category is equally natural: distinguished triangles are analogous to cofiber sequences in homotopy theory. This relates to the homotopical algebra discussed later. Also motivated by homotopy theory, D.\ Puppe independently discovered a similar structure in 1962, although his conditions did not include Verdier's octahedral axiom.
+
+% segment-id: o014.li2.prelude.homology-history.p026
+Although derived categories are not ideal for every application, their language remained the preferred one among geometers and algebraists into the early twenty-first century. One prominent application is the theory of $\mathscr D$-modules, developed chiefly by Masaki Kashiwara, Z.\ Mebkhout, and others; some of its basic operations admit satisfactory definitions only at the level of derived categories.
+
+% segment-id: o014.li2.prelude.homology-history.p027
+The derived category of a ring $R$, $\cate{D}(R):=\cate{D}(R\dcate{Mod})$, may also be regarded as an invariant of $R$. If two rings have equivalent derived categories as triangulated categories, they are called derived equivalent. Questions and methods surrounding derived equivalence form a major current in the representation theory of algebras, pioneered by D.\ Happel, J.\ Rickard, and others.
+
+\subsection*{Homotopical Algebra}
+
+% segment-id: o014.li2.prelude.homology-history.p028
+The reader will recall that the topological origin of homological algebra lay in decomposing spaces and then extracting topological invariants from suitable chain or cochain complexes. There are many ways to carry out the initial decomposition; simplicial sets, defined by Eilenberg and Zilber in 1950, are one of them, and they generalize further to simplicial objects in a given category. This language has unusually broad explanatory power: the homotopy theory of topological spaces can be developed using simplicial sets, while the construction called the ``nerve'' interprets categories as a special kind of simplicial set.
+
+% segment-id: o014.li2.prelude.homology-history.p029
+What happens if a little ``linearity'' is added to this picture? The Dold--Kan correspondence (1958) directly connects simplicial objects in an abelian category with the theory of complexes. For the category $\cate{Ab}$ of abelian groups, for example, the Dold--Kan correspondence is an explicitly defined adjoint equivalence
+\[\begin{tikzcd}
+	\mathrm{N}: \cate{sAb} \arrow[shift left, r] & \cate{Ch}_{\geq 0}(\cate{Ab}): \Gamma \arrow[shift left, l]
+\end{tikzcd}\]
+where $\cate{sAb}$ is the category of simplicial objects in $\cate{Ab}$ and $\cate{Ch}_{\geq0}(\cate{Ab})$ is the category of nonnegative chain complexes in $\cate{Ab}$. Other conventions for complexes can be accommodated by reversing the indexing or passing to the opposite category.
+
+% segment-id: o014.li2.prelude.homology-history.p030
+The Dold--Kan correspondence gives topological interpretations of many definitions and constructions concerning chain complexes. Simplicial methods likewise provide a unified account of a class of resolutions collectively called ``bar constructions'' in homological algebra.
+
+% segment-id: o014.li2.prelude.homology-history.p031
+Homotopy is a central idea in simplicial theory. Algebraic methods involving simplicial objects are therefore sometimes called homotopical algebra. Their power is displayed especially clearly in the higher $K$-theory developed by D.\ Quillen, though their applications are by no means limited to it.
+
+% segment-id: o014.li2.prelude.homology-history.p032
+In summary, simplicial methods in linear algebra may be viewed as a higher-level confluence of topology---especially homotopy theory---and homological algebra. In the early twenty-first century, this confluence inspired another wave: infinity-category theory.

@@ -1,0 +1,390 @@
+% English translation of chapter1.tex, lines 763--925.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter1.filtered-inductive-limits
+
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.h001
+\section{Filtered Inductive Limits}\label{sec:filtered-indlim}
+\hypertarget{o014.aljabr2.chapter1.filtered-inductive-limits}{ }
+\enlargethispage{2\baselineskip}
+
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.p001
+A familiar fact from mathematical analysis is that, when a sequence
+converges, its limit may be computed from any subsequence. In category theory,
+this idea is embodied by cofinality. We begin with connectedness.
+
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.d001
+\begin{definition}\index{category!connected}
+	Let $I$ be a category. If $\Obj(I) \neq \emptyset$ and, for every
+	$i, i' \in \Obj(I)$, there exist $n \geq 1$ and morphisms
+	% segment-id: o014.li2.chapter1.filtered-inductive-limits.q001
+	\[ i = i_0 \leftarrow i_1 \to i_2 \leftarrow i_3 \to i_4 \leftarrow \cdots \to i_{2n} = i' , \]
+	then $I$ is called connected.
+\end{definition}
+
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.p002
+We introduce an auxiliary concept that will be used repeatedly in the next
+several sections.
+
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.d002
+\begin{definition}[Comma category; see {\cite[Definition 2.4.7]{Li1}}]\label{def:comma-category}
+	\index{comma category}
+	\index[sym1]{iHHi@$(i/H)$, $(H/i)$}
+	\index[sym1]{Pii@$\Pi_{i/}$, $\Pi_{/i}$}
+	Given categories $I$, $J$, and a functor $H: J \to I$, let
+	$i \in \Obj(I)$.
+	% segment-id: o014.li2.chapter1.filtered-inductive-limits.l001
+	\begin{itemize}
+		% segment-id: o014.li2.chapter1.filtered-inductive-limits.i001
+		\item By definition, the objects of the comma category $(i/H)$ (or
+		$(H/i)$) are data $(j, i \to Hj)$ (or $(j, Hj \to i)$), where
+		$j \in \Obj(J)$ and $i \to Hj$ (or $Hj \to i$) is a morphism in $I$.
+		A morphism from $(j, i \to Hj)$ to $(j', i \to Hj')$ (or from
+		$(j, Hj \to i)$ to $(j', Hj' \to i)$) is a morphism $f: j \to j'$ in
+		$J$ making the following diagram commute:
+		% segment-id: o014.li2.chapter1.filtered-inductive-limits.g001
+		\[\begin{tikzcd}[row sep=small, column sep=small]
+			& i \arrow[ld] \arrow[rd] & \\
+			Hj \arrow[rr, "{Hf}"'] & & Hj'
+		\end{tikzcd} \quad \text{or} \quad \begin{tikzcd}[row sep=small, column sep=small]
+			& i & \\
+			Hj \arrow[ru] \arrow[rr, "{Hf}"'] & & Hj' \arrow[lu] .
+		\end{tikzcd}\]
+		Composition and identity morphisms are defined in the usual way.
+		% segment-id: o014.li2.chapter1.filtered-inductive-limits.i002
+		\item The two categories above come respectively with projection functors
+		$\Pi_{i/}: (i/H) \to J$ and $\Pi_{/i}: (H/i) \to J$, taking an object
+		$(j, i \to Hj)$ (or $(j, Hj \to i)$) to $j$ and a morphism $f$ to $f$.
+		% segment-id: o014.li2.chapter1.filtered-inductive-limits.i003
+		\item Every morphism $i \to i'$ in $I$ naturally induces functors
+		$(i'/H) \to (i/H)$ and $(H/i) \to (H/i')$, making the following
+		diagrams commute:
+		% segment-id: o014.li2.chapter1.filtered-inductive-limits.g002
+		\[\begin{tikzcd}[column sep=small, row sep=small]
+			(i'/H) \arrow[rr] \arrow[rd, "{\Pi_{i'/}}"'] & & (i/H) \arrow[ld, "{\Pi_{i/}}"] \\
+			& J &
+		\end{tikzcd} \quad \begin{tikzcd}[column sep=small, row sep=small]
+			(H/i) \arrow[rr] \arrow[rd, "{\Pi_{/i}}"'] & & (H/i') \arrow[ld, "{\Pi_{/i'}}"] . \\
+			& J &
+		\end{tikzcd}\]
+	\end{itemize}
+\end{definition}
+
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.e001
+\begin{example}\label{eg:comma-vs-cone}
+	Regard a functor $\alpha: I \to \mathcal{C}$ as an object of
+	$\mathcal{C}^I$, and consider the diagonal functor
+	$\Delta: \mathcal{C} \to \mathcal{C}^I$ taking every object to the
+	corresponding constant functor. By Definition~\ref{def:comma-category},
+	$(\alpha/\Delta)$ is precisely the category of ``cocones'' introduced in
+	Convention~\ref{con:limit-cone}, while the functor $\Pi_{\alpha/}$ maps each
+	cocone to its vertex.
+\end{example}
+
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.d003
+\begin{definition}\label{def:cofinal} \index{cofinal}
+	For a functor $H: J \to I$, if $(i/H)$ is connected for every
+	$i \in \Obj(I)$, then $H$ is called \emph{cofinal}; if $H$ is the inclusion
+	functor of a subcategory, the subcategory $J$ is called cofinal.
+\end{definition}
+
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.p003
+It is easy to verify that if $I \to J$ and $J \to K$ are both cofinal, then
+the composite functor $I \to K$ is also cofinal. The verification is left to
+the reader as an exercise.
+
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.p004
+The next result shows that a limit may be computed by restricting the diagram
+along a cofinal functor. Recall that $H$ induces
+$H^{\opp}: J^{\opp} \to I^{\opp}$.
+
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.pr001
+\begin{proposition}\label{prop:cofinal-lim}
+	If $H: J \to I$ is cofinal, then:
+	% segment-id: o014.li2.chapter1.filtered-inductive-limits.l002
+	\begin{itemize}
+		% segment-id: o014.li2.chapter1.filtered-inductive-limits.i004
+		\item for a given functor $\alpha: I \to \mathcal{C}$,
+		$\varinjlim \alpha$ exists if and only if $\varinjlim \alpha H$ exists;
+		in that case there is a canonical isomorphism
+		$\varinjlim \alpha H \simeq \varinjlim \alpha$;
+		% segment-id: o014.li2.chapter1.filtered-inductive-limits.i005
+		\item dually, for a given functor
+		$\beta: I^{\opp} \to \mathcal{C}$, $\varprojlim \beta$ exists if and
+		only if $\varprojlim \beta H^{\opp}$ exists; in that case there is a
+		canonical isomorphism
+		$\varprojlim \beta H^{\opp} \simeq \varprojlim \beta$.
+	\end{itemize}
+\end{proposition}
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.pf001
+\begin{proof}
+	We discuss only $\varinjlim$. In the language of
+	\S\ref{sec:limit-functor}, it suffices to prove that the functor
+	$(\alpha/\Delta) \to (\alpha H / \Delta)$ is an equivalence. It takes a
+	cocone with base $\alpha$, namely $(L, (f_i)_i)$, to the cocone with base
+	$\alpha H$, namely $(L, (f_{Hj})_j)$.
+
+	We first prove that this functor is essentially surjective. Consider
+	$L \in \Obj(\mathcal{C})$ and a family of morphisms
+	$(g_j: \alpha H(j) \to L)_{j \in \Obj(J)}$ satisfying the compatibility
+	condition $g_{j'} \circ \alpha H(j \to j') = g_j$. For every
+	$i \in \Obj(I)$, since $(i/H)$ is nonempty, we may choose $j$ and a
+	morphism $i \to H(j)$. Define
+	$f_i := g_j \circ \alpha(i \to H(j))$. This definition is independent of
+	the choice of comma object $(j,i \to H(j))$: indeed, if there are morphisms
+	in $(i/H)$ as in the diagram
+	% segment-id: o014.li2.chapter1.filtered-inductive-limits.g003
+	\[\begin{tikzcd}[column sep=large]
+		& i \arrow[ld] \arrow[d] \arrow[rd] & \\
+		H(j) & H(j'') \arrow[l, "{H(j'' \to j)}"] \arrow[r, "{H(j'' \to j')}"'] & H(j')
+	\end{tikzcd}\]
+	then the construction immediately gives
+	% segment-id: o014.li2.chapter1.filtered-inductive-limits.q002
+	\[ g_j \circ \alpha(i\to H(j))
+	= g_{j''} \circ \alpha(i\to H(j''))
+	= g_{j'} \circ \alpha(i\to H(j')). \]
+	Since $(i/H)$ is connected, this suffices to show that $f_i$ is
+	well-defined. The preceding discussion also implies that $(f_i)_i$
+	satisfies the compatibility condition
+	$f_i=f_{i'}\circ\alpha(i\to i')$: for every $i \to i'$ and
+	$i' \to H(j')$, we may compute $f_i$ using the comma object
+	$(j',i \to i' \to H(j'))$. Hence
+	$(L, (f_i)_i) \in \Obj((\alpha/\Delta))$ maps to $(L, (g_j)_j)$.
+
+	We next show that the functor is full and faithful. Giving a morphism in
+	$(\alpha/\Delta)$, namely
+	$(L, (f_i)_i) \to (L', (f'_i)_i)$, is equivalent to giving a morphism
+	$\theta: L \to L'$ in $\mathcal{C}$ such that $\theta f_i = f'_i$ for every
+	$i$. It suffices to check this condition on the objects $H(j)$ in the
+	cofinal image of $H$: for every $i$, choose $j \in \Obj(J)$ and
+	$i \to H(j)$; the condition then becomes
+	$\theta f_{H(j)} = f'_{H(j)}$, which says precisely that $\theta$ is a
+	morphism in $(\alpha H / \Delta)$.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.d004
+\begin{definition}
+	\index{category!filtered}
+	\index{limit!filtered}
+	Following \cite[Definition 2.7.6]{Li1}, a category $I$ with
+	$\Obj(I)\neq\emptyset$ satisfying the following conditions is called
+	\emph{filtered}\footnote{Translator's note: the source does not state the
+	condition $\Obj(I)\neq\emptyset$, so the empty category would satisfy both
+	items vacuously; in the second item, the source also calls
+	$k\in\Obj(I)$ a morphism. The target adds the nonemptiness condition and
+	corrects the type of $k$ to an object (O014-C010 and O014-C011).}.
+	% segment-id: o014.li2.chapter1.filtered-inductive-limits.l003
+	\begin{compactitem}
+		% segment-id: o014.li2.chapter1.filtered-inductive-limits.i006
+		\item For every $i, j \in \Obj(I)$, there is an object
+		$k \in \Obj(I)$ together with morphisms $i \rightarrow k$ and
+		$j \rightarrow k$.
+		% segment-id: o014.li2.chapter1.filtered-inductive-limits.i007
+		\item For every pair of morphisms $f, g: i \to j$ in $I$, there is an
+		object $k \in \Obj(I)$ and a morphism $h: j \to k$ such that $hf = hg$.
+	\end{compactitem}
+
+	If $I$ is a filtered category and $\alpha: I \to \mathcal{C}$ is a
+	functor, the corresponding $\varinjlim \alpha$ is called a
+	\emph{filtered inductive limit}.
+\end{definition}
+
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.e002
+\begin{example}\label{eg:filtered-poset}
+	\index{partially ordered set!filtered}
+	One common class of filtered categories comes from filtered partially
+	ordered sets\footnote{When used to index limits, a filtered category can
+	often be replaced by a filtered partially ordered set; see
+	Remark~\sourcecrossref{rem:filtered-poset}{A.2.3} and the explanations for
+	the exercises in Appendix~\sourcecrossref{sec:app-Abel}{A}.}. Every
+	partially ordered set $(P, \leq)$ determines a corresponding category
+	$\mathcal{P}$ such that
+	$x \leq y  \iff \Hom_{\mathcal{P}}(x, y) \neq \emptyset$. If
+	$\mathcal{P}$ is a filtered category, then $(P, \leq)$ is called a
+	\emph{filtered partially ordered set}. A partially ordered set is filtered
+	if and only if it is nonempty and every pair of elements $i, j$ has a common
+	upper bound $k$. Every nonempty totally ordered set is plainly filtered.
+\end{example}
+
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.pr002
+\begin{proposition}\label{prop:cofinal-filtered}
+	Let $I$ be a filtered category. A full subcategory $J\subset I$ is cofinal
+	if and only if, for every $i \in \Obj(I)$, there are $j \in \Obj(J)$ and a
+	morphism $i \to j$; in that case $J$ is also filtered.
+\end{proposition}
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.pf002
+\begin{proof}
+	The ``only if'' direction is clear. For the converse, given
+	$j \leftarrow i \to j'$, with $j, j' \in \Obj(J)$, filteredness of $I$
+	together with the hypothesis ensures the existence of a commutative diagram
+	% segment-id: o014.li2.chapter1.filtered-inductive-limits.g004
+	\[\begin{tikzcd}[row sep=tiny, column sep=small]
+		& j \arrow[r] & k & j' \arrow[l] & \\
+		j \arrow[equal, ru] & & & & j' \arrow[equal, lu] \\
+		& & i \arrow[llu] \arrow[uu] \arrow[rru] & &
+	\end{tikzcd}\]
+	with $k \in \Obj(J)$. This shows that $J$ is cofinal.
+
+	To prove that $J$ is filtered, take arbitrary $i, j \in \Obj(J)$. Since
+	$I$ is filtered, there are $k_0 \in \Obj(I)$ and morphisms $i\to k_0$ and
+	$j\to k_0$; also choose $k \in \Obj(J)$ and a morphism $k_0 \to k$.
+	Composing these morphisms yields morphisms $i \rightarrow k \leftarrow j$
+	in $J$.\footnote{Translator's note: the source calls
+	$i\rightarrow k_0\leftarrow j$ morphisms in $J$, although $k_0$ is only
+	known to lie in $I$. The target uses the composites into
+	$k\in\Obj(J)$ (O014-C012).} This proves the first condition for a filtered
+	category. The second is proved by the same idea.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.e003
+\begin{example}
+	Define
+	$\mathrm{OFin}_I := \left\{ \text{full subcategories}\; J \subset I: \Obj(J) \;\text{is finite} \right\}$.
+	Ordered by $\subset$, this is a filtered partially ordered set: for any
+	$J, K \in \mathrm{OFin}_I$, the subcategory obtained by taking the union of
+	their sets of objects is a common upper bound for $J$ and $K$.
+\end{example}
+
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.p005
+To see the usefulness of this construction, consider an arbitrary functor
+$\alpha: I \to \mathcal{C}$ (or $\beta: I^{\opp} \to \mathcal{C}$). Its
+restriction to a full subcategory $J$ gives $\alpha|_J$ (or
+$\beta|_{J^{\opp}}$). If $J \subset K$, there is a natural morphism
+$\varinjlim \alpha|_J \to \varinjlim \alpha|_K$ (or
+$\varprojlim \beta|_{K^{\opp}} \to \varprojlim \beta|_{J^{\opp}}$), provided
+	these limits exist. The next result explains how an arbitrary limit can be
+	approximated ``in a filtered manner'' by limits over subcategories having
+	only finitely many objects.
+
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.pr003
+\begin{proposition}\label{prop:limit-filtered-approx}
+	In the situation above, there is a canonical isomorphism
+	% segment-id: o014.li2.chapter1.filtered-inductive-limits.q003
+	\[ \varinjlim_{\substack{J \in \mathrm{OFin}_I \\ \subset}} \varinjlim \alpha|_J \rightiso \varinjlim \alpha \]
+	(or $\varprojlim \beta \rightiso
+	\varprojlim_{J \in \mathrm{OFin}_I^{\opp}}
+	\varprojlim \beta|_{J^{\opp}}$), provided that the iterated limit on the
+	left (or on the right) exists.\footnote{Translator's note: in the dual
+	formula, the source writes an outer inductive limit. For $J\subset K$,
+	however, the transition morphism goes from the $K$-term to the $J$-term, so
+	the terms form a diagram on $\mathrm{OFin}_I^{\opp}$ and the outer
+	construction is a projective limit (O014-C013).}
+\end{proposition}
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.pf003
+\begin{proof}
+	Consider the case of $\varinjlim$. The universal property gives
+	canonical bijections
+	% segment-id: o014.li2.chapter1.filtered-inductive-limits.q004
+	\[ \begin{aligned}
+	\Hom\left( \varinjlim_{J\in\mathrm{OFin}_I} \varinjlim \alpha|_J, S \right)
+	&\simeq \varprojlim_{J\in\mathrm{OFin}_I^{\opp}}
+	\Hom\left( \varinjlim \alpha|_J, S \right) \\
+	&\simeq \varprojlim_{J\in\mathrm{OFin}_I^{\opp}}
+	\varprojlim \Hom(\alpha|_J, S) .
+	\end{aligned} \]
+	for arbitrary $S \in \Obj(\mathcal{C})$, while the right-hand side is an
+	iterated $\varprojlim$ of sets. It remains to check that, for a family of
+	sets $(X_i)_{i \in \Obj(I)}$ together with a compatible family of maps
+	$\left( f_{i \to j}: X_j \to X_i \right)_{[i \to j] \in \Mor(I)}$, there
+	is a bijection
+	% segment-id: o014.li2.chapter1.filtered-inductive-limits.g005
+	\[\begin{tikzcd}[row sep=tiny]
+		\displaystyle\varprojlim_{i \in \Obj(I)} X_i \arrow[r, "\sim"] & \displaystyle\varprojlim_{J \in \mathrm{OFin}_I^{\opp}} \displaystyle\varprojlim_{j \in \Obj(J)} X_j \\
+		(x_i)_i \arrow[mapsto, r] & \left( (x_j)_{j \in \Obj(J)} \right)_{J \in \mathrm{OFin}_I} .
+	\end{tikzcd}\]
+
+	For every $J$, the concrete construction of the $\varprojlim$ of sets is
+	% segment-id: o014.li2.chapter1.filtered-inductive-limits.q005
+	\[ \varprojlim_{j \in \Obj(J)} X_j = \left\{ (x_j)_j \in \prod_{j \in \Obj(J)} X_j : \forall [i \to j] \in \Mor(J), \; f_{i \to j}(x_j) = x_i \right\}, \]
+	so the bijection is clear: every piece of data defining $\varprojlim_i X_i$,
+	whether a coordinate $x_i$ or a compatibility condition
+	$f_{i \to j}(x_j) = x_i$, is contained in some $J \in \mathrm{OFin}_I$.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.p006
+Recall that the category $\cate{Set}$ has all small $\varinjlim$ and
+$\varprojlim$. Small filtered inductive limits have a particularly simple
+description.
+
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.pr004
+\begin{proposition}\label{prop:filtered-union}
+	Let $I$ be a small filtered category and
+	$\alpha: I \to \cate{Set}$ a functor. Define the following binary relation
+	on the set $\bigsqcup_{i \in \Obj(I)} \alpha(i)$: for $x \in \alpha(i)$ and
+	$y \in \alpha(j)$, the relation $x \sim y$ means that there is an object
+	$k\in\Obj(I)$ together with morphisms $i\rightarrow k$ and $j\rightarrow k$ such that
+	$\alpha(i \to k)(x) = \alpha(j \to k)(y)$. Then $\sim$ is an equivalence
+	relation, and
+	% segment-id: o014.li2.chapter1.filtered-inductive-limits.q006
+	\[ \varinjlim \alpha = \left( \bigsqcup_{i \in \Obj(I)} \alpha(i) \right) \big/ \sim . \]
+\end{proposition}
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.pf004
+\begin{proof}
+	See the discussion following \cite[Definition 2.7.6]{Li1}.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.p007
+An element of the preceding $\varinjlim \alpha$ will henceforth be written
+$[x_{i_0}]$, where $i_0 \in \Obj(I)$ and $[x_{i_0}]$ is the equivalence class
+containing $x_{i_0} \in \alpha(i_0)$. On the other hand, for a general small
+category $J$ and functor $\beta: J^{\opp} \to \cate{Set}$, we write an
+element of $\varprojlim \beta$ as $(y_j)_{j \in \Obj(J)}$, where
+$y_j \in \beta(j)$ satisfies the compatibility condition
+$\beta(j' \to j)(y_j) = y_{j'}$.
+
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.p008
+Next consider a functor of the form
+$\alpha: I \times J^{\opp} \to \cate{Set}$, with $I, J$ small categories;
+one may take $\varinjlim$ and $\varprojlim$ in the variables $I$ and $J$,
+respectively. For every $(i_0, j_0) \in \Obj(I \times J)$, there is a
+composite of natural maps
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.q007
+\[ \varprojlim_j \alpha(i_0, j) \to \alpha(i_0, j_0) \to \varinjlim_i \alpha(i, j_0); \]
+this composite is natural in $i_0$ and $j_0$. Varying $j_0$ gives a canonical
+map $\varprojlim_j \alpha(i_0, j) \to
+\varprojlim_j \varinjlim_i \alpha(i, j)$; then varying $i_0$ gives a
+canonical map
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.q008
+\begin{equation}\label{eqn:filtered-finite-exchange}
+	e: \varinjlim_i \varprojlim_j \alpha(i, j) \to \varprojlim_j \varinjlim_i \alpha(i, j).
+\end{equation}
+In terms of representatives, $e$ maps $\left[ (x_{i_0, j})_j \right]$ to
+$\left( [ x_{i_0, j}] \right)_j$.
+
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.p009
+If $\Mor(J)$ is a finite set, the category $J$ is called finite; equivalently,
+its object set is finite and every morphism set between two objects is finite.
+The next result will be used in \S\sourcecrossref{sec:cat-localization}{1.9}.
+
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.pr005
+\begin{proposition}\label{prop:filtered-finite-exchange}
+	Let $I$ be a small filtered category, $J$ a finite category, and
+	$\alpha: I \times J^{\opp} \to \cate{Set}$ a functor. Then the map $e$ in
+	\eqref{eqn:filtered-finite-exchange} is a bijection.
+\end{proposition}
+% segment-id: o014.li2.chapter1.filtered-inductive-limits.pf005
+\begin{proof}
+	We first show that $e$ is surjective. Given
+	$(b_j)_{j \in \Obj(J)} \in \varprojlim_j \varinjlim_i \alpha(i, j)$, write
+	each $b_j$ as $[x_{i_j, j}]$. Since $I$ is filtered and $J$ is finite, we
+	may choose a common target object $i\in\Obj(I)$ for all $i_j$, and replace
+	each representative by its image along a morphism $i_j\to i$. Thus all
+	representatives may be written $x_{i,j}$ with the same index $i$. For every
+	morphism $j \to j'$ in $J$, we have
+	% segment-id: o014.li2.chapter1.filtered-inductive-limits.q009
+	\[ \left[ \alpha(i, j \to j') (x_{i, j'}) \right] = \left[ x_{i, j} \right]. \]
+	Since $\Mor(J)$ is finite and $I$ is filtered, we may choose one morphism
+	$i\to i_1$ that equalizes all these pairs, replace all representatives by
+	their images at index $i_1$, and then rename $i_1$ as $i$. Thus
+	$\alpha(i, j \to j') (x_{i, j'}) = x_{i, j}$ holds for every
+	$[j \to j'] \in \Mor(J)$. Consequently,
+	$e\left( [(x_{i, j})_j] \right) = (b_j)_j$.
+
+	We next show that $e$ is injective. Suppose $e(x) = e(y)$. Since $I$ is
+	filtered, we may replace representatives of $x$ and $y$ by their images at
+	one common index $i\in\Obj(I)$, so that they have representatives
+	$(x_{i,j})_j$ and $(y_{i,j})_j$. Thus $[x_{i,j}]=[y_{i,j}]$ for every
+	$j \in \Obj(J)$. Since $I$ is filtered and $J$ is finite, we may choose one
+	common later index, replace all components by their images there, and rename
+	it $i$, so that $x_{i,j}=y_{i,j}$ for every $j$. Hence $x=y$.
+\end{proof}

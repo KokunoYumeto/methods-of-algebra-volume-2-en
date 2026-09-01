@@ -1,0 +1,505 @@
+% Unit 036 English translation of chapter3.tex lines 700--945.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter3.double-complexes
+% Coverage: Section 3.5 in full.
+
+% segment-id: o014.li2.chapter3.double-complexes.h001
+\section{Double Complexes}\label{sec:double-cplx}
+\hypertarget{o014.aljabr2.chapter3.double-complexes}{ }
+
+% segment-id: o014.li2.chapter3.double-complexes.p001
+Throughout this section, $\mathcal{A}$ remains an additive category. Roughly
+speaking, a double complex may be thought of as a two-dimensional version of
+a complex, with differentials in the horizontal and vertical directions.
+
+% segment-id: o014.li2.chapter3.double-complexes.d001
+\begin{definition}[Double complex]\label{def:double-cplx}
+	\index{double complex}
+	\index[sym1]{dhoridvert@$\dhori$, $\dvert$}
+	A double complex on an additive category $\mathcal{A}$ consists of a
+	family of objects $\left(X^{p,q}\right)_{(p,q)\in\Z^2}$ of
+	$\mathcal{A}$, together with morphisms
+	$\dhori^{p,q}:X^{p,q}\to X^{p+1,q}$ and
+	$\dvert^{p,q}:X^{p,q}\to X^{p,q+1}$ satisfying
+% segment-id: o014.li2.chapter3.double-complexes.q001
+	\[ \dhori^{p+1,q} \dhori^{p,q} = 0, \quad \dvert^{p, q+1} \dvert^{p,q} = 0, \quad \dhori^{p, q+1} \dvert^{p,q} = \dvert^{p+1, q} \dhori^{p,q}. \]
+	These data are usually abbreviated as
+	$(X^{\bullet,\bullet},\dhori,\dvert)$, $X^{\bullet,\bullet}$, or $X$.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.double-complexes.p002
+The conditions on $\dhori,\dvert$ may be abbreviated as
+% segment-id: o014.li2.chapter3.double-complexes.q002
+\[ \dhori^2 = 0, \quad \dvert^2 = 0, \quad \dhori \dvert = \dvert \dhori. \]
+
+% segment-id: o014.li2.chapter3.double-complexes.d002
+\begin{definition}\label{def:bicplx}
+	Given an additive category $\mathcal{A}$, a morphism from a double complex
+	$X$ to a double complex $Y$ is a family of morphisms
+% segment-id: o014.li2.chapter3.double-complexes.q003
+	\[ f = \left( f^{p,q}: X^{p, q} \to Y^{p, q} \right)_{(p, q) \in \Z^2}, \]
+	such that, for all $p,q$,
+% segment-id: o014.li2.chapter3.double-complexes.q004
+	\[ \dhori_Y^{p, q} f^{p, q} = f^{p+1, q} \dhori_X^{p, q}, \quad \dvert_Y^{p, q} f^{p, q} = f^{p, q+1} \dvert_X^{p, q}. \]
+	These relations may be abbreviated as $\dhori_Yf=f\dhori_X$ and
+	$\dvert_Yf=f\dvert_X$.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.double-complexes.p003
+As in Proposition~\ref{prop:additive-cat-cplx}, these definitions make all
+double complexes on $\mathcal{A}$ into an additive category
+$\cate{C}^2(\mathcal{A})$.
+\index[sym1]{C2A@$\cate{C}^2(\mathcal{A})$}
+
+% segment-id: o014.li2.chapter3.double-complexes.p004
+Visually, a double complex $X$ is displayed as
+% segment-id: o014.li2.chapter3.double-complexes.g001
+\[\begin{tikzcd}
+	& \vdots & \vdots & \\
+	\cdots \arrow[r] & X^{p, q+1} \arrow[r] \arrow[u] & X^{p+1, q+1} \arrow[r] \arrow[u] & \cdots \\
+	\cdots \arrow[r] & X^{p, q} \arrow[r, "{\dhori^{p,q}}"'] \arrow[u, "{\dvert^{p,q}}"] & X^{p+1, q} \arrow[r] \arrow[u] & \cdots \\
+	& \vdots \arrow[u] & \vdots \arrow[u] &
+\end{tikzcd}\]
+Every row $\left(X^{\bullet,q},d^{\bullet,q}\right)$ and every column
+$\left(X^{p,\bullet},d^{p,\bullet}\right)$ is a complex. Thus a double
+complex can be assembled by columns or by rows.
+
+% segment-id: o014.li2.chapter3.double-complexes.d003
+\begin{definition}\label{def:bicplx-F1}
+	\index[sym1]{F1F2@$F_{\mathrm{I}}, F_{\mathrm{II}}$}
+	Define the additive functor
+	$F_{\mathrm{I}}:\cate{C}^2(\mathcal{A})\to
+	\cate{C}(\cate{C}(\mathcal{A}))$ as follows: for a double complex $X$,
+	set $(F_{\mathrm{I}}X)^p=X^{p,\bullet}$ and
+	$d_{F_{\mathrm{I}}X}^p=\dhori^{p,\bullet}:(F_{\mathrm{I}}X)^p\to
+	(F_{\mathrm{I}}X)^{p+1}$. Similarly, the formulas
+	$(F_{\mathrm{II}}X)^q=X^{\bullet,q}$ and
+	$d_{F_{\mathrm{II}}X}^q=\dvert^{\bullet,q}$ define an additive functor
+	$\cate{C}^2(\mathcal{A})\to\cate{C}(\cate{C}(\mathcal{A}))$. Here
+	$p,q\in\Z$.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.double-complexes.p005
+Definition~\ref{def:bicplx} implies that both $F_{\mathrm{I}}$ and
+$F_{\mathrm{II}}$ are isomorphisms of additive categories. This is depicted
+as follows:
+% segment-id: o014.li2.chapter3.double-complexes.g002
+\begin{equation}\label{eqn:bicplx-diagram}\begin{tikzcd}[
+		/tikz/execute at end picture={
+			\node[rectangle, draw, fit=(NW) (SE), inner xsep=0.5em, inner ysep=0em] {};
+		}]
+		\vdots & |[alias=NW]| & {} & \\
+		(F_{\mathrm{II}} X)^q \arrow[u, "{d^q_{F_{\mathrm{II}} X}}"] \arrow[phantom, r, ":=" description, sloped] & \cdots \arrow[r] & X^{p,q} \arrow[r, "{\dhori^{p,q}}"'] \arrow[u, "{\dvert^{p,q}}"] & \cdots \\
+		\vdots \arrow[u] & & {} \arrow[u] & |[alias=SE]| \\
+		& \cdots \arrow[r] & (F_{\mathrm{I}} X)^p \arrow[r, "{d^p_{F_{\mathrm{I}} X}}"] \arrow[phantom, u, ":=" description, sloped] & \cdots
+\end{tikzcd}\end{equation}
+
+% segment-id: o014.li2.chapter3.double-complexes.d004
+\begin{definition}[Total complex]\label{def:total-cplx}
+	\index{total complex}
+	\index[sym1]{tot@$\tot_{\oplus}$, $\tot_{\Pi}$, $\tot$}
+	Suppose that $\mathcal{A}$ has countable coproducts, denoted by the direct
+	sum symbol $\bigoplus$, and let $X$ be an object of
+	$\cate{C}^2(\mathcal{A})$. Define a complex $\tot_{\oplus}(X)$ on
+	$\mathcal{A}$ as follows:
+% segment-id: o014.li2.chapter3.double-complexes.l001
+	\begin{compactitem}
+% segment-id: o014.li2.chapter3.double-complexes.i001
+		\item $\tot_{\oplus}(X)^n := \bigoplus_{p+q=n} X^{p, q}$;
+% segment-id: o014.li2.chapter3.double-complexes.i002
+		\item the restriction of $d^n:\tot_{\oplus}(X)^n\to
+		\tot_{\oplus}(X)^{n+1}$ to the summand $X^{p,q}$ is
+		$\dhori^{p,q}+(-1)^p\dvert^{p,q}$.
+	\end{compactitem}
+\end{definition}
+
+% segment-id: o014.li2.chapter3.double-complexes.p006
+Suppressing superscripts, writing out
+$d^2:X^{p,q}\to X^{p+2,q}\oplus X^{p+1,q+1}\oplus X^{p,q+2}$ gives
+% segment-id: o014.li2.chapter3.double-complexes.q005
+\[ d^2 = \left( \dhori^2, \; (-1)^p \dhori \dvert + (-1)^{p+1} \dvert \dhori , \; \dvert^2 \right) = (0, 0, 0). \]
+
+% segment-id: o014.li2.chapter3.double-complexes.p007
+Replacing coproducts in the construction of $\tot_{\oplus}$ by products
+$\prod$ similarly gives
+$\tot_{\Pi}X\in\Obj(\cate{C}(\mathcal{A}))$, provided the required products
+exist. The definition of
+$d^n:\tot_{\Pi}(X)^n\to\tot_{\Pi}(X)^{n+1}$ is analogous to the
+$\tot_{\oplus}$ case: require that the projection of $d^{n-1}$ to
+$X^{p,q}$ be the composite
+% segment-id: o014.li2.chapter3.double-complexes.q006
+\[ \tot_{\Pi}^{n-1}(X) \xrightarrow{\text{projection}} X^{p-1, q} \oplus X^{p,q-1} \xrightarrow{(\dhori^{p-1, q}, (-1)^p \dvert^{p, q-1})} X^{p, q}; \]
+the same reasoning gives $d^2=0$. When there is no danger of confusion,
+both $\tot_{\oplus}X$ and $\tot_{\Pi}X$ are called the \emph{total
+complex} of $X$.
+
+% segment-id: o014.li2.chapter3.double-complexes.p008
+The following property should be clear.
+
+% segment-id: o014.li2.chapter3.double-complexes.pr001
+\begin{proposition}
+	Under the respective hypotheses, $\tot_{\oplus}$ and $\tot_{\Pi}$ are
+	both additive functors from $\cate{C}^2(\mathcal{A})$ to
+	$\cate{C}(\mathcal{A})$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter3.double-complexes.p009
+In the definition of the total complex, the superscripts $p$ and $q$ may at
+first appear asymmetric. To dispel this impression, define an additive
+automorphism $\mathrm{swap}$ of $\cate{C}^2(\mathcal{A})$ such that
+$\mathrm{swap}(X)^{p,q}=X^{q,p}$ and $\dhori$ and $\dvert$ are interchanged.
+The accompanying sign $(-1)^{pq}$ is essentially the same mechanism as the
+Koszul sign rule in \cite[Definition--Theorem~7.4.4]{Li1}.
+
+\index[sym1]{swap@$\mathrm{swap}$}
+% segment-id: o014.li2.chapter3.double-complexes.pr002
+\begin{proposition}\label{prop:double-cplx-swap}
+	For every $(p,q)\in\Z^2$ and every object $X$ of
+	$\cate{C}^2(\mathcal{A})$, define a family of isomorphisms
+% segment-id: o014.li2.chapter3.double-complexes.q007
+	\[ r^{p, q}_X := (-1)^{pq} \identity_{X^{p,q}} : X^{p, q} \to \mathrm{swap}(X)^{q,p} . \]
+% segment-id: o014.li2.chapter3.double-complexes.l002
+	\begin{compactitem}
+% segment-id: o014.li2.chapter3.double-complexes.i003
+		\item If $\mathcal{A}$ has countable coproducts, then
+		$(r_X^{p,q})_{(p,q)\in\Z^2}$ induces an isomorphism
+		$r_X:\tot_{\oplus}(X)\rightiso\tot_{\oplus}(\mathrm{swap}(X))$.
+% segment-id: o014.li2.chapter3.double-complexes.i004
+		\item If $\mathcal{A}$ has countable products, then
+		$(r_X^{p,q})_{(p,q)\in\Z^2}$ induces an isomorphism
+		$r_X:\tot_{\Pi}(X)\rightiso\tot_{\Pi}(\mathrm{swap}(X))$.
+	\end{compactitem}
+\end{proposition}
+% segment-id: o014.li2.chapter3.double-complexes.pf001
+\begin{proof}
+	For every $(p,q)\in\Z^2$, the diagram
+% segment-id: o014.li2.chapter3.double-complexes.g003
+	\[\begin{tikzcd}[row sep=large]
+		X^{p,q} \arrow[d, "(-1)^{pq} \identity"'] \arrow[r, "{ (\dhori, (-1)^p \dvert) }" inner sep=0.8em] & X^{p+1, q} \oplus X^{p, q+1} \arrow[d, "{((-1)^{(p+1)q} \identity, (-1)^{p(q+1)} \identity) }"] \\
+		X^{p,q} \arrow[r, "{((-1)^q \dhori, \dvert)}"' inner sep=0.8em] & X^{p+1, q} \oplus X^{p, q+1}
+	\end{tikzcd}\]
+	commutes, so $r_X$ is indeed a morphism of complexes.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.double-complexes.p010
+The requirement that countable coproducts (or countable products) exist in
+the definition of $\tot_{\oplus}X$ (or $\tot_{\Pi}X$) can be weakened. If,
+for each $n$, only finitely many pairs $(p,q)$ satisfy $p+q=n$ and
+$X^{p,q}\neq0$, then the coproduct (or product) in the definition of the
+total complex becomes a finite direct sum. In this case, both total complexes
+may be denoted uniformly by $\tot(X)$. There will be further discussion after
+Definition~\sourcecrossref{def:Cf-Supp}{in \S~3.10}.
+
+% segment-id: o014.li2.chapter3.double-complexes.r001
+\begin{remark}\label{rem:k-fold-cplx}
+	By the same idea, for every $k\in\Z_{\geq1}$ one can define a $k$-fold
+	complex as data
+% segment-id: o014.li2.chapter3.double-complexes.q008
+	\[ \left( X^{p_1, \ldots, p_k} \in \Obj(\mathcal{A}) \right)_{p_1, \ldots, p_k \in \Z}, \quad {}^1 d, \ldots, {}^k d, \]
+	where ${}^i d^{p_1,\ldots,p_k}:X^{p_1,\ldots,p_k}\to
+	X^{p_1,\ldots,p_i+1,\ldots,p_k}$ and
+% segment-id: o014.li2.chapter3.double-complexes.q009
+	\[ {}^i d^2 = 0, \quad {}^i d {}^j d = {}^j d {}^i d \quad \text{(superscripts suppressed)}. \]
+	All $k$-fold complexes form an additive category
+	$\cate{C}^k(\mathcal{A})$. Following Definition~\ref{def:bicplx-F1}, one
+	can also define a family of additive functors
+	$F_i:\cate{C}^k(\mathcal{A})\to
+	\cate{C}(\cate{C}^{k-1}(\mathcal{A}))$ such that every $F_i$ is an
+	equivalence of categories ($k\geq2$ and $i=1,\ldots,k$).
+
+	In this setting, if $\mathcal{A}$ has countable coproducts or products,
+	the total-complex functor may be defined in the same way:
+% segment-id: o014.li2.chapter3.double-complexes.q010
+	\[ \tot_{\oplus} \; \text{or} \; \tot_{\Pi}: \cate{C}^k(\mathcal{A}) \to \cate{C}(\mathcal{A}). \]
+	The details are the same as for double complexes and need not be repeated.
+\end{remark}
+
+% segment-id: o014.li2.chapter3.double-complexes.p011
+Define isomorphisms from $\cate{C}^2(\mathcal{A})$ to itself by
+$[m]_{\mathrm{I}}:=F_{\mathrm{I}}^{-1}\circ[m]\circ F_{\mathrm{I}}$ and
+$[m]_{\mathrm{II}}:=F_{\mathrm{II}}^{-1}\circ[m]\circ F_{\mathrm{II}}$,
+corresponding respectively to horizontal and vertical shifts of double
+complexes. For all $a,b\in\Z$,
+$[a]_{\mathrm{I}}[b]_{\mathrm{II}}=[b]_{\mathrm{II}}[a]_{\mathrm{I}}$.
+We now examine the effect of these functors on total complexes and their
+relation to the automorphism $\mathrm{swap}$.
+
+% segment-id: o014.li2.chapter3.double-complexes.n001
+% Reference: KS06, p.290
+% segment-id: o014.li2.chapter3.double-complexes.pr003
+\begin{proposition}\label{prop:tot-shift}
+	For all $X\in\Obj(\cate{C}^2(\mathcal{A}))$ and $(p,q)\in\Z^2$, denote
+	the standard embedding $X^{p,q}\hookrightarrow
+	\mathrm{tot}_{\oplus}(X)^{p+q}$ by $\iota_{p,q}$. For every $n\in\Z$,
+	define
+% segment-id: o014.li2.chapter3.double-complexes.l003
+	\begin{itemize}
+% segment-id: o014.li2.chapter3.double-complexes.i005
+		\item $\theta_X^n:\tot_{\oplus}\left(X[1]_{\mathrm{I}}\right)^n\to
+		\tot_{\oplus}(X)[1]^n$ so that its restriction to
+		$X[1]_{\mathrm{I}}^{p,q}=X^{p+1,q}$ is $\iota_{p+1,q}$;
+% segment-id: o014.li2.chapter3.double-complexes.i006
+		\item $(\theta'_X)^n:\tot_{\oplus}\left(X[1]_{\mathrm{II}}\right)^n
+		\to\tot_{\oplus}(X)[1]^n$ so that its restriction to
+		$X[1]_{\mathrm{II}}^{p,q}=X^{p,q+1}$ is
+		$(-1)^p\iota_{p,q+1}$.
+	\end{itemize}
+	These define canonical isomorphisms in $\cate{C}(\mathcal{A})$:
+% segment-id: o014.li2.chapter3.double-complexes.q011
+	\begin{align*}
+		\theta_X & = (\theta_X^n)_n: \tot_{\oplus} \left( X[1]_{\mathrm{I}} \right) \rightiso \tot_{\oplus} \left(X\right)[1], \\
+		\theta'_X & = ((\theta'_X)^n)_n: \tot_{\oplus} \left( X[1]_{\mathrm{II}} \right) \rightiso \tot_{\oplus} \left(X\right)[1],
+	\end{align*}
+	together with the anticommutative diagram (that is, its two composites
+	differ by a minus sign)
+% segment-id: o014.li2.chapter3.double-complexes.g004
+	\[\begin{tikzcd}
+		\tot_{\oplus} \left( X[1]_{\mathrm{I}}[1]_{\mathrm{II}}\right) \arrow[r, "{\theta_{X[1]_{\mathrm{II}}}}" inner sep=0.6em] \arrow[d, "{\theta'_{X[1]_{\mathrm{I}}}}"'] & \tot_{\oplus}\left(X[1]_{\mathrm{II}}\right)[1] \arrow[d, "{\theta'_X [1]}"] \\
+		\tot_{\oplus} \left( X[1]_{\mathrm{I}}\right)[1] \arrow[r, "{\theta_X [1]}"' inner sep=0.6em] & \tot_{\oplus}(X)[2]
+	\end{tikzcd}\]
+	and the commutative diagram
+% segment-id: o014.li2.chapter3.double-complexes.g005
+	\[\begin{tikzcd}[column sep=large]
+		\tot_{\oplus} \left( X[1]_{\mathrm{I}}[1]_{\mathrm{II}} \right) \arrow[r, "\text{$\theta$ then $\theta'$}"] \arrow[d, "{r_{X[1]_{\mathrm{I}}[1]_{\mathrm{II}}}}"'] & \tot_{\oplus}(X)[2] \arrow[d, "{r_X[2]}"] \\
+		\tot_{\oplus}\left( \mathrm{swap}(X)[1]_{\mathrm{I}}[1]_{\mathrm{II}} \right) \arrow[r, "\text{$\theta'$ then $\theta$}"'] & \tot_{\oplus}\left(\mathrm{swap}(X)\right)[2],
+	\end{tikzcd}\]
+	where $r$ is as defined in Proposition~\ref{prop:double-cplx-swap}. If
+	$\tot_{\oplus}$ is replaced by $\tot_{\Pi}$, one obtains the same
+	$\theta_X,\theta'_X$ and the corresponding anticommutative diagram.
+\end{proposition}
+% segment-id: o014.li2.chapter3.double-complexes.pf002
+\begin{proof}
+	Direct verification from the definition of the total complex
+	(Definition~\ref{def:total-cplx}) and the definition of the shift functor
+	(Definition~\ref{def:translation-functor}) shows that $\theta_X$ and
+	$\theta'_X$ are morphisms of complexes; the details are lengthy but not
+	difficult. Anticommutativity reduces to the observation that the diagram
+% segment-id: o014.li2.chapter3.double-complexes.g006
+	\[\begin{tikzcd}
+		X^{p+1, q+1} \arrow[d, "{(-1)^p \identity}"'] \arrow[r, "\identity"] & X^{p+1, q+1} \arrow[d, "{(-1)^{p+1} \identity}"] \\
+		X^{p+1, q+1} \arrow[r, "\identity"'] & X^{p+1, q+1}
+	\end{tikzcd}\]
+	is anticommutative.
+
+	Now consider the assertion about the commutative diagram. Let
+	$(p,q)\in\Z^2$ and compare the restrictions of the two composites to
+	$(X[1]_{\mathrm{I}}[1]_{\mathrm{II}})^{p,q}$. As explained above,
+	$\theta$ followed by $\theta'$ (for $X$) and $\theta'$ followed by
+	$\theta$ (for $\mathrm{swap}(X)$) give respectively
+% segment-id: o014.li2.chapter3.double-complexes.q012
+	\[ (-1)^{p+1}, \; (-1)^q \; \in \Aut(X^{p+1, q+1}) \quad \text{($\identity$ suppressed)}. \]
+	On the other hand, the restrictions of
+	$r_{X[1]_{\mathrm{I}}[1]_{\mathrm{II}}}$ and $r_X[2]$ to
+	$X^{p+1,q+1}$ are respectively $(-1)^{pq}$ and
+	$(-1)^{(p+1)(q+1)}$. But
+	$(p+1)(q+1)-pq\equiv(p+1)-q\pmod{2}$. This proves the claim.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.double-complexes.p012
+As a simple generalization of the anticommutative diagram above, the reader is
+asked to prove that, for all $a,b\in\Z$, the two morphisms
+% segment-id: o014.li2.chapter3.double-complexes.q013
+\[ \tot_{\oplus}(X[a]_{\mathrm{I}}[b]_{\mathrm{II}}) \rightrightarrows \tot_{\oplus}(X)[a+b] \]
+defined in the two orders ($\theta$ then $\theta'$, and $\theta'$ then
+$\theta$) differ by the sign $(-1)^{ab}$; on the other hand, the commutative
+diagram above remains valid for $X[a]_{\mathrm{I}}[b]_{\mathrm{II}}$. The
+same statements hold with $\tot_{\Pi}$ in place of $\tot_{\oplus}$.
+
+% segment-id: o014.li2.chapter3.double-complexes.p013
+One of the main uses of double complexes is the study of bifunctors. What is a
+bifunctor?
+
+% segment-id: o014.li2.chapter3.double-complexes.c001
+\begin{convention}\label{con:bifunctor}
+	\index{bifunctor}
+	A functor of the form $F:\mathcal{A}_1\times\mathcal{A}_2\to\mathcal{B}$
+	is called a \emph{bifunctor}. Once objects
+	$X_i\in\Obj(\mathcal{A}_i)$ are fixed, we obtain one-variable functors
+	$F(X_1,\cdot):\mathcal{A}_2\to\mathcal{B}$ and
+	$F(\cdot,X_2):\mathcal{A}_1\to\mathcal{B}$. We can therefore discuss
+	additivity, exactness, and many other notions in each variable of $F$.
+\end{convention}
+
+% segment-id: o014.li2.chapter3.double-complexes.dp001
+\begin{definition-proposition}\label{def:bifunctor-cplx}
+	\index[sym1]{C2F@$\cate{C}^2 F, \cate{C}_{\oplus} F, \cate{C}_{\Pi} F$}
+	Let $\mathcal{A}_1,\mathcal{A}_2,\mathcal{B}$ be additive categories and
+	let $F:\mathcal{A}_1\times\mathcal{A}_2\to\mathcal{B}$ be a bifunctor
+	additive in each variable. There is an associated functor
+% segment-id: o014.li2.chapter3.double-complexes.g007
+	\[\begin{tikzcd}[row sep=tiny, column sep=small]
+		\cate{C}^2 F: \cate{C}(\mathcal{A}_1) \times \cate{C}(\mathcal{A}_2) \arrow[r] & \cate{C}^2(\mathcal{B}) \\
+		(X, Y) \arrow[mapsto, r] & (F(X, Y))^{p, q} := F(X^p, Y^q), \\
+		& \dhori^{p, q} = F\left( d_X^p, \identity \right), \; \dvert^{p, q} = F\left( \identity, d_Y^q\right) .
+	\end{tikzcd}\]
+
+	Consequently, if $\mathcal{B}$ has countable coproducts or countable
+	products, one can define respectively
+% segment-id: o014.li2.chapter3.double-complexes.q014
+	\begin{gather*}
+		\cate{C}_{\oplus} F := \tot_{\oplus} \circ \cate{C}^2 F: \cate{C}(\mathcal{A}_1) \times \cate{C}(\mathcal{A}_2) \to \cate{C}(\mathcal{B}), \\
+		\cate{C}_{\Pi} F := \tot_{\Pi} \circ \cate{C}^2 F: \cate{C}(\mathcal{A}_1) \times \cate{C}(\mathcal{A}_2) \to \cate{C}(\mathcal{B}).
+	\end{gather*}
+	If the totalizations under discussion involve only finite direct sums,
+	then $\cate{C}_{\oplus}F=\cate{C}_{\Pi}F$.%
+	\footnote{Translator's note (O014-C038): the source omits $F$ from this
+	equality and from the rightmost term of each of the two isomorphisms below.
+	Since the functors being defined are $\cate{C}_{\oplus}F$ and
+	$\cate{C}_{\Pi}F$, this translation restores $F$ in all three places.}
+\end{definition-proposition}
+% segment-id: o014.li2.chapter3.double-complexes.pf003
+\begin{proof}
+	The double-complex condition $\dhori\dvert=\dvert\dhori$ follows directly
+	from the definition of a bifunctor; the rest is clear.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.double-complexes.p014
+The category of double complexes also has a notion of homotopy. Let
+$f,g:X\to Y$ be morphisms in $\cate{C}^2(\mathcal{A})$. A homotopy from $f$
+to $g$ is a pair of families of morphisms satisfying the following
+conditions. \index{homotopy!for double complexes}
+% segment-id: o014.li2.chapter3.double-complexes.q015
+\begin{equation*}\begin{gathered}
+% segment-id: o014.li2.chapter3.double-complexes.g008
+\begin{tikzcd}
+	Y^{p-1, q} & X^{p,q} \arrow[l, "{h^{p,q}}"'] \arrow[d, "{k^{p, q}}"] \\
+	& Y^{p, q-1}
+\end{tikzcd} \qquad (p,q) \in \Z^2 , \\
+	\dvert^{p-1, q} h^{p, q} = h^{p, q+1} \dvert^{p, q}, \qquad \dhori^{p, q-1} k^{p,q} = k^{p+1, q} \dhori^{p,q}, \\
+	g^{p,q} - f^{p, q} = \dhori^{p-1, q} h^{p,q} + h^{p+1, q} \dhori^{p,q} + \dvert^{p, q-1} k^{p,q} + k^{p, q+1} \dvert^{p,q}.
+\end{gathered}\end{equation*}
+This is reasonable: from $\dvert h=h\dvert$, $\dhori k=k\dhori$, and the
+definition of a double complex, it is easy to check that
+$\dhori h+h\dhori+\dvert k+k\dvert$ always defines a morphism in
+$\cate{C}^2(\mathcal{A})$.
+
+% segment-id: o014.li2.chapter3.double-complexes.p015
+Homotopies of double complexes are reflected by total complexes. More
+precisely, given $(h^{p,q},k^{p,q})_{p,q\in\Z}$, one can define
+$\hat{h}\in\Hom^{-1}\left(\tot_{\oplus}(X),\tot_{\oplus}(Y)\right)$ so that
+the restriction of $\hat{h}$ to the direct summand $X^{p,q}$ is
+% segment-id: o014.li2.chapter3.double-complexes.q016
+\[ \left( h^{p,q}, (-1)^p k^{p,q} \right): X^{p,q} \to Y^{p-1, q} \oplus Y^{p, q-1}, \]
+which makes $\tot_{\oplus}(g)-\tot_{\oplus}(f)=d^{-1}\hat{h}$; the case of
+$\tot_{\Pi}$ is handled in the same way.
+
+% segment-id: o014.li2.chapter3.double-complexes.p016
+Thus the homotopy relation on double complexes defines
+$\cate{K}^2(\mathcal{A})$ together with a functor
+$\cate{C}^2(\mathcal{A})\to\cate{K}^2(\mathcal{A})$. If countable
+coproducts (or products) exist, the functor $\tot_{\oplus}$ (or
+$\tot_{\Pi}$) descends to a functor
+$\cate{K}^2(\mathcal{A})\to\cate{K}(\mathcal{A})$.
+\index[sym1]{K2A@$\cate{K}^2(\mathcal{A})$}
+
+% segment-id: o014.li2.chapter3.double-complexes.p017
+Return to a bifunctor $F:\mathcal{A}_1\times\mathcal{A}_2\to\mathcal{B}$
+between additive categories, assumed additive in each variable. The following
+is the bifunctor version of \eqref{eqn:KF}.
+
+% segment-id: o014.li2.chapter3.double-complexes.pr004
+\begin{proposition}\label{prop:bifunctor-cplx-homotopy}
+	\index[sym1]{K2F@$\cate{K}^2 F, \cate{K}_{\oplus} F, \cate{K}_{\Pi} F$}
+	Let $F$ be as above. Then $\cate{C}^2F$ factors through
+	$\cate{K}^2F:\cate{K}(\mathcal{A}_1)\times\cate{K}(\mathcal{A}_2)\to
+	\cate{K}^2(\mathcal{B})$.
+
+	Similarly, $\cate{C}_{\oplus}F$ or $\cate{C}_{\Pi}F$ factors through
+	$\cate{K}(\mathcal{A}_1)\times\cate{K}(\mathcal{A}_2)\to
+	\cate{K}(\mathcal{B})$ and is denoted respectively by
+	$\cate{K}_{\oplus}F$ or $\cate{K}_{\Pi}F$, provided the functor
+	$\cate{C}_{\oplus}F$ or $\cate{C}_{\Pi}F$ is defined.
+\end{proposition}
+% segment-id: o014.li2.chapter3.double-complexes.pf004
+\begin{proof}
+	Take $\cate{C}_{\oplus}F$ as an example. We must show that, for a
+	null-homotopic morphism $f_1=d^{-1}g:X_1\to Y_1$ in
+	$\cate{C}(\mathcal{A}_1)$ and an arbitrary morphism $f_2:X_2\to Y_2$ in
+	$\cate{C}(\mathcal{A}_2)$, the corresponding morphism
+	$(\cate{C}^2F)(f_1,f_2):\cate{C}^2F(X_1,X_2)\to
+	\cate{C}^2F(Y_1,Y_2)$ is null-homotopic. The evident choice is
+	$h^{p,q}:=F(g^p,f_2^q)$ and $k^{p,q}:=0$. Since $f_2$ is a morphism,
+	$h$ indeed commutes with $\dvert=F(\identity,d)$. The second variable is
+	handled similarly.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.double-complexes.p018
+Proposition~\ref{prop:tot-shift} gives canonical isomorphisms
+% segment-id: o014.li2.chapter3.double-complexes.q017
+\begin{gather*}
+	\cate{C}_{\oplus} F(X[1], Y) \simeq \cate{C}_{\oplus}F(X, Y)[1] \simeq \cate{C}_{\oplus}F(X, Y[1]), \\
+	\cate{K}_{\oplus} F(X[1], Y) \simeq \cate{K}_{\oplus}F(X, Y)[1] \simeq \cate{K}_{\oplus}F(X, Y[1]).
+\end{gather*}
+The same statements hold with $\Pi$ in place of $\oplus$.
+
+% segment-id: o014.li2.chapter3.double-complexes.e001
+\begin{example}[$\Hom$ double complex]\label{eg:Hom-bicplx}
+	\index{Hom double complex@$\Hom$ double complex}
+	\index[sym1]{Hombb@$\Hom^{\bullet, \bullet}$}
+	Consider the bifunctor
+	$\Hom(\cdot,\cdot):\mathcal{A}^{\opp}\times\mathcal{A}\to\cate{Ab}$,
+	which sends a pair of objects $(S,T)$ to $\Hom_{\mathcal{A}}(S,T)$. We
+	will show that the $\Hom$ complex $\Hom^\bullet(X,Y)$ is canonically
+	isomorphic to the value at $(X,Y)$ of the composite functor
+% segment-id: o014.li2.chapter3.double-complexes.q018
+	\[ \cate{C}(\mathcal{A})^{\opp} \times \cate{C}(\mathcal{A}) \xrightarrow{(\sigma^{-1}, \identity)} \cate{C}(\mathcal{A}^{\opp}) \times \cate{C}(\mathcal{A}) \xrightarrow{\cate{C}_{\Pi} \Hom(\cdot, \cdot)} \cate{C}(\cate{Ab}), \]
+	where $\sigma$ is as in Definition--Proposition~\ref{def:sigma}.
+
+	To this end, first consider the bifunctor
+	$F:\mathcal{A}\times\mathcal{A}^{\opp}\to\cate{Ab}$ defined by
+	$F(T,S)=\Hom_{\mathcal{A}}(S,T)$, and the composite functor
+% segment-id: o014.li2.chapter3.double-complexes.q019
+	\[ \cate{C}(\mathcal{A}) \times \cate{C}(\mathcal{A})^{\opp} \xrightarrow{(\identity, \sigma^{-1})} \cate{C}(\mathcal{A}) \times \cate{C}(\mathcal{A}^{\opp}) \xrightarrow{\cate{C}^2 F} \cate{C}^2(\cate{Ab}). \]
+	Let $X,Y\in\Obj(\cate{C}(\mathcal{A}))$. The image of $(Y,X)$ under
+	the composite functor above is called the \emph{$\Hom$ double complex}
+	and is denoted by $\Hom^{\bullet,\bullet}(X,Y)$. In view of the evident
+	commutative diagram
+% segment-id: o014.li2.chapter3.double-complexes.g009
+	\[\begin{tikzcd}[column sep=large]
+		\cate{C}(\mathcal{A})^{\opp} \times \cate{C}(\mathcal{A}) \arrow[d, "\simeq"', "\text{interchange}"] \arrow[r, "{(\sigma^{-1}, \identity)}" inner sep=0.6em] & \cate{C}(\mathcal{A}^{\opp}) \times \cate{C}(\mathcal{A}) \arrow[r, "{\cate{C}^2 \Hom(\cdot, \cdot)}" inner sep=0.6em] \arrow[d, "\simeq"', "\text{interchange}"] & \cate{C}^2(\cate{Ab}) \arrow[d, "\mathrm{swap}"] \\
+		\cate{C}(\mathcal{A}) \times \cate{C}(\mathcal{A})^{\opp} \arrow[r, "{(\identity, \sigma^{-1})}"' inner sep=0.6em] & \cate{C}(\mathcal{A}) \times \cate{C}(\mathcal{A}^{\opp}) \arrow[r, "{\cate{C}^2 F}"' inner sep=0.6em] & \cate{C}^2(\cate{Ab})
+	\end{tikzcd}\]
+	and Proposition~\ref{prop:double-cplx-swap}, it suffices to prove that
+	there is a canonical isomorphism
+	\[
+		\tot_{\Pi}\Hom^{\bullet,\bullet}(X,Y)
+		\rightiso \Hom^\bullet(X,Y).
+	\]
+
+	Inspecting the definitions gives
+% segment-id: o014.li2.chapter3.double-complexes.q020
+	\begin{equation*}\begin{aligned}
+		\Hom^{p, q}(X, Y) & = \Hom_{\mathcal{A}}\left( X^{-q}, Y^p \right), \\
+		\dhori^{p, q} & = (d_Y^p)_* : \Hom_{\mathcal{A}}\left( X^{-q}, Y^p \right) \to \Hom_{\mathcal{A}}\left( X^{-q}, Y^{p+1} \right), \\
+		\dvert^{p, q} & = (-1)^q (d_X^{-q-1})^* : \Hom_{\mathcal{A}}\left( X^{-q}, Y^p \right) \to \Hom_{\mathcal{A}}\left( X^{-q-1}, Y^p \right).
+	\end{aligned}\end{equation*}%
+	\footnote{Translator's note (O014-C039): the source uses the coefficient
+	$(-1)^{q+1}$, which corresponds to reusing the formula for $\sigma$ but
+	not to the strict inverse $\sigma^{-1}$ obtained from the sign correction
+	in the preceding section. This translation uses the inverse coefficient
+	$(-1)^q$; consequently, the totalization is identified with the $\Hom$
+	complex by component signs $(-1)^q$, rather than by literal equality.}
+	Now determine $\tot_{\Pi}\Hom^{\bullet,\bullet}(X,Y)$. First,
+% segment-id: o014.li2.chapter3.double-complexes.q021
+	\[ \left(\tot_{\Pi} \Hom^{\bullet, \bullet}(X, Y)\right)^n = \prod_{p+q=n} \Hom_{\mathcal{A}}\left( X^{-q}, Y^p \right) = \prod_{k \in \Z} \Hom\left( X^k, Y^{k+n} \right) \]
+	under the substitution $k=-q$, which is precisely $\Hom^n(X,Y)$. Next
+	describe $d_{\tot_{\Pi}\Hom^{\bullet,\bullet}(X,Y)}^n$: its
+	$(p,q)$-coordinate in $\Hom^{n+1}(X,Y)$, where $p+q=n+1$, comes from
+% segment-id: o014.li2.chapter3.double-complexes.g010
+	\[\begin{tikzcd}[column sep=large]
+		\Hom^{p-1, q}(X, Y) \arrow[r, "{\dhori^{p-1, q}}"] & \Hom^{p, q}(X, Y) \\
+		& \Hom^{p, q-1}(X, Y) \arrow[u, "{(-1)^p \dvert^{p, q-1}}"'] .
+	\end{tikzcd}\]
+	The horizontal arrow is $(d_Y^{p-1})_*$, while the vertical arrow is
+	$(-1)^{p+q-1}(d_X^{-q})^*=(-1)^n(d_X^{-q})^*$. The isomorphism that
+	multiplies the factor $\Hom^{p,q}(X,Y)$ by $(-1)^q$ changes the sign of
+	the vertical term. Comparing with Definition~\ref{def:Hom-cplx} gives the
+	canonical isomorphism
+	$\tot_{\Pi}\Hom^{\bullet,\bullet}(X,Y)\rightiso\Hom^\bullet(X,Y)$, as
+	required.
+
+	Finally, if $\mathcal{A}$ is $\Bbbk$-linear, then
+	$\Hom^{\bullet,\bullet}(X,Y)$ naturally becomes a functor with values in
+	$\cate{C}^2(\Bbbk\dcate{Mod})$.
+\end{example}

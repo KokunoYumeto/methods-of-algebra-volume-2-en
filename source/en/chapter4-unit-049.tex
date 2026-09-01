@@ -1,0 +1,351 @@
+% Unit 049: English translation of chapter4.tex, lines 62--208.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter4.triangulated-category-definition
+% Coverage: Section 4.1, from categories with translation through the remark
+% on duality; ends before the lemma at line 210.
+
+% segment-id: o014.li2.chapter4.triangulated-category-definition.h001
+\section{Definition of a Triangulated Category}\label{sec:triangular-def}
+\hypertarget{o014.aljabr2.chapter4.triangulated-category-definition}{ }
+
+% segment-id: o014.li2.chapter4.triangulated-category-definition.p001
+A triangulated category is an additive category with translation, equipped
+with a class of distinguished triangles. We begin by explaining what a
+category with translation is.
+
+% segment-id: o014.li2.chapter4.triangulated-category-definition.d001
+\begin{definition}\label{def:category-with-translation}
+	\index{category!with translation}
+	\index{translation functor}
+	A \emph{category with translation} is data $(\mathcal{D},T)$ consisting
+	of a category $\mathcal{D}$ and an equivalence
+	$T:\mathcal{D}\to\mathcal{D}$.%
+	\footnote{Many references require $T$ to be an automorphism. In that case
+	one may choose an inverse functor $T^{-1}$ satisfying
+	$T^{-1}T=\identity_{\mathcal D}=TT^{-1}$. This condition covers every
+	situation treated in this book and avoids possible subtleties from
+	$2$-category theory, so the reader may harmlessly make the same
+	assumption. The study of stable model categories or stable
+	$\infty$-categories, however, cannot avoid the case in which the
+	equivalence is not an isomorphism, especially in topology.}
+	The equivalence $T$ is called the \emph{translation functor} of
+	$\mathcal{D}$. In addition, choose a quasi-inverse $T^{-1}$ of $T$ and
+	isomorphisms $T^{-1}T\simeq\identity_{\mathcal D}\simeq TT^{-1}$ so that
+	these data form an adjoint equivalence in the sense of
+	\cite[Theorem~2.6.12]{Li1}.
+
+% segment-id: o014.li2.chapter4.triangulated-category-definition.l001
+	\begin{itemize}
+% segment-id: o014.li2.chapter4.triangulated-category-definition.i001
+		\item A functor from $(\mathcal{D},T)$ to
+		$(\mathcal{D}',T')$ is a functor $F:\mathcal{D}\to\mathcal{D}'$
+		together with a chosen isomorphism $FT\simeq T'F$. By convention, the
+		isomorphism is suppressed and these data are abbreviated as
+		$F:(\mathcal{D},T)\to(\mathcal{D}',T')$.
+% segment-id: o014.li2.chapter4.triangulated-category-definition.i002
+		\item A morphism between two functors
+% segment-id: o014.li2.chapter4.triangulated-category-definition.g001
+		$\begin{tikzcd}
+			(\mathcal{D},T) \arrow[r,shift left,"F"]
+			\arrow[r,shift right,"{F'}"'] & (\mathcal{D}',T')
+		\end{tikzcd}$
+		is a morphism $\varphi:F\to F'$ that makes the following diagram
+		commute:
+% segment-id: o014.li2.chapter4.triangulated-category-definition.g002
+		\[\begin{tikzcd}
+			FT \arrow[r,"\varphi T"] \arrow[d,"\sim"' sloped] &
+			F'T \arrow[d,"\sim" sloped] \\
+			T'F \arrow[r,"{T'\varphi}"'] & T'F'.
+		\end{tikzcd}\]
+% segment-id: o014.li2.chapter4.triangulated-category-definition.i003
+		\item A subcategory of a category with translation
+		$(\mathcal{D},T)$ is a subcategory $\mathcal{D}'$ of $\mathcal{D}$
+		that is closed under $T$ and for which
+		$T':=T|_{\mathcal{D}'}$ makes $(\mathcal{D}',T')$ a category with
+		translation.
+	\end{itemize}
+
+% segment-id: o014.li2.chapter4.triangulated-category-definition.p002
+	If $\mathcal{D}$ is additive and $T$ is an additive functor (as it is
+	automatically; see Corollary~\ref{prop:automatic-additivity}), then
+	$(\mathcal{D},T)$ is called an \emph{additive category with translation};
+	functors between such categories are also required to be additive. After
+	fixing a commutative ring $\Bbbk$, the same definition applies in the
+	$\Bbbk$-linear setting.
+\end{definition}
+
+% segment-id: o014.li2.chapter4.triangulated-category-definition.p003
+If $(\mathcal{D},T)$ is a category with translation, then so is
+$(\mathcal{D}^{\opp},T^{-1})$. By convention, the data
+$(\mathcal{D},T)$ are often abbreviated to $\mathcal{D}$. The following
+notion is particularly useful.
+
+% segment-id: o014.li2.chapter4.triangulated-category-definition.d002
+\begin{definition}[Morphisms with degree]\label{def:morphism-with-degree}
+	\index[sym1]{mdegree@$X \xrightarrow{+m} Y$}
+	A morphism of degree $m$ in a category with translation
+	$(\mathcal{D},T)$ is a morphism of the form $f:X\to T^mY$, also written
+	$f:X\xrightarrow{+m}Y$. Given
+	$X\xrightarrow[f]{+m}Y\xrightarrow[g]{+n}Z$, their composite $gf$ is
+	defined to be the morphism of degree $m+n$ given by $T^m(g)f$.
+	Commutative diagrams can likewise be considered for morphisms of this
+	kind.
+
+	In the multivariable setting, suppose that $\mathcal{D}$ is equipped with
+	strictly commuting automorphisms $T_1,\ldots,T_n$, so that
+	$T_iT_j=T_jT_i$. A morphism of degree $(m_1,\ldots,m_n)$ is defined to be
+	a morphism of the form $X\to T_1^{m_1}\cdots T_n^{m_n}Y$. It is written
+	$X\xrightarrow{+(m_1,\ldots,m_n)}Y$.
+\end{definition}
+
+% segment-id: o014.li2.chapter4.triangulated-category-definition.p004
+For example, given a category $\mathcal{A}$, the category
+$(\mathcal{A}^{\Z},T)$ of graded objects from
+Definition~\ref{def:graded-obj} is a category with translation. More
+generally, one can consider the category $\mathcal{A}^{\Z^n}$ of
+$\Z^n$-graded objects, together with a translation functor
+$T_1,\ldots,T_n$ in each variable, and then discuss morphisms with degree
+between $\Z^n$-graded objects. The multivariable case, however, is not a
+focus of this chapter.
+\index{graded object}
+
+% segment-id: o014.li2.chapter4.triangulated-category-definition.ex001
+\begin{example}\label{eg:cplx-as-translation-cat}
+	The category of complexes $\cate{C}(\mathcal{A})$ over an additive
+	category $\mathcal{A}$, together with the translation functor
+	$T:X\mapsto X[1]$ from Definition~\ref{def:translation-functor}, is an
+	additive category with translation. The category
+	$\cate{K}(\mathcal{A})$ from Definition~\ref{def:cplx-homotopy-cat}
+	inherits the translation functor from $\cate{C}(\mathcal{A})$, which is
+	still denoted by $T$. The canonical functor
+	$F:\cate{C}(\mathcal{A})\to\cate{K}(\mathcal{A})$ plainly satisfies
+	$FT=TF$. The same applies, for every $\star\in\{+,-,\bdd\}$, to the
+	categories $\cate{C}^{\star}(\mathcal{A})$ (or
+	$\cate{K}^{\star}(\mathcal{A})$) introduced in
+	Definition~\ref{def:cplx-cat-variant} (or
+	Definition~\ref{def:cplx-homotopy-cat-variant}).
+\end{example}
+
+% segment-id: o014.li2.chapter4.triangulated-category-definition.p005
+In this chapter we mainly consider additive categories with translation.
+
+% segment-id: o014.li2.chapter4.triangulated-category-definition.d003
+\begin{definition}
+	\index{triangle}
+	Let $(\mathcal{D},T)$ be an additive category with translation. A
+	\emph{triangle} in it is a sequence of morphisms in $\mathcal{D}$ of the
+	form
+% segment-id: o014.li2.chapter4.triangulated-category-definition.q001
+	\[ X\xrightarrow{f}Y\xrightarrow{g}Z\xrightarrow{h}TX. \]
+	A morphism between two triangles is a commutative diagram of the form
+% segment-id: o014.li2.chapter4.triangulated-category-definition.g003
+	\[\begin{tikzcd}
+		X \arrow[r,"f"] \arrow[d,"\alpha"'] &
+		Y \arrow[r,"g"] \arrow[d,"\beta"] &
+		Z \arrow[r,"h"] \arrow[d,"\gamma"] &
+		TX \arrow[d,"T\alpha"] \\
+		X' \arrow[r,"{f'}"'] & Y' \arrow[r,"{g'}"'] &
+		Z' \arrow[r,"{h'}"'] & TX'.
+	\end{tikzcd}\]
+	The two rows are the given triangles. Such a morphism is also abbreviated
+	to $(X,Y,Z)\to(X',Y',Z')$. Isomorphisms between triangles are defined in
+	the same way.
+
+% segment-id: o014.li2.chapter4.triangulated-category-definition.p006
+	The same notion is available if the additive category is replaced by a
+	more general $\Bbbk$-linear category, where $\Bbbk$ is any commutative
+	ring.
+\end{definition}
+
+% segment-id: o014.li2.chapter4.triangulated-category-definition.p007
+Clearly, triangles in $(\mathcal{D},T)$ are the same as triangles in
+$(\mathcal{D}^{\opp},T^{-1})$.
+
+% segment-id: o014.li2.chapter4.triangulated-category-definition.r001
+\begin{remark}\label{rem:triangle-signs}
+	Consider a triangle
+	$X\xrightarrow{f}Y\xrightarrow{g}Z\xrightarrow{h}TX$ in a
+	$\Bbbk$-linear category with translation $(\mathcal{D},T)$, and let
+	$\epsilon,\zeta,\eta\in\Bbbk^\times$. If
+	$\epsilon\zeta\eta=1$, then the original triangle is isomorphic to
+	$X\xrightarrow{\epsilon f}Y\xrightarrow{\zeta g}Z
+	\xrightarrow{\eta h}TX$, as shown by the commutative diagram
+% segment-id: o014.li2.chapter4.triangulated-category-definition.g004
+	\[\begin{tikzcd}
+		X \arrow[r,"f"] \arrow[d,"1"'] &
+		Y \arrow[r,"g"] \arrow[d,"\epsilon"] &
+		Z \arrow[r,"h"] \arrow[d,"\epsilon\zeta"] &
+		TX \arrow[d,"\epsilon\zeta\eta"] \\
+		X \arrow[r,"\epsilon f"'] & Y \arrow[r,"\zeta g"'] &
+		Z \arrow[r,"\eta h"'] & TX.
+	\end{tikzcd}\]
+\end{remark}
+
+% segment-id: o014.li2.chapter4.triangulated-category-definition.p008
+In the notation of Definition~\ref{def:morphism-with-degree}, a triangle can
+also be written $X\to Y\to Z\xrightarrow{+1}$, or more pictorially as
+% segment-id: o014.li2.chapter4.triangulated-category-definition.g005
+$\begin{tikzcd}[row sep=small,column sep=tiny]
+	& Y \arrow[rd] & \\
+	X \arrow[ru] & & Z \arrow[ll,"{+1}"]
+\end{tikzcd}$.
+Thus a triangle may be pictured as an upward-spiraling chain, while a
+morphism between triangles resembles the structure of deoxyribonucleic acid:
+the arrows $\alpha$, $\beta$, $\gamma$, and so forth can be compared to the
+hydrogen bonds between bases.
+\index{deoxyribonucleic acid}
+
+% segment-id: o014.li2.chapter4.triangulated-category-definition.d004
+\begin{definition}[\mbox{Triangulated categories} and
+\mbox{triangulated functors}]
+\label{def:triangulated-cat}
+	\index{triangulated category}
+	\index{pretriangulated category}
+	\index{functor!triangulated}
+	\index{triangle!distinguished (exact)}
+	A \emph{triangulated category} is an additive category with translation
+	$(\mathcal{D},T)$ equipped with a class $\mathcal{H}$ of triangles, called
+	\emph{distinguished triangles}, satisfying the following axioms.
+% segment-id: o014.li2.chapter4.triangulated-category-definition.l002
+	\begin{enumerate}[(TR1)]
+		\setcounter{enumi}{-1}
+% segment-id: o014.li2.chapter4.triangulated-category-definition.i004
+		\item Every triangle isomorphic to a distinguished triangle is
+		distinguished.
+% segment-id: o014.li2.chapter4.triangulated-category-definition.i005
+		\item For every $X\in\Obj(\mathcal{D})$, the triangle
+		$X\xrightarrow{\identity_X}X\to0\to TX$ is distinguished.
+% segment-id: o014.li2.chapter4.triangulated-category-definition.i006
+		\item Every morphism $f:X\to Y$ can be extended to a distinguished
+		triangle of the form $X\xrightarrow{f}Y\to Z\to TX$, where
+		$Z\in\Obj(\mathcal{D})$.
+% segment-id: o014.li2.chapter4.triangulated-category-definition.i007
+		\item A triangle
+		$X\xrightarrow{f}Y\xrightarrow{g}Z\xrightarrow{h}TX$ is distinguished
+		if and only if its “counterclockwise rotation”
+% segment-id: o014.li2.chapter4.triangulated-category-definition.q002
+		\[ Y\xrightarrow{g}Z\xrightarrow{h}TX\xrightarrow{-Tf}TY \]
+		is distinguished. The sign pattern may equivalently be chosen as
+		$(-++)$, $(+-+)$, or $(---)$; see
+		Remark~\ref{rem:triangle-signs}.
+% segment-id: o014.li2.chapter4.triangulated-category-definition.i008
+		\item Suppose the solid part of the following diagram is commutative:
+% segment-id: o014.li2.chapter4.triangulated-category-definition.g006
+		\[\begin{tikzcd}
+			X \arrow[r] \arrow[d,"\alpha"'] &
+			Y \arrow[r] \arrow[d,"\beta"] &
+			Z \arrow[r] \arrow[dashed,d,"\gamma"] &
+			TX \arrow[dashed,d,"T\alpha"] \\
+			X' \arrow[r] & Y' \arrow[r] & Z' \arrow[r] & TX'.
+		\end{tikzcd}\]
+		If both rows are distinguished triangles, there exists a morphism
+		$\gamma:Z\to Z'$ as indicated by the dashed arrow such that the whole
+		diagram containing $\alpha$, $\beta$, $\gamma$, and $T\alpha$
+		commutes. Thus one obtains a morphism of triangles.
+% segment-id: o014.li2.chapter4.triangulated-category-definition.i009
+		\item Suppose that distinguished triangles
+% segment-id: o014.li2.chapter4.triangulated-category-definition.q003
+		\begin{gather*}
+			X\xrightarrow{f}Y\xrightarrow{h}Z'\to TX,\\
+			Y\xrightarrow{g}Z\xrightarrow{k}X'\to TY,\\
+			X\xrightarrow{gf}Z\xrightarrow{m}Y'\to TX
+		\end{gather*}
+		are given. There exists a distinguished triangle
+% segment-id: o014.li2.chapter4.triangulated-category-definition.q004
+		\[ Z'\xrightarrow{u}Y'\xrightarrow{v}X'\xrightarrow{w}TZ' \]
+		such that the following diagram commutes:
+% segment-id: o014.li2.chapter4.triangulated-category-definition.g007
+		\[\begin{tikzcd}
+			X \arrow[r,"f"] \arrow[equal,d] &
+			Y \arrow[r,"h"] \arrow[d,"g"] &
+			Z' \arrow[r] \arrow[d,"u"] & TX \arrow[equal,d] \\
+			X \arrow[r,"gf"] \arrow[d,"f"'] &
+			Z \arrow[r,"m"] \arrow[equal,d] &
+			Y' \arrow[r] \arrow[d,"v"] & TX \arrow[d,"Tf"] \\
+			Y \arrow[r,"g"] \arrow[d,"h"'] &
+			Z \arrow[r,"k"] \arrow[d,"m"] &
+			X' \arrow[r] \arrow[equal,d] & TY \arrow[d,"Th"] \\
+			Z' \arrow[r,"u"'] & Y' \arrow[r,"v"'] &
+			X' \arrow[r,"w"'] & TZ'.
+		\end{tikzcd}\]
+	\end{enumerate}
+
+% segment-id: o014.li2.chapter4.triangulated-category-definition.p009
+	Data $(\mathcal{D},T,\mathcal{H})$ satisfying only (TR0)--(TR4) are
+	called a \emph{pretriangulated category}. The data $T$ and $\mathcal{H}$
+	are often omitted from the notation.
+
+% segment-id: o014.li2.chapter4.triangulated-category-definition.p010
+	A \emph{triangulated functor} from $\mathcal{D}$ to $\mathcal{D}'$ is a
+	functor $F:\mathcal{D}\to\mathcal{D}'$ between additive categories with
+	translation that maps distinguished triangles to distinguished triangles.
+	Morphisms between triangulated functors are the same as the morphisms in
+	Definition~\ref{def:category-with-translation}; this also defines a
+	quasi-inverse of a triangulated functor. If two triangulated functors
+% segment-id: o014.li2.chapter4.triangulated-category-definition.g008
+	$\begin{tikzcd}
+		\mathcal{D} \arrow[shift left,r,"F"] &
+		\mathcal{D}' \arrow[shift left,l,"G"]
+	\end{tikzcd}$
+	are quasi-inverse to one another, they are said to form an
+	\emph{equivalence} between $\mathcal{D}$ and $\mathcal{D}'$.
+\end{definition}
+
+% segment-id: o014.li2.chapter4.triangulated-category-definition.p011
+If $(\mathcal{D},T)$ is $\Bbbk$-linear, all the definitions above have
+corresponding extensions.
+
+% segment-id: o014.li2.chapter4.triangulated-category-definition.r002
+\begin{remark}\index{octahedral axiom}
+	In the notation of Definition~\ref{def:morphism-with-degree}, axiom (TR5)
+	can be rewritten as the diagram
+% segment-id: o014.li2.chapter4.triangulated-category-definition.g009
+	\[\begin{tikzcd}[column sep=large,row sep=large]
+		& Y' \arrow[dashed,rd,"v"] \\
+		Z' \arrow[dashed,ru,"u"] \arrow[d,"+1" description] &&
+		X' \arrow[dashed,ll,"+1" description,"w" inner sep=0.6em]
+		\arrow[ldd,"+1" description,near end] \\
+		X \arrow[rd,"f"'] && Z \arrow[u,"k"'] \\
+		& Y \arrow[ru,"g"'] \arrow[luu,"h"',near start] &
+		\arrow[from=1-2,to=3-1,crossing over,"+1" description,near start]
+		\arrow[from=3-1,to=3-3,crossing over]
+		\arrow[from=3-3,to=1-2,crossing over,"m",near end]
+	\end{tikzcd}\]
+	The dashed part represents the morphisms whose existence is asserted by
+	the axiom. Four faces of this octahedron are distinguished triangles, and
+	the other four faces are commutative; the details are left to the reader.
+	For this reason, (TR5) is also called the \emph{octahedral axiom}.
+\end{remark}
+
+% [Yekutieli, Remark 5.6.12]
+% segment-id: o014.li2.chapter4.triangulated-category-definition.r003
+\begin{remark}[Duality]\label{rem:triangulated-op}
+	Let $(\mathcal{D},T,\mathcal{H})$ be a pretriangulated (or triangulated)
+	category. Regard $T^{-1}$ as an endofunctor of
+	$\mathcal{D}^{\opp}$ and denote it by $S$. Define a class of triangles
+	$\mathcal{K}$ on $(\mathcal{D}^{\opp},S)$ as follows. If
+% segment-id: o014.li2.chapter4.triangulated-category-definition.q005
+	\[ [X\xrightarrow{f}Y\xrightarrow{g}Z\xrightarrow{h}TX]
+		\;\in\mathcal{H}, \]
+	then its clockwise rotation
+	$[T^{-1}Z\xrightarrow{-T^{-1}h}X\xrightarrow{f}Y\xrightarrow{g}Z]
+	\in\mathcal{H}$ may be regarded as the following triangle in
+	$\mathcal{D}^{\opp}$:
+% segment-id: o014.li2.chapter4.triangulated-category-definition.q006
+	\begin{equation}\label{eqn:op-triangle}
+		Z\xrightarrow{g^{\opp}}Y\xrightarrow{f^{\opp}}X
+		\xrightarrow{-(T^{-1}h)^{\opp}}SZ.
+	\end{equation}
+	Define $\mathcal{K}$ to be the class of all triangles of the form
+	\eqref{eqn:op-triangle}. It is straightforward to verify that
+	$(\mathcal{D}^{\opp},S,\mathcal{K})$ is a pretriangulated (or
+	triangulated) category. It is also clear that applying this procedure
+	twice recovers the original $(\mathcal{D},T,\mathcal{H})$.
+\end{remark}
+
+% segment-id: o014.li2.chapter4.triangulated-category-definition.p012
+The notions of pretriangulated subcategory and triangulated subcategory will
+be introduced in
+Definition--Proposition~\sourcecrossref{def:triangulated-subcat}{in \S~4.2};
+we postpone their discussion until then.

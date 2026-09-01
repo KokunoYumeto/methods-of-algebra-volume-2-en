@@ -1,0 +1,262 @@
+% Unit 067 English translation of chapter5.tex lines 468--577.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter5.filtered-differential-spectral-sequence
+% Coverage: Complete Section 5.4.
+
+% segment-id: o014.li2.chapter5.filtered-differential-spectral-sequence.h001
+\section{The spectral sequence of a filtered differential object}
+\label{sec:filtered-diff-ss}
+\hypertarget{o014.aljabr2.chapter5.filtered-differential-spectral-sequence}{ }
+
+% segment-id: o014.li2.chapter5.filtered-differential-spectral-sequence.p001
+Throughout this section, we work with an Abelian category with translation
+$(\mathcal{A},T)$.
+
+% segment-id: o014.li2.chapter5.filtered-differential-spectral-sequence.d001
+\begin{definition}\label{def:filtered-diffop}
+	\index{differential object!filtered}
+	An object $(X,d)\in\Obj((\mathcal{A},T)_d)$ equipped with a filtration
+	$\left(\mathrm{F}^\bullet X,d_{\mathrm{F}^\bullet X}\right)$ is called a
+	\emph{filtered differential object} over $(\mathcal{A},T)$. In this case,
+	$\gr^pX$ is also naturally equipped with
+	$\gr^pd:\gr^pX\to T\gr^pX$, so that
+	$(\gr^pX,\gr^pd)\in\Obj((\mathcal{A},T)_d)$.
+\end{definition}
+
+% segment-id: o014.li2.chapter5.filtered-differential-spectral-sequence.p002
+Since $d_{\mathrm{F}^pX}$ on the subobject $\mathrm{F}^pX$ is best
+understood as the restriction of $d:X\to TX$, we continue to denote it by
+$d$. A similar definition applies to increasing filtrations, with an entirely
+dual formulation.
+
+% segment-id: o014.li2.chapter5.filtered-differential-spectral-sequence.p003
+We return to spectral sequences. The preceding section explained how to
+construct an exact couple from a differential object. Now consider a filtered
+differential object $(X,d,\mathrm{F}^\bullet X)$ over $\mathcal{A}$. Write
+$S:(Y^p)_p\mapsto(Y^{p+1})_p$ for the standard translation functor on
+$\mathcal{A}^{\Z}$; it plainly commutes with $T$, acting on each $Y^p$.
+Consequently, the morphisms considered below have two kinds of degree: the
+``filtration degree'' corresponding to $S$ and the ``internal degree''
+corresponding to $T$. For the moment we focus on the former.
+
+% segment-id: o014.li2.chapter5.filtered-differential-spectral-sequence.p004
+Since the filtration is decreasing, there is a monomorphism
+\[ \alpha:\left(\mathrm{F}^{p+1}X,d\right)_{p\in\Z}
+	\hookrightarrow S^{-1}\left(\mathrm{F}^{p+1}X,d\right)_{p\in\Z}
+	=\left(\mathrm{F}^{p}X,d\right)_{p\in\Z}. \]
+Thus $E_0:=\Coker(\alpha)=\left(\gr^pX,\gr^pd\right)_{p\in\Z}$ and
+$E_1^p=\Hm(\gr^pX,\gr^pd)$.
+
+% segment-id: o014.li2.chapter5.filtered-differential-spectral-sequence.p005
+Regard $\alpha$ as a morphism of degree $-1$ in $\mathcal{A}^{\Z}$ (with
+respect to $S$). Applying Proposition~\ref{prop:differential-exact-couple}
+gives the following exact couple with degrees over $\mathcal{A}^{\Z}$:
+\[\mathscr{C}=\left[\begin{tikzcd}[column sep=tiny]
+	\Hm\left(\mathrm{F}^{p+1}X,d\right)_p
+	\arrow[rr, "-1"', "{\Hm(\alpha)}"] & &
+	\Hm\left(\mathrm{F}^{p+1}X,d\right)_p \arrow[ld, "{+1}"] \\
+	& \Hm\left(\gr^pX,\gr^pd\right)_p \arrow[lu] &
+\end{tikzcd}\right],\]
+where the $\nwarrow$ arrow comes from the connecting morphism induced by the
+short exact sequence
+$0\to(\mathrm{F}^{p+1}X,d)\to(\mathrm{F}^pX,d)
+\to(\gr^pX,\gr^pd)\to0$.
+
+% segment-id: o014.li2.chapter5.filtered-differential-spectral-sequence.p006
+The resulting sequence
+$\mathscr{E}=(E_r^p,d_r^p)_{\substack{r\geq0\\p\in\Z}}$ is called the
+spectral sequence determined by $\mathrm{F}^\bullet X$ in
+$\mathcal{A}^{\Z}$. At the end of \S\ref{sec:exact-couples} we explained that
+$d_r$ is a morphism of degree $r$ with respect to $S$, namely
+\[ d_r=\left(d_r^p:E_r^p\to(S^rE_r)^p=E_r^{p+r}\right)_{p\in\Z}; \]
+of course, the degree of $d_r$ can also be read from the formula in
+Proposition~\ref{prop:differential-exact-couple}.
+
+% segment-id: o014.li2.chapter5.filtered-differential-spectral-sequence.p007
+In other words, a filtered differential object
+$(X,d,\mathrm{F}^\bullet X)$ gives a cohomologically graded spectral sequence
+as in Definition~\ref{def:graded-spectral-sequence}. Notice that $d_r^p$ here
+may also carry an internal degree (unless $T=\identity_{\mathcal{A}}$); this is
+suppressed from the notation and will be set out in detail in
+\S\ref{sec:filtered-cplx-ss}.
+
+% segment-id: o014.li2.chapter5.filtered-differential-spectral-sequence.p008
+Following the pattern of \eqref{eqn:spectral-sequence-Z-B}, define subobjects
+of $Z_0=(\gr^pX,\gr^pd)_p$ by
+\[ B_r=(B_r^p)_p\subset(Z_r^p)_p=Z_r. \]
+
+% segment-id: o014.li2.chapter5.filtered-differential-spectral-sequence.p009
+To simplify notation, the statements below suppress the internal degree of
+$d$; this amounts to considering the special case
+$T=\identity_{\mathcal{A}}$. The extension to the general case is routine:
+translation functors need only be inserted appropriately wherever
+$d^{-1}(\cdots)$ or $d(\cdots)$ occurs, so that the expressions make strict
+sense.
+
+% segment-id: o014.li2.chapter5.filtered-differential-spectral-sequence.t001
+\begin{proposition}\label{prop:filtered-diff-E}
+	For a filtered differential object $(X,d,\mathrm{F}^\bullet X)$, the
+	associated spectral sequence satisfies
+	\begin{align*}
+		Z_r^p&=\dfrac{\left(\mathrm{F}^pX\cap d^{-1}\mathrm{F}^{p+r}X\right)
+		+\mathrm{F}^{p+1}X}{\mathrm{F}^{p+1}X}, \\
+		B_r^p&=\dfrac{\left(\mathrm{F}^pX\cap d\mathrm{F}^{p-r+1}X\right)
+		+\mathrm{F}^{p+1}X}{\mathrm{F}^{p+1}X},
+	\end{align*}
+	and $d_r^p:E_r^p\to E_r^{p+r}$ is induced by the morphism
+	$d^{-1}\mathrm{F}^{p+r}X\xrightarrow{d}
+	\mathrm{F}^{p+r}X\cap\Ker(d)$.
+\end{proposition}
+\begin{proof}
+	Observe that the degree-$p$ component of $\alpha^r$ may be identified with
+	the inclusion $\mathrm{F}^pX\hookrightarrow\mathrm{F}^{p-r}X$ or
+	$\mathrm{F}^{p+r}X\hookrightarrow\mathrm{F}^pX$. The assertion reduces to
+	the graded version of Proposition~\ref{prop:differential-exact-couple}.
+\end{proof}
+
+% segment-id: o014.li2.chapter5.filtered-differential-spectral-sequence.p010
+Since $\varinjlim$ and $\varprojlim$ in $\mathcal{A}^{\Z}$ are taken degree
+by degree, $E_\infty=(E_\infty^p)_{p\in\Z}$ can be written as
+\begin{equation}\label{eqn:filtered-diff-infty}
+	E_\infty^p=\dfrac{Z_\infty^p}{B_\infty^p}
+	=\dfrac{\bigcap_r\left((\mathrm{F}^pX\cap d^{-1}\mathrm{F}^{p+r}X)
+	+\mathrm{F}^{p+1}X\right)}
+	{\bigcup_r\left((\mathrm{F}^pX\cap d\mathrm{F}^{p-r+1}X)
+	+\mathrm{F}^{p+1}X\right)},
+\end{equation}
+provided the displayed $\bigcap$ and $\bigcup$ exist for every $p$.
+
+% segment-id: o014.li2.chapter5.filtered-differential-spectral-sequence.r001
+\begin{remark}
+	Proposition~\ref{prop:filtered-diff-E} on the spectral sequence of a filtered
+	differential object is the foundation for the later discussions in this
+	chapter. It is an application of exact couples, but we could equally regard
+	the formulas in Proposition~\ref{prop:filtered-diff-E} as direct definitions
+	and verify from them all the properties required of a spectral sequence.
+\end{remark}
+
+% segment-id: o014.li2.chapter5.filtered-differential-spectral-sequence.p011
+From the preceding description, the spectral sequence $E_r^p$ of
+$(X,d,\mathrm{F}^\bullet X)$ can be viewed as a process of successively
+approximating $\Hm(X,d)$. To make precise what ``approximating'' means, we
+need the following concept.
+
+% segment-id: o014.li2.chapter5.filtered-differential-spectral-sequence.d002
+\begin{definition}[Induced filtration]\label{def:induced-filtration-H}
+	\index{filtration!induced}
+	For a filtered differential object $(X,d,\mathrm{F}^\bullet X)$ over
+	$(\mathcal{A},T)$, the object $\Hm(X,d)$ carries the induced filtration
+	\[ \mathrm{F}^p\Hm(X,d):=
+	\Image\left[\mathrm{F}^pX\cap\Ker(d)\to\Hm(X,d)\right],
+	\qquad p\in\Z. \]
+\end{definition}
+
+% segment-id: o014.li2.chapter5.filtered-differential-spectral-sequence.l001
+\begin{lemma}\label{prop:induced-filtration-H}
+	If there is an $N$ with $\mathrm{F}^NX=0$, then
+	$\mathrm{F}^N\Hm(X,d)=0$. If $\mathrm{F}^\bullet X$ is an exhaustive
+	filtration in the sense of Definition~\ref{def:filtration-properties}, then
+	$\mathrm{F}^\bullet\Hm(X,d)$ is exhaustive as well.
+\end{lemma}
+\begin{proof}
+	The first part is immediate; we prove the second. By
+	Lemma~\ref{prop:image-sum-preimage-intersection}~(ii),
+	$\bigcup_p\mathrm{F}^p\Hm(X,d)$ is the image of
+	$\bigcup_p(\mathrm{F}^pX\cap\Ker(d))$, while
+	\eqref{eqn:exhaustion-intersection} gives
+	\[ \bigcup_p\left(\mathrm{F}^pX\cap\Ker(d)\right)
+	=\left(\bigcup_p\mathrm{F}^pX\right)\cap\Ker(d)=\Ker(d). \]
+	Moreover, if there is an $M$ with $\mathrm{F}^MX=X$, then of course
+	$\mathrm{F}^M\Hm(X,d)=\Hm(X,d)$.
+\end{proof}
+
+% segment-id: o014.li2.chapter5.filtered-differential-spectral-sequence.p012
+We shall apply the graded version of these observations in
+\S\ref{sec:filtered-cplx-ss}.
+
+% segment-id: o014.li2.chapter5.filtered-differential-spectral-sequence.l002
+\begin{lemma}\label{prop:induced-filtration-gr}
+	For a filtered differential object $(X,d,\mathrm{F}^\bullet X)$ and every
+	$p\in\Z$, there is a canonical isomorphism
+	\[ \gr^p\Hm(X,d)\simeq
+	\dfrac{\mathrm{F}^pX\cap\Ker(d)}
+	{(\mathrm{F}^{p+1}X\cap\Ker(d))
+	 +(\mathrm{F}^pX\cap\Image(T^{-1}d))}. \]
+\end{lemma}
+\begin{proof}
+	Expand the definition of
+	$\mathrm{F}^p\Hm(X,d)/\mathrm{F}^{p+1}\Hm(X,d)$ and use the standard
+	isomorphism theorem for Abelian categories,
+	Proposition~\ref{prop:Abel-cat-isom-thm}, to obtain
+	\begin{align*}
+		\gr^p\Hm(X,d)
+		&=\dfrac{(\mathrm{F}^pX\cap\Ker(d))+\Image(T^{-1}d)}
+		{(\mathrm{F}^{p+1}X\cap\Ker(d))+\Image(T^{-1}d)} \\
+		&=\dfrac{(\mathrm{F}^pX\cap\Ker(d))
+		 +(\mathrm{F}^{p+1}X\cap\Ker(d))+\Image(T^{-1}d)}
+		{(\mathrm{F}^{p+1}X\cap\Ker(d))+\Image(T^{-1}d)} \\
+		&\simeq\dfrac{\mathrm{F}^pX\cap\Ker(d)}
+		{((\mathrm{F}^{p+1}X\cap\Ker(d))+\Image(T^{-1}d))
+		 \cap(\mathrm{F}^pX\cap\Ker(d))} \\
+		&=\dfrac{\mathrm{F}^pX\cap\Ker(d)}
+		{(\mathrm{F}^{p+1}X\cap\Ker(d))
+		 +(\mathrm{F}^pX\cap\Image(T^{-1}d))}.
+	\end{align*}
+	The last step uses the fact that $\mathrm{Sub}_X$ is a modular
+	lattice\footnote{That is, for all subobjects $A,A^\flat,B\subset X$ with
+	$A^\flat\subset A$, one has
+	$A^\flat+(A\cap B)=(A^\flat+B)\cap A$.}
+	(Theorem~\ref{prop:subobject-modularity}), together with
+	$\mathrm{F}^{p+1}X\cap\Ker(d)\subset\mathrm{F}^pX\cap\Ker(d)$ and
+	$\Image(T^{-1}d)\subset\Ker(d)$. The remaining steps are standard.
+\end{proof}
+
+% segment-id: o014.li2.chapter5.filtered-differential-spectral-sequence.d003
+\begin{definition-proposition}\label{def:diff-obj-convergence}
+	\index{spectral sequence!weakly convergent, strongly convergent}
+	For a filtered differential object $(X,d,\mathrm{F}^\bullet X)$, construct
+	the associated cohomologically graded spectral sequence $(E_r,d_r)_r$. If
+	the $\bigcap_r$ and $\bigcup_r$ in \eqref{eqn:filtered-diff-infty} exist,
+	then the limit $E_\infty$ exists, and the $\gr\Hm(X,d)$ determined by the
+	induced filtration can be canonically realized as a subquotient of
+	$E_\infty$.
+	\begin{itemize}
+		\item If $\gr\Hm(X,d)=E_\infty$, the spectral sequence
+		$(E_r,d_r)_r$ is called \emph{weakly convergent}.
+		\item If $(E_r,d_r)_r$ is weakly convergent and
+		$\mathrm{F}^\bullet\Hm(X,d)$ is exhaustive and complete, the spectral
+		sequence $(E_r,d_r)_r$ is called \emph{strongly convergent}.
+	\end{itemize}
+\end{definition-proposition}
+\begin{proof}
+	Fix $p\in\Z$. In the expression for $E_\infty^p$ in
+	\eqref{eqn:filtered-diff-infty}, the numerator contains
+	$(\mathrm{F}^pX\cap\Ker(d))+\mathrm{F}^{p+1}X$, while the denominator is
+	contained in
+	$(\mathrm{F}^pX\cap\Image(T^{-1}d))+\mathrm{F}^{p+1}X$
+	(recall that $d$ is a morphism $X\to TX$). This gives the following
+	subquotient of $E_\infty^p$:
+	\begin{multline*}
+		\dfrac{(\mathrm{F}^pX\cap\Ker(d))+\mathrm{F}^{p+1}X}
+		{(\mathrm{F}^pX\cap\Image(T^{-1}d))+\mathrm{F}^{p+1}X} \\
+		\simeq\dfrac{\mathrm{F}^pX\cap\Ker(d)}
+		{((\mathrm{F}^pX\cap\Image(T^{-1}d))+\mathrm{F}^{p+1}X)
+		 \cap(\mathrm{F}^pX\cap\Ker(d))} \\
+		=\dfrac{\mathrm{F}^pX\cap\Ker(d)}
+		{(\mathrm{F}^pX\cap\Image(T^{-1}d))
+		 +(\mathrm{F}^{p+1}X\cap\Ker(d))}.
+	\end{multline*}
+	The first isomorphism is standard. The following equality uses the fact that
+	$\mathrm{Sub}_X$ is a modular lattice, together with
+	$\mathrm{F}^pX\cap\Image(T^{-1}d)
+	\subset\mathrm{F}^pX\cap\Ker(d)$ and
+	$\mathrm{F}^{p+1}X\subset\mathrm{F}^pX$. Now apply
+	Lemma~\ref{prop:induced-filtration-gr}.
+\end{proof}
+
+% segment-id: o014.li2.chapter5.filtered-differential-spectral-sequence.p013
+Definitions of convergence vary slightly among references. All the statements
+above have corresponding versions for differential objects with increasing
+filtrations $(X,d,\mathrm{F}_\bullet X)$ and the associated homologically
+graded spectral sequences.

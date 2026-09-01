@@ -1,0 +1,231 @@
+% English translation of chapter3.tex lines 9--55.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter3.overview
+% Scope: Chapter 3 overview before Section 3.1.
+
+% segment-id: o014.li2.chapter3.overview.h001
+\chapter{Complexes}\label{sec:cplx}
+\hypertarget{o014.aljabr2.chapter3.overview}{ }
+
+% segment-id: o014.li2.chapter3.overview.p001
+The notion of a complex was introduced briefly in \S~\ref{sec:cohomology}.
+For a complex $X=(X^n,d^n)_n$ in an abelian category $\mathcal{A}$, the
+cohomology
+$\Hm^n(X):=\Ker(d^n)/\Image(d^{n-1})$%
+\footnote{Editorial correction (O014-C032): the source prints
+$\Image(d^{n+1})$. Under the cochain convention
+$X^{n-1}\xrightarrow{d^{n-1}}X^n\xrightarrow{d^n}X^{n+1}$, the subobject
+contained in $\Ker(d^n)$ is $\Image(d^{n-1})$; the corrected index agrees
+with the book's earlier definition.}
+extracts important invariants from $X$. Conversely,%
+\footnote{Editorial correction (O014-C030): the source has a full stop
+followed by a stray character before the clause about the vanishing of all
+cohomology, leaving the transition ungrammatical. The context gives the
+converse direction, restored here without changing the mathematical claim.}
+a complex whose cohomology vanishes in every degree is an exact sequence,
+also called an acyclic complex.
+
+% segment-id: o014.li2.chapter3.overview.p002
+Much of \S\S~\sourcecrossref{sec:Hom-cplx}{3.2}--%
+\sourcecrossref{sec:double-cplx}{3.5} does not involve cohomology and applies
+to an arbitrary additive category $\mathcal{A}$. The category of complexes
+over $\mathcal{A}$ is denoted by $\cate{C}(\mathcal{A})$. Unless stated
+otherwise, all complexes in this chapter are cochain complexes in the sense
+of Remark~\ref{rem:cochain-vs-chain}; whenever $\Bbbk$ occurs, it denotes an
+arbitrary commutative ring.
+
+% segment-id: o014.li2.chapter3.overview.p003
+For complexes $X$ and $Y$ over an additive category $\mathcal{A}$, homotopy
+is an equivalence relation on
+$\Hom_{\cate{C}(\mathcal{A})}(X,Y)$. It can also be understood through the
+$\Hom$ complex $\Hom^\bullet(X,Y)$, studied in
+\S~\sourcecrossref{sec:Hom-cplx}{3.2}. If $\mathcal{A}$ is abelian,
+homotopic morphisms induce the same maps on cohomology. The mapping cone
+$\Cone(f)$ introduced in \S~\sourcecrossref{sec:mapping-cone}{3.3} will
+subsequently play a major role in the study of derived categories. Mapping
+cones are closely related to homotopy, and both have direct topological
+interpretations.
+
+% segment-id: o014.li2.chapter3.overview.p004
+A double complex
+$X=(X^{p,q},\dhori^{p,q},\dvert^{p,q})_{p,q}$ may be viewed as a complex
+with two independent directions, or equivalently as a ``complex of
+complexes.'' A double complex $X$ can be flattened by direct sums
+(respectively, direct products) into a complex $\tot_{\oplus}X$
+(respectively, $\tot_{\Pi}X$), called a total complex of $X$. The precise
+definitions involve several signs; these details are the subject of
+\S~\sourcecrossref{sec:double-cplx}{3.5}.
+
+% segment-id: o014.li2.chapter3.overview.p005
+One of the basic techniques of homological algebra is to derive a long exact
+sequence in cohomology from a short exact sequence of complexes
+$0\to X'\xrightarrow{f}X\xrightarrow{g}X''\to0$:
+% segment-id: o014.li2.chapter3.overview.q001
+\[
+  \cdots \to \Hm^n(X') \xrightarrow{\Hm^n(f)} \Hm^n(X)
+  \xrightarrow{\Hm^n(g)} \Hm^n(X'')
+  \xrightarrow{\text{connecting morphism}} \Hm^{n+1}(X') \to \cdots .
+\]
+Long exact sequences can also be understood from the viewpoint of mapping
+cones, although this requires a nontrivial argument. These topics are treated
+in \S\S~\sourcecrossref{sec:Abel-cplx}{3.6}--%
+\sourcecrossref{sec:cone-vs-long-exact-sequence}{3.7}.
+
+% segment-id: o014.li2.chapter3.overview.p006
+To help the reader become familiar with the basic operations on complexes,
+\S~\sourcecrossref{sec:HH}{3.8} offers an integrated exercise based on the
+Hochschild homology $\HHm_n(M)$ and Hochschild cohomology $\HHm^n(M)$ of an
+$(R,R)$-bimodule $M$. Hochschild homology and cohomology have many uses
+throughout mathematics. This chapter gives only a brief pedagogical
+introduction; both will reappear as examples in later chapters.
+
+% segment-id: o014.li2.chapter3.overview.p007
+Using the truncation functors introduced in
+\S~\sourcecrossref{sec:truncation-functors}{3.9}, we shall relate the
+vertical or horizontal cohomology of a double complex to the cohomology of
+its total complex in \S~\sourcecrossref{sec:double-cplx-coh}{3.10}. Certain
+boundedness conditions on the double complex are needed. Some textbooks
+treat these properties with spectral sequences; following \cite{KS06}, this
+book takes a somewhat indirect route and proves them directly.
+
+% segment-id: o014.li2.chapter3.overview.p008
+For an object $X$ of an abelian category $\mathcal{A}$, a resolution of $X$
+has left and right versions, concretely given by exact sequences%
+\footnote{Editorial correction (O014-C031): the source prints
+$0\to X\to I^0\to I^2\to\cdots$, omitting $I^1$. The diagram immediately
+following uses $I^0,I^1,I^2$ in order; the missing term $I^1$ is restored here.}
+% segment-id: o014.li2.chapter3.overview.q002
+\[
+  0\to X\to I^0\to I^1\to I^2\to\cdots
+  \quad\text{or}\quad
+  \cdots\to P_1\to P_0\to X\to0 .
+\]
+Equivalently, one replaces $X$ by a complex with better properties through a
+quasi-isomorphism $X\to I:=(I^n)_n$ or $P:=(P_n)_n\to X$, where $P$ is a
+chain complex. A quasi-isomorphism is a morphism inducing isomorphisms on
+cohomology or homology. If every $I^n$ (respectively, $P_n$) is required to
+be injective (respectively, projective), the construction is called an
+injective (respectively, projective) resolution of $X$. Resolutions are
+studied in depth in \S~\sourcecrossref{sec:resolutions}{3.11}. They are also
+functorial and unique up to homotopy in the following sense. For the
+injective version, suppose the solid part of the following diagram lies in
+$\mathcal{A}$.
+% segment-id: o014.li2.chapter3.overview.g001
+\[
+\begin{tikzcd}
+	0 \arrow[r] & X' \arrow[r] & (I')^0 \arrow[r] & (I')^1 \arrow[r]
+	  & (I')^2 \arrow[r] & \cdots \\
+	0 \arrow[r] & X \arrow[u,"f"] \arrow[r]
+	  & I^0 \arrow[dashed,u,"{\beta^0}"] \arrow[r]
+	  & I^1 \arrow[r] \arrow[dashed,u,"{\beta^1}"]
+	  & I^2 \arrow[r] \arrow[dashed,u,"{\beta^2}"] & \cdots
+\end{tikzcd}
+\]
+Assume that both rows are exact and that every $(I')^n$ is injective. There
+are dashed arrows $\beta^0,\beta^1,\ldots$ making the entire diagram
+commutative, and the morphism of complexes $\beta:I\to I'$ is unique up to
+homotopy. This is a joint application of
+Theorem~\sourcecrossref{prop:resolution-homotopy}{in \S~3.11} and
+Lemma~\sourcecrossref{prop:ext-alpha-beta}{in \S~3.11}, both special cases of
+broader statements.
+
+% segment-id: o014.li2.chapter3.overview.p009
+In fact, \S~\sourcecrossref{sec:resolutions}{3.11} treats not only
+resolutions of objects $X$ of $\mathcal{A}$, but also resolutions of
+complexes. Its results include the useful Cartan--Eilenberg resolution
+(Theorem~\sourcecrossref{prop:CE-resolution}{in \S~3.11}). Some arguments for
+complexes inevitably become lengthy, even though their underlying idea
+remains clear.
+
+% segment-id: o014.li2.chapter3.overview.p010
+Replacing objects of $\mathcal{A}$ by injective (respectively, projective)
+resolutions, applying a left exact (respectively, right exact) functor
+$F:\mathcal{A}\to\mathcal{B}$ termwise, and then taking $\Hm^n$
+(respectively, $\Hm_n=\Hm^{-n}$) leads to the classical definition of the
+right derived functors $\mathrm{R}^nF$ (respectively, the left derived
+functors $\mathrm{L}_nF$). Short exact sequences in $\mathcal{A}$ then induce
+long exact sequences of derived functors; see
+\S~\sourcecrossref{sec:derived-primer}{3.12}. Resolutions of complexes also
+allow derived functors to be evaluated on bounded-below or bounded-above
+complexes; in the classical literature these constructions are called
+hyperderived functors.
+
+% segment-id: o014.li2.chapter3.overview.p011
+Right (respectively, left) derived functors and their long exact sequences
+naturally give rise to cohomological (respectively, homological)
+$\delta$-functors, among which derived functors are ``universal.''
+Proposition~\sourcecrossref{prop:erasable-univ-delta}{in \S~3.12}
+characterizes universal $\delta$-functors by the erasability (respectively,
+co-erasability) condition of Definition~\sourcecrossref{def:erasable}{in
+\S~3.12}. This result is due to Grothendieck. The associated collection of
+techniques forms the core of classical homological algebra.
+
+% segment-id: o014.li2.chapter3.overview.p012
+Another important construction consists of the right (respectively, left)
+derived functors of a bifunctor
+$F:\mathcal{A}_1\times\mathcal{A}_2\to\mathcal{B}$ such that $F$ is left
+exact (respectively, right exact) in both variables. Standard examples are the
+$\Ext$ and $\Tor$ functors of \S~\sourcecrossref{sec:Ext-Tor}{3.14}; the
+former necessarily involves complexes over an opposite category.
+Theorem~\sourcecrossref{prop:balanced-primer}{in \S~3.14} studies a class of
+bifunctors called balanced and shows that deriving in either variable gives
+the same result. Its proof rests on basic properties of the cohomology of
+double complexes.
+
+% segment-id: o014.li2.chapter3.overview.p013
+Suppose that $\mathcal{A}$ has exact countable products. The construction
+$\lim^1$ discussed in \S~\sourcecrossref{sec:lim1}{3.13} is another example
+of a right derived functor: it is the first right derived functor of
+$\varprojlim$, while all higher right derived functors vanish
+(Theorem~\sourcecrossref{prop:lim1}{in \S~3.13}). To obtain practical
+criteria ensuring $\lim^1=0$, we shall introduce the Mittag--Leffler
+condition in Definition~\sourcecrossref{def:ML}{in \S~3.13}.
+
+% segment-id: o014.li2.chapter3.overview.p014
+Finally, in \S~\sourcecrossref{sec:K-injectives}{3.15} we study
+K-injective and K-projective complexes and define K-injective and
+K-projective resolutions. These are natural generalizations of injective and
+projective resolutions to unbounded complexes. Because K-injectivity and
+K-projectivity are properties of an entire complex, their definitions are
+more concise and natural than the termwise definitions of injective and
+projective resolutions. They extend the definition of derived functors to
+unbounded complexes. The issue is existence: Theorems
+\sourcecrossref{prop:K-injective-resolution}{in \S~3.15} and
+\sourcecrossref{prop:K-projective-resolution}{in \S~3.15} give partial
+results. Their proofs are comparatively intricate and require some
+properties of $\lim^1$.
+
+% segment-id: o014.li2.chapter3.overview.n001
+\begin{readingnote}
+	Experience with complexes of $\Bbbk$-modules, where $\Bbbk$ is a
+	commutative ring, helps one understand this chapter more quickly but is not
+	strictly necessary. After Chapter~\ref{sec:Abel-cat}, working with abelian
+	categories more general than module categories presents no fundamental
+	difficulty.
+
+	Readers who want to reach the classical definition of derived functors
+	quickly and are not interested in its topological motivation may first skip
+	the material on mapping cones and mapping cylinders in
+	\S~\sourcecrossref{sec:mapping-cone}{3.3},
+	\S~\sourcecrossref{sec:opposite-cplx}{3.4}, and
+	\S~\sourcecrossref{sec:cone-vs-long-exact-sequence}{3.7}. In addition,
+	\S~\sourcecrossref{sec:opposite-cplx}{3.4} relates
+	$\cate{C}(\mathcal{A}^{\opp})$ to $\cate{C}(\mathcal{A})^{\opp}$. Some of
+	the signs there require care, but they do not greatly affect the main ideas.
+	On a first reading, one may study only the statements and skip the proofs.
+
+	Since the later material does not depend on Hochschild homology or
+	cohomology, readers may decide whether to skip it according to their time
+	and interests. It is not difficult and will recur as examples and remarks
+	in subsequent chapters.
+
+	Similarly, the material of \S~\sourcecrossref{sec:lim1}{3.13} appears only
+	as examples later, except in \S~\sourcecrossref{sec:K-injectives}{3.15}.
+	The material of \S~\sourcecrossref{sec:K-injectives}{3.15} is cited only
+	in \S~\sourcecrossref{sec:unbounded-derived}{4.11} and
+	\S~\sourcecrossref{sec:otimesL}{4.12}. Readers who are not particularly
+	interested in unbounded derived functors may first study the definitions
+	and Example~\sourcecrossref{eg:bdd-K-resolution}{in \S~3.15}, then omit
+	the remainder.
+\end{readingnote}

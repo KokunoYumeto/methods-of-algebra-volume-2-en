@@ -1,0 +1,110 @@
+% O014 / D80 -- Methods of Algebra, Volume 2 -- en
+% Source: appendix2.tex, lines 502--605 inclusive.
+% Stable unit ID: o014.aljabr2.appendix-b.ind-abelian
+% Original source copyright 2024 Wen-Wei Li, CC BY 4.0.
+
+\section{Ind-Completion of Abelian Categories}\label{sec:Indization-Abel}
+This section continues the discussion and standing assumptions of \S\S\ref{sec:ind-pro}---\ref{sec:Indization-functor}.
+
+\begin{theorem}\label{prop:Ind-Abel}
+	If $\mathcal{C}$ is an Abelian category, then $\IndC\mathcal{C}$ is also Abelian and $\mathcal{C}\to\IndC\mathcal{C}$ is a fully faithful exact functor.
+
+	Dually, if $\mathcal{C}$ is an Abelian category, then $\mathcal{C}\to\ProC\mathcal{C}$ is likewise a fully faithful exact functor between Abelian categories.
+\end{theorem}
+\begin{proof}
+	We first treat the assertion about $\IndC\mathcal{C}$. Below, write $\Hom:=\Hom_{\IndC\mathcal{C}}$. Since $\mathcal{C}\to\IndC\mathcal{C}$ preserves finite $\varinjlim$ (Lemma~\ref{prop:Ind-colim}) and finite $\varprojlim$ (Lemma~\ref{prop:Ind-lim}), it sends a zero object to a zero object. This also shows that $\IndC\mathcal{C}$ has finite $\varinjlim$ and finite $\varprojlim$.
+
+	Next, the canonical morphism in \eqref{eqn:coprod-prod-delta},
+	\[ \delta: Y \sqcup Y \to Y \times Y, \quad Y \in \Obj(\IndC\mathcal{C}), \]
+	is always an isomorphism: by the ``index-by-index'' construction of products and coproducts of ind-objects, verification reduces immediately to the case $X,Y\in\Obj(\mathcal{C})$. Following the method of Proposition~\ref{prop:additive-cat-addition}, we may therefore define addition on $\Hom(X,Y)$ by taking $f+g$ to be the composite
+	\[ X \to X \times X \xrightarrow{f \times g} Y \times Y \xrightarrow{\delta^{-1}} Y \sqcup Y \to Y. \]
+	The reader may check that under
+	\[ \Hom(X,Y)\simeq\varprojlim_i\varinjlim_j\Hom_{\mathcal{C}}(X_i,Y_j), \]
+	this operation becomes the addition on $\Hom_{\mathcal{C}}$ characterized in the same way (recall that $\varinjlim_j$ is filtered). Thus this operation indeed makes $\IndC\mathcal{C}$ an $\cate{Ab}$-category, then an additive category, and makes $\mathcal{C}\to\IndC\mathcal{C}$ an additive functor.
+
+	Consider any morphism $f:X\to Y$ in $\IndC\mathcal{C}$. We claim that the canonical morphism $\Coim(f)\to\Image(f)$ is always an isomorphism. By Lemma~\ref{prop:ind-object-morphism} (ii), we may assume that $f$ is induced by a family of morphisms $f_i:X_i\to Y_i$ in $\mathcal{C}$. In an additive category, images and coimages are described by kernels and cokernels (Proposition~\ref{prop:Im-Coim-additive}); recall also the properties established in the preceding proof, such as $\Ker(f)=\Yinjlim\Ker(f_i)$. The assertion therefore reduces immediately to $\Coim(f_i)\rightiso\Image(f_i)$. Hence $\IndC\mathcal{C}$ is Abelian.
+
+	Finally, exactness of $\mathcal{C}\to\IndC\mathcal{C}$ follows because this functor preserves finite $\varinjlim$ and finite $\varprojlim$.
+
+	The concept of an Abelian category is self-dual (Proposition~\ref{prop:abelian-cat-duality}), and $\ProC\mathcal{C}\simeq\IndC(\mathcal{C}^{\opp})^{\opp}$. The dual assertion about $\ProC\mathcal{C}$ follows at once.
+\end{proof}
+
+Recall that an Abelian category is a special kind of additive category, and additivity is a property of a category, not additional structure; see the discussion following Corollary~\ref{prop:automatic-additivity}.
+
+\begin{remark}\label{rem:Ind-k-linear}
+	If $\mathcal{C}$ is further assumed to be a $\Bbbk$-linear Abelian category, where $\Bbbk$ is a commutative ring, then the same is true of $\IndC\mathcal{C}$, and $\mathcal{C}\to\IndC\mathcal{C}$ is a $\Bbbk$-linear functor. The key is to define canonically a $\Bbbk$-module structure on every $\Hom(X,Y)$ such that, on the right-hand side of the bijection
+	\[ \Hom(X, Y) \simeq \varprojlim_i \varinjlim_j \Hom_{\mathcal{C}}(X_i, Y_j), \]
+	it is reflected by the $\Bbbk$-module structure on each $\Hom_{\mathcal{C}}(X_i,Y_j)$. This condition can be taken as the definition, but one must show that it depends only on $X$ and $Y$, not on the choices of $(X_i)_i$ and $(Y_j)_j$. The verification presents no essential difficulty; the details are left as an exercise.
+\end{remark}
+
+\begin{lemma}
+	Let $F:\mathcal{C}\to\mathcal{D}$ be a functor between Abelian categories. The functor $\IndC F:\IndC\mathcal{C}\to\IndC\mathcal{D}$ of Definition--Proposition~\ref{def:Ind-functor} is also additive.
+\end{lemma}
+\begin{proof}
+	Consider ind-objects $X=\Yinjlim X_i$ and $Y=\Yinjlim Y_j$ over $\mathcal{C}$. By construction, the map induced by $\IndC F$ on morphisms is
+	\[ \varprojlim_i \varinjlim_j \Hom_{\mathcal{C}}(X_i, Y_j) \xrightarrow{\text{induced by $F$}} \varprojlim_i \varinjlim_j \Hom_{\mathcal{D}}(FX_i, FY_j). \]
+	In view of the addition on the $\Hom$-sets of $\IndC\mathcal{C}$ and $\IndC\mathcal{D}$ (see the proof of Theorem~\ref{prop:Ind-Abel}), this map is a homomorphism of additive groups.
+\end{proof}
+
+\begin{lemma}
+	If the Abelian category $\mathcal{C}$ has small filtered $\varinjlim$, then the functor $\sigma:\IndC\mathcal{C}\to\mathcal{C}$ of Proposition~\ref{prop:Ind-adjunction} is additive.
+\end{lemma}
+\begin{proof}
+	This can be verified directly as above, or deduced from the following fact: $\sigma$ is left adjoint to $\IndC\mathcal{C}\to\mathcal{C}$, so Corollary~\ref{prop:automatic-additivity} (v) implies its additivity.
+\end{proof}
+
+If $\mathcal{C}$ and $\mathcal{D}$ are $\Bbbk$-linear, where $\Bbbk$ is a commutative ring, and $F$ is also $\Bbbk$-linear, the preceding results have evident generalizations.
+
+The following result is used in \S\ref{sec:Tannaka-coend}.
+
+\begin{proposition}\label{prop:Ind-ext-exactness}
+	Let $F:\mathcal{C}\to\mathcal{D}$ be a right-exact functor between Abelian categories. Suppose that $\mathcal{D}$ has small filtered $\varinjlim$.
+	\begin{enumerate}[(i)]
+		\item The extension $\hat{F}:\IndC\mathcal{C}\to\mathcal{D}$ given by Definition--Proposition~\ref{def:Ind-hat-functor} is right exact.
+		\item If, in addition, $F$ is exact and small filtered $\varinjlim$ are exact in $\mathcal{D}$, then $\hat{F}$ is exact.
+		\item Under the hypotheses of (i), if $\mathcal{C}$ is also assumed to be small, then $\hat{F}$ preserves all small $\varinjlim$.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	The preceding two lemmas show that $\hat{F}$ is additive, while Definition--Proposition~\ref{def:Ind-hat-functor} shows that $\hat{F}$ preserves finite $\varinjlim$. This proves (i).
+
+	Now assume the hypotheses of (ii). It suffices to prove that $\hat{F}$ preserves $\Ker$. Let $f:X\to Y$ be a morphism in $\IndC\mathcal{C}$. By Lemma~\ref{prop:ind-object-morphism} (ii), we may assume that $X=\Yinjlim X_i$, $Y=\Yinjlim Y_i$, and $f=\Yinjlim f_i$, where the morphisms $f_i:X_i\to Y_i$ satisfy the compatibility conditions. First apply $F$ and then $\varinjlim_i$ to the exact sequence
+	\[ 0 \to \Ker(f_i) \to X_i \xrightarrow{f_i} Y_i. \]
+	The result is the exact sequence
+	\[ 0 \to \varinjlim_i F\Ker(f_i) \to \varinjlim_i FX_i \to \varinjlim_i FY_i. \]
+
+	By the proof of Lemma~\ref{prop:Ind-lim}, $\Yinjlim\Ker(f_i)=\Yinjlim\Ker(f_i,0)$ gives $\Ker(f)=\Ker(f,0)$; hence the first term of this sequence is identified with $\hat{F}(\Ker(f))$. On the other hand, the morphism in the second part is identified with $\hat{F}f:\hat{F}X\to\hat{F}Y$. This proves (ii).
+
+	Now consider (iii). Proposition~\ref{prop:Ind-hat-small} states that $\hat{F}$ preserves all small filtered $\varinjlim$.\footnote{Translator's note: the source adds the pointer ``(ii),'' although Proposition~\ref{prop:Ind-hat-small} is not divided into numbered parts.} Together with right exactness, this implies that $\hat{F}$ preserves all small $\varinjlim$.
+\end{proof}
+
+We continue by focusing on the Ind-completion of a small category. We shall need the theory of Grothendieck categories from \S\ref{sec:Grothendieck-cat}.
+
+\begin{lemma}\label{prop:Ind-generator}
+	If $\mathcal{C}$ is a small category with finite $\varinjlim$, then $\IndC\mathcal{C}$ has a generator.
+\end{lemma}
+\begin{proof}
+	We know that $\IndC\mathcal{C}$ is cocomplete (Lemma~\ref{prop:Ind-colim}) and that $\mathcal{C}$ is small. Thus, in $\IndC\mathcal{C}$ we may form
+	\[ s := \coprod_{X \in \Obj(\mathcal{C})} X. \]
+
+	We show that $s$ is a generator. For a pair of morphisms $f,g:X\rightrightarrows Y$ in $\IndC\mathcal{C}$, write $X=\Yinjlim X_i$. By the construction of $s$, for each $i$ one may choose $\epsilon_i$ such that the composite
+	\[ X_i \xrightarrow{\text{canonical coproduct morphism}} s \xrightarrow{\epsilon_i} X \]
+	is the canonical morphism $X_i\to X$. If $f\epsilon=g\epsilon$ for every morphism $\epsilon:s\to X$, then taking $\epsilon=\epsilon_i$ shows that the restrictions of $f$ and $g$ to every $X_i$ agree; hence $f=g$.
+\end{proof}
+
+\begin{theorem}\label{prop:Ind-Grothendieck}
+	If $\mathcal{C}$ is a small Abelian category, then $\IndC\mathcal{C}$ is a Grothendieck category.
+\end{theorem}
+\begin{proof}
+	Theorem~\ref{prop:Ind-Abel} states that $\IndC\mathcal{C}$ is Abelian. We verify the conditions for a Grothendieck category one by one.
+	\begin{description}
+		\item[Cocompleteness] This is contained in Lemma~\ref{prop:Ind-colim}.
+		\item[Generator] Its existence is guaranteed by Lemma~\ref{prop:Ind-generator}.
+		\item[Exactness of small filtered $\varinjlim$] Let $I$ be a small filtered category, let $\alpha,\beta,\gamma:I\to\IndC\mathcal{C}$ be functors, and let $\alpha\to\beta\to\gamma$ be morphisms such that
+		\[ 0 \to \alpha(i) \to \beta(i) \to \gamma(i) \to 0 \]
+		is a short exact sequence for every $i\in\Obj(I)$. We wish to prove that
+		\[ 0 \to \varinjlim \alpha \to \varinjlim \beta \to \varinjlim \gamma \to 0 \]
+		is also exact. As explained in Example~\ref{eg:limit-exactness}, $\varinjlim$ always preserves $\Coker$; the point is to prove that it preserves $\Ker$. But $\Ker$ is a finite $\varprojlim$, so this follows from the second assertion of Lemma~\ref{prop:Ind-lim}.
+	\end{description}
+	This proves the theorem.
+\end{proof}

@@ -1,0 +1,645 @@
+% Unit 054: English translation of chapter4.tex, lines 723--986.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter4.derived-categories
+% Coverage: Section 4.4 on the construction and basic properties of derived
+% categories; ends before Section 4.5.
+
+% segment-id: o014.li2.chapter4.derived-categories.h001
+\section{Derived Categories}\label{sec:derived-cat}
+\hypertarget{o014.aljabr2.chapter4.derived-categories}{ }
+
+% segment-id: o014.li2.chapter4.derived-categories.p001
+The first half of this section considers an additive category $\mathcal{A}$;
+when derived categories are defined later, $\mathcal{A}$ will be required to
+be Abelian. Example~\ref{eg:cplx-as-translation-cat} has already shown that
+$\cate{C}(\mathcal{A})$ and $\cate{K}(\mathcal{A})$ are additive categories
+with translation; the translation functor in both is denoted by
+$X \mapsto X[1]$.
+
+% segment-id: o014.li2.chapter4.derived-categories.p002
+Consider a morphism $f: X \to Y$ in $\cate{C}(\mathcal{A})$ and its mapping
+cone $\Cone(f)$. Definition~\ref{def:cone-triangle} gives the following
+triangle in $\cate{C}(\mathcal{A})$:
+% segment-id: o014.li2.chapter4.derived-categories.g001
+\begin{equation}\label{eqn:Cone-triangle} \begin{tikzcd}
+	X \arrow[r, "f"] & Y \arrow[r, "{\alpha(f)}"] & \Cone(f) \arrow[r, "\beta(f)"] & X[1]
+\end{tikzcd}\end{equation}
+Passing to the quotient gives a triangle in $\cate{K}(\mathcal{A})$.
+
+% Below: [KS06, Theorem 11.2.6]
+% segment-id: o014.li2.chapter4.derived-categories.th001
+\begin{theorem}\label{prop:cplx-triangulated}
+	Regard $\cate{K}(\mathcal{A})$ as an additive category with translation
+	$T: X \mapsto X[1]$. Call a triangle
+	$X \to Y \to Z \xrightarrow{+1}$ in $\cate{K}(\mathcal{A})$
+	distinguished if it is isomorphic to a triangle of the form
+	\eqref{eqn:Cone-triangle}. These distinguished triangles form a set
+	$\mathcal{H}$ for which
+	$(\cate{K}(\mathcal{A}), T, \mathcal{H})$ is a triangulated category.
+\end{theorem}
+
+% segment-id: o014.li2.chapter4.derived-categories.pf001
+\begin{proof}
+	We verify the axioms in Definition~\ref{def:triangulated-cat} one by one.
+	Axioms (TR0) and (TR2) are immediate from the definition, while (TR3)
+	follows from the commutative diagram in $\cate{K}(\mathcal{A})$ supplied
+	by Lemma~\ref{prop:cone-alpha}:
+% segment-id: o014.li2.chapter4.derived-categories.g002
+	\[\begin{tikzcd}
+		Y \arrow[r, "{\alpha(f)}"] \arrow[d, "\identity"'] & \Cone(f) \arrow[r, "{\beta(f)}"] \arrow[d, "\identity"] & X[1] \arrow[r, "{-f[1]}"] \arrow[d, "\sim" sloped] & Y[1] \arrow[d, "\identity"] \\
+		Y \arrow[r, "{\alpha(f)}"'] & \Cone(f) \arrow[r, "{\alpha(\alpha(f))}"'] & \Cone(\alpha(f)) \arrow[r, "{\beta(\alpha(f))}"'] & Y[1] .
+	\end{tikzcd}\]
+
+	For (TR1), given $X \in \Obj(\cate{K}(\mathcal{A}))$, consider the
+	mapping-cone triangle of the zero morphism
+	$0 \to X \to X \xrightarrow{+1}$. Rotating it by (TR3) gives the
+	distinguished triangle
+	$X \xrightarrow{\identity_X} X \to 0 \xrightarrow{+1}$.
+
+	For (TR4), consider the following commutative diagram in
+	$\cate{K}(\mathcal{A})$ (the solid part):
+% segment-id: o014.li2.chapter4.derived-categories.g003
+	\begin{equation}\label{eqn:cplx-triangulated-aux-0}\begin{tikzcd}
+		X \arrow[d, "\alpha"'] \arrow[r, "f"] & Y \arrow[r, "\alpha(f)"] \arrow[d, "\beta"] & \Cone(f) \arrow[r, "\beta(f)"] \arrow[dashed, d, "\gamma"] & TX \arrow[dashed, d, "T\alpha"] \\
+		X' \arrow[r, "{f'}"'] & Y' \arrow[r, "{\alpha(f')}"'] & \Cone(f') \arrow[r, "{\beta(f')}"'] & T X' .
+	\end{tikzcd}\end{equation}
+	Commutativity of the left square is equivalent to the existence of a
+	family of morphisms in $\mathcal{A}$,
+	$h^n: X^n \to (Y')^{n-1}$, such that
+% segment-id: o014.li2.chapter4.derived-categories.q001
+	\[ \beta^n f^n - (f')^n \alpha^n = h^{n+1} d_X^n + d_{Y'}^{n-1} h^n , \quad n \in \Z . \]
+	In matrix notation, define for every $n \in \Z$ the morphism
+% segment-id: o014.li2.chapter4.derived-categories.q002
+	\[ \gamma^n = \begin{pmatrix} \alpha^{n+1} & 0 \\ h^{n+1} & \beta^n \end{pmatrix} : X^{n+1} \oplus Y^n \to (X')^{n+1} \oplus (Y')^n . \]
+	Check that
+% segment-id: o014.li2.chapter4.derived-categories.q003
+	\[ \begin{pmatrix} \alpha^{n+1} & 0 \\ h^{n+1} & \beta^n \end{pmatrix} \begin{pmatrix} -d_X^n & 0 \\ f^n & d_Y^{n-1} \end{pmatrix}
+	= \begin{pmatrix} -d_{X'}^n & 0 \\ (f')^n & d_{Y'}^{n-1} \end{pmatrix} \begin{pmatrix} \alpha^n & 0 \\ h^n & \beta^{n-1} \end{pmatrix}, \]
+	so these matrices determine a morphism
+	$\gamma: \Cone(f) \to \Cone(f')$. It is clear that the two right-hand
+	squares in \eqref{eqn:cplx-triangulated-aux-0} commute in
+	$\cate{C}(\mathcal{A})$. Notice that the homotopy
+	$(h^n)_{n \in \Z}$ can be chosen in several ways, so $\gamma$ is not
+	unique.
+
+	It remains to verify (TR5). In the statement of that axiom, without loss
+	of generality take $Z' = \Cone(f)$, $X' = \Cone(g)$, and
+	$Y' = \Cone(gf)$, while $h$, $k$, and $m$ are respectively
+	$\alpha(f)$, $\alpha(g)$, and $\alpha(gf)$; the corresponding
+	morphisms of degree $+1$ have the form $\beta(\cdot)$. Functoriality of
+	the mapping cone (Proposition~\ref{prop:cone-functorial}), or a direct
+	check, gives morphisms
+% segment-id: o014.li2.chapter4.derived-categories.g004
+	\[\begin{tikzcd}[column sep=large, row sep=small]
+		\Cone(f) \arrow[r, "{u := (\identity_{X[1]}, g)}" inner sep=0.8em] & \Cone(gf) \arrow[r, "{v := (f[1], \identity_Z)}" inner sep=0.8em] & \Cone(g) \\
+		Z' \arrow[equal, u] & Y' \arrow[equal, u] & X' \arrow[equal, u] .
+	\end{tikzcd}\]
+	By functoriality of the mapping cone, every square in diagram (TR5) not
+	involving $w$ commutes. For the remaining part, namely the lower-right
+	square in (TR5), to commute as well, the morphism $w: X' \to TZ'$ must,
+	and can only, be the composite
+% segment-id: o014.li2.chapter4.derived-categories.q004
+	\[ X' \xrightarrow{\beta(g)} TY \xrightarrow{T(\alpha(f))} T Z' . \]
+
+	It therefore remains to prove that
+	$Z' \xrightarrow{u} Y' \xrightarrow{v} X' \xrightarrow{w} TZ'$ is a
+	distinguished triangle. Notice that for every $n \in \Z$,
+% segment-id: o014.li2.chapter4.derived-categories.q005
+	\begin{align*}
+		\Cone(u)^n & = \Cone(f)^{n+1} \oplus \Cone(gf)^n = X^{n+2} \oplus Y^{n+1} \oplus X^{n+1} \oplus Z^n , \\
+		(X')^n & = \Cone(g)^n = Y^{n+1} \oplus Z^n .
+	\end{align*}
+	In matrix notation, define
+% segment-id: o014.li2.chapter4.derived-categories.q006
+	\begin{align*}
+		\varphi^n & := \begin{pmatrix} 0 & \identity_{Y^{n+1}} & f^{n+1} & 0 \\ 0 & 0 & 0 & \identity_{Z^n} \end{pmatrix} : \Cone(u)^n \to (X')^n , \\
+		\psi^n & := \begin{pmatrix} 0 & 0 \\ \identity_{Y^{n+1}} & 0 \\ 0 & 0 \\ 0 & \identity_{Z^n} \end{pmatrix} : (X')^n \to \Cone(u)^n .
+	\end{align*}
+	A direct check shows that these define morphisms
+	$\varphi: \Cone(u) \leftrightarrows X' : \psi$ in
+	$\cate{C}(\mathcal{A})$ satisfying
+	$\varphi \circ \psi = \identity_{X'}$, as well as
+	$\varphi \circ \alpha(u) = v$ and $\beta(u) \circ \psi = w$. Next
+	consider the diagram
+% segment-id: o014.li2.chapter4.derived-categories.g005
+	\[\begin{tikzcd}
+		Y' \arrow[r, "v"] \arrow[d, "\identity_{Y'}"'] & X' \arrow[r, "w"] \arrow[shift left, d, "\psi"] & TZ' \arrow[d, "\identity_{TZ'}"] \\
+		Y' \arrow[r, "\alpha(u)"'] & \Cone(u) \arrow[r, "\beta(u)"'] \arrow[shift left, u, "\varphi"] & TZ'
+	\end{tikzcd}\]
+	It suffices to show that this diagram commutes in
+	$\cate{K}(\mathcal{A})$ and that $\psi$ and $\varphi$ are inverse in
+	$\cate{K}(\mathcal{A})$. The only point still to be proved is that
+	$\psi \circ \varphi$ is homotopic to $\identity_{\Cone(u)}$. Let
+	$h^n : \Cone(u)^n \to \Cone(u)^{n-1}$ be the evident composite
+% segment-id: o014.li2.chapter4.derived-categories.q007
+	\[ X^{n+2} \oplus Y^{n+1} \oplus X^{n+1} \oplus Z^n \twoheadrightarrow X^{n+1} \hookrightarrow X^{n+1} \oplus Y^n \oplus X^n \oplus Z^{n-1}. \]
+	A routine verification gives
+	$\identity_{\Cone(u)^n} - \psi^n \varphi^n = h^{n+1} d_{\Cone(u)}^n + d_{\Cone(u)}^{n-1} h^n$.
+	This proves the assertion.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.derived-categories.p003
+Homotopy equivalence is indispensable in the proof. If one works at the
+level of $\cate{C}(\mathcal{A})$, mapping cones cannot produce a triangulated
+category.
+
+% segment-id: o014.li2.chapter4.derived-categories.pf002
+\begin{proof}[Proof of Theorems~\ref{prop:resolution-homotopy} and~\ref{prop:K-resolution-homotopy}]
+	We can now complete the previously deferred part of the proof of
+	Theorem~\ref{prop:resolution-homotopy}. By duality, it suffices to
+	consider the situation
+	$Y \xleftarrow{\alpha} X \xrightarrow{\gamma} I$, where $\alpha$ is a
+	quasi-isomorphism and
+	$I \in \Obj(\cate{C}^+(\mathcal{A}))$ consists of injective objects. The
+	cohomological functor
+	$\Hom_{\cate{K}(\mathcal{A})}(\cdot, I)$
+	(Proposition~\ref{prop:cohomological-Hom-functor}) gives a long exact
+	sequence
+% segment-id: o014.li2.chapter4.derived-categories.q008
+	\begin{multline*}
+		\Hom_{\cate{K}(\mathcal{A})}\left( \Cone(\alpha), I \right)  \to \Hom_{\cate{K}(\mathcal{A})}(Y, I) \\
+		\xrightarrow{\alpha^*} \Hom_{\cate{K}(\mathcal{A})}(X, I) \to \Hom_{\cate{K}(\mathcal{A})}(\Cone(\alpha)[-1], I);
+	\end{multline*}
+	but $\Cone(\alpha)$ is acyclic
+	(Corollary~\ref{prop:quism-cone}), so
+	Lemma~\ref{prop:resolution-homotopy-aux} implies that $\alpha^*$ is an
+	isomorphism.
+
+	The argument for Theorem~\ref{prop:K-resolution-homotopy}, concerning
+	K-injective or K-projective complexes, is entirely similar.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.derived-categories.co001
+\begin{corollary}
+	For $\star \in \{+, -, \bdd\}$, the category
+	$\cate{K}^\star(\mathcal{A})$ introduced in
+	Definition~\ref{def:cplx-homotopy-cat-variant} is a triangulated
+	subcategory of $\cate{K}(\mathcal{A})$
+	(Definition--Proposition~\ref{def:triangulated-subcat}).
+\end{corollary}
+
+% segment-id: o014.li2.chapter4.derived-categories.pf003
+\begin{proof}
+	Clearly $\cate{K}^\star(\mathcal{A})$ is closed under the translation
+	functor. Moreover, for a mapping-cone triangle
+	$X \xrightarrow{f} Y \to \Cone(f) \xrightarrow{+1}$, it is clear that
+	$X,Y$ belong to $\cate{C}^\star(\mathcal{A})$ if and only if
+	$\Cone(f) \in \cate{C}^\star(\mathcal{A})$. This proves that condition
+	(ii) in Definition--Proposition~\ref{def:triangulated-subcat} holds.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.derived-categories.pr001
+\begin{proposition}\label{prop:functor-induces-triangulated}
+	\index[sym1]{KF}
+	Let $F: \mathcal{A}_1 \to \mathcal{A}_2$ be an additive functor between
+	additive categories. Then
+	$\cate{K}F: \cate{K}(\mathcal{A}_1) \to \cate{K}(\mathcal{A}_2)$ is a
+	triangulated functor. The same assertion holds with
+	$\cate{K}^\star(\cdot)$ in place of $\cate{K}(\cdot)$, for
+	$\star \in \{+, -, \bdd\}$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter4.derived-categories.pf004
+\begin{proof}
+	This follows from Proposition~\ref{prop:CA-functoriality} (for
+	translation) and Proposition~\ref{prop:Cone-A} (for mapping cones).
+\end{proof}
+
+% segment-id: o014.li2.chapter4.derived-categories.co002
+\begin{corollary}\label{prop:subcat-K-triangulated}
+	Let $\mathcal{A}'$ be a full additive subcategory of $\mathcal{A}$. Then
+	$\cate{K}(\mathcal{A}')$ embeds as a triangulated subcategory of
+	$\cate{K}(\mathcal{A})$. The same assertion holds with
+	$\cate{K}^\star(\cdot)$ in place of $\cate{K}(\cdot)$, for
+	$\star \in \{+, -, \bdd\}$.
+\end{corollary}
+
+% segment-id: o014.li2.chapter4.derived-categories.pr002
+\begin{proposition}
+	Let $\mathcal{A}$ be an Abelian category. For every $n \in \Z$, the
+	functor $\Hm^n: \cate{K}(\mathcal{A}) \to \mathcal{A}$ is
+	cohomological in the sense of
+	Definition~\ref{def:cohomological-functor}. The same assertion holds with
+	$\cate{K}^\star(\mathcal{A})$ in place of $\cate{K}(\mathcal{A})$, for
+	$\star \in \{+, -, \bdd\}$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter4.derived-categories.pf005
+\begin{proof}
+	Consider the distinguished mapping-cone triangle in
+	$\cate{K}(\mathcal{A})$,
+	$X \xrightarrow{f} Y \xrightarrow{\alpha(f)} \Cone(f)
+	\xrightarrow{+1}$. By the long exact sequence
+	\eqref{eqn:cone-long-exact-sequence} and
+	Corollary~\ref{prop:cone-connecting} (the heart of
+	\S\ref{sec:cone-vs-long-exact-sequence}), the sequence
+% segment-id: o014.li2.chapter4.derived-categories.q009
+	\[ \Hm^n(X) \xrightarrow{\Hm^n(f)} \Hm^n(Y) \xrightarrow{\Hm^n(\alpha(f))} \Hm^n(\Cone(f)) \]
+	is indeed exact.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.derived-categories.p004
+The definition of the derived category will involve Verdier localization.
+In the notation of Example~\ref{eg:cohomological-functor-multiplicative}, the
+cohomological functor $\Hm^0: \cate{K}(\mathcal{A}) \to \mathcal{A}$
+determines a multiplicative system compatible with triangulation,
+\index[sym1]{qis@$\mathrm{qis}$}
+% segment-id: o014.li2.chapter4.derived-categories.q010
+\[ \mathrm{qis} := S_{\Hm^0} \subset \Mor(\cate{K}(\mathcal{A})), \]
+whose elements are precisely the quasi-isomorphisms. Another way to
+understand $\mathrm{qis}$ is to consider the saturated triangulated
+subcategory
+$\mathcal{N} := \mathcal{N}_{\Hm^0}$ of $\cate{K}(\mathcal{A})$, consisting
+of the acyclic complexes.
+Proposition~\ref{prop:cohomological-functor-multiplicative} implies
+$S\mathcal{N} = \mathrm{qis}$.
+
+% segment-id: o014.li2.chapter4.derived-categories.p005
+For $\star \in \{+, -, \bdd\}$, we similarly define the multiplicative
+system compatible with triangulation
+$\mathrm{qis}^\star := \mathrm{qis} \cap
+\Mor(\cate{K}^\star(\mathcal{A}))$ and the subcategory
+$\mathcal{N}^\star := \mathcal{N} \cap \cate{K}^\star(\mathcal{A})$; they
+still satisfy $S\mathcal{N}^\star = \mathrm{qis}^\star$.
+
+% segment-id: o014.li2.chapter4.derived-categories.d001
+\begin{definition}\label{def:derived-cat}
+	\index{derived category}
+	\index[sym1]{DA@$\cate{D}(\mathcal{A})$, $\cate{D}^+(\mathcal{A})$, $\cate{D}^-(\mathcal{A})$, $\cate{D}^{\bdd}(\mathcal{A})$}
+	The \emph{derived category} of an Abelian category $\mathcal{A}$ is
+	defined to be the triangulated category
+% segment-id: o014.li2.chapter4.derived-categories.q011
+	\begin{align*}
+		\cate{D}(\mathcal{A}) & := \cate{K}(\mathcal{A})\left[ \mathrm{qis}^{-1} \right] \\
+		& = \cate{K}(\mathcal{A})/\mathcal{N}.
+	\end{align*}
+	Likewise, for $\star \in \{+, -, \bdd\}$, define the triangulated category
+% segment-id: o014.li2.chapter4.derived-categories.q012
+	\begin{align*}
+		\cate{D}^\star(\mathcal{A}) & := \cate{K}^\star(\mathcal{A})\left[ (\mathrm{qis}^\star)^{-1} \right] \\
+		& = \cate{K}^\star(\mathcal{A})/\mathcal{N}^\star .
+	\end{align*}
+	We call $\cate{D}^+(\mathcal{A})$ (respectively,
+	$\cate{D}^-(\mathcal{A})$ and $\cate{D}^\bdd(\mathcal{A})$) the
+	bounded-below (respectively, bounded-above and bounded) derived category
+	of $\mathcal{A}$.
+\end{definition}
+
+% segment-id: o014.li2.chapter4.derived-categories.p006
+An issue that is difficult to avoid is controlling the size of a derived
+category in the set-theoretic sense, since we do not want
+$\cate{D}(\mathcal{A})$ to be a “large” category; see the related discussion
+in Remark~\ref{rem:localization-size}. We defer this issue until
+Corollary~\ref{prop:D-size}.
+\index{size issues}
+
+% segment-id: o014.li2.chapter4.derived-categories.pr003
+\begin{proposition}\label{prop:ses-vs-triangle}
+	Every short exact sequence
+	$0 \to X \xrightarrow{f} Y \xrightarrow{g} Z \to 0$ in
+	$\cate{C}(\mathcal{A})$ extends canonically to a distinguished triangle
+	$X \to Y \to Z \xrightarrow{+1}$ in $\cate{D}(\mathcal{A})$. More
+	precisely, there is a canonical commutative diagram in
+	$\cate{K}(\mathcal{A})$
+% segment-id: o014.li2.chapter4.derived-categories.g006
+	\[\begin{tikzcd}[column sep=large]
+		X \arrow[r, "f"] \arrow[equal, d] & Y \arrow[equal, d] \arrow[r, "\alpha(f)"] & \Cone(f) \arrow[r, "\beta(f)"] \arrow[d, "\Phi"] & {X[1]} \arrow[dd, "{\Phi'}"] \\
+		X \arrow[r, "f"] \arrow[d, "{\Phi'[-1]}"'] & Y \arrow[r, "g"] \arrow[equal, d] & Z \arrow[equal, d] & \\
+		{\Cone(g)[-1]} \arrow[r, "{\beta(g)[-1]}"'] & Y \arrow[r, "g"'] & Z \arrow[r, "{-\alpha(g)}"'] & \Cone(g)
+	\end{tikzcd}\]
+	in which the first and third rows are distinguished triangles, and both
+	$\Phi$ and $\Phi'$ are quasi-isomorphisms.
+\end{proposition}
+
+% segment-id: o014.li2.chapter4.derived-categories.pf006
+\begin{proof}
+	The commutative diagram is simply a restatement of
+	Lemma~\ref{prop:cone-qis}. The first row is the distinguished
+	mapping-cone triangle of $f$, while the third row is a rotation of the
+	mapping-cone triangle of $g$.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.derived-categories.p007
+Thus short exact sequences in the category of complexes are reflected in the
+triangulated structure on the derived category. Conversely, it is very rare
+for an Abelian category $\mathcal{A}$ to have the property that
+$\cate{D}(\mathcal{A})$ is Abelian; the exercises in this chapter will
+characterize such categories.
+
+% segment-id: o014.li2.chapter4.derived-categories.p008
+The exercises in this chapter will also introduce the group
+$\mathrm{K}_0(\cate{D}^{\bdd}(\mathcal{A}))$ and relate it to
+$\mathrm{K}_0(\mathcal{A})$ from Definition~\ref{def:K0}; the reader is
+encouraged to work this out.
+
+% segment-id: o014.li2.chapter4.derived-categories.p009
+By the characterization of $\mathcal{N}$ and
+Theorem~\ref{prop:Verdier-localization}, the cohomological functor
+$\Hm^n: \cate{K}(\mathcal{A}) \to \mathcal{A}$ factors through the derived
+category as
+% segment-id: o014.li2.chapter4.derived-categories.q013
+\begin{equation*}
+	\index[sym1]{Hn}
+	\Hm^n: \cate{D}(\mathcal{A}) \to \mathcal{A}, \quad \Hm^n(X) = \Hm^0(X[n]),
+\end{equation*}
+where $n \in \Z$. The same applies to
+$\star \in \{+, -, \bdd\}$ and $\cate{D}^{\star}(\mathcal{A})$.
+
+% segment-id: o014.li2.chapter4.derived-categories.p010
+The universal property determines triangulated functors
+$\cate{D}^{\bdd}(\mathcal{A}) \to \cate{D}^{\pm}(\mathcal{A}) \to
+\cate{D}(\mathcal{A})$ that commute with the cohomology functor $\Hm^0$. We
+want to regard these functors as embeddings of triangulated subcategories;
+for this we need the following abstract result.
+
+% segment-id: o014.li2.chapter4.derived-categories.le001
+\begin{lemma}\label{prop:N-D-full-faithful}
+	Let $\mathcal{N}$ and $\mathcal{I}$ be triangulated subcategories of a
+	triangulated category $\mathcal{D}$, with $\mathcal{N}$ saturated. If
+	either of the following conditions holds in $\mathcal{D}$, then the
+	functor
+	$i: \mathcal{I}/(\mathcal{N} \cap \mathcal{I}) \to
+	\mathcal{D}/\mathcal{N}$ is fully faithful:
+% segment-id: o014.li2.chapter4.derived-categories.l001
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter4.derived-categories.i001
+		\item every morphism $Y \to N$ factors as $Y \to Y' \to N$;
+% segment-id: o014.li2.chapter4.derived-categories.i002
+		\item every morphism $N \to Y$ factors as $N \to Y' \to Y$;
+	\end{enumerate}
+	here $Y \in \Obj(\mathcal{I})$ and $N \in \Obj(\mathcal{N})$ are given,
+	and $Y' \in \Obj(\mathcal{N} \cap \mathcal{I})$.
+\end{lemma}
+
+% segment-id: o014.li2.chapter4.derived-categories.pf007
+\begin{proof}
+	By duality, it suffices to consider the case in which (i) holds. Recall
+	that \eqref{eqn:S-N-D} guarantees
+	$S(\mathcal{N} \cap \mathcal{I}) =
+	S\mathcal{N} \cap \Mor(\mathcal{I})$. We wish to apply the criterion in
+	Proposition~\ref{prop:subcat-localization} (ii). Thus it suffices to prove
+	the following: suppose $s: W \to Y$ belongs to the multiplicative system
+	$S\mathcal{N}$ and $Y \in \Obj(\mathcal{I})$. Then there is a
+	$g: V \to W$ such that $V \in \Obj(\mathcal{I})$ and
+	$sg \in S\mathcal{N}$.
+
+	There is clearly a distinguished triangle
+	$W \xrightarrow{-s} Y \to N \xrightarrow{+1}$ with
+	$N \in \Obj(\mathcal{N})$. Factor $Y \to N$ as
+	$Y \xrightarrow{\alpha} Y' \xrightarrow{\beta} N$, with
+	$Y' \in \Obj(\mathcal{N} \cap \mathcal{I})$. Extend $\alpha$ to a
+	distinguished triangle $V \to Y \xrightarrow{\alpha} Y'
+	\xrightarrow{+1}$ in $\mathcal{I}$ to obtain the following diagram, whose
+	solid part is determined:
+% segment-id: o014.li2.chapter4.derived-categories.g007
+	\[\begin{tikzcd}
+		Y \arrow[r, "\alpha"] \arrow[d, "\identity"] & Y' \arrow[d, "\beta"] \arrow[r] & TV \arrow[r] \arrow[dashed, d, "Tg"] & TY \arrow[d, dashed, "\identity"] \\
+		Y \arrow[r] & N \arrow[r] & TW \arrow[r, "Ts"'] & TY 
+	\end{tikzcd}\]
+	each row being a distinguished triangle. Use (TR4) to choose
+	$Tg: TV \to TW$ so that the entire diagram commutes. Notice that
+	$V \in \Obj(\mathcal{I})$ and $TV \to TY$ belongs to $S\mathcal{N}$;
+	therefore $sg: V \to Y$ also belongs to $S\mathcal{N}$. This proves the
+	assertion.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.derived-categories.pr004
+\begin{proposition}\label{prop:derived-full-faithful-subcat}
+	For every $\star \in \{+, -, \bdd\}$, the functor
+	$\cate{D}^{\star}(\mathcal{A}) \to \cate{D}(\mathcal{A})$ is fully
+	faithful. For every $X \in \Obj(\cate{D}(\mathcal{A}))$, the object $X$
+	is isomorphic to an object of $\cate{D}^{+}(\mathcal{A})$ (respectively,
+	$\cate{D}^{-}(\mathcal{A})$ and $\cate{D}^{\bdd}(\mathcal{A})$) if and
+	only if $n \ll 0$ (respectively, $n \gg 0$ and $|n| \gg 0$) implies
+	$\Hm^n(X) = 0$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter4.derived-categories.pf008
+\begin{proof}
+	The first assertion is an application of
+	Lemma~\ref{prop:N-D-full-faithful}: take
+	$\mathcal{D} = \cate{K}(\mathcal{A})$,
+	$\mathcal{I} = \cate{K}^\star(\mathcal{A})$, and
+	$\mathcal{N} = \mathcal{N}_{\Hm^0}$. For example, when $\star = +$, we
+	must show that for every
+	$Y \in \Obj(\cate{K}^+(\mathcal{A}))$,
+	$N \in \Obj(\mathcal{N})$, and morphism $N \to Y$, there is a
+	factorization
+% segment-id: o014.li2.chapter4.derived-categories.q014
+	\[ N \to Y' \to Y, \quad Y' \in \Obj(\mathcal{N}^+). \]
+	This holds because, for $n \ll 0$, the morphism $N \to Y$ naturally
+	factors as $N \to \tau^{\geq n} N \to \tau^{\geq n} Y = Y$, where
+	$\tau^{\geq n}$ is the truncation functor from
+	Definition~\ref{def:truncation-cplx} and
+	$\tau^{\geq n} N \in \Obj(\mathcal{N}^+)$.
+
+	Next, if $X \in \Obj(\cate{C}(\mathcal{A}))$ satisfies
+	$n \ll 0 \implies \Hm^n(X) = 0$, then for $n \ll 0$ the morphism
+	$X \to \tau^{\geq n} X$ is a quasi-isomorphism and hence an isomorphism
+	in $\cate{D}(\mathcal{A})$. This characterizes, up to isomorphism, the
+	image of $\cate{D}^+(\mathcal{A}) \to \cate{D}(\mathcal{A})$.
+
+	The argument for $\star = -$ is dual. In the same way,
+	$\cate{K}^{\bdd}(\mathcal{A}) \to \cate{K}^\pm(\mathcal{A})$ induces a
+	fully faithful functor
+	$\cate{D}^{\bdd}(\mathcal{A}) \to \cate{D}^\pm(\mathcal{A})$, whose image
+	is also characterized by $\Hm^n$. This gives the case of
+	$\cate{D}^{\bdd}(\mathcal{A}) \to \cate{D}(\mathcal{A})$.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.derived-categories.co003
+\begin{corollary}
+	Every functor in the sequence
+	$\cate{D}^{\bdd}(\mathcal{A}) \to \cate{D}^{\pm}(\mathcal{A}) \to
+	\cate{D}(\mathcal{A})$ is an embedding of a triangulated subcategory.
+\end{corollary}
+
+% segment-id: o014.li2.chapter4.derived-categories.pf009
+\begin{proof}
+	Use the long exact sequence of $\Hm^n$ to verify, for
+	$\star \in \{+, -, \bdd\}$, that
+	$\cate{D}^\star(\mathcal{A})$, as a full additive subcategory of
+	$\cate{D}(\mathcal{A})$, satisfies condition (ii) in
+	Definition--Proposition~\ref{def:triangulated-subcat}. It is therefore a
+	triangulated subcategory; the case
+	$\cate{D}^{\bdd}(\mathcal{A}) \to \cate{D}^{\pm}(\mathcal{A})$ is also
+	clear.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.derived-categories.d002
+\begin{definition}
+	\index[sym1]{Dst@$\cate{D}^{[s,t]}(\mathcal{A})$, $\cate{D}^{\geq s}(\mathcal{A})$, $\cate{D}^{\leq t}(\mathcal{A})$}
+	\index[sym1]{Kst@$\cate{K}^{[s,t]}(\mathcal{A})$, $\cate{K}^{\geq s}(\mathcal{A})$, $\cate{K}^{\leq t}(\mathcal{A})$}
+	For $-\infty \leq s \leq t \leq +\infty$, let
+	$\cate{D}^{[s,t]}(\mathcal{A})$ (or $\cate{K}^{[s, t]}(\mathcal{A})$)
+	denote the full subcategory of $\cate{D}(\mathcal{A})$ (or
+	$\cate{K}(\mathcal{A})$) defined by the condition
+% segment-id: o014.li2.chapter4.derived-categories.q015
+	\[ n \notin [s, t] \implies \Hm^n(X) = 0 . \]
+	In addition, set
+% segment-id: o014.li2.chapter4.derived-categories.q016
+	\begin{align*}
+		\cate{D}^{\geq s}(\mathcal{A}) & := \cate{D}^{[s, +\infty]}(\mathcal{A}), &
+		\cate{D}^{\leq t}(\mathcal{A}) & := \cate{D}^{[-\infty, t]}(\mathcal{A}), \\
+		\cate{K}^{\geq s}(\mathcal{A}) & := \cate{K}^{[s, +\infty]}(\mathcal{A}), &
+		\cate{K}^{\leq t}(\mathcal{A}) & := \cate{K}^{[-\infty, t]}(\mathcal{A}).
+	\end{align*}
+\end{definition}
+
+% segment-id: o014.li2.chapter4.derived-categories.p011
+There are natural additive functors
+$\mathcal{A} \to \cate{C}(\mathcal{A}) \to \cate{D}(\mathcal{A})$ that
+regard each object as a complex concentrated in degree zero.
+Theorem~\ref{prop:derived-cat-embedding} will show that under this
+identification $\mathcal{A}$ is equivalent to
+$\cate{D}^{\leq 0}(\mathcal{A}) \cap \cate{D}^{\geq 0}(\mathcal{A})$.
+
+% segment-id: o014.li2.chapter4.derived-categories.r001
+\begin{remark}
+	If $\mathcal{A}$ is $\Bbbk$-linear, where $\Bbbk$ is a commutative ring,
+	then $\cate{D}(\mathcal{A})$, $\cate{D}^{\bdd}(\mathcal{A})$, and so on,
+	as well as the embeddings between them, are also $\Bbbk$-linear; see
+	Theorem~\ref{prop:localization-additivity} (iii).
+\end{remark}
+
+% segment-id: o014.li2.chapter4.derived-categories.p012
+Since the truncation functors $\tau^{\leq n}$ and $\tau^{\geq n}$ from
+Definition--Proposition~\ref{def:K-truncation-functors} preserve acyclic
+complexes, they induce functors
+$\tau^{\leq n}: \cate{D}(\mathcal{A}) \to
+\cate{D}^{\leq n}(\mathcal{A})$ and
+$\tau^{\geq n}: \cate{D}(\mathcal{A}) \to
+\cate{D}^{\geq n}(\mathcal{A})$.
+
+% segment-id: o014.li2.chapter4.derived-categories.pr005
+\begin{proposition}\label{prop:derived-truncation-adjunction}
+	For every $n \in \Z$, there are canonical adjoint pairs and a
+	distinguished triangle
+% segment-id: o014.li2.chapter4.derived-categories.g008
+	\begin{equation*}\begin{gathered}\begin{tikzcd}
+		\text{inclusion}: \cate{D}^{\leq n}(\mathcal{A}) \arrow[shift left, r] & \cate{D}(\mathcal{A}) :\tau^{\leq n} \arrow[shift left, l] ,
+	\end{tikzcd} \\
+	\begin{tikzcd}
+		\tau^{\geq n}: \cate{D}(\mathcal{A}) \arrow[shift left, r] & \cate{D}^{\geq n}(\mathcal{A}) :\text{inclusion} \arrow[shift left, l] ,
+	\end{tikzcd} \\
+		\tau^{\leq n} X \to X \to \tau^{\geq n+1} X \xrightarrow{+1}, \quad X \in \Obj(\cate{D}(\mathcal{A})).
+	\end{gathered}\end{equation*}
+\end{proposition}
+
+% segment-id: o014.li2.chapter4.derived-categories.pf010
+\begin{proof}
+	It suffices to discuss the first adjoint pair. Let
+	$X \in \Obj(\cate{D}^{\leq n}(\mathcal{A}))$ and
+	$Y \in \Obj(\cate{D}(\mathcal{A}))$. The unit and counit of the proposed
+	adjunction are respectively
+	$\eta_X: X \to \tau^{\leq n} X$ and
+	$\varepsilon_Y: \tau^{\leq n} Y \to Y$. The morphism $\varepsilon_Y$ is
+	the canonical morphism already defined at the level of complexes, while
+	$\eta_X$ is the inverse of the quasi-isomorphism
+	$\tau^{\leq n} X \to X$. It remains to verify the triangle identities.
+	After truncating at the level of complexes, it suffices to check them when
+	$X$ comes from $\cate{C}^{\leq n}(\mathcal{A})$; in that case
+	$\eta_X = \identity_X$. The required triangle identities then follow
+	from the complex-level version in
+	Proposition~\ref{prop:truncation-adjunction}.
+
+	For the distinguished triangle, recall that at the level of
+	$\cate{C}(\mathcal{A})$ there is a short exact sequence
+	$0 \to \tau^{\leq n} X \to X \to
+	\tilde{\tau}^{\geq n+1} X \to 0$ and a quasi-isomorphism
+	$\tilde{\tau}^{\geq n+1} X \to \tau^{\geq n+1} X$
+	(Lemma~\ref{prop:truncation-ses}).
+\end{proof}
+
+% segment-id: o014.li2.chapter4.derived-categories.r002
+\begin{remark}[Direct construction of the derived category]
+	Let $\mathrm{Qis} \subset \Mor(\cate{C}(\mathcal{A}))$ denote the set of
+	all quasi-isomorphisms. Suppose that, in defining
+	$\cate{D}(\mathcal{A})$, instead of first passing to
+	$\cate{K}(\mathcal{A})$, we directly adjoin inverses to
+	quasi-isomorphisms to obtain
+	$\cate{C}(\mathcal{A})[\mathrm{Qis}^{-1}]$. Is the result equivalent to
+	$\cate{D}(\mathcal{A})$? The answer is yes. A little thought about the
+	universal property shows that the key is to verify the following property
+	for every category $\mathcal{D}$ and functor
+	$G: \cate{C}(\mathcal{A}) \to \mathcal{D}$: suppose $G$ maps
+	$\mathrm{Qis}$ to isomorphisms and
+	$f, g \in \Hom_{\cate{C}(\mathcal{A})}(X, Y)$ are homotopic. Then
+	$Gf = Gg$.
+
+	The key is to use the mapping cylinder. Let $h$ be a homotopy from $f$ to
+	$g$. As in Proposition~\ref{prop:cylinder-homotopy} (ii), this homotopy
+	determines a morphism $\tilde{h}: \Cyl_X \to Y$ such that
+	$f = \tilde{h} i_0$ and $g = \tilde{h} i_1$. Part (i) of that
+	proposition, however, states that $j i_0 = j i_1$, where
+	$j: \Cyl_X \to X$ is a quasi-isomorphism. Hence $Gj$ is an isomorphism,
+	which in turn implies $G i_0 = G i_1$. This proves the property.
+
+	Although $\cate{D}(\mathcal{A})$ can be constructed directly as
+	$\cate{C}(\mathcal{A})[\mathrm{Qis}^{-1}]$, the advantage of passing
+	through $\cate{K}(\mathcal{A})$ is that the latter has a triangulated
+	structure; another reason is that $\mathrm{Qis}$ is not a multiplicative
+	system. The same assertion holds for $\cate{D}^\star(\mathcal{A})$, with
+	$\star \in \{+, -, \bdd\}$.
+\end{remark}
+
+% segment-id: o014.li2.chapter4.derived-categories.p013
+Another important kind of triangulated subcategory is one defined by
+cohomology.
+
+% segment-id: o014.li2.chapter4.derived-categories.d003
+\begin{definition}[Triangulated subcategories defined by cohomology]
+	\index[sym1]{DTA@$\cate{D}_{\mathcal{T}}(\mathcal{A})$}
+	Let $\mathcal{T}$ be a weak Serre subcategory of $\mathcal{A}$
+	(Definition~\ref{def:Serre-subcat}). Define the full subcategory
+	$\cate{D}_{\mathcal{T}}(\mathcal{A})$ of $\cate{D}(\mathcal{A})$ by
+% segment-id: o014.li2.chapter4.derived-categories.q017
+	\[ X \in \Obj(\cate{D}_{\mathcal{T}}(\mathcal{A})) \iff \forall n \in \Z, \; \Hm^n(X) \in \Obj(\mathcal{T}). \]
+	By Proposition~\ref{prop:cut-subcat-by-cohomologies}, this is a saturated
+	triangulated subcategory of $\cate{D}(\mathcal{A})$.
+
+	For $\star \in \{+, -, \bdd\}$, define the saturated triangulated
+	subcategory
+	$\cate{D}^\star_{\mathcal{T}}(\mathcal{A}) :=
+	\cate{D}_{\mathcal{T}}(\mathcal{A}) \cap
+	\cate{D}^\star(\mathcal{A})$.
+\end{definition}
+
+% segment-id: o014.li2.chapter4.derived-categories.p014
+Finally, there is a simple relation between the derived categories of
+$\mathcal{A}$ and $\mathcal{A}^{\opp}$. Equip the opposite of a triangulated
+category with the triangulated structure described in
+Remark~\ref{rem:triangulated-op}.
+
+% segment-id: o014.li2.chapter4.derived-categories.pr006
+\begin{proposition}\label{prop:derived-cat-op}
+	The equivalence
+	$\sigma: \cate{C}(\mathcal{A}^{\opp}) \rightiso
+	\cate{C}(\mathcal{A})^{\opp}$ from
+	Definition--Proposition~\ref{def:sigma} induces equivalences of
+	triangulated categories
+% segment-id: o014.li2.chapter4.derived-categories.q018
+	\[ \cate{D}(\mathcal{A}^{\opp}) \simeq \cate{D}(\mathcal{A})^{\opp}, \quad \cate{D}^\pm(\mathcal{A}^{\opp}) \simeq \cate{D}^\mp(\mathcal{A})^{\opp}, \quad \cate{D}^{\bdd}(\mathcal{A}^{\opp}) \simeq \cate{D}^{\bdd}(\mathcal{A})^{\opp}. \]
+	Moreover, for every $n \in \Z$,
+	$\tau^{\leq n} \circ \sigma = \sigma \circ \tau^{\geq -n}$ and
+	$\tau^{\geq n} \circ \sigma = \sigma \circ \tau^{\leq -n}$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter4.derived-categories.pf011
+\begin{proof}
+	Proposition~\ref{prop:sigma-homotopy} shows that $\sigma$ induces
+	$\cate{K}(\mathcal{A}^{\opp}) \simeq
+	\cate{K}(\mathcal{A})^{\opp}$. This functor preserves distinguished
+	triangles (compare carefully the diagram in
+	Proposition~\ref{prop:sigma-triangulated} with
+	Remark~\ref{rem:triangulated-op}: after reversing the first row of the
+	former diagram, it is the image of a distinguished triangle; the second
+	row is distinguished in $\cate{K}(\mathcal{A})$ and, after reversal,
+	becomes distinguished in $\cate{K}(\mathcal{A})^{\opp}$). It also
+	preserves cohomology (Remark~\ref{rem:sigma-vs-cohomology}), and therefore
+	induces
+	$\cate{D}(\mathcal{A}^{\opp}) \rightiso
+	\cate{D}(\mathcal{A})^{\opp}$. The assertions about the truncation
+	functors follow from Remark~\ref{rem:truncation-sigma}.
+\end{proof}

@@ -1,0 +1,497 @@
+% Unit 034 English translation of chapter3.tex lines 346--621.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter3.mapping-cone
+% Coverage: Section 3.3 in full.
+
+% segment-id: o014.li2.chapter3.mapping-cone.h001
+\section{Mapping Cones}\label{sec:mapping-cone}
+\hypertarget{o014.aljabr2.chapter3.mapping-cone}{ }
+\enlargethispage{2pt}
+
+% segment-id: o014.li2.chapter3.mapping-cone.p001
+We continue to let $\mathcal{A}$ be an additive category, with its associated
+category of complexes $\cate{C}(\mathcal{A})$.
+
+% segment-id: o014.li2.chapter3.mapping-cone.d001
+\begin{definition}\label{def:Cone}
+	\index{mapping cone}
+	\index[sym1]{Conef@$\Cone(f)$}
+	Given a morphism $f:X\to Y$ in $\cate{C}(\mathcal{A})$, its
+	\emph{mapping cone} $\Cone(f)$ is defined to be the following complex:
+% segment-id: o014.li2.chapter3.mapping-cone.q001
+	\begin{align*}
+		\Cone(f)^n & := X^{n+1} \oplus Y^n, \\
+		d^n_{\Cone(f)} & := \;\text{in matrix notation}\;
+		\begin{tikzpicture}[baseline]
+			\matrix (M) [matrix of math nodes, ampersand replacement=\&, left delimiter=(, right delimiter=)] {
+					-d_X^{n+1} \& 0 \\
+					f^{n+1} \& d_Y^n \\
+				};
+				\node[above=1.2em] at (M-1-1) {\scriptsize $X^{n+1}$};
+				\node[above=1.2em] at (M-1-2) {\scriptsize $Y^n$};
+				\node[left=2.7em] at (M-1-1) {\scriptsize $X^{n+2}$};
+				\node[left=2.7em] at (M-2-1) {\scriptsize $Y^{n+1}$};
+		\end{tikzpicture} \\
+		& : X^{n+1} \oplus Y^n \to X^{n+2} \oplus Y^{n+1} ,
+	\end{align*}
+	for $n\in\Z$. Since $d_{X[1]}^n=-d_X^{n+1}$, there is also the more
+	concise notation
+% segment-id: o014.li2.chapter3.mapping-cone.q002
+	\[ \Cone(f) := \left( X[1] \oplus Y , \; \begin{pmatrix} d_{X[1]} & 0 \\ f[1] & d_Y \end{pmatrix} \right) . \]
+\end{definition}
+
+% segment-id: o014.li2.chapter3.mapping-cone.p002
+It is easy to prove that $\Cone(f)$ is indeed a complex, as the following
+matrix calculation shows:
+% segment-id: o014.li2.chapter3.mapping-cone.q003
+\[ \begin{pmatrix} -d_X^{n+1} & 0 \\ f^{n+1} & d_Y^n \end{pmatrix} \begin{pmatrix} -d_X^n & 0 \\ f^n & d_Y^{n-1} \end{pmatrix} =
+\begin{pmatrix} d_X^{n+1} d_X^n & 0 \\ - f^{n+1} d_X^n + d_Y^n f^n & d_Y^n d_Y^{n-1} \end{pmatrix}. \]
+
+% segment-id: o014.li2.chapter3.mapping-cone.e001
+\begin{example}
+	Let $f:X\to Y$ be a morphism in $\mathcal{A}$. Regard $X,Y$ as objects
+	of $\cate{C}(\mathcal{A})$ concentrated in degree $0$. Then $\Cone(f)$ is
+	precisely the complex $[X\xrightarrow{f}Y]$, in degrees $-1,0$, with all
+	other terms equal to $0$.
+\end{example}
+
+% segment-id: o014.li2.chapter3.mapping-cone.p003
+The following two functoriality properties follow immediately from the
+definition.
+
+% segment-id: o014.li2.chapter3.mapping-cone.pr001
+\begin{proposition}\label{prop:cone-functorial}
+	Given a commutative diagram in $\cate{C}(\mathcal{A})$
+% segment-id: o014.li2.chapter3.mapping-cone.g001
+	\[\begin{tikzcd}
+		X \arrow[d, "f"'] \arrow[r, "\varphi"] & X' \arrow[d, "{f'}"] \\
+		Y \arrow[r, "\psi"'] & Y'
+	\end{tikzcd}\]
+	the matrix $\bigl(\begin{smallmatrix} \varphi[1] & 0 \\ 0 & \psi \end{smallmatrix}\bigr)$
+	defines a morphism $\Cone(f)\to\Cone(f')$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter3.mapping-cone.pr002
+\begin{proposition}\label{prop:Cone-A}
+	Let $F:\mathcal{A}\to\mathcal{A}'$ be an additive functor and let
+	$f:X\to Y$ be a morphism in $\cate{C}(\mathcal{A})$. The associated
+	functor $\cate{C}F:\cate{C}(\mathcal{A})\to
+	\cate{C}(\mathcal{A}')$ satisfies the following canonical isomorphism in
+	$\cate{C}(\mathcal{A}')$:
+% segment-id: o014.li2.chapter3.mapping-cone.q004
+	\[ (\cate{C}F)(\Cone(f)) \simeq \Cone(\cate{C}F(f)). \]
+\end{proposition}
+
+% segment-id: o014.li2.chapter3.mapping-cone.p004
+The mapping cone can be placed in the following ``triangle,'' which underlies
+all the theory to come.
+
+% segment-id: o014.li2.chapter3.mapping-cone.d002
+\begin{definition}\label{def:cone-triangle}
+	\index[sym1]{alphafbetaf@$\alpha(f), \beta(f)$}
+	Consider a morphism $f:X\to Y$ in $\cate{C}(\mathcal{A})$. It gives the
+	following canonical morphisms in $\cate{C}(\mathcal{A})$:
+% segment-id: o014.li2.chapter3.mapping-cone.q005
+	\[ Y \xrightarrow{\alpha(f)} \Cone(f) \xrightarrow{\beta(f)} X[1] , \]
+	explicitly expressed in matrix notation as
+% segment-id: o014.li2.chapter3.mapping-cone.q006
+	\begin{align*}
+		\alpha(f)^n & := \text{inclusion}\; \begin{pmatrix} 0 \\ \identity_{Y^n} \end{pmatrix}: Y^n \to X[1]^n \oplus Y^n , \\
+		\beta(f)^n & := \text{projection}\; \begin{pmatrix} \identity_{X[1]^n} & 0 \end{pmatrix}: X[1]^n \oplus Y^n \to X[1]^n .
+	\end{align*}
+	It is clear that these are indeed morphisms in $\cate{C}(\mathcal{A})$.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.mapping-cone.p005
+We next collect several homotopy properties of mapping cones. First we show
+that a mapping cone may be regarded as a ``homotopy cokernel'' or a
+``homotopy kernel'' of a morphism. This is the realization, at the level of
+complexes, of a basic idea in homotopy theory.
+
+% segment-id: o014.li2.chapter3.mapping-cone.pr003
+\begin{proposition}\label{prop:homotopy-kernel-cokernel}
+	Let $f:X\to Y$ be a morphism in $\cate{C}(\mathcal{A})$. There are
+	canonical bijections
+% segment-id: o014.li2.chapter3.mapping-cone.g002
+	\[\begin{tikzcd}[row sep=small]
+		\Hom\left( \Cone(f), T \right) \arrow[leftrightarrow, r, "1:1"] & \left\{ (u, h): u \in \Hom(Y,T), \; h: \text{a homotopy from $uf$ to $0$} \right\}, \\
+		\Hom\left( T, \Cone(f)[-1] \right) \arrow[leftrightarrow, r, "1:1"] & \left\{ (v, k): v \in \Hom(T,X), \; k: \text{a homotopy from $fv$ to $0$} \right\},
+	\end{tikzcd}\]
+	where $T$ is any object of $\cate{C}(\mathcal{A})$ and
+	$\Hom:=\Hom_{\cate{C}(\mathcal{A})}$. More explicitly,
+% segment-id: o014.li2.chapter3.mapping-cone.l001
+	\begin{compactitem}
+% segment-id: o014.li2.chapter3.mapping-cone.i001
+		\item the image $(u,h)$ of $\tilde{u}:\Cone(f)\to T$ satisfies
+		$u=\tilde{u}\circ\alpha(f)$;
+% segment-id: o014.li2.chapter3.mapping-cone.i002
+		\item the image $(v,k)$ of $\tilde{v}:T\to\Cone(f)[-1]$ satisfies
+		$v=\beta(f)[-1]\circ\tilde{v}$.
+	\end{compactitem}
+\end{proposition}
+% segment-id: o014.li2.chapter3.mapping-cone.pf001
+\begin{proof}
+	First consider $\Hom(\Cone(f),T)$. A morphism
+	$\tilde{u}:\Cone(f)\to T$ is equivalent to families of morphisms in
+	$\mathcal{A}$, $h^n:X^{n+1}\to T^n$ and $u^n:Y^n\to T^n$, for
+	$n\in\Z$, satisfying the matrix equation
+% segment-id: o014.li2.chapter3.mapping-cone.q007
+	\[\begin{pmatrix}
+		h^{n+1} & u^{n+1}
+	\end{pmatrix} \begin{pmatrix}
+		-d_X^{n+1} & 0 \\
+		f^{n+1} & d_Y^n
+	\end{pmatrix} = d_T^n \begin{pmatrix}
+		h^n & u^n
+	\end{pmatrix}. \]
+	Expanding it shows that this equation is equivalent to saying that
+	$u=(u^n)_n:Y\to T$ is a morphism in $\cate{C}(\mathcal{A})$ and that
+	$h:=(h^{n-1})_n$ satisfies
+	$d_{\Hom^\bullet(X,T)}^{-1}h=uf$. This is the required bijection; the
+	equality $u=\tilde{u}\circ\alpha(f)$ follows immediately from the
+	definition of $\alpha(f)$.
+
+	Next consider a morphism $\tilde{v}:T\to\Cone(f)[-1]$. It is equivalent
+	to families of morphisms in $\mathcal{A}$, $v^n:T^n\to X^n$ and
+	$\underline{k}^n:T^n\to Y^{n-1}$, satisfying
+% segment-id: o014.li2.chapter3.mapping-cone.q008
+	\[\begin{pmatrix}
+		d_X^n & 0 \\
+		-f^n & -d_Y^{n-1}
+	\end{pmatrix} \begin{pmatrix}
+		v^n \\ \underline{k}^n
+	\end{pmatrix} = \begin{pmatrix}
+		v^{n+1} \\ \underline{k}^{n+1}
+	\end{pmatrix} d_T^n
+	\quad (n \in \Z). \]
+	This equation is equivalent to saying that $v=(v^n)_n:T\to X$ is a
+	morphism in $\cate{C}(\mathcal{A})$ and that
+	$k:=(-\underline{k}^n)_n$ satisfies
+	$d_{\Hom^\bullet(T,Y)}^{-1}k=fv$. The equality
+	$v=\beta(f)[-1]\circ\tilde{v}$ also follows immediately from the
+	definition of $\beta(f)$.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.mapping-cone.r001
+\begin{remark}[Homotopy cokernel and homotopy kernel]\label{rem:homotopy-kernel-cokernel}
+	\index{homotopy cokernel, homotopy kernel}
+	Proposition~\ref{prop:homotopy-kernel-cokernel} shows that a morphism
+	$u:Y\to T$ (or $v:T\to X$) has $uf$ (or $fv$) null-homotopic if and only
+	if it factors through $\alpha(f):Y\to\Cone(f)$ (or through
+	$\beta(f)[-1]:\Cone(f)[-1]\to X$). This naturally recalls the universal
+	property of a cokernel (or kernel), with the following differences:
+% segment-id: o014.li2.chapter3.mapping-cone.l002
+	\begin{compactitem}
+% segment-id: o014.li2.chapter3.mapping-cone.i003
+		\item the requirement that $uf$ (or $fv$) be null-homotopic replaces
+		the strict equality $=0$;
+% segment-id: o014.li2.chapter3.mapping-cone.i004
+		\item the factorization $\tilde{u}$ (or $\tilde{v}$) supplied by the
+		proposition not only witnesses the fact that $uf$ (or $fv$) is
+		null-homotopic but also records how it is homotoped to $0$; this is
+		data one level higher.
+	\end{compactitem}
+	These properties cannot simply be handled in $\cate{C}(\mathcal{A})$ or
+	$\cate{K}(\mathcal{A})$ using elementary category-theoretic notions; in
+	fact, kernels and cokernels seldom exist in $\cate{K}(\mathcal{A})$. For
+	this reason, $Y\to\Cone(f)$ is also called the \emph{homotopy cokernel}
+	of $f$, while $\beta(f)[-1]:\Cone(f)[-1]\to X$ is called the
+	\emph{homotopy kernel} of $f$. Remarkably, the mapping cone $\Cone(f)$
+	and its shifts play both the ``cokernel'' and ``kernel'' roles in this
+	sense.
+\end{remark}
+
+% segment-id: o014.li2.chapter3.mapping-cone.p006
+A morphism $f$ in $\cate{C}(\mathcal{A})$ is said to be canonically homotopic
+to $g$ if there is a canonical $h$ such that $g-f=d^{-1}h$; if $f$ is
+canonically homotopic to $0$, it is called canonically null-homotopic.
+
+% segment-id: o014.li2.chapter3.mapping-cone.pr004
+\begin{proposition}\label{prop:cone-homotopy}
+	Let $\mathcal{A}$ be an additive category.
+% segment-id: o014.li2.chapter3.mapping-cone.l003
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter3.mapping-cone.i005
+		\item If $f:X\to Y$ is an isomorphism in $\cate{C}(\mathcal{A})$,
+		then $\identity_{\Cone(f)}$ is canonically null-homotopic.
+% segment-id: o014.li2.chapter3.mapping-cone.i006
+		\item For any morphism $f:X\to Y$ in $\cate{C}(\mathcal{A})$, the
+		morphisms in Definition~\ref{def:cone-triangle} satisfy
+% segment-id: o014.li2.chapter3.mapping-cone.q009
+		\[ \beta(f) \circ \alpha(f) = 0, \]
+		while $\alpha(f)\circ f$ and $f[1]\circ\beta(f)$ are both
+		canonically null-homotopic.
+	\end{enumerate}
+\end{proposition}
+% segment-id: o014.li2.chapter3.mapping-cone.pf002
+\begin{proof}
+	First consider (i). By functoriality of mapping cones
+	(Proposition~\ref{prop:cone-functorial}), it suffices to consider
+	$f=\identity_X$. Define
+% segment-id: o014.li2.chapter3.mapping-cone.q010
+	\[ s^n := \begin{pmatrix} 0 & \identity_{X^n} \\ 0 & 0 \end{pmatrix} : X^{n+1} \oplus X^n \to X^n \oplus X^{n-1}, \quad n \in \Z. \]
+	A direct calculation gives
+% segment-id: o014.li2.chapter3.mapping-cone.q011
+	\begin{multline*}
+		d^{n-1}_{\Cone(\identity_X)} s^n + s^{n+1} d^n_{\Cone(\identity_X)} = \\
+		\begin{pmatrix} -d_X^n & 0 \\ \identity_{X^n} & d_X^{n-1} \end{pmatrix} \begin{pmatrix} 0 & \identity_{X^n} \\ 0 & 0 \end{pmatrix}  + \begin{pmatrix} 0 & \identity_{X^{n+1}} \\ 0 & 0 \end{pmatrix} \begin{pmatrix} -d_X^{n+1} & 0 \\ \identity_{X^{n+1}} & d_X^n \end{pmatrix}
+		= \identity_{X^{n+1} \oplus X^n},
+	\end{multline*}
+	so $s=(s^n)_{n\in\Z}$ makes $\identity_{\Cone(\identity_X)}$
+	null-homotopic.
+
+	Next consider (ii). Clearly $\beta(f)\circ\alpha(f)=0$. The remaining
+	homotopies come from Proposition~\ref{prop:homotopy-kernel-cokernel}: take
+	$T=\Cone(f)$, so that
+	$\tilde{u}:=\identity_{\Cone(f)}\in\Hom(\Cone(f),T)$ makes
+	$\alpha(f)\circ f$ null-homotopic; take $T=\Cone(f)[-1]$, so that
+	$\tilde{v}:=\identity_{\Cone(f)[-1]}\in\Hom(T,\Cone(f)[-1])$ makes
+	$f\circ\beta(f)[-1]$ null-homotopic, and hence also makes
+	$f[1]\circ\beta(f)$ null-homotopic.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.mapping-cone.p007
+Definition~\ref{def:cone-triangle} produces two new morphisms $\alpha(f)$ and
+$\beta(f)$ from $f$. Up to homotopy, the mapping cones of these two morphisms
+produce no new objects. We begin with $\Cone(\alpha(f))$. First observe that
+% segment-id: o014.li2.chapter3.mapping-cone.q012
+\[ \Cone(\alpha(f))^n = Y^{n+1} \oplus \Cone(f)^n = Y^{n+1} \oplus X^{n+1} \oplus Y^n. \]
+In matrix notation,
+% segment-id: o014.li2.chapter3.mapping-cone.q013
+\begin{align*}
+	\alpha(\alpha(f)) & = \begin{pmatrix}
+		0 & 0 \\
+		\identity_{X[1]} & 0 \\
+		0 & \identity_Y
+	\end{pmatrix} : \Cone(f) \to \Cone(\alpha(f)) , \\
+	\beta(\alpha(f)) & = \begin{pmatrix}
+		\identity_{Y[1]} & 0 & 0
+	\end{pmatrix} : \Cone(\alpha(f)) \to Y[1].
+\end{align*}
+
+% segment-id: o014.li2.chapter3.mapping-cone.le001
+\begin{lemma}\label{prop:cone-alpha}
+	For a morphism $f:X\to Y$ in $\cate{C}(\mathcal{A})$, matrix notation
+	defines a pair of morphisms
+% segment-id: o014.li2.chapter3.mapping-cone.g003
+	\[ \begin{pmatrix} -f[1] \\ \identity_{X[1]} \\ 0 \end{pmatrix} : \begin{tikzcd} X[1] \arrow[r, shift left, "\phi"] & \Cone(\alpha(f)) \arrow[l, shift left, "\psi"] \end{tikzcd} : \begin{pmatrix} 0 & \identity_{X[1]} & 0 \end{pmatrix}. \]
+	They satisfy $\psi\circ\phi=\identity_{X[1]}$ and make the following
+	diagram commute in $\cate{K}(\mathcal{A})$:
+% segment-id: o014.li2.chapter3.mapping-cone.g004
+	\[\begin{tikzcd}
+		\Cone(f) \arrow[d, "{\identity_{\Cone(f)}}"'] \arrow[r, "\beta(f)"] & X[1] \arrow[d, "\phi"] \arrow[r, "{-f[1]}"] & Y[1] \arrow[d, "{\identity_{Y[1]}}"] \\
+		\Cone(f) \arrow[r, "{\alpha(\alpha(f))}"'] & \Cone(\alpha(f)) \arrow[r, "\beta(\alpha(f))"'] & Y[1]
+	\end{tikzcd}\]
+	Moreover, $\phi$ and $\psi$ are inverse to each other in
+	$\cate{K}(\mathcal{A})$.
+\end{lemma}
+% segment-id: o014.li2.chapter3.mapping-cone.pf003
+\begin{proof}
+	By the preceding description of $\Cone(\alpha(f))$, its differential
+	$d_{\Cone(\alpha(f))}^n$ is, in matrix notation,
+% segment-id: o014.li2.chapter3.mapping-cone.q014
+	\[ \begin{pmatrix} -d_Y^{n+1} & 0 & 0 \\ 0 & -d_X^{n+1} & 0 \\ \identity_{Y^{n+1}} & f^{n+1} & d_Y^n \end{pmatrix} : Y^{n+1} \oplus X^{n+1} \oplus Y^n \to Y^{n+2} \oplus X^{n+2} \oplus Y^{n+1}. \]
+	It suffices to verify the following statements in
+	$\cate{C}(\mathcal{A})$:
+% segment-id: o014.li2.chapter3.mapping-cone.l004
+	\begin{itemize}
+% segment-id: o014.li2.chapter3.mapping-cone.i007
+		\item $\phi:=(\phi^n)_{n\in\Z}$ and $\psi:=(\psi^n)_{n\in\Z}$ are
+		both morphisms of complexes;
+% segment-id: o014.li2.chapter3.mapping-cone.i008
+		\item $\psi\circ\phi=\identity_{X[1]}$;
+% segment-id: o014.li2.chapter3.mapping-cone.i009
+		\item $\psi\circ\alpha(\alpha(f))=\beta(f)$;
+% segment-id: o014.li2.chapter3.mapping-cone.i010
+		\item $\beta(\alpha(f))\circ\phi=-f[1]$;
+% segment-id: o014.li2.chapter3.mapping-cone.i011
+		\item there is an
+		$s=(s^n)_{n\in\Z}\in\Hom^{-1}\left(\Cone(\alpha(f)),
+		\Cone(\alpha(f))\right)$ such that
+		$\identity_{\Cone(\alpha(f))}-\phi\circ\psi
+		=d^{-1}_{\Hom^\bullet}(s)$.
+	\end{itemize}
+	The first four statements are elementary. For the last, take, in matrix
+	notation,
+% segment-id: o014.li2.chapter3.mapping-cone.q015
+	\[ s^n := \begin{pmatrix} 0 & 0 & \identity_{Y^n} \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}: \Cone(\alpha(f))^n \to \Cone(\alpha(f))^{n-1} \]
+	and verify it directly.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.mapping-cone.p008
+For the case of $\beta(f)$, we make a slight modification and consider the
+mapping cone of $-\beta(f)[-1]:\Cone(f)[-1]\to X$.
+
+% segment-id: o014.li2.chapter3.mapping-cone.d003
+\begin{definition}\label{def:Cyl}
+	\index{mapping cylinder}
+	\index[sym1]{Cylf@$\Cyl(f)$}
+	For a morphism $f:X\to Y$ in $\cate{C}(\mathcal{A})$, its
+	\emph{mapping cylinder} is defined by
+% segment-id: o014.li2.chapter3.mapping-cone.q016
+	\[ \Cyl(f) := \Cone\left( \Cone(f)[-1] \xrightarrow{-\beta(f)[-1]} X \right). \]
+	It is equipped with canonical morphisms $X\to\Cyl(f)\to\Cone(f)$.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.mapping-cone.p009
+The mapping cylinder has functoriality of the same form as that of the mapping
+cone (Proposition~\ref{prop:cone-functorial}). In view of
+Remark~\ref{rem:homotopy-kernel-cokernel}, $\Cyl(f)$ can be compared with a
+coimage in an additive category---roughly speaking, it is a ``cokernel of a
+kernel'' (Proposition~\ref{prop:Im-Coim-additive})---and may therefore be
+viewed as the homotopy coimage of $f$.
+
+% segment-id: o014.li2.chapter3.mapping-cone.p010
+More explicitly,
+$\Cyl(f)^n=\Cone(f)^n\oplus X^n=X^{n+1}\oplus Y^n\oplus X^n$. The morphism
+$X\to\mathrm{Cyl}(f)$ (or $\mathrm{Cyl}(f)\to\Cone(f)$) is the inclusion
+into the third direct summand (or the projection onto the first two), and
+% segment-id: o014.li2.chapter3.mapping-cone.q017
+\[ d_{\Cyl(f)}^n =
+	\begin{pmatrix} d_{\Cone(f)}^n & 0 \\ -\beta(f)^n & d_X^n \end{pmatrix}
+	= \begin{pmatrix}
+		-d_X^{n+1} & 0 & 0 \\
+		f^{n+1} & d_Y^n & 0 \\
+		-\identity_{X^{n+1}} & 0 & d_X^n
+\end{pmatrix} .\]
+
+% segment-id: o014.li2.chapter3.mapping-cone.le002
+\begin{lemma}\label{prop:cone-beta}
+	For a morphism $f:X\to Y$ in $\cate{C}(\mathcal{A})$, one can define a
+	pair of morphisms
+% segment-id: o014.li2.chapter3.mapping-cone.g005
+	\[ \begin{pmatrix} 0 \\ \identity_Y \\ 0 \end{pmatrix} : \begin{tikzcd} Y \arrow[r, shift left, "\phi"] & \Cyl(f) \arrow[l, shift left, "\psi"] \end{tikzcd} : \begin{pmatrix} 0 & \identity_Y & f \end{pmatrix}. \]
+	They satisfy $\psi\circ\phi=\identity_Y$ and make the following diagram
+	commute in $\cate{K}(\mathcal{A})$:
+% segment-id: o014.li2.chapter3.mapping-cone.g006
+	\[\begin{tikzcd}
+		X \arrow[d, "{\identity_X}"'] \arrow[r, "f"] & Y \arrow[d, "\phi"] \arrow[r, "{\alpha(f)}"] & \Cone(f) \arrow[d, "{\identity_{\Cone(f)}}"] \\
+		X \arrow[r] & \Cyl(f) \arrow[r] & \Cone(f)
+	\end{tikzcd}\]
+	Moreover, $\phi$ and $\psi$ are inverse to each other in
+	$\cate{K}(\mathcal{A})$. In addition, $f$ factors as the composite
+	$X\to\Cyl(f)\xrightarrow{\psi}Y$.
+\end{lemma}
+% segment-id: o014.li2.chapter3.mapping-cone.pf004
+\begin{proof}
+	The reader may verify directly from the definition that $\phi$ and $\psi$
+	are morphisms of complexes. Then $\psi\circ\phi=\identity_Y$ is immediate.
+	To prove that $\phi$ and $\psi$ are inverse in $\cate{K}(\mathcal{A})$,
+	as in Lemma~\ref{prop:cone-alpha}, take
+% segment-id: o014.li2.chapter3.mapping-cone.q018
+	\begin{align*}
+		s^n & := \begin{pmatrix} 0 & 0 & -\identity_{X^n} \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}: X^{n+1} \oplus Y^n \oplus X^n \to X^n \oplus Y^{n-1} \oplus X^{n-1}, \\
+		s & := (s^n)_{n \in \Z},
+	\end{align*}
+	and verify
+	$\identity_{\Cyl(f)}-\phi\circ\psi=d^{-1}_{\Hom^\bullet}(s)$.
+
+	The right-hand square in the diagram already commutes in
+	$\cate{C}(\mathcal{A})$. For the left-hand square, simply observe that
+	the composite $X\to\mathrm{Cyl}(f)\xrightarrow{\psi}Y$ equals $f$.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.mapping-cone.p011
+Lemmas~\ref{prop:cone-alpha} and \ref{prop:cone-beta} show that, up to
+isomorphism in $\cate{K}(\mathcal{A})$, any morphism $f:X\to Y$ can be
+replaced by the much simpler projection $\Cone(\alpha(f))[-1]\to Y$ (or by
+the inclusion $X\to\Cyl(f)$), and this construction is functorial in $f$.
+This is an important idea in homological algebra and homotopy theory.
+
+% segment-id: o014.li2.chapter3.mapping-cone.p012
+The special case $f=\identity_X$ of the mapping cylinder has another use: it
+can be used to interpret homotopy. For readers familiar with homology theory,
+all of this has a topological interpretation, but here we discuss only the
+algebraic version.
+
+% segment-id: o014.li2.chapter3.mapping-cone.pr005
+\begin{proposition}\label{prop:cylinder-homotopy}
+	\index[sym1]{CylX@$\Cyl_X$}
+	Let $X$ be an object of $\cate{C}(\mathcal{A})$ and set
+	$\mathrm{Cyl}_X:=\mathrm{Cyl}(\identity_X)$. Notice that
+	$\mathrm{Cyl}_X^n=X^{n+1}\oplus X^n\oplus X^n$.
+% segment-id: o014.li2.chapter3.mapping-cone.l005
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter3.mapping-cone.i012
+		\item In $\cate{C}(\mathcal{A})$ there are morphisms
+% segment-id: o014.li2.chapter3.mapping-cone.g007
+		$\begin{tikzcd}
+			X \arrow[shift left, r, "i_0"] \arrow[shift right, r, "i_1"'] & \Cyl_X \arrow[r, "j"] & X
+		\end{tikzcd}$,
+		defined in matrix notation, for every $n\in\Z$, by
+% segment-id: o014.li2.chapter3.mapping-cone.q019
+		\begin{equation*}
+			i_0^n := \begin{pmatrix} 0 \\ 0 \\ \identity_{X^n} \end{pmatrix} , \quad
+			i_1^n := \begin{pmatrix} 0 \\ \identity_{X^n} \\ 0 \end{pmatrix} , \quad j^n := \begin{pmatrix} 0 & \identity_{X^n} & \identity_{X^n} \end{pmatrix}.
+		\end{equation*}
+		These morphisms satisfy $ji_0=\identity_X=ji_1$, and the image of $j$
+		in $\cate{K}(\mathcal{A})$ is an isomorphism.
+% segment-id: o014.li2.chapter3.mapping-cone.i013
+		\item For every object $Y$ of $\cate{C}(\mathcal{A})$, there is a
+		bijection
+% segment-id: o014.li2.chapter3.mapping-cone.q020
+		\begin{align*}
+			\left\{\begin{array}{r|l}
+				(f, g, h) & f, g \in \Hom_{\cate{C}(\mathcal{A})}(X, Y) \\
+				& h \in \Hom^{-1}(X, Y) \\
+				& g - f = d^{-1}_{\Hom^\bullet(X, Y)} h
+			\end{array}\right\} & \xrightarrow{1:1} \Hom_{\cate{C}(\mathcal{A})}\left( \mathrm{Cyl}_X, Y \right) \\
+			(f, g, h) & \longmapsto \tilde{h} = (\tilde{h}^n)_{n \in \Z}, \; \tilde{h}^n := \begin{pmatrix} h^n & g^n & f^n \end{pmatrix}.
+		\end{align*}
+		In particular, $f=\tilde{h}i_0$ and $g=\tilde{h}i_1$.
+	\end{enumerate}
+\end{proposition}
+% segment-id: o014.li2.chapter3.mapping-cone.pf005
+\begin{proof}
+	For (i), note that $i_0$ is precisely the canonical morphism
+	$X\to\mathrm{Cyl}(\identity_X)$ in Definition~\ref{def:Cyl}, while $i_1$
+	is the morphism $\phi:X\to\mathrm{Cyl}(\identity_X)$ in
+	Lemma~\ref{prop:cone-beta}. The commutative diagram in
+	Lemma~\ref{prop:cone-beta} shows that they give the same isomorphism in
+	$\cate{K}(\mathcal{A})$.
+
+	For $j$, it is easy to verify that
+	$j^{n+1}d_{\Cyl_X}^n=\bigl(0\;d_X^n\;d_X^n\bigr)=d_X^nj^n$. Thus $j$ is
+	indeed a morphism, while $ji_0=\identity_X=ji_1$ is immediate. Since
+	$i_0$ and $i_1$ are isomorphisms in $\cate{K}(\mathcal{A})$, so is $j$.
+
+	For (ii), write any element $\tilde{h}$ of
+	$\Hom^0(\mathrm{Cyl}_X,Y)$ as
+	\[
+		\tilde{h}=\left((h^n,g^n,f^n)\right)_{n\in\Z},
+	\]
+	where
+% segment-id: o014.li2.chapter3.mapping-cone.q021
+	\[ h^n: X^{n+1} \to Y^n, \quad f^n: X^n \to Y^n, \quad g^n: X^n \to Y^n \]
+	are morphisms in $\mathcal{A}$. Suppressing superscripts and using matrix
+	notation, calculate
+% segment-id: o014.li2.chapter3.mapping-cone.q022
+	\begin{align*}
+		\tilde{h} \; d_{\mathrm{Cyl}_X} & = \begin{pmatrix} h & g & f \end{pmatrix} \begin{pmatrix} -d_X & 0 & 0 \\ \identity_X & d_X & 0 \\ -\identity_X & 0 & d_X \end{pmatrix} = \begin{pmatrix} -hd_X + g - f & g d_X & f d_X \end{pmatrix} , \\
+		d_Y \; \tilde{h} & = \begin{pmatrix} d_Y h & d_Y g & d_Y f \end{pmatrix}.
+	\end{align*}
+	Therefore $\tilde{h}$ is a morphism of complexes if and only if
+	$f,g\in\Hom_{\cate{C}(\mathcal{A})}(X,Y)$ and
+	$g-f=hd_X+d_Yh$.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.mapping-cone.r002
+\begin{remark}\label{rem:cone-chain}
+	\index{mapping cone}\index{mapping cylinder}
+	Mapping cones and mapping cylinders of course have versions for chain
+	complexes (see Remark~\ref{rem:cochain-vs-chain}). Given a morphism of
+	chain complexes $f:X\to Y$, define
+% segment-id: o014.li2.chapter3.mapping-cone.q023
+	\[\begin{array}{rlrl}
+		\Cone(f)_n & :=(X[-1] \oplus Y)_n, &
+		\Cyl(f)_n & := (X[-1] \oplus Y \oplus X)_n, \\
+		d_{\Cone(f)} & := \begin{pmatrix} d_{X[-1]} & 0 \\ f[-1] & d_Y \end{pmatrix}, &
+		d_{\Cyl(f)} & := \begin{pmatrix} d_{X[-1]} & 0 & 0 \\ f[-1] & d_Y & 0 \\ -\identity_{X[-1]} & 0 & d_X \end{pmatrix}.
+	\end{array}\]
+
+	Every statement in this section carries over to chain complexes. In
+	particular, there are canonical morphisms
+% segment-id: o014.li2.chapter3.mapping-cone.q024
+	\[ X \xrightarrow{f} Y \xrightarrow{\alpha(f)} \Cone(f) \xrightarrow{\beta(f)} X[-1], \quad X \to \Cyl(f) \to \Cone(f). \]
+\end{remark}

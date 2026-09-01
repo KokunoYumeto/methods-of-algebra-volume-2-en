@@ -1,0 +1,490 @@
+% Unit 073 English translation of chapter6.tex lines 321--556.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter6.group-homology-cohomology
+% Coverage: Complete Section 6.2, ``Group Homology and Cohomology'';
+% stops before Section 6.3 at line 557.
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.h001
+\section{Group Homology and Cohomology}\label{sec:group-coh-sub}
+\hypertarget{o014.aljabr2.chapter6.group-homology-cohomology}{ }
+% segment-id: o014.li2.chapter6.group-homology-cohomology.p001
+Throughout this section, the commutative ring $\Bbbk$ and the group $G$ remain
+fixed.
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.d001
+\begin{definition}
+	\index[sym1]{MGMG@$M^G$, $M_G$}
+	For every $G$-module $M$, define the $\Bbbk$-modules
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q001
+	\begin{align*}
+		M^G & := \left\{ m \in M : \forall g \in G, \; gm = m \right\}, \\
+		M_G & := M \big/ \lrangle{gm - m : g \in G, \; m \in M}.
+	\end{align*}
+	We call $M^G$ the submodule of \emph{invariants} of $M$, and $M_G$ the
+	quotient module of \emph{coinvariants} of $M$.
+\end{definition}
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.p002
+Taking invariants and coinvariants gives $\Bbbk$-linear functors
+$G\dcate{Mod}\to\Bbbk\dcate{Mod}$. Both can be characterized as adjoints to
+the inflation functor $\mathrm{Infl}$ of Definition~\ref{def:Res-Infl} in the
+case $H=G$.
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.pr001
+\begin{proposition}\label{prop:inv-coinv-infl}
+	Consider the functor
+	$\mathrm{Infl}:=\mathrm{Infl}^G_{\{1\}}:\Bbbk\dcate{Mod}\to
+	G\dcate{Mod}$, which sends each $\Bbbk$-module $N$ to the $G$-module with
+	trivial action $gy=y$. There are two adjoint pairs
+% segment-id: o014.li2.chapter6.group-homology-cohomology.g001
+	\[\begin{tikzcd}[row sep=tiny]
+		\mathrm{Infl}: \Bbbk\dcate{Mod} \arrow[shift left, r] & G\dcate{Mod} : (\cdot)^G , \arrow[shift left, l] \\
+		(\cdot)_G: G\dcate{Mod} \arrow[shift left, r] & \Bbbk\dcate{Mod}: \mathrm{Infl}. \arrow[shift left, l]
+	\end{tikzcd}\]
+\end{proposition}
+% segment-id: o014.li2.chapter6.group-homology-cohomology.pf001
+\begin{proof}
+	Let $M$ be a $G$-module and $N$ a $\Bbbk$-module. To specify a
+	$G$-module homomorphism $\varphi:\mathrm{Infl}(N)\to M$ is the same as to
+	specify a $\Bbbk$-module homomorphism $\varphi:N\to M$ such that
+	$\varphi(y)=g\varphi(y)$ always holds, and this in turn is the same as to
+	specify a $\Bbbk$-module homomorphism $\varphi:N\to M^G$.
+
+	On the other hand, to specify a $\Bbbk$-module homomorphism
+	$\psi:M_G\to N$ is the same as to specify a $\Bbbk$-module homomorphism
+	$\varphi:M\to N$ such that $\varphi(gx-x)=0$ always holds. The latter
+	condition is equivalent to $\varphi(gx)=g\varphi(x)$, where the $G$-action
+	on the right is defined by the $G$-module structure $\mathrm{Infl}(N)$.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.p003
+The functors $(\cdot)^G$ and $(\cdot)_G$ can also be understood from the
+viewpoint of $\Bbbk[G]$-modules. In what follows, through the augmentation
+homomorphism of Remark~\ref{rem:augmentation-kG}, we regard $\Bbbk$ as a
+$(\Bbbk[G],\Bbbk[G])$-bimodule; in other words, the action of $G$ on either
+side of $\Bbbk$ is trivial.
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.pr002
+\begin{proposition}\label{prop:inv-coinv-Hom}
+	Upon identifying $G$-modules with left $\Bbbk[G]$-modules, there are natural
+	isomorphisms of functors
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q002
+	\begin{gather*}
+		(\cdot)^G \simeq \Hom_G(\Bbbk, \cdot), \quad  (\cdot)_G \simeq \Bbbk \dotimes{\Bbbk[G]} (\cdot).
+	\end{gather*}
+\end{proposition}
+% segment-id: o014.li2.chapter6.group-homology-cohomology.pf002
+\begin{proof}
+	Consider a $G$-module $M$. By Proposition~\ref{prop:inv-coinv-infl}, to
+	specify a $G$-module homomorphism $\varphi:\Bbbk\to M$ is the same as to
+	specify a $\Bbbk$-module homomorphism $\varphi:\Bbbk\to M^G$. The latter
+	is equivalent to specifying the element $\varphi(1)$ of $M^G$. This gives
+	the first isomorphism.
+
+	For the second isomorphism, first identify $\Bbbk$ with
+	$\Bbbk[G]/\mathfrak{I}$, where the augmentation ideal is
+	$\mathfrak{I}=\bigoplus_{g\neq1_G}\Bbbk(g-1_G)$. Then
+	$\Bbbk\dotimes{\Bbbk[G]}M\simeq M/\mathfrak{I}M=M_G$, by the map sending
+	$t\otimes x$ to the image of $tx\in M$ in $M_G$. This proves the claim.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.p004
+Thus the adjunctions of Proposition~\ref{prop:inv-coinv-infl} can be understood
+as the special case of Proposition~\ref{prop:pullback-two-adjoint} obtained by
+taking the trivial homomorphism $\varphi:G\twoheadrightarrow\{1\}$.
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.co001
+\begin{corollary}\label{prop:Ind-invariant}
+	For every group homomorphism $\varphi:H\to G$, there are isomorphisms of
+	functors
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q003
+	\[\begin{array}{rlrl}
+		\Hom_H(\Bbbk[G], \cdot)^G & \rightiso (\cdot)^H, & (\cdot)_H & \rightiso (\Bbbk[G] \dotimes{\Bbbk[H]} \cdot)_G , \\
+		\varphi & \mapsto \varphi(1_G), & (x \;\text{in the quotient}) & \mapsto (1_G \otimes x \;\text{in the quotient}) .
+	\end{array}\]
+	Both sides are functors from $H\dcate{Mod}$ to $\Bbbk\dcate{Mod}$. The
+	left-hand side involves the functor
+	$\Hom_H(\Bbbk[G],\cdot):H\dcate{Mod}\to G\dcate{Mod}$ introduced in
+	Proposition~\ref{prop:pullback-two-adjoint}.
+\end{corollary}
+% segment-id: o014.li2.chapter6.group-homology-cohomology.pf003
+\begin{proof}
+	Let $N$ be an $H$-module. The first isomorphism follows from the adjunction
+	in Proposition~\ref{prop:pullback-two-adjoint}:
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q004
+	\[ \Hom_G(\Bbbk, \Hom_H(\Bbbk[G], N)) \simeq \Hom_H(\varphi^* \Bbbk, N) = \Hom_H(\Bbbk, N). \]
+
+	The second isomorphism follows from the associativity constraint for tensor
+	products,
+	$\Bbbk\dotimes{\Bbbk[G]}(\Bbbk[G]\dotimes{\Bbbk[H]}N)
+	\simeq\Bbbk\dotimes{\Bbbk[H]}N$. Verification of the explicit map is left
+	to the reader. Alternatively, the assertion can be proved directly by
+	showing that the displayed map is well defined and invertible.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.p005
+The adjoint pairs in Proposition~\ref{prop:inv-coinv-infl} also ensure that
+$(\cdot)_G$ is right exact and $(\cdot)^G$ is left exact; these facts are also
+easy to verify directly.
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.d002
+\begin{definition}[Group homology and cohomology]\label{def:group-coh-ho}
+	\index{group homology and group cohomology}
+	\index[sym1]{HnGM@$\Hm_n(G, M)$, $\Hm^n(G, M)$}
+	Let $G$ be a group. \emph{Group homology} with coefficients in $\Bbbk$ is
+	defined to be the left-derived functors of $(\cdot)_G$:
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q005
+	\[ \Hm_n(G, \cdot) := \mathrm{L}_n (\cdot)_G: G\dcate{Mod} \to \Bbbk\dcate{Mod}, \]
+	while \emph{group cohomology} is defined to be the right-derived functors of
+	$(\cdot)^G$:
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q006
+	\[ \Hm^n(G, \cdot) := \mathrm{R}^n (\cdot)^G: G\dcate{Mod} \to \Bbbk\dcate{Mod}, \]
+	where $n\in\Z$. Both vanish unless $n\geq0$. Similar definitions apply to
+	right $G$-modules.
+\end{definition}
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.p006
+Following the convention of much of the literature, when the coefficients are
+not specified we assume $\Bbbk=\Z$. In this case, a $G$-module is simply an
+additive group equipped with a left $G$-action that preserves addition.
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.e001
+\begin{example}\label{eg:group-H1}
+	Consider the augmentation ideal
+	$\mathfrak{I}=\bigoplus_{g\neq1_G}\Bbbk(g-1_G)$ of $\Bbbk[G]$. For every
+	$G$-module $M$, there is an isomorphism
+	$\Hm_0(G,M)\simeq M_G\simeq M/\mathfrak{I}M$; in particular,
+	$\Hm_0(G,\mathfrak{I})\simeq\mathfrak{I}/\mathfrak{I}^2$.
+
+	Now consider the short exact sequence
+	$0\to\mathfrak{I}\to\Bbbk[G]\to\Bbbk\to0$, whose final morphism is the
+	augmentation homomorphism. Since $\Bbbk[G]$ is a projective module, the
+	dimension-shifting technique of Proposition~\ref{prop:dimension-shifting}
+	gives
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q007
+	\[ \Hm_n(G, \Bbbk) \simeq \begin{cases}
+		\Hm_{n-1}(G, \mathfrak{I}), & n \geq 2 \\
+		\Ker\left[ \mathfrak{I}/\mathfrak{I}^2 \to \Bbbk[G]/\mathfrak{I} \right] = \mathfrak{I}/\mathfrak{I}^2 , & n = 1.
+	\end{cases}\]
+\end{example}
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.p007
+By the isomorphism between $\Bbbk[G]\dcate{Mod}$ and $G\dcate{Mod}$, together
+with Proposition~\ref{prop:inv-coinv-Hom}, group homology and cohomology can
+also be interpreted through the functors $\Tor$ and $\Ext$ introduced in
+\S\ref{sec:Ext-Tor}:
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q008
+\begin{equation}\label{eqn:grp-Hm-Tor-Ext}\begin{aligned}
+	\Hm_n(G, M) & \simeq \Tor^G_n(\Bbbk, M) := \Tor^{\Bbbk[G]}_n(\Bbbk, M), \\
+	\Hm^n(G, M) & \simeq \Ext_G^n(\Bbbk, M) := \Ext_{\Bbbk[G]}^n(\Bbbk, M).
+\end{aligned}\end{equation}
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.p008
+This interpretation sometimes reduces the questions at hand to known results
+in module theory. Here is a fundamental, nontrivial example involving a
+spectral sequence relating $\Ext$ and $\Tor$.
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.pr003
+\begin{proposition}[Universal coefficient theorem for group homology and cohomology]\label{prop:group-UCT}
+	\index{universal coefficient theorem}
+	Take $\Bbbk=\Z$. Equip the $\Z$-module $M$ with the trivial $G$-action,
+	making it a $G$-module. For every $n\in\Z_{\geq0}$, there are canonical
+	short exact sequences
+% segment-id: o014.li2.chapter6.group-homology-cohomology.g002
+	\[\begin{tikzcd}[row sep=tiny, column sep=small]
+		0 \arrow[r] & \Ext^1_{\Z}\left( \Hm_{n-1}(G, \Z), M \right) \arrow[r] & \Hm^n(G, M) \arrow[r] & \Hom_{\Z}\left( \Hm_n(G, \Z), M \right) \arrow[r] & 0, \\
+		0 \arrow[r] & M \dotimes{\Z} \Hm_n(G, \Z) \arrow[r] & \Hm_n(G, M) \arrow[r] & \Tor^{\Z}_1(M, \Hm_{n-1}(G, \Z)) \arrow[r] & 0;
+	\end{tikzcd}\]
+	for $n=0$, use the convention $\Hm_{-1}(G,\Z)=0$.
+\end{proposition}
+% segment-id: o014.li2.chapter6.group-homology-cohomology.pf004
+\begin{proof}
+	We may assume $n\geq1$. First consider cohomology. Once the reader is
+	familiar with the standard cochain and chain complexes to be introduced
+	below, the short exact sequence follows easily by applying the universal
+	coefficient theorem for cohomology from the exercises in \CHref{sec:cplx}
+	to the chain complex $C:=\mathsf{L}\dotimes{\Bbbk[G]}\Z$ and the
+	$\Z$-module $M$. The details are left to interested readers.
+
+	We give another argument here. In Example~\ref{eg:change-of-rings-SS-bis},
+	take the ring homomorphism $R:=\Z[G]\to S:=\Z$ to be the augmentation;
+	also take the left $R$-module $Y=\Z$ (the trivial $G$-module) and the left
+	$S$-module $X=M$. The short exact sequence in that example then becomes
+	the required one.
+
+	For homology, one may similarly apply the standard chain complex to the
+	homological K\"unneth theorem~\ref{prop:Kunneth-homology}, leaving the
+	details to the reader, or understand the result through
+	Example~\ref{eg:change-of-rings-SS-bis}.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.p009
+Following the constructions introduced in \S\ref{sec:derived-primer}, we may
+also take the relevant derived functors of a bounded-below chain complex (or a
+bounded-below cochain complex) $M$. These are called group hyperhomology (or
+group hypercohomology). In the derived category one may further consider
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q009
+\[ \Bbbk \otimesL[{\Bbbk[G]}] M, \quad \RHom_G(\Bbbk, M) := \RHom_{\Bbbk[G]}(\Bbbk, M). \]
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.p010
+By \eqref{eqn:grp-Hm-Tor-Ext} and the fact that $\Ext$ (respectively $\Tor$)
+can be computed using a projective resolution in the first variable, the free
+resolution $\mathsf{L}\to\Bbbk$ of
+Proposition~\ref{prop:trivial-mod-resolution} immediately supplies a concrete
+complex (respectively chain complex) for computing group cohomology
+(respectively homology). Definition~\ref{def:resolution-trivial-module} gives
+two ways to make $\mathsf{L}$ a complex of left or right $G$-modules: use
+$\partial_n:\mathsf{L}_n\to\mathsf{L}_{n-1}$ or use
+$\partial'_n:\mathsf{L}_n\to\mathsf{L}_{n-1}$. We shall choose between them
+according to the context so as to obtain the standard form of the complex;
+the choice does not affect its cohomology.
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.pr004
+\begin{proposition}[Computing group cohomology by the standard cochain complex]
+\label{prop:groupcoh-cochain}
+	\index{standard cochain complex}
+	\index[sym1]{CGM@$C(G, M)$}
+	For every $G$-module $M$, define the \emph{standard cochain complex}
+	$C(G,M)=(C^n(G,M))_n$ of $\Bbbk$-modules as follows:
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q010
+	\begin{gather*}
+		C^n(G, M) := \left\{ \text{maps}\; f: G^n \to M \right\}, \quad n \in \Z_{\geq 0},
+	\end{gather*}
+	Each term is made into a $\Bbbk$-module by pointwise addition and scalar
+	multiplication, the terms in negative degrees are defined to be $0$, and
+	$d^n:C^n(G,M)\to C^{n+1}(G,M)$ is defined by
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q011
+	\begin{multline*}
+		(d^n f)(g_1, \ldots, g_{n+1}) = g_1 f(g_2, \ldots, g_{n+1}) \\
+		+ \sum_{k=1}^n (-1)^k f(\ldots, g_k g_{k+1}, \ldots) + (-1)^{n+1} f(g_1, \ldots, g_n).
+	\end{multline*}
+
+	For every $n$, there is a canonical isomorphism
+	$\Hm^n(C(G,M))\simeq\Hm^n(G,M)$. More precisely, $C(G,M)$ represents
+	$\RHom_G(\Bbbk,M)$ in the derived category.
+\end{proposition}
+% segment-id: o014.li2.chapter6.group-homology-cohomology.pf005
+\begin{proof}
+	Consider the complex $\mathsf{L}=(\mathsf{L}_n,\partial_n)_n$. Since
+	$\mathsf{L}\to\Bbbk$ is a free resolution by left $G$-modules,
+	$\RHom_G(\Bbbk,M)$ is represented by the following $\Hom$ complex
+	(Definition~\ref{def:Hom-cplx}):
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q012
+	\begin{equation*}
+		\Hom^\bullet(\mathsf{L}, M) = \left[ \cdots \to \Hom_{\Bbbk[G]}(\mathsf{L}_n, M) \xrightarrow{(-1)^{n+1} \partial_{n+1}^*} \Hom_{\Bbbk[G]}(\mathsf{L}_{n+1}, M) \to \cdots \right] ,
+	\end{equation*}
+	Its degrees are $\ldots,-n,-n-1,\ldots$; the sign $(-1)^{n+1}$ comes
+	from the general definition of the $\Hom$ complex.
+
+	For every $n\geq0$, use the basis $(g_1|\cdots|g_n)$ of the free left
+	$\Bbbk[G]$-module $\mathsf{L}_n$ from \eqref{eqn:L-basis}. Thus
+% segment-id: o014.li2.chapter6.group-homology-cohomology.g003
+	\[\begin{tikzcd}[row sep=tiny, column sep=tiny]
+		\Hom_G(\mathsf{L}_n, M) \arrow[r, "\sim"] & C^n(G, M) \\
+		\phi \arrow[mapsto, r] & {\left[ f: (g_1, \ldots, g_n) \mapsto \phi\left( (g_1 | \cdots | g_n) \right)\right]} ,
+	\end{tikzcd}\]
+	which is plainly an isomorphism of $\Bbbk$-modules. The key point is to
+	identify $(-1)^{n+1}\partial_{n+1}^*$ on $C^n(G,M)$. Consider
+	$(-1)^{n+1}\partial_{n+1}^*\phi=(-1)^{n+1}\phi\circ\partial_{n+1}$.
+	By \eqref{eqn:L-basis-partial}, this map sends
+	$(g_1|\cdots|g_{n+1})\in\mathsf{L}_{n+1}$ to
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q013
+	\begin{multline*}
+		\phi\left( g_1 (g_2 | \cdots | g_{n+1})\right) + \sum_{k=1}^n (-1)^k \phi\left((\cdots | g_k g_{k+1}| \cdots)\right) + \cdots + (-1)^{n+1} \phi\left((g_1 | \cdots |g_n)\right) \\
+		= g_1 f(g_2, \ldots, g_{n+1}) + \sum_{k=1}^n (-1)^k f(\ldots, g_k g_{k+1}, \ldots) + (-1)^{n+1} f(g_1, \ldots, g_n).
+	\end{multline*}
+	This is precisely $(d^nf)(g_1,\ldots,g_{n+1})$ in the
+	statement.\footnote{Translator's correction: the source ends the argument
+	list at $g_n$, but $d^nf\in C^{n+1}(G,M)$ and the calculation above uses
+	$(g_1,\ldots,g_{n+1})$.}
+\end{proof}
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.p011
+The cohomology of a right $G$-module $M$ has a similar description, which we
+do not repeat. We next state the corresponding result for the group homology
+of a left $G$-module; its proof is immediate.
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.pr005
+\begin{proposition}[Computing group homology by the standard chain complex]
+\label{prop:grouph-chain}
+	For every $G$-module $M$ and $n\in\Z_{\geq0}$, there is a canonical
+	isomorphism
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q014
+	\[ \Hm_n(G, M) \simeq \Hm_n\left( \mathsf{L} \dotimes{\Bbbk[G]} M\right), \quad n \in \Z_{\geq 0}, \]
+	where $(\mathsf{L}_n,\partial'_n)_n$ is used as the chain complex of right
+	$G$-modules. Take the basis $(g_1|\cdots|g_n)^\dagger$ of the free right
+	$\Bbbk[G]$-module $\mathsf{L}_n$ from \eqref{eqn:L-basis-right}. Then
+	$\mathsf{L}_n\dotimes{\Bbbk[G]}M$ is identified with the direct
+	sum\footnote{Translator's correction: the source prints $\mathsf{L}^n$,
+	whereas the chain complex and the basis in the same sentence use
+	$\mathsf{L}_n$.} $M^{\oplus G^n}$, and an element in the summand
+	corresponding to $(g_1,\ldots,g_n)\in G^n$ has a unique expression
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q015
+	\[ (g_1 | \cdots | g_n)^\dagger \otimes x, \quad x \in M, \]
+	while, by \eqref{eqn:L-basis-partial-right},
+	$\partial'_n\otimes\identity_M:\mathsf{L}_n\dotimes{\Bbbk[G]}M\to
+	\mathsf{L}_{n-1}\dotimes{\Bbbk[G]}M$ is given by
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q016
+	\begin{multline*}
+		(g_1 | \cdots | g_n)^\dagger \otimes x \mapsto \\
+		(g_2 | \cdots | g_n)^\dagger \otimes x + \sum_{k=1}^{n-1} (-1)^k (\cdots | g_k g_{k+1} | \cdots)^\dagger \otimes x \\
+		+ (-1)^n (g_1 | \cdots | g_{n-1})^\dagger \otimes g_n x.
+	\end{multline*}
+
+	For comparison with Proposition~\ref{prop:groupcoh-cochain}, denote the
+	chain complex above by $(C_n(G,M))_n$ and call it the \emph{standard chain
+	complex}. In the derived category it represents
+	$\Bbbk\otimesL[{\Bbbk[G]}]M$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.p012
+Example~\ref{eg:group-H-comonad} below will explain the relation between the
+standard chain complex and the bar construction.
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.p013
+There is of course a corresponding description for the homology of a right
+$G$-module $M$. Consider $M\dotimes{\Bbbk[G]}\mathsf{L}$. We have
+$M\dotimes{\Bbbk[G]}\mathsf{L}_n\simeq M^{\oplus G^n}$, and an element in
+the summand corresponding to $(g_1,\ldots,g_n)$ has a unique expression
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q017
+\[ x \otimes (g_1 | \cdots | g_n), \quad x \in M, \]
+while the map $\identity_M\otimes\partial'_n$ is
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q018
+\begin{multline*}
+	x \otimes (g_1 | \cdots | g_n) \mapsto \\
+	x g_1 (g_2 | \cdots | g_n) + \sum_{k=1}^{n-1} (-1)^k x \otimes (\cdots | g_k g_{k+1} | \cdots) \\
+	+ (-1)^n x \otimes (g_1 | \cdots | g_{n-1}).
+\end{multline*}
+The corresponding standard chain complex is again denoted by
+$(C_n(G,M))_n$.
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.p014
+Readers familiar with \S\ref{sec:HH} will readily recognize these complexes
+as special cases of the Hochschild cochain and chain complexes. Here is the
+precise statement.
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.pr006
+\begin{proposition}[Relation with Hochschild theory]
+	Let $R:=\Bbbk[G]$. For a left (respectively right) $G$-module $M$, write
+	$M_+$ (respectively ${}_+M$) for the $(R,R)$-bimodule determined by
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q019
+	\[ g_1 x g_2 := g_1 x \; (\text{respectively}\; g_1 x g_2 = x g_2 ), \quad g_1 , g_2 \in G, \; x \in M. \]
+	There are canonical isomorphisms compatible with long exact sequences,
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q020
+	\[ \Hm^n(G, M) \simeq \HHm^n(R, M_+), \quad (\text{respectively}\; \Hm_n(G, M) \simeq \HHm_n(R, {}_+ M)), \]
+	and in fact the complex $(C^n(G,M))_n$ (respectively the chain complex
+	$(C_n(G,M))_n$) is isomorphic to $(C^n(R,M_+))_n$ (respectively
+	$(C_n(R,{}_+M))_n$) from \eqref{eqn:HH-cplx}.
+\end{proposition}
+% segment-id: o014.li2.chapter6.group-homology-cohomology.pf006
+\begin{proof}
+	Observe that $R^{\otimes n}$ is a free $\Bbbk$-module with basis $G^n$:
+	$(g_1,\ldots,g_n)$ corresponds to
+	$g_1\otimes\cdots\otimes g_n\in R^{\otimes n}$. It remains only to
+	compare the standard cochain complex with the complex described in
+	\eqref{eqn:HH-cplx}. Concretely, in the cohomological case, send
+	$f:G^n\to M$ to the corresponding $n$-multilinear $\Bbbk$-map $R^n\to M$.
+	In the homological case, send
+	$x\otimes(g_1|\cdots|g_n)^\dagger$ to
+	$(x|g_1|\cdots|g_n)\in C_n(R,{}_+M)$. The remaining comparison is left to
+	the reader.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.p015
+Returning to our main subject, from now on all $G$-modules under consideration
+are left modules unless otherwise stated.
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.e002
+\begin{example}\label{eg:group-H1-further}
+	In light of the discussion above, consider
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q021
+	\[ \Hm_1(G, \Bbbk) \simeq \frac{\Ker\left[ C_1(G, \Bbbk) \to C_0(G, \Bbbk) \right]}{\Image\left[ C_2(G, \Bbbk) \to C_1(G, \Bbbk) \right]}. \]
+
+	Every element of $C_1(G,\Bbbk)$ has a unique expression as a
+	$\Bbbk$-linear combination of the elements
+	$[g]:=(g)^\dagger\otimes1$ for $g\in G$. Observe that
+	$C_0(G,\Bbbk)\simeq\Bbbk$ and
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q022
+	\[ \left( \partial'_1 \otimes \identity_{\Bbbk}\right)[g] = 1 - 1 = 0, \quad \left( \partial'_2 \otimes \identity_{\Bbbk}\right)((g_1 | g_2)^\dagger \otimes 1) = [g_2] - [g_1 g_2] + [g_1]. \]
+	Therefore $\Hm_1(G,\Bbbk)$ is isomorphic to the quotient $\Bbbk$-module
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q023
+	\[ Q := \bigoplus_{g \in G} \Bbbk \cdot [g] \bigg/ \lrangle{ [g_1 g_2] - [g_1] + [g_2] : g_1, g_2 \in G }; \]
+	The map $g\mapsto[g]$ induces a group homomorphism $a:G\to(Q,+)$. It has
+	the following universal property: for every $\Bbbk$-module $N$ and group
+	homomorphism $b:G\to(N,+)$, there is a unique $\Bbbk$-module homomorphism
+	$\varphi:Q\to N$ such that $b=\varphi a$. The reader may quickly verify
+	this universal property and deduce from it the canonical isomorphism of
+	$\Bbbk$-modules
+% segment-id: o014.li2.chapter6.group-homology-cohomology.g004
+	\[\begin{tikzcd}[row sep=tiny]
+		G_{\mathrm{ab}} \dotimes{\Z} \Bbbk \arrow[r, "\sim"] & \Hm_1(G, \Bbbk) \\
+		(g \bmod G_{\mathrm{der}}) \otimes 1 \arrow[mapsto, r] & {[g] \;\text{modulo the relations}},
+	\end{tikzcd}\]
+	where $G_{\mathrm{ab}}:=G/G_{\mathrm{der}}$ is the abelianization of $G$
+	and $G_{\mathrm{der}}$ is its derived subgroup, as in
+	\cite[Definition 4.7.2]{Li1}. Readers who know the topological background
+	of group homology will recognize the connection with the Hurewicz theorem
+	in homology theory.
+
+	It is natural also to ask for the composite of the isomorphism
+	$\Hm_1(G,\Bbbk)\rightiso\mathfrak{I}/\mathfrak{I}^2$ from
+	Example~\ref{eg:group-H1} with the isomorphism above. We claim that this
+	composite is given explicitly by
+% segment-id: o014.li2.chapter6.group-homology-cohomology.g005
+	\[\begin{tikzcd}[row sep=tiny]
+		G_{\mathrm{ab}} \otimes \Bbbk \arrow[r, "\sim"] & \mathfrak{I}/\mathfrak{I}^2 \\
+		(g \bmod G_{\mathrm{der}}) \otimes 1 \arrow[mapsto, r] & 1_G - g \;\bmod \mathfrak{I}^2.
+	\end{tikzcd}\]
+
+	Why is this so? The isomorphism in Example~\ref{eg:group-H1} comes from
+	the map $\Hm_1(G,\Bbbk)\to\Hm_0(G,\mathfrak{I})\simeq
+	\mathfrak{I}/\mathfrak{I}^2$ induced by the short exact sequence
+	$0\to\mathfrak{I}\to\Bbbk[G]\to\Bbbk\to0$. Write down the following
+	commutative diagram with exact rows:
+% segment-id: o014.li2.chapter6.group-homology-cohomology.g006
+	\[\begin{tikzcd}
+		& & {(g)^\dagger \otimes 1_G} \arrow[phantom, d, "\in" description, sloped] \arrow[mapsto, r] & {[g] = (g)^\dagger \otimes 1} \arrow[phantom, d, "\in" description, sloped] & \\
+		0 \arrow[r] & C_1(G, \mathfrak{I}) \arrow[r] \arrow[d] & C_1(G, \Bbbk[G]) \arrow[r] \arrow[d, "{\partial'_1 \otimes \identity_{\Bbbk[G]}}"] & C_1(G, \Bbbk) \arrow[r] \arrow[d, "{\partial'_0 \otimes \identity_{\Bbbk[G]} = 0}"] & 0 \\
+		0 \arrow[r] & C_0(G, \mathfrak{I}) \arrow[r] & C_0(G, \Bbbk[G]) \arrow[r] & C_0(G, \Bbbk) \arrow[r] & 0 ,
+	\end{tikzcd}\]
+	The map $\partial'_1\otimes\identity_{\Bbbk[G]}$ sends
+	$(g)^\dagger\otimes1_{\Bbbk[G]}$ to
+	$1_G-g\in C_0(G,\mathfrak{I})=\mathfrak{I}$, thereby determining an
+	element of $\mathfrak{I}/\mathfrak{I}^2\simeq
+	\Hm_0(G,\mathfrak{I})$.\footnote{Translator's correction: the source uses
+	$C^0$ and $\Hm^0$, but the diagram and the connecting morphism being
+	computed are homological, so the correct indices are $C_0$ and $\Hm_0$.}
+	This is precisely the construction in the snake lemma.
+\end{example}
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.r001
+\begin{remark}\label{rem:Gmod-k}
+	The form of the standard cochain complex (respectively standard chain
+	complex) shows that, as an additive group, $\Hm^n(G,M)$ (respectively
+	$\Hm_n(G,M)$) is completely determined by the additive structure of $M$;
+	multiplication by elements of $\Bbbk$ only supplies its $\Bbbk$-module
+	structure. Thus the case $\Bbbk=\Z$ already captures the essence of group
+	cohomology (respectively homology), although allowing general coefficients
+	causes no additional difficulty.
+\end{remark}
+
+% segment-id: o014.li2.chapter6.group-homology-cohomology.r002
+\begin{remark}[Normalized version]\label{rem:nor-cochain}
+	\index{standard cochain complex!normalized}
+	\index[sym1]{CGMbar@$\overline{C}(G, M)$}
+	To compute $\Hm^n(G,M)$ and $\Hm_n(G,M)$, one may instead use the
+	normalized free resolution $\overline{\mathsf{L}}\to\Bbbk$ supplied by
+	Proposition~\ref{prop:trivial-mod-nor-resolution}. Denote the corresponding
+	cochain and chain complexes by $(\overline{C}^n(G,M))_n$ and
+	$(\overline{C}_n(G,M))_n$, respectively, and call them the normalized
+	standard cochain complex and normalized standard chain complex. They are,
+	respectively, a subcomplex and a quotient complex of the original
+	versions. For example, in the cohomological case, the description of
+	$\mathsf{L}_n$ in \eqref{eqn:nor-cochain} gives
+% segment-id: o014.li2.chapter6.group-homology-cohomology.q024
+	\[ \overline{C}^n(G, M) = \left\{\begin{array}{r|l}
+		f \in C^n(G, M) & \exists 1 \leq k \leq n, \; g_k = 1_G \\
+		& \implies f(g_1, \ldots, g_n) = 0
+	\end{array}\right\}. \]
+\end{remark}

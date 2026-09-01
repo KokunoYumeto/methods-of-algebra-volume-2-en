@@ -1,0 +1,106 @@
+% Unit 050: English translation of chapter4.tex, lines 210--258.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter4.cohomological-functors
+% Coverage: the lemma on zero composites, cohomological functors, and the
+% consequence for triangles containing a zero object; ends before Section 4.2.
+
+% segment-id: o014.li2.chapter4.cohomological-functors.le001
+\begin{lemma}\label{prop:dt-composite-null}
+	If $X \xrightarrow{f} Y \xrightarrow{g} Z \xrightarrow{+1}$ is a
+	distinguished triangle in a pretriangulated category, then $gf=0$.
+\end{lemma}
+
+% segment-id: o014.li2.chapter4.cohomological-functors.pf001
+\begin{proof}
+	Axioms (TR1) and (TR4) give the commutative diagram
+% segment-id: o014.li2.chapter4.cohomological-functors.g001
+	\[\begin{tikzcd}
+		X \arrow[equal, d] \arrow[equal, r] & X \arrow[r] \arrow[d, "f"] & 0 \arrow[d] \arrow[r] & TX \arrow[equal, d] \\
+		X \arrow[r, "f"'] & Y \arrow[r, "g"'] & Z \arrow[r] & TX
+	\end{tikzcd}\]
+	from which $gf=0$ is immediate.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.cohomological-functors.d001
+\begin{definition}[Cohomological functor]\label{def:cohomological-functor}
+	\index{functor!cohomological}
+	Let $\mathcal{D}$ be a pretriangulated category and $\mathcal{A}$ an
+	Abelian category. An additive functor $H: \mathcal{D} \to \mathcal{A}$
+	is called a \emph{cohomological functor} if it has the following
+	property: for every distinguished triangle
+	$X \to Y \to Z \xrightarrow{+1}$ in $\mathcal{D}$, the corresponding
+	sequence $HX \to HY \to HZ$ is exact in $\mathcal{A}$.
+\end{definition}
+
+% segment-id: o014.li2.chapter4.cohomological-functors.r001
+\begin{remark}[Long exact sequence of a cohomological functor]\label{rem:cohomological-functor-long}
+	\index{long exact sequence}
+	For a cohomological functor $H$ and any distinguished triangle
+	$X \to Y \to Z \xrightarrow{+1}$ in $\mathcal{D}$, repeated rotation by
+	(TR3) extends the exact sequence in
+	Definition~\ref{def:cohomological-functor} to the long exact sequence
+% segment-id: o014.li2.chapter4.cohomological-functors.q001
+	\[ \cdots \to HT^{-1}Z \to HX \to HY \to HZ \to HTX \to HTY \to \cdots . \]
+	Rotating the triangle introduces some minus signs, but these do not affect
+	the exactness of the sequence above.
+\end{remark}
+
+% segment-id: o014.li2.chapter4.cohomological-functors.p001
+The basic examples of cohomological functors are the $\Hom$ functors.
+
+% segment-id: o014.li2.chapter4.cohomological-functors.pr001
+\begin{proposition}\label{prop:cohomological-Hom-functor}
+	Let $\mathcal{D}$ be a pretriangulated category and let $S$ be an object
+	of $\mathcal{D}$. Then both
+	$\Hom(S, \cdot): \mathcal{D} \to \cate{Ab}$ and
+	$\Hom(\cdot, S): \mathcal{D}^{\opp} \to \cate{Ab}$ are cohomological
+	functors.
+
+	If $(\mathcal{D}, T)$ is $\Bbbk$-linear, the corresponding assertion
+	holds with $\cate{Ab}$ replaced by $\Bbbk\dcate{Mod}$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter4.cohomological-functors.pf002
+\begin{proof}
+	By duality it suffices to prove the assertion for $\Hom(S, \cdot)$.
+	Consider a distinguished triangle
+	$X \xrightarrow{f} Y \xrightarrow{g} Z \xrightarrow{+1}$ and the
+	corresponding sequence
+% segment-id: o014.li2.chapter4.cohomological-functors.q002
+	\[ \Hom(S, X) \xrightarrow{f_*} \Hom(S, Y) \xrightarrow{g_*} \Hom(S, Z). \]
+	Lemma~\ref{prop:dt-composite-null} implies
+	$g_* f_* = (gf)_* = 0$. Conversely, suppose that
+	$h \in \Hom(S, Y)$ satisfies $g_*(h) = gh = 0$, and consider the
+	following diagram, whose solid part is commutative.%
+	\footnote{Translator's note (O014-C072): at the vertex $TS$, the source
+	draws two coincident dashed arrows to $TX$, one unlabeled and one labeled
+	$Tk$. A morphism of triangles has only the single component $Tk$ in this
+	position; the redundant unlabeled arrow has been removed here.}
+% segment-id: o014.li2.chapter4.cohomological-functors.g002
+	\[\begin{tikzcd}
+		S \arrow[dashed, d, "k"'] \arrow[equal, r] & S \arrow[d, "h"] \arrow[r] & 0 \arrow[d] \arrow[r] & TS \arrow[dashed, d, "Tk"] \\
+		X \arrow[r, "f"'] & Y \arrow[r, "g"'] & Z \arrow[r] & TX
+	\end{tikzcd}\]
+	If a morphism $k: S \to X$ can be found as indicated by the dashed arrow
+	so that the entire diagram commutes, then $f_*(k) = h$. Axiom (TR1)
+	ensures that both rows are distinguished triangles. After applying
+	suitable rotations (TR3), the existence of $k$ follows from (TR4).
+\end{proof}
+
+% segment-id: o014.li2.chapter4.cohomological-functors.co001
+\begin{corollary}\label{prop:triangle-0-isom}
+	In a pretriangulated category, if a triangle has the form
+	$X \xrightarrow{f} Y \to 0 \xrightarrow{+1}$, then $f$ must be an
+	isomorphism.
+\end{corollary}
+
+% segment-id: o014.li2.chapter4.cohomological-functors.pf003
+\begin{proof}
+	For every object $S$, Proposition~\ref{prop:cohomological-Hom-functor}
+	gives an exact sequence in $\cate{Ab}$
+% segment-id: o014.li2.chapter4.cohomological-functors.q003
+	\[ \underbracket{\Hom(S, T^{-1} 0)}_{= 0} \to \Hom(S, X) \xrightarrow{f_*} \Hom(S, Y) \to \underbracket{\Hom(S, 0)}_{= 0}, \]
+	so $f_*$ is an isomorphism. Since $S$ is arbitrary, $f$ is an
+	isomorphism.
+\end{proof}

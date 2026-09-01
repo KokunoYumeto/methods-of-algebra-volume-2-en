@@ -1,0 +1,380 @@
+% Unit 074 English translation of chapter6.tex lines 557--739.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter6.low-degree-cohomology
+% Coverage: Section 6.3 in full.
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.h001
+\section{Low-degree cohomology: crossed homomorphisms and group extensions}
+\label{sec:grp-low-degree}
+\hypertarget{o014.aljabr2.chapter6.low-degree-cohomology}{ }
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.p001
+This section aims to deepen our understanding of $\Hm^1$ and $\Hm^2$.
+Fix a group $G$ and a commutative ring $\Bbbk$. Given a $G$-module $M$,
+define the following submodules of $C^n(G,M)$ for the standard complex
+$C(G,M)$ of Proposition~\ref{prop:groupcoh-cochain}:
+\[ Z^n(G,M):=\Ker(d^n)\supset\Image(d^{n-1})=:B^n(G,M), \]
+and set $B^0(G,M)=0$. We identify
+\begin{equation*}
+	\Hm^n(G,M)\quad\text{with}\quad Z^n(G,M)/B^n(G,M).
+\end{equation*}
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.p002
+In view of their topological origins, the elements of $Z^n(G,M)$ are also
+called $n$-\emph{cocycles}, while the elements of $B^n(G,M)$ are called
+$n$-\emph{coboundaries}.
+\index{cocycle}
+\index{coboundary}
+\index[sym1]{ZGM@$Z^n(G,M)$}
+\index[sym1]{BGM@$B^n(G,M)$}
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.p003
+Recall that $C^n(G,M)$ consists of all maps $f:G^n\to M$. The low-degree
+part of the standard complex is
+\[\begin{tikzcd}[row sep=tiny, column sep=small]
+	C^0(G,M) \arrow[r,"{d^0}"] & C^1(G,M) \arrow[r,"{d^1}"] & C^2(G,M) \\
+	m \arrow[mapsto,r] & {[g\mapsto gm-m]} & \\
+	& f \arrow[mapsto,r] &
+	{[(g_1,g_2)\mapsto g_1f(g_2)-f(g_1g_2)+f(g_1)]},
+\end{tikzcd}\]
+In particular, $Z^0(G,M)=M^G$. We next consider the case $n=1$.
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.d001
+\begin{definition}[Crossed homomorphism]\label{def:crossed-homomorphism}
+	\index{crossed homomorphism}
+	Let $M$ be a $G$-module. The elements of $Z^1(G,M)$ are also called
+	\emph{crossed homomorphisms} from $G$ to $M$; in other words, a crossed
+	homomorphism is a map $f:G\to M$ satisfying
+	\[ f(g_1g_2)=g_1f(g_2)+f(g_1),\qquad g_1,g_2\in G. \]
+	For fixed $\Bbbk$, they form a $\Bbbk$-module under pointwise operations.
+\end{definition}
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.p004
+Notice that the elements of $B^1(G,M)$ are the crossed homomorphisms of the
+form $f_m:g\mapsto gm-m$, where $m\in M$.
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.p005
+In general, every crossed homomorphism $f$ satisfies $f(1_G)=0$ (take
+$g_1=g_2=1_G$) and $g^{-1}f(g)=-f(g^{-1})$ (take $g_1=g^{-1}$ and $g_2=g$).
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.e001
+\begin{example}
+	If $G$ acts trivially on $M$, then the crossed homomorphisms are precisely
+	the homomorphisms from $G$ to the additive group $(M,+)$, and
+	$B^1(G,M)=\{0\}$. Thus in this case
+	\[ \Hom_{\cate{Grp}}(G,M)\simeq\Hm^1(G,M). \]
+\end{example}
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.p006
+Another way to understand crossed homomorphisms is through semidirect products.
+For a $G$-module $M$, use the $G$-action to form the semidirect product
+$M\rtimes G$. Its elements have the form $(m,g)$ with $m\in M$ and $g\in G$,
+and it has a projection homomorphism $\pi:M\rtimes G\to G$ sending $(m,g)$
+to $g$.
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.t001
+\begin{proposition}\label{prop:crossed-semidirect-product}
+	% Editorial correction: the Chinese source has Z^1(M,G); the arguments
+	% and the Indonesian witness require Z^1(G,M).
+	Let $M$ be a $G$-module. There is a canonical bijection
+	\[ Z^1(G,M)\xrightarrow{1:1}
+	\left\{\text{group homomorphisms }\sigma:G\to M\rtimes G
+	\;\middle|\;\pi\sigma=\identity_G\right\}. \]
+	A map $\sigma$ on the right-hand side is also called a section of $\pi$;
+	the crossed homomorphism $f$ corresponds to the section
+	$\sigma(g)=(f(g),g)$.
+\end{proposition}
+\begin{proof}
+	A map $\sigma$ satisfying $\pi\sigma=\identity_G$ must have the form
+	$\sigma(g)=(f(g),g)$ for some map $f:G\to M$. By the definition of the
+	semidirect product, $\sigma$ is a group homomorphism if and only if the
+	following equality holds in $M$:
+	\[ f(g_1)+g_1f(g_2)=f(g_1g_2),\qquad g_1,g_2\in G. \]
+	This is exactly the definition of a crossed homomorphism.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.p007
+Crossed homomorphisms are also related to the augmentation ideal
+$\mathfrak{I}\subset\Bbbk[G]$ introduced in
+Remark~\ref{rem:augmentation-kG}.
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.t002
+\begin{proposition}\label{prop:crossed-augmentation}
+	For every $G$-module $M$, there is a canonical isomorphism
+	$\Hom_G(\mathfrak{I},M)\rightiso Z^1(G,M)$ sending a homomorphism
+	$\varphi$ to the crossed homomorphism $f(g)=\varphi(g-1_G)$.
+\end{proposition}
+\begin{proof}
+	As a $\Bbbk$-module, $\mathfrak{I}$ has basis
+	$\{g-1_G:g\in G,\;g\neq1_G\}$. Thus specifying a $\Bbbk$-module
+	homomorphism $\varphi:\mathfrak{I}\to M$ is equivalent to specifying a
+	map $f:G\to M$ satisfying $f(1_G)=0$, with
+	$f(g)=\varphi(g-1_G)$. The condition that $\varphi$ be a $G$-module
+	homomorphism is
+	$\varphi(g_1(g_2-1_G))=g_1\varphi(g_2-1_G)$. But
+	\[ \text{left-hand side}=\varphi(g_1g_2-1_G-g_1+1_G)
+	=f(g_1g_2)-f(g_1),\qquad
+	\text{right-hand side}=g_1f(g_2). \]
+	This is exactly the crossed-homomorphism condition.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.p008
+For the next step, the case $n=2$, we first recall the notion of a group
+extension. Take $\Bbbk=\Z$ and introduce some terminology.
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.d002
+\begin{definition}\label{def:group-ext}
+	\index{group extension}
+	Let $A$ be a group. An \emph{extension} of $G$ by $A$ is a short exact
+	sequence of groups \cite[Definition 4.3.7]{Li1}
+	\[ 0\to A\to E\xrightarrow{\pi}G\to1. \]
+
+	Henceforth we abbreviate the data of the group extension to $E$. A group
+	homomorphism $s:G\to E$ satisfying $\pi s=\identity_G$ is called a
+	\emph{splitting} of the extension. In this case $s$ embeds $G$ as a
+	subgroup of $E$, thereby identifying $E$ with the semidirect product
+	$A\rtimes G$. An extension possessing a splitting is called
+	\emph{split}. See \cite[\S 4.3]{Li1} for details.
+\end{definition}
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.p009
+Broadly speaking, the theory of group extensions studies how to build a larger
+group from a normal subgroup and a quotient group. To relate this to the
+cohomology of $G$-modules, from now on write the group $A$ above as $M$,
+require it to be commutative, and write its group operation additively. Such a
+group extension determines a group homomorphism
+\[ \alpha:G\to\Aut_{\cate{Grp}}(M),\qquad
+	\alpha(g)(x)=exe^{-1},\qquad e\in\pi^{-1}(g)\ \text{chosen arbitrarily}. \]
+Thus $M$ becomes a $G$-module through $\alpha$; this is the most basic
+invariant of a group extension.
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.p010
+Given a $G$-module $M$, we wish to classify all extensions of $G$ by $M$
+whose associated $\alpha$ is precisely the given $G$-module structure on $M$,
+up to equivalence (or isomorphism) of extensions. An equivalence from an
+extension $E$ to an extension $E'$ is defined in the evident way as a
+commutative diagram of groups
+\begin{equation}\label{eqn:group-ext-diagram}\begin{tikzcd}
+	0 \arrow[r] & M \arrow[r] \arrow[equal,d] &
+	E \arrow[r] \arrow[d,"\varphi"] & G \arrow[r] \arrow[equal,d] & 1 \\
+	0 \arrow[r] & M \arrow[r] & E' \arrow[r] & G \arrow[r] & 1.
+\end{tikzcd}\end{equation}
+The reader is invited to verify that $\varphi$ in this diagram is
+automatically a group isomorphism, and that an extension is split if and only
+if it is equivalent to the semidirect product $M\rtimes G$.
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.d003
+\begin{definition}
+	\index[sym1]{ExtGM@$\cate{Ext}(G,M)$}
+	Define the category $\cate{Ext}(G,M)$ of all extensions of $G$ by the
+	given $G$-module $M$; its morphisms are the commutative diagrams
+	\eqref{eqn:group-ext-diagram}.
+\end{definition}
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.p011
+This category is a groupoid: all its morphisms are invertible. Classifying
+extensions amounts to describing $\cate{Ext}(G,M)$ up to equivalence of
+categories. This divides into two subproblems:
+\begin{itemize}
+	\item describe $\Obj(\cate{Ext}(G,M))/\simeq$, that is, the equivalence
+	classes of extensions, and identify the split extensions among them;
+	\item describe the morphisms in $\cate{Ext}(G,M)$, that is, the
+	isomorphisms between extensions.
+\end{itemize}
+We begin with the simpler second subproblem. First, an extension $E$ has a
+simple class of automorphisms of the form $\Ad_m:e\mapsto mem^{-1}$, where
+$m\in M$ and the group operation in $E$ is written multiplicatively; these
+are called inner automorphisms. For abstract reasons, the inner automorphisms
+form a normal subgroup of $\Aut(E)$, and the corresponding quotient group is
+called the outer automorphism group of $E$.
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.p012
+To classify group extensions, we need to compute cohomology using the
+normalized standard complex $\overline{C}(G,M)$ described in
+Remark~\ref{rem:nor-cochain}. Accordingly, define
+\begin{gather*}
+	\overline{C}^n(G,M)\supset\overline{Z}^n(G,M)
+	\supset\overline{B}^n(G,M),\\
+	\Hm^n(G,M)\simeq\overline{Z}^n(G,M)/\overline{B}^n(G,M).
+\end{gather*}
+We have $\overline{C}^0(G,M)=C^0(G,M)=M$. The preceding discussion of
+crossed homomorphisms has also shown that
+$\overline{Z}^1(G,M)=Z^1(G,M)$.
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.l001
+\begin{lemma}\label{prop:factor-set-prep}
+	Let $0\to M\to E\xrightarrow{\pi}G\to1$ be an object of
+	$\cate{Ext}(G,M)$. Its automorphism group is canonically isomorphic to
+	$\overline{Z}^1(G,M)$, while its outer automorphism group is canonically
+	isomorphic to $\Hm^1(G,M)$. More explicitly, an element
+	$z\in\overline{Z}^1(G,M)$ corresponds to the automorphism sending
+	$e\in E$ to $z(\pi(e))e$.
+\end{lemma}
+\begin{proof}
+	For the moment, write the group operation on $M$ multiplicatively. Take
+	$E'=E$ in the commutative diagram \eqref{eqn:group-ext-diagram}. For every
+	$e\in E$, there is a unique $z(e)\in M$ such that $\varphi(e)=z(e)e$.
+	If $m\in M$, then
+	$\varphi(me)=m\varphi(e)=mz(e)e=z(e)me$, so $z(e)$ depends only on the
+	image of $e$ in $G$; henceforth we write it as a map $z:G\to M$.
+	Conversely, every map $z:G\to M$ determines a map $\varphi:E\to E$ by
+	$\varphi(e)=z(\pi(e))e$, and \eqref{eqn:group-ext-diagram} commutes at
+	the level of sets.
+
+	Consider a map $z:G\to M$ and the corresponding $\varphi$. Put
+	$g_i=\pi(e_i)$ for $i=1,2$. Then
+	\begin{align*}
+		\varphi(e_1e_2)&=z(g_1g_2)e_1e_2,\\
+		\varphi(e_1)\varphi(e_2)&=z(g_1)e_1z(g_2)e_2\\
+		&=z(g_1)\underbracket{g_1\cdot z(g_2)}_{
+		\text{the $G$-module structure on $M$}}e_1e_2.
+	\end{align*}
+	Thus $\varphi$ is a group homomorphism if and only if $z$ is a crossed
+	homomorphism. It is clear that composition of group homomorphisms
+	corresponds to addition of crossed homomorphisms. Now take $m\in M$.
+	The corresponding inner automorphism is
+	$e\mapsto mem^{-1}=mem^{-1}e^{-1}e$. Clearly
+	$mem^{-1}e^{-1}\in M$, and in additive notation this element is
+	$m-\pi(e)m$. This proves the assertion.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.d004
+\begin{definition}
+	The groupoid $\tau^{\leq2}\overline{\cate{C}}(G,M)$ is defined as follows:
+	its set of objects is $\overline{Z}^2(G,M)$, while its morphism sets are
+	\[ \Hom(f,f'):=\{w\in\overline{C}^1(G,M):f'=d^1w+f\}. \]
+	Composition of morphisms is defined by addition in
+	$\overline{C}^1(G,M)$. Thus the isomorphism classes of objects correspond
+	bijectively to the elements of $\Hm^2(G,M)$.
+\end{definition}
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.p013
+The meaning of the notation is clear:
+$\tau^{\leq2}\overline{\cate{C}}(G,M)$ is the category determined by the
+truncated complex $\tau^{\leq2}\overline{C}(G,M)$.
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.t003
+\begin{theorem}\label{prop:factor-set}
+	Let $M$ be a $G$-module. The category $\cate{Ext}(G,M)$ is equivalent to
+	$\tau^{\leq2}\overline{\cate{C}}(G,M)$. In particular, equivalence
+	classes of extensions of $G$ by $M$ correspond bijectively to elements
+	of $\Hm^2(G,M)$, and the equivalence class of split extensions
+	corresponds to $0\in\Hm^2(G,M)$.
+\end{theorem}
+\begin{proof}
+	We first construct a functor
+	$\tau^{\leq2}\overline{\cate{C}}(G,M)\to\cate{Ext}(G,M)$. Given a map
+	$f:G^2\to M$, define a binary operation on the set $M\times G$ by
+	\[ (m_1,g_1)\cdot(m_2,g_2):=
+	\left(m_1+g_1\cdot m_2+f(g_1,g_2),g_1g_2\right). \]
+	Associativity is equivalent to the identity
+	\begin{equation}\label{eqn:grp-2-cocycle}
+		f(g_1,g_2)+f(g_1g_2,g_3)
+		=g_1\cdot f(g_2,g_3)+f(g_1,g_2g_3),
+	\end{equation}
+	that is, to $f\in Z^2(G,M)$. Furthermore, $(0,1_G)$ is the identity if
+	and only if
+	\[ f(g,1_G)=0=f(1_G,g), \]
+	that is, if and only if $f\in\overline{Z}^2(G,M)$. Taking
+	$(g_1,g_2,g_3)=(g,g^{-1},g)$ in \eqref{eqn:grp-2-cocycle} and using the
+	last equality gives
+	\begin{equation}\label{eqn:grp-2-cocycle-inv}
+		f(g,g^{-1})=g\cdot f(g^{-1},g).
+	\end{equation}
+
+	Thus $M\times G$ acquires a monoid structure from
+	$f\in\overline{Z}^2(G,M)$; denote this monoid by $E$. It is automatically
+	a group, since \eqref{eqn:grp-2-cocycle-inv} gives
+	\[ (0,g)^{-1}=\left(-f(g^{-1},g),g^{-1}\right),\qquad
+	(m,1_G)^{-1}=(-m,1_G). \]
+	It is easy to prove that the maps $m\mapsto(m,1_G)$ and $(m,g)\mapsto g$
+	give a group extension $0\to M\to E\to G\to1$ that induces precisely the
+	original $G$-action on $M$. Verify that $f=0$ corresponds to the
+	semidirect product $E=M\rtimes G$.
+
+	If, moreover, $w\in\overline{C}^1(G,M)$ and $f':=d^1w+f$, denote the
+	corresponding extension by $E'$. The map
+	\[ (m,g)\mapsto(m-w(g),g) \]
+	gives an isomorphism from $E$ to $E'$. Indeed, the condition that this
+	map preserve multiplication is equivalent to the identity
+	\[ -w(g_1)-g_1\cdot w(g_2)+(d^1w)(g_1,g_2)=-w(g_1g_2), \]
+	which is exactly the definition of $d^1w$.
+
+	We have therefore obtained a functor
+	$\tau^{\leq2}\overline{\cate{C}}(G,M)\to\cate{Ext}(G,M)$, and both
+	categories are groupoids. Comparing automorphism groups of objects by
+	Lemma~\ref{prop:factor-set-prep} shows that this functor is fully
+	faithful. It remains to show that it is essentially surjective.
+
+	Let $E$ be an object of $\cate{Ext}(G,M)$. Choose an arbitrary section
+	$s:G\to E$ of the map $\pi:E\to G$ in the extension data; that is, a map
+	satisfying $\pi s=\identity_G$. This is equivalent to choosing a
+	representative of every $M$-coset in $E$. A section $s$ is called
+	normalized if $s(1_G)=1_E$. For all $g_1,g_2\in G$, the elements
+	$s(g_1g_2)$ and $s(g_1)s(g_2)$ have the same image under $\pi$. Hence
+	there is a unique $f(g_1,g_2)\in M$ such that
+	\[ s(g_1)s(g_2)=f(g_1,g_2)s(g_1g_2). \]
+
+	It is easy to prove that associativity,
+	$(s(g_1)s(g_2))s(g_3)=s(g_1)(s(g_2)s(g_3))$, translates into
+	\eqref{eqn:grp-2-cocycle}, namely $f\in Z^2(G,M)$. If $s$ is normalized,
+	then $f(1_G,g)=0=f(g,1_G)$ for every $g$, which is equivalent to
+	$f\in\overline{Z}^2(G,M)$.
+
+	For the chosen normalized section $s$, give $M\times G$ the group
+	structure corresponding to $f$. Consider the bijection
+	\[ M\times G\xrightarrow{1:1}E,\qquad(m,g)\mapsto ms(g). \]
+	The preceding discussion shows immediately that this bijection preserves
+	group multiplication and gives an isomorphism in $\cate{Ext}(G,M)$.
+	This completes the proof of the equivalence.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.p014
+In the final part of the essential-surjectivity argument, changing the section
+$s$ is equivalent to choosing an arbitrary map $h:G\to M$ and taking
+$s'(g):=h(g)s(g)$. The corresponding map $f':G^2\to M$ becomes
+\begin{align*}
+	f'(g_1,g_2)&=\left(h(g_1)+g_1\cdot h(g_2)-h(g_1g_2)\right)+f(g_1,g_2)\\
+	&=(d^1h)(g_1,g_2)+f(g_1,g_2).
+\end{align*}
+If one also requires $h(1_G)=0$, then
+$d^1h\in\overline{B}^2(G,M)$. Historically, this observation was the
+starting point for the connection between extensions and $\Hm^2(G,M)$; it
+also supplies a group-extension interpretation for the definitions of
+$\overline{Z}^2(G,M)$ and $\overline{B}^2(G,M)$, although this was left
+implicit in the proof.
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.r001
+\begin{remark}\label{rem:Ext-incarnation}
+	Theorem~\ref{prop:factor-set} says that the complex
+	$\tau^{\leq2}\overline{C}(G,M)$ is a linear incarnation of the category
+	of group extensions $\cate{Ext}(G,M)$: the term in degree $2$ describes
+	objects, the term in degree $1$ describes morphisms, and the term in
+	degree $0$ remains to be interpreted. For
+	$m\in M=\overline{C}^0(G,M)$, there is an inner automorphism of the group
+	extension $\Ad_m:e\mapsto mem^{-1}$, which is trivial if and only if
+	$m\in M^G=\Hm^0(G,M)$. From the viewpoint of inner automorphisms, we may
+	regard the elements of $M$ as 2-morphisms in $\cate{Ext}(G,M)$: for
+	$m\in M$ and
+	$\varphi_1,\varphi_2\in\Hom_{\cate{Ext}(G,M)}(E,E')$,
+	\[ \text{interpret the 2-cell diagram}\;
+	\begin{tikzcd}[column sep=large]
+		E \arrow[bend left=60,r,"\varphi_1",""' {name=U}]
+		\arrow[bend right=60,r,"\varphi_2"',"" {name=D}] &
+		E' \arrow[Rightarrow,from=U,to=D,"m"]
+	\end{tikzcd}
+	\;\text{as}\;\varphi_2=\Ad_m\varphi_1. \]
+
+	Notice that $\Ad_m\varphi_1=\varphi_1\Ad_m$ and
+	$\Ad_{m_1}\Ad_{m_2}=\Ad_{m_1+m_2}$. Thus $\Hm^0(G,M)$ becomes the
+	“2-automorphism group” of every morphism $\varphi$. In this sense, the
+	complex $\tau^{\leq2}\overline{C}(G,M)$ may be called a linear
+	incarnation of the 2-category $\cate{Ext}(G,M)$. See
+	\cite[\S 3.5]{Li1} for the definition of a 2-category.
+\end{remark}
+
+% segment-id: o014.li2.chapter6.low-degree-cohomology.p015
+Other aspects of group extensions will be discussed in
+\S\ref{sec:group-ext-revisited}. Before that, we need to introduce more
+operations on group homology and cohomology.

@@ -1,0 +1,359 @@
+% Unit 057 English translation of chapter4.tex lines 1513--1680.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter4.derived-functors-general
+% Coverage: complete Section 4.7; stops before Section 4.8 at line 1681.
+
+% segment-id: o014.li2.chapter4.derived-functors-general.h001
+\section{General Theory of Derived Functors}\label{sec:derived-functors}
+\hypertarget{o014.aljabr2.chapter4.derived-functors-general}{ }
+
+% segment-id: o014.li2.chapter4.derived-functors-general.p001
+Let $\mathcal{A}$ and $\mathcal{A}'$ be abelian categories, and fix an
+additive functor $F:\mathcal{A}\to\mathcal{A}'$. We now apply the theory of
+\S\ref{sec:triangulated-functor-localization}, and in particular the setting
+of \eqref{eqn:derived-situation}, to
+% segment-id: o014.li2.chapter4.derived-functors-general.g001
+\begin{equation*}\begin{tikzcd}
+	\cate{K}^{\star}(\mathcal{A}) \arrow[r, "{\cate{K}^\star F}"] \arrow[d, "Q"'] & \cate{K}^{\star}(\mathcal{A}') \arrow[d, "{Q'}"] \\
+	\cate{D}^{\star}(\mathcal{A}) & \cate{D}^{\star}(\mathcal{A}')
+\end{tikzcd} \qquad (\star \in \{+, -, \hspace{0.8em}\}) \end{equation*}
+Here $Q$ and $Q'$ are localization functors of triangulated categories, and
+$\cate{K}^\star F$ is a triangulated functor
+(Proposition~\ref{prop:functor-induces-triangulated}). The blank superscript
+$\star=\hspace{0.8em}$ corresponds to the case of $\cate{K}(\mathcal{A})$
+and $\cate{D}(\mathcal{A})$. Recall that
+$\cate{D}^{\star}(\mathcal{A})=\cate{K}^{\star}(\mathcal{A})/\mathcal{N}^{\star}$,
+where $\mathcal{N}^{\star}$ is the saturated triangulated subcategory of
+acyclic complexes; likewise for $\mathcal{A}'$.
+
+% segment-id: o014.li2.chapter4.derived-functors-general.p002
+Unless $F$ is exact, in general there is no triangulated functor
+$\cate{D}^{\star}(\mathcal{A})\to\cate{D}^{\star}(\mathcal{A}')$ that makes
+the diagram above commute. The natural approach is to study the right and left
+derived functors in the sense of
+Definition~\ref{def:Verdier-localization-functor}, using the two kinds of Kan
+extension respectively.
+
+% segment-id: o014.li2.chapter4.derived-functors-general.d001
+\begin{definition}[Derived functors between derived categories]\label{def:derived-functor}
+	\index{derived functor}
+	\index[sym1]{RF@$\mathrm{R}F$, ${}^\star \mathrm{R}F$}
+	\index[sym1]{LF@$\mathrm{L}F$, ${}^\star \mathrm{L}F$}
+	\index[sym1]{RnF} \index[sym1]{LnF}
+	For $\star\in\{+,-,\hspace{0.8em}\}$, if
+	\begin{align*}
+		{}^\star \mathrm{R}F: \cate{D}^\star(\mathcal{A}) & \to \cate{D}^\star(\mathcal{A}'): \quad \text{the right derived functor of $\cate{K}^\star F$}, \quad \text{or} \\
+		{}^\star \mathrm{L}F: \cate{D}^\star(\mathcal{A}) & \to \cate{D}^\star(\mathcal{A}'): \quad \text{the left derived functor of $\cate{K}^\star F$}
+	\end{align*}
+	exists, it is called the \emph{right derived functor} (respectively,
+	\emph{left derived functor}) of $F:\mathcal{A}\to\mathcal{A}'$. When the
+	derived functor exists, define, for every $n\in\Z$,
+	\begin{gather*}
+		{}^\star \mathrm{R}^n F := \Hm^n \circ {}^\star \mathrm{R}F, \\
+		{}^\star \mathrm{L}_n F := \Hm^{-n} \circ {}^\star \mathrm{L}F.
+	\end{gather*}
+	Both are functors with values in $\mathcal{A}'$. The subscript $n$ is used
+	to agree with the customary notation for chain complexes when studying left
+	derived functors. The left superscript $\star$ is often omitted when no
+	confusion can arise.
+\end{definition}
+
+% segment-id: o014.li2.chapter4.derived-functors-general.e001
+\begin{example}[Deriving an exact functor]
+	The simplest case is that in which $F$ is exact. For every
+	$\star\in\{+,-,\hspace{0.8em}\}$, the derived functors
+	${}^\star\mathrm{R}F$ and ${}^\star\mathrm{L}F$ always exist. Indeed,
+	$\cate{K}^\star F$ preserves acyclic complexes, so its derived functor is
+	determined directly by the universal property of localization.
+\end{example}
+
+% segment-id: o014.li2.chapter4.derived-functors-general.t001
+\begin{theorem}[Long exact sequence of derived functors]\label{prop:derived-long-exact}
+	\index{long exact sequence}
+	Fix $\star\in\{+,-,\hspace{0.8em}\}$. If
+	${}^\star\mathrm{R}F$ or ${}^\star\mathrm{L}F$ exists, then every
+	distinguished triangle $X\to Y\to Z\xrightarrow{+1}$ in
+	$\cate{D}^\star(\mathcal{A})$ gives rise to a canonical long exact sequence
+	\begin{gather*}
+		\cdots \to {}^\star \mathrm{R}^{n-1} F(Z) \to {}^\star \mathrm{R}^n F(X) \to {}^\star \mathrm{R}^n F(Y) \to {}^\star \mathrm{R}^n F(Z) \to {}^\star \mathrm{R}^{n+1} F(X) \to \cdots , \\
+		\cdots \to {}^\star \mathrm{L}_{n+1} F(Z) \to {}^\star \mathrm{L}_n F(X) \to {}^\star \mathrm{L}_n F(Y) \to {}^\star \mathrm{L}_n F(Z) \to {}^\star \mathrm{L}_{n-1} F(X) \to \cdots .
+	\end{gather*}
+\end{theorem}
+% segment-id: o014.li2.chapter4.derived-functors-general.pf001
+\begin{proof}
+	By definition, both ${}^\star\mathrm{R}F$ and
+	${}^\star\mathrm{L}F$ are triangulated functors. Now apply the cohomology
+	functor $\Hm^0$.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.derived-functors-general.p003
+How do we ensure that derived functors exist, and how do we compute them?
+Proposition~\ref{prop:localization-injective} already contains the general
+idea. For $\star\in\{+,-,\hspace{0.8em}\}$, take $\mathcal{N}^\star$ as in
+Definition~\ref{def:derived-cat}. We seek a triangulated subcategory
+$\mathcal{I}$ of $\cate{K}^\star(\mathcal{A})$ such that
+${}^\star\mathrm{R}F$ or ${}^\star\mathrm{L}F$ can be defined as the
+composite in the diagram of functors
+% segment-id: o014.li2.chapter4.derived-functors-general.g002
+\[ \cate{D}^\star(\mathcal{A}) = \cate{K}^\star(\mathcal{A})/\mathcal{N}^\star \xleftarrow{\text{equivalence}} \mathcal{I}/\mathcal{I} \cap \mathcal{N}^\star \xrightarrow{\text{universal property of localization}} \cate{K}^\star(\mathcal{A}')/\mathcal{N}^\star = \cate{D}^\star(\mathcal{A}') . \]
+How should $\mathcal{I}$ be chosen? It should be $F$-injective (respectively,
+$F$-projective) in the following sense.
+
+% segment-id: o014.li2.chapter4.derived-functors-general.c001
+\begin{convention}
+	\index{$\cdots$-injective subcategory}
+	\index{$\cdots$-projective subcategory}
+	Fix $\star$. If a triangulated subcategory $\mathcal{I}$ of
+	$\cate{K}^\star(\mathcal{A})$ is a $\cate{K}^\star F$-injective
+	(respectively, $\cate{K}^\star F$-projective) triangulated subcategory in
+	the sense of Definition~\ref{def:F-injective}, we call $\mathcal{I}$ an
+	$F$-injective (respectively, $F$-projective) subcategory for short.
+\end{convention}
+
+% segment-id: o014.li2.chapter4.derived-functors-general.p004
+If $\cate{K}^\star(\mathcal{A})$ has an $F$-injective (respectively,
+$F$-projective) subcategory $\mathcal{I}$,
+Proposition~\ref{prop:localization-injective} guarantees the existence of
+${}^\star\mathrm{R}F$ (respectively, ${}^\star\mathrm{L}F$). Its restriction
+to $\mathcal{I}$ is isomorphic to $Q'\cate{K}^\star F$, while the limit
+formulas in Remark~\ref{rem:Deligne-derived-functor} make explicit the
+canonical morphism that accompanies the derived functor as a Kan extension:
+% segment-id: o014.li2.chapter4.derived-functors-general.g003
+\begin{equation}\label{eqn:L-R-can}
+	Q' \cate{K}^\star F \to ({}^\star \mathrm{R}F)Q \quad \text{or} \quad ({}^\star \mathrm{L}F)Q \to Q' (\cate{K}^\star F).
+\end{equation}
+
+% segment-id: o014.li2.chapter4.derived-functors-general.p005
+The entire general theory developed in
+\S\ref{sec:triangulated-functor-localization} applies directly. For example,
+consider additive functors between abelian categories
+\[ \mathcal{A} \xrightarrow{F} \mathcal{A}' \xrightarrow{F'} \mathcal{A}'' . \]
+Provided the derived functors in question exist, there are canonical morphisms
+\[ {}^\star \mathrm{R}(F'F) \to ({}^* \mathrm{R}F')({}^* \mathrm{R}F), \quad \left( {}^\star \mathrm{L}F' \right) \left( {}^\star \mathrm{L}F \right) \to {}^\star \mathrm{L}(F' F), \]
+and Theorem~\ref{prop:localization-triangulated-composite} gives sufficient
+conditions for these morphisms to be isomorphisms.
+
+% segment-id: o014.li2.chapter4.derived-functors-general.p006
+There is also the following compatibility.
+
+% segment-id: o014.li2.chapter4.derived-functors-general.l001
+\begin{lemma}\label{prop:derived-functor-res}
+	If $\cate{K}(\mathcal{A})$ and $\cate{K}^+(\mathcal{A})$ each have an
+	$F$-injective subcategory, then the restriction of $\mathrm{R}F$ to
+	$\cate{D}^+(\mathcal{A})$ is ${}^+\mathrm{R}F$.
+
+	The corresponding statement also holds for $F$-projective subcategories,
+	$\mathrm{L}F$, and ${}^-\mathrm{L}F$.
+\end{lemma}
+% segment-id: o014.li2.chapter4.derived-functors-general.pf002
+\begin{proof}
+	We first consider $\mathrm{R}F$. Let
+	$X\in\Obj(\cate{K}^+(\mathcal{A}))$. Write $\mathrm{qis}_{X/}$ for the
+	category of all quasi-isomorphisms $X\to Y$ in $\cate{K}(\mathcal{A})$,
+	and $\mathrm{qis}^+_{X/}$ for its version in
+	$\cate{K}^+(\mathcal{A})$. Remark~\ref{rem:Deligne-derived-functor} gives a
+	canonical isomorphism
+	\begin{equation}\label{eqn:derived-as-limit}\begin{aligned}
+		\mathrm{R}F(QX) \simeq \varinjlim_{[X \to Y] \in \Obj(\mathrm{qis}_{X/})} (Q' \cate{K}F)(Y).
+	\end{aligned}\end{equation}
+
+	For every object $X\to Y$ of $\mathrm{qis}_{X/}$, if $m\ll0$
+	(depending only on $X$), then
+	$X\to Y\to\tau^{\geq m}Y$ is an object of
+	$\mathrm{qis}^+_{X/}$. Lemma~\ref{prop:S-filtered} ensures that
+	$\mathrm{qis}_{X/}$ is filtered, so Proposition~\ref{prop:cofinal-filtered}
+	ensures that the full subcategory $\mathrm{qis}^+_{X/}$ is cofinal in it.
+	Thus the $\varinjlim$ in \eqref{eqn:derived-as-limit} may be taken over
+	$\mathrm{qis}^+_{X/}$ (Proposition~\ref{prop:cofinal-lim}), and its value is
+	precisely ${}^+\mathrm{R}F(QX)$.
+
+	For $\mathrm{L}F$, use the left-derived-functor version of
+	Remark~\ref{rem:Deligne-derived-functor} and truncate in the opposite
+	direction.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.derived-functors-general.p007
+We next discuss the bifunctors introduced in
+Convention~\ref{con:bifunctor}. The corresponding theory has also been
+prepared in \S\ref{sec:triangulated-functor-localization}. Let
+$\mathcal{A}_1$, $\mathcal{A}_2$, and $\mathcal{B}$ be abelian categories,
+and let $F:\mathcal{A}_1\times\mathcal{A}_2\to\mathcal{B}$ be additive in
+each variable. As in Definition--Proposition~\ref{def:bifunctor-cplx}, define
+% segment-id: o014.li2.chapter4.derived-functors-general.g004
+\begin{equation}\label{eqn:totCF}\begin{aligned}
+		\cate{C}_{\oplus} F & := \tot_{\oplus} \circ \cate{C}^2 F \quad \text{(if $\mathcal{B}$ has countable coproducts)}, \\
+		\cate{C}_{\Pi} F & := \tot_{\Pi} \circ \cate{C}^2 F \quad \text{(if $\mathcal{B}$ has countable products)}.
+\end{aligned}\end{equation}
+By Proposition~\ref{prop:bifunctor-cplx-homotopy}, both factor through
+functors at the level of $\cate{K}(\cdot)$, denoted by
+$\cate{K}_{\oplus}F$ and $\cate{K}_{\Pi}F$.
+
+% Reference: [KS06, Proposition 11.2.11]
+% segment-id: o014.li2.chapter4.derived-functors-general.pr001
+\begin{proposition}
+	The functors
+	$\cate{K}_{\Pi}F,\;\cate{K}_{\oplus}F:
+	\cate{K}^\star(\mathcal{A}_1)\times\cate{K}^\star(\mathcal{A}_2)
+	\to\cate{K}^\star(\mathcal{B})$ above are triangulated bifunctors in the
+	sense of Definition~\ref{def:triangulated-bifunctor}.
+\end{proposition}
+% segment-id: o014.li2.chapter4.derived-functors-general.pf003
+\begin{proof}
+	Take $\cate{K}_{\Pi}F$ as an example (assuming that $\mathcal{B}$ has
+	countable products). The discussion following
+	Proposition~\ref{prop:bifunctor-cplx-homotopy} shows that this functor is
+	compatible with translation in each variable, while
+	Proposition~\ref{prop:tot-shift} gives the anticommutative diagram required
+	in the definition of a triangulated bifunctor. It remains to prove that
+	$\cate{C}_{\Pi}F$ preserves mapping cones in each variable. For the first
+	variable, take a morphism $f:X_1\to X'_1$ in
+	$\cate{C}(\mathcal{A}_1)$ and an object $X_2$ of
+	$\cate{C}(\mathcal{A}_2)$. There are canonical isomorphisms in
+	$\mathcal{B}$
+	\begin{align*}
+		\cate{C}_{\Pi}F(\Cone(f), X_2)^n & \simeq \prod_{p+q=n} F(X_1^{p+1}, X_2^q ) \times F( (X'_1)^p, X_2^q ) \\
+		& \simeq \prod_{p+q=n+1} F( X_1^p, X_2^q ) \times \prod_{p+q=n} F( (X'_1)^p, X_2^q ) \\
+		& \simeq \Cone\left(\cate{C}_{\Pi}(f, \identity_{X_2}) \right)^n , \quad n \in \Z.
+	\end{align*}
+	It remains to verify that these isomorphisms form an isomorphism of
+	complexes and are compatible with the morphisms $\alpha(\cdot)$ and
+	$\beta(\cdot)$ accompanying the mapping cones. There is no essential
+	difficulty, and the details are left to the reader.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.derived-functors-general.p008
+Next, let $Q_i:\cate{K}(\mathcal{A}_i)\to\cate{D}(\mathcal{A}_i)$ and
+$Q:\cate{K}(\mathcal{B})\to\cate{D}(\mathcal{B})$ be the localization
+functors ($i=1,2$). Place these data in the framework of
+Definition~\ref{def:bifunctor-triangulated-localization}, taking
+$\mathcal{D}_1$, $\mathcal{D}_2$, and $\mathcal{D}'$ to be, respectively,
+$\cate{K}^\star(\mathcal{A}_1)$, $\cate{K}^\star(\mathcal{A}_2)$, and
+$\cate{K}^\star(\mathcal{B})$, while the acyclic complexes form
+$\mathcal{N}_1^\star$, $\mathcal{N}_2^\star$, and
+$(\mathcal{N}')^\star$.
+
+% segment-id: o014.li2.chapter4.derived-functors-general.d002
+\begin{definition}[Derived bifunctors]\label{def:derived-bifunctor}
+	\index{derived bifunctor}
+	\index[sym1]{RF} \index[sym1]{LF}
+	Fix $\star\in\{+,-,\hspace{0.8em}\}$ and consider an additive bifunctor
+	$F:\mathcal{A}_1\times\mathcal{A}_2\to\mathcal{B}$.
+	\begin{itemize}
+		\item Suppose that $\mathcal{B}$ has countable products. If the right
+		derived bifunctor of $\cate{K}_{\Pi}F$ in the sense of
+		Definition~\ref{def:bifunctor-triangulated-localization},
+		\[\cate{D}^\star(\mathcal{A}_1)\times\cate{D}^\star(\mathcal{A}_2)
+		\to\cate{D}^\star(\mathcal{B}),\]
+		exists, it is called the \emph{right derived bifunctor} of $F$ and is
+		denoted by ${}^\star\mathrm{R}F$.
+		\item Suppose that $\mathcal{B}$ has countable coproducts. If the left
+		derived bifunctor of $\cate{K}_{\oplus}F$,
+		\[\cate{D}^\star(\mathcal{A}_1)\times\cate{D}^\star(\mathcal{A}_2)
+		\to\cate{D}^\star(\mathcal{B}),\]
+		exists, it is called the \emph{left derived bifunctor} of $F$ and is
+		denoted by ${}^\star\mathrm{L}F$.
+	\end{itemize}
+	We continue to write
+	${}^\star\mathrm{R}^nF:=\Hm^n\circ{}^\star\mathrm{R}F$ and
+	${}^\star\mathrm{L}_nF:=\Hm^{-n}\circ{}^\star\mathrm{L}F$.
+\end{definition}
+
+% segment-id: o014.li2.chapter4.derived-functors-general.p009
+Fix $\star\in\{+,-,\hspace{0.8em}\}$, and let $\mathcal{I}_i$ be a
+triangulated subcategory of $\cate{K}^\star(\mathcal{A}_i)$, $i=1,2$. As
+usual, if $(\mathcal{I}_1,\mathcal{I}_2)$ is a pair of
+$\cate{K}^\star F$-injective (respectively, projective) subcategories in the
+sense of Definition~\ref{def:F-injective-bifunctor}, we call the pair
+$F$-injective (respectively, $F$-projective). Proposition~\ref{prop:localization-injective-bifunctor}
+immediately gives the following conclusions, and all the isomorphisms are
+canonical.
+\index{$\cdots$-injective subcategory} \index{$\cdots$-projective subcategory}
+
+% segment-id: o014.li2.chapter4.derived-functors-general.p010
+\begin{itemize}
+	\item If $(\mathcal{I}_1,\mathcal{I}_2)$ is $F$-injective, then
+	${}^\star\mathrm{R}F$ exists and
+	\begin{equation}\label{eqn:derived-bifunctor-1}
+		(X_1, X_2) \in \Obj(\mathcal{I}_1) \times \Obj(\mathcal{I}_2) \implies {}^\star \mathrm{R}F(Q_1 X_1, Q_2 X_2) \simeq Q \cate{K}_{\Pi}F(X_1, X_2).
+	\end{equation}
+	\item If $(\mathcal{P}_1,\mathcal{P}_2)$ is $F$-projective, then
+	${}^*\mathrm{L}F$ exists and
+	\begin{equation}\label{eqn:derived-bifunctor-2}
+		(X_1, X_2) \in \Obj(\mathcal{P}_1) \times \Obj(\mathcal{P}_2) \implies {}^\star \mathrm{L}F(Q_1 X_1, Q_2 X_2) \simeq Q \cate{K}_{\oplus}F(X_1, X_2).
+	\end{equation}
+\end{itemize}
+
+% segment-id: o014.li2.chapter4.derived-functors-general.p011
+We next discuss a product on derived bifunctors. We begin with its version at
+the level of complexes. Keep the notation above, but now assume that $F$ is
+right exact in each variable. For every complex $X$, write
+$Z^n(X):=\Ker(d_X^n)$ and $B^n(X):=\Image(d_X^{n-1})$. For every
+$(p,q)\in\Z^2$, there is a natural morphism
+\[ F\left( Z^p(X_1), Z^q(X_2) \right) \to Z^{p+q}\left( \cate{C}_{\oplus}F(X_1, X_2) \right). \]
+This morphism sends the images of $F(B^p(X_1),Z^q(X_2))$ and
+$F(Z^p(X_1),B^q(X_2))$ into
+$B^{p+q}(\cate{C}_{\oplus}F(X_1,X_2))$. Taking quotients and using the right
+exactness of $F$ gives a canonical morphism
+\[ \kappa: F\left(\Hm^p(X_1), \Hm^q(X_2)\right) \to \Hm^{p+q}\left( \cate{C}_{\oplus} F(X_1, X_2) \right). \]
+The discussion preceding the Künneth theorem for homology,
+Theorem~\ref{prop:Kunneth-homology}, is the special case of this construction
+with $F=\otimes_R$.
+
+% segment-id: o014.li2.chapter4.derived-functors-general.p012
+Now change the hypothesis: let $F$ be left exact in each variable. Dualizing
+the construction above gives a canonical morphism
+\[ \lambda: \Hm^{p+q}\left( \cate{C}_{\Pi} F(X_1, X_2) \right) \to F\left( \Hm^p(X_1), \Hm^q(X_2) \right). \]
+The existence of the countable $\oplus$ or $\prod$ under discussion is still
+assumed. Since only cohomology matters here, $\cate{C}$ may also be replaced
+by $\cate{K}$.
+
+% segment-id: o014.li2.chapter4.derived-functors-general.pr002
+\begin{proposition}\label{prop:bifunctor-cup}
+	Suppose that $F$ is right exact (respectively, left exact) in each variable,
+	that $\star\in\{+,-,\hspace{0.8em}\}$, and that there is an $F$-projective
+	pair $(\mathcal{P}_1,\mathcal{P}_2)$ (respectively, an $F$-injective pair
+	$(\mathcal{I}_1,\mathcal{I}_2)$). Then there is a canonical morphism
+	\[ F\left(\Hm^p(\cdot), \Hm^q(\cdot) \right) \to \Hm^{p+q} {}^\star \mathrm{L}F \quad \text{or} \quad \Hm^{p+q} {}^\star \mathrm{R}F \to F\left(\Hm^p(\cdot), \Hm^q(\cdot) \right), \]
+	where both sides are functors from
+	$\cate{D}^\star(\mathcal{A}_1)\times\cate{D}^\star(\mathcal{A}_2)$ to
+	$\mathcal{B}$. These morphisms are characterized by the commutative diagram
+% segment-id: o014.li2.chapter4.derived-functors-general.g005
+	\begin{equation*}
+		\begin{tikzcd}
+			& \Hm^{p+q} \cate{K}_{\oplus} F(X_1, X_2) \\
+			F\left(\Hm^p(X_1), \Hm^q(X_2) \right) \arrow[r] \arrow[ru, "\kappa"] & \Hm^{p+q} {}^\star \mathrm{L}F(Q_1 X_1, Q_2 X_2) \arrow[u, "\mathrm{can}"']
+		\end{tikzcd}
+	\end{equation*}
+	or by
+% segment-id: o014.li2.chapter4.derived-functors-general.g006
+	\begin{equation*}
+		\begin{tikzcd}[column sep=small]
+			& \Hm^{p+q} \cate{K}_{\Pi} F(X_1, X_2) \arrow[d, "\mathrm{can}"] \arrow[ld, "\lambda"'] \\
+			F\left(\Hm^p(X_1), \Hm^q(X_2) \right) & \Hm^{p+q} {}^\star \mathrm{R}F(Q_1 X_1, Q_2 X_2), \arrow[l]
+		\end{tikzcd}
+	\end{equation*}
+	where $X_i\in\Obj(\cate{K}^\star(\mathcal{A}_i))$. The arrows labeled
+	$\mathrm{can}$ are the canonical morphisms accompanying the derived
+	functors as Kan extensions (after applying $\Hm^{p+q}$); see
+	\eqref{eqn:L-R-can} for the one-variable case.
+\end{proposition}
+% segment-id: o014.li2.chapter4.derived-functors-general.pf004
+\begin{proof}
+	By duality, it suffices to discuss the case involving $\kappa$. Observe
+	that, apart from $\cate{K}_{\oplus}F(X_1,X_2)$, the other two vertices in
+	the diagram depend only on $Q_1X_1$ and $Q_2X_2$.
+
+	Fix the pair $(\mathcal{P}_1,\mathcal{P}_2)$. Since all morphisms in the
+	diagram are functorial and
+	$\mathcal{P}_i/(\mathcal{P}_i\cap\mathcal{N}^\star_i)$ is equivalent to
+	$\cate{D}^\star(\mathcal{A}_i)$, it suffices to determine the desired
+	morphism for $X_i\in\Obj(\mathcal{P}_i)$; this can be checked by drawing a
+	diagram. In this case, however,
+	${}^\star\mathrm{L}F(Q_1X_1,Q_2X_2)=\cate{K}_{\oplus}F(X_1,X_2)$, so the
+	claim is immediate.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.derived-functors-general.p013
+In short, everything can be computed by taking resolutions, and the final
+result is independent of the choice of resolutions.

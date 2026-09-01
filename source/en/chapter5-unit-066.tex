@@ -1,0 +1,211 @@
+% Unit 066 English translation of chapter5.tex lines 350--467.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter5.exact-couples
+% Coverage: Complete Section 5.3.
+
+% segment-id: o014.li2.chapter5.exact-couples.h001
+\section{Exact couples}\label{sec:exact-couples}
+\hypertarget{o014.aljabr2.chapter5.exact-couples}{ }
+
+% segment-id: o014.li2.chapter5.exact-couples.p001
+Several commonly used kinds of spectral sequence arise from exact couples, a
+discovery due to W.\ Massey. To grasp the essential idea, we first return to
+the case without degrees.
+
+% segment-id: o014.li2.chapter5.exact-couples.d001
+\begin{definition}[Exact couple]\label{def:exact-couple}
+	\index{exact couple}
+	An exact couple over an Abelian category $\mathcal{A}$ is an exact diagram
+	in $\mathcal{A}$
+	\[\begin{tikzcd}[column sep=small]
+		D \arrow[rr, "i"] & & D \arrow[ld, "j"] \\
+		& E \arrow[lu, "k"] &
+	\end{tikzcd}\]
+	Morphisms between data $\mathscr{C}:=(D,E,i,j,k)$ are defined in the
+	evident way.
+\end{definition}
+
+% segment-id: o014.li2.chapter5.exact-couples.p002
+Given an exact couple $\mathscr{C}=(D,E,i,j,k)$, set $d:=jk:E\to E$. Then
+$dj=jkj=0$ and $kd=kjk=0$, whence $d^2=0$. The exactness conditions readily
+give the following factorizations:
+\begin{equation}\label{eqn:exact-couple-aux}
+	\begin{tikzcd}
+		D \arrow[r, "j"] \arrow[twoheadrightarrow, d, "i"'] &
+		\Ker(d) \arrow[twoheadrightarrow, d] \\
+		i(D) \arrow[r, "{\exists!\;j'}"'] & \Hm(E,d)
+	\end{tikzcd} \quad \begin{tikzcd}
+		\Ker(d) \arrow[r, "k"] \arrow[twoheadrightarrow, d] & i(D) \\
+		\Hm(E,d) \arrow[ru, "{\exists!\;k'}"'] &
+	\end{tikzcd}
+\end{equation}
+Also define $E':=\Hm(E,d)$, $D':=i(D)$, and
+$i':=i|_{i(D)}:D'\to D'$.
+
+% segment-id: o014.li2.chapter5.exact-couples.l001
+\begin{lemma}
+	Given an exact couple $\mathscr{C}=(D,E,i,j,k)$, the data constructed above,
+	\[ \mathscr{C}'=(D',E',i',j',k'):\quad
+	\begin{tikzcd}[column sep=small]
+		D' \arrow[rr, "{i'}"] & & D' \arrow[ld, "{j'}"] \\
+		& E' \arrow[lu, "{k'}"] &
+	\end{tikzcd} \]
+	also form an exact couple.
+\end{lemma}
+\begin{proof}
+	Examining \eqref{eqn:exact-couple-aux} and using the exactness conditions,
+	one readily verifies that
+	\begin{align*}
+		\Ker(i') &= i(D)\cap\Ker(i)=\Ker(j)\cap k(E) \\
+		&=\Image\left[\Ker(d)\xrightarrow{k}i(D)\right]=\Image(k'), \\
+		\Ker(j') &= i\left(j^{-1}(jk(E))\right) \\
+		&=i\left(k(E)+\Ker(j)\right)=i\left(i(D)\right)=\Image(i'), \\
+		\Ker(k') &= (\Ker(k)\cap\Ker(d))/\Image(d)
+		=(j(D)\cap\Ker(jk))/\Image(d) \\
+		&=j(D)/\Image(d)=\Image(j').
+	\end{align*}
+	Thus the new triangular diagram is still exact.
+\end{proof}
+
+% segment-id: o014.li2.chapter5.exact-couples.p003
+Iterating this procedure gives a sequence of exact couples
+$(\mathscr{C}_{(r)})_{r\geq1}$, with
+$\mathscr{C}_{(1)}=\mathscr{C}$ and
+$\mathscr{C}_{(r+1)}=\mathscr{C}_{(r)}'$ for $r\geq1$. Writing
+$\mathscr{C}_{(r)}=(D_r,E_r,i_r,j_r,k_r)$, the sequence
+$(E_r,d_r:=j_rk_r)_{r\geq1}$ is a spectral sequence.
+
+% segment-id: o014.li2.chapter5.exact-couples.l002
+\begin{lemma}\label{prop:exact-couple-Z-B}
+	For the spectral sequence $(E_r,d_r)_{r\geq1}$ obtained from an exact
+	couple $\mathscr{C}=(D,E,i,j,k)$, define the family of subobjects
+	$\overline{B}_r\subset\overline{Z}_r$ of $E=E_1$ according to
+	\eqref{eqn:spectral-sequence-Z-B}. Bars are used because the indexing
+	starts at $r=1$; see Proposition~\ref{prop:differential-exact-couple} below.
+	For $r\geq0$,
+	\begin{gather*}
+		\overline{B}_{r+1}=j\left(\Ker(i^r)\right)
+		\subset k^{-1}\left(\Image(i^r)\right)=\overline{Z}_{r+1}; \\
+		\overline{B}_\infty=j\left(\bigcup_{r\geq2}\Ker(i^r)\right)
+		\subset k^{-1}\left(\bigcap_{r\geq2}\Image(i^r)\right)
+		=\overline{Z}_\infty,
+	\end{gather*}
+	provided that the relevant $\bigcup_r$ and $\bigcap_r$ exist. More
+	precisely, the exact couple $\mathscr{C}_{(r+1)}$ is canonically isomorphic
+	to
+	\[\begin{tikzcd}[column sep=tiny]
+		i^rD \arrow[rr, "i"] & & i^rD \arrow[ld, "{\overline{j}_{r+1}}"] \\
+		& \dfrac{k^{-1}(i^rD)}{j(\Ker(i^r))}
+		\arrow[lu, "{\overline{k}_{r+1}}"] &
+	\end{tikzcd}\]
+	where $\overline{k}_{r+1}$ is induced by $k:E\to D$, while
+	$\overline{j}_{r+1}$ is characterized by the commutative diagram
+	\[\begin{tikzcd}
+		D \arrow[r, "{i^r}"] \arrow[d, "j"'] &
+		i^rD \arrow[d, "{\overline{j}_{r+1}}"] \\
+		k^{-1}(i^rD) \arrow[twoheadrightarrow, r] &
+		\dfrac{k^{-1}(i^rD)}{j(\Ker(i^r))}.
+	\end{tikzcd}\]
+\end{lemma}
+\begin{proof}
+	The description of the exact couple $\mathscr{C}_{(r+1)}$ can be proved
+	recursively. The case $r=0$ is trivial ($i^0=\identity$), and the
+	descriptions of $\overline{B}_{r+1}$ and $\overline{Z}_{r+1}$ are immediate
+	consequences. Since the details are somewhat routine, they are omitted.
+	The assertion $\overline{B}_\infty\subset\overline{Z}_\infty$ follows from
+	Lemma~\ref{prop:image-sum-preimage-intersection}~(ii).
+\end{proof}
+
+% segment-id: o014.li2.chapter5.exact-couples.p004
+We next explain how to construct an exact couple from a differential object.
+
+% segment-id: o014.li2.chapter5.exact-couples.t001
+\begin{proposition}\label{prop:differential-exact-couple}
+	Let $\alpha:(D,d)\to(D,d)$ be a monomorphism in $\mathcal{A}_d$, and
+	write $d_\alpha$ for the morphism induced by $d$ on $\Coker(\alpha)$. Then
+	there is an exact couple
+	\[\begin{tikzcd}[column sep=tiny]
+		\Hm(D,d) \arrow[rr, "{i=\Hm(\alpha)}"] & &
+		\Hm(D,d) \arrow[ld, "j"] \\
+		& \Hm(\Coker(\alpha),d_\alpha) \arrow[lu, "k"] &
+	\end{tikzcd}\]
+	Take the inverse images of
+	$\overline{B}_{r+1}\subset\overline{Z}_{r+1}$ in
+	$E_0:=\Coker(\alpha)$, and denote them by
+	\[ 0=:B_0\subset B_1\subset B_2\subset\cdots\subset Z_2\subset Z_1
+	\subset Z_0:=\Coker(\alpha). \]
+	For every $r\geq0$:
+	\begin{itemize}
+		\item $B_{r+1}$ is the image of
+		$(\alpha^r)^{-1}(dD)\subset D$ in $\Coker(\alpha)$;
+		\item $Z_{r+1}$ is the image of
+		$d^{-1}(\alpha^{r+1}D)\subset D$ in $\Coker(\alpha)$;
+		\item $d_{r+1}\in\End(Z_{r+1}/B_{r+1})$ is induced by
+		$d^{-1}(\alpha^{r+1}D)\xrightarrow{d}\alpha^{r+1}D
+		\xleftarrow[\sim]{\alpha^{r+1}}D$.
+	\end{itemize}
+	In particular, there are canonical isomorphisms
+	\[ E_{r+1}\simeq\dfrac{Z_{r+1}}{B_{r+1}}
+	\simeq\dfrac{d^{-1}(\alpha^{r+1}D)+\alpha D}
+	{(\alpha^r)^{-1}(dD)+\alpha D},\qquad r\in\Z_{\geq1}. \]
+\end{proposition}
+\begin{proof}
+	The exact couple is obtained by applying
+	Lemma~\ref{prop:diff-obj-triangle} (with
+	$T=\identity_{\mathcal{A}}$) to the short exact sequence in
+	$\mathcal{A}_d$
+	\[ 0\to(D,d)\xrightarrow{\alpha}(D,d)
+	\to(\Coker(\alpha),d_\alpha)\to0. \]
+	In particular, $j$ is induced by $D\twoheadrightarrow\Coker(\alpha)$,
+	while $k$ is essentially the connecting morphism in the long exact
+	sequence. The description of $B_{r+1}$ is simply the version of
+	Lemma~\ref{prop:exact-couple-Z-B} lifted to $E_0$. For $Z_{r+1}$, besides
+	that lemma, the key point is the description of the connecting morphism
+	$k:\Hm(\Coker(\alpha),d_\alpha)\to\Hm(D,d)$. A careful review of the
+	constructions in \eqref{eqn:snake-conn} and
+	\eqref{eqn:long-exact-sequence-ses-aux} shows that this morphism is induced
+	by the middle vertical morphism $\overline{d}$ in the following commutative
+	diagram with exact rows:
+	\[\begin{tikzcd}
+		& \Coker(d) \arrow[r] \arrow[d, "\overline{d}"'] &
+		\Coker(d) \arrow[r] \arrow[d, "\overline{d}"'] &
+		\Coker(d_\alpha) \arrow[d, "\overline{d_\alpha}"] \arrow[r] & 0 \\
+		0 \arrow[r] & \Ker(d) \arrow[r, "\alpha"'] &
+		\Ker(d) \arrow[r] & \Ker(d_\alpha) &
+	\end{tikzcd}\]
+	and $\overline{d}$ itself comes from $d:D\to D$. The remaining
+	verifications are lengthy but straightforward; the reader may begin with
+	the case where $\mathcal{A}$ is a category of modules.
+\end{proof}
+
+% segment-id: o014.li2.chapter5.exact-couples.p005
+Thus the spectral sequence provided by a differential object can be made to
+start at $0$ by setting $E_0:=\Coker(\alpha)$ and $d_0:=d_\alpha$.
+
+% segment-id: o014.li2.chapter5.exact-couples.p006
+For an Abelian category with translation $(\mathcal{A},T)$, morphisms with
+degrees can still be composed and notions such as exactness remain available,
+so the theory of exact couples readily extends to the case in which $i,j,k$
+have degrees. For example, in the situation to be discussed in
+\S\ref{sec:filtered-diff-ss}, we can consider the exact couple
+\[\begin{tikzcd}[column sep=tiny]
+	D \arrow[rr, "{-1}"] & & D \arrow[ld, "{+1}"] \\
+	& E \arrow[lu] &
+\end{tikzcd} \xlongequal{\text{unrolled}} \left[
+	\begin{tikzcd}[column sep=0ex, every cell/.append style={font=\small}]
+		\cdots & TD \arrow[rr] \arrow[ld] & & D \arrow[rr] \arrow[ld] & &
+		T^{-1}D \arrow[rr] \arrow[ld] & & T^{-2}D \arrow[ld] & \cdots \\
+		\cdots & & TE \arrow[lu] & & E \arrow[lu] & &
+		T^{-1}E \arrow[lu] & & \cdots \arrow[lu]
+	\end{tikzcd}
+\right]. \]
+Denote this exact couple by $\mathscr{C}$. The natural extension of
+Lemma~\ref{prop:exact-couple-Z-B} to the case with degrees shows that
+$\mathscr{C}_{(r)}$ has the form
+$\begin{tikzcd}[column sep=tiny, row sep=small]
+	\bullet \arrow[rr, "{-1}"] & & \bullet \arrow[ld, "{+r}"] \\
+	& \bullet \arrow[lu] &
+\end{tikzcd}$.
+Thus $d_r=j_rk_r$ is a morphism of degree $r$. The resulting spectral sequence
+is therefore graded.

@@ -1,0 +1,205 @@
+{
+  "schema": "o014-english-range-pass-v1",
+  "status": "PASS",
+  "range": {
+    "start": 41,
+    "end": 46
+  },
+  "verified_at": "2026-08-31T20:17:42.0731524+02:00",
+  "scope": {
+    "map_sequences": [41, 42, 43, 44, 45, 46],
+    "target_root": "source/en",
+    "witnesses": [
+      "mapped Chinese source slices",
+      "mapped Indonesian unit references"
+    ],
+    "exercise_hint_answer_scope": "none in the mapped slices",
+    "tex_invoked": false,
+    "git_invoked": false
+  },
+  "checks": {
+    "all_targets_present": true,
+    "all_chinese_source_slice_hashes_verified": true,
+    "all_indonesian_reference_hashes_verified": true,
+    "all_stable_unit_ids_and_anchors_exact": true,
+    "all_segment_id_sequences_exact_and_unique": true,
+    "all_label_sequences_exact": true,
+    "all_reference_target_sequences_exact": true,
+    "all_citation_key_sequences_exact": true,
+    "all_semantic_environment_roles_exact_after_localized_to_english_canonicalization": true,
+    "all_environment_stacks_and_braces_balanced": true,
+    "all_math_delimiters_balanced": true,
+    "all_display_math_equation_item_and_tikzcd_counts_exact": true,
+    "all_index_concepts_preserved": true,
+    "all_source_footnotes_preserved": true,
+    "all_formula_diagram_and_narrative_content_reviewed": true,
+    "language_residue_hits": 0,
+    "replacement_character_hits": 0,
+    "placeholder_hits": 0,
+    "segment_ids_in_range": 444,
+    "unique_segment_ids_in_range": 444
+  },
+  "editorial_clarifications": [
+    {
+      "sequence": 42,
+      "kind": "notation normalization",
+      "detail": "Normalized the inherited vertical-differential component label from \\dvert^{(p, 1)} to \\dvert^{p,1}."
+    },
+    {
+      "sequence": 43,
+      "kind": "mathematical context",
+      "detail": "Restored exact diagram-ID alignment and made the respective boundedness cases, the range n >= 1 for homological connecting morphisms, the range n >= 0 for the acyclic-resolution formula, and effaceability terminology explicit."
+    },
+    {
+      "sequence": 44,
+      "kind": "mathematical context",
+      "detail": "Made the standing enough-injective-objects assumption explicit before the lim^1 lemma/theorem chain and restored that Q is a quotient of A."
+    }
+  ],
+  "units": [
+    {
+      "sequence": 41,
+      "unit_id": "o014.aljabr2.chapter3.double-complex-cohomology",
+      "target_path": "source/en/chapter3-unit-041.tex",
+      "bytes": 19123,
+      "sha256": "d53cb8040f2e1a95fa9f91266d6a2ccef0ea38d80ef8370b8cc8c10c6877d746",
+      "evidence": {
+        "source_slice_sha256": "fac229cb4d731ecac5486304c8f4f172d0f8522adede60034b5060616d04ccfa",
+        "source_slice_hash_verified": true,
+        "id_reference_sha256": "8d80a0236ab59caf4fcabf7534cc4d349e69fade09ea27881c4f81ec217b3296",
+        "id_reference_hash_verified": true,
+        "segment_ids": {"count": 43, "exact_order": true, "unique": true},
+        "labels": {"count": 10, "exact_order": true},
+        "references": {"count": 24, "exact_order": true},
+        "citations": {"count": 1, "keys_exact_order": true},
+        "semantic_environments": {"count": 12, "canonical_roles_exact_order": true, "balanced": true},
+        "indices": {"source_entries": 5, "target_entries": 5, "concepts_preserved": true},
+        "footnotes": {"source": 0, "target": 2, "source_footnotes_preserved": true},
+        "items": {"count": 4, "count_matches": true},
+        "tikzcd": {"count": 7, "count_matches": true},
+        "display_math": {"count": 7, "count_matches": true},
+        "equation_environments": {"count": 3, "count_matches": true}
+      }
+    },
+    {
+      "sequence": 42,
+      "unit_id": "o014.aljabr2.chapter3.resolutions",
+      "target_path": "source/en/chapter3-unit-042.tex",
+      "bytes": 36601,
+      "sha256": "e12cdf6e4236f8786e5e0c2bc38c78220b4f59442125c3ff48792d3138a4d46f",
+      "evidence": {
+        "source_slice_sha256": "75da0a5963f8e3bf2cec5fbe6a4007fea1c1b27faca6bd54528ac8957547ebfa",
+        "source_slice_hash_verified": true,
+        "id_reference_sha256": "b1853b8e84ccde71bedc7fc6ca1902fc441e001281fd399f9cf616bebbb81c6e",
+        "id_reference_hash_verified": true,
+        "segment_ids": {"count": 102, "exact_order": true, "unique": true},
+        "labels": {"count": 15, "exact_order": true},
+        "references": {"count": 40, "exact_order": true},
+        "citations": {"count": 0, "keys_exact_order": true},
+        "semantic_environments": {"count": 19, "canonical_roles_exact_order": true, "balanced": true},
+        "indices": {"source_entries": 5, "target_entries": 5, "concepts_preserved": true},
+        "footnotes": {"source": 0, "target": 4, "source_footnotes_preserved": true},
+        "items": {"count": 21, "count_matches": true},
+        "tikzcd": {"count": 13, "count_matches": true},
+        "display_math": {"count": 32, "count_matches": true},
+        "equation_environments": {"count": 4, "count_matches": true}
+      }
+    },
+    {
+      "sequence": 43,
+      "unit_id": "o014.aljabr2.chapter3.classical-derived-functors",
+      "target_path": "source/en/chapter3-unit-043.tex",
+      "bytes": 37659,
+      "sha256": "c6460e4841b0bb0fb9e9301a12ad02dbec8616ed6c5bc900a39edbae968bba1d",
+      "evidence": {
+        "source_slice_sha256": "ac95a737c3df39dff8ece789057d2ad3ce93474b258476245b2fcc67d074dbb9",
+        "source_slice_hash_verified": true,
+        "id_reference_sha256": "909623c4cca7ba2bcb1d164778b59f57a1ec985c785269ae2c364259835ecee5",
+        "id_reference_hash_verified": true,
+        "segment_ids": {"count": 105, "exact_order": true, "unique": true},
+        "labels": {"count": 17, "exact_order": true},
+        "references": {"count": 23, "exact_order": true},
+        "citations": {"count": 0, "keys_exact_order": true},
+        "semantic_environments": {"count": 24, "canonical_roles_exact_order": true, "balanced": true},
+        "indices": {"source_entries": 10, "target_entries": 11, "concepts_preserved": true, "combined_entry_split_in_english": true},
+        "footnotes": {"source": 0, "target": 3, "source_footnotes_preserved": true},
+        "items": {"count": 19, "count_matches": true},
+        "tikzcd": {"count": 17, "count_matches": true},
+        "display_math": {"count": 31, "count_matches": true},
+        "equation_environments": {"count": 5, "count_matches": true}
+      }
+    },
+    {
+      "sequence": 44,
+      "unit_id": "o014.aljabr2.chapter3.example-lim1",
+      "target_path": "source/en/chapter3-unit-044.tex",
+      "bytes": 17646,
+      "sha256": "4bee1c185ad84fc2958e9aef474b301d75d25f7206729538bc77db2e78ef735c",
+      "evidence": {
+        "source_slice_sha256": "2b8a923963fba1f31a9c5f7bfd98e5381a4a1b194f70cd3b7d002fa05a68298e",
+        "source_slice_hash_verified": true,
+        "id_reference_sha256": "becf18d233ea1b7368ffb370f0a1882f848a0f84b828fa13fd7551c206150cd8",
+        "id_reference_hash_verified": true,
+        "segment_ids": {"count": 51, "exact_order": true, "unique": true},
+        "labels": {"count": 14, "exact_order": true},
+        "references": {"count": 22, "exact_order": true},
+        "citations": {"count": 1, "keys_exact_order": true},
+        "semantic_environments": {"count": 20, "canonical_roles_exact_order": true, "balanced": true},
+        "indices": {"source_entries": 5, "target_entries": 6, "concepts_preserved": true, "combined_entry_split_in_english": true},
+        "footnotes": {"source": 0, "target": 1, "source_footnotes_preserved": true},
+        "items": {"count": 2, "count_matches": true},
+        "tikzcd": {"count": 2, "count_matches": true},
+        "display_math": {"count": 10, "count_matches": true},
+        "equation_environments": {"count": 2, "count_matches": true}
+      }
+    },
+    {
+      "sequence": 45,
+      "unit_id": "o014.aljabr2.chapter3.ext-tor",
+      "target_path": "source/en/chapter3-unit-045.tex",
+      "bytes": 25148,
+      "sha256": "e9676389e9ca1399b1ea0a367af51276da97805031133bb886d4069dc4dcf583",
+      "evidence": {
+        "source_slice_sha256": "b257f061a7a3f56f8878d1815ac430417c033ef7ff93b214abe13eccb0b1d15a",
+        "source_slice_hash_verified": true,
+        "id_reference_sha256": "6086038d4477f82db29a5ef8c79ba1f1d521540550e21bc5b889a5d9124108dc",
+        "id_reference_hash_verified": true,
+        "segment_ids": {"count": 60, "exact_order": true, "unique": true},
+        "labels": {"count": 12, "exact_order": true},
+        "references": {"count": 26, "exact_order": true},
+        "citations": {"count": 8, "keys_exact_order": true},
+        "semantic_environments": {"count": 17, "canonical_roles_exact_order": true, "balanced": true},
+        "indices": {"source_entries": 11, "target_entries": 11, "concepts_preserved": true},
+        "footnotes": {"source": 2, "target": 2, "source_footnotes_preserved": true},
+        "items": {"count": 6, "count_matches": true},
+        "tikzcd": {"count": 2, "count_matches": true},
+        "display_math": {"count": 21, "count_matches": true},
+        "equation_environments": {"count": 1, "count_matches": true}
+      }
+    },
+    {
+      "sequence": 46,
+      "unit_id": "o014.aljabr2.chapter3.k-injectives",
+      "target_path": "source/en/chapter3-unit-046.tex",
+      "bytes": 28294,
+      "sha256": "3242dda88ea5c55b3c4e46208af26a3cdec72caa5916aa37befb667bec3f423b",
+      "evidence": {
+        "source_slice_sha256": "5a56872f1fbdd507618130c9def1445e5689dba76d94189676a97e2a677a72e6",
+        "source_slice_hash_verified": true,
+        "id_reference_sha256": "4ddbc7e6dd5bf645f1d59f6505d0a487ed2154d7821997120acc4b076359c2a2",
+        "id_reference_hash_verified": true,
+        "segment_ids": {"count": 83, "exact_order": true, "unique": true},
+        "labels": {"count": 18, "exact_order": true},
+        "references": {"count": 50, "exact_order": true},
+        "citations": {"count": 6, "keys_exact_order": true},
+        "semantic_environments": {"count": 22, "canonical_roles_exact_order": true, "balanced": true},
+        "indices": {"source_entries": 4, "target_entries": 4, "concepts_preserved": true},
+        "footnotes": {"source": 1, "target": 4, "source_footnotes_preserved": true},
+        "items": {"count": 18, "count_matches": true},
+        "tikzcd": {"count": 15, "count_matches": true},
+        "display_math": {"count": 20, "count_matches": true},
+        "equation_environments": {"count": 4, "count_matches": true}
+      }
+    }
+  ]
+}

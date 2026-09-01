@@ -1,0 +1,377 @@
+% Unit 117 English translation of chapter8.tex lines 1704--1849.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter8.closed-structure
+% Coverage: all of Section 8.9, Closed Structures, ending immediately before
+% Section 8.10.
+% Mathematical/editorial correction: the opening distinguishes the Cartesian
+% closed structure on sSet from the closed monoidal structure on sAb; the
+% direction of f^* on source line 1710 is reversed to agree with precomposition
+% and with lines 1717--1722.
+
+% segment-id: o014.aljabr2.chapter8.closed-structure.h001
+\section{Closed Structures}\label{sec:closed-simplicial}
+\hypertarget{o014.aljabr2.chapter8.closed-structure}{ }
+% segment-id: o014.aljabr2.chapter8.closed-structure.p001
+The aim of this section is to explain the closed structures on $\cate{sSet}$
+and $\cate{sAb}$. For $\cate{sSet}$, this is the Cartesian closed structure
+of Definition~\ref{def:Cartesian-closed}; for $\cate{sAb}$, it is the
+monoidal structure given by the tensor product that is closed. In other
+words, we seek to promote the $\Hom$ sets to suitable simplicial objects. We
+first discuss the category $\cate{sSet}$ of simplicial sets, then its version
+for $\cate{sAb}$ and its comparison, via the Dold--Kan correspondence, with
+the $\Hom$ complex. The last step requires the results of
+\S\ref{sec:bisimplicial}.
+
+% segment-id: o014.aljabr2.chapter8.closed-structure.d001
+\begin{definition}\label{def:internal-Hom-sSet}
+	For $X,Y\in\Obj(\cate{sSet})$, define
+	$\iHom(X,Y)=\iHom_{\cate{sSet}}(X,Y)\in\Obj(\cate{sSet})$ as follows:
+	% segment-id: o014.aljabr2.chapter8.closed-structure.q001
+	\[
+	\iHom(X,Y)_n:=\Hom_{\cate{sSet}}(X\times\Delta^n,Y),
+	\qquad n\in\Z_{\geq0}.
+	\]
+	For every morphism $f:[m]\to[n]$ in $\simpDelta$, define
+	$f^*:\iHom(X,Y)_n\to\iHom(X,Y)_m$ by pullback, that is, by
+	precomposition, along
+	% segment-id: o014.aljabr2.chapter8.closed-structure.q002
+	\[
+	\identity_X\times f:X\times\Delta^m\to X\times\Delta^n.
+	\]
+	Also define the evaluation morphism
+	% segment-id: o014.aljabr2.chapter8.closed-structure.q003
+	\[
+	\mathrm{ev}_{X,Y}:\iHom(X,Y)\times X\to Y
+	\]
+	as follows: the image of
+	$(\varphi,x)\in\Hom_{\cate{sSet}}(X\times\Delta^n,Y)\times X_n$ is
+	$\mathrm{ev}_{X,Y,n}(\varphi,x):=\varphi(x,\identity_{[n]})\in Y_n$.
+	Recall that $(\Delta^n)_n=\End_{\simpDelta}([n])$.
+\end{definition}
+
+% segment-id: o014.aljabr2.chapter8.closed-structure.p002
+We must check that $\mathrm{ev}_{X,Y}$ is indeed a morphism in
+$\cate{sSet}$. This is immediate: for $f:[m]\to[n]$ and
+$(\varphi,x)\in\iHom(X,Y)_n\times X_n$, we have
+% segment-id: o014.aljabr2.chapter8.closed-structure.q004
+\begin{align*}
+	\mathrm{ev}_{X,Y,m}\bigl(f^*(\varphi),f^*(x)\bigr)
+	&=((\identity_X\times f)^*\varphi)
+	  \bigl(f^*(x),\identity_{[m]}\bigr)\\
+	&=\varphi\bigl(
+	  \underbracket{f^*(x),\;f}_{\in X_m\times(\Delta^n)_m}\bigr)
+	 =\varphi\bigl(f^*(x),f^*\identity_{[n]}\bigr)\\
+	&=f^*\bigl(\varphi(x,\identity_{[n]})\bigr)
+	 =f^*\bigl(\mathrm{ev}_{X,Y,n}(\varphi,x)\bigr).
+\end{align*}
+
+% segment-id: o014.aljabr2.chapter8.closed-structure.p003
+As $X,Y$ vary, this construction gives a functor
+$\iHom:\cate{sSet}^{\opp}\times\cate{sSet}\to\cate{sSet}$, while
+$\mathrm{ev}$ is natural in $X$ and $Y$.
+
+% segment-id: o014.aljabr2.chapter8.closed-structure.pr001
+\begin{proposition}\label{prop:sSet-closed}
+	For every $X,Y,Z\in\Obj(\cate{sSet})$, there is a canonical bijection
+	% segment-id: o014.aljabr2.chapter8.closed-structure.g001
+	\[\begin{tikzcd}
+		\Hom_{\cate{sSet}}\bigl(X,\iHom(Y,Z)\bigr)
+		\arrow[r,"1:1"]
+		&\Hom_{\cate{sSet}}(X\times Y,Z).
+	\end{tikzcd}\]
+	It sends $g:X\to\iHom(Y,Z)$ to the composite
+	% segment-id: o014.aljabr2.chapter8.closed-structure.q005
+	\[
+	X\times Y\xrightarrow{g\times\identity_Y}
+	\iHom(Y,Z)\times Y\xrightarrow{\mathrm{ev}_{Y,Z}}Z.
+	\]
+	Conversely, it sends $h:X\times Y\to Z$ to the following morphism. For
+	$n\in\Z_{\geq0}$ and $x\in X_n$, let $\iota_x:\Delta^n\to X$ be the
+	morphism corresponding to $x$. The image of $x$ is the composite
+	% segment-id: o014.aljabr2.chapter8.closed-structure.q006
+	\[
+	Y\times\Delta^n\xrightarrow{\identity_Y\times\iota_x}Y\times X
+	\xrightarrow[\sim]{\text{swap}}X\times Y\xrightarrow{h}Z.
+	\]
+\end{proposition}
+% segment-id: o014.aljabr2.chapter8.closed-structure.pf001
+\begin{proof}
+	A routine verification.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter8.closed-structure.c001
+\begin{corollary}
+	The bijection in Proposition~\ref{prop:sSet-closed} makes $\cate{sSet}$
+	a Cartesian closed category in the sense of
+	Definition~\ref{def:Cartesian-closed}, with bifunctor $\iHom$.
+\end{corollary}
+% segment-id: o014.aljabr2.chapter8.closed-structure.pf002
+\begin{proof}
+	Recall that the product in $\cate{sSet}$ is simply the product
+	$X\times Y$ of simplicial sets, and similarly for the other products.
+	It remains to compare \eqref{eqn:closed-monoidal-adj0} with the canonical
+	bijection in Proposition~\ref{prop:sSet-closed}.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter8.closed-structure.p004
+The general theory of closed monoidal categories (see
+\S\ref{sec:closed-monoidal}) gives a canonical morphism
+$\iHom(X,Y)\times X\to Y$: it is the image of $\identity$ under
+% segment-id: o014.aljabr2.chapter8.closed-structure.q007
+\[
+\End_{\cate{sSet}}\bigl(\iHom(X,Y)\bigr)\xrightarrow{1:1}
+\Hom_{\cate{sSet}}\bigl(\iHom(X,Y)\times X,Y\bigr).
+\]
+Unwinding the definitions shows that this morphism is precisely the
+$\mathrm{ev}_{X,Y}$ defined above.
+
+% segment-id: o014.aljabr2.chapter8.closed-structure.eg001
+\begin{example}
+	Proposition~\ref{prop:nerve-ff} says that the nerve functor $\mathrm{N}$
+	embeds $\cate{Cat}$ fully faithfully into $\cate{sSet}$. How is $\iHom$
+	reflected at the level of categories? The answer is simple: for any small
+	categories $\mathcal{C}$ and $\mathcal{D}$, there is a canonical
+	isomorphism
+	% segment-id: o014.aljabr2.chapter8.closed-structure.q008
+	\[
+	\iHom(\mathrm{N}\mathcal{C},\mathrm{N}\mathcal{D})
+	\simeq\mathrm{N}(\mathcal{D}^{\mathcal{C}}).
+	\]
+	Indeed, $\mathrm{N}$ takes products of categories to products of
+	simplicial sets, and $\mathrm{N}([n])=\Delta^n$. Since $\cate{Cat}$ is
+	also Cartesian closed, we obtain
+	% segment-id: o014.aljabr2.chapter8.closed-structure.q009
+	\begin{multline*}
+		\Hom_{\cate{sSet}}(\mathrm{N}\mathcal{C}\times\Delta^n,
+		\mathrm{N}\mathcal{D})
+		=\Hom_{\cate{sSet}}(\mathrm{N}(\mathcal{C}\times[n]),
+		\mathrm{N}\mathcal{D})\\
+		\simeq\Hom_{\cate{Cat}}(\mathcal{C}\times[n],\mathcal{D})
+		\simeq\Hom_{\cate{Cat}}([n],\mathcal{D}^{\mathcal{C}})
+		=\mathrm{N}(\mathcal{D}^{\mathcal{C}})_n.
+	\end{multline*}
+	It is easy to check that the pullbacks on both sides correspond for every
+	morphism $f:[m]\to[n]$ in $\simpDelta$.
+\end{example}
+
+% segment-id: o014.aljabr2.chapter8.closed-structure.p005
+Now consider $\cate{sAb}$. Recall that it has the symmetric monoidal
+structure arising from $\otimes:=\otimes_{\Z}$, namely the degreewise tensor
+product. For $X\in\Obj(\cate{sAb})$ and $K\in\Obj(\cate{sSet})$, define
+% segment-id: o014.aljabr2.chapter8.closed-structure.q010
+\[
+X\otimes K:=X\otimes\Z K\in\Obj(\cate{sAb}).
+\]
+In particular, $X\otimes\Delta^n$ is defined. This construction gives a
+bifunctor $\cate{sAb}\times\cate{sSet}\to\cate{sAb}$.
+
+% segment-id: o014.aljabr2.chapter8.closed-structure.d002
+\begin{definition}
+	For $X,Y\in\Obj(\cate{sAb})$, define
+	$\iHom(X,Y)=\iHom_{\cate{sAb}}(X,Y)\in\Obj(\cate{sAb})$ by
+	$\iHom(X,Y)_n:=\Hom_{\cate{sAb}}(X\otimes\Delta^n,Y)$.
+	The pullback morphisms are defined as in
+	Definition~\ref{def:internal-Hom-sSet}.
+\end{definition}
+
+% segment-id: o014.aljabr2.chapter8.closed-structure.pr002
+\begin{proposition}\label{prop:sAb-closed}
+	For every $X,Y,Z\in\Obj(\cate{sAb})$, there is a canonical commutative
+	diagram
+	% segment-id: o014.aljabr2.chapter8.closed-structure.g002
+	\[\begin{tikzcd}
+		\Hom_{\cate{sSet}}\bigl(X,\iHom_{\cate{sSet}}(Y,Z)\bigr)
+		\arrow[r,"1:1"]
+		&\Hom_{\cate{sSet}}(X\times Y,Z)\\
+		\Hom_{\cate{sAb}}\bigl(X,\iHom_{\cate{sAb}}(Y,Z)\bigr)
+		\arrow[r,"1:1"']
+		\arrow[phantom,u,"\subset" description,sloped]
+		&\Hom_{\cate{sAb}}(X\otimes Y,Z)\arrow[hookrightarrow,u]
+	\end{tikzcd}\]
+\end{proposition}
+% segment-id: o014.aljabr2.chapter8.closed-structure.pf003
+\begin{proof}
+	The first row is Proposition~\ref{prop:sSet-closed}. The vertical arrow on
+	the right embeds $\Hom_{\cate{sAb}}(X\otimes Y,Z)$ as the bilinear part
+	of $\Hom_{\cate{sSet}}(X\times Y,Z)$. The image of the embedding on the
+	left consists of all $\varphi:X\to\iHom_{\cate{sSet}}(Y,Z)$ for which
+	the family of morphisms
+	% segment-id: o014.aljabr2.chapter8.closed-structure.q012
+	\[
+	\varphi_n:X_n\to\Hom_{\cate{sSet}}(Y\times\Delta^n,Z)
+	\]
+	satisfies, for every $n\in\Z_{\geq0}$,
+	% segment-id: o014.aljabr2.chapter8.closed-structure.l001
+	\begin{itemize}
+		\item $\varphi_n(x):Y\times\Delta^n\to Z$ is additive in the $Y$
+		variable for every $x\in X_n$, or equivalently factors through
+		$\Hom_{\cate{sAb}}(Y\otimes\Delta^n,Z)$;
+		\item the resulting map
+		$\varphi_n:X_n\to\Hom_{\cate{sAb}}(Y\otimes\Delta^n,Z)$ is additive.
+	\end{itemize}
+	Unwinding the definitions immediately shows that these two descriptions
+	correspond.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter8.closed-structure.p006
+In fact, $\cate{sAb}$ is an additive category, and the bijection
+$\Hom_{\cate{sAb}}\bigl(X,\iHom_{\cate{sAb}}(Y,Z)\bigr)
+\simeq\Hom_{\cate{sAb}}(X\otimes Y,Z)$ is an isomorphism of $\Z$-modules.
+
+% segment-id: o014.aljabr2.chapter8.closed-structure.c002
+\begin{corollary}
+	Let $X,Y\in\Obj(\cate{sAb})$ and $K\in\Obj(\cate{sSet})$. There are
+	canonical isomorphisms of $\Z$-modules
+	% segment-id: o014.aljabr2.chapter8.closed-structure.q013
+	\begin{align*}
+		\Hom_{\cate{sAb}}(X\otimes K,Y)
+		&\simeq\Hom_{\cate{sSet}}
+		\bigl(K,\iHom_{\cate{sAb}}(X,Y)\bigr)\\
+		&\simeq\Hom_{\cate{sAb}}
+		\bigl(X,\iHom_{\cate{sSet}}(K,Y)\bigr).
+	\end{align*}
+	By the universal property, the underlying simplicial set of
+	$\iHom_{\cate{sSet}}(K,Y)$ in the last term is naturally identified with
+	the underlying simplicial set of $\iHom_{\cate{sAb}}(\Z K,Y)$, and thus
+	acquires the structure of an object of $\cate{sAb}$.
+\end{corollary}
+% segment-id: o014.aljabr2.chapter8.closed-structure.pf004
+\begin{proof}
+	Proposition~\ref{prop:sAb-closed} gives
+	% segment-id: o014.aljabr2.chapter8.closed-structure.q014
+	\begin{align*}
+		\Hom_{\cate{sAb}}(X\otimes K,Y)
+		&\simeq\Hom_{\cate{sAb}}(\Z K\otimes X,Y)\\
+		&\simeq\Hom_{\cate{sAb}}
+		\bigl(\Z K,\iHom_{\cate{sAb}}(X,Y)\bigr).
+	\end{align*}
+	The adjunction property of $\Z(\cdot)$ shows that the last term is
+	$\Hom_{\cate{sSet}}(K,\iHom_{\cate{sAb}}(X,Y))$. Similarly,
+	$\Hom_{\cate{sAb}}(X\otimes K,Y)\simeq
+	\Hom_{\cate{sAb}}(X,\iHom_{\cate{sAb}}(\Z K,Y))$.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter8.closed-structure.c003
+\begin{corollary}
+	The canonical bijection in Proposition~\ref{prop:sAb-closed} makes
+	$(\cate{sAb},\otimes)$ a closed monoidal category in the sense of
+	Definition~\ref{def:closed-monoidal-cat}, with bifunctor $\iHom$.
+\end{corollary}
+
+% segment-id: o014.aljabr2.chapter8.closed-structure.p007
+As for simplicial sets, the general theory of closed monoidal categories
+gives a canonical evaluation morphism
+% segment-id: o014.aljabr2.chapter8.closed-structure.q015
+\[
+\mathrm{ev}_{X,Y}:\iHom_{\cate{sAb}}(X,Y)\otimes X\to Y.
+\]
+This morphism has a concrete description similar to
+Definition~\ref{def:internal-Hom-sSet}, obtained simply by unwinding the
+definitions.
+
+% segment-id: o014.aljabr2.chapter8.closed-structure.p008
+We now study the relationship between $\iHom_{\cate{sAb}}$ and the $\Hom$
+complex from the perspective of the Dold--Kan correspondence
+(Theorem~\ref{prop:Dold-Kan}). They are the internal $\Hom$ objects of the
+closed monoidal categories $\cate{sAb}$ and
+$\cate{Ch}_{\geq0}(\cate{Ab})$, respectively. Although the normalized chain
+complex functor
+$\mathrm{N}:\cate{sAb}\to\cate{Ch}_{\geq0}(\cate{Ab})$ is an equivalence,
+it is not a monoidal functor. We therefore cannot directly deduce an
+isomorphism between $\mathrm{N}\iHom_{\cate{sAb}}(X,Y)$ and
+$\Hom^\bullet(\mathrm{N}X,\mathrm{N}Y)$. Nevertheless, the results of
+\S\ref{sec:bisimplicial} still provide a pair of canonical morphisms
+% segment-id: o014.aljabr2.chapter8.closed-structure.g003
+\begin{equation}\label{eqn:Hom-N}
+\begin{tikzcd}
+	\mathrm{N}\iHom_{\cate{sAb}}(X,Y)\arrow[shift left,r]
+	&\Hom^\bullet(\mathrm{N}X,\mathrm{N}Y).\arrow[shift left,l]
+\end{tikzcd}
+\end{equation}
+% segment-id: o014.aljabr2.chapter8.closed-structure.l002
+\begin{itemize}
+	\item By the closed monoidal structure on
+	$\cate{Ch}_{\geq0}(\cate{Ab})$, giving a morphism from left to right is
+	equivalent to giving a morphism
+	% segment-id: o014.aljabr2.chapter8.closed-structure.q016
+	\[
+	\mathrm{N}\iHom_{\cate{sAb}}(X,Y)\otimes\mathrm{N}X
+	\longrightarrow\mathrm{N}Y.
+	\]
+	Take this morphism to be the composite
+	% segment-id: o014.aljabr2.chapter8.closed-structure.q017
+	\[
+	\mathrm{N}\iHom_{\cate{sAb}}(X,Y)\otimes\mathrm{N}X
+	\xrightarrow{\mathrm{EZ}}
+	\mathrm{N}\bigl(\iHom_{\cate{sAb}}(X,Y)\otimes X\bigr)
+	\xrightarrow{\mathrm{N}(\mathrm{ev}_{X,Y})}\mathrm{N}Y.
+	\]
+	\item Apply the left adjoint $\Gamma$ of $\mathrm{N}$, which is also its
+	quasi-inverse. Giving a morphism from right to left is equivalent to giving
+	a morphism
+	% segment-id: o014.aljabr2.chapter8.closed-structure.q018
+	\[
+	\Gamma\Hom^\bullet(\mathrm{N}X,\mathrm{N}Y)
+	\longrightarrow\iHom_{\cate{sAb}}(X,Y).
+	\]
+	By the closed monoidal structure on $\cate{sAb}$, this is also equivalent
+	to giving a morphism
+	$\Gamma\Hom^\bullet(\mathrm{N}X,\mathrm{N}Y)\otimes X\to Y$.
+	Concretely, choose this morphism so that its image under $\mathrm{N}$ is
+	the composite
+	% segment-id: o014.aljabr2.chapter8.closed-structure.q019
+	\begin{multline*}
+		\mathrm{N}\bigl(\Gamma\Hom^\bullet(\mathrm{N}X,\mathrm{N}Y)
+		\otimes X\bigr)
+		\xrightarrow{\mathrm{AW}}
+		\mathrm{N}\Gamma\Hom^\bullet(\mathrm{N}X,\mathrm{N}Y)
+		\otimes\mathrm{N}X\\
+		\simeq\Hom^\bullet(\mathrm{N}X,\mathrm{N}Y)\otimes\mathrm{N}X
+		\xrightarrow{\text{evaluation}}\mathrm{N}Y.
+	\end{multline*}
+\end{itemize}
+
+% segment-id: o014.aljabr2.chapter8.closed-structure.p009
+The point of the construction above is that $\mathrm{N}$ is both a right
+lax and a left lax monoidal functor. If $\mathrm{N}$ were monoidal, or
+equivalently if $\mathrm{EZ}$ and $\mathrm{AW}$ were both isomorphisms, an
+abstract argument would show that the two morphisms in \eqref{eqn:Hom-N}
+are mutually inverse; in reality, they are not. However, the general
+Eilenberg--Zilber theorem, Theorem~\ref{prop:Eilenberg-Zilber}, states that
+$\mathrm{EZ}$ and $\mathrm{AW}$ are mutually inverse on homology. This gives
+the following relationship between the $\Hom$ complex and
+$\iHom_{\cate{sAb}}$.
+
+% segment-id: o014.aljabr2.chapter8.closed-structure.pr003
+\begin{proposition}
+	For every $X,Y\in\Obj(\cate{sAb})$, the pair of morphisms in
+	\eqref{eqn:Hom-N} are mutually inverse on homology.
+\end{proposition}
+
+% segment-id: o014.aljabr2.chapter8.closed-structure.p010
+If $\Bbbk$ is a commutative ring, an analogous result holds after replacing
+$\cate{Ab}$ by the symmetric monoidal category $\Bbbk\dcate{Mod}$ and
+considering simplicial objects in it.
+
+% segment-id: o014.aljabr2.chapter8.closed-structure.r001
+\begin{remark}
+	The definition of $\iHom$ can be extended to an arbitrary additive
+	category $\mathcal{A}$. Indeed, in the description of
+	$\iHom_{\cate{sAb}}(X,Y)_n$, we have
+	% segment-id: o014.aljabr2.chapter8.closed-structure.q020
+	\[
+	(X\otimes\Z\Delta^n)_k
+	=X_k\otimes\left(\bigoplus_{u:[k]\to[n]}\Z\right)
+	\simeq\bigoplus_{u:[k]\to[n]}X_k.
+	\]
+	The last term involves only finite direct sums and no elements; the maps
+	$d_i,s_j$, and so forth also have simple descriptions in this direct-sum
+	presentation. We can therefore define a bifunctor
+	% segment-id: o014.aljabr2.chapter8.closed-structure.q021
+	\[
+	\iHom_{\mathcal{A}}:(\cate{s}\mathcal{A})^{\opp}
+	\times\cate{s}\mathcal{A}\to\cate{s}\mathcal{A},
+	\]
+	which is additive in each variable.
+\end{remark}

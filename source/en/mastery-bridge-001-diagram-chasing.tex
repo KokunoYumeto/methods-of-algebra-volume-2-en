@@ -1,0 +1,556 @@
+% INDEPENDENT INSTRUCTIONAL MATERIAL --- NOT WEN-WEI LI'S SOURCE TEXT.
+% stable-unit-id: o014.mastery.diagram-chasing.001
+% provenance: OpenAI Codex gpt-5.6-sol, Ultra
+% license: CC BY 4.0; compatible with the source translation license.
+
+\section*{Mastery Bridge 001: Diagram Chasing}
+\addcontentsline{toc}{section}{Mastery Bridge 001: Diagram Chasing}
+\hypertarget{o014.mastery.diagram-chasing.001}{ }
+\label{mastery:diagram-chasing-001}
+
+\noindent\textbf{Status and attribution.}
+This unit is independent instructional material prepared to accompany this
+book. It is not part of Wen-Wei Li's source text and must not be attributed to
+him. Production provenance:
+\texttt{OpenAI Codex gpt-5.6-sol, Ultra}. This material is available under the
+Creative Commons Attribution 4.0 International license
+(CC BY 4.0; \url{https://creativecommons.org/licenses/by/4.0/}), and is
+therefore compatible with the license of the source text.
+
+\subsection*{Prerequisite map}
+
+This unit can be read after mastering the following short chain of
+prerequisites.
+\begin{compactitem}
+	\item Kernels, cokernels, and their functoriality:
+	\S\ref{sec:Ker-Coker}, especially
+	\eqref{eqn:Ker-Coker-functoriality}.
+	\item Images, coimages, and epi--mono factorization:
+	\S\ref{sec:images}.
+	\item Abelian categories and the stability of epimorphisms and
+	monomorphisms under pullback and pushout:
+	\S\ref{sec:Abel-cat-def} and
+	Proposition~\ref{prop:Abel-cat-pull-push}.
+	\item Complexes, cohomology, and exactness:
+	\S\ref{sec:cohomology}, especially
+	Definition~\ref{def:cohomology}.
+	\item The categorical construction of connecting morphisms and the Snake
+	Lemma:
+	\S\ref{sec:diagram-lemmas}, Remark~\ref{rem:connecting-canonical}, and
+	Theorem~\ref{prop:snake-lemma}.
+\end{compactitem}
+Conceptually, the progression is
+\[
+	\text{kernels/cokernels}
+	\Longrightarrow \text{images and exactness}
+	\Longrightarrow \text{lift--map--descend}
+	\Longrightarrow \text{connecting morphisms}.
+\]
+
+\subsection*{Working method: start with the obstruction}
+
+For element chasing in a module category, use the following discipline.
+\begin{enumerate}
+	\item State precisely what must be proved: membership in a kernel or
+	image, or equality of two cokernel classes.
+	\item Start with the element that measures the obstruction, usually a
+	kernel element or a cokernel class.
+	\item Lift an element only along an arrow known to be surjective. Map an
+	element forward along any available arrow.
+	\item Use commutativity to move an equation to the other side of the
+	diagram, then use exactness to replace a statement of ``being zero'' by
+	``coming from the preceding image.''
+	\item If a choice is required, prove that the difference between any two
+	choices vanishes in the final target.
+\end{enumerate}
+In a general abelian category, an ``element'' can be replaced by a morphism
+from a test object. When a lift is not directly available, use an epimorphic
+cover as in Lemma~\ref{prop:Abel-cat-exact-aux}. In this way, the element
+chases below are not merely heuristic: they are concrete models for arguments
+with kernels, cokernels, and factorizations.
+
+As a worked example, consider the commutative diagram of $R$-modules
+\[
+\begin{tikzcd}
+	0 \arrow[r] & A' \arrow[r, "i"] \arrow[d, "a'"'] & A \arrow[r, "p"] \arrow[d, "a"'] & A'' \arrow[r] \arrow[d, "a''"] & 0 \\
+	0 \arrow[r] & B' \arrow[r, "j"'] & B \arrow[r, "q"'] & B'' \arrow[r] & 0
+\end{tikzcd}
+\]
+with both rows exact. Suppose that $a'$ and $a''$ are injective. To prove
+that $a$ is injective, start with the obstruction $x\in\Ker(a)$.
+Commutativity gives $a''p(x)=qa(x)=0$, so the injectivity of $a''$ gives
+$p(x)=0$. Exactness of the top row gives $x=i(x')$ for some $x'\in A'$.
+Next,
+\[
+	0=a(x)=a i(x')=j a'(x').
+\]
+Because $j$ and $a'$ are injective, $x'=0$, and hence $x=0$. Notice the
+recurring pattern: start in a kernel, move right, use injectivity, return to
+the left by exactness, and then use injectivity once more.
+
+\subsection*{Exercises and complete solutions}
+
+% stable-exercise-id: o014.mastery.diagram-chasing.001.ex01
+\subsubsection*{Exercise 1 --- Functoriality of kernels, cokernels, and images}
+\hypertarget{o014.mastery.diagram-chasing.001.ex01}{ }
+\label{mastery:diagram-chasing-001-ex01}
+
+Let
+\[
+\begin{tikzcd}
+	A \arrow[r, "f"] \arrow[d, "a"'] & B \arrow[d, "b"] \\
+	A' \arrow[r, "g"'] & B'
+\end{tikzcd}
+\qquad (ga=bf)
+\]
+be a commutative square of $R$-modules.
+\begin{enumerate}[(i)]
+	\item Construct the natural homomorphisms
+	$\overline a:\Ker(f)\to\Ker(g)$ and
+	$\overline b:\Coker(f)\to\Coker(g)$.
+	\item Prove that $b(\Image(f))\subset\Image(g)$, with equality if $a$
+	is surjective.
+	\item Prove that $\Ker(f)=a^{-1}(\Ker(g))$ if $b$ is injective.
+\end{enumerate}
+
+% stable-solution-id: o014.mastery.diagram-chasing.001.sol01
+\paragraph{Solution.}
+\hypertarget{o014.mastery.diagram-chasing.001.sol01}{ }
+If $x\in\Ker(f)$, then $g(a(x))=b(f(x))=0$, so
+$a(x)\in\Ker(g)$. Restricting $a$ gives
+$\overline a:\Ker(f)\to\Ker(g)$. For cokernels, define
+\[
+	\overline b([y])=[b(y)], \qquad [y]\in B/\Image(f).
+\]
+If $y$ is replaced by $y+f(x)$, then
+$b(y+f(x))=b(y)+g(a(x))$, which determines the same class modulo
+$\Image(g)$. Thus $\overline b$ is well defined. These two constructions
+are precisely those in \eqref{eqn:Ker-Coker-functoriality}.
+
+Next,
+\[
+	b(\Image(f))=b(f(A))=g(a(A))\subset g(A')=\Image(g).
+\]
+If $a$ is surjective, then $a(A)=A'$, so the inclusion is an equality.
+Finally, $x\in\Ker(f)$ always implies $a(x)\in\Ker(g)$. Conversely, if
+$a(x)\in\Ker(g)$, then $0=g(a(x))=b(f(x))$; injectivity of $b$ gives
+$f(x)=0$. Thus $x\in\Ker(f)$, and consequently
+$\Ker(f)=a^{-1}(\Ker(g))$.
+
+% stable-exercise-id: o014.mastery.diagram-chasing.001.ex02
+\subsubsection*{Exercise 2 --- Intersections, sums, and the isomorphism theorem}
+\hypertarget{o014.mastery.diagram-chasing.001.ex02}{ }
+\label{mastery:diagram-chasing-001-ex02}
+
+Let $U$ and $V$ be submodules of an $R$-module $M$. Define
+\[
+	r:U\cap V\longrightarrow U\oplus V,\quad r(w)=(w,-w),
+	\qquad
+	s:U\oplus V\longrightarrow U+V,\quad s(u,v)=u+v.
+\]
+Prove that
+\[
+	0\longrightarrow U\cap V\xrightarrow{r}U\oplus V
+	\xrightarrow{s}U+V\longrightarrow0
+\]
+is exact. Use a kernel-and-image chase to obtain the canonical isomorphism
+\[
+	U/(U\cap V)\rightiso (U+V)/V.
+\]
+
+% stable-solution-id: o014.mastery.diagram-chasing.001.sol02
+\paragraph{Solution.}
+\hypertarget{o014.mastery.diagram-chasing.001.sol02}{ }
+If $r(w)=0$, then the first component gives $w=0$, so $r$ is injective.
+Moreover, $s(r(w))=w-w=0$, and hence $\Image(r)\subset\Ker(s)$. If
+$(u,v)\in\Ker(s)$, then $u+v=0$. Thus $u=-v$ belongs to both $U$ and $V$,
+and
+\[
+	(u,v)=(u,-u)=r(u).
+\]
+Consequently $\Ker(s)=\Image(r)$. Every element of $U+V$ has the form
+$u+v$, so $s$ is surjective. The sequence is exact.
+
+Now consider the homomorphism
+\[
+	\theta:U\longrightarrow (U+V)/V,\qquad u\longmapsto u+V.
+\]
+This map is surjective because $(u+v)+V=u+V$. Its kernel consists of all
+$u\in U$ that also belong to $V$, namely $U\cap V$. Epi--mono
+factorization, or the Isomorphism Theorem~\ref{prop:Abel-cat-isom-thm},
+gives the canonical isomorphism
+$U/(U\cap V)\rightiso (U+V)/V$.
+
+% stable-exercise-id: o014.mastery.diagram-chasing.001.ex03
+\subsubsection*{Exercise 3 --- Short Five Lemma}
+\hypertarget{o014.mastery.diagram-chasing.001.ex03}{ }
+\label{mastery:diagram-chasing-001-ex03}
+
+In the commutative diagram
+\[
+\begin{tikzcd}
+	0 \arrow[r] & A' \arrow[r, "i"] \arrow[d, "a'"'] & A \arrow[r, "p"] \arrow[d, "a"'] & A'' \arrow[r] \arrow[d, "a''"] & 0 \\
+	0 \arrow[r] & B' \arrow[r, "j"'] & B \arrow[r, "q"'] & B'' \arrow[r] & 0,
+\end{tikzcd}
+\]
+suppose that both rows are exact.
+\begin{enumerate}[(i)]
+	\item If $a'$ and $a''$ are injective, prove that $a$ is injective.
+	\item If $a'$ and $a''$ are surjective, prove that $a$ is surjective.
+	\item Conclude that if $a'$ and $a''$ are isomorphisms, then $a$ is
+	also an isomorphism.
+\end{enumerate}
+
+% stable-solution-id: o014.mastery.diagram-chasing.001.sol03
+\paragraph{Solution.}
+\hypertarget{o014.mastery.diagram-chasing.001.sol03}{ }
+For (i), take $x\in A$ with $a(x)=0$. Then
+$a''p(x)=qa(x)=0$. Since $a''$ is injective, $p(x)=0$; exactness of the
+top row gives $x=i(x')$. Next,
+$0=a i(x')=j a'(x')$. Since $j$ and $a'$ are injective, $x'=0$, and hence
+$x=0$.
+
+For (ii), take $y\in B$ and set $y''=q(y)$. Surjectivity of $a''$ gives
+$x''\in A''$ with $a''(x'')=y''$. Since $p$ is surjective, choose
+$x\in A$ with $p(x)=x''$. Now
+\[
+	q(y-a(x))=y''-a''p(x)=0.
+\]
+Exactness of the bottom row gives $y-a(x)=j(y')$ for some $y'\in B'$.
+Surjectivity of $a'$ gives $x'\in A'$ with $a'(x')=y'$. Therefore
+\[
+	y=a(x)+j(a'(x'))=a(x+i(x')).
+\]
+Thus $a$ is surjective. If the two outer morphisms are isomorphisms, (i)
+and (ii) show that $a$ is both injective and surjective, and therefore an
+isomorphism.
+
+% stable-exercise-id: o014.mastery.diagram-chasing.001.ex04
+\subsubsection*{Exercise 4 --- Nine Lemma}
+\hypertarget{o014.mastery.diagram-chasing.001.ex04}{ }
+\label{mastery:diagram-chasing-001-ex04}
+
+Consider the commutative diagram of $R$-modules
+\[
+\begin{tikzcd}[column sep=small]
+	& 0 \arrow[d] & 0 \arrow[d] & 0 \arrow[d] & \\
+	0 \arrow[r] & A' \arrow[r, "f'"] \arrow[d, "\alpha"'] & B' \arrow[r, "g'"] \arrow[d, "\beta"'] & C' \arrow[r] \arrow[d, "\gamma"'] & 0 \\
+	0 \arrow[r] & A \arrow[r, "f"] \arrow[d, "\overline\alpha"'] & B \arrow[r, "g"] \arrow[d, "\overline\beta"'] & C \arrow[r] \arrow[d, "\overline\gamma"'] & 0 \\
+	0 \arrow[r] & A'' \arrow[r, "f''"] \arrow[d] & B'' \arrow[r, "g''"] \arrow[d] & C'' \arrow[r] \arrow[d] & 0 \\
+	& 0 & 0 & 0 &
+\end{tikzcd}
+\]
+with all three columns exact. Suppose that the top and middle rows are
+exact. Prove that the bottom row is also exact.
+
+% stable-solution-id: o014.mastery.diagram-chasing.001.sol04
+\paragraph{Solution.}
+\hypertarget{o014.mastery.diagram-chasing.001.sol04}{ }
+First we prove that $f''$ is injective. Take $a''\in A''$ with
+$f''(a'')=0$, and lift $a''$ to $a\in A$. Since
+$\overline\beta f(a)=f''\overline\alpha(a)=0$, there is a $b'\in B'$ with
+$\beta(b')=f(a)$. Applying $g$ gives
+\[
+	\gamma(g'(b'))=g(\beta(b'))=g(f(a))=0.
+\]
+The morphism $\gamma$ is injective, so $g'(b')=0$. Exactness of the top row
+gives $b'=f'(a')$ for some $a'\in A'$. Hence
+$f(a-\alpha(a'))=0$. Since $f$ is injective, $a=\alpha(a')$, and thus
+$a''=\overline\alpha(a)=0$.
+
+Next, $g''$ is surjective. For $c''\in C''$, choose $c\in C$ mapping to
+$c''$. Surjectivity of $g$ gives $b\in B$ with $g(b)=c$; hence
+$g''(\overline\beta(b))=\overline\gamma(g(b))=c''$.
+
+It remains to check exactness at $B''$. Commutativity immediately gives
+$g''f''=0$. Conversely, take $b''\in B''$ with $g''(b'')=0$ and lift
+$b''$ to $b\in B$. Since
+$\overline\gamma(g(b))=g''(\overline\beta(b))=0$, there is a $c'\in C'$
+with $\gamma(c')=g(b)$. Choose $b'\in B'$ with $g'(b')=c'$. Then
+\[
+	g(b-\beta(b'))=g(b)-\gamma(g'(b'))=0.
+\]
+Exactness of the middle row gives $a\in A$ with
+$f(a)=b-\beta(b')$. Mapping this equation to the bottom row yields
+\[
+	f''(\overline\alpha(a))
+	=\overline\beta(f(a))
+	=\overline\beta(b)=b''.
+\]
+Thus $\Ker(g'')=\Image(f'')$, and the bottom row is exact.
+
+% stable-exercise-id: o014.mastery.diagram-chasing.001.ex05
+\subsubsection*{Exercise 5 --- Constructing the connecting morphism}
+\hypertarget{o014.mastery.diagram-chasing.001.ex05}{ }
+\label{mastery:diagram-chasing-001-ex05}
+
+Return to the diagram of short exact sequences
+\[
+\begin{tikzcd}
+	0 \arrow[r] & A' \arrow[r, "i"] \arrow[d, "\alpha'"'] & A \arrow[r, "p"] \arrow[d, "\alpha"'] & A'' \arrow[r] \arrow[d, "\alpha''"] & 0 \\
+	0 \arrow[r] & B' \arrow[r, "j"'] & B \arrow[r, "q"'] & B'' \arrow[r] & 0.
+\end{tikzcd}
+\]
+For $x''\in\Ker(\alpha'')$, choose $x\in A$ with $p(x)=x''$. Show that
+$\alpha(x)=j(y')$ for some $y'\in B'$, and then define
+\[
+	\delta(x''):=[y']\in\Coker(\alpha')=B'/\Image(\alpha').
+\]
+Prove that $\delta$ is well defined, is a homomorphism, and is natural with
+respect to morphisms between two such diagrams.
+
+% stable-solution-id: o014.mastery.diagram-chasing.001.sol05
+\paragraph{Solution.}
+\hypertarget{o014.mastery.diagram-chasing.001.sol05}{ }
+Since $x''\in\Ker(\alpha'')$,
+\[
+	q(\alpha(x))=\alpha''(p(x))=\alpha''(x'')=0.
+\]
+Exactness of the bottom row gives $\alpha(x)\in\Image(j)$, so there is a
+$y'\in B'$ with $j(y')=\alpha(x)$. The element $y'$ is unique because $j$
+is injective.
+
+If $x_1$ is another lift of $x''$, then
+$x_1-x\in\Ker(p)=\Image(i)$; write $x_1-x=i(a')$. If
+$j(y_1')=\alpha(x_1)$, commutativity gives
+\[
+	j(y_1'-y'-\alpha'(a'))
+	=\alpha(x_1)-\alpha(x)-\alpha i(a')=0.
+\]
+Injectivity of $j$ gives $y_1'-y'=\alpha'(a')$. Thus
+$[y_1']=[y']$ in $\Coker(\alpha')$, and $\delta$ is independent of the
+choice of $x$. For $x_1''$ and $x_2''$, the sum of chosen lifts and the sum
+of the corresponding elements $y'$ are valid data for $x_1''+x_2''$;
+therefore $\delta$ is additive and $R$-linear.
+
+For naturality, take a morphism from the diagram above to a similar diagram
+whose every square commutes. If $x$ and $y'$ are chosen for $x''$, their
+images in the second diagram are valid choices for the image of $x''$.
+Hence the two paths in the square
+\[
+\begin{tikzcd}
+	\Ker(\alpha'') \arrow[r, "\delta"] \arrow[d] & \Coker(\alpha') \arrow[d] \\
+	\Ker(\widetilde\alpha'') \arrow[r, "\widetilde\delta"'] & \Coker(\widetilde\alpha')
+\end{tikzcd}
+\]
+send $x''$ to the same class of the image of $y'$. The square commutes, so
+$\delta$ is natural. This is the elementwise version of the canonical
+property in Remark~\ref{rem:connecting-canonical}.
+
+% stable-exercise-id: o014.mastery.diagram-chasing.001.ex06
+\subsubsection*{Exercise 6 --- Proving the Snake Lemma}
+\hypertarget{o014.mastery.diagram-chasing.001.ex06}{ }
+\label{mastery:diagram-chasing-001-ex06}
+
+Using the diagram and $\delta$ from Exercise 5, prove that the sequence
+\[
+\begin{aligned}
+	0 \longrightarrow \Ker(\alpha') \longrightarrow \Ker(\alpha)
+	&\longrightarrow \Ker(\alpha'') \xrightarrow{\delta}
+	\Coker(\alpha') \\
+	&\longrightarrow \Coker(\alpha)
+	\longrightarrow \Coker(\alpha'') \longrightarrow 0
+\end{aligned}
+\]
+is exact. State clearly where exactness of the two rows is used in the chase.
+
+% stable-solution-id: o014.mastery.diagram-chasing.001.sol06
+\paragraph{Solution.}
+\hypertarget{o014.mastery.diagram-chasing.001.sol06}{ }
+All arrows other than $\delta$ are induced by $i,p,j,q$. The map
+$\Ker(\alpha')\to\Ker(\alpha)$ is injective because $i$ is injective.
+
+At $\Ker(\alpha)$, take $x\in\Ker(\alpha)$ that maps to zero in
+$\Ker(\alpha'')$. Then $p(x)=0$, so exactness of the top row gives
+$x=i(x')$. The equation
+$0=\alpha(x)=j\alpha'(x')$ and injectivity of $j$ give
+$x'\in\Ker(\alpha')$. The reverse inclusion follows immediately from
+$pi=0$. Thus the sequence is exact at $\Ker(\alpha)$.
+
+At $\Ker(\alpha'')$, an element coming from $x\in\Ker(\alpha)$ has
+$y'=0$ in the construction of Exercise 5, so it maps to zero under
+$\delta$. Conversely, suppose that $x''\in\Ker(\alpha'')$ and
+$\delta(x'')=0$. Choose $x\in A$ and $y'\in B'$ as in the construction of
+$\delta$. Since $[y']=0$ in $\Coker(\alpha')$, there is an $a'\in A'$ with
+$y'=\alpha'(a')$. Therefore
+\[
+	\alpha(x-i(a'))=j(y')-j\alpha'(a')=0,
+	\qquad p(x-i(a'))=x''.
+\]
+Thus $x''$ comes from $\Ker(\alpha)$.
+
+At $\Coker(\alpha')$, the next arrow sends $[y']$ to $[j(y')]$. If
+$[y']=\delta(x'')$ and $x$ is the lift used, then
+$j(y')=\alpha(x)$, so $[j(y')]=0$ in $\Coker(\alpha)$. Conversely, if
+$[j(y')]=0$, there is an $x\in A$ with $j(y')=\alpha(x)$. Commutativity
+gives
+\[
+	\alpha''p(x)=q\alpha(x)=qj(y')=0.
+\]
+Thus $p(x)\in\Ker(\alpha'')$, and the construction immediately gives
+$\delta(p(x))=[y']$.
+
+At $\Coker(\alpha)$, the image of every $[y']\in\Coker(\alpha')$ maps to
+$[qj(y')]=0$. Conversely, suppose that $[b]\in\Coker(\alpha)$ maps to
+zero. This means that $q(b)=\alpha''(x'')$ for some $x''\in A''$.
+Surjectivity of $p$ gives $x\in A$ with $p(x)=x''$. Then
+\[
+	q(b-\alpha(x))=q(b)-\alpha''p(x)=0.
+\]
+Exactness of the bottom row gives $b-\alpha(x)=j(y')$ for some $y'\in B'$.
+Since $\alpha(x)$ vanishes in $\Coker(\alpha)$, the class $[b]$ is the
+image of $[y']$.
+
+Finally, $\Coker(\alpha)\to\Coker(\alpha'')$ is surjective because $q$
+itself is surjective: lift any representative in $B''$ to $B$. Exactness
+has now been checked at every term. This is the Snake Lemma
+\ref{prop:snake-lemma} for two short exact sequences of modules.
+
+% stable-exercise-id: o014.mastery.diagram-chasing.001.ex07
+\subsubsection*{Exercise 7 --- Computing the snake explicitly}
+\hypertarget{o014.mastery.diagram-chasing.001.ex07}{ }
+\label{mastery:diagram-chasing-001-ex07}
+
+Apply the Snake Lemma to the diagram of abelian groups
+\[
+\begin{tikzcd}
+	0 \arrow[r] & \Z \arrow[r, "\times 6"] \arrow[d, "\times 4"'] & \Z \arrow[r, "\pi"] \arrow[d, "\times 4"'] & \Z/6\Z \arrow[r] \arrow[d, "\times 4"] & 0 \\
+	0 \arrow[r] & \Z \arrow[r, "\times 6"'] & \Z \arrow[r, "\pi"'] & \Z/6\Z \arrow[r] & 0.
+\end{tikzcd}
+\]
+Compute all kernels and cokernels, compute $\delta$ on a generator, and then
+write down and verify the resulting exact sequence.
+
+% stable-solution-id: o014.mastery.diagram-chasing.001.sol07
+\paragraph{Solution.}
+\hypertarget{o014.mastery.diagram-chasing.001.sol07}{ }
+The first two vertical maps are multiplication by $4$ on $\Z$, so their
+kernels are zero and their cokernels are $\Z/4\Z$. In the third column,
+\[
+	\Ker(\times4:\Z/6\Z\to\Z/6\Z)=\{[0],[3]\}\simeq\Z/2\Z.
+\]
+The image of multiplication by $4$ on $\Z/6\Z$ is
+$\{[0],[2],[4]\}$, so its cokernel is isomorphic to $\Z/2\Z$.
+
+To compute $\delta([3])$, lift $[3]$ to $3\in\Z$. The middle vertical map
+sends it to $12$. Since $12=6\cdot2$, the construction of the connecting
+morphism gives
+\[
+	\delta([3])=[2]\in\Z/4\Z.
+\]
+Under the identification of generators
+$[3]\leftrightarrow[1]\in\Z/2\Z$, the map $\delta$ is
+$[1]\mapsto[2]$.
+
+The map from the first cokernel to the second is induced by $\times6$, and
+hence on $\Z/4\Z$ it equals $\times2$. The next map is reduction modulo $2$.
+The Snake Lemma sequence is therefore
+\[
+	0\longrightarrow0\longrightarrow0\longrightarrow\Z/2\Z
+	\mathop{\longrightarrow}^{[1]\mapsto[2]}\Z/4\Z
+	\xrightarrow{\times2}\Z/4\Z
+	\xrightarrow{\bmod 2}\Z/2\Z\longrightarrow0.
+\]
+The image of $\delta$ is $\{[0],[2]\}=\Ker(\times2)$, while the image of
+$\times2$ is also $\{[0],[2]\}=\Ker(\bmod 2)$. The last map is
+surjective, and $\delta$ is injective. Thus the sequence is indeed exact.
+
+% stable-exercise-id: o014.mastery.diagram-chasing.001.ex08
+\subsubsection*{Exercise 8 --- The connecting morphism in cohomology}
+\hypertarget{o014.mastery.diagram-chasing.001.ex08}{ }
+\label{mastery:diagram-chasing-001-ex08}
+
+Let
+\[
+	0\longrightarrow A^\bullet\xrightarrow{i}B^\bullet
+	\xrightarrow{q}C^\bullet\longrightarrow0
+\]
+be a short exact sequence of cochain complexes of $R$-modules, exact in
+every degree. For a class $[c]\in\Hm^n(C^\bullet)$, choose a cocycle
+representative $c\in C^n$ and a lift $b\in B^n$ with $q(b)=c$.
+\begin{enumerate}[(i)]
+	\item Prove that there is an $a\in A^{n+1}$ with
+	$i(a)=d_B(b)$, and that $a$ is a cocycle.
+	\item Prove that the formula $\partial^n[c]=[a]$ gives a well-defined
+	homomorphism
+	$\partial^n:\Hm^n(C^\bullet)\to\Hm^{n+1}(A^\bullet)$.
+	\item Prove exactness of the segment
+	\[
+		\Hm^n(A^\bullet)\longrightarrow\Hm^n(B^\bullet)
+		\longrightarrow\Hm^n(C^\bullet)\xrightarrow{\partial^n}
+		\Hm^{n+1}(A^\bullet)\longrightarrow\Hm^{n+1}(B^\bullet).
+	\]
+	\item Prove that $\partial^n$ is natural with respect to morphisms of
+	short exact sequences of complexes.
+\end{enumerate}
+
+% stable-solution-id: o014.mastery.diagram-chasing.001.sol08
+\paragraph{Solution.}
+\hypertarget{o014.mastery.diagram-chasing.001.sol08}{ }
+Since $c$ is a cocycle,
+\[
+	q(d_Bb)=d_C(qb)=d_Cc=0.
+\]
+Exactness at $B^{n+1}$ gives
+$d_Bb\in\Image(i^{n+1})$, so there is an $a\in A^{n+1}$ with
+$i(a)=d_Bb$. Next,
+\[
+	i(d_Aa)=d_B(i(a))=d_B^2b=0.
+\]
+Since $i$ is injective in degree $n+2$, we obtain $d_Aa=0$, so $a$ is a
+cocycle.
+
+If the lift $b$ is replaced by $b+i(u)$, the corresponding element changes
+from $a$ to $a+d_Au$, so the class $[a]$ does not change. If the
+representative $c$ is replaced by $c+d_Cv$, choose a lift $w\in B^{n-1}$
+of $v$ and use $b+d_Bw$ as a lift of the new representative. Since
+$d_B(b+d_Bw)=d_Bb$, the resulting class remains $[a]$. In particular, if
+$c$ is a coboundary, we may choose a lift of the form $d_Bw$ and obtain
+$a=0$. Thus $\partial^n$ depends only on the cohomology class. Taking sums
+of lifts shows that $\partial^n$ is a homomorphism.
+
+We check exactness at each term. At $\Hm^n(B^\bullet)$, the image of a
+class coming from $A$ clearly vanishes after applying $q$. Conversely, if
+$b\in B^n$ is a cocycle and $[q(b)]=0$, write
+$q(b)=d_Cv$ and lift $v$ to $w\in B^{n-1}$. Then
+$b-d_Bw\in\Ker(q)=\Image(i)$; write $b-d_Bw=i(a)$. Since $b-d_Bw$ is a
+cocycle and $i$ is injective, $a$ is also a cocycle. Thus $[b]$ comes from
+$\Hm^n(A^\bullet)$.
+
+At $\Hm^n(C^\bullet)$, the image of a cocycle $b\in B^n$ has $d_Bb=0$,
+so its class maps to zero under $\partial^n$. Conversely, if
+$\partial^n[c]=0$, the construction gives $i(a)=d_Bb$ with $a=d_Au$ for
+some $u\in A^n$. Hence
+\[
+	d_B(b-i(u))=i(a)-i(d_Au)=0,
+	\qquad q(b-i(u))=c.
+\]
+Thus $[c]$ comes from $\Hm^n(B^\bullet)$.
+
+At $\Hm^{n+1}(A^\bullet)$, the class $\partial^n[c]=[a]$ maps to
+$[i(a)]=[d_Bb]=0$. Conversely, suppose that $a\in A^{n+1}$ is a cocycle
+and $[i(a)]=0$ in $\Hm^{n+1}(B^\bullet)$. Choose $b\in B^n$ with
+$i(a)=d_Bb$. The element $c=q(b)$ is a cocycle because
+$d_Cc=q(d_Bb)=q(i(a))=0$, and the construction gives
+$\partial^n[c]=[a]$. The requested segment is therefore exact.
+
+Finally, take a morphism between two short exact sequences of complexes. If
+$c,b,a$ are the chase data above, their images in the second sequence still
+satisfy
+\[
+	q(b)=c,\qquad i(a)=d_Bb.
+\]
+Thus applying the morphism first and then forming the connecting morphism
+gives the same class as forming $\partial^n$ first and then applying the
+induced map on cohomology. Therefore $\partial^n$ is natural.
+
+Carrying out this construction for every $n$ joins the exact segments into
+the long exact sequence
+\[
+	\cdots\to\Hm^n(A^\bullet)\to\Hm^n(B^\bullet)\to\Hm^n(C^\bullet)
+	\xrightarrow{\partial^n}\Hm^{n+1}(A^\bullet)\to\Hm^{n+1}(B^\bullet)
+	\to\cdots.
+\]
+The morphism $\partial^n$ is conceptually the same connecting morphism as in
+the Snake Lemma: lift a cocycle, map its differential forward, and then
+descend the result, which now lies in a kernel, to the left-hand term.

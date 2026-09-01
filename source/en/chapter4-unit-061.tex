@@ -1,0 +1,382 @@
+% Unit 061 English translation of chapter4.tex lines 2116--2267.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter4.unbounded-derived-functors
+% Coverage: complete Section 4.11; stops before Section 4.12 at line 2268.
+
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.h001
+\section{Unbounded Derived Functors}\label{sec:unbounded-derived}
+\hypertarget{o014.aljabr2.chapter4.unbounded-derived-functors}{ }
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.x001
+\index{derived functor!unbounded}
+
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.p001
+Consider an additive functor $F:\mathcal{A}\to\mathcal{A}'$ between abelian
+categories. This section returns to Definition~\ref{def:derived-functor} and
+focuses on the versions of derived functors for unbounded derived categories,
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.q001
+\[ \mathrm{R}F, \; \mathrm{L}F: \cate{D}(\mathcal{A}) \to \cate{D}(\mathcal{A}'). \]
+
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.p002
+To guarantee the existence of $\mathrm{R}F$ or $\mathrm{L}F$ and to compute
+with it, we need the notions of K-injective and K-projective complexes from
+Definition~\ref{def:K-resolutions}, together with the corresponding
+resolutions.
+
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.le001
+\begin{lemma}\label{prop:K-injective-zero}
+	Let $\mathcal{A}$ be an abelian category. If
+	$Z\in\Obj(\cate{K}(\mathcal{A}))$ is both K-injective (respectively,
+	K-projective) and acyclic, then $Z=0$.
+\end{lemma}
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.pf001
+\begin{proof}
+	Lemma~\ref{prop:K-injective-criterion} implies that
+	$\Hom_{\cate{K}(\mathcal{A})}(Z,Z)=0$.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.p003
+We first state a general result. Fix triangulated categories
+$\mathcal{D}_1$, $\mathcal{D}_2$, and $\mathcal{D}'$, together with their
+saturated triangulated subcategories $\mathcal{N}_1$, $\mathcal{N}_2$, and
+$\mathcal{N}'$.
+
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.le002
+\begin{lemma}\label{prop:K-cats}
+	Given a triangulated bifunctor
+	$G:\mathcal{D}_1\times\mathcal{D}_2\to\mathcal{D}'$, define a full
+	subcategory $\mathcal{K}_2^G$ of $\mathcal{D}_2$ by
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.q002
+	\[ \Obj(\mathcal{K}_2^G) = \left\{ X_2 \in \Obj(\mathcal{D}_2) : X_1 \in \Obj(\mathcal{N}_1) \implies G(X_1, X_2) \in \Obj(\mathcal{N}') \right\}. \]
+	Then $\mathcal{K}_2^G$ is a saturated triangulated subcategory. After
+	interchanging the two variables, the corresponding statement holds for
+	$\mathcal{K}_1^G\subset\mathcal{D}_1$.
+\end{lemma}
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.pf002
+\begin{proof}
+	The isomorphism $G(X_1,X_2[1])\simeq G(X_1,X_2)[1]$ shows that
+	$\mathcal{K}_2^G$ is closed under translation. Similarly, suppose that
+	$I\to J\to K\xrightarrow{+1}$ is a distinguished triangle with
+	$I,K\in\Obj(\mathcal{K}_2^G)$. From the distinguished triangle
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.q003
+	\[ G(X_1, I) \to G(X_1, J) \to G(X_1, K) \xrightarrow{+1} \]
+	it follows immediately that
+	$X_1\in\Obj(\mathcal{N}_1)\implies
+	G(X_1,J)\in\Obj(\mathcal{N}')$. Saturation is clear.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.p004
+This result can be applied to
+$\Hom:\mathcal{A}^{\opp}\times\mathcal{A}\to\cate{Ab}$ and the
+corresponding triangulated bifunctor $\cate{K}_{\Pi}\Hom$.
+Example~\ref{eg:Hom-bicplx} has shown that the latter bifunctor is essentially
+the $\Hom$ complex:
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.e001
+\begin{equation}\label{eqn:CPiHom}\begin{gathered}
+	(\cate{C}_{\Pi} \Hom)(\sigma^{-1} X_1, X_2) \simeq \Hom^\bullet\left( X_1, X_2 \right), \\
+	(\cate{K}_\Pi \Hom)(\sigma^{-1} X_1, X_2) \simeq \Hom^\bullet\left( X_1, X_2 \right)\; \text{viewed in $\cate{K}(\cate{Ab})$},
+\end{gathered}\end{equation}
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.p005
+where $\sigma:\cate{C}(\mathcal{A}^{\opp})\rightiso
+\cate{C}(\mathcal{A})^{\opp}$ and
+$\cate{K}(\mathcal{A}^{\opp})\rightiso\cate{K}(\mathcal{A})^{\opp}$ are
+the isomorphisms from Definition--Proposition~\ref{def:sigma} and
+Proposition~\ref{prop:sigma-homotopy}. We shall later need the corresponding
+version for derived categories.
+
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.pr001
+\begin{proposition}\label{prop:K-injective-F-injective}
+	All K-injective (respectively, K-projective) complexes form a saturated
+	triangulated subcategory $\mathcal{I}$ (respectively, $\mathcal{P}$) of
+	$\cate{K}(\mathcal{A})$. If $\mathcal{A}$ has enough K-injective
+	(respectively, K-projective) complexes, then for every additive functor
+	$F:\mathcal{A}\to\mathcal{A}'$, the subcategory $\mathcal{I}$
+	(respectively, $\mathcal{P}$) is $F$-injective (respectively,
+	$F$-projective).
+\end{proposition}
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.pf003
+\begin{proof}
+	It suffices to treat the K-injective case. The first assertion follows by
+	applying Lemma~\ref{prop:K-cats} to $G=\cate{K}_{\Pi}\Hom$, using the
+	definition of K-injective complexes in
+	Definition~\ref{def:K-resolutions} and \eqref{eqn:CPiHom}: the subcategory
+	$\mathcal{K}_2^G$ there is precisely $\mathcal{I}$ here.
+
+	Suppose that $\mathcal{A}$ has enough K-injective complexes. If $I$ is an
+	acyclic K-injective complex, Lemma~\ref{prop:K-injective-zero} implies that
+	$I=0$, so $(\cate{K}F)I$ is certainly acyclic. Thus all the conditions in
+	Definition~\ref{def:F-injective} for an $F$-injective triangulated
+	subcategory are satisfied.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.p006
+Write $Q:\cate{K}(\mathcal{A})\to\cate{D}(\mathcal{A})$ and
+$Q':\cate{K}(\mathcal{A}')\to\cate{D}(\mathcal{A}')$ for the localization
+functors.
+
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.co001
+\begin{corollary}
+	If $\mathcal{A}$ has enough K-injective complexes, then $F$ has a right
+	derived functor
+	$\mathrm{R}F:\cate{D}(\mathcal{A})\to\cate{D}(\mathcal{A}')$, such that
+	$\mathrm{R}F(QX)\simeq Q'\cate{K}F(X)$ whenever $X$ is K-injective.
+
+	Dually, if $\mathcal{A}$ has enough K-projective complexes, then $F$ has a
+	left derived functor
+	$\mathrm{L}F:\cate{D}(\mathcal{A})\to\cate{D}(\mathcal{A}')$, such that
+	$\mathrm{L}F(QX)\simeq Q'\cate{K}F(X)$ whenever $X$ is K-projective.
+\end{corollary}
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.pf004
+\begin{proof}
+	Apply Proposition~\ref{prop:K-injective-F-injective} in the general
+	framework of Proposition~\ref{prop:localization-injective}.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.p007
+Now fix abelian categories $\mathcal{A}_1$, $\mathcal{A}_2$, and
+$\mathcal{B}$. For an additive bifunctor
+$F:\mathcal{A}_1\times\mathcal{A}_2\to\mathcal{B}$, consider the unbounded
+version of the derived bifunctor $\mathrm{R}F$ (respectively,
+$\mathrm{L}F$) from Definition~\ref{def:derived-bifunctor}. From now on, we
+always assume that $\mathcal{B}$ has countable products (respectively,
+countable coproducts).
+
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.p008
+Concretely, we wish to determine $\mathrm{R}F$ (respectively,
+$\mathrm{L}F$) using the subcategories $\mathcal{I}_1$, $\mathcal{I}_2$
+(respectively, $\mathcal{P}_1$, $\mathcal{P}_2$) above.
+
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.le003
+\begin{lemma}\label{prop:bifunctor-via-K-injective-prep}
+	For $i=1,2$, take the triangulated subcategory $\mathcal{I}_i$
+	(respectively, $\mathcal{P}_i$) of $\cate{K}(\mathcal{A}_i)$ from
+	Proposition~\ref{prop:K-injective-F-injective}.
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.l001
+	\begin{compactitem}
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.i001
+		\item If $\mathcal{A}_1$ and $\mathcal{A}_2$ have enough K-injective
+		complexes, then $\mathcal{I}_1\times\mathcal{I}_2$ is $F$-injective.
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.i002
+		\item If $\mathcal{A}_1$ and $\mathcal{A}_2$ have enough K-projective
+		complexes, then $\mathcal{P}_1\times\mathcal{P}_2$ is $F$-projective.
+	\end{compactitem}
+\end{lemma}
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.pf005
+\begin{proof}
+	It suffices to treat the K-injective case. The key is to show that if
+	$X_1\in\Obj(\mathcal{I}_1)$, then
+	$(\cate{K}_{\Pi}F)(X_1,\cdot)$ sends every acyclic object $Z$ of
+	$\mathcal{I}_2$ to an acyclic object of $\cate{K}(\mathcal{B})$. But
+	Lemma~\ref{prop:K-injective-zero} gives $Z=0$, and
+	$(\cate{K}_{\Pi}F)(X_1,\cdot)$ is additive, so the assertion follows
+	immediately. The corresponding result follows after interchanging the
+	indices $1$ and $2$.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.p009
+Write $Q:\cate{K}(\mathcal{B})\to\cate{D}(\mathcal{B})$ and
+$Q_i:\cate{K}(\mathcal{A}_i)\to\cate{D}(\mathcal{A}_i)$ for the
+localization functors ($i=1,2$).
+
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.pr002
+\begin{proposition}\label{prop:bifunctor-via-K-injective}
+	For $F:\mathcal{A}_1\times\mathcal{A}_2\to\mathcal{B}$, suppose that
+	$\mathcal{A}_1$ and $\mathcal{A}_2$ both have enough K-injective
+	(respectively, K-projective) complexes. Then the derived bifunctor
+	$\mathrm{R}F$ (respectively, $\mathrm{L}F$) exists. If
+	$X_i\in\Obj(\cate{K}(\mathcal{A}))$ is K-injective (respectively,
+	K-projective) for $i=1,2$, then there is a canonical isomorphism
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.q004
+	\[ \mathrm{R}F(Q_1 X_1, Q_2 X_2) \simeq Q (\cate{K}_{\Pi} F)(X_1, X_2) \quad \text{(respectively, $\mathrm{L}F(Q_1 X_1, Q_2 X_2) \simeq Q (\cate{K}_{\oplus} F)(X_1, X_2)$) }. \]
+\end{proposition}
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.pf006
+\begin{proof}
+	Apply Lemma~\ref{prop:bifunctor-via-K-injective-prep} directly to
+	Proposition~\ref{prop:localization-injective-bifunctor}.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.p010
+For a particular bifunctor $F$, one can often choose $F$-injective
+(respectively, $F$-projective) subcategories larger than the subcategories of
+K-injective (respectively, K-projective) complexes. The $\RHom$ functor to be
+discussed next is one example.
+
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.th001
+\begin{theorem}[Unbounded $\RHom$]\label{prop:unbounded-RHom}
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.x002
+	\index{$\RHom$ functor}
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.x003
+	\index[sym1]{RHom@$\RHom$}
+	Suppose that the abelian category $\mathcal{A}$ has enough K-injective or
+	enough K-projective complexes. For simplicity, denote every localization
+	functor by $Q$.
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.l002
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.i003
+		\item The bifunctor
+		$\Hom=\Hom_{\mathcal{A}}:\mathcal{A}^{\opp}\times\mathcal{A}
+		\to\cate{Ab}$ has a right derived bifunctor
+		$\cate{D}(\mathcal{A}^{\opp})\times\cate{D}(\mathcal{A})
+		\to\cate{D}(\cate{Ab})$. Via the equivalence $\sigma$ of
+		Proposition~\ref{prop:derived-cat-op}, it can also be written as
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.q005
+		\[ \RHom: \cate{D}(\mathcal{A})^{\opp} \times \cate{D}(\mathcal{A}) \to \cate{D}(\cate{Ab}). \]
+		Moreover, if $\mathcal{A}$ has enough K-injective (respectively,
+		K-projective) complexes, then
+		$\cate{K}(\mathcal{A})^{\opp}\times\mathcal{I}$ (respectively,
+		$\mathcal{P}^{\opp}\times\cate{K}(\mathcal{A})$) is
+		$\Hom$-injective.
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.i004
+		\item Suppose that $\mathcal{A}$ has enough K-injective complexes and
+		that $X_2\to I_2$ is a K-injective resolution. This resolution induces
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.q006
+		\[ \RHom(Q X_1, Q X_2) \rightiso Q \Hom^\bullet(X_1, I_2). \]
+		In particular,
+		$\RHom(QX_1,\cdot)\simeq
+		\mathrm{R}\left(\Hom(X_1,\cdot)\right)$.
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.i005
+		\item Suppose that $\mathcal{A}$ has enough K-projective complexes and
+		that $P_1\to X_1$ is a K-projective resolution. This resolution induces
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.q007
+		\[ \RHom(Q X_1, Q X_2) \rightiso Q \Hom^\bullet(P_1, X_2). \]
+		In particular,
+		$\RHom(\cdot,QX_2)\simeq
+		\mathrm{R}\left(\Hom(\cdot,X_2)\right)$.
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.i006
+		\item There is a canonical isomorphism
+		$\Hm^n\RHom(X,Y)\simeq
+		\Hom_{\cate{D}(\mathcal{A})}(X,Y[n])=: \Ext^n(X,Y)$
+		(Definition~\ref{def:Ext-general}).
+	\end{enumerate}
+\end{theorem}
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.pf007
+\begin{proof}
+	The argument is nearly identical to that for
+	Theorem~\ref{prop:RHom-bounded}. For example, suppose that $\mathcal{A}$
+	has enough K-injective complexes. The key is to show that
+	$\cate{K}(\mathcal{A})^{\opp}\times\mathcal{I}$ is $\Hom$-injective.
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.l003
+	\begin{itemize}
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.i007
+		\item Fix a complex $X_1$. The functor
+		$(\cate{K}_\Pi\Hom)(X_1,\cdot)$ sends every acyclic K-injective complex
+		$X_2$ to an acyclic complex, because $X_2$ is $0$ in
+		$\cate{K}(\mathcal{A})$ (Lemma~\ref{prop:K-injective-zero}).
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.i008
+		\item Fix a K-injective complex $X_2$. If $X_1$ is acyclic, the
+		definition of a K-injective complex implies that
+		$\Hom^\bullet\left(X_1,X_2\right)$ is acyclic. By
+		\eqref{eqn:CPiHom}, $(\cate{K}_\Pi\Hom)(X_1,X_2)$ is therefore
+		acyclic as well.
+	\end{itemize}
+	Thus the acyclicity conditions required for the $\Hom$-injective property
+	have been verified, while the resolution conditions hold directly.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.th002
+\begin{theorem}\label{prop:RHom-adjoint}
+	Consider an adjoint pair of additive functors between abelian categories
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.g001
+	$\begin{tikzcd}
+		F: \mathcal{A} \arrow[r, shift left] & \mathcal{A}' \arrow[l, shift left] : G
+	\end{tikzcd}$.
+	Suppose that $\mathcal{A}$ has enough K-projective complexes and
+	$\mathcal{A}'$ has enough K-injective complexes. Then there is a canonical
+	isomorphism in $\cate{D}(\cate{Ab})$
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.q008
+	\[ \RHom_{\mathcal{A'}}\left(\mathrm{L}F(X), Y\right) \simeq \RHom_{\mathcal{A}}\left(X, \mathrm{R}G(Y) \right), \]
+	where $X\in\Obj\left(\cate{D}(\mathcal{A})\right)$ and
+	$Y\in\Obj\left(\cate{D}(\mathcal{A}')\right)$.
+\end{theorem}
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.pf008
+\begin{proof}
+	The argument is the same as for
+	Theorem~\ref{prop:RHom-adjoint-bounded}. The only difference is that
+	injective (respectively, projective) resolutions are replaced by
+	K-injective (respectively, K-projective) resolutions, and
+	Theorem~\ref{prop:K-resolution-homotopy} replaces
+	Theorem~\ref{prop:resolution-homotopy} in the discussion of uniqueness of
+	resolutions.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.r001
+\begin{remark}
+	Applying $\Hm^0$ to both sides of Theorem~\ref{prop:RHom-adjoint} gives the
+	adjunction
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.q009
+	\[ \Hom_{\cate{D}(\mathcal{A'})}\left(\mathrm{L}F(X), Y\right) \simeq \Hom_{\cate{D}(\mathcal{A})}\left(X, \mathrm{R}G(Y) \right). \]
+
+	Since derived functors obtained through resolutions are always absolute Kan
+	extensions in the sense of Definition~\ref{def:absolute-Kan}
+	(Proposition~\ref{prop:localization-functor-abs}),
+	Theorem~\ref{prop:Quillen-adjunction-gen} also says that
+	$(\mathrm{L}F,\mathrm{R}G)$ is an adjoint pair. The two approaches give the
+	same adjunction isomorphism. Why? It suffices to consider the case in which
+	$X$ is K-projective and $Y$ is K-injective. In this case, the adjunction
+	isomorphism of Theorem~\ref{prop:RHom-adjoint} is realized concretely by the
+	unit $\eta$ and counit $\varepsilon$ at the level of $\cate{K}(\cdot)$ as
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.q010
+	\begin{align*}
+		\Hom_{\cate{K}(\mathcal{A}')}\left( \cate{K}F(X), Y\right) \simeq \Hom_{\cate{K}(\mathcal{A})}\left( X, \cate{K}G(Y) \right).
+	\end{align*}
+	On the other hand, Theorem~\ref{prop:Quillen-adjunction-gen} determines
+	$\underline{\eta}$ and $\underline{\varepsilon}$ at the level of derived
+	categories. The characterization given there suffices to show that they are
+	compatible with $\eta$ and $\varepsilon$. The details are left to the
+	interested reader.
+\end{remark}
+
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.p011
+Finally, another set of sufficient conditions for the existence of unbounded
+derived functors is based on finite dimension
+(Definition--Proposition~\ref{def:dim-functor}). Although the proof technique
+does not go beyond the scope of this book, we state the result without proof
+to avoid a digression; see {\cite[Tags 07K6, 07K7]{stacks}}. The starting
+point is the construction of bounded derived functors in
+Theorem~\ref{prop:derived-via-resolution}.
+
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.pr003
+\begin{proposition}\label{prop:unbounded-derived-fd}
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.x004
+	\index{dimension}
+	Let $F:\mathcal{A}\to\mathcal{A}'$ be a left-exact (respectively,
+	right-exact) functor between abelian categories. Assume that
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.l004
+	\begin{compactitem}
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.i009
+		\item relative to $F$, there is a full additive subcategory
+		$\mathcal{A}^\flat$ of $\mathcal{A}$ of type I (respectively, type P),
+		as in Definition--Proposition~\ref{prop:F-injective-criterion};
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.i010
+		\item the corresponding bounded derived functor
+		${}^+\mathrm{R}F$ (respectively, ${}^-\mathrm{L}F$) has finite
+		dimension.
+	\end{compactitem}
+	Then $\mathrm{R}F$ (respectively, $\cate{L}F$):
+	$\cate{D}(\mathcal{A})\to\cate{D}(\mathcal{A}')$ exists. Moreover,
+	$\cate{K}(\mathcal{A}^\flat)$ is an $F$-injective (respectively,
+	$F$-projective) subcategory of $\cate{K}(\mathcal{A})$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.ex001
+\begin{example}\label{eg:Rlim-unbounded}
+	Suppose that $\mathcal{A}$ has exact countable products and enough
+	injective objects. Take the left-exact functor $F$ to be
+	$\varprojlim:\cate{InvSys}(\mathcal{A})\to\mathcal{A}$.
+	Theorem~\ref{prop:Rlim-as-holim} (iii) shows that the bounded version of
+	$\mathrm{R}\lim$ has dimension at most $1$, while the subcategory
+	$\mathcal{R}\subset\cate{InvSys}(\mathcal{A})$ is of type I relative to
+	$\varprojlim$. The preceding result therefore gives the unbounded derived functor
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.q011
+	\[ \mathrm{R}\lim: \cate{D}(\cate{InvSys}(\mathcal{A})) \to \cate{D}(\mathcal{A}). \]
+
+	As in Theorem~\ref{prop:Rlim-as-holim} (ii), for every object $X$ of
+	$\cate{C}(\cate{InvSys}(\mathcal{A}))$ there is a distinguished triangle
+	in $\cate{D}(\mathcal{A})$
+% segment-id: o014.li2.chapter4.unbounded-derived-functors.q012
+	\[ \mathrm{R}\lim(X) \to \prod_k X_k \xrightarrow{\Delta_X} \prod_k X_k \xrightarrow{+1} . \]
+	In particular, $\mathrm{R}\lim(X)\simeq\holim(X)$. By
+	Proposition~\ref{prop:unbounded-derived-fd}, the original proof applies with
+	no other changes: simply replace every $\cate{C}^+(\cdots)$ by
+	$\cate{C}(\cdots)$.
+\end{example}

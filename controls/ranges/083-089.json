@@ -1,0 +1,298 @@
+{
+  "schema": "o014-english-range-receipt-v1",
+  "range": {
+    "first_sequence": 83,
+    "last_sequence": 89
+  },
+  "status": "PASS",
+  "source_commit": "9a5803ff77dd3257484cb177f851a73770a59dd3",
+  "authority": {
+    "primary_text": "frozen Chinese source slices identified by controls/SOURCE_UNIT_MAP.json",
+    "structural_witness": "frozen Indonesian unit files identified by controls/SOURCE_UNIT_MAP.json",
+    "english_targets": "source/en/chapter6-unit-083.tex through source/en/chapter7-unit-089.tex"
+  },
+  "validation": {
+    "source_slice_sha256_verified": true,
+    "indonesian_witness_sha256_verified": true,
+    "stable_unit_ids_verified": true,
+    "segment_id_sequence_parity": true,
+    "localized_environment_roles_canonicalized_to_english": true,
+    "environment_role_order_parity": true,
+    "label_sequence_parity": true,
+    "hypertarget_sequence_parity": true,
+    "reference_key_coverage_parity": true,
+    "citation_key_sequence_parity": true,
+    "item_count_parity": true,
+    "index_command_count_parity": true,
+    "diagram_count_parity": true,
+    "display_formula_count_and_order_parity": true,
+    "strict_normalized_display_math_counter_exact": false,
+    "strict_math_differences_all_documented_below": true,
+    "undocumented_strict_math_difference_count": 0,
+    "balanced_braces_math_delimiters_and_nested_environments": true,
+    "complete_chinese_primary_review": true,
+    "natural_english_review": true,
+    "mathematical_soundness_review": true,
+    "structural_soundness_review": true,
+    "han_residue_count": 0,
+    "indonesian_residue_count": 0,
+    "placeholder_count": 0,
+    "tex_or_git_invoked": false
+  },
+  "strict_audit": {
+    "command": "python -B tools\\audit_english_range.py --start 83 --end 89 --pretty",
+    "schema": "o014-english-range-audit-v1",
+    "result": "FAIL",
+    "result_disposition": "Expected: the strict witness comparison reports only five intentional formula corrections across four units, exhaustively documented below.",
+    "units_expected": 7,
+    "units_audited": 7,
+    "units_passing_every_strict_check": 3,
+    "units_failing_only_normalized_display_math_counter_exact": 4,
+    "units_failing_any_other_check": 0
+  },
+  "intentional_strict_math_deviations": [
+    {
+      "sequence": 84,
+      "location": "o014.li2.chapter6.profinite-cohomology-a.d005",
+      "target": "\\exists 1\\leq k\\leq n,\\; g_k=1_G",
+      "indonesian_witness": "\\exists,1\\leq k\\leq n,\\ g_k=1_G",
+      "basis": "The target follows frozen Chinese source line 2427; the comma immediately after \\exists in the Indonesian witness is a transcription error."
+    },
+    {
+      "sequence": 86,
+      "location": "o014.li2.chapter6.nonabelian-cohomology.q011",
+      "target": "a(g_1)\\cdot{}^{g_1}a(g_2)",
+      "indonesian_witness": "a(g)\\cdot{}^{g_1}a(g_2)",
+      "basis": "The displayed calculation is the cocycle identity in variables g_1 and g_2; a(g_1) is required."
+    },
+    {
+      "sequence": 86,
+      "location": "o014.li2.chapter6.nonabelian-cohomology.q024",
+      "target": "\\Ker(\\delta^0)",
+      "indonesian_witness": "\\Ker(\\delta_0)",
+      "basis": "The connecting morphism constructed and used throughout the section is delta^0; the isolated subscript is a notation error."
+    },
+    {
+      "sequence": 87,
+      "location": "o014.li2.chapter6.exercises.ex016",
+      "target": "\\lrangle{\\alpha\\cup\\beta,x}=\\lrangle{\\alpha,\\beta\\cap x}",
+      "indonesian_witness": "\\lrangle{\\alpha\\cup\\beta,\\gamma}=\\lrangle{\\alpha,\\beta\\cap x}",
+      "basis": "The exercise binds the homology class x and never binds gamma; x is required on both sides of the adjunction."
+    },
+    {
+      "sequence": 88,
+      "location": "o014.li2.chapter7.monoidal-algebras.g005",
+      "target": "\\mu_A\\otimes\\identity",
+      "indonesian_witness": "\\mu_M\\otimes\\identity",
+      "basis": "The vertical map has domain (A tensor A) tensor M and codomain A tensor M, so multiplication must be mu_A."
+    }
+  ],
+  "other_high_confidence_corrections": [
+    {
+      "sequence": 83,
+      "location": "o014.li2.chapter6.tate-cohomology.d002",
+      "correction": "The Herbrand quotient is called a positive rational number, not a positive integer, because it is a quotient of finite cardinalities."
+    },
+    {
+      "sequence": 84,
+      "location": "proof of o014.li2.chapter6.profinite-cohomology-a.t002",
+      "correction": "The concluding coefficient is M in H^n(G,M), not K."
+    },
+    {
+      "sequence": 85,
+      "location": "o014.li2.chapter6.profinite-cohomology-b.t001",
+      "correction": "The map M to M'' and its induced cohomology arrow are labeled f'."
+    },
+    {
+      "sequence": 85,
+      "location": "o014.li2.chapter6.profinite-cohomology-b.p001, degree 2",
+      "correction": "The profinite group extension has terminal identity groups 1, not zero groups."
+    },
+    {
+      "sequence": 87,
+      "location": "o014.li2.chapter6.exercises.ex021",
+      "correction": "A continuous section of the quotient E to G is typed s:G to E."
+    },
+    {
+      "sequence": 88,
+      "location": "o014.li2.chapter7.monoidal-algebras.e003",
+      "correction": "For the multiplicatively written grading monoid I, the graded unit belongs to A^{1_I}."
+    },
+    {
+      "sequence": 88,
+      "location": "o014.li2.chapter7.monoidal-algebras.d005",
+      "correction": "The declared lax monoidal functor is typed F:V to V', with the stated target category."
+    },
+    {
+      "sequence": 86,
+      "location": "o014.li2.chapter6.nonabelian-cohomology.p023",
+      "correction": "The nonabelian Shapiro theorem starts with an H-group, so its abelian specialization is an abelian H-group, not a G-group."
+    },
+    {
+      "sequence": 89,
+      "location": "o014.li2.chapter7.differential-graded-structures.p022",
+      "correction": "Because F(C) is enriched over V', its endomorphism algebra is an object of Alg(V'), not Alg(V)."
+    }
+  ],
+  "preserved_editorial_decisions": [
+    {
+      "sequence": 87,
+      "location": "o014.li2.chapter6.exercises.ex012",
+      "decision": "Preserved the coherent formulation using C(H,M^H) and H^n(H,M^H)."
+    },
+    {
+      "sequence": 89,
+      "location": "entire unit",
+      "decision": "Preserved the completed English translation and structural metadata; changed only the documented target-category typo in p022."
+    }
+  ],
+  "units": [
+    {
+      "sequence": 83,
+      "unit_id": "o014.aljabr2.chapter6.tate-cohomology",
+      "target_path": "source/en/chapter6-unit-083.tex",
+      "target_sha256": "cfa4c20179bb5bf170c84f9b92959c966af88889b9f10e4c46240964e772a571",
+      "bytes": 19929,
+      "lines": 395,
+      "chinese_source": {
+        "path": "chapter6.tex",
+        "start_line": 2124,
+        "end_line": 2312,
+        "sha256": "e4372fa5564fa99b6b843be153964ba2807fad912dc2860138e6e8a347f106f1"
+      },
+      "indonesian_witness_sha256": "61088e8cc3f4972557f057f6bee0153a1e39c3c03710d42fa210d89481745993",
+      "segments": 65,
+      "environment_tokens": 60,
+      "labels": 10,
+      "references": 22,
+      "citation_keys": 3,
+      "display_math_blocks": 23
+    },
+    {
+      "sequence": 84,
+      "unit_id": "o014.aljabr2.chapter6.profinite-cohomology-a",
+      "target_path": "source/en/chapter6-unit-084.tex",
+      "target_sha256": "64549bb89423e42c0cc985e0ecc1a56501906d1bdfadd38b7854b69822c1f4ce",
+      "bytes": 12178,
+      "lines": 277,
+      "chinese_source": {
+        "path": "chapter6.tex",
+        "start_line": 2313,
+        "end_line": 2457,
+        "sha256": "623195ee3770ccad6ede71b81b936bca2005074dad1bb03ed094bd748f27f696"
+      },
+      "indonesian_witness_sha256": "2aba4a27bcdc3f44165b8a0e528cf454c313c1467fa8abc5aca42b2398da3917",
+      "segments": 24,
+      "environment_tokens": 40,
+      "labels": 4,
+      "references": 11,
+      "citation_keys": 1,
+      "display_math_blocks": 19
+    },
+    {
+      "sequence": 85,
+      "unit_id": "o014.aljabr2.chapter6.profinite-cohomology-b",
+      "target_path": "source/en/chapter6-unit-085.tex",
+      "target_sha256": "10b878afc0641e7c0a5519e0dc15bed94deb9296d71d69677eb5c7adccf4c4f9",
+      "bytes": 14539,
+      "lines": 312,
+      "chinese_source": {
+        "path": "chapter6.tex",
+        "start_line": 2458,
+        "end_line": 2603,
+        "sha256": "52f2981c9fc2af40993d0ef5bcea9fc2610ad0fe0ba452628c1a5bd4b81d5bec"
+      },
+      "indonesian_witness_sha256": "35929406ff1819f59fa3ca4118cd73c1a5d32e4c026912742191c55ded94b7b6",
+      "segments": 18,
+      "environment_tokens": 42,
+      "labels": 5,
+      "references": 31,
+      "citation_keys": 0,
+      "display_math_blocks": 20
+    },
+    {
+      "sequence": 86,
+      "unit_id": "o014.aljabr2.chapter6.nonabelian-cohomology",
+      "target_path": "source/en/chapter6-unit-086.tex",
+      "target_sha256": "bb61fc285f5517e8ef99214372be3a827796c200dfbdeb4b0d2ab3bd6dba2e5d",
+      "bytes": 33624,
+      "lines": 641,
+      "chinese_source": {
+        "path": "chapter6.tex",
+        "start_line": 2604,
+        "end_line": 2927,
+        "sha256": "35a46ca78c1438474221760b41b71dc8ab62492dba650c8b23610460fdb18b3e"
+      },
+      "indonesian_witness_sha256": "31e1cc6cb0424bc8e636a3fa64a6f0dba6a7d9a4bdde85330e96a9270b0a5b7c",
+      "segments": 94,
+      "environment_tokens": 90,
+      "labels": 13,
+      "references": 25,
+      "citation_keys": 0,
+      "display_math_blocks": 41
+    },
+    {
+      "sequence": 87,
+      "unit_id": "o014.aljabr2.chapter6.exercises",
+      "target_path": "source/en/chapter6-unit-087.tex",
+      "target_sha256": "c903eb8f65b092ef8b9c09f56c64da655ab1ab51ed3fa46467a3c23fe4379611",
+      "bytes": 21264,
+      "lines": 469,
+      "chinese_source": {
+        "path": "chapter6.tex",
+        "start_line": 2928,
+        "end_line": 3141,
+        "sha256": "e13cd966a134222481e63c23eee9450de5b1bf7fd9c419a9c57e3efd8e883a86"
+      },
+      "indonesian_witness_sha256": "4552e8be6c19aec1fafb0ce8c3219974a32907163f67411904f2967dd18266ba",
+      "segments": 1,
+      "environment_tokens": 60,
+      "labels": 0,
+      "references": 33,
+      "citation_keys": 2,
+      "display_math_blocks": 21
+    },
+    {
+      "sequence": 88,
+      "unit_id": "o014.aljabr2.chapter7.monoidal-algebras",
+      "target_path": "source/en/chapter7-unit-088.tex",
+      "target_sha256": "a54579463b92a3d12f64ea5f2606e932590ca8655832e31ac60097faf5da91a8",
+      "bytes": 48902,
+      "lines": 907,
+      "chinese_source": {
+        "path": "chapter7.tex",
+        "start_line": 1,
+        "end_line": 418,
+        "sha256": "f9043ba9657b98348d9f92804bef5a8ae4de774d908b34b674ffd531f0bc9b17"
+      },
+      "indonesian_witness_sha256": "392a372515916404f545efe8a49529a88e841365fa8b5f05a816610e4125df48",
+      "segments": 68,
+      "environment_tokens": 120,
+      "labels": 20,
+      "references": 47,
+      "citation_keys": 13,
+      "display_math_blocks": 34
+    },
+    {
+      "sequence": 89,
+      "unit_id": "o014.aljabr2.chapter7.differential-graded-structures",
+      "target_path": "source/en/chapter7-unit-089.tex",
+      "target_sha256": "8abb9bbda52781c4a6af2b00197a62dc3d3515f404a35e7405000a3db8c08531",
+      "bytes": 24634,
+      "lines": 447,
+      "chinese_source": {
+        "path": "chapter7.tex",
+        "start_line": 419,
+        "end_line": 610,
+        "sha256": "0d8167617e3a95005f0dedea8b16c7907b6d114d7f941c85a3aa856bf20053e6"
+      },
+      "indonesian_witness_sha256": "8f2f530efe6f5e9f05639d5108ce4c40b900db175cea9731b3db0d71e7b0d4b7",
+      "segments": 46,
+      "environment_tokens": 44,
+      "labels": 10,
+      "references": 25,
+      "citation_keys": 4,
+      "display_math_blocks": 26
+    }
+  ]
+}

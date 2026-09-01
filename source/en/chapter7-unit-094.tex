@@ -1,0 +1,300 @@
+% English translation of chapter7.tex lines 1280--1444.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter7.beck-monadicity-a
+% Coverage: Section 7.6 from its opening through the construction of free
+% T-modules; continued in Unit 095.
+
+% segment-id: o014.li2.chapter7.beck-monadicity-a.h001
+\section{Beck's Monadicity Theorem}\label{sec:Beck}
+\hypertarget{o014.aljabr2.chapter7.beck-monadicity-a}{ }
+% segment-id: o014.li2.chapter7.beck-monadicity-a.p001
+Let $\mathcal{C}$ be a category. Consider the functor category
+$\mathcal{C}^{\mathcal{C}}$, whose objects are all endofunctors
+$T:\mathcal{C}\to\mathcal{C}$ and whose morphisms are morphisms between
+endofunctors. This category is naturally monoidal: the multiplication
+$\otimes$ is composition of functors, and the unit object $\munit$ is the
+identity functor. Since composition of functors is strictly associative, this
+is also a strict monoidal category.
+
+% segment-id: o014.li2.chapter7.beck-monadicity-a.d001
+\begin{definition}[Monad and comonad]\label{def:monad}
+	\index{monad}
+	\index{comonad}
+	Let $\mathcal{C}$ be a category. An algebra in the monoidal category
+	$\mathcal{C}^{\mathcal{C}}$ (Definition~\ref{def:algebra-monoidal}) is
+	called a \emph{monad} on $\mathcal{C}$. Dually, a monad on
+	$\mathcal{C}^{\opp}$ is called a \emph{comonad} on $\mathcal{C}$.
+\end{definition}
+
+% segment-id: o014.li2.chapter7.beck-monadicity-a.p002
+Expanding Definition~\ref{def:algebra-monoidal} in the category of
+endofunctors $\mathcal{C}^{\mathcal{C}}$, we find that a monad is data
+$(T,\mu,\eta)$, where $T:\mathcal{C}\to\mathcal{C}$ is a functor and
+$\mu:T^2\to T$ and $\eta:\identity_{\mathcal{C}}\to T$ are morphisms such
+that the following diagrams commute:
+% segment-id: o014.li2.chapter7.beck-monadicity-a.q001
+\begin{equation*}\begin{gathered}
+	\begin{tikzcd}
+		T \arrow[r, "{\eta T}"] \arrow[rd, "\identity"'] & T^2 \arrow[d, "\mu"] & T \arrow[l, "{T\eta}"'] \arrow[ld, "\identity"] \\
+		& T &
+	\end{tikzcd} \quad
+	\begin{tikzcd}
+		T^3 \arrow[r, "\mu T"] \arrow[d, "T\mu"'] & T^2 \arrow[d, "\mu"] \\
+		T^2 \arrow[r, "\mu"'] & T.
+	\end{tikzcd}
+\end{gathered}\end{equation*}
+
+% segment-id: o014.li2.chapter7.beck-monadicity-a.p003
+Compared with the original definition, associativity constraints are no
+longer needed here, while $\eta\otimes\identity$ (or
+$\identity\otimes\eta$) becomes $\eta T$ (or $T\eta$), and so on.
+
+% segment-id: o014.li2.chapter7.beck-monadicity-a.p004
+Dually, a comonad $(L,\delta,\epsilon)$ consists of a functor
+$L:\mathcal{C}\to\mathcal{C}$ and morphisms $\delta:L\to L^2$ and
+$\epsilon:L\to\identity_{\mathcal{C}}$, subject to the commutativity of the
+following diagrams.
+% segment-id: o014.li2.chapter7.beck-monadicity-a.q002
+\begin{equation*}\begin{gathered}
+	\begin{tikzcd}
+		L  & L^2 \arrow[l, "{\epsilon L}"'] \arrow[r, "{L\epsilon}"] & L \\
+		& L \arrow[lu, "\identity"] \arrow[ru, "\identity"'] \arrow[u, "\delta"] &
+	\end{tikzcd} \quad
+	\begin{tikzcd}
+		L^3 & L^2 \arrow[l, "\delta L"'] \\
+		L^2 \arrow[u, "L\delta"] & L \arrow[u, "\delta"'] \arrow[l, "\delta"]
+	\end{tikzcd}
+\end{gathered}\end{equation*}
+
+% segment-id: o014.li2.chapter7.beck-monadicity-a.p005
+The data $(T,\mu,\eta)$ (or $(L,\delta,\epsilon)$) are customarily
+abbreviated simply as $T$ (or $L$). The principal source of monads and
+comonads is adjoint pairs.
+
+% segment-id: o014.li2.chapter7.beck-monadicity-a.eg001
+\begin{example}[An adjoint pair determines a monad]\label{eg:adjunction-monad}
+	Consider a pair of adjoint functors
+	% segment-id: o014.li2.chapter7.beck-monadicity-a.q003
+	\[\begin{tikzcd}
+		F: \mathcal{C} \arrow[shift left, r] & \mathcal{D}: G \arrow[shift left, l],
+	\end{tikzcd}\]
+	with the corresponding unit $\eta:\identity_{\mathcal{C}}\to GF$ and
+	counit $\varepsilon:FG\to\identity_{\mathcal{D}}$. Define a monad
+	$(T,\mu,\eta)$ on $\mathcal{C}$ and a comonad
+	$(L,\delta,\varepsilon)$ on $\mathcal{D}$ as follows.
+	% segment-id: o014.li2.chapter7.beck-monadicity-a.q004
+	\[\begin{array}{|c|c|}\hline
+		T := GF & L := FG \\
+		\mu := \left[ GFGF \xrightarrow{G\varepsilon F} GF \right] & \delta := \left[ FG \xrightarrow{F\eta G} FGFG \right] \\
+		\eta : \identity_{\mathcal{C}} \to GF & \varepsilon: FG \to \identity_{\mathcal{D}} \\ \hline
+	\end{array}\]
+
+	By duality, it is enough to check the monad axioms in the case
+	$(T,\mu,\eta)$. First, the unit diagram is
+	% segment-id: o014.li2.chapter7.beck-monadicity-a.q005
+	\[\begin{tikzcd}[column sep=large]
+		GF \arrow[r, "{\eta GF}"] \arrow[equal, rd] & GFGF \arrow[d, "{G\varepsilon F}"] & GF \arrow[l, "{GF\eta}"'] \arrow[equal, ld] \\
+		& GF &
+	\end{tikzcd}\]
+	which commutes by the triangle identities
+	$(G\varepsilon)(\eta G)=\identity_G$ and
+	$(\varepsilon F)(F\eta)=\identity_F$. The associativity diagram is
+	% segment-id: o014.li2.chapter7.beck-monadicity-a.q006
+	\[\begin{tikzcd}[column sep=large]
+		GFGFGF \arrow[d, "{G\varepsilon FGF}"'] \arrow[r, "{GFG\varepsilon F}"] & GFGF \arrow[d, "G\varepsilon F"] \\
+		GFGF \arrow[r, "G\varepsilon F"'] & GF
+	\end{tikzcd}\]
+	and it commutes: both composites are depicted by
+	% segment-id: o014.li2.chapter7.beck-monadicity-a.q007
+	\[\begin{tikzcd}
+		\mathcal{C} \arrow[r, "F"] & \mathcal{D} \arrow[r, "G"] \arrow[rr, bend right=60, ""{name=A}, "{\identity}"'] & \mathcal{C} \arrow[r, "F"] \arrow[Rightarrow, to=A, "\varepsilon"] &
+		\mathcal{D} \arrow[r, "G"] \arrow[rr, bend right=60, ""{name=B}, "{\identity}"'] & \mathcal{C} \arrow[r, "F"] \arrow[Rightarrow, to=B, "\varepsilon"] & \mathcal{D} \arrow[r, "G"] & \mathcal{C}
+	\end{tikzcd}\]
+	with only the order of composition of the two curved regions differing;
+	the result is the same. This is a special case of the interchange law for
+	vertical and horizontal composition of morphisms
+	\cite[Lemma 2.2.7]{Li1}.
+\end{example}
+
+% segment-id: o014.li2.chapter7.beck-monadicity-a.p006
+Since endofunctors act on $\mathcal{C}$, we wish to discuss ``modules'' in
+$\mathcal{C}$ under the action of a monad $T$. For historical reasons, such
+a structure is also called a $T$-algebra.
+
+% segment-id: o014.li2.chapter7.beck-monadicity-a.d002
+\begin{definition}[S.\ Eilenberg, J.\ C.\ Moore]\label{def:T-Alg}
+	\index{T-module@$T$-module}
+	Let $(T,\mu,\eta)$ be a monad on $\mathcal{C}$. A \emph{$T$-module} is
+	data $(M,a)$, where $M\in\Obj(\mathcal{C})$ and $a$ is a morphism
+	$T(M)\to M$ in $\mathcal{C}$, such that the following diagrams commute:
+	% segment-id: o014.li2.chapter7.beck-monadicity-a.q008
+	\[\begin{tikzcd}
+		T^2 (M) \arrow[r, "Ta"] \arrow[d, "\mu_M"'] & T(M) \arrow[d, "a"] \\
+		T(M) \arrow[r, "a"'] & M
+	\end{tikzcd} \quad \begin{tikzcd}
+		M \arrow[r, "\eta_M"] \arrow[rd, "{\identity_M}"'] & T(M) \arrow[d, "a"] \\
+		& M .
+	\end{tikzcd}\]
+
+	All $T$-modules form a category $\mathcal{C}^T$. A morphism from $(M,a)$
+	to $(M',a')$ is defined to be a morphism $f:M\to M'$ in $\mathcal{C}$
+	that makes the following diagram commute:
+	% segment-id: o014.li2.chapter7.beck-monadicity-a.q009
+	\[\begin{tikzcd}
+		T(M) \arrow[r, "a"] \arrow[d, "Tf"'] & M \arrow[d, "f"] \\
+		T(M')  \arrow[r, "{a'}"'] & M' .
+	\end{tikzcd}\]
+
+	Dually, let $(L,\delta,\epsilon)$ be a comonad on $\mathcal{C}$. An
+	$L$-comodule is data $(N,b)$, where $b:N\to L(N)$ is a morphism, subject
+	to the commutative diagrams dual to those above. The category of
+	$L$-comodules is denoted by $\mathcal{C}^L$.
+\end{definition}
+
+% segment-id: o014.li2.chapter7.beck-monadicity-a.p007
+The two commutative diagrams for a $T$-module should be viewed as the
+associativity and unit laws for the action of $T$, respectively. The examples
+and properties below are stated mainly for monads and modules over them; the
+versions for comonads and comodules are entirely dual.
+
+% segment-id: o014.li2.chapter7.beck-monadicity-a.eg002
+\begin{example}\label{eg:Mon-monad}
+	Write $\cate{Mon}$ for the category of monoids, conventionally taken to be
+	realized on small sets, and consider the adjoint pair
+	% segment-id: o014.li2.chapter7.beck-monadicity-a.q010
+	\[\begin{tikzcd}
+		\mathbf{M}: \cate{Set} \arrow[r, shift left] & \cate{Mon}: U, \arrow[l, shift left]
+	\end{tikzcd}\]
+	where $\mathbf{M}$ maps a set $X$ to the free monoid $\mathbf{M}(X)$,
+	whose definition and construction are given in
+	\cite[Definition 4.8.1, Lemma 4.8.4]{Li1}, and $U$ is the forgetful
+	functor. Thus,
+	% segment-id: o014.li2.chapter7.beck-monadicity-a.q011
+	\[ T := U\mathbf{M}: \cate{Set} \to \cate{Set}, \quad T(X) = \bigsqcup_{n \geq 0} X^n. \]
+	In other words, an element of $T(X)$ is a ``word''
+	$(x_1,\ldots,x_n)$ with $n\in\Z_{\geq0}$. The unit of the adjoint pair
+	$\eta_X:X\to U\mathbf{M}(X)$ maps $x\in X$ to the word of length $1$,
+	$(x)$. For a monoid $A$, the counit
+	$\varepsilon_A:\mathbf{M}U(A)\to A$ maps the word
+	$(a_1,\ldots,a_n)$ to the product $a_1\cdots a_n\in A$. Since
+	multiplication in $\mathbf{M}(X)$ is concatenation of words, the map
+	$\mu_X=U\varepsilon\mathbf{M}:T^2(X)\to T(X)$ corresponding to the monad
+	$T$ (or, viewed as a map
+	$\mathbf{M}(\mathbf{M}(X))\to\mathbf{M}(X)$) flattens a ``word of
+	words,'' that is, it concatenates a sequence of lists, as in
+	% segment-id: o014.li2.chapter7.beck-monadicity-a.q012
+	\[ \left( (x_1, \ldots, x_n), (y_1, \ldots, y_m), \ldots \right) \mapsto \left( x_1, \ldots, x_n, y_1, \ldots, y_m, \ldots \right). \]
+
+	Specifying a $T$-module $(M,a)$ for $T=U\mathbf{M}$ is equivalent to
+	specifying $m_1\cdots m_n:=a(m_1,\ldots,m_n)$ for every word
+	$(m_1,\ldots,m_n)$ in the set $M$, such that $a(m)=m$ and the
+	associativity law
+	% segment-id: o014.li2.chapter7.beck-monadicity-a.q013
+	\[ a\left( a(x_1, \ldots, x_n), a(y_1, \ldots, y_m), \ldots \right) = a\left( x_1, \ldots, x_n, y_1, \ldots, y_m, \ldots \right) \]
+	holds. In short, a $T$-module is precisely a monoid, with the image under
+	$a$ of the empty word ($n=0$) as its unit. It is easy to check that
+	morphisms of $T$-modules are precisely monoid homomorphisms.
+
+	The case of the category of groups $\cate{Grp}$ is entirely similar; the
+	key is to replace $\mathbf{M}$ by the free-group functor $\mathbf{F}$. The
+	corresponding $T$-modules are precisely groups.
+\end{example}
+
+% segment-id: o014.li2.chapter7.beck-monadicity-a.eg003
+\begin{example}\label{eg:Mod-monad}
+	Let $R$ be a ring and consider the adjoint pair
+	% segment-id: o014.li2.chapter7.beck-monadicity-a.q014
+	\[\begin{tikzcd}
+		\mathbf{F}: \cate{Set} \arrow[r, shift left] & R\dcate{Mod}: U, \arrow[l, shift left]
+	\end{tikzcd}\]
+	where $\mathbf{F}$ maps $X$ to the free left $R$-module
+	$R^{\oplus X}$ and $U$ is the forgetful functor. This gives a monad
+	$(T,\mu,\eta)$ on $\cate{Set}$. As in Example~\ref{eg:Mon-monad},
+	$T=U\mathbf{F}$ maps a set $X$ to $R^{\oplus X}$ regarded as a set; its
+	elements are finite formal $R$-linear combinations of elements of $X$,
+	$\text{\textquotedblleft} r_1x_1+\cdots+r_nx_n
+	\text{\textquotedblright}$. The unit $\eta_X$ maps $x\in X$ to
+	$\text{\textquotedblleft}x\text{\textquotedblright}$, while
+	$\mu_X:R^{\oplus(R^{\oplus}X)}\to R^{\oplus X}$ flattens a two-level
+	linear combination, namely,
+	% segment-id: o014.li2.chapter7.beck-monadicity-a.q015
+	\begin{multline*}
+		\text{\textquotedblleft} \alpha (\text{\textquotedblleft} r_1 x_1 + \cdots + r_n x_n \text{\textquotedblright}) + \beta (\text{\textquotedblleft} s_1 y_1 + \cdots + s_m y_m \text{\textquotedblright}) + \cdots \text{\textquotedblright} \\
+		\mapsto \text{\textquotedblleft} (\alpha r_1) x_1 + \cdots + (\alpha r_n) x_n + (\beta s_1) y_1 + \cdots + (\beta s_m) y_m + \cdots \text{\textquotedblright} .
+	\end{multline*}
+	Specifying a $T$-module $(M,a)$ is equivalent to specifying a set $M$
+	together with a rule that maps formal linear combinations to elements of
+	$M$, maps $\text{\textquotedblleft}x\text{\textquotedblright}$ to $x$, is
+	associative with respect to addition and scalar multiplication, and makes
+	scalar multiplication by $1\in R$ the identity map. In short, $T$-modules
+	are precisely left $R$-modules. It is clear that morphisms of $T$-modules
+	are precisely module homomorphisms.
+\end{example}
+
+% segment-id: o014.li2.chapter7.beck-monadicity-a.p008
+Return to the general theory. There is a forgetful functor
+$U^T:\mathcal{C}^T\to\mathcal{C}$ mapping an object $(M,a)$ to $M$. We now
+give its left adjoint: the free construction.
+
+% segment-id: o014.li2.chapter7.beck-monadicity-a.dp001
+\begin{definition-proposition}[Free $T$-module]\label{def:free-T-Alg}
+	\index{module!free}
+	Let $(T,\mu,\eta)$ be a monad on $\mathcal{C}$. Define a functor
+	% segment-id: o014.li2.chapter7.beck-monadicity-a.q016
+	\[ \mathrm{Free}^T: \mathcal{C} \to \mathcal{C}^T , \quad
+	\begin{array}{rl}
+		(\text{object } M) & \mapsto (TM, \mu_M: T^2 M \to TM), \\
+		(\text{morphism } f: M \to M') & \mapsto Tf: TM \to TM'.
+	\end{array}\]
+	This gives an adjoint pair
+	% segment-id: o014.li2.chapter7.beck-monadicity-a.q017
+	\[\begin{tikzcd}
+		\mathrm{Free}^T : \mathcal{C} \arrow[shift left, r] & \mathcal{C}^T: U^T \arrow[shift left, l],
+	\end{tikzcd}\]
+	and the monad on $\mathcal{C}$ determined by this adjoint pair is precisely
+	$(T,\mu,\eta)$.
+\end{definition-proposition}
+% segment-id: o014.li2.chapter7.beck-monadicity-a.pf001
+\begin{proof}
+	To check that $(TM,\mu_M)$ is a $T$-module, one must show that the following
+	two diagrams commute:
+	% segment-id: o014.li2.chapter7.beck-monadicity-a.q018
+	\[\begin{tikzcd}
+		T^3 (M) \arrow[r, "T\mu_M"] \arrow[d, "\mu_{T(M)}"'] & T^2(M) \arrow[d, "\mu_M"] \\
+		T^2 (M) \arrow[r, "\mu_M"'] & T(M)
+	\end{tikzcd} \quad \begin{tikzcd}
+		T(M) \arrow[r, "\eta_{T(M)}"] \arrow[rd, "\identity"'] & T^2(M) \arrow[d, "\mu_M"] \\
+		& T(M).
+	\end{tikzcd}\]
+	But these diagrams are obtained by evaluating the functor diagrams in
+	Definition~\ref{def:monad} at the object $M$. Functoriality is clear.
+
+	Next, note that $U^T\mathrm{Free}^T=T$. Take
+	$\eta:\identity_{\mathcal{C}}\to T$ from the data of $T$, and define
+	% segment-id: o014.li2.chapter7.beck-monadicity-a.q019
+	\[ \epsilon: \mathrm{Free}^T U^T \to \identity_{\mathcal{C}^T}, \quad
+	\epsilon_{(M, a)}: (TM, \mu_M) \xrightarrow{a} (M, a) \in \Obj(\mathcal{C}^T). \]
+	The left diagram in Definition~\ref{def:T-Alg} shows that
+	$\epsilon_{(M,a)}$ is a morphism in $\mathcal{C}^T$. Its functoriality is
+	also clear.
+
+	A routine verification shows that $(\mathrm{Free}^T,U^T)$ is an adjoint
+	pair with unit $\eta$ and counit $\epsilon$; we omit the details. Moreover,
+	% segment-id: o014.li2.chapter7.beck-monadicity-a.q020
+	\begin{equation*}\begin{aligned}
+		\left(U^T \epsilon \mathrm{Free}^T\right)_M & = U^T \epsilon_{(TM, \mu_M)} \\
+		& = \left[ \mu_M: T^2(M) \to T(M)\right],
+	\end{aligned}\end{equation*}
+	which shows that the monad on $\mathcal{C}$ determined by the adjoint pair
+	$(\mathrm{Free}^T,U^T)$ is $(T,\mu,\eta)$.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.beck-monadicity-a.p009
+For the monads in Examples~\ref{eg:Mon-monad} and \ref{eg:Mod-monad}, the
+functor $\mathrm{Free}^T$ corresponds, respectively, to the constructions of
+the free monoid and the free module.
+
+% segment-id: o014.li2.chapter7.beck-monadicity-a.p010
+Dually, a comonad $L$ on a category $\mathcal{D}$ also gives a
+free--forgetful adjoint pair; there is no need to discuss it further.

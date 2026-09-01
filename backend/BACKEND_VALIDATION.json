@@ -1,0 +1,64 @@
+{
+  "schema": "o014-english-backend-validation-v1",
+  "recorded_at_utc": "2026-09-01T00:24:39.181407+00:00",
+  "checks": {
+    "units_146": true,
+    "unit_ids_unique": true,
+    "unit_locale_en": true,
+    "segments_6347": true,
+    "segment_ids_unique": true,
+    "terms_511": true,
+    "term_ids_unique": true,
+    "term_preferred_en_nonempty": true,
+    "term_unresolved_zero": true,
+    "figures_907": true,
+    "figure_ids_unique": true,
+    "bridges_2": true
+  },
+  "term_fallback_count": 0,
+  "term_unresolved_count": 0,
+  "term_override_count": 511,
+  "term_aligned_index_concept_count": 134,
+  "term_aligned_index_pair_count": 500,
+  "term_aligned_index_key_count": 416,
+  "index_alignment_mismatches": [
+    {
+      "unit_id": "o014.aljabr2.chapter3.classical-derived-functors",
+      "id_index_entries": 8,
+      "en_index_entries": 9
+    },
+    {
+      "unit_id": "o014.aljabr2.chapter3.example-lim1",
+      "id_index_entries": 2,
+      "en_index_entries": 3
+    }
+  ],
+  "term_override_input": {
+    "path": "backend/term-overrides-en.csv",
+    "bytes": 25413,
+    "sha256": "47e88827bf39f5a0827753fdc1bb9304de31f3bd5fc26acdb33c9f72ee156378"
+  },
+  "result": "PASS",
+  "artifacts": {
+    "units.jsonl": {
+      "bytes": 111872,
+      "sha256": "cce89eb642c39f891df7d81f75a822dae1ac0d298ee2d080530eb92bc8d8fd49"
+    },
+    "segments.jsonl": {
+      "bytes": 2648064,
+      "sha256": "8189b5b0688ca8d5d260fd24ee3b02b179641ce59195b3a14c19a938128ba826"
+    },
+    "terms.csv": {
+      "bytes": 42440,
+      "sha256": "34e5d0214c2e5cf97898c9171e35dd78f0aa2171ae543da37899fbd4ba8813a6"
+    },
+    "figure-alt-text-en.csv": {
+      "bytes": 337312,
+      "sha256": "aa15c68e8e0f19ee58dc9329199c4ff84db1deb1df9bf58dd5a11105ff293937"
+    },
+    "bridges.jsonl": {
+      "bytes": 674,
+      "sha256": "94d32894347a0e24b5e0f9263327376b7f856dbf84cf0efd241286d37f17cd8d"
+    }
+  }
+}

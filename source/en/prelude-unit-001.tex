@@ -1,0 +1,42 @@
+% English translation of prelude.tex, lines 9--29.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.prelude.linear-algebra
+
+\chapter*{Introduction}
+\hypertarget{o014.aljabr2.prelude}{ }
+
+% segment-id: o014.li2.prelude.p001
+This book is a sequel to \cite{Li1} (hereafter Volume~I). Its purpose is to introduce a range of methods, ideas, and techniques that may reasonably be grouped under the broad heading of linear algebra, assuming familiarity with the basic structures of algebra. These methods pervade contemporary mathematics. To address practical needs as comprehensively as possible, the relevant techniques must be forged into purer and more concise forms; categories and functors are an indispensable language for doing so.
+
+% segment-id: o014.li2.prelude.p002
+The book is divided into three main parts: the Inner Part, the Outer Part, and the appendices. It is intended chiefly for advanced undergraduates, graduate students, researchers, teachers, and independent learners who work on or are interested in these subjects. The prerequisites include familiarity with algebraic structures such as groups, rings, modules, and fields, as well as category theory. Volume~I covers all of this background, though other good textbooks will serve equally well apart from minor differences in notation. The motivation for writing the book was explained in the introduction to Volume~I; the original purpose remains unchanged and need not be repeated here.
+
+\section*{What Is Linear Algebra?}
+\addcontentsline{toc}{section}{What Is Linear Algebra?}
+\hypertarget{o014.aljabr2.prelude.linear-algebra}{ }
+\index{linear algebra}
+
+% segment-id: o014.li2.prelude.linear-algebra.p001
+In the usage of algebraists, ``linear'' broadly describes properties connected with structures that have addition and its inverse operation, subtraction. Addition and subtraction in turn give rise to multiplication by integers; an immediate generalization is scalar multiplication by elements of a ring $R$. The prototypical examples are left and right $R$-modules, while a $\Z$-module is simply an abelian group. For a given $R$-module (taken to be a left module unless otherwise stated), one may study its submodules and quotient modules, as well as the kernel $\Ker(f)$, cokernel $\Coker(f)$, and image $\Image(f)$ of a module homomorphism $f$. All are old friends from elementary algebra; at least the special case in which $R$ is a field---that is, the case of vector spaces---is widely familiar.
+
+% segment-id: o014.li2.prelude.linear-algebra.p002
+Since the twentieth century, mathematical practice has gradually shown that extending the study of $R$-modules and their homomorphisms to complexes of $R$-modules is not only useful and convenient, but often necessary. Such a complex is a sequence of module homomorphisms satisfying $d^{n+1}d^n=0$:
+\[
+  \cdots \longrightarrow X^{n-1} \xrightarrow{d^{n-1}} X^n
+  \xrightarrow{d^n} X^{n+1} \xrightarrow{d^{n+1}} \cdots .
+\]
+The condition on the homomorphisms is sometimes written $d^2=0$, while the full data of the complex are often abbreviated as $(X^n,d^n)_n$, $(X,d)$, or $X$. Because the notation uses increasing superscripts, this is also called a cochain complex. If instead one uses decreasing subscripts, $\cdots\to X_n\xrightarrow{d_n}X_{n-1}\to\cdots$, the resulting mathematical object is called a chain complex; the distinction is purely formal.
+
+% segment-id: o014.li2.prelude.linear-algebra.p003
+A single $R$-module $M$ may be regarded as the special complex with $X^0=M$ and all other terms zero. For a complex $X$, the identity $d^nd^{n-1}=0$ allows its $n$th cohomology to be defined as the quotient module
+\[
+  \Hm^n(X):=\Ker\left(d^n\right)\big/\Image\left(d^{n-1}\right).
+\]
+
+% segment-id: o014.li2.prelude.linear-algebra.p004
+A complex satisfying $\Hm^n(X)=0$ for every $n$ is called an exact sequence or an acyclic complex. For a chain complex, correspondingly, one has homology $\Hm_n(X):=\Ker(d_n)/\Image(d_{n+1})$. The cohomology of a complex (or the homology of a chain complex) often contains important information about the mathematical object under study.
+
+\enlargethispage{3\baselineskip}
+% segment-id: o014.li2.prelude.linear-algebra.p005
+For modules and other mathematical structures equipped with some kind of linear operation---for example, objects of the abelian categories introduced later---the study of complexes and their cohomology is the classical subject matter of homological algebra. This forms a proper part of ``linear algebra'' in its genuine sense, yet lies at the heart of this book. A brief account of its origins follows.

@@ -1,0 +1,178 @@
+% English translation of chapter1.tex, lines 140--266.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter1.images-coimages-strict
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.h001
+\section{Images, Coimages, and Strict Morphisms}\label{sec:images}
+\hypertarget{o014.aljabr2.chapter1.images-coimages-strict}{ }
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.p001
+Let $\mathcal C$ be a category. For any morphism $f:X\to Y$, the fiber coproduct $Y\dsqcup{X}Y$, if it exists, comes equipped with a canonical pair $Y\rightrightarrows Y\dsqcup{X}Y$. Dually, the fiber product $X\dtimes{Y}X$, if it exists, comes equipped with a canonical pair $X\dtimes{Y}X\rightrightarrows X$, usually called the projection morphisms.
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.d001
+\begin{definition}[Image and Coimage]\label{def:Im-Coim}
+	\index{image} \index[sym1]{imf@$\Image(f)$}
+	\index{coimage} \index[sym1]{coimf@$\Coim(f)$}
+	Let $f:X\to Y$ be a morphism in $\mathcal C$. Suppose that $Y\dsqcup{X}Y$ exists. If the equalizer $\Ker\left(Y\rightrightarrows Y\dsqcup{X}Y\right)$ exists, this equalizer is called the \emph{image} of $f$ and denoted by $\Image(f)$; it carries a canonical monomorphism $\Image(f)\hookrightarrow Y$.
+
+	Dually, suppose that $X\dtimes{Y}X$ exists. If the coequalizer $\Coker\left(X\dtimes{Y}X\rightrightarrows X\right)$ exists, this coequalizer is called the \emph{coimage} of $f$ and denoted by $\Coim(f)$; it carries a canonical epimorphism $X\twoheadrightarrow\Coim(f)$.
+\end{definition}
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.r001
+\begin{remark}\label{rem:im-coim-duality}
+	The duality between $\Ker$ and $\Coker$ immediately shows that $\Image(f)$ exists in $\mathcal C$ if and only if $\Coim(f^{\opp})$ exists in $\mathcal C^{\opp}$, and then $\Image(f)=\Coim(f^{\opp})$.
+\end{remark}
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.p002
+Besides being useful, the following lemma sheds light on the nature of images and coimages.
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.lm001
+\begin{lemma}\label{prop:Im-Coim-fac}
+	Suppose that $\Coim(f)$ exists (respectively, that $\Image(f)$ exists) for a morphism $f:X\to Y$. For any monomorphism $j:Y'\hookrightarrow Y$ (respectively epimorphism $q:X\twoheadrightarrow X'$), if $g:X\to Y'$ satisfies $jg=f$ (respectively $g:X'\to Y$ satisfies $gq=f$), then there is a unique $\overline g$ making the corresponding diagram commute:
+	% segment-id: o014.li2.chapter1.images-coimages-strict.g001
+	\[\begin{tikzcd}
+		X \arrow[r, "f"] \arrow[twoheadrightarrow, d] \arrow[rd, "g" description] & Y \\
+		\Coim(f) \arrow[r, "\overline{g}"'] & Y' \arrow[hookrightarrow, u, "j"']
+	\end{tikzcd} \quad \text{or} \quad \begin{tikzcd}
+		X \arrow[r, "f"] \arrow[twoheadrightarrow, d, "q"'] & Y \\
+		X' \arrow[r, "\overline{g}"'] \arrow[ru, "g" description] & \Image(f) \arrow[hookrightarrow, u] .
+	\end{tikzcd}\]
+\end{lemma}
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.pf001
+\begin{proof}
+	The two versions are dual, so it suffices to consider the one involving $j$. Let $p_1,p_2$ be the projections $X\dtimes{Y}X\rightrightarrows X$. Since $jgp_1=fp_1=fp_2=jgp_2$ and $j$ is monic, $gp_1=gp_2$. The universal property of $\Coim(f)$ as a coequalizer then uniquely determines $\overline g$ making the diagram commute.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.p003
+Applying Lemma~\ref{prop:Im-Coim-fac} successively to $\Coim(f)$ and $\Image(f)$ shows that there is a comparison morphism $\Coim(f)\to\Image(f)$ making the following diagram commute:
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.g002
+\begin{equation}\label{eqn:strict-morphism} \begin{tikzcd}
+	X \arrow[r, "f"] \arrow[twoheadrightarrow, d] & Y \\
+	\Coim(f) \arrow[r] & \Image(f) \arrow[hookrightarrow, u]
+\end{tikzcd}\end{equation}
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.p004
+This comparison morphism is also unique, by left cancellation with a monomorphism or right cancellation with an epimorphism.
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.d002
+\begin{definition}[Strict morphism]\label{def:strict-morphism}\index{strict morphism}
+	Suppose that $\Image(f)$ and $\Coim(f)$ exist. If the morphism $\Coim(f)\to\Image(f)$ in \eqref{eqn:strict-morphism} is an isomorphism, then $f$ is called \emph{strict}.
+\end{definition}
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.p005
+For example, every morphism in $\mathcal C=\cate{Set}$ is strict, and both its image and its coimage are canonically identified with its set-theoretic image. Further examples appear in the exercises for this chapter.
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.pr001
+\begin{proposition}\label{prop:Images-f-gf}
+	Given morphisms $X\xrightarrow{f}Y\xrightarrow{g}Z$, there are unique morphisms $\alpha:\Coim(f)\to\Image(gf)$ and $\beta:\Coim(gf)\to\Image(g)$ making the following diagrams commute, provided the indicated coimages and images exist:
+	% segment-id: o014.li2.chapter1.images-coimages-strict.g003
+	\[\begin{tikzcd}
+		X \arrow[twoheadrightarrow, r] \arrow[rd] & \Coim(f) \arrow[d, "\alpha"] \\
+		& \Image(gf)
+	\end{tikzcd} \quad \begin{tikzcd}
+		Z & \Image(g) \arrow[hookrightarrow, l] \\
+		& \Coim(gf) \arrow[u, "\beta"'] \arrow[lu].
+	\end{tikzcd}\]
+\end{proposition}
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.pf002
+\begin{proof}
+	For $\alpha$, uniqueness follows by right cancellation with the epimorphism $X\twoheadrightarrow\Coim(f)$. Existence follows by applying the right-hand version of Lemma~\ref{prop:Im-Coim-fac} to
+	% segment-id: o014.li2.chapter1.images-coimages-strict.g004
+	\[\begin{tikzcd}
+		X \arrow[r, "f"] \arrow[twoheadrightarrow, d] & Y \arrow[r, "g"] & Z \\
+		\Coim(f) \arrow[ru] \arrow[rru] & & \Image(gf) \arrow[hookrightarrow, u]
+	\end{tikzcd}\]
+	where $\Coim(f)\to Y$ is the composite $\Coim(f)\to\Image(f)\hookrightarrow Y$.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.lm002
+\begin{lemma}\label{prop:epi-image}
+	For a morphism $f:X\to Y$ in $\mathcal C$,
+	% segment-id: o014.li2.chapter1.images-coimages-strict.q001
+	\[ f\;\text{epic} \iff \Image(f) \rightiso Y, \quad
+	   f\;\text{monic} \iff X \rightiso \Coim(f). \]
+\end{lemma}
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.pf003
+\begin{proof}
+	By duality it suffices to prove the first equivalence. If $f$ is epic, the canonical morphisms $i_1,i_2:Y\rightrightarrows Y\dsqcup{X}Y$ satisfy $i_1f=i_2f$, hence $i_1=i_2$, and therefore $\Image(f):=\Ker(i_1,i_2)=Y$.
+
+	Conversely, suppose the canonical morphism $\Image(f)\to Y$ is an isomorphism. Since composing it with $i_1$ and $i_2$ gives the same morphism, again $i_1=i_2$. If $Z\in\Obj(\mathcal C)$ and $g_1,g_2:Y\rightrightarrows Z$ satisfy $g_1f=g_2f$, the universal property yields $g:Y\dsqcup{X}Y\to Z$ with $g_j=gi_j$ for $j=1,2$. Hence $g_1=g_2$, proving that $f$ is epic.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.pr002
+\begin{proposition}\label{prop:strict-isomorphism}
+	A strict morphism $f$ is an isomorphism if and only if it is both monic and epic.
+\end{proposition}
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.pf004
+\begin{proof}
+	If $f$ is strict, monic, and epic, factor it as $X\twoheadrightarrow\Coim(f)\rightiso\Image(f)\hookrightarrow Y$ and apply Proposition~\ref{prop:epi-mono-isomorphism} and Lemma~\ref{prop:epi-image}.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.p006
+The preceding arguments involve diagrams $X\twoheadrightarrow C\hookrightarrow Y$ whose composite is $f$. Such a diagram is an \emph{epi--mono factorization} of $f:X\to Y$. In practice one studies not only the factorizations themselves, but also the morphisms between them.
+\index{epi--mono factorization}
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.lm003
+\begin{lemma}\label{prop:epi-mono-morphism}
+	Consider the diagram below, whose solid-arrow part commutes,
+	% segment-id: o014.li2.chapter1.images-coimages-strict.g005
+	\[\begin{tikzcd}
+		X \arrow[r, "e"] \arrow[d, "a"'] & C \arrow[r, "m"] \arrow[dashed, d, "\varphi"] & Y \arrow[d, "b"] \\
+		X' \arrow[r, "{e'}"'] & C' \arrow[r, "{m'}"'] & Y'
+	\end{tikzcd}\]
+	and suppose that $e,e'$ are epic (respectively $m,m'$ are monic).
+	% segment-id: o014.li2.chapter1.images-coimages-strict.l001
+	\begin{enumerate}[(i)]
+		% segment-id: o014.li2.chapter1.images-coimages-strict.i001
+		\item If a $\varphi$ as shown by the dashed arrow makes the left half (respectively right half) commute, then the other half also commutes. Such a $\varphi$, if it exists, is unique.
+		% segment-id: o014.li2.chapter1.images-coimages-strict.i002
+		\item If $a$ is epic (respectively $b$ is monic) and $\varphi$ exists, then $\varphi$ is epic (respectively monic).
+	\end{enumerate}
+\end{lemma}
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.pf005
+\begin{proof}
+	Suppose that $\varphi:C\to C'$ makes the left half commute and that $e,e'$ are epic. The equation $\varphi e=e'a$, together with the epicity of $e$, uniquely determines $\varphi$. Since the outer rectangle commutes, $m'\varphi e=m'e'a=bme$; cancelling $e$ then gives $m'\varphi=bm$, so the right half commutes. If $a$ is also epic, then $\varphi e=e'a$ is epic, and hence $\varphi$ is epic.
+
+	This proves one half of (i) and (ii). The case where $\varphi$ makes the right half commute and $m,m'$ are monic is analogous, or equivalently dual.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.d003
+\begin{definition}
+	For $f:X\to Y$, form the category $\cate{epi.mono}(f)$ whose objects are all epi--mono factorizations of $f$ and whose morphisms are commutative diagrams
+	% segment-id: o014.li2.chapter1.images-coimages-strict.g006
+	\[\begin{tikzcd}[row sep=tiny]
+		& C \arrow[hookrightarrow, rd, "m"] \arrow[dd, "\varphi"] & \\
+		X \arrow[twoheadrightarrow, ru, "e"] \arrow[twoheadrightarrow, rd, "{e'}"'] & & Y . \\
+		& C' \arrow[hookrightarrow, ru, "{m'}"'] &
+	\end{tikzcd}\]
+\end{definition}
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.p007
+Taking $a=\identity_X$ and $b=\identity_Y$ in Lemma~\ref{prop:epi-mono-morphism} shows that the $\varphi$ above, if it exists, is unique and both epic and monic. Thus $\cate{epi.mono}(f)$ is the category associated with a preordered set. This section considers only one special case of epi--mono factorizations.
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.pr003
+\begin{proposition}\label{prop:epi-mono-uniqueness}
+	Suppose that every morphism in $\mathcal C$ is strict. Then every $f:X\to Y$ has an epi--mono factorization $X\twoheadrightarrow C\hookrightarrow Y$, unique up to isomorphism in $\cate{epi.mono}(f)$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.pf006
+\begin{proof}
+	Taking $C=\Image(f)$ proves existence. For uniqueness, Proposition~\ref{prop:strict-isomorphism} and the preceding discussion show that every morphism in $\cate{epi.mono}(f)$ is an isomorphism. It remains to construct a morphism $\varphi:C\to\Image(f)$ in that category. Apply the right-hand version of Lemma~\ref{prop:Im-Coim-fac} to $X\stackrel q\twoheadrightarrow C\stackrel g\hookrightarrow Y$. It supplies a $\varphi$ making the right half of
+	% segment-id: o014.li2.chapter1.images-coimages-strict.g007
+	\[\begin{tikzcd}[row sep=tiny, column sep=small]
+		& C \arrow[hookrightarrow, rd] \arrow[dd, "\varphi"] & \\
+		X \arrow[twoheadrightarrow, ru] \arrow[twoheadrightarrow, rd] & & Y \\
+		& \Image(f) \arrow[hookrightarrow, ru] &
+	\end{tikzcd}\]
+	commute. Lemma~\ref{prop:epi-mono-morphism} then shows that the whole diagram commutes.
+\end{proof}
+
+% segment-id: o014.li2.chapter1.images-coimages-strict.p008
+Inferring that a subdiagram commutes from the commutativity of its outer frame is a standard technique that will be used repeatedly.

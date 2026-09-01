@@ -1,0 +1,166 @@
+% Stable unit: appendix1-unit-136; source appendix1.tex, lines 121--283.
+% Stable unit ID: o014.aljabr2.appendix1.compact-presentable-categories
+\section{Compact Objects and Presentable Categories}\label{sec:cpt-objects}
+Compactness in category theory is a common refinement of many finiteness conditions in algebra, geometry, and algebraic geometry. Throughout this section we fix a category $\mathcal{C}$; unless stated otherwise, we always assume that $\mathcal{C}$ has all small filtered $\varinjlim$.
+
+Consider a small filtered category $I$ and a functor $\alpha:I\to\mathcal{C}$. For $X\in\Obj(\mathcal{C})$, the canonical family of morphisms $\iota_i:\alpha(i)\to\varinjlim\alpha$ induces a family $(\iota_i)_*:\Hom(X,\alpha(i))\to\Hom\left(X,\varinjlim\alpha\right)$, with $i\in\Obj(I)$, and hence a canonical map
+\begin{equation}\label{eqn:I-small-gen}
+	\varinjlim_{i \in \Obj(I)} \Hom\left( X, \alpha(i) \right) \to \Hom\left( X, \varinjlim \alpha \right).
+\end{equation}
+
+\begin{definition}\label{def:kappa-filtered}
+	\index{partially ordered set!$\kappa$-filtered}
+	Let $(P,\leq)$ be a nonempty partially ordered set and let $\kappa$ be an infinite cardinal. If every subset $P_0$ satisfying $|P_0|<\kappa$ has an upper bound in $P$, then $(P,\leq)$ is called \emph{$\kappa$-filtered}.
+\end{definition}
+
+If $\kappa\leq\kappa'$, then $\kappa'$-filtered implies $\kappa$-filtered. Taking $\kappa:=\aleph_0=\omega$ recovers the filtered partially ordered sets introduced in Example~\ref{eg:filtered-poset}.
+
+\begin{definition}\label{def:cpt-objects}
+	\index{compact object}
+	\index{compact object!$\kappa$-compact}
+	If $X\in\Obj(\mathcal{C})$ is such that \eqref{eqn:I-small-gen} is an isomorphism for every small filtered category $I$ and every $\alpha:I\to\mathcal{C}$, then $X$ is called a \emph{compact object} of $\mathcal{C}$.
+
+	Given a small cardinal $\kappa$, if $I$ is further restricted to small $\kappa$-filtered partially ordered sets, then an $X$ satisfying the corresponding condition is called a \emph{$\kappa$-compact object}.
+\end{definition}
+
+In the terminology of Definition~\ref{def:create-limit}, $X$ is compact if and only if $\Hom(X,\cdot):\mathcal{C}\to\cate{Set}$ preserves small filtered $\varinjlim$. If $\kappa\leq\kappa'$, then $\kappa$-compactness implies $\kappa'$-compactness.
+
+\begin{remark}\label{rem:filtered-poset}
+	At first glance the definitions of compact and $\aleph_0$-compact objects appear different: the former involves all small filtered categories, whereas the latter permits only small filtered partially ordered sets. There is, however, a nontrivial fact \cite[Theorem 1.5]{AR94}:
+	\begin{center}\begin{minipage}{0.7\textwidth}
+		For every small filtered category $I$, there is a small filtered partially ordered set $(\mathcal{P},\leq)$ together with a cofinal functor $\mathcal{P}\to I$.
+	\end{minipage}\end{center}
+	It follows that compactness is equivalent to $\aleph_0$-compactness. A proof will be sketched in the exercises.
+\end{remark}
+
+Using the definition of a filtered category and the concrete description of filtered $\varinjlim$ in $\cate{Set}$ (Proposition~\ref{prop:filtered-union}), we see that
+\begin{itemize}
+	\item the map \eqref{eqn:I-small-gen} is surjective $\iff$ every $f:X\to\varinjlim\alpha$ factors as $X\xrightarrow{f_i}\alpha(i)\xrightarrow{\iota_i}\varinjlim\alpha$;\footnote{Translator's note: the source prints the target of the last arrow as $X$. Since $\iota_i$ is the canonical morphism to the colimit, the type-correct target is $\varinjlim\alpha$.}
+	\item the map \eqref{eqn:I-small-gen} is injective $\iff$ for every $i\in\Obj(I)$ and every $f,g\in\Hom(X,\alpha(i))$ satisfying $\iota_i f=\iota_i g$, there is a morphism $i\to j$ in $I$ such that the images of $f$ and $g$ in $\Hom(X,\alpha(j))$ are equal.
+\end{itemize}
+
+\begin{example}\label{eg:Set-cpt}
+	For $\mathcal{C}=\cate{Set}$, an object $X$ is compact if and only if $X$ is a finite set. The if direction follows immediately from the preceding discussion and the concrete description of $\varinjlim\alpha$. For the only-if direction, express $X$ as the filtered $\varinjlim$ of its finite subsets and consider $\identity_X$.
+\end{example}
+
+\begin{example}\label{eg:Mod-cpt}
+	Let $R$ be a ring. For $\mathcal{C}=R\dcate{Mod}$, an object $X$ is compact if and only if it is finitely presented; in other words, there exist $a,b\in\Z_{\geq0}$ and an exact sequence of $R$-modules
+	\[ R^{\oplus b} \to R^{\oplus a} \xrightarrow{p} X \to 0 .\]
+	For filtered $\varinjlim$ in $R\dcate{Mod}$, see the explanation in \cite[Remark 6.2.3]{Li1}. The only-if direction is left as an exercise. We sketch the if direction. Take the images of the standard basis of $R^{\oplus a}$ to obtain generators $x_1,\ldots,x_a$ of $X$. First we prove that \eqref{eqn:I-small-gen} is injective. Suppose that $f,g\in\Hom(X,\alpha(i))$ satisfy $\iota_i f=\iota_i g$. For every $x\in\{x_1,\ldots,x_a\}$, there is an $i\to j_x$ such that the images of $f(x)$ and $g(x)$ in $\alpha(j_x)$ are equal. The filteredness of $I$ then gives the desired $i\to j$, for which the images of $f$ and $g$ in $\Hom(X,\alpha(j))$ are equal.
+
+	Next we prove that \eqref{eqn:I-small-gen} is surjective. Consider $f:X\to\varinjlim\alpha$. For every $x\in\{x_1,\ldots,x_a\}$, there are $j_x$ and $m_x\in\alpha(j_x)$ such that $f(x)=\iota_{j_x}(m_x)$. Again, filteredness ensures that the $j_x$ may be chosen independently of $x$; denote the common choice by $j$. This determines a morphism $m:R^{\oplus a}\to\alpha(j)$ such that $fp=\iota_jm$. Since $b$ is finite, by passing sufficiently far along a morphism $j\to i$ and then replacing $j$ by $i$, we may also arrange for $m$ to vanish identically on the image of $R^{\oplus b}$. This gives the required $f_i$.
+\end{example}
+
+For compact objects determined by various kinds of algebraic structure, \cite[Examples 1.2; Theorem 3.12]{AR94} gives a more complete discussion. For instance, the compact objects in the category of groups $\cate{Grp}$ are precisely the finitely presented groups.
+
+Another important class of compact objects comes from the Yoneda embedding $h_{\mathcal{D}}:\mathcal{D}\to\mathcal{D}^\wedge$ recalled in \S\ref{sec:Yoneda}.
+
+\begin{proposition}\label{prop:Ind-cpt}
+	Let $\mathcal{D}$ be any category and $X\in\Obj(\mathcal{D})$. Then $h_{\mathcal{D}}(X)$ is compact in $\mathcal{D}^\wedge$.
+\end{proposition}
+\begin{proof}
+	Given a small filtered category $I$ and a functor $\alpha:I\to\mathcal{D}^\wedge$, Theorem~\ref{prop:Yoneda} and the pointwise construction of $\varinjlim$ in $\mathcal{D}^\wedge$ (see \cite[Proposition 2.7.8]{Li1}, where it is denoted by $\Yinjlim$) give
+	\begin{align*}
+		\varinjlim_i \Hom_{\mathcal{D}^{\wedge}}(h_{\mathcal{D}}(X), \alpha(i)) & \simeq \varinjlim_i \left(\alpha(i)(X)\right) \\
+		& = (\varinjlim \alpha)(X) \\
+		& \simeq \Hom_{\mathcal{D}^\wedge}(h_{\mathcal{D}}(X), \varinjlim \alpha).
+	\end{align*}
+	A routine verification shows that this is the canonical map in \eqref{eqn:I-small-gen}. Thus compactness follows.
+\end{proof}
+
+By further restricting the filtered category $I$ in \eqref{eqn:I-small-gen}, one obtains various versions of compactness. We first focus on the regular cardinals introduced in \cite[Definition 1.4.10]{Li1}; a more careful treatment is useful here.\footnote{Readers uninterested in set theory may skip the following discussion.} First let $\alpha>0$ be any infinite ordinal. Consider a limit ordinal $\theta>0$ and a strictly increasing sequence of ordinals $(a_\beta)_{\substack{\beta:\text{ordinal}\\\beta<\theta}}$. If $\sup_{\beta<\theta}a_\beta=\alpha$, the sequence is called \emph{cofinal} in $\alpha$\index{cofinal}. If $\alpha$ is a limit ordinal, define
+\[ \mathrm{cf}(\alpha) := \inf\left\{ \theta > 0: \text{limit ordinal}, \; \exists (a_\beta)_{\beta < \theta}\; \text{as above, cofinal in $\alpha$} \right\}; \]
+this $\inf$ is well-defined and is attained by some $\theta$ of the indicated kind; for $\sup$ and $\inf$ of ordinals, see \cite[Theorem 1.2.10]{Li1}. Taking $a_\beta:=\beta$ immediately gives $\mathrm{cf}(\alpha)\leq\alpha$.
+\index[sym1]{cf@$\mathrm{cf}(\alpha)$}
+
+Note that every infinite cardinal, viewed as an ordinal, is necessarily a limit ordinal; see the discussion following \cite[Lemma 1.4.6]{Li1}.
+
+\begin{definition}\label{def:regular-cardinal}
+	\index{cardinal!regular}
+	An infinite cardinal $\kappa$ is called a \emph{regular cardinal} if, viewed as an ordinal, it satisfies $\mathrm{cf}(\kappa)=\kappa$.
+\end{definition}
+
+\begin{proposition}\label{prop:cf-generalities}
+	Let $\alpha>0$ be a limit ordinal.
+	\begin{enumerate}[(i)]
+		\item $\mathrm{cf}(\mathrm{cf}(\alpha)) = \mathrm{cf}(\alpha)$;
+		\item if a nonempty subset $S\subset\alpha$ satisfies $\sup S=\alpha$, then $|S|\geq\mathrm{cf}(\alpha)$ as ordinals;
+		\item $\mathrm{cf}(\alpha)$ is a regular cardinal.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	For (i), the key is to prove $\mathrm{cf}(\alpha)\leq\mathrm{cf}(\mathrm{cf}(\alpha))$. Suppose that $(a_\beta)_{\beta<\theta}$ is cofinal in $\alpha$ and $(b(\gamma))_{\gamma<\psi}$ is cofinal in $\theta$. Then $\left(a_{b(\gamma)}\right)_{\gamma<\psi}$ is cofinal in $\alpha$. Hence $\mathrm{cf}(\alpha)\leq\mathrm{cf}(\theta)$. Now take $\theta=\mathrm{cf}(\alpha)$.
+
+	For (ii), choose any bijection $f:|S|\to S$. Recall that $|S|$ is an ordinal, while $\alpha\notin S$. We claim that there are a limit ordinal $\theta$ and an order-preserving embedding $i:\theta\hookrightarrow|S|$ (hence $\theta\leq|S|$) such that the sequence of ordinals $\left(f(i(\beta))\right)_{\beta<\theta}$ in $S$ is strictly increasing and
+	$\sup_{\beta<\theta}f(i(\beta))=\sup S=\alpha$.
+
+	Indeed, this is an application of transfinite recursion. More explicitly, take
+	\begin{align*}
+		i(0) & := \inf |S| = 0, \\
+		i(n+1) & := \inf\left\{ t \in |S|: f(t) > f(i(n)) \right\}, \quad n \in \omega := \{0, 1, 2, \ldots\}, \\
+		i(\omega) & := \inf\left\{ t \in |S|: \forall k < \omega, \; f(t) > f(i(k)) \right\},
+	\end{align*}
+	and continue transfinitely in this manner until stopping at $\theta$. This proves the claim, and immediately yields $|S|\geq\theta\geq\mathrm{cf}(\alpha)$.
+
+	For (iii), in view of (i), it remains only to show that $\mathrm{cf}(\alpha)$ is a cardinal. If $\beta>0$ is a limit ordinal, then (ii) implies $\beta\geq|\beta|\geq\mathrm{cf}(\beta)$. Substituting $\beta=\mathrm{cf}(\alpha)$ and using (i), we obtain
+	$\mathrm{cf}(\alpha)=|\mathrm{cf}(\alpha)|$, so $\mathrm{cf}(\alpha)$ is a cardinal.
+\end{proof}
+
+\begin{proposition}[See {\cite[Theorem 5.10]{Je03}}]\label{prop:cf-Konig}
+	Let $\lambda$ be an infinite cardinal. Then $\mathrm{cf}(2^\lambda)>\lambda$.
+\end{proposition}
+\begin{proof}
+	This is a standard result in set theory. Let $0<\alpha\leq\lambda$ be a limit ordinal and let $(a_\beta)_{\beta<\alpha}$ be a sequence of ordinals satisfying $a_\beta<2^\lambda$. Write $\kappa_\beta:=|a_\beta|<2^\lambda$. By the definitions of the supremum of ordinals and cardinal arithmetic,
+	\[ \left| \sup_{\beta < \alpha} a_\beta \right| = \left| \bigcup_{\beta < \alpha} a_\beta \right| \leq \sum_{\beta < \alpha} \kappa_\beta. \]
+	König's lemma for cardinal arithmetic (see \cite[Exercise 1.6]{Li1}, or \cite[Theorem 5.10]{Je03}) gives
+	\begin{align*}
+		\sum_{\beta < \alpha} \kappa_\beta & < \prod_{\beta < \alpha} 2^\lambda = (2^\lambda)^{|\alpha|} \\
+		& = 2^{\lambda \cdot |\alpha|} \leq 2^{\lambda \cdot \lambda} = 2^\lambda ;
+	\end{align*}
+	the last step uses \cite[Theorem 1.4.8]{Li1}. Thus $\lambda\geq\mathrm{cf}(2^\lambda)$ is impossible.
+\end{proof}
+
+\begin{lemma}\label{prop:enough-regular-cardinal}
+	Let $T$ be a small set. Then there is a small regular cardinal $\mu$ such that $\mu>|T|$.
+\end{lemma}
+\begin{proof}
+	Recall that a Grothendieck universe $\mathcal{U}$ has already been fixed. The question depends only on $|T|$, so we may assume without loss of generality that $T\in\mathcal{U}$ is infinite. Its power set $P(T)$ then belongs to $\mathcal{U}$. Write $\lambda:=|T|$. Proposition~\ref{prop:cf-Konig} says that $\mathrm{cf}(2^\lambda)>\lambda$. Since $\mathrm{cf}(2^\lambda)$ is both a regular cardinal (Proposition~\ref{prop:cf-generalities} (iii)) and embeddable as a subset of $2^\lambda=|P(T)|$, the choice $\mu:=\mathrm{cf}(2^\lambda)$ has the required properties.
+\end{proof}
+
+We now return to the main line of category theory. The following notion originates in \cite{GU71}; a textbook reference is \cite[Chapters 1, 2]{AR94}.
+
+\begin{definition}[P.\ Gabriel, F.\ Ulmer]\label{def:presentable-cat}
+	\index{category!$\kappa$-accessible}
+	\index{category!$\kappa$-presentable}
+	\index{functor!$\kappa$-accessible}
+	Let $\mathcal{C}$ be a category as above and let $\kappa$ be a small regular cardinal.
+	\begin{enumerate}
+		\item The category $\mathcal{C}$ is called \emph{$\kappa$-accessible} if it satisfies the following conditions:
+		\begin{compactitem}
+			\item $\mathcal{C}$ has all small $\kappa$-filtered $\varinjlim$ (Definition~\ref{def:kappa-filtered});
+			\item there is a small subset $S\subset\Obj(\mathcal{C})$ consisting of $\kappa$-compact objects (Definition~\ref{def:cpt-objects}) such that every $X\in\Obj(\mathcal{C})$ can be expressed as a small $\kappa$-filtered $\varinjlim$ of elements of $S$.
+		\end{compactitem}
+		\item A functor between $\kappa$-accessible categories is called $\kappa$-accessible if it preserves small $\kappa$-filtered $\varinjlim$.
+		\item A cocomplete $\kappa$-accessible category is called a \emph{$\kappa$-presentable category}.\footnote{Gabriel once called these algebraic categories; the literature \cite{AR94, GU71} calls them locally presentable categories, while here the terminology is changed following \cite[A.1.1]{Lu09}.}
+	\end{enumerate}
+
+	When $\kappa'$ is sufficiently large relative to $\kappa$, the corresponding conditions are weaker than those for $\kappa$. A category that is $\kappa$-accessible (respectively $\kappa$-presentable) for some small regular cardinal $\kappa$ is called accessible (respectively presentable). Similarly, a functor between presentable categories is called accessible if it is $\kappa$-accessible for some small regular cardinal $\kappa$.
+\end{definition}
+
+One can verify that the categories $\cate{Set}$ and $R\dcate{Mod}$ discussed in Examples~\ref{eg:Set-cpt} and \ref{eg:Mod-cpt} are both presentable; in fact, they are $\aleph_0$-presentable. See also the exercises.
+
+For the following important result we can give only part of the proof here.
+
+% Reference: nLab, page on Adjoint Functor Theorem
+\begin{theorem}[P.\ Gabriel, F.\ Ulmer]
+	Let $\kappa$ be a small regular cardinal and let $F:\mathcal{C}\to\mathcal{D}$ be a functor between presentable categories. Then:
+	\begin{enumerate}[(i)]
+		\item $F$ has a right adjoint if and only if it preserves small $\varinjlim$;
+		\item $F$ has a left adjoint if and only if it is accessible and preserves small $\varprojlim$.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	The only-if direction of (i) is well known. The converse follows from the special adjoint functor theorem \ref{prop:SAFT} and the following facts. First, Lemma~\ref{prop:generator-via-limit} implies that the set $S$ in Definition~\ref{def:presentable-cat} is a generating family for $\mathcal{C}$; second, every presentable category is co-well-powered, by \cite[Theorem 1.58]{AR94}.
+
+	Assertion (ii) follows from Freyd's adjoint functor theorem \ref{prop:GAFT}; see \cite[Theorem 1.66]{AR94} for details.
+\end{proof}

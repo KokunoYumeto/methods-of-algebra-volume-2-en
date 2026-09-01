@@ -1,0 +1,218 @@
+% Unit 129 English translation of chapter9.tex, lines 1369--1456.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter9.reconstruction-b
+% Coverage: the remainder of Section 9.5, abelian subcategories, and the
+% reconstruction theorem.
+
+% segment-id: o014.li2.chapter9.reconstruction-b.p001
+The relation between the preceding result and abelian subcategories is also
+easy to describe.
+
+% segment-id: o014.li2.chapter9.reconstruction-b.l001
+\begin{lemma}\label{prop:subcat-gen-L}
+	Suppose that $\mathcal{A}$ and $\omega$ satisfy the hypotheses of
+	Lemma~\ref{prop:Tannaka-projective-generator}. Every abelian subcategory
+	$\mathcal{A}'$, together with $\omega|_{\mathcal{A}'}$, also satisfies
+	these hypotheses. Moreover, the canonical homomorphism
+	$\coEnd(\omega|_{\mathcal{A}'})\to\coEnd(\omega)$ from
+	Remark~\ref{rem:L-cogebra-functoriality} is monic.
+\end{lemma}
+\begin{proof}
+	It is clear that $\mathcal{A}'$ is locally finite. Without loss of
+	generality, we may suppose that
+	$\Obj(\mathcal{A}')\subset\Obj(\mathcal{A})$ is closed under
+	isomorphisms. We use the following general properties; their proofs are
+	not difficult and can be found in the exercises of \CHref{sec:app-Abel}.
+	\begin{itemize}
+		\item Choose a projective generator $s$ of $\mathcal{A}$. It has a
+		largest quotient object lying in $\mathcal{A}'$, denoted by $s'$, and
+		$s'$ is a projective generator of $\mathcal{A}'$.
+		\item Write $A:=\End(s)$ and
+		$A':=\End(s')\simeq\Hom(s,s')$. There is a two-sided ideal
+		$\mathfrak a$ such that $A\to A'$ induces
+		$A/\mathfrak a\rightiso A'$. More explicitly, if
+		$t:=\Ker[s\twoheadrightarrow s']\subset s$, then
+		$\mathfrak a=\Hom(s,t)\subset A$.
+		\item After identifying $\mathcal{A}$ with
+		$\catesubd{Mod}{\mathrm{fg}}A$, the category $\mathcal{A}'$ is
+		identified with the full subcategory consisting of modules annihilated
+		by $\mathfrak a$.
+	\end{itemize}
+
+	Choose a basis $\phi_1,\ldots,\phi_m$ of the $\Bbbk$-vector space
+	$\Hom(s,t)$. The generator property gives an exact sequence
+	% segment-id: o014.li2.chapter9.reconstruction-b.q001
+	\[ s^{\oplus m} \xrightarrow{(\phi_i)_i} s \to s' \to 0. \]
+	Write $P:=\omega(s)$ and $P':=\omega(s')$. The algebra $A$ acts on $P$
+	from the left through $\omega$, and the corresponding exact sequence
+	% segment-id: o014.li2.chapter9.reconstruction-b.q002
+	\[ P^{\oplus m} \xrightarrow{(\omega(\phi_i))_i} P \to P' \to 0 \]
+	shows that $P'\simeq P/\mathfrak aP$.
+
+	The proof of Lemma~\ref{prop:Tannaka-projective-generator} showed that
+	$(\mathord\cdot)\dotimes{A}P:\cated{Mod}A\to\cated{Mod}B$ is exact.
+	Together with the description above, this gives
+	% segment-id: o014.li2.chapter9.reconstruction-b.q003
+	\begin{align*}
+		(P')^\vee \dotimes{A/\mathfrak{a}} P' & \simeq (A/\mathfrak{a} \dotimes{A} P)^\vee \dotimes{A/\mathfrak{a}} ( A/\mathfrak{a} \dotimes{A} P) \\
+		& \simeq (A/\mathfrak{a} \dotimes{A} P)^\vee \dotimes{A} P \\
+		& \hookrightarrow P^\vee \dotimes{A} P.
+	\end{align*}
+	It is not difficult to check that this is precisely the canonical
+	homomorphism $\coEnd(\omega|_{\mathcal{A}'})\to\coEnd(\omega)$.
+\end{proof}
+
+% segment-id: o014.li2.chapter9.reconstruction-b.eg001
+\begin{example}\label{eg:Tannakian-I-graded-0}
+	Here are some initial applications of
+	Lemma~\ref{prop:Tannaka-projective-generator} for $B=\Bbbk$; recall
+	that $\Bbbk$ is assumed to be a field. For a nonempty set $I$, define
+	$\cate{Vect}_I(\Bbbk)$ to be the category of $I$-graded
+	$\Bbbk$-vector spaces (Example~\ref{eg:graded-module}, with trivial
+	$\epsilon$). The objects $(M^i)_{i\in I}$ satisfying
+	$\sum_i\dim_{\Bbbk}M^i<\infty$ form the full subcategory
+	$\mathcal{A}:=\cate{Vect}_{I,\mathrm f}(\Bbbk)$. Write $\Bbbk[I]$ for
+	the $\Bbbk$-vector space with basis $I$; the following structure makes it
+	a cocommutative coalgebra:
+	% segment-id: o014.li2.chapter9.reconstruction-b.q004
+	\[ \epsilon(i) = 1, \quad \Delta(i) = i \otimes i, \quad i \in I. \]
+	Define a functor
+	$\omega_I:\mathcal{A}\to\cate{Vect}_{\mathrm f}(\Bbbk)$ by sending
+	$(M^i)_{i\in I}$ to $\bigoplus_iM^i$.
+	\begin{enumerate}
+		\item The simplest case $|I|=1$ amounts to taking
+		$\mathcal{A}=\cate{Vect}_{\mathrm f}(\Bbbk)$ and
+		$\omega_I=\identity$; the projective generator $s$ may be taken to be
+		$\Bbbk$. A direct calculation from the definition, or
+		Lemma~\ref{prop:Tannaka-projective-generator}(i), gives
+		% segment-id: o014.li2.chapter9.reconstruction-b.q005
+		\[ \coEnd(\omega_I) \simeq \Bbbk, \quad \epsilon(1) = 1, \quad \Delta(1) = 1 \otimes 1. \]
+		Thus, when $|I|=1$, we have
+		$\coEnd(\omega_I)\simeq\Bbbk\simeq\Bbbk[I]$.
+
+		\item Next, if $I$ is finite, then
+		$\coEnd(\omega_I)\simeq\Bbbk[I]$. This can be deduced from the
+		preceding case or understood by applying
+		Lemma~\ref{prop:Tannaka-projective-generator}(i), taking as projective
+		generator $s$ the object defined by $M^i=\Bbbk$ for every $i$.
+
+		Observe that if $I\subset J$, the embedding
+		$\cate{Vect}_{I,\mathrm f}(\Bbbk)\subset
+		\cate{Vect}_{J,\mathrm f}(\Bbbk)$ induces
+		$\Bbbk[I]\to\Bbbk[J]$, namely the coalgebra embedding induced by
+		$I\hookrightarrow J$.
+
+		\item For every nonempty set $I$, we likewise have
+		$\coEnd(\omega_I)\simeq\Bbbk[I]$. More precisely, if
+		$x\in M^i$ and $\phi\in(M^i)^\vee$ satisfy $\phi(x)=1$, then
+		$[\phi\otimes x]\in\coEnd(\omega_I)$ corresponds to
+		$i\in\Bbbk[I]$.
+
+		The set $I$ is the filtered union of its finite subsets, and both the
+		category $\cate{Vect}_{I,\mathrm f}(\Bbbk)$ and the coalgebra
+		$\Bbbk[I]$ reduce to the finite case in the same way. Since the case
+		of finite $I$ is known, Proposition~\ref{prop:coHom-colim} immediately
+		gives
+		% segment-id: o014.li2.chapter9.reconstruction-b.q006
+		\[ \coEnd(\omega_I) \simeq \varinjlim_{J \subset I, |J| < \infty} \coEnd(\omega_J). \]
+		Taking colimits is a key technique that will reappear in the next
+		proof.
+	\end{enumerate}
+\end{example}
+
+% segment-id: o014.li2.chapter9.reconstruction-b.p002
+The following theorem is the main intermediate result so far, and its proof
+depends on the technical results of \S\ref{sec:locally-finite-Abel-cat}.
+Recall that if $(L,\mu,\eta,\Delta,\epsilon)$ is a $B$-bialgebra,
+Proposition~\ref{prop:bialgebra-Mod-monoidal} equips
+$\cated{Comod}L$ with a natural monoidal structure: the operation $\otimes$
+comes from $\mu$, and the unit is $B$ with the coaction given by
+$\eta:B\to B\dotimes{B}L\simeq L$. Observe that
+$\catesubd{Comod}{\mathrm{pf}}L$ is a monoidal subcategory.
+
+% segment-id: o014.li2.chapter9.reconstruction-b.th001
+\begin{theorem}\label{prop:Tannaka-aux1}
+	\index{reconstruction theorem}
+	Let $\Bbbk$ be a field, let $B$ be a $\Bbbk$-algebra, let $\mathcal{A}$
+	be a locally finite abelian category, and let
+	$\omega:\mathcal{A}\to\cated{Mod}B$ be a faithful exact functor taking
+	values in $\catesubd{Mod}{\mathrm{pfg}}B$.
+	\begin{enumerate}[(i)]
+		\item The functor $\overline\omega$ in the canonical factorization
+		\eqref{eqn:L-canonical-decomp} is an equivalence of categories.
+		Moreover, there is a family of abelian subcategories $\mathcal{A}'$ of
+		$\mathcal{A}$ such that
+		\begin{compactitem}
+			\item $\bigcup_{\mathcal{A}'}\mathcal{A}'=\mathcal{A}$ is a
+			filtered union of subcategories;
+			\item every $\mathcal{A}'$ has a projective generator,
+		\end{compactitem}
+		and for this family there is an isomorphism of coalgebras
+		% segment-id: o014.li2.chapter9.reconstruction-b.q007
+		\[ \coEnd(\omega) \simeq \varinjlim_{\mathcal{A}'} \coEnd(\omega'), \quad \omega' := \omega|_{\mathcal{A}'}. \]
+		The transition homomorphisms on the right come from
+		Remark~\ref{rem:L-cogebra-functoriality}, and all of them are coalgebra
+		embeddings. In this situation,
+		% segment-id: o014.li2.chapter9.reconstruction-b.q008
+		\[ \catesubd{Comod}{\mathrm f}\coEnd(\omega)=
+		\catesubd{Comod}{\mathrm{pf}}\coEnd(\omega). \]
+
+		\item If $\mathcal{A}$ has a monoidal-category structure,
+		$B=\Bbbk$, and $\omega$ is a monoidal functor, then with respect to the
+		$\Bbbk$-bialgebra structure on $\coEnd(\omega)$ from
+		Proposition~\ref{prop:L-bialgebra}, both $\overline\omega$ and $U$ are
+		monoidal functors.
+		\item Under the same assumptions, if in addition $\mathcal{A}$ is a
+		symmetric monoidal category and $\omega$ is compatible with the
+		braidings, then $\coEnd(\omega)$ is commutative as an algebra, while
+		$\overline\omega$ and $U$ are also compatible with the braidings.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	Proposition~\ref{prop:subcat-union} writes $\mathcal{A}$ as the filtered
+	union of abelian subcategories $\mathcal{A}'$ having projective
+	generators; for example, we may take $\mathcal{A}'=\lrangle{X}$ for
+	$X\in\Obj(\mathcal{A})$. Proposition~\ref{prop:coHom-colim} shows that
+	$\coEnd(\omega)\simeq\varinjlim_{\mathcal{A}'}\coEnd(\omega')$, and
+	Lemma~\ref{prop:subcat-gen-L} shows that all the transition homomorphisms
+	are coalgebra embeddings. The canonical factorization
+	\eqref{eqn:L-canonical-decomp} is obtained by taking the filtered union
+	of
+	% segment-id: o014.li2.chapter9.reconstruction-b.q009
+	\[\begin{tikzcd}
+		\mathcal{A}' \arrow[r, "{\overline{\omega'}}"] & \catesubd{Comod}{\mathrm{pf}}\coEnd(\omega') \arrow[r, "U"] & \catesubd{Mod}{\mathrm{pfg}}B.
+	\end{tikzcd}\]
+	Lemma~\ref{prop:Tannaka-projective-generator} states that every
+	$\overline{\omega'}$ is an equivalence, so $\overline\omega$ is also an
+	equivalence. Moreover,
+	$\catesubd{Comod}{\mathrm{pf}}\coEnd(\omega')=
+	\catesubd{Comod}{\mathrm f}\coEnd(\omega')$; the same process
+	simultaneously gives this equality for $\coEnd(\omega)$. This proves (i).
+
+	If $\mathcal{A}$ is monoidal and $B=\Bbbk$, the forgetful functor $U$ is
+	always monoidal for the structure on $\cated{Comod}\coEnd(\omega)$ coming
+	from the bialgebra $\coEnd(\omega)$. The commutative diagram
+	\eqref{eqn:L-bialgebra-prod}, with all of
+	$\omega_i,\omega_i',\omega_i''$ replaced by $\omega$, shows that
+	$\overline\omega$ is also monoidal. This proves (ii), and a similar
+	argument proves (iii).
+\end{proof}
+
+% segment-id: o014.li2.chapter9.reconstruction-b.eg002
+\begin{example}\label{eg:Tannakian-I-graded}
+	Let $\Gamma$ be a monoid and let $B=\Bbbk$ be a field, so that
+	$\catesubd{Mod}{\mathrm{pfg}}B=\cate{Vect}_{\mathrm f}(\Bbbk)$.
+	Example~\ref{eg:Tannakian-I-graded-0} shows that the coalgebra
+	corresponding to
+	% segment-id: o014.li2.chapter9.reconstruction-b.q010
+	\[ \omega_\Gamma: \cate{Vect}_{\Gamma, \mathrm{f}}(\Bbbk) \to \cate{Vect}_{\mathrm{f}}(\Bbbk), \quad (M^\gamma)_{\gamma \in \Gamma} \to \bigoplus_\gamma M^\gamma \]
+	is $\Bbbk[\Gamma]$. Moreover, $\Bbbk[\Gamma]$ carries a bialgebra
+	structure (Example~\ref{eg:monoid-bialgebra}). On the other hand,
+	$\cate{Vect}_{\Gamma,\mathrm f}(\Bbbk)$ is a monoidal category and
+	$\omega_\Gamma$ is a monoidal functor (Example~\ref{eg:graded-module});
+	this also equips $\Bbbk[\Gamma]$ with a bialgebra structure. The two
+	structures coincide, as one checks by comparing the description of
+	multiplication in \eqref{eqn:L-tensor} with
+	Example~\ref{eg:Tannakian-I-graded-0}; the details are left to the reader.
+\end{example}

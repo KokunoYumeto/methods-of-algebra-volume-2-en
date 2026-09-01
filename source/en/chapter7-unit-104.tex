@@ -1,0 +1,269 @@
+% Unit 104 English translation of chapter7.tex lines 2828--2944.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter7.exercises-b
+% Coverage: middle portion of the Chapter 7 Exercises, from self-enrichment of
+% closed monoidal categories through uniqueness of comodule structures on
+% quotients and submodules; continued by Unit 105 at line 2945.
+
+\hypertarget{o014.aljabr2.chapter7.exercises-b}{ }
+	% segment-id: o014.aljabr2.chapter7.exercises-b.ex011
+	\item Prove that the canonical morphisms
+	$[Y,Z]\otimes[X,Y]\to[X,Z]$ and $\munit\to[X,X]$ defined for a closed
+	monoidal category in \S\ref{sec:closed-monoidal} satisfy associativity and
+	unit laws. Thus a closed monoidal category is enriched over itself with
+	respect to its internal $\Hom$.
+	% segment-id: o014.aljabr2.chapter7.exercises-b.hi006
+	\begin{hint}
+		Verify this directly, or consult \cite[Section 1.6]{Kel05}.
+	\end{hint}
+
+	% segment-id: o014.aljabr2.chapter7.exercises-b.ex012
+	\item Consider the polynomial algebra $\Bbbk[t]$ over a commutative ring
+	$\Bbbk$. Define $\Delta$, $\epsilon$, and $S$, respectively, by
+	% segment-id: o014.aljabr2.chapter7.exercises-b.q010
+	\[ \Delta(t^n) = \sum_{k=0}^n \binom{n}{k} t^k \otimes t^{n-k}, \quad \epsilon(t^n) = \begin{cases}
+		1, & n = 0 \\
+		0, & n \neq 0
+	\end{cases}, \quad
+	S(t^n) = (-1)^n t^n, \]
+	where $n\in\Z_{\geq0}$. Verify that these data define a commutative and
+	cocommutative Hopf $\Bbbk$-algebra.
+
+	% segment-id: o014.aljabr2.chapter7.exercises-b.ex013
+	\item Let $A$ be a Hopf algebra over a commutative ring. An ideal $I$ of
+	$A$ is called a \emph{Hopf ideal} if
+	$\Delta(I)\subset I\otimes A+A\otimes I$, $\epsilon(I)=0$, and
+	$S(I)\subset I$. Show that quotienting by a Hopf ideal gives a Hopf
+	algebra $A/I$.
+
+	% segment-id: o014.aljabr2.chapter7.exercises-b.ex014
+	\item Let $\Bbbk$ be a commutative ring and $V$ a $\Bbbk$-module. On the
+	tensor algebra $T(V)$ (see \cite[Definition 7.5.1]{Li1}) one can define
+	$\Bbbk$-algebra homomorphisms
+	$\Delta:T(V)\to T(V)\otimes T(V)$ and $\epsilon:T(V)\to\Bbbk$ such that,
+	for every $v\in V$,
+	% segment-id: o014.aljabr2.chapter7.exercises-b.q011
+	\begin{gather*}
+		\Delta(v) = v \otimes 1 + 1 \otimes v, \quad \epsilon(v) = 0;
+	\end{gather*}
+	here the algebra structure on $T(V)\otimes T(V)$ is defined by the trivial
+	braiding $x\otimes y\mapsto y\otimes x$.
+	\begin{enumerate}[(i)]
+		% segment-id: o014.aljabr2.chapter7.exercises-b.i001
+		\item Verify that this makes $T(V)$ a bialgebra.
+		% segment-id: o014.aljabr2.chapter7.exercises-b.i002
+		\item Show how to define a $\Bbbk$-module automorphism
+		$S:T(V)\to T(V)$ such that $S(v)=-v$ and $S$ is a bialgebra
+		antiautomorphism (Proposition~\ref{prop:Hopf-antiautomorphism}); more
+		explicitly,
+		% segment-id: o014.aljabr2.chapter7.exercises-b.q012
+		\[ S(v_1 \cdots v_n) = (-1)^n v_n \cdots v_1, \quad n \in \Z_{\geq 0}, \quad v_1, \ldots, v_n \in V. \]
+		Verify that this makes $T(V)$ a Hopf algebra.
+		% segment-id: o014.aljabr2.chapter7.exercises-b.i003
+		\item Show that the symmetric algebra $\Sym(V)$ has the analogous
+		properties; in fact it is a quotient of $T(V)$ by a Hopf ideal.
+		% segment-id: o014.aljabr2.chapter7.exercises-b.i004
+		\item Treat the version for the exterior algebra $\bigwedge(V)$, but
+		define the multiplication on $\bigwedge(V)\otimes\bigwedge(V)$ using
+		the Koszul braiding \eqref{eqn:Koszul-braiding} (take
+		$\epsilon(a)=a\bmod\;2$ there), so that homogeneous elements
+		$x,y,z,w\in\bigwedge(V)$ satisfy
+		$(x\otimes y)(z\otimes w)=(-1)^{\deg y\deg z}xz\otimes yw$. This
+		ensures that $(1\otimes v+v\otimes1)^2$ is the zero element of
+		$\bigwedge(V)\otimes\bigwedge(V)$ for every $v\in V$.
+	\end{enumerate}
+
+	% segment-id: o014.aljabr2.chapter7.exercises-b.ex015
+	\item (E.\ Taft) Let $q$ be a primitive $n$th root of unity in a field
+	$\Bbbk$, where $n\geq2$. Consider the $\Bbbk$-algebra $H$ defined by
+	generators $g$, $x$, and relations
+	% segment-id: o014.aljabr2.chapter7.exercises-b.q013
+	\[ g^n = 1, \quad x^n = 0, \quad gxg^{-1} = qx. \]
+	Show that one can define $\Delta:H\to H\dotimes{\Bbbk}H$ and
+	$\epsilon:H\to\Bbbk$ satisfying
+	% segment-id: o014.aljabr2.chapter7.exercises-b.q014
+	\begin{gather*}
+		\Delta(g) = g \otimes g, \quad \Delta(x) = 1 \otimes x + x \otimes g, \\
+		\epsilon(g) = 1, \quad \epsilon(x) = 0,
+	\end{gather*}
+	and making $H$ a Hopf $\Bbbk$-algebra with antipode
+	% segment-id: o014.aljabr2.chapter7.exercises-b.q015
+	\[ S:H\to H, \quad S(g)=g^{-1}, \quad S(x)=-g^{-1}x. \]
+
+	Show that $H$ is neither commutative nor cocommutative. When $n=2$, the
+	corresponding Hopf algebra is also called Sweedler's Hopf algebra.
+
+	% segment-id: o014.aljabr2.chapter7.exercises-b.ex016
+	\item Let $(A,\Delta,\epsilon)$ be a coalgebra over a commutative ring
+	$\Bbbk$. If $x\in A$ satisfies $\Delta(x)=1\otimes x+x\otimes1$, then
+	$x$ is called \emph{primitive}.
+	\begin{enumerate}[(i)]
+		% segment-id: o014.aljabr2.chapter7.exercises-b.i005
+		\item Prove that $\epsilon(x)=0$ for every primitive element $x$.
+		% segment-id: o014.aljabr2.chapter7.exercises-b.i006
+		\item Let $(A,\mu,\eta,\Delta,\epsilon)$ be a bialgebra and write $\mu$
+		as multiplication, so $xy=\mu(x\otimes y)$. Prove that if $x,y\in A$
+		are primitive, then $xy-yx$ is primitive as well.
+		% segment-id: o014.aljabr2.chapter7.exercises-b.i007
+		\item Still taking $A$ to be a bialgebra, let
+		$x_1,\ldots,x_n\in A$ be primitive elements and let $V$ be the free
+		$\Bbbk$-module with basis $x_1,\ldots,x_n$. This gives a
+		$\Bbbk$-algebra homomorphism $\phi:T(V)\to A$. Prove that $\phi$ is
+		also a bialgebra homomorphism.
+	\end{enumerate}
+
+	% segment-id: o014.aljabr2.chapter7.exercises-b.ex017
+	\item Let $(A,\Delta,\epsilon)$ be a coalgebra over a commutative ring
+	$\Bbbk$, with $A\neq\{0\}$ and $A$ torsion-free as a $\Bbbk$-module. A
+	nonzero element $x\in A$ satisfying $\Delta(x)=x\otimes x$ is called
+	\emph{group-like}. Denote the set of all group-like elements by
+	$\mathcal{G}(A)$.
+	\begin{enumerate}[(i)]
+		% segment-id: o014.aljabr2.chapter7.exercises-b.i008
+		\item Prove that $x\in\mathcal{G}(A)$ implies $\epsilon(x)=1$.
+		% segment-id: o014.aljabr2.chapter7.exercises-b.i009
+		\item Prove that if $(A,\mu,\eta,\Delta,\epsilon)$ is a bialgebra, then
+		$\mathcal{G}(A)$ is a monoid under the multiplication $\mu$ of $A$,
+		with unit $1_A:=\eta(1)$.
+		% segment-id: o014.aljabr2.chapter7.exercises-b.i010
+		\item For a monoid $M$ and the corresponding bialgebra $\Bbbk[M]$
+		(Example~\ref{eg:monoid-bialgebra}), prove that
+		$\mathcal{G}(\Bbbk[M])=M$.
+		% segment-id: o014.aljabr2.chapter7.exercises-b.i011
+		\item Let $A$ be a Hopf algebra with antipode $S$. Prove that
+		$\mathcal{G}(A)$ is a group and that the inverse of
+		$x\in\mathcal{G}(A)$ is $S(x)$.
+	\end{enumerate}
+
+	% segment-id: o014.aljabr2.chapter7.exercises-b.ex018
+	\item Let $(A,\Delta,\epsilon)$ be a nonzero coalgebra over a field
+	$\Bbbk$. Prove that $\mathcal{G}(A)$ is a linearly independent subset of
+	$A$.
+
+	% segment-id: o014.aljabr2.chapter7.exercises-b.hi007
+	\begin{hint}
+		Suppose otherwise, and choose a shortest nontrivial linear relation among
+		these elements. Without loss of generality, write
+		$x_1=\sum_{i=2}^n a_i x_i$, where
+		$x_1,\ldots,x_n\in\mathcal{G}(A)$ are pairwise distinct and
+		$a_i\in\Bbbk$. Then $x_2,\ldots,x_n$ are linearly independent, while
+		$x_1\otimes x_1=\sum_{i=2}^n a_i x_i\otimes x_i$.
+	\end{hint}
+
+	% segment-id: o014.aljabr2.chapter7.exercises-b.ex019
+	\item Write $\cate{TopCMon}$ for the category of commutative topological
+	monoids, $\cate{Top}_\bullet$ for the category of pointed topological
+	spaces, and $U:\cate{TopCMon}\to\cate{Top}_\bullet$ for the forgetful
+	functor (the base point corresponds to the unit). Construct a left adjoint
+	$\Sym:\cate{Top}_\bullet\to\cate{TopCMon}$ to $U$. For a pointed
+	topological space $(X,x)$, the object $\Sym(X,x)$ is also called the
+	\emph{infinite symmetric product} of $(X,x)$; explain this terminology.
+	The Dold--Thom theorem in algebraic topology is based on this construction.
+
+	% Reference: Deligne, Categories tannakiennes, 4.5 Proposition.
+	% segment-id: o014.aljabr2.chapter7.exercises-b.ex020
+	\item Let the $(A,B)$-bimodule $P$ be finitely generated projective as a
+	right $B$-module, and suppose that $(\mathord\cdot)\dotimes{A}P$ is a
+	faithful exact functor. Prove that a right $A$-module $N$ is finitely
+	presented (Example~\ref{eg:Mod-cpt}) if and only if
+	$N\dotimes{A}P$ is finitely presented as a right $B$-module. This
+	complements Proposition~\ref{prop:Morita-comonad-ft}.
+
+	% segment-id: o014.aljabr2.chapter7.exercises-b.ex021
+	\item Consider a commutative ring $\Bbbk$ and a homomorphism of
+	$\Bbbk$-algebras $f:A\to B$. We have an adjoint pair
+	% segment-id: o014.aljabr2.chapter7.exercises-b.q016
+	\[\begin{tikzcd}
+		\mathcal{F}_{B|A}: \cated{Mod}B \arrow[shift left, r] & \cated{Mod}A: \Hom_A(B, \cdot), \arrow[shift left, l]
+	\end{tikzcd}\]
+	where, for every right $A$-module $N$, $\Hom_A(B,N)$ is given the right
+	$B$-module structure $(\phi b)(x)=\phi(bx)$. More precisely,
+	\begin{compactitem}
+		% segment-id: o014.aljabr2.chapter7.exercises-b.i012
+		\item the unit morphism $M\to\Hom_A(B,M)$ maps $m$ to $[b\mapsto mb]$;
+		% segment-id: o014.aljabr2.chapter7.exercises-b.i013
+		\item the counit morphism $\Hom_A(B,N)\to N$ maps $\phi$ to $\phi(1)$.
+	\end{compactitem}
+	See \cite[Corollary 6.6.8]{Li1}. As a complement to
+	Example~\ref{eg:comonad-change-ring}, determine explicitly the
+	corresponding monad and comonad.
+
+	% segment-id: o014.aljabr2.chapter7.exercises-b.ex022
+	\item Let $R$ be a commutative ring. Write $R\dcate{Alg}$ for the category
+	of $R$-algebras. Consider the adjoint pair
+	% segment-id: o014.aljabr2.chapter7.exercises-b.g001
+	$\begin{tikzcd}
+		T(\cdot): R\dcate{Mod} \arrow[shift left, r] & R\dcate{Alg}: U \arrow[shift left, l]
+	\end{tikzcd}$,
+	where $T(\mathord\cdot)$ is the tensor-algebra functor and $U$ is the
+	forgetful functor.
+	\begin{enumerate}[(i)]
+		% segment-id: o014.aljabr2.chapter7.exercises-b.i014
+		\item Prove directly that modules under the corresponding monad on
+		$R\dcate{Mod}$ are $R$-algebras, and hence that the adjoint pair is
+		monadic.
+		% segment-id: o014.aljabr2.chapter7.exercises-b.i015
+		\item Replace $T(\mathord\cdot)$ by $\Sym(\mathord\cdot)$ and
+		$\bigwedge(\mathord\cdot)$, then state and prove the corresponding
+		results; see \cite[\S 7.6]{Li1}.
+	\end{enumerate}
+
+	% segment-id: o014.aljabr2.chapter7.exercises-b.ex023
+	\item Complete the argument of Proposition~\ref{prop:Comod-abelian}, and
+	then prove the following stronger version. Let $C$ be a coalgebra in
+	$(B,B)\dcate{Mod}$. Prove that:
+	\begin{enumerate}[(i)]
+		% segment-id: o014.aljabr2.chapter7.exercises-b.i016
+		\item the forgetful functor $U:\cated{Comod}C\to\cated{Mod}B$ has a
+		right adjoint;
+
+		% segment-id: o014.aljabr2.chapter7.exercises-b.hi008
+		\begin{hint}
+			Write $\Delta$ for the comultiplication of $C$ and $\epsilon$ for its
+			counit. For a right $B$-module $N$, make $N\dotimes{B}C$ a right
+			$C$-comodule via $\identity_N\otimes\Delta$. For every right
+			$C$-comodule $M$, verify that
+			% segment-id: o014.aljabr2.chapter7.exercises-b.q017
+			\[\begin{tikzcd}[row sep=tiny]
+				\Hom_{\cated{Mod}B}(M, N) \arrow[shift left, r] & \Hom_{\cated{Comod}C}\left(M, N \dotimes{B} C\right) \arrow[shift left, l] \\
+				\varphi \arrow[mapsto, r] & (\varphi \otimes \identity_C) \rho \\
+				(\identity_N \otimes \epsilon) \psi & \psi \arrow[mapsto, l]
+			\end{tikzcd}\]
+			are mutually inverse, where $\rho:M\to M\dotimes{B}C$ specifies the
+			comodule structure of $M$.
+		\end{hint}
+		% segment-id: o014.aljabr2.chapter7.exercises-b.i017
+		\item the forgetful functor $U$ creates all small $\varinjlim$; hence
+		$\cated{Comod}C$ is cocomplete;
+		% segment-id: o014.aljabr2.chapter7.exercises-b.i018
+		\item the category $\cated{Comod}C$ has a cogenerator
+		(Definition~\ref{def:generators});
+
+		% segment-id: o014.aljabr2.chapter7.exercises-b.hi009
+		\begin{hint}
+			Take a cogenerator of the Grothendieck category $\cated{Mod}B$, then
+			take its image under the right adjoint of $U$.
+		\end{hint}
+		% segment-id: o014.aljabr2.chapter7.exercises-b.i019
+		\item if $\cated{Comod}C$ is an abelian category and $U$ is exact, then
+		$C$ is flat as a left $B$-module.
+
+		% segment-id: o014.aljabr2.chapter7.exercises-b.hi010
+		\begin{hint}
+			Let $g:M\to N$ be a monomorphism of right $B$-modules. Use the
+			exactness of $U$ and the fact that a right adjoint preserves kernels
+			to show that
+			$g\otimes\identity_C:M\dotimes{B}C\to N\dotimes{B}C$ remains
+			injective.
+		\end{hint}
+	\end{enumerate}
+
+	% segment-id: o014.aljabr2.chapter7.exercises-b.ex024
+	\item As in the preceding exercise, continue to let $C$ be a coalgebra in
+	$(B,B)\dcate{Mod}$ and let $M$ be a right $C$-comodule. Prove that if a
+	quotient $B$-module $M''$ of $M$ (or a $B$-submodule $M'$ of $M$) has a
+	comodule structure making $M\twoheadrightarrow M''$ (or
+	$M'\hookrightarrow M$) a comodule homomorphism, then that comodule
+	structure is unique. In the submodule case, additionally assume that $C$
+	is flat as a left $B$-module.

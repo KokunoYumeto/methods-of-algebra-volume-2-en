@@ -1,0 +1,338 @@
+% Unit 130 English translation of chapter9.tex, lines 1457--1625.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter9.hopf-reconstruction
+% Coverage: Section 9.6, reconstruction of coalgebras, bialgebras, and the
+% antipode.
+% Verified source corrections: the lower arrow on source line 1574 is
+% omega({}^*f), as required by its source and target; source line 1578 starts
+% from [phi tensor x], as in the preceding definition of S.
+
+\section{Reconstruction of Hopf Algebras}\label{sec:Hopf-reconstruction}
+This section continues the discussion of \S\ref{sec:Tannaka-coend}. Theorem
+\ref{prop:Tannaka-aux1} constructs the coalgebra $\coEnd(\omega)$ from the
+data $(\mathcal{A}, \omega)$ and identifies $\mathcal{A}$ with
+$\catesubd{Comod}{\mathrm{f}}\coEnd(\omega)$. The most basic situation is
+when $B = \Bbbk$ is a field. For a $\Bbbk$-coalgebra $L$, take
+\begin{gather*}
+	\mathcal{A} := \catesubd{Comod}{\mathrm{f}}L , \\
+	\omega := U: \catesubd{Comod}{\mathrm{f}}L \xrightarrow{\text{forget}} \cate{Vect}_{\mathrm{f}}(\Bbbk).
+\end{gather*}
+
+Since $\Bbbk$ is a field, Proposition \ref{prop:Comod-abelian} with
+$B = \Bbbk$ shows that $\cated{Comod}L$ is an abelian category, while
+$\catesubd{Comod}{\mathrm{f}}L$, formed by the finite-dimensional comodules,
+is clearly a locally finite abelian subcategory. It is now natural to ask:
+does the corresponding $\coEnd(\omega)$ reconstruct the original datum $L$,
+or does it instead produce a new coalgebra? As expected, the answer is
+``reconstruction'', but a little argument is required.
+
+The first step is to make clear how to compare $\coEnd(\omega)$ and $L$.
+Since $L$ coacts from the right on every $\omega(X)$, the universal property
+induces a coalgebra homomorphism
+\begin{equation}\label{eqn:u-comparison}
+	u: \coEnd(\omega) \to L.
+\end{equation}
+The original question is equivalent to asking whether $u$ is an isomorphism.
+We first prove a simple result.
+
+\begin{lemma}\label{prop:comodule-fd-union}
+	Let $\Bbbk$ be a field and let $L$ be a $\Bbbk$-coalgebra, with the
+	comultiplication homomorphism denoted by $\Delta$ and the counit
+	homomorphism by $\epsilon$. Every right $L$-comodule $V$ is a union of
+	finite-dimensional subcomodules.
+\end{lemma}
+\begin{proof}
+	Suppose that the comodule structure is given by
+	$\rho: V \to V \dotimes{\Bbbk} L$. For each
+	$x \in V \dotimes{\Bbbk} L$, define the subspace
+	\[ V(x) := \lrangle{(\identity \otimes \lambda)(x) : \lambda \in \Hom_{\Bbbk}(L, \Bbbk) } \; \subset V ; \]
+	if $x$ is written concretely as
+	$\sum_{i=1}^n v_i \otimes \ell_i$, with
+	$\ell_1, \ldots, \ell_n$ linearly independent, then clearly
+	$V(x) = \lrangle{v_1, \ldots, v_n}$, and hence
+	$x \in V(x) \dotimes{\Bbbk} L$.
+	
+	Take $v \in V$. Setting $x = \rho(v)$ and $\lambda = \epsilon$ gives
+	$v \in V(\rho(v))$. We next show that
+	$\rho(V(\rho(v))) \subset V(\rho(v)) \dotimes{\Bbbk} L$. Write again
+	$\rho(v) = \sum_i v_i \otimes \ell_i$; the equation
+	$(\rho \otimes \identity)\rho(v) = (\identity \otimes \Delta)\rho(v)$
+	in the definition of a comodule can be written as the following equation
+	in $V \dotimes{\Bbbk} L \dotimes{\Bbbk} L$:
+	\[ \sum_i \rho(v_i) \otimes \ell_i = \sum_i v_i \otimes \Delta(\ell_i). \]
+	
+	Extend $\ell_1, \ldots, \ell_n$ to a basis and contract with the dual
+	basis. This gives $\rho(v_i) \in V(\rho(v)) \dotimes{\Bbbk} L$ for
+	$i = 1, \ldots, n$.
+	
+	Thus every finite-dimensional subspace $\lrangle{v_1, \ldots, v_m}$ of
+	$V$ is contained in the subcomodule
+	$\sum_{i=1}^m V(\rho(v_i))$, which is clearly finite-dimensional.
+\end{proof}
+
+\begin{lemma}\label{prop:reconstruction-cat-aux}
+	With the notation above, $u: \coEnd(\omega) \to L$ in
+	\eqref{eqn:u-comparison} is an isomorphism of coalgebras.
+\end{lemma}
+\begin{proof}
+	We show that all right $L$-comodules $V$, together with all homomorphisms
+	between them, lift naturally to right $\coEnd(\omega)$-comodules. For
+	$\dim_{\Bbbk} V < \infty$, this is by definition---apply
+	Definition--Proposition \ref{def:cogebra-L} to
+	$\mathcal{A} = \catesubd{Comod}{\mathrm{f}}L$ and $\omega = U$; the
+	general case then follows from Lemma \ref{prop:comodule-fd-union}.
+	
+	Now take $V=L$ with the right $L$-comodule structure determined by
+	$\Delta$. The lifted $\coEnd(\omega)$-comodule structure corresponds to
+	$\tilde{\Delta}: L \to L \dotimes{\Bbbk} \coEnd(\omega)$. This is the
+	same as saying that the triangular part of the following diagram
+	commutes:
+	\[\begin{tikzcd}
+		L \arrow[r, "{\tilde{\Delta}}"] \arrow[rd, "\Delta"'] & L \dotimes{\Bbbk} \coEnd(\omega) \arrow[r, "{\epsilon \otimes \identity}"] \arrow[d, "{\identity \otimes u}"] & \coEnd(\omega) \arrow[d, "u"] \\
+		& L \dotimes{\Bbbk} L \arrow[r, "{\epsilon \otimes \identity}"'] & L,
+	\end{tikzcd}\]
+	and its square part clearly commutes as well. Denote the composite of the
+	first row by $\gamma$; then $u\gamma = \identity_L$. It remains only to
+	prove that $\gamma$ is surjective.
+	
+	Let $\rho: V \to V \dotimes{\Bbbk} L$ be a finite-dimensional right
+	$L$-comodule. The commutative diagram in the definition
+	\[\begin{tikzcd}
+		V \arrow[r, "\rho"] \arrow[d, "\rho"'] & V \dotimes{\Bbbk} L \arrow[d, "{\identity \otimes \Delta}"] \\
+		V \dotimes{\Bbbk} L \arrow[r, "{\rho \otimes \identity}"'] & V \dotimes{\Bbbk} L \dotimes{\Bbbk} L
+	\end{tikzcd}\]
+	is also equivalent to saying that $\rho$ is a homomorphism of
+	$L$-comodules, provided that $V \dotimes{\Bbbk} L$ is equipped with the
+	comodule structure coming from $L$ and $\Delta$. Now lift $V$ naturally
+	to a $\coEnd(\omega)$-comodule, corresponding to
+	$\tilde{\rho}: V \to V \dotimes{\Bbbk} \coEnd(\omega)$; if the comodule
+	$V \dotimes{\Bbbk} L$ is lifted similarly, its structure corresponds to
+	$\identity \otimes \tilde{\Delta}: V \dotimes{\Bbbk} L \to V \dotimes{\Bbbk} L \dotimes{\Bbbk} \coEnd(\omega)$. The comodule homomorphism
+	$\rho$ also lifts to the $\coEnd(\omega)$ level, which is the same as
+	saying that the square in the following diagram commutes:
+	\[\begin{tikzcd}
+		V \arrow[r, "\rho"] \arrow[d, "{\tilde{\rho}}"'] & V \dotimes{\Bbbk} L \arrow[d, "{\identity \otimes \tilde{\Delta}}"] & \\
+		V \dotimes{\Bbbk} \coEnd(\omega) \arrow[r, "{\rho \otimes \identity}"' inner sep=0.8em] & V \dotimes{\Bbbk} L \dotimes{\Bbbk} \coEnd(\omega) \arrow[r, "{\identity \otimes \epsilon \otimes \identity}"' inner sep=0.8em] & V \dotimes{\Bbbk} \coEnd(\omega)
+	\end{tikzcd}\]
+	Since the composite of the second row is $\identity$, we obtain
+	$\tilde{\rho} = (\identity_V \otimes \gamma)\rho$. One checks that the
+	map $\alpha_V: V^\vee \dotimes{\Bbbk} V \to \coEnd(\omega)$ induced by
+	$\tilde{\rho}$ therefore factors as
+	\[ V^\vee \dotimes{\Bbbk} V \xrightarrow{\text{induced by $\rho$}} L \xrightarrow{\gamma} \coEnd(\omega). \]
+	
+	Recalling the construction of $\coEnd(\omega)$, as $V$ varies, the
+	images $\Image(\alpha_V)$ generate all of $\coEnd(\omega)$. Thus
+	$\gamma$ is surjective.
+\end{proof}
+
+As one might expect, if $L$ is a bialgebra, then \eqref{eqn:u-comparison} is
+also an isomorphism of bialgebras. The required argument is entirely routine
+and need not be spelled out.
+
+\begin{definition}\label{def:Fib-cat}
+	\index[sym1]{Fibk@$\cate{Fib}(\Bbbk)$, $\cate{Fib}^{\otimes}(\Bbbk)$}
+	For the chosen field $\Bbbk$, define the category
+	$\cate{Fib}(\Bbbk)$ as follows.
+	\begin{itemize}
+		\item Its objects are data $(\mathcal{A}, \omega)$, where
+		$\mathcal{A}$ is a locally finite abelian category (and hence
+		essentially small), and
+		$\omega: \mathcal{A} \to \cate{Vect}_{\mathrm{f}}(\Bbbk)$ is a
+		faithful exact functor.
+		\item A morphism from $(\mathcal{A}, \omega)$ to
+		$(\mathcal{A}', \omega')$ is a datum $(F, \alpha)$, where
+		$F: \mathcal{A} \to \mathcal{A}'$ is a functor and
+		$\alpha: \omega \rightiso \omega' F$ is an isomorphism of functors.
+		Identities and composition are defined in the evident way.
+	\end{itemize}
+	Similarly, define the category $\cate{Fib}^{\otimes}(\Bbbk)$, with the
+	following additional conditions:
+	\begin{itemize}
+		\item $\mathcal{A}$ in an object $(\mathcal{A}, \omega)$ must be
+		equipped with a monoidal structure, and $\omega$ must be a monoidal
+		functor;
+		\item $F$ in a morphism must also be a monoidal functor, and $\alpha$
+		must be an isomorphism of monoidal functors.
+	\end{itemize}
+\end{definition}
+
+Observe that if $(\mathcal{A}, \omega)$ is an object of
+$\cate{Fib}^{\otimes}(\Bbbk)$, faithfulness and exactness imply that
+$\End_{\mathcal{A}}(\munit) \to \Bbbk$ is a monomorphism of
+$\Bbbk$-algebras; thus in this case
+$\End_{\mathcal{A}}(\munit) \rightiso \Bbbk$.
+
+On the other hand, denote the category of $\Bbbk$-coalgebras (respectively,
+$\Bbbk$-bialgebras) and their homomorphisms by $\Bbbk\dcate{coAlg}$
+(respectively, $\Bbbk\dcate{biAlg}$).
+\begin{itemize}
+	\item There are evident functors
+	$\cate{Fib}(\Bbbk) \to \Bbbk\dcate{coAlg}$ and
+	$\cate{Fib}^{\otimes}(\Bbbk) \to \Bbbk\dcate{biAlg}$. Both send an
+	object $(\mathcal{A}, \omega)$ to $\coEnd(\omega)$, while a morphism
+	$(\mathcal{A}, \omega) \to (\mathcal{A}', \omega')$ induces a
+	coalgebra or bialgebra homomorphism
+	$\coEnd(\omega) \simeq \coEnd(\omega' F) \to \coEnd(\omega')$.
+	\item There are also functors in the opposite direction: for a coalgebra
+	or bialgebra $L$, take the corresponding datum
+	$\left(\catesubd{Comod}{\mathrm{f}}L, U \right)$; on morphisms, for a
+	homomorphism $\phi: L \to L'$, a right $L$-comodule $(M, \rho)$ becomes
+	a right $L'$-comodule through
+	$M \xrightarrow{(\identity \otimes \phi) \rho} M \otimes L'$.
+	This gives
+	$\left(\catesubd{Comod}{\mathrm{f}}L, U \right) \to \left(\catesubd{Comod}{\mathrm{f}}L', U' \right)$.
+\end{itemize}
+
+\begin{theorem}\label{prop:Tannaka-reconstruction}
+	\index{reconstruction theorem}
+	Let $\Bbbk$ be a field. The constructions above give two pairs of
+	mutually quasi-inverse functors
+	\[\begin{tikzcd}[row sep=tiny]
+		\cate{Fib}(\Bbbk) \arrow[shift left, r] & \Bbbk\dcate{coAlg}, \arrow[shift left, l] \\
+		\cate{Fib}^{\otimes}(\Bbbk) \arrow[shift left, r] & \Bbbk\dcate{biAlg}. \arrow[shift left, l]
+	\end{tikzcd}\]
+\end{theorem}
+\begin{proof}
+	Write the functors in the two directions as
+	$Z: \star \leftrightarrows \star :Y$. For the first pair, the isomorphism
+	$u$ in Lemma \ref{prop:reconstruction-cat-aux} gives
+	$ZY \rightiso \identity$, while the equivalence $\overline{\omega}$ in
+	Theorem \ref{prop:Tannaka-aux1} (i) gives
+	$\identity \rightiso YZ$.
+	
+	For the second pair, since it is already known that when $L$ is a
+	bialgebra, $u$ in \eqref{eqn:u-comparison} is also an isomorphism of
+	bialgebras, we still have $ZY \rightiso \identity$ in the monoidal
+	setting; meanwhile, $\identity \rightiso YZ$ is now the content of
+	Theorem
+	\ref{prop:Tannaka-aux1} (ii).
+\end{proof}
+
+We now add the duality introduced in \S\ref{sec:monoidal-dual} to the
+framework of Reconstruction Theorem \ref{prop:Tannaka-aux1}. As usual, we
+consider only the simple situation in which $B = \Bbbk$ is a field.
+
+\begin{theorem}\label{prop:Tannaka-aux2}
+	Under the assumptions of Theorem \ref{prop:Tannaka-reconstruction},
+	suppose further that $(\mathcal{A}, \omega)$ is an object of
+	$\cate{Fib}^{\otimes}(\Bbbk)$ and that $\mathcal{A}$ is both left and
+	right rigid. Then $\coEnd(\omega)$ is a Hopf algebra.
+\end{theorem}
+\begin{proof}
+	It suffices to show that the bialgebra $\coEnd(\omega)$ has an antipode.
+	Use the left rigidity of $\mathcal{A}$ to define the functor
+	$X \mapsto {}^* X$. For each $X \in \Obj(\mathcal{A})$, since monoidal
+	functors preserve duals, we obtain
+	$\omega({}^* X) \simeq \omega(X)^\vee$; since the monoidal structure on
+	$\cate{Vect}_{\mathrm{f}}(\Bbbk)$ is symmetric, we also obtain
+	$\omega(X) \simeq \omega({}^* X)^\vee$. Now consider
+	\[ \phi \in \omega(X)^\vee \simeq \omega({}^* X), \quad x \in \omega(X) \simeq \omega({}^* X)^\vee , \]
+	where $X \in \Obj(\mathcal{A})$ is arbitrary. In the notation of
+	Convention \ref{con:coend-bracket}, both $[\phi \otimes x]$ and
+	$[x \otimes \phi]$ are therefore elements of $\coEnd(\omega)$. We claim
+	that
+	\begin{equation}\label{eqn:Tannaka-aux2}
+		\text{there is a linear map}\; S: \coEnd(\omega) \to \coEnd(\omega), \;\text{characterized by}\; S[\phi \otimes x] = [x \otimes \phi]. 
+	\end{equation}
+
+	For this, observe that for every morphism $f: X \to Y$ in
+	$\mathcal{A}$, there are commutative diagrams
+	\[\begin{tikzcd}
+		\omega(X) \arrow[r, "{\omega(f)}"] \arrow[d, "\sim"' sloped] & \omega(Y) \arrow[d, "\sim" sloped] \\
+		\omega({}^* X)^\vee \arrow[r, "{\omega({}^* f)^\vee}"' inner sep=0.6em] & \omega({}^* Y)^\vee
+	\end{tikzcd} \quad \begin{tikzcd}
+		\omega(Y)^\vee \arrow[r, "{\omega(f)^\vee}" inner sep=0.6em] \arrow[d, "\sim"' sloped] & \omega(X)^\vee \arrow[d, "\sim" sloped] \\
+		\omega({}^* Y) \arrow[r, "{\omega({}^* f)}"'] & \omega({}^* X),
+	\end{tikzcd}\]
+	where all the vertical arrows come from the isomorphisms in the preceding
+	paragraph. For $\psi \in \omega(Y)^\vee$ and $x \in \omega(X)$, there
+	are corresponding elements $\psi' \in \omega({}^* Y)$ and
+	$x' \in \omega({}^* X)^\vee$ such that, respectively,
+	\[ \omega(f)^\vee (\psi) \leftrightarrow \omega({}^* f)(\psi'), \quad \omega(f)(x) \leftrightarrow \omega({}^* f)^\vee(x'). \]
+	Substituting this into the construction and description of
+	$\coEnd(\omega)$ in the proof of Proposition
+	\ref{prop:cogebra-L-universal}, we see that $\delta_f$ there corresponds
+	to $\delta_{{}^* f}$. Thus
+	% Verified correction of the definite typo on source line 1578: the
+	% source class is [\phi \otimes x], as in the definition of S above.
+	$[\phi \otimes x] \mapsto [x \otimes \phi]$ indeed defines a unique
+	linear map $S$, proving \eqref{eqn:Tannaka-aux2}.
+	
+	Our goal is to prove that $S$ is an antipode. The construction in the
+	preceding paragraph can also be carried out with $X^*$ in place of
+	${}^* X$, yielding a linear map
+	$T: \coEnd(\omega) \to \coEnd(\omega)$; this map is likewise written in
+	the form $[\phi \otimes x] \mapsto [x \otimes \phi]$. From
+	${}^* (X^*) = X = ({}^* X)^*$, it is easy to see that
+	$ST = \identity = TS$; in particular, $S$ is an isomorphism. This is the
+	first requirement for an antipode.
+	
+	Next, denote the multiplication, comultiplication, unit, and counit
+	homomorphisms of $\coEnd(\omega)$ by $\mu$, $\Delta$, $\eta$, and
+	$\epsilon$, respectively. Choose an object $X$ and a basis
+	$v_1, \ldots, v_n$ of the $\Bbbk$-vector space $\omega(X)$. Denote the
+	dual basis of $\omega(X)^\vee$ by
+	$\check{v}_1, \ldots, \check{v}_n$. Denote the morphisms for the left
+	dual of $X$ by
+	\[ \mathrm{ev}_X: {}^* X \otimes X \to \munit, \quad \mathrm{coev}_X: \munit \to X \otimes {}^* X. \]
+	Their images under $\omega$ realize the duality between $\omega(X)$ and
+	$\omega({}^* X)$. Recall that $(\cdot)^\vee$ is the dual in the symmetric
+	monoidal category $\cate{Vect}_{\mathrm{f}}(\Bbbk)$, with no distinction
+	between left and right; henceforth we may identify
+	\begin{equation*}
+		\omega(\munit) \simeq \omega(\munit)^\vee, \quad \omega(X \otimes {}^* X) \simeq \omega({}^* X \otimes X)^\vee,
+	\end{equation*}
+	and correspondingly identify $\omega(\mathrm{coev}_X)$ with
+	$\omega(\mathrm{ev}_X)^\vee$.
+	
+	For every $\phi \in \omega(X)^\vee$ and $x \in \omega(X)$, the
+	description of $\Delta$ (respectively, $\mu$) in
+	\eqref{eqn:L-comult} (respectively, \eqref{eqn:L-tensor}) gives
+	\begin{align*}
+		\Delta([\phi \otimes x]) & = \sum_{i=1}^n [\phi \otimes v_i] \otimes [\check{v}_i \otimes x], \\
+		\mu(S \otimes \identity)\Delta([\phi \otimes x]) & = \sum_{i=1}^n \mu\left( [v_i \otimes \phi] \otimes [\check{v}_i \otimes x] \right) \\
+		& = \sum_{i=1}^n \left[ (v_i \otimes \check{v}_i) \otimes (\phi \otimes x) \right] \\
+		& = \left[ \mathrm{coev}_{\omega(X)}(1) \otimes (\phi \otimes x) \right] \\
+		& = \left[ \omega(\mathrm{coev}_X)(1) \otimes (\phi \otimes x) \right].
+	\end{align*}
+	However, \eqref{eqn:cogebra-L} implies that the following diagram
+	commutes:
+	\[\begin{tikzcd}
+		\omega(\munit) \otimes \omega({}^* X \otimes X) \arrow[r, "{\omega(\mathrm{coev}_X) \otimes \identity}" inner sep=0.6em] \arrow[d, "{\identity \otimes \omega(\mathrm{ev}_X)}"'] & \omega(X \otimes {}^* X) \otimes \omega(X \otimes {}^* X), \arrow[d, "{[\cdot]}"] \\
+		\omega(\munit) \otimes \omega(\munit) \arrow[d, "\sim"' sloped] \arrow[r, "{[\cdot]}"] & \coEnd(\omega) \\
+		\Bbbk \arrow[ru, "\eta"'] & 
+	\end{tikzcd}\]
+	Therefore,
+	\begin{gather*}
+		\left[ \omega(\mathrm{coev}_X)(1) \otimes (\phi \otimes x) \right]
+		= \eta\left( \omega(\mathrm{ev}_X)(\phi \otimes x) \right)
+		\xlongequal{\text{\eqref{eqn:L-counit}}} \eta\epsilon\left( \phi \otimes x \right),
+	\end{gather*}
+	which proves $\mu(S \otimes \identity)\Delta = \eta\epsilon$.
+	Similarly, $\mu(\identity \otimes S)\Delta = \eta\epsilon$. Thus $S$ is
+	an antipode.
+\end{proof}
+
+\begin{corollary}\label{prop:Hopf-vs-dual}
+	Under the bijection given by Theorem
+	\ref{prop:Tannaka-reconstruction},
+	\[\begin{tikzcd}
+		\Obj(\cate{Fib}^{\otimes}(\Bbbk))/\simeq \arrow[shift left, r, "{1:1}"] & \Obj(\Bbbk\dcate{biAlg}) /\simeq , \arrow[shift left, l]
+	\end{tikzcd}\]
+	the category $\mathcal{A}$ in an object $(\mathcal{A}, \omega)$ on the
+	left is both left and right rigid if and only if the object $L$ on the
+	right is a Hopf algebra.
+\end{corollary}
+\begin{proof}
+	The ``only if'' direction follows from Theorem \ref{prop:Tannaka-aux2},
+	whereas the ``if'' direction was explained in Proposition
+	\ref{prop:Hopf-module-dual}.
+\end{proof}
+
+In the proof of Theorem \ref{prop:Tannaka-aux2}, the left rigidity of
+$\mathcal{A}$ plays the principal role; right rigidity is used only to
+ensure that $S$ is an isomorphism. If the definition of a Hopf algebra
+allows a noninvertible $S$, then the category of right comodules
+$\catesubd{Comod}{\mathrm{f}}L$ is only left rigid; see the formulas in
+Proposition \ref{prop:Hopf-module-dual}.

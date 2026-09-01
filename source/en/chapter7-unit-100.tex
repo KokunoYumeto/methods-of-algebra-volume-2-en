@@ -1,0 +1,346 @@
+% Unit 100 English translation of chapter7.tex lines 2141--2305.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter7.module-descent
+% Coverage: complete Section 7.9, ``Application: Descent of Modules'';
+% stops immediately before Section 7.10 at line 2306.
+
+% segment-id: o014.li2.chapter7.module-descent.h001
+\section{Application: Descent of Modules}\label{sec:descent-modules}
+\hypertarget{o014.aljabr2.chapter7.module-descent}{ }
+% segment-id: o014.li2.chapter7.module-descent.p001
+In geometry, given an adjoint pair
+% segment-id: o014.li2.chapter7.module-descent.q001
+$\begin{tikzcd}
+	F: \mathcal{C} \arrow[shift left, r] & \mathcal{D}: G \arrow[shift left, l]
+\end{tikzcd}$,
+the process of reconstructing information on $\mathcal{C}$ from comodules on
+$\mathcal{D}$ under the coaction of the corresponding comonad is usually
+called \emph{descent}. This section explains the case of module theory.
+\index{descent}
+
+% segment-id: o014.li2.chapter7.module-descent.p002
+Consider a homomorphism of commutative rings $K\to L$. The corresponding
+forgetful functor $\mathcal{F}_{L|K}:L\dcate{Mod}\to K\dcate{Mod}$ fits into
+the adjoint pair
+% segment-id: o014.li2.chapter7.module-descent.q002
+\[\begin{tikzcd}
+	L \dotimes{K} (\cdot): K\dcate{Mod} \arrow[shift left, r] & L\dcate{Mod} : \mathcal{F}_{L|K}, \arrow[shift left, l]
+\end{tikzcd}\]
+We apply the results from the second half of \S\ref{sec:Morita} to study the
+corresponding comonad on $L\dcate{Mod}$. More precisely, take $\Bbbk=K$ and
+apply the ``change of rings'' construction of
+Example~\ref{eg:comonad-change-ring}. Apart from notation, we use left rather
+than right modules here. Since only commutative rings are considered, this
+makes no substantive difference.
+
+% segment-id: o014.li2.chapter7.module-descent.p003
+Following the description in Example~\ref{eg:comonad-change-ring}, denote the
+comonad determined on $L\dcate{Mod}$ by the adjoint pair by
+$(\mathbf{L},\delta,\epsilon)$, where
+% segment-id: o014.li2.chapter7.module-descent.q003
+\[ \mathbf{L} = L \dotimes{K} \mathcal{F}_{L|K}(\cdot), \quad \delta: \mathbf{L} \to \mathbf{L}^2, \quad \epsilon: \mathbf{L} \to \identity. \]
+From now on, as usual, the forgetful functor $\mathcal{F}_{L|K}$ will be
+omitted from formulas to simplify the notation.
+
+% segment-id: o014.li2.chapter7.module-descent.p004
+A comodule over the comonad $\mathbf{L}$ is a datum $(M,a)$, where $M$ is an
+$L$-module and $a:M\to L\dotimes{K}M$ is an $L$-module homomorphism, subject
+to the requirement that the following diagrams commute:
+% segment-id: o014.li2.chapter7.module-descent.q004
+\[\begin{tikzcd}
+	\ell \otimes 1 \otimes m \arrow[phantom, r, "\in" description] & L \dotimes{K} L \dotimes{K} M & L \dotimes{K} M \arrow[l, "{\mathbf{L}a = \identity_L \otimes a}"' inner sep=0.6em] \\
+	\ell \otimes m \arrow[phantom, r, "\in" description] \arrow[mapsto, u] & L \dotimes{K} M \arrow[u, "\delta_M"] & M \arrow[l, "a"] \arrow[u, "a"']
+\end{tikzcd} \quad \begin{tikzcd}
+	\ell m \arrow[phantom, d, "\in" description, sloped] & \ell \otimes m \arrow[phantom, d, "\in" description, sloped] \arrow[mapsto, l] \\
+	M & L \dotimes{K} M \arrow[l, "\epsilon_M"'] \\
+	& M. \arrow[lu, "\identity_M"] \arrow[u, "a"']
+\end{tikzcd}\]
+
+% segment-id: o014.li2.chapter7.module-descent.p005
+All comodules $(M,a)$ over the comonad $\mathbf{L}$ form a category
+$L\dcate{Mod}^{\mathbf{L}}$. The dual of Lemma~\ref{prop:T-comparison}
+gives the factorization
+% segment-id: o014.li2.chapter7.module-descent.q005
+\[ L \dotimes{K} (\cdot) = \left[ K\dcate{Mod} \xrightarrow{\mathbb{K}} L\dcate{Mod}^{\mathbf{L}} \xrightarrow{U^{\mathbf{L}}} L\dcate{Mod} \right] \; \text{as a composite}. \]
+The functor $U^{\mathbf{L}}$ forgets the coaction, $(M,a)\mapsto M$, while
+$\mathbb{K}$ maps an object $N$ to $(L\dotimes{K}N,a)$, where
+% segment-id: o014.li2.chapter7.module-descent.q006
+\begin{equation}\label{eqn:N-comonad-action}
+	\begin{aligned}
+		a: L \dotimes{K} N & \to L \dotimes{K} (L \dotimes{K} N) \quad \text{($L$-module homomorphism)} \\
+		\ell \otimes x & \mapsto \ell \otimes 1 \otimes x.
+	\end{aligned}
+\end{equation}
+
+% segment-id: o014.li2.chapter7.module-descent.p006
+The central question is whether the adjoint pair is comonadic; equivalently,
+is $\mathbb{K}$ an equivalence?
+
+% segment-id: o014.li2.chapter7.module-descent.d001
+\begin{definition}
+	\index{faithfully flat}
+	Given a homomorphism of commutative rings $K\to L$, if
+	$L\dotimes{K}(\mathord\cdot):K\dcate{Mod}\to L\dcate{Mod}$ is a
+	faithful exact functor, then $L$, as a commutative $K$-algebra, is called
+	\emph{faithfully flat}.
+\end{definition}
+
+% segment-id: o014.li2.chapter7.module-descent.th001
+\begin{theorem}[Flat descent]\label{prop:flat-descent}
+	\index{descent!flat}
+	Let $L$ be a faithfully flat commutative $K$-algebra. Then the adjoint pair
+	$\left(L\dotimes{K}(\mathord\cdot),\mathcal{F}_{L|K}\right)$ is
+	comonadic. In this case, a quasi-inverse $\mathbb{L}$ to
+	$K\dcate{Mod}\xrightarrow{\mathbb{K}}L\dcate{Mod}^{\mathbf{L}}$ is
+	described by the following equalizer diagram in $K\dcate{Mod}$:
+	% segment-id: o014.li2.chapter7.module-descent.q007
+	\[\begin{tikzcd}[row sep=tiny]
+		\mathbb{L}(M, a) \arrow[r] & M \arrow[shift left, r, "a"] \arrow[shift right, r, "{m \mapsto 1 \otimes m}"'] & L \dotimes{K} M ,
+	\end{tikzcd} \quad (M, a) \in \Obj\left(L\dcate{Mod}^{\mathbf{L}}\right). \]
+\end{theorem}
+% segment-id: o014.li2.chapter7.module-descent.pf001
+\begin{proof}
+	Proposition~\ref{prop:Morita-descent} establishes comonadicity, while the
+	dual of Theorem~\ref{prop:Beck} already contains the description of the
+	quasi-inverse functor.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.module-descent.r001
+\begin{remark}
+	It must be emphasized that at the level of the derived categories
+	$\cate{D}(K\dcate{Mod})$ and $\cate{D}(L\dcate{Mod})$, although the
+	adjoint pair in question also has a derived version as in
+	Example~\ref{eg:change-of-ring-adjunction} and
+	Example~\ref{eg:change-of-rings}, there is no corresponding descent
+	theorem.
+\end{remark}
+
+% segment-id: o014.li2.chapter7.module-descent.p007
+The proof of flat descent is surprisingly simple. In practice, however, the
+comonad or the descent data must be described in a usable form; this is the
+theme of \S\ref{sec:descent-Galois}. In the remainder of this section we
+recast the definition of $L\dcate{Mod}^{\mathbf{L}}$ in another form for
+easy comparison with the literature. In essence, this is a concrete
+rewriting of Proposition~\ref{prop:Morita-comonad} (in its left-module
+version, with $P=L=P^\vee$), though the procedure is somewhat circuitous.
+
+% segment-id: o014.li2.chapter7.module-descent.p008
+For $i=1,2$, write $\iota_i:L\to L\dotimes{K}L$ for the homomorphism that
+inserts an element into the $i$th tensor slot. For every $L$-module $M$ there
+is a canonical isomorphism of $L$-modules
+% segment-id: o014.li2.chapter7.module-descent.q008
+\begin{align*}
+	L \dotimes{K} M & \rightiso (L \dotimes{K} L) \dotimes{L, \iota_2} M \\
+	\ell \otimes m & \mapsto \ell \otimes 1 \otimes m,
+\end{align*}
+where the right-hand side is made an $L$-module through $\iota_1$. By the
+standard adjunction in module theory, specifying an $L$-module homomorphism
+$a:M\to L\dotimes{K}M$ is therefore equivalent to specifying an
+$L\dotimes{K}L$-module homomorphism
+% segment-id: o014.li2.chapter7.module-descent.q009
+\begin{equation}\label{eqn:flat-descent-map-aux}\begin{aligned}
+		\tilde{a}: (L \dotimes{K} L) \dotimes{L, \iota_1} M & \to (L \dotimes{K} L) \dotimes{L, \iota_2} M \\
+		1 \otimes 1 \otimes m & \mapsto \sum_{i=1}^n \ell_i \otimes 1 \otimes m_i ;
+\end{aligned}\end{equation}
+here $a(m)=\sum_{i=1}^n\ell_i\otimes m_i$. Since
+$\iota_1|_K=\iota_2|_K$, when $M$ comes from a $K$-module $N$, careful
+substitution from \eqref{eqn:N-comonad-action} shows that $\tilde a$ becomes
+$\identity:L\dotimes{K}L\dotimes{K}N\to
+L\dotimes{K}L\dotimes{K}N$.
+
+% segment-id: o014.li2.chapter7.module-descent.p009
+For brevity, write $L^{\otimes n}:=L\dotimes{K}\cdots\dotimes{K}L$ (with
+$n$ factors). Temporarily forget $L\dcate{Mod}^{\mathbf{L}}$ and consider
+an arbitrary
+$\tilde a:L^{\otimes2}\dotimes{L,\iota_1}M\to
+L^{\otimes2}\dotimes{L,\iota_2}M$. By the universal property of the tensor
+product \cite[Proposition 7.3.4]{Li1}, specifying a pair of homomorphisms of
+commutative $K$-algebras $f,g:L\to E$ is equivalent to specifying a
+homomorphism $f\otimes g:L\dotimes{K}L\to E$. Thus $\tilde a$ defines the
+following $E$-module homomorphism:
+% segment-id: o014.li2.chapter7.module-descent.q010
+\begin{equation*}
+	\tilde{a}_{gf} := E \dotimes{f \otimes g} \tilde{a}: E \dotimes{L, f} M \to E \dotimes{L, g} M.
+\end{equation*}
+
+% segment-id: o014.li2.chapter7.module-descent.p010
+As $(E,f,g)$ varies, we want to analyze the compatibility among these
+homomorphisms. The formula above shows that
+$(E,f,g):=(L\dotimes{K}L,\iota_1,\iota_2)$ is ``universal'' for this problem
+and corresponds to $\tilde a$, while a general $(E,f,g)$ is obtained by
+applying $E\dotimes{f\otimes g}(\mathord\cdot)$ to it. To analyze the
+``universal'' case, for $1\leq i\neq j\leq3$ write:
+% segment-id: o014.li2.chapter7.module-descent.q011
+\begin{center}\begin{tabular}{|c|c|} \hline
+		$\iota^3_{ij}: L^{\otimes 2} \to L^{\otimes 3}$ & insertion into tensor slots $(i,j)$ \\
+		$\iota^3_i: L \to L^{\otimes 3}$ & insertion into the $i$th tensor slot \\ \hline
+\end{tabular}\end{center}
+
+% segment-id: o014.li2.chapter7.module-descent.p011
+Using \eqref{eqn:flat-descent-map-aux}, define the $L^{\otimes3}$-module
+homomorphism
+% segment-id: o014.li2.chapter7.module-descent.q012
+\[ \tilde{a}_{ji} := L^{\otimes 3} \dotimes{L, \iota^3_{ij}}\tilde{a} : \; L^{\otimes 3} \dotimes{L, \iota^3_i} M \to L^{\otimes 3} \dotimes{L, \iota^3_j} M. \]
+Here we use $\iota^3_{ij}\iota_1=\iota^3_i$ and
+$\iota^3_{ij}\iota_2=\iota^3_j$. When $M$ comes from a $K$-module, we may
+identify
+% segment-id: o014.li2.chapter7.module-descent.q013
+\[ \tilde{a} \;\text{with}\; \identity_{L^{\otimes 2} \dotimes{K} N}, \quad \tilde{a}_{ji} \;\text{with}\; \identity_{L^{\otimes 3} \dotimes{K} N}. \]
+Then $\tilde a_{31}=\tilde a_{32}\tilde a_{21}$ is clear. This is the desired
+compatibility condition. Its important consequence is
+% segment-id: o014.li2.chapter7.module-descent.q014
+\begin{equation}\label{eqn:cocycle-condition-descent}
+	\tilde{a}_{31} = \tilde{a}_{32} \tilde{a}_{21} \implies
+	\begin{array}{l}
+		\forall f, g, h: L \xrightarrow{K\text{-algebra}} E, \\
+		\tilde{a}_{hf} = \tilde{a}_{hg} \tilde{a}_{gf};
+	\end{array}
+\end{equation}
+the left-hand side is the ``universal version'' of the right-hand side.
+
+% segment-id: o014.li2.chapter7.module-descent.d002
+\begin{definition}[Descent datum]
+	\index{descent datum}
+	Define $\mathrm{Desc}_{K\to L}$ to be the following category. Its objects
+	are data $(M,\tilde a)$, where $M$ is an $L$-module and
+	$\tilde a:L^{\otimes2}\dotimes{L,\iota_1}M\to
+	L^{\otimes2}\dotimes{L,\iota_2}M$ satisfies
+	\begin{description}
+		\item[Isomorphism condition] $\tilde a$ is an isomorphism of
+		$L^{\otimes2}$-modules;
+		\item[Cocycle condition] $\tilde a_{31}=\tilde a_{32}\tilde a_{21}$.
+	\end{description}
+
+	A morphism from $(M,\tilde a)$ to $(M',\tilde a')$ is an $L$-module
+	homomorphism $f:M\to M'$ satisfying
+	$(\identity^{\otimes2}\otimes f)\tilde a=
+	\tilde a'(\identity^{\otimes2}\otimes f)$. Such data $(M,\tilde a)$ are
+	called \emph{descent data}.
+\end{definition}
+
+% segment-id: o014.li2.chapter7.module-descent.p012
+The discussion before \eqref{eqn:cocycle-condition-descent} shows that
+$L\dotimes{K}(\mathord\cdot)$ gives a functor
+$K\dcate{Mod}\to\mathrm{Desc}_{K\to L}$. We now relate descent data to
+$L\dcate{Mod}^{\mathbf{L}}$.
+
+% segment-id: o014.li2.chapter7.module-descent.le001
+\begin{lemma}\label{prop:descent-data-vs-comodule}
+	There is an isomorphism of categories from $L\dcate{Mod}^{\mathbf{L}}$ to
+	$\mathrm{Desc}_{K\to L}$, given on objects by
+	$(M,a)\leftrightarrow(M,\tilde a)$ and defined on morphisms in the
+	standard way.
+
+	Moreover, the isomorphism condition in the definition of
+	$\mathrm{Desc}_{K\to L}$ may be replaced by the following condition:
+	define $m:L^{\otimes2}\to L$ by
+	$m(\ell\otimes\ell')=\ell\ell'$. The endomorphism $M\to M$ given by
+	$L\dotimes{L^{\otimes2},m}\tilde a$ is $\identity_M$.
+\end{lemma}
+% segment-id: o014.li2.chapter7.module-descent.pf002
+\begin{proof}
+	Specifying $\tilde a$ is known to be equivalent to specifying
+	$a:M\to L\dotimes{K}M$. The issue is to match the conditions on the
+	descent datum $\tilde a$ with the conditions on $a$ that make $(M,a)$ a
+	comodule. This is where the second assertion will be used.
+
+	The comodule conditions are the coassociativity and counit laws. For the
+	first, the equivalence of $\tilde a_{31}=\tilde a_{32}\tilde a_{21}$ with
+	coassociativity is a mechanical verification left to the reader. For the
+	second, write $\varphi$ for the composite
+	$M\xrightarrow{a}L\dotimes{K}M\xrightarrow{\epsilon_M}M$. The counit law
+	is equivalent to $\varphi=\identity$. Recalling that
+	$\epsilon_M(\ell\otimes m)=\ell m$, a similar direct verification gives
+	% segment-id: o014.li2.chapter7.module-descent.q015
+	\[ \varphi = L \dotimes{L^{\otimes 2}, m} \tilde{a}. \]
+	We next show that, under the assumption
+	$\tilde a_{31}=\tilde a_{32}\tilde a_{21}$, the map $\tilde a$ is an
+	isomorphism if and only if $\varphi=\identity_M$. This will complete the
+	proof.
+
+	Suppose $\tilde a$ is an isomorphism. Then $\varphi$ is also an
+	isomorphism. In \eqref{eqn:cocycle-condition-descent}, take $E=L$ and
+	$f=g=h=\identity_L$. The right-hand side readily becomes
+	$\varphi=\varphi^2$, and hence $\varphi=\identity_M$.
+
+	Conversely, suppose $\varphi=\identity_M$. For every homomorphism of
+	$K$-algebras $f:L\to E$, change scalars on $\tilde a$ along the two paths
+	of the commutative diagram
+	% segment-id: o014.li2.chapter7.module-descent.q016
+	\[\begin{tikzcd}
+		L^{\otimes 2} \arrow[rd, "{f \otimes f}"'] \arrow[r, "m"] & L \arrow[d, "f"] \\
+		& E.
+	\end{tikzcd}\]
+	This shows that $\tilde a_{ff}=\identity$. Together with
+	\eqref{eqn:cocycle-condition-descent}, it follows that
+	$\tilde a_{fg}^{-1}=\tilde a_{gf}$ for every $(E,f,g)$. In particular,
+	the ``universal version'' $\tilde a$ is also an isomorphism. This proves
+	the lemma.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.module-descent.th002
+\begin{theorem}[Second form of flat descent]\label{prop:flat-descent-2}
+	Let $L$ be a faithfully flat commutative $K$-algebra. Then
+	% segment-id: o014.li2.chapter7.module-descent.q017
+	\[ L \dotimes{K} (\cdot): K\dcate{Mod} \to \mathrm{Desc}_{K \to L} \]
+	is an equivalence of categories. One of its quasi-inverses,
+	$\tilde{\mathbb{L}}$, may be taken to be the equalizer
+	% segment-id: o014.li2.chapter7.module-descent.q018
+	\[\begin{tikzcd}
+		0 \arrow[r] & \tilde{\mathbb{L}}(M, \tilde{a}) \arrow[r] & M \arrow[shift left, r, "a"] \arrow[shift right, r, "{m \mapsto 1 \otimes m}"'] & L \dotimes{K} M,
+	\end{tikzcd}\]
+	where $a$ is the map corresponding to $\tilde a$ under
+	\eqref{eqn:flat-descent-map-aux}.
+\end{theorem}
+% segment-id: o014.li2.chapter7.module-descent.pf003
+\begin{proof}
+	By Lemma~\ref{prop:descent-data-vs-comodule}, this is merely a
+	reformulation of the flat descent Theorem~\ref{prop:flat-descent}.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.module-descent.p013
+Theorem~\ref{prop:flat-descent-2} is the usual formulation of flat descent in
+algebraic geometry. There a faithfully flat homomorphism $K\to L$
+corresponds, in a certain sense, to a covering of a geometric object.
+
+% segment-id: o014.li2.chapter7.module-descent.p014
+The datum $\tilde a$, or the corresponding $a$, is sometimes also expressed
+as a homomorphism of left $L\dotimes{K}L$-modules, that is, of
+$(L,L)$-bimodules,
+% segment-id: o014.li2.chapter7.module-descent.q019
+\begin{align*}
+	\overline{a}: M \dotimes{K} L & \to L \dotimes{K} M \\
+	m \otimes \ell & \mapsto \sum_{i=1}^n \ell_i \otimes \ell m_i,
+\end{align*}
+still assuming $a(m)=\sum_{i=1}^n\ell_i\otimes m_i$. This is obtained by
+contracting the tensor products in \eqref{eqn:flat-descent-map-aux} in the
+appropriate way and has the advantage of a more compact form. A contracted
+version for $\tilde a_{ji}$ is obtained similarly.
+
+% segment-id: o014.li2.chapter7.module-descent.r002
+\begin{remark}[Flat descent for algebras and modules]\label{rem:flat-descent-alg}
+	We can go on to discuss how $L$-algebras, or modules over those algebras,
+	descend to $K$. Concretely, suppose
+	$(M,a),(M',a')\in\Obj(L\dcate{Mod}^{\mathbf{L}})$ are the images of
+	$N,N'\in\Obj(K\dcate{Mod})$. Recall that
+	$L\dotimes{K}(\mathord\cdot):K\dcate{Mod}\to L\dcate{Mod}$ is a
+	monoidal functor \cite[Proposition 6.6.10]{Li1}; that is, there are
+	canonical isomorphisms such as
+	% segment-id: o014.li2.chapter7.module-descent.q020
+	\begin{equation}\label{eqn:change-of-ring-monoidal}\begin{aligned}
+			(L \dotimes{K} N_1) \dotimes{L} (L \dotimes{K} N_2) & \rightiso L \dotimes{K} (N_1 \dotimes{K} N_2) \\
+			(\ell_1 \otimes x) \otimes (\ell_2 \otimes y) & \mapsto \ell_1 \ell_2 \otimes (x \otimes y).
+	\end{aligned}\end{equation}
+	Use this to give $M\dotimes{L}M'$ the $\mathbf{L}$-comodule structure
+	coming from $N\dotimes{K}N'$. Now take $N'=N$. Giving $N$ a
+	$K$-algebra structure is equivalent to giving $M$ an $L$-algebra
+	structure such that the multiplication $M\dotimes{L}M\to M$ and unit
+	$L\to M$ are both morphisms in $L\dcate{Mod}^{\mathbf{L}}$; all
+	properties such as associativity required of a $K$-algebra come from $M$.
+	The descent of $M$-modules to $N$-modules should be understood in the same
+	way. For this purpose, descent data of the form
+	\eqref{eqn:flat-descent-map-aux} may be more convenient than comodules over
+	$\mathbf{L}$, because all the functors involved are monoidal on $M$,
+	whereas $\mathbf{L}$ itself is not a monoidal functor.
+\end{remark}

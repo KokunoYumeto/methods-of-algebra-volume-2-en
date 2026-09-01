@@ -1,0 +1,60 @@
+{
+  "schema": "o014-english-shared-source-validation-v1",
+  "recorded_at_utc": "2026-08-31T23:22:23.509066+00:00",
+  "result": "PASS",
+  "checks": {
+    "source_map_146_units": true,
+    "source_map_2_bridges": true,
+    "shared_files_present": true,
+    "master_input_sequence_exact": true,
+    "all_148_input_files_present": true,
+    "pdf_language_en": true,
+    "source_author_preserved": true,
+    "license_and_nonendorsement_present": true,
+    "model_provenance_present": true,
+    "english_visible_environment_labels": true,
+    "deterministic_release_date": true,
+    "zero_active_shared_language_residue": true
+  },
+  "input_counts": {
+    "units": 146,
+    "bridges": 2,
+    "master_inputs": 148
+  },
+  "missing_inputs": [],
+  "active_language_residue": {},
+  "artifacts": {
+    "source/en/Al-jabr-2-en-complete-draft.tex": {
+      "bytes": 11831,
+      "sha256": "a51b13e91fd9511f3bb400775e318dc83f67594f5d44bccf1b19005291805f89"
+    },
+    "source/en/coverpage-en.tex": {
+      "bytes": 4867,
+      "sha256": "057770c57d3a4b60e9d236ca456cbe422f4d8ce7e7afe1903771d3dd656fcb49"
+    },
+    "source/en/font-setup-en.tex": {
+      "bytes": 1850,
+      "sha256": "a48d07b7c79a6d41bf98ec67561bead6fa5c8e16d91e820e815461cfc7ce17c7"
+    },
+    "source/en/titles-setup-en.tex": {
+      "bytes": 6698,
+      "sha256": "ca9817c86ce21fabe8e2581758e9a0ae79374c2fdcc370b700ffa588aeb2140c"
+    },
+    "source/en/Al-jabr.bib": {
+      "bytes": 23967,
+      "sha256": "1114bf4fe47e94d90658f288ae3d72c1a38f8bc297cbd88acd450ca004240306"
+    },
+    "source/en/mycommand.sty": {
+      "bytes": 7883,
+      "sha256": "a0ee58270f72078a71c065fda51b027bec7b40fc49721997d996c1c10683496a"
+    },
+    "source/en/myarrows.sty": {
+      "bytes": 3651,
+      "sha256": "9641d56b1d7659da85360ebabb46eddd203d403bf257eaf82541f21d39b0a809"
+    },
+    "source/en/AJbook2.cls": {
+      "bytes": 13852,
+      "sha256": "d671788b2a9f24d1a8a7227144f9d8677622a50dbce097baaf632d880b0d0e29"
+    }
+  }
+}

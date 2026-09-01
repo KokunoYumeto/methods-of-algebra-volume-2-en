@@ -1,0 +1,579 @@
+% Unit 045 English translation of chapter3.tex lines 2714--2935.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter3.ext-tor
+% Coverage: Section 3.14 in full.
+
+% segment-id: o014.li2.chapter3.ext-tor.h001
+\section{Example: \texorpdfstring{$\Ext$}{Ext} and \texorpdfstring{$\Tor$}{Tor}}\label{sec:Ext-Tor}
+\hypertarget{o014.aljabr2.chapter3.ext-tor}{ }
+
+% segment-id: o014.li2.chapter3.ext-tor.p001
+We shall study the derived functors of $\Hom$ and $\otimes$. It is useful to
+introduce a few auxiliary concepts first.
+
+% segment-id: o014.li2.chapter3.ext-tor.de001
+\begin{definition}\label{def:balanced-functor}
+\index{bifunctor!balanced}
+Let $\mathcal{A}_1$, $\mathcal{A}_2$, and $\mathcal{B}$ be abelian categories,
+and let the bifunctor $F:\mathcal{A}_1\times\mathcal{A}_2\to\mathcal{B}$
+(Convention~\ref{con:bifunctor}) be left exact in both variables. If, for
+every injective object $I_i\in\Obj(\mathcal{A}_i)$ ($i=1,2$), both functors
+\[
+F(I_1,\cdot):\mathcal{A}_2\to\mathcal{B}\quad\text{and}\quad
+F(\cdot,I_2):\mathcal{A}_1\to\mathcal{B}
+\]
+are exact, then $F$ is called \emph{balanced}.
+
+Dually, if $F$ is right exact in both variables, and if for every projective
+object $P_i\in\Obj(\mathcal{A}_i)$ the functors $F(P_1,\cdot)$ and
+$F(\cdot,P_2)$ are both exact, then $F$ is again called balanced.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.ext-tor.p002
+By duality, the following theorem is stated only for bifunctors that are left
+exact in both variables.
+
+% segment-id: o014.li2.chapter3.ext-tor.th001
+\begin{theorem}\label{prop:balanced-primer}
+\index[sym1]{RInF@$\mathrm{R}_{\mathrm{I}}^n F$, $\mathrm{R}_{\mathrm{II}}^n F$}
+Let $\mathcal{A}_1$, $\mathcal{A}_2$, and $\mathcal{B}$ be abelian
+categories, and suppose that $\mathcal{A}_1$ and $\mathcal{A}_2$ have enough
+injective objects. Let the bifunctor
+$F:\mathcal{A}_1\times\mathcal{A}_2\to\mathcal{B}$ be left exact in both
+variables. We may therefore take right derived functors in either variable.
+For fixed $X_i\in\Obj(\mathcal{A}_i)$, $i=1,2$, write
+\[
+\mathrm{R}_{\mathrm{I}}^n F(\cdot,X_2):\mathcal{A}_1\to\mathcal{B},\qquad
+\mathrm{R}_{\mathrm{II}}^n F(X_1,\cdot):\mathcal{A}_2\to\mathcal{B}.
+\]
+If $F$ is balanced, then there is a canonical isomorphism of bifunctors
+\[
+\mathrm{R}_{\mathrm{I}}^nF(X_1,X_2)\simeq
+\mathrm{R}_{\mathrm{II}}^nF(X_1,X_2).
+\]
+\end{theorem}
+
+% segment-id: o014.li2.chapter3.ext-tor.pf001
+\begin{proof}
+The following argument relies on the theory of double complexes; see
+\S\ref{sec:double-cplx} and \S\ref{sec:double-cplx-coh}. For $i=1,2$, choose
+an injective resolution
+$0\to X_i\to I_i^0\to I_i^1\to\cdots$; define $I_i^n:=0$ for $n<0$.
+This defines the double complex $F(I_1^\bullet,I_2^\bullet)$.
+
+On the other hand, form the complexes $F(X_1,I_2^\bullet)$ and
+$F(I_1^\bullet,X_2)$. Regard them as double complexes concentrated,
+respectively, on the vertical axis $(0,\bullet)$ and the horizontal axis
+$(\bullet,0)$. Since
+$X_i\rightiso\Ker[I_i^0\to I_i^1]\hookrightarrow I_i^0$, there are morphisms
+in $\cate{C}^2_f(\mathcal{B})$
+\[
+F(X_1,I_2^\bullet)\xrightarrow{\lambda}
+F(I_1^\bullet,I_2^\bullet)\xleftarrow{\rho}
+F(I_1^\bullet,X_2).
+\]
+We shall show that $\tot(\lambda)$ and $\tot(\rho)$ are quasi-isomorphisms.
+
+First consider $\lambda$. Take horizontal cohomology $\Hm_{\mathrm{I}}$ on
+both sides; this leaves $F(X_1,I_2^\bullet)$, which lies on the vertical
+axis, unchanged. Since $F(\cdot,I_2^q)$ is exact for every $q$, we obtain
+\[
+\left(\Hm_{\mathrm{I}}F(I_1^\bullet,I_2^\bullet)\right)^{p,q}
+=\begin{cases}
+0,&p\neq0,\\
+\Ker\left[F(I_1^0,I_2^q)\to F(I_1^1,I_2^q)\right]
+=F(X_1,I_2^q),&p=0.
+\end{cases}
+\]
+Thus $\Hm_{\mathrm{I}}(\lambda)$ is an isomorphism from
+$\Hm_{\mathrm{I}}F(X_1,I_2^\bullet)$ to
+$\Hm_{\mathrm{I}}F(I_1^\bullet,I_2^\bullet)$, so
+$\Hm_{\mathrm{II}}\Hm_{\mathrm{I}}(\lambda)$ is also an isomorphism.
+Theorem~\ref{prop:double-cplx-tot} now shows that $\tot(\lambda)$ is a
+quasi-isomorphism.
+
+For $\rho$, the same argument shows that
+$\Hm_{\mathrm{I}}\Hm_{\mathrm{II}}(\rho)$ is an isomorphism;
+Theorem~\ref{prop:double-cplx-tot} then implies that $\tot(\rho)$ is also a
+quasi-isomorphism.
+
+The total complex of $F(X_1,I_2^\bullet)$ is still that complex itself, and
+taking $\Hm^n$ gives $\mathrm{R}_{\mathrm{II}}^nF(X_1,X_2)$. Likewise,
+taking $\Hm^n$ of $F(I_1^\bullet,X_2)$, or of its total complex, gives
+$\mathrm{R}_{\mathrm{I}}^nF(X_1,X_2)$. Using
+$\tot(F(I_1^\bullet,I_2^\bullet))$ as an intermediary yields
+\[
+\mathrm{R}_{\mathrm{I}}^nF(X_1,X_2)\simeq
+\mathrm{R}_{\mathrm{II}}^nF(X_1,X_2).
+\]
+Because every morphism $X_i\to Y_i$ lifts to a morphism between injective
+resolutions, uniquely up to homotopy, what we have obtained is in fact an
+isomorphism of bifunctors
+$\mathrm{R}_{\mathrm{I}}^nF\simeq\mathrm{R}_{\mathrm{II}}^nF$.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.ext-tor.rem001
+\begin{remark}\label{rem:balanced-primer}
+The argument actually gives a method for resolving both variables
+simultaneously and then deriving $F$ in a balanced way by means of the total
+complex of the double complex $F(I_1^\bullet,I_2^\bullet)$.
+\end{remark}
+
+% segment-id: o014.li2.chapter3.ext-tor.p003
+Now let $\mathcal{A}$ be an abelian category and consider the bifunctor
+$\Hom=\Hom_{\mathcal{A}}:\mathcal{A}^{\opp}\times\mathcal{A}\to\cate{Ab}$.
+Proposition~\ref{prop:Hom-left-exact} says that $\Hom$ is left exact in both
+variables. For every $n\in\Z$, make the following definitions.
+
+% segment-id: o014.li2.chapter3.ext-tor.l001
+\begin{itemize}
+% segment-id: o014.li2.chapter3.ext-tor.i001
+\item If $\mathcal{A}$ has enough projective objects, define
+$\Ext^n_{\mathcal{A},\mathrm{I}}(X,Y):=\mathrm{R}^n_{\mathrm{I}}\Hom(X,Y)$,
+computed using a projective resolution of $X$ in $\mathcal{A}$.
+% segment-id: o014.li2.chapter3.ext-tor.i002
+\item If $\mathcal{A}$ has enough injective objects, define
+$\Ext^n_{\mathcal{A},\mathrm{II}}(X,Y):=\mathrm{R}^n_{\mathrm{II}}\Hom(X,Y)$,
+computed using an injective resolution of $Y$ in $\mathcal{A}$.
+\end{itemize}
+
+% segment-id: o014.li2.chapter3.ext-tor.dp001
+\begin{definition-proposition}[The $\Ext$ functor]\label{def:Ext-classical}
+\index{Ext functor@$\Ext$ functor}
+\index[sym1]{Extn@$\Ext^n$}
+The bifunctor $\Hom_{\mathcal{A}}$ is balanced. Consequently, whenever the
+abelian category $\mathcal{A}$ has enough injective and projective objects,
+there is, for every $n\in\Z$, a bifunctor
+\[
+\Ext^n=\Ext^n_{\mathcal{A}}:\mathcal{A}^{\opp}\times\mathcal{A}\to\cate{Ab}
+\]
+such that
+$\Ext^n_{\mathcal{A}}(X,Y):=\Ext^n_{\mathrm{I}}(X,Y)\simeq
+\Ext^n_{\mathrm{II}}(X,Y)$ (canonically).
+\end{definition-proposition}
+
+% segment-id: o014.li2.chapter3.ext-tor.pf002
+\begin{proof}
+Balancedness is an immediate consequence of the definitions of injective and
+projective objects, so Theorem~\ref{prop:balanced-primer} applies.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.ext-tor.p004
+If $R$ is a ring and $\mathcal{A}=R\dcate{Mod}$ or $\cated{Mod}R$, we write
+$\Ext^n_{\mathcal{A}}$ as $\Ext^n_R$.
+
+% segment-id: o014.li2.chapter3.ext-tor.p005
+Observe that $\Ext^0=\Hom$, while $(\Ext^n)_{n\geq0}$ has, in the variables
+$X$ and $Y$ respectively, long exact sequences of the form
+% segment-id: o014.li2.chapter3.ext-tor.q001
+\begin{gather*}
+\cdots\to\Ext^{n-1}(X',Y)\xrightarrow{\delta^{n-1}}\Ext^n(X'',Y)\to
+\Ext^n(X,Y)\to\Ext^n(X',Y)\to\cdots,\\
+\cdots\to\Ext^{n-1}(X,Y'')\xrightarrow{\delta^{n-1}}\Ext^n(X,Y')\to
+\Ext^n(X,Y)\to\Ext^n(X,Y'')\to\cdots,
+\end{gather*}
+where $0\to X'\to X\to X''\to0$ and
+$0\to Y'\to Y\to Y''\to0$ are given short exact sequences.
+
+% segment-id: o014.li2.chapter3.ext-tor.p006
+If $\mathcal{A}$ is a $\Bbbk$-linear abelian category, the values of $\Ext^n$
+may naturally be regarded as objects of $\Bbbk\dcate{Mod}$.
+
+% segment-id: o014.li2.chapter3.ext-tor.rem002
+\begin{remark}
+The symbol $\Ext$ stands for “extension,” because the elements of
+$\Ext^1(X,Y)$ correspond bijectively to the isomorphism classes of extensions
+$0\to Y\to E\to X\to0$ (that is, short exact sequences); the higher
+$\Ext^n$ have a similar interpretation. This fact is best understood through
+the derived category; see \S\sourcecrossref{sec:Hom-Ext}{4.5}.
+\end{remark}
+
+% segment-id: o014.li2.chapter3.ext-tor.p007
+The characterization of exact functors in
+Corollary~\ref{prop:obstruction-exactness} immediately gives the following.
+
+% segment-id: o014.li2.chapter3.ext-tor.l002
+\begin{itemize}
+% segment-id: o014.li2.chapter3.ext-tor.i003
+\item An object $I$ is injective $\iff \Ext^1(\cdot,I)=0\iff
+\Ext^{\geq1}(\cdot,I)=0$.
+% segment-id: o014.li2.chapter3.ext-tor.i004
+\item An object $P$ is projective $\iff \Ext^1(P,\cdot)=0\iff
+\Ext^{\geq1}(P,\cdot)=0$.
+\end{itemize}
+
+% segment-id: o014.li2.chapter3.ext-tor.ex001
+\begin{example}[$\HHm^n$ as $\Ext^n$]\label{eg:HH-Ext}
+\index[sym1]{HH}
+Return to the basic setting for Hochschild homology and cohomology from
+\S\ref{sec:HH}: $\Bbbk$ is a commutative ring and $R$ is a
+$\Bbbk$-algebra; now assume in addition that $R$ is projective as a
+$\Bbbk$-module. Write $\otimes:=\otimes_{\Bbbk}$. Since projective modules
+are direct summands of free modules, $R^{\otimes n}$ is still projective as a
+$\Bbbk$-module.
+\footnote{Alternatively, use the tensor adjunction
+\cite[Theorem 6.6.5]{Li1}.}
+Regard $R\otimes R^{\otimes n}\otimes R$ as a left $R^e$-module, where
+$R^e:=R\otimes R^{\opp}$. Since
+$R\otimes(\cdot)\otimes R:\Bbbk\dcate{Mod}\to R^e\dcate{Mod}$ is left
+adjoint to the forgetful functor \cite[Corollary 6.6.8]{Li1}, it carries
+projective objects to projective objects
+(Proposition~\ref{prop:adjoint-injective-projective}). Thus
+Lemma~\ref{prop:HH-bar-exactness} shows that the bar complex $\mathsf{B}R$
+gives a projective resolution of $R$ as a left $R^e$-module,
+\begin{equation}\label{eqn:bar-proj-resolution}
+\cdots\to\mathsf{B}_1R\to\mathsf{B}_0R\to R\to0.
+\end{equation}
+Now let $M$ be an $(R,R)$-bimodule. Substituting the original definition of
+Hochschild cohomology from Definition~\ref{def:HH} gives
+\[
+\HHm^n(M)=\Hm^n\left(\Hom_{R^e}(\mathsf{B}R,M)\right)
+=\Ext^n_{R^e}(R,M).
+\]
+\end{example}
+
+% segment-id: o014.li2.chapter3.ext-tor.p008
+We next turn to the $\Tor$ functor. Let $R$ be a ring. The module categories
+$R\dcate{Mod}$ (and $\cated{Mod}R$) have enough projective
+objects\footnote{Indeed, free modules are always projective; see
+\cite[Example 6.9.6]{Li1}.}. The tensor product gives a bifunctor
+% segment-id: o014.li2.chapter3.ext-tor.q002
+\[
+\otimes_R:\cated{Mod}R\times R\dcate{Mod}\to\cate{Ab},
+\]
+which is right exact in either variable (see
+\cite[Proposition 6.9.2]{Li1}). Apply the right-exact version of the preceding
+theory to define the left derived functors in both variables,
+$\mathrm{L}_{\mathrm{I},n}\otimes_R$ and
+$\mathrm{L}_{\mathrm{II},n}\otimes_R$; these can be nonzero only for
+$n\geq0$. Recall also the definition of a flat module
+\cite[Definition 6.9.4]{Li1}.
+
+% segment-id: o014.li2.chapter3.ext-tor.dp002
+\begin{definition-proposition}[The $\Tor$ functor]\label{def:Tor-classical}
+\index{Tor functor@$\Tor$ functor}
+\index[sym1]{Torn@$\Tor^R_n$}
+For every ring $R$, the bifunctor $\otimes_R$ is balanced. Hence, for every
+$n\in\Z$, one may define a bifunctor
+\[
+\Tor_n=\Tor_n^R:\cated{Mod}R\times R\dcate{Mod}\to\cate{Ab}
+\]
+by
+$\Tor_n^R(X,Y):=(\mathrm{L}_{\mathrm{I},n}\otimes_R)(X,Y)\simeq
+(\mathrm{L}_{\mathrm{II},n}\otimes_R)(X,Y)$ (canonically).
+\end{definition-proposition}
+
+% segment-id: o014.li2.chapter3.ext-tor.pf003
+\begin{proof}
+Balancedness follows from the fact that every projective module is flat
+\cite[Corollary 6.9.9]{Li1}. Apply the left-derived-functor version of
+Theorem~\ref{prop:balanced-primer}.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.ext-tor.p009
+We have $\Tor^R_0(X,Y)=X\dotimes{R}Y$, while $(\Tor_n)_{n\geq0}$ has the
+following long exact sequences:
+% segment-id: o014.li2.chapter3.ext-tor.q003
+\begin{gather*}
+\cdots\to\Tor^R_{n+1}(X'',Y)\xrightarrow{\partial_{n+1}}\Tor^R_n(X',Y)\to
+\Tor^R_n(X,Y)\to\Tor^R_n(X'',Y)\to\cdots,\\
+\cdots\to\Tor^R_{n+1}(X,Y'')\xrightarrow{\partial_{n+1}}\Tor^R_n(X,Y')\to
+\Tor^R_n(X,Y)\to\Tor^R_n(X,Y'')\to\cdots,
+\end{gather*}
+where $0\to X'\to X\to X''\to0$ and
+$0\to Y'\to Y\to Y''\to0$ are given short exact sequences.
+
+% segment-id: o014.li2.chapter3.ext-tor.p010
+As in the case of $\Ext$, we obtain the following characterizations.
+
+% segment-id: o014.li2.chapter3.ext-tor.l003
+\begin{itemize}
+% segment-id: o014.li2.chapter3.ext-tor.i005
+\item A right $R$-module $M$ is flat $\iff \Tor^R_1(M,\cdot)=0\iff
+\Tor^R_{\geq1}(M,\cdot)=0$.
+% segment-id: o014.li2.chapter3.ext-tor.i006
+\item A left $R$-module $N$ is flat $\iff \Tor^R_1(\cdot,N)=0\iff
+\Tor^R_{\geq1}(\cdot,N)=0$.
+\end{itemize}
+
+% segment-id: o014.li2.chapter3.ext-tor.p011
+Let $M$ be an $R$-module. In analogy with the definition of a projective
+resolution, a \emph{flat resolution}\index{flat resolution} of $M$ is an
+exact sequence of the form
+% segment-id: o014.li2.chapter3.ext-tor.q004
+\[
+\cdots\to F^2\to F^1\to F^0\to M\to0,\qquad
+\text{each $F^n$ is a flat $R$-module}.
+\]
+
+% segment-id: o014.li2.chapter3.ext-tor.p012
+By Corollary~\ref{prop:acyclic-resolution} and the preceding observation,
+$\Tor^R_n(X,Y)$ can also be computed using a flat resolution of $X$ or $Y$.
+This is the practical technique for computing $\Tor$, whereas projective
+resolutions play a chiefly theoretical role.
+
+% segment-id: o014.li2.chapter3.ext-tor.p013
+Such computations can naturally be balanced as well. Choose arbitrary flat
+resolutions $\cdots\to P_1\to P_0\to X\to0$ and
+$\cdots\to Q_1\to Q_0\to Y\to0$. Form the double complex, in the sense of
+chain complexes, $P_\bullet\dotimes{R}Q_\bullet$, and denote its total
+complex by $P\otimes Q$. The homological version of
+Remark~\ref{rem:balanced-primer} gives
+$\Tor_n^R(X,Y)\simeq\Hm_n(P\otimes Q)$; the only properties needed are the
+exactness of $P_p\dotimes{R}(\cdot)$ and
+$(\cdot)\dotimes{R}Q_q$, precisely the properties guaranteed by flatness.
+
+% segment-id: o014.li2.chapter3.ext-tor.rem003
+\begin{remark}[Bimodule structure]\label{rem:ExtTor-bimodule}
+Let $A$ and $B$ be rings, let $X$ be an $(A,R)$-bimodule, and let $Y$ be an
+$(R,B)$-bimodule. Since $\Tor_n^R$ is a bifunctor, $\Tor_n^R(X,Y)$ carries a
+canonical $(A,B)$-bimodule structure. For example, consider left
+multiplication by $A$: every $a\in A$ gives an endomorphism of $X$ as a
+right $R$-module and hence induces an endomorphism $L_a$ of
+$\Tor_n^R(X,Y)$; one has $L_aL_{a'}=L_{aa'}$ and $L_1=\identity$. Right
+multiplication by $B$ is handled similarly in the second variable. For
+$n=0$, this recovers the natural bimodule structure on $X\dotimes{R}Y$.
+
+If $Y$, as a left $R$-module, is supplied with a flat resolution
+$\cdots\to P_0\to Y\to0$, the left $A$-action can be read directly from the
+complex $X\dotimes{R}P_\bullet$: it comes from left multiplication by $A$ on
+$X$. Right multiplication is treated in the same way.
+
+As a special case, if a ring homomorphism $R\to S$ is fixed, then
+$\Tor_n^R(\cdot,S)$ (or $\Tor_n^R(S,\cdot)$) naturally becomes a functor
+$\cated{Mod}R\to\cated{Mod}S$ (or
+$R\dcate{Mod}\to S\dcate{Mod}$).
+
+A similar argument shows that, when $X$ is an $(R,A)$-bimodule and $Y$ is an
+$(R,B)$-bimodule, every $\Ext_R^n(X,Y)$ naturally carries an
+$(A,B)$-bimodule structure.
+\end{remark}
+
+% segment-id: o014.li2.chapter3.ext-tor.p014
+For a commutative ring $R$, there is no need to distinguish left from right
+$R$-modules; the corresponding category is denoted by $R\dcate{Mod}$.
+Every $R$-module is then naturally an $(R,R)$-bimodule, so $\Tor_n^R$ becomes
+a bifunctor $(R\dcate{Mod})^2\to R\dcate{Mod}$.
+
+% segment-id: o014.li2.chapter3.ext-tor.pr001
+\begin{proposition}\label{prop:Tor-symmetry}
+For a commutative ring $R$, there is a canonical isomorphism of bifunctors
+\[
+\Tor_n^R(X,Y)\simeq\Tor_n^R(Y,X)
+\]
+for every $n\in\Z$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter3.ext-tor.pf004
+\begin{proof}
+Choose flat resolutions $P_\bullet$ and $Q_\bullet$ of $X$ and $Y$,
+respectively. Write $P\otimes Q$ for the total complex of the double complex
+$P_\bullet\dotimes{R}Q_\bullet$, and define $Q\otimes P$ similarly. The
+symmetry constraint for the tensor product
+\cite[Proposition 6.5.14]{Li1} gives canonical isomorphisms
+% segment-id: o014.li2.chapter3.ext-tor.q005
+\[
+P_p\dotimes{R}Q_q\simeq Q_q\dotimes{R}P_p,\qquad p,q\in\Z.
+\]
+In other words,
+$P_\bullet\dotimes{R}Q_\bullet\simeq
+\mathrm{swap}(Q_\bullet\dotimes{R}P_\bullet)$. Apply
+Proposition~\ref{prop:double-cplx-swap} to obtain a canonical isomorphism of
+total complexes $P\otimes Q\simeq Q\otimes P$. This proves the assertion.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.ext-tor.rem004
+\begin{remark}
+The symbol $\Tor$ stands for “torsion,” as suggested by the following
+example. Let $\mathfrak{a}$ be a left ideal of a ring $R$, and let $X$ be any
+right $R$-module. Since the free left module $R$ is flat, apply
+Proposition~\ref{prop:dimension-shifting} to
+$0\to\mathfrak{a}\to R\to R/\mathfrak{a}\to0$ to shift dimensions. This
+gives
+% segment-id: o014.li2.chapter3.ext-tor.q006
+\begin{align*}
+\Tor^R_1(X,R/\mathfrak{a}) &\simeq \Ker\left[
+X\dotimes{R}\mathfrak{a}\to X\dotimes{R}R\simeq X\right]\\
+&\simeq \left\{\sum_i x_i\otimes a_i\in X\dotimes{R}\mathfrak{a}:
+\sum_i x_i a_i=0\right\},\\
+\Tor^R_n(X,R/\mathfrak{a})&\simeq\Tor^R_{n-1}(X,\mathfrak{a}),\qquad(n>1).
+\end{align*}
+If, moreover, $t\in R$ is not a right zero divisor and we take
+$\mathfrak{a}:=Rt\leftiso R$ (mapping $r$ to $rt$), then
+$\Tor^R_1(X,R/Rt)\simeq\{x\in X:xt=0\}$, the $t$-torsion submodule of $X$;
+for $n>1$, $\Tor^R_n(X,R/Rt)=0$.
+\end{remark}
+
+% segment-id: o014.li2.chapter3.ext-tor.ex002
+\begin{example}[$\HHm_n$ as $\Tor_n$]\label{eg:HH-Tor}
+\index[sym1]{HH}
+Continue from the opening setup of Example~\ref{eg:HH-Ext}, but weaken the
+condition on $R$ by requiring only that $R$ be flat as a $\Bbbk$-module.
+Then $R^{\otimes n}$ is flat as well. The associativity constraint
+$(\cdot)\dotimes{R^e}(R\otimes R^{\otimes n}\otimes R)\simeq
+(\cdot)\otimes R^{\otimes n}$ shows that
+$R\otimes R^{\otimes n}\otimes R$ is a flat left $R^e$-module. Thus
+$\mathsf{B}R$ is a flat resolution of $R$ as a left $R^e$-module, as in
+\eqref{eqn:bar-proj-resolution}.
+
+For every $(R,R)$-bimodule $M$, the original definition of Hochschild
+homology from Definition~\ref{def:HH} gives
+\[
+\HHm_n(M)=\Hm_n\left(M\dotimes{R^e}\mathsf{B}R\right)
+=\Tor_n^{R^e}(M,R).
+\]
+\end{example}
+
+% segment-id: o014.li2.chapter3.ext-tor.p015
+We can now combine Examples~\ref{eg:HH-Ext} and \ref{eg:HH-Tor} to compute
+further examples of Hochschild homology and cohomology. First take the
+polynomial algebra $R=\Bbbk[t]$ and identify
+$R^e=R\otimes R^{\opp}$ with $\Bbbk[x,y]$. The scalar action on $R$ as an
+$R^e$-module is $h(x,y)\cdot f(t)=h(t,t)f(t)$, and $R$ has the free
+resolution
+% segment-id: o014.li2.chapter3.ext-tor.q007
+\[
+0\to R^e\xrightarrow{\text{multiplication by }x-y}R^e
+\xrightarrow{f\mapsto f(t,t)}R\to0.
+\]
+Computing $\Ext^n_{R^e}(R,\cdot)$ and $\Tor_n^{R^e}(\cdot,R)$ from this
+resolution immediately gives $\HHm_n(R)\simeq R\simeq\HHm^n(R)$ for
+$n\in\{0,1\}$, while $\HHm_n(R)=0=\HHm^n(R)$ for $n>1$.
+
+% segment-id: o014.li2.chapter3.ext-tor.p016
+Next take $R=\Bbbk[t]/(t^2)$, so that
+$R^e=\Bbbk[x,y]/(x^2,y^2)$. As an $R^e$-module, $R$ has a free resolution
+of period $2$,
+% segment-id: o014.li2.chapter3.ext-tor.q008
+\[
+\cdots\xrightarrow{x+y}R^e\xrightarrow{x-y}R^e\xrightarrow{x+y}R^e
+\xrightarrow{\text{multiplication by }x-y}R^e\xrightarrow{f\mapsto f(t,t)}R\to0,
+\]
+whose exactness is left to the reader to verify directly. For every
+$R$-module $M$, applying $M\dotimes{R^e}(\cdot)$ and
+$\Hom_{R^e}(\cdot,M)$ gives, respectively,
+% segment-id: o014.li2.chapter3.ext-tor.q009
+\begin{gather*}
+\cdots\xrightarrow{2t}M\xrightarrow{0}M\xrightarrow{2t}M\xrightarrow{0}M
+\to M\dotimes{R^e}R\to0,\\
+0\to\Hom_{R^e}(R,M)\to M\xrightarrow{0}M\xrightarrow{2t}M
+\xrightarrow{0}M\xrightarrow{2t}\cdots.
+\end{gather*}
+Thus $\HHm_k(M)$ and $\HHm^k(M)$ depend only on $k\bmod2$; this periodicity
+might be difficult to see from the definitions alone.
+
+If $\Bbbk$ is a field, $\HHm_n(M)$ and $\HHm^n(M)$ can be read off from
+these complexes, but the answer depends on $\mathrm{char}(\Bbbk)$. The
+exercises will treat the general case $R=\Bbbk[t]/(t^n)$.
+
+% segment-id: o014.li2.chapter3.ext-tor.p017
+The following result is often used in algebraic topology and also provides a
+small check on the preceding material; it concerns chain complexes and their
+homology (Remark~\ref{rem:cochain-vs-chain}). Let
+$C=(C_\bullet,d^C_\bullet)$ (respectively,
+$D=(D_\bullet,d^D_\bullet)$) be a chain complex of right $R$-modules
+(respectively, left $R$-modules). Form the double chain complex
+$C_\bullet\otimes D_\bullet$ and denote its total complex by
+% segment-id: o014.li2.chapter3.ext-tor.q010
+\[
+C\otimes D:=\tot_{\oplus}\left(C_\bullet\otimes D_\bullet\right);
+\]
+the subscript $R$ on the tensor product is omitted. Concretely, the
+degree-$n$ term of the total complex $C\otimes D$ is
+$\bigoplus_{p+q=n}C_p\otimes D_q$, while the restriction of $d_n$ to
+$C_p\otimes D_q$ is
+$d^C_p\otimes\identity+(-1)^p\identity\otimes d^D_q$. This gives a canonical
+homomorphism
+\[
+\kappa:\bigoplus_{p+q=n}\Hm_p(C)\otimes\Hm_q(D)\to
+\Hm_n(C\otimes D).
+\]
+
+% segment-id: o014.li2.chapter3.ext-tor.th002
+\begin{theorem}[Künneth theorem for homology]\label{prop:Kunneth-homology}
+\index{Kunneth@Künneth theorem}
+Let $C,D$ be chain complexes as above. If every $C_p$ and every
+$\Image(d^C_p)$ is a flat right $R$-module, then there is a canonical short
+exact sequence
+% segment-id: o014.li2.chapter3.ext-tor.g001
+\[
+\begin{tikzcd}[column sep=small, every cell/.append style={font = \small}]
+0 \arrow[r] & \displaystyle\bigoplus_{p+q=n} \Hm_p(C) \otimes \Hm_q(D)
+\arrow[r, "\kappa"] & \Hm_n\left(C \otimes D \right) \arrow[r] &
+\displaystyle\bigoplus_{p+q=n-1} \Tor_1^R\left( \Hm_p(C), \Hm_q(D) \right)
+\arrow[r] & 0.
+\end{tikzcd}
+\]
+\end{theorem}
+
+% segment-id: o014.li2.chapter3.ext-tor.pf005
+\begin{proof}
+For every $p\in\Z$, define submodules of $C_p$ by
+$B_p:=\Image(d^C_{p+1})$ and $Z_p:=\Ker(d^C_p)$. Regard these as chain
+complexes $Z=Z_\bullet$ and $B=B_\bullet$ by setting $d^Z=d^B:=0$.
+There is then a short exact sequence of chain complexes
+% segment-id: o014.li2.chapter3.ext-tor.g002
+\[
+\begin{tikzcd}[column sep=large]
+0 \arrow[r] & Z \arrow[r] & C \arrow[r, "{d^C=(d^C_p)_p}" inner sep=0.6em]
+& B[-1] \arrow[r] & 0.
+\end{tikzcd}
+\]
+
+The short exact sequence
+$0\to Z_p\to C_p\xrightarrow{d^C_p}B_{p-1}\to0$ and the long exact sequence
+for $\Tor$ imply that $Z_p$ is also flat. Since $B_{p-1}$ is flat, the
+sequence
+% segment-id: o014.li2.chapter3.ext-tor.q011
+\[
+0\to Z_p\otimes D_q\to C_p\otimes D_q\to B_{p-1}\otimes D_q\to0
+\]
+remains exact. Since direct sums of modules, including infinite direct sums,
+preserve exactness, we obtain a short exact sequence of chain complexes
+$0\to Z\otimes D\to C\otimes D\xrightarrow{d^C\otimes\identity_D}
+B[-1]\otimes D\to0$.
+
+Because $d^Z=d^{B[-1]}=0$, the associated long exact sequence in homology
+simplifies, by flatness, to
+% segment-id: o014.li2.chapter3.ext-tor.q012
+\begin{multline*}
+\overbracket{\displaystyle\bigoplus_{p+q=n+1}B_{p-1}\otimes\Hm_q(D)}^{=
+\bigoplus_{p+q=n}B_p\otimes\Hm_q(D)}\xrightarrow{\partial_{n+1}}
+\displaystyle\bigoplus_{p+q=n}Z_p\otimes\Hm_q(D)\to\Hm_n(C\otimes D)\\
+\to\underbracket{\displaystyle\bigoplus_{p+q=n}B_{p-1}\otimes\Hm_q(D)}_{=
+\bigoplus_{p+q=n-1}B_p\otimes\Hm_q(D)}\xrightarrow{\partial_n}
+\displaystyle\bigoplus_{p+q=n-1}Z_p\otimes\Hm_q(D).
+\end{multline*}
+It remains only to explain the connecting morphisms $\partial_{n+1}$ and
+$\partial_n$. Up to possible signs, they arise from the inclusions
+$B_p\hookrightarrow Z_p$. To see this, return to the explicit construction
+of the long exact sequence, namely the homological version of
+Proposition~\ref{prop:long-exact-sequence-ses}; here one can use a diagram
+chase, as in the discussion preceding \cite[Proposition 6.8.6]{Li1}. The
+details are left to the reader.
+
+It follows that $\Coker(\partial_{n+1})$ may be identified with
+$\bigoplus_{p+q=n}\Hm_p(C)\otimes\Hm_q(D)$, and the induced monomorphism to
+$\Hm_n(C\otimes D)$ is $\kappa$.
+
+Finally, $0\to B_p\to Z_p\to\Hm_p(C)\to0$ is a flat resolution of
+$\Hm_p(C)$. Hence
+$\Ker(\partial_n)\simeq
+\bigoplus_{p+q=n-1}\Tor_1^R(\Hm_p(C),\Hm_q(D))$. This gives the asserted
+short exact sequence.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.ext-tor.p018
+Notice that if $R$ is a division ring, then $\kappa$ is necessarily an
+isomorphism.
+
+% segment-id: o014.li2.chapter3.ext-tor.p019
+Because $D$ plays the role of homology coefficients in topology, the special
+case of Theorem~\ref{prop:Kunneth-homology} in which $D$ is concentrated in
+degree zero is also called the \emph{universal coefficient theorem}. Results
+of this kind have many variants. Moreover, the ring structure supplies
+operations on $\Tor$ that are absent for other derived bifunctors. These
+structures are better formulated in the language of derived categories or
+spectral sequences.
+\index{universal coefficient theorem}

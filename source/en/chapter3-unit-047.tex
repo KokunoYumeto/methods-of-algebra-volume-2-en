@@ -1,0 +1,638 @@
+% Unit 047: English translation of chapter3.tex, lines 3201--3425.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter3.exercises
+% Coverage: complete Chapter 3 exercises (26 exercises and 17 hints).
+
+% segment-id: o014.li2.chapter3.exercises.x001
+\hypertarget{o014.aljabr2.chapter3.exercises}{ }
+\begin{Exercises}
+% segment-id: o014.li2.chapter3.exercises.ex001
+	\item Let $\Bbbk$ be a commutative ring. Thus
+	$\cate{C}(\Bbbk\dcate{Mod})$ and $\cate{K}(\Bbbk\dcate{Mod})$ are
+	naturally $\Bbbk\dcate{Mod}$-categories in the sense of
+	Definition~\ref{def:cat-k-linear}. Prove that, for every $n\in\Z$ and
+	every object $X$ of $\cate{C}(\Bbbk\dcate{Mod})$, there are canonical
+	isomorphisms of $\Bbbk$-modules
+% segment-id: o014.li2.chapter3.exercises.q001
+	\[
+		\Hm^n(X) \simeq
+		\Hom_{\cate{K}(\Bbbk\dcate{Mod})}(\Bbbk,X[n])
+		\simeq
+		\Hom_{\cate{K}(\Bbbk\dcate{Mod})}(\Bbbk[-n],X).
+	\]
+	On the right, $\Bbbk$ is regarded as a complex concentrated in degree
+	$0$.
+
+% segment-id: o014.li2.chapter3.exercises.ex002
+	\item This exercise relates homotopies between morphisms to isomorphisms
+	between their mapping cones. Let $\mathcal{A}$ be an additive category and
+	take any pair of morphisms
+	$f,g\in\Hom_{\cate{C}(\mathcal{A})}(X,Y)$. Construct a bijection
+% segment-id: o014.li2.chapter3.exercises.q002
+	\[
+	\left\{
+	\begin{array}{c}
+		s\in\Hom^{-1}(X,Y): \\
+		d^{-1}_{\Hom^\bullet(X,Y)}(s)=f-g
+	\end{array}
+	\right\}
+	\xrightarrow{1:1}
+	\left\{
+	\begin{array}{c}
+		h:\Cone(f)\to\Cone(g),\\
+		\text{a morphism of complexes making}\\
+		\text{the following diagram commute}
+	\end{array}
+	\right\},
+	\]
+% segment-id: o014.li2.chapter3.exercises.g001
+	\begin{equation*}
+	\begin{tikzcd}[row sep=small]
+		& \Cone(f) \arrow[dr, "\beta(f)"] \arrow[dd, "h"] & \\
+		Y \arrow[ru, "\alpha(f)"] \arrow[rd, "\alpha(g)"'] & & X[1] \\
+		& \Cone(g) \arrow[ru, "\beta(g)"'] &
+	\end{tikzcd}
+	\end{equation*}
+	and prove that every such morphism $h$ is an isomorphism of complexes. In
+	particular, $f$ and $g$ are homotopic if and only if such an $h$ exists.
+
+% segment-id: o014.li2.chapter3.exercises.hn001
+	\begin{hint}
+		Commutativity of the diagram in degree $n$ is equivalent to the matrix
+		equation
+% segment-id: o014.li2.chapter3.exercises.q003
+		\[
+			h^n=
+			\begin{pmatrix}
+				\identity_{X^{n+1}}&0\\
+				s^{n+1}&\identity_{Y^n}
+			\end{pmatrix},
+			\quad\text{where}\quad
+			s^{n+1}:X^{n+1}\to Y^n.
+		\]
+	\end{hint}
+
+% segment-id: o014.li2.chapter3.exercises.ex003
+	\item (Split exactness) Let $\mathcal{A}$ be an Abelian category and $X$
+	a complex over it. Prove that the following statements are equivalent.
+% segment-id: o014.li2.chapter3.exercises.l001
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter3.exercises.i001
+		\item $X$ is equal to $0$ in $\cate{K}(\mathcal{A})$;
+% segment-id: o014.li2.chapter3.exercises.i002
+		\item $\identity_X$ is null-homotopic;
+% segment-id: o014.li2.chapter3.exercises.i003
+		\item $X$ is acyclic and there exists
+		$(s^n)_n\in\Hom^{-1}(X,X)$ such that
+		$d^ns^{n+1}d^n=d^n$ for every $n$;
+% segment-id: o014.li2.chapter3.exercises.i004
+		\item there is a family of objects $(Y^n)_n$ in $\mathcal{A}$ and an
+		isomorphism of complexes
+		$\Phi:X\rightiso(Y^n\oplus Y^{n+1},\overline d^{\,n})_n$, where
+		$\overline d$ is represented by the matrix
+		$\bigl(\begin{smallmatrix}0&1\\0&0\end{smallmatrix}\bigr)$.
+	\end{enumerate}
+
+% segment-id: o014.li2.chapter3.exercises.p001
+	A complex satisfying any of these conditions is also called
+	\emph{split exact}.\footnote{More generally, let $X$ be a complex over an
+	additive category $\mathcal{A}$. If there are two families of objects
+	$(Y^n)_n$ and $(H^n)_n$ such that
+	$X^n\simeq Y^n\oplus H^n\oplus Y^{n+1}$ and $d$ is identified with
+	$\bigl(\begin{smallmatrix}0&0&1\\0&0&0\\0&0&0\end{smallmatrix}\bigr)$,
+	then $X$ is called \emph{split}.}
+	For
+	$X=[\cdots\,0\to A\to B\to C\to0\,\cdots]$, prove that this condition
+	is equivalent to $X$ being a split short exact sequence.
+	\index{complex!split exact}
+
+% segment-id: o014.li2.chapter3.exercises.hn002
+	\begin{hint}
+		It suffices to prove (iii) $\implies$ (iv). The condition implies that
+		$d^{n-1}s^n\in\End_{\mathcal{A}}(X^n)$ is idempotent. This gives a
+		decomposition $X^n=Y^n\oplus Z^n$ with
+		$Y^n=\Image(d^{n-1}s^n)$. Prove that
+		$Y^n=\Image(d^{n-1})$ and that the restriction of $d^n$ gives an
+		isomorphism $Z^n\rightiso\Image(d^n)$; then take $\Phi$ corresponding
+		to $\bigl(\begin{smallmatrix}ds\\d\end{smallmatrix}\bigr)$.
+	\end{hint}
+
+% segment-id: o014.li2.chapter3.exercises.ex004
+	\item Let $\mathcal{A}$ be an Abelian category. Prove that $X$ is an
+	injective object of $\cate{C}(\mathcal{A})$ if and only if every term of
+	$X$ is injective in $\mathcal{A}$ and $X$ is equal to $0$ in
+	$\cate{K}(\mathcal{A})$. State the version for projective objects.
+
+% segment-id: o014.li2.chapter3.exercises.hn003
+	\begin{hint}
+		For the only-if direction, observe that the short exact sequence in
+		$\cate{C}(\mathcal{A})$
+		$0\to X\to\Cone(\identity_X)\to X[1]\to0$ splits.
+		Proposition~\ref{prop:cone-homotopy} then shows that $X$ is acyclic.
+		Choose a section $X[1]\to\Cone(\identity_X)$ and write it as
+		$\bigl(\begin{smallmatrix}1\\-\theta\end{smallmatrix}\bigr)$, where
+		$\theta^n:X^{n+1}\to X^n$. Verify that
+		$d_X^{n-1}\theta^{n-1}+\theta^nd_X^n=\identity_{X^n}$ to prove that
+		$\identity_X$ is null-homotopic.
+
+		Fix $n$. By the preceding exercise, decompose
+		$X^n=Y^n\oplus Y^{n+1}$; it remains to prove that $Y^n$ is injective.
+		For any morphism $f:A\to Y^n$ and monomorphism
+		$g:A\hookrightarrow B$ in $\mathcal{A}$, consider the commutative
+		diagram with exact row in $\cate{C}(\mathcal{A})$
+% segment-id: o014.li2.chapter3.exercises.g002
+		\[
+		\begin{tikzcd}[column sep=large]
+			0 \arrow[r] &
+			{A[-n]} \arrow[r, "{g[-n]}"] \arrow[d, "\Psi"'] &
+			{B[-n]} \arrow[dashed, ld, "\exists"] \\
+			& X &
+		\end{tikzcd}
+		\]
+		where $\Psi^n=\bigl(\begin{smallmatrix}f\\0\end{smallmatrix}\bigr)$.
+		Use this diagram to verify the injectivity criterion for $Y^n$.
+
+		For the if direction, again write $X^n=Y^n\oplus Y^{n+1}$ and
+		describe explicitly all possible morphisms $f:Z\to X$.
+	\end{hint}
+
+% segment-id: o014.li2.chapter3.exercises.ex005
+	\item Let $\Bbbk$ be a commutative ring and let $R$ be a unital
+	$\Bbbk$-algebra, in accordance with the convention of this book. Write
+	down the canonical isomorphisms
+	$\HHm_0(M_n(R))\simeq\HHm_0(R)$ and
+	$\HHm^0(M_n(R))\simeq\HHm^0(R)$, where $M_n(R)$ is the
+	$\Bbbk$-algebra of $n\times n$ matrices over $R$. In fact, analogous
+	isomorphisms hold in every degree $m$, for both $\HHm_m$ and $\HHm^m$;
+	see \cite[Theorem~1.2.4]{Lo98}.
+
+% segment-id: o014.li2.chapter3.exercises.ex006
+	\item In the setting of \S\ref{sec:HH}, define the sub-bimodule
+	$\mathrm{Triv}_nR$ of $\mathsf{B}_nR$, for every
+	$n\in\Z_{\geq0}$, by
+% segment-id: o014.li2.chapter3.exercises.q004
+	\begin{align*}
+		\mathrm{Triv}_nR
+		&:=\sum_{h=1}^n
+		R\otimes
+		(\cdots\otimes
+		\underbracket{\;\Bbbk\;}_{\text{$h$-th factor}}
+		\otimes\cdots)\otimes R,
+		\qquad \mathrm{Triv}_0R=0.
+	\end{align*}
+% segment-id: o014.li2.chapter3.exercises.l002
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter3.exercises.i005
+		\item Verify that this defines a subcomplex $\mathrm{Triv}R$ of
+		$\mathsf{B}R$, and that $\mathrm{Triv}R$ is exact.
+% segment-id: o014.li2.chapter3.exercises.hn004
+		\begin{hint}
+			Restrict $(h^n)_n$ from the proof of
+			Lemma~\ref{prop:HH-bar-exactness} to $\mathrm{Triv}R$.
+		\end{hint}
+% segment-id: o014.li2.chapter3.exercises.i006
+		\item Write $\overline R:=R/\Bbbk$ as a $\Bbbk$-module and define
+		the \emph{reduced bar complex} of $R$ to be the quotient
+% segment-id: o014.li2.chapter3.exercises.q005
+		\[
+			\overline{\mathsf{B}}R
+			:=\mathsf{B}R/\mathrm{Triv}R
+			=\left(R\otimes\overline R^{\otimes n}\otimes R,b_n\right)_{n\geq0}.
+		\]
+		Following the pattern of \eqref{eqn:HH-cplx}, simplify
+		$M\dotimes{R^e}\overline{\mathsf{B}}R$ and
+		$\Hom_{R^e}(\overline{\mathsf{B}}R,M)$.
+% segment-id: o014.li2.chapter3.exercises.i007
+		\item Give canonical isomorphisms
+		$\Hm_n(M\dotimes{R^e}\overline{\mathsf{B}}R)\simeq\HHm_n(M)$ and
+		$\Hm^n(\Hom_{R^e}(\overline{\mathsf{B}}R,M))\simeq\HHm^n(M)$.
+% segment-id: o014.li2.chapter3.exercises.hn005
+		\begin{hint}
+			In general, this follows from the theorem on normalized complexes in
+			the Dold--Kan correspondence,
+			\sourcecrossref{prop:Dold-Kan-N-C}{in \S~8.5}, provided that
+			$\mathsf{B}R$ is understood from the viewpoint of
+			\sourcecrossref{eg:HH-comonad}{the Example in \S~8.7}.
+		\end{hint}
+	\end{enumerate}
+
+% segment-id: o014.li2.chapter3.exercises.ex007
+	\item Let $\Bbbk$ be a commutative ring, and let $\widetilde R$ and $R$
+	be unital $\Bbbk$-algebras, in accordance with the convention of this
+	book. Suppose there is a split short exact sequence of $\Bbbk$-modules
+% segment-id: o014.li2.chapter3.exercises.g003
+	\[
+	\begin{tikzcd}
+		0 \arrow[r] & M \arrow[r] & \widetilde R
+		\arrow[shift left, r, "p"] &
+		R \arrow[r] \arrow[shift left, l, "s"] & 0,
+	\end{tikzcd}
+	\]
+	where $M$ is a two-sided ideal of $\widetilde R$, $ps=\identity_R$, and
+	$M^2=\{0\}$. Use $s$ to identify $\widetilde R$ with $R\oplus M$.
+% segment-id: o014.li2.chapter3.exercises.l003
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter3.exercises.i008
+		\item For $m\in M$ and $r\in R$, choose any
+		$\widetilde r\in p^{-1}(r)$. Prove that $\widetilde rm$ and
+		$m\widetilde r$ depend only on $m$ and $r$, and that these operations
+		make $M$ an $(R,R)$-bimodule.
+% segment-id: o014.li2.chapter3.exercises.i009
+		\item Prove that there is a bilinear map $f:R^2\to M$ such that
+		multiplication in $\widetilde R$ is given by
+% segment-id: o014.li2.chapter3.exercises.q006
+		\[
+			(r_1,m_1)(r_2,m_2)
+			=(r_1r_2,r_1m_2+m_1r_2+f(r_1,r_2)),
+			\quad r_1,r_2\in R,\quad m_1,m_2\in M.
+		\]
+% segment-id: o014.li2.chapter3.exercises.i010
+		\item Such data $(R,\widetilde R,M)$ are called a
+		\emph{square-zero extension} of $R$ by $M$. Prove that, up to the
+		appropriate notion of isomorphism, square-zero extensions are
+		classified by $\HHm^2(M)$, with the zero element corresponding to the
+		trivial extension $R\times M$.
+% segment-id: o014.li2.chapter3.exercises.hn006
+		\begin{hint}
+			Compute $\HHm^2(M)$ using the reduced bar complex from the preceding
+			exercise.
+		\end{hint}
+	\end{enumerate}
+
+% segment-id: o014.li2.chapter3.exercises.ex008
+	\item Complete the proof of Lemma~\ref{prop:CC-cplx}.
+
+% segment-id: o014.li2.chapter3.exercises.ex009
+	\item In the setting of Definition~\ref{def:HC}, verify for the special
+	case $R=\Bbbk$ that:
+% segment-id: o014.li2.chapter3.exercises.l004
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter3.exercises.i011
+		\item if $n$ is odd, then
+		$\mathrm{HP}_n(\Bbbk)=\mathrm{HC}_n(\Bbbk)=0$;
+% segment-id: o014.li2.chapter3.exercises.i012
+		\item if $n$ is even (or nonnegative even), then
+		$\mathrm{HP}_n(\Bbbk)$ (or $\mathrm{HC}_n(\Bbbk)$) is isomorphic to
+		$\Bbbk$.
+	\end{enumerate}
+
+% segment-id: o014.li2.chapter3.exercises.ex010
+	\item In the setting of Definition~\ref{def:HC} and
+	Theorem~\ref{prop:Connes-exact}, take the polynomial ring $R=\Bbbk[t]$.
+% segment-id: o014.li2.chapter3.exercises.l005
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter3.exercises.i013
+		\item Prove that $\Omega_{R\mid\Bbbk}$ in Example~\ref{eg:HH1} is a
+		free $R$-module of rank $1$, with basis $\dd t$.
+% segment-id: o014.li2.chapter3.exercises.i014
+		\item Describe the connecting morphism
+		$B:\mathrm{HC}_0(R)\to\mathrm{HH}_1(R)$; note that both sides are
+		isomorphic to $R$.
+% segment-id: o014.li2.chapter3.exercises.i015
+		\item Describe all the $\mathrm{HC}_n(R)$ as explicitly as possible.
+		For $\Bbbk=\Z$, prove that
+		$\mathrm{HC}_1(\Z[t])=\bigoplus_{n\geq2}\Z/n\Z$.
+	\end{enumerate}
+% segment-id: o014.li2.chapter3.exercises.hn007
+	\begin{hint}
+		Use the long exact sequence of Theorem~\ref{prop:Connes-exact} and the
+		calculation of $\HHm_n(\Bbbk[t])$ in high degrees in
+		Example~\ref{eg:HH-Tor}.
+	\end{hint}
+
+% segment-id: o014.li2.chapter3.exercises.ex011
+	\item Let $\mathcal{A}$ be an Abelian category and let
+	$0\to X\to I^0\to I^1\to\cdots$ be an exact sequence in
+	$\cate{C}(\mathcal{A})$. Regard $I=[I^0\to I^1\to\cdots]$ as a
+	double complex, with $I^{p,q}:=(I^p)^q$. Assuming that
+	$I\in\Obj(\cate{C}^2_f(\mathcal{A}))$, prove that the evident morphism
+	$X\to\tot(I)$ is a quasi-isomorphism.
+
+% segment-id: o014.li2.chapter3.exercises.ex012
+	\item Let $X\in\Obj(\cate{C}^2_f(\mathcal{A}))$, where
+	$\mathcal{A}$ is an Abelian category. Prove that, if the $i$-th column
+	$\left(X^{i,\bullet},\dvert\right)$ and the $j$-th row
+	$\left(X^{\bullet,j},\dhori\right)$ are exact for every
+	$i,j\in\Z\smallsetminus\{0\}$, then for every $n\in\Z$ there is a
+	canonical isomorphism
+	$\Hm^n(X^{0,\bullet},\dvert)\simeq
+	\Hm^n(X^{\bullet,0},\dhori)$.
+
+% segment-id: o014.li2.chapter3.exercises.hn008
+	\begin{hint}
+		Define the brutal truncation functor
+		$\sigma_{\mathrm{I}}^{\leq n}$ (respectively
+		$\sigma_{\mathrm{I}}^{\geq n}$) from
+		$\cate{C}^2(\mathcal{A})$ to itself by replacing the terms
+		$(X^{i,j})_{(i,j)\in\Z^2}$ for $i>n$ (respectively $i<n$) by $0$ and
+		leaving all other terms unchanged. Use
+		Theorem~\ref{prop:double-cplx-tot} to prove that both morphisms in
+% segment-id: o014.li2.chapter3.exercises.q007
+		\[
+			\text{$0$-th column}
+			=\sigma_{\mathrm{I}}^{\leq0}\sigma_{\mathrm{I}}^{\geq0}(X)
+			\twoheadleftarrow
+			\sigma_{\mathrm{I}}^{\geq0}X
+			\hookrightarrow X
+		\]
+		induce quasi-isomorphisms on total complexes. Do the same after
+		interchanging the roles of rows and columns.
+	\end{hint}
+
+% segment-id: o014.li2.chapter3.exercises.ex013
+	\item Use Lemma~\ref{prop:ext-alpha-beta} to prove the existence part for
+	$\beta$ in Theorem~\ref{prop:resolution-homotopy}.
+
+% segment-id: o014.li2.chapter3.exercises.hn009
+	\begin{hint}
+		It suffices to treat the first case. The mapping-cylinder lemma,
+		\ref{prop:cone-beta}, factors $X\xrightarrow{\alpha}Y$ as
+		$X\xrightarrow{\alpha'}\Cyl(\alpha)\xrightarrow{\psi}Y$, where
+		$\alpha'$ is a monomorphism and $\psi$ is invertible in
+		$\cate{K}(\mathcal{A})$.
+	\end{hint}
+
+% segment-id: o014.li2.chapter3.exercises.ex014
+	\item With the notation of the preceding exercise, prove the uniqueness
+	part for $\beta$ in Theorem~\ref{prop:resolution-homotopy}.
+
+% segment-id: o014.li2.chapter3.exercises.hn010
+	\begin{hint}
+		It suffices to treat the first case. Use the mapping cylinder again to
+		reduce to the case in which every
+		$\alpha^n:X^n\hookrightarrow Y^n$ is the inclusion of a direct
+		summand. Suppose the morphisms $\beta_i:Y\to I$ in
+		$\cate{C}(\mathcal{A})$, for $i=1,2$, satisfy
+		$\gamma-\beta_i\alpha=d^{-1}_{\Hom^\bullet(X,I)}h_i$, where
+		$h_i\in\Hom^{-1}(X,I)$. Let $C:=\Coker(\alpha)$ be the acyclic complex
+		and define $h^n:Y^n\simeq X^n\oplus C^n\to I^{n-1}$ so that its
+		restriction to $X^n$ (respectively $C^n$) is $h_1^n-h_2^n$
+		(respectively $0$). Verify that
+% segment-id: o014.li2.chapter3.exercises.q008
+		\[
+			\beta_1-\beta_2-d^{-1}_{\Hom^\bullet(Y,I)}h:Y\to I
+		\]
+		becomes $0$ after composition with $\alpha$. Thus, up to homotopy,
+		$\beta_1-\beta_2$ factors as $Y\twoheadrightarrow C\to I$; apply
+		Lemma~\ref{prop:resolution-homotopy-aux} to the second morphism.
+	\end{hint}
+
+% segment-id: o014.li2.chapter3.exercises.ex015
+	\item Let $\mathcal{A}$ be an Abelian category. Prove that
+	$(\Hm^n)_{n\geq0}$ is a universal cohomological $\delta$-functor from the
+	Abelian category $\cate{C}^{\geq0}(\mathcal{A})$ (see
+	Definition~\ref{def:cplx-cat-variant}) to $\mathcal{A}$.
+% segment-id: o014.li2.chapter3.exercises.hn011
+	\begin{hint}
+		To show that $\Hm^n$ is effaceable when $n>0$, take
+		$\alpha(\identity_X):X\hookrightarrow\Cone(\identity_X)$. This
+		morphism factors through the brutal truncation
+		$\sigma^{\geq0}\Cone(\identity_X)$. Use
+		Proposition~\ref{prop:cone-homotopy} (i).
+	\end{hint}
+
+% segment-id: o014.li2.chapter3.exercises.ex016
+	\item (Complex version of the Milnor exact sequence) Let $R$ be any ring
+	and let $(X_k,f_k)_{k\geq0}$ be an object of
+	$\cate{InvSys}(\cate{C}(R\dcate{Mod}))$. Suppose
+	$(X_k^n,f_k^n)_{k\geq0}$ satisfies the Mittag--Leffler condition for every
+	$n\in\Z$. The notation $f_k$ will henceforth be suppressed. Follow these
+	steps to construct a short exact sequence
+% segment-id: o014.li2.chapter3.exercises.q009
+	\[
+		0\to\lim\nolimits^1_k\Hm^{n-1}(X_k)
+		\to\Hm^n(\varprojlim_kX_k)
+		\to\varprojlim_k\Hm^n(X_k)\to0.
+	\]
+% segment-id: o014.li2.chapter3.exercises.l006
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter3.exercises.i016
+		\item As in Theorem~\ref{prop:CE-resolution}, define
+		$B_k^n\subset Z_k^n\subset X_k^n$ and $H_k^n$, and make
+		$B_k\subset Z_k\subset X_k$ and $H_k$ complexes with
+		$d_{B_k}=d_{Z_k}=d_{H_k}=0$. Prove that
+		$(B_k^n)_{k\geq0}$ satisfies the Mittag--Leffler condition for every
+		$n$.
+% segment-id: o014.li2.chapter3.exercises.i017
+		\item Prove that
+		$0\to\varprojlim_kZ_k\to\varprojlim_kX_k
+		\xrightarrow{d}(\varprojlim_kX_k)[1]$ is exact.
+% segment-id: o014.li2.chapter3.exercises.i018
+		\item Define
+		$B^n:=\Image(d^{n-1}:\varprojlim_kX_k^{n-1}\to
+		\varprojlim_kX_k^n)$\footnote{Translator's note (O014-C067): the
+		source omits the subscript $k$ from the limit in the codomain, even
+		though the domain, the system under discussion, and the subsequent
+		exact sequence all use $\varprojlim_k$. The target restores that
+		subscript.}, and make $B$ a complex with $d_B=0$. Prove that there is a
+		short exact sequence
+		$0\to B[1]\to\varprojlim_kB_k[1]\to\lim\nolimits^1_kZ_k\to0$.
+% segment-id: o014.li2.chapter3.exercises.hn012
+		\begin{hint}
+			Use the short exact sequence
+			$0\to Z_k\to X_k\xrightarrow{d}B_k[1]\to0$ and the
+			Mittag--Leffler condition on $(X_k^n)_{k\geq0}$.
+		\end{hint}
+% segment-id: o014.li2.chapter3.exercises.i019
+		\item Deduce the isomorphism
+		$\lim\nolimits^1_kZ_k\rightiso\lim\nolimits^1_kH_k$ and the short
+		exact sequence
+		$0\to\varprojlim_kB_k\to\varprojlim_kZ_k
+		\to\varprojlim_kH_k\to0$.
+% segment-id: o014.li2.chapter3.exercises.hn013
+		\begin{hint}
+			Use the short exact sequence
+			$0\to B_k\to Z_k\to H_k\to0$ and the Mittag--Leffler condition on
+			$(B_k^n)_{k\geq0}$.
+		\end{hint}
+% segment-id: o014.li2.chapter3.exercises.i020
+		\item Take the appropriate inclusions
+		$B\subset\varprojlim_kB_k\subset\varprojlim_kZ_k$ and consider the
+		corresponding quotients to obtain the required short exact sequence.
+	\end{enumerate}
+
+% segment-id: o014.li2.chapter3.exercises.ex017
+	\item Let $\Bbbk$ be a field. Define objects $A$ and $B$ of
+	$\cate{InvSys}(\Bbbk\dcate{Mod})$ by
+	$A_k:=X^k\Bbbk\llbracket X\rrbracket$ and
+	$B_k:=X^k\Bbbk[X]$, taking the transition morphisms to be the inclusions.
+	Neither satisfies the Mittag--Leffler condition. Prove that
+	$\lim\nolimits^1A=0$, whereas
+	$\lim\nolimits^1B\simeq
+	\Bbbk\llbracket X\rrbracket/\Bbbk[X]$.
+% segment-id: o014.li2.chapter3.exercises.hn014
+	\begin{hint}
+		Embed these systems of ideals into systems of rings, and use the
+		dimension-shifting technique of Proposition~\ref{prop:dimension-shifting}
+		to compute $\lim\nolimits^1$.
+	\end{hint}
+
+% segment-id: o014.li2.chapter3.exercises.ex018
+	\item Let $D$ be a division ring. Prove that $\Ext_D^n$ and $\Tor_n^D$
+	vanish for $n>0$.
+
+% segment-id: o014.li2.chapter3.exercises.ex019
+	\item For every ring $R$, formulate precisely and prove the canonical
+	isomorphism $\Tor_n^R(X,Y)\simeq\Tor_n^{R^{\opp}}(Y,X)$.
+
+% segment-id: o014.li2.chapter3.exercises.ex020
+	\item Let the integral domain $R$ be a principal ideal domain. For all
+	finitely generated $R$-modules $M,N$ and every $n\in\Z_{\geq0}$,
+	describe $\Ext_R^n(M,N)$ and $\Tor_n^R(M,N)$ explicitly.
+
+% segment-id: o014.li2.chapter3.exercises.ex021
+	\item Let $M$ be a $\Z$-module. Prove that $\Tor_1^\Z(\Q/\Z,M)$ is the
+	subgroup of $M$ consisting of all its torsion elements.
+
+% segment-id: o014.li2.chapter3.exercises.ex022
+	\item (Universal coefficient theorem for cohomology) Let $R$ be a ring
+	and let $C=(C_\bullet,d^C_\bullet)$ be a chain complex of left
+	$R$-modules. For any left $R$-module $M$, applying
+	$\Hom_R(\cdot,M)$ termwise gives a cochain complex
+	$C^\bullet:=\Hom(C_\bullet,M)$; denote its degree-$n$ cohomology by
+	$\Hm^n(C,M)$. Suppose that
+	$B_n:=\Image(d_{n+1})$ and $Z_n:=\Ker(d_n)$ are projective modules for
+	every $n\in\Z$, and define $H_n:=Z_n/B_n=\Hm_n(C)$. Prove that, for
+	every $n\in\Z$, there is a canonical short exact sequence
+% segment-id: o014.li2.chapter3.exercises.q010
+	\[
+		0\to\Ext_R^1(\Hm_{n-1}(C),M)
+		\to\Hm^n(C,M)
+		\to\Hom_R(\Hm_n(C),M)\to0.
+	\]
+	Prove also that, if $R$ is a principal ideal domain and every $C_n$ is
+	free, then these hypotheses always hold.
+	\index{universal coefficient theorem}
+
+% segment-id: o014.li2.chapter3.exercises.hn015
+	\begin{hint}
+		Define the functor $D(\cdot):=\Hom_R(\cdot,M)$ from
+		$(R\dcate{Mod})^{\opp}$ to $\cate{Ab}$. Use the short exact sequence
+		$0\to H_n\to C_n/B_n\to B_{n-1}\to0$ and the hypotheses to obtain a
+		commutative diagram with exact rows
+% segment-id: o014.li2.chapter3.exercises.g004
+		\[
+		\begin{tikzcd}
+			0 \arrow[r] &
+			D(Z_{n-1}) \arrow[r, "\identity"] \arrow[d] &
+			D(Z_{n-1}) \arrow[r] \arrow[d, "{D(d^C_n)}"] &
+			0 \arrow[r] \arrow[d] & 0 \\
+			0 \arrow[r] &
+			D(B_{n-1}) \arrow[r, "{D(d^C_n)}"' inner sep=0.5em] &
+			D(C_n/B_n) \arrow[r] &
+			D(H_n) \arrow[r] & 0 .
+		\end{tikzcd}
+		\]
+		Prove that $d_{D(C)}^{n-1}$ factors as
+		$D(C_{n-1})\twoheadrightarrow D(Z_{n-1})
+		\xrightarrow{D(d^C_n)}D(C_n/B_n)\hookrightarrow D(C_n)$ and that
+		$D(C_n/B_n)\simeq\Ker(d_C^n)$. Thus the cokernel of the middle
+		morphism in the diagram is $\Hm^n(C,M)$. On the other hand, the
+		sequence $0\to B_{n-1}\to Z_{n-1}\to H_{n-1}\to0$ shows that the
+		cokernel of the left morphism is
+		$\Ext_R^1(\Hm_{n-1}(C),M)$. Apply the snake lemma,
+		Theorem~\ref{prop:snake-lemma}.
+	\end{hint}
+
+% segment-id: o014.li2.chapter3.exercises.ex023
+	\item In the setting of \S\ref{sec:HH}, take
+	$R=\Bbbk[t]/(t^n)$, where $t$ is a polynomial variable and
+	$n\in\Z_{\geq1}$, so that
+	$R^e=\Bbbk[x,y]/(x^n,y^n)$.\footnote{Translator's note (O014-C068): the
+	source gives the coefficient ring as $R[x,y]$. However, for
+	$R=\Bbbk[t]/(t^n)$, the ring
+	$R^e=R\otimes_{\Bbbk}R^{\opp}$ is canonically
+	$\Bbbk[x,y]/(x^n,y^n)$. The target restores the required coefficient ring
+	$\Bbbk$.}
+% segment-id: o014.li2.chapter3.exercises.l007
+	\begin{enumerate}
+% segment-id: o014.li2.chapter3.exercises.i021
+		\item Prove that the following chain complex is exact:
+% segment-id: o014.li2.chapter3.exercises.q011
+		\[
+			\cdots\xrightarrow{v}R^e\xrightarrow{u}R^e
+			\xrightarrow{v}R^e\xrightarrow{u}R^e\to R\to0,
+		\]
+		where $R^e\to R$ maps $f(x,y)$ to $f(t,t)$ and
+% segment-id: o014.li2.chapter3.exercises.q012
+		\[
+			u:=x-y,\qquad
+			v:=\sum_{\substack{a+b=n-1\\a,b\geq0}}x^ay^b.
+		\]
+		Deduce that, for every $R$-module $M$,
+		$\HHm_{k+2}(M)\simeq\HHm_k(M)$ and
+		$\HHm^{k+2}(M)\simeq\HHm^k(M)$.
+% segment-id: o014.li2.chapter3.exercises.i022
+		\item Let $\Bbbk$ be a field. Describe $\HHm_k(M)$ and $\HHm^k(M)$,
+		distinguishing the cases $k\geq1$ and whether
+		$\mathrm{char}(\Bbbk)$ is relatively prime to $n$.
+	\end{enumerate}
+
+% segment-id: o014.li2.chapter3.exercises.ex024
+	\item For any ring $R$ and $n\in\Z_{\geq0}$, prove that $\Tor_n^R$
+	commutes with small filtered inductive limits; that is,
+% segment-id: o014.li2.chapter3.exercises.q013
+	\[
+		\Tor_n^R(\varinjlim_iX_i,Y)
+		\simeq\varinjlim_i\Tor_n^R(X_i,Y),
+		\qquad
+		\Tor_n^R(X,\varinjlim_iY_i)
+		\simeq\varinjlim_i\Tor_n^R(X,Y_i).
+	\]
+	Discuss whether there is an analogous statement for the $\Ext$ functors.
+
+% segment-id: o014.li2.chapter3.exercises.ex025
+	\item Prove that an object $I$ of an Abelian category $\mathcal{A}$ is
+	injective if and only if, regarded as a complex, $I$ is K-injective. State
+	the dual version.
+% segment-id: o014.li2.chapter3.exercises.hn016
+	\begin{hint}
+		One direction follows from Example~\ref{eg:bdd-K-resolution}. For the
+		converse, regard a short exact sequence
+		$0\to A\to B\to C\to0$ in $\mathcal{A}$ as an acyclic complex, and
+		construct a morphism from that complex to $I$ from the given morphism
+		$A\to I$.
+	\end{hint}
+
+% segment-id: o014.li2.chapter3.exercises.ex026
+	\item (N.\ Nitsure) Let $F:\mathcal{A}\to\mathcal{B}$ be a left exact
+	functor between Abelian categories. Suppose $\mathcal{A}$ has enough
+	injective objects and $X\in\Obj(\mathcal{A})$. Take an injective resolution
+	$0\to X\to I^0\to I^1\to\cdots$ and an $F$-acyclic resolution
+	$0\to X\to A^0\to A^1\to\cdots$. Write
+% segment-id: o014.li2.chapter3.exercises.q014
+	\[
+		I=[\cdots\to0\to I^0\to I^1\to\cdots],
+		\qquad
+		A=[\cdots\to0\to A^0\to A^1\to\cdots].
+	\]
+% segment-id: o014.li2.chapter3.exercises.l008
+	\begin{itemize}
+% segment-id: o014.li2.chapter3.exercises.i023
+		\item Lemma~\ref{prop:resolution-homotopy-classical} determines a
+		unique morphism $\beta:A\to I$ in $\cate{K}(\mathcal{A})$ compatible
+		with $A\leftarrow X\rightarrow I$. After applying $F$, this morphism
+		gives\footnote{Translator's note (O014-C069): the source writes
+		$\Hm^n(\beta):\Hm^n(A)\to\Hm^n(I)$ and, in the following item,
+		$\Hm^n(A)$. Since $F$-acyclicity is being used to compute the derived
+		functors of $F$, the morphism and complexes whose cohomology must be
+		taken are $F(\beta)$, $F(A)$, and $F(I)$. The target restores the
+		application of $F$.}
+		\[
+			c^n:=\Hm^n(F(\beta)):
+			\Hm^n(F(A))\to\Hm^n(F(I))=\mathrm{R}^nF(X).
+		\]
+% segment-id: o014.li2.chapter3.exercises.i024
+		\item On the other hand, Corollary~\ref{prop:acyclic-resolution} gives,
+		by dimension shifting, an isomorphism
+		\[
+			d^n:\Hm^n(F(A))\rightiso\mathrm{R}^nF(X).
+		\]
+	\end{itemize}
+	Prove that $d^n=(-1)^{n(n+1)/2}c^n$ for every $n\geq0$.
+% segment-id: o014.li2.chapter3.exercises.hn017
+	\begin{hint}
+		This is the content of \cite{Ni09}.
+	\end{hint}
+\end{Exercises}

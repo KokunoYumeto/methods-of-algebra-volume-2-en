@@ -1,0 +1,278 @@
+% Unit 103 English translation of chapter7.tex lines 2679--2827.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter7.exercises-a
+% Coverage: beginning of the Chapter 7 Exercises through the exercise on dg
+% Hom functors; continued by Unit 104 at line 2828.
+
+% segment-id: o014.li2.chapter7.exercises-a.ex000
+\begin{Exercises}
+	% segment-id: o014.li2.chapter7.exercises-a.ex001
+	\item Complete the argument omitted from
+	Definition~\ref{def:opposite-braided-algebra}, and prove that for an
+	algebra $A$ over a symmetric monoidal category $\mathcal{V}$, a left
+	$A$-module is the same thing as a right $A^{\opp}$-module.
+
+	% segment-id: o014.li2.chapter7.exercises-a.ex002
+	\item Let $\mathcal{V}$ be a braided monoidal category and let
+	$(A,\mu_A,\eta_A)$ be an algebra over it. Prove that if there are morphisms
+	$\mu':A\otimes A\to A$ and $\eta':\munit\to A$ in
+	$\cate{Alg}(\mathcal{V})$ that make $A$ into an algebra over
+	$\cate{Alg}(\mathcal{V})$, then necessarily $\eta'=\eta_A$ and
+	$\mu'=\mu_A$. In particular, Lemma~\ref{prop:CAlg-mu} then shows that $A$
+	is commutative. Deduce \eqref{eqn:AlgAlg-CAlg}.
+
+	% segment-id: o014.li2.chapter7.exercises-a.hi001
+	\begin{hint}
+		It is easy to show that $\eta'=\eta_A$. For $\mu'=\mu_A$, write
+		$\mu_{A\otimes A}$ for the multiplication on $A\otimes A$. The
+		assumption gives the commutative diagram
+		% segment-id: o014.li2.chapter7.exercises-a.q001
+		\[\begin{tikzcd}[column sep=large]
+			(A \otimes A) \otimes (A \otimes A) \arrow[r, "{\mu' \otimes \mu'}"] \arrow[d, "{\mu_{A \otimes A}}"'] & A \otimes A \arrow[d, "{\mu_A}"] \\
+			A \otimes A \arrow[r, "{\mu'}"'] & A.
+		\end{tikzcd}\]
+		If the four copies of $A$ are placed in a $2\times2$ array, this
+		commutative diagram can be visualized as the interchange law between
+		horizontal and vertical multiplication:
+		% segment-id: o014.li2.chapter7.exercises-a.g001
+		\begin{center}\begin{tikzpicture}[baseline=(O)]
+			\matrix (M) [matrix of nodes] {
+				$A$ & $A$ \\
+				$A$ & $A$ \\
+			};
+			\coordinate (O) at (M-1-1.south west);
+			\draw (M-1-1.north west) rectangle (M-1-2.south east);
+			\draw (M-2-1.north west) rectangle (M-2-2.south east);
+		\end{tikzpicture} = \begin{tikzpicture}[baseline=(O)]
+			\matrix (M) [matrix of nodes] {
+				$A$ & $A$ \\
+				$A$ & $A$ \\
+			};
+			\coordinate (O) at (M-1-1.south west);
+			\draw (M-1-1.north west) rectangle (M-2-1.south east);
+			\draw (M-1-2.north west) rectangle (M-2-2.south east);
+		\end{tikzpicture} \quad \begin{tabular}{rl}
+			Horizontal: & multiply using $\mu'$ \\
+			Vertical: & multiply using $\mu_A$
+		\end{tabular}\end{center}
+		The argument for $\mu'=\mu_A$ can now be pictured as
+		% segment-id: o014.li2.chapter7.exercises-a.g002
+		\begin{center}\begin{tikzpicture}[baseline=(O)]
+			\matrix (M) [matrix of nodes] {
+				$A$ & $A$ \\
+			};
+			\coordinate (O) at (M-1-1.south west);
+			\draw (M-1-1.north west) rectangle (M-1-2.south east);
+		\end{tikzpicture}
+		$=$ \begin{tikzpicture}[baseline=(O)]
+			\matrix (M) [matrix of nodes, every node/.style={anchor=base, minimum width=1.7em, minimum height=1.7em}] {
+				$A$ & $\munit$ \\
+				$\munit$ & $A$ \\
+			};
+			\coordinate (O) at (M-1-1.south west);
+			\draw (M-1-1.north west) rectangle (M-2-1.south east);
+			\draw (M-1-2.north west) rectangle (M-2-2.south east);
+		\end{tikzpicture}
+		$=$ \begin{tikzpicture}[baseline=(O)]
+			\matrix (M) [matrix of nodes, every node/.style={anchor=base, minimum width=1.5em, minimum height=1.7em}] {
+				$A$ & $\munit$ \\
+				$\munit$ & $A$ \\
+			};
+			\coordinate (O) at (M-1-1.south west);
+			\draw (M-1-1.north west) rectangle (M-1-2.south east);
+			\draw (M-2-1.north west) rectangle (M-2-2.south east);
+		\end{tikzpicture}
+		$=$ \begin{tikzpicture}[baseline=(O)]
+			\matrix (M) [matrix of nodes] {
+				$A$ \\
+				$A$ \\
+			};
+			\coordinate (O) at (M-1-1.south west);
+			\draw (M-1-1.north west) rectangle (M-2-1.south east);
+		\end{tikzpicture}\end{center}
+		Try also to translate this picture into the corresponding commutative
+		diagram or equation.
+	\end{hint}
+
+	% segment-id: o014.li2.chapter7.exercises-a.ex003
+	\item Consider a dg-algebra $A$ over $\mathcal{A}$
+	(Definition~\ref{def:dg-algebra}). Verify that when $A=\munit$ (the unit
+	object), both left and right $A$-modules reduce to complexes over
+	$\mathcal{A}$.
+
+	% segment-id: o014.li2.chapter7.exercises-a.ex004
+	\item Fix a commutative ring $\Bbbk$. Let $A$ be a dg-algebra over
+	$\Bbbk\dcate{Mod}$ and let $M$ be a complex. Prove that giving $M$ the
+	structure of a left $A$-module is equivalent to specifying a homomorphism
+	of dg-algebras $A\to\End^\bullet(M):=\Hom^\bullet(M,M)$.
+
+	% segment-id: o014.li2.chapter7.exercises-a.ex005
+	\item Let $\Bbbk$ be a commutative ring and $R$ a dg-algebra over
+	$\Bbbk\dcate{Mod}$. For a right $R$-module $X$ and a left $R$-module $Y$,
+	identify $R$ and $X,Y$, respectively, with a $\Bbbk$-algebra and
+	$\Bbbk$-modules equipped with direct-sum decompositions
+	% segment-id: o014.li2.chapter7.exercises-a.q002
+	\[ R = \bigoplus_n R^n, \quad X = \bigoplus_n X^n, \quad Y = \bigoplus_n Y^n \]
+	and degree-$1$ endomorphisms $d$ satisfying $d^2=0$. Thus
+	$X\dotimes{R}Y$ is already defined as a $\Bbbk$-module.
+	\begin{enumerate}[(i)]
+		\item Recall that
+		$X\otimes Y=\bigoplus_n(\bigoplus_{p+q=n}X^p\otimes Y^q)$ is both a
+		$\Bbbk$-module and a complex. For the evident $\Bbbk$-module
+		homomorphism $\pi:X\otimes Y\twoheadrightarrow X\dotimes{R}Y$, verify
+		that $\Ker(\pi)$ is a subcomplex, so that $X\dotimes{R}Y$ has a
+		canonical complex structure.
+
+		\item Prove that if $X$ is an $(A,R)$-bimodule and $Y$ is an
+		$(R,B)$-bimodule, where $A$ and $B$ are also dg-algebras, then
+		$X\dotimes{R}Y$ is naturally an $(A,B)$-bimodule. Use this to extend
+		the adjunction of Proposition~\ref{prop:tensor-Hom-cplx} to dg-modules.
+		Here $\Hom^\bullet(Y_B,Z_B)$ and $\Hom^\bullet({}_AX,{}_AZ)$ are
+		defined as complexes as in Example~\ref{eg:dg-Hom-cplx}, but the signs
+		must be handled carefully when assigning the $(A,R)$- and
+		$(R,B)$-bimodule structures.
+	\end{enumerate}
+
+	% segment-id: o014.li2.chapter7.exercises-a.ex006
+	\item Fix a dg-algebra $A$ over $\mathcal{A}$. It is called
+	\emph{non-positive} if $p>0\implies A^p=0$. For a left (or right)
+	$A$-module $M$ and $n\in\Z$, take the truncation subcomplex
+	$\tau^{\leq n}M$ as in Definition~\ref{def:truncation-cplx}. Prove that if
+	$A$ is non-positive, then:
+	\begin{enumerate}[(i)]
+		\item every $d_M^p:M^p\to M^{p+1}$ is $A^0$-linear;
+		\item there is a short exact sequence of $A$-modules
+		$0\to\tau^{\leq n}M\to M\to\tilde\tau^{\geq n+1}M\to0$.
+	\end{enumerate}
+	\index{dg algebra!non-positive}
+
+	% segment-id: o014.li2.chapter7.exercises-a.ex007
+	\item Fix a dg-algebra $A$ over $\mathcal{A}$. Recall that all left
+	$A$-modules form the dg-category $A\dcate{dgMod}$
+	(Example~\ref{eg:dg-Hom-cplx}); Remark~\ref{rem:dg-homotopy-cat} then
+	gives the homotopy category $\mathrm{h}(A\dcate{dgMod})$. A left
+	$A$-module $M$ is called acyclic if it is acyclic as a complex; a
+	morphism of $A$-modules $f:M\to N$ is called a quasi-isomorphism if it is
+	a quasi-isomorphism of complexes.
+	\begin{enumerate}[(i)]
+		\item Let $M$ be a left $A$-module whose structure is determined by a
+		family of morphisms in $\mathcal{A}$,
+		$\alpha_{A,M}^{p,q}:A^p\otimes M^q\to M^{p+q}$ ($p,q\in\Z$). Show
+		that the formula
+		% segment-id: o014.li2.chapter7.exercises-a.q003
+		\[ \alpha_{A, M[1]}^{p, q} := (-1)^p \alpha_{A, M}^{p, q+1} . \]
+		gives the complex $M[1]$ a left $A$-module structure. Then show that
+		$M\mapsto M[1]$ defines a dg-functor from $A\dcate{dgMod}$ to itself.
+		\item For every morphism $f:M\to N$ in $A\dcate{dgMod}$, show that
+		the mapping cone $\Cone(f)$ has a canonical left $A$-module structure,
+		given in the notation above by
+		% segment-id: o014.li2.chapter7.exercises-a.q004
+		\[ \alpha_{A, \Cone(f)}^{p, q} = \alpha_{A, M[1]}^{p, q} \oplus \alpha_{A, N}^{p, q}. \]
+		\item Following the construction of \S\ref{sec:derived-cat}, use
+		mapping cones to make $\mathrm{h}(A\dcate{dgMod})$ a triangulated
+		category. Next perform Verdier localization at the acyclic $A$-modules,
+		or equivalently adjoin inverses to the quasi-isomorphisms, to obtain the
+		derived category $\cate{D}(A\dcate{dgMod})$. Define the corresponding
+		$\cate{D}^{\star}(A\dcate{dgMod})$ for
+		$\star\in\{+,-,\bdd\}$.
+		\item Assuming that $A$ is non-positive, extend
+		Proposition~\ref{prop:derived-full-faithful-subcat} to
+		$\cate{D}(A\dcate{dgMod})$ and
+		$\cate{D}^{\star}(A\dcate{dgMod})$ for
+		$\star\in\{+,-,\bdd\}$.
+		% segment-id: o014.li2.chapter7.exercises-a.hi002
+		\begin{hint}
+			Use the truncation functors.
+		\end{hint}
+		\item Following \S\ref{sec:K-injectives}, define K-injective and
+		K-projective $A$-modules and use them to describe the morphisms in
+		$\cate{D}(A\dcate{dgMod})$. Place this discussion in the framework of
+		\S\ref{sec:triangulated-functor-localization} to study their relation
+		to derived functors.
+		\item For a right $A$-module $M$, show that the complex $M[1]$ has the
+		right $A$-module structure
+		$\alpha_{M[1],A}^{p,q}=\alpha_{M,A}^{p,q+1}$ and that all the preceding
+		properties remain valid.
+	\end{enumerate}
+
+	% segment-id: o014.li2.chapter7.exercises-a.ex008
+	\item Let $\mathcal{C}$ be a dg-category over $\Bbbk$. Define
+	$\mathcal{C}^{\opp}$ by $\Obj(\mathcal{C}^{\opp})=\Obj(\mathcal{C})$ and,
+	for all $X,Y\in\Obj(\mathcal{C}^{\opp})$,
+	$\Hom^\bullet_{\mathcal{C}^{\opp}}(X,Y):=
+	\Hom^\bullet_{\mathcal{C}}(Y,X)$. Define composition by
+	% segment-id: o014.li2.chapter7.exercises-a.q005
+	\begin{align*}
+		\Hom^p_{\mathcal{C}^{\opp}}(Y, Z) \dotimes{\Bbbk} \Hom^q_{\mathcal{C}^{\opp}}(X, Y) & \to \Hom^{p+q}_{\mathcal{C}^{\opp}}(X, Z) \quad p, q \in \Z \\
+		f \otimes g & \mapsto (-1)^{pq} \underbracket{f \circ g}_{\text{composition in }\Hom^\bullet_{\mathcal{C}}}.
+	\end{align*}
+	Verify that this indeed defines a dg-category $\mathcal{C}^{\opp}$, called
+	the opposite dg-category of $\mathcal{C}$.
+
+	% segment-id: o014.li2.chapter7.exercises-a.ex009
+	\item Fix a commutative ring $\Bbbk$, a dg-algebra $R$ over
+	$\Bbbk\dcate{Mod}$, a right $R$-module $X$, and a left $R$-module $Y$.
+	Prove that the previously introduced functors
+	% segment-id: o014.li2.chapter7.exercises-a.q006
+	\[ X \dotimes{R} (\cdot): R\dcate{dgMod} \to \cate{C}(\Bbbk), \quad (\cdot) \dotimes{R} Y: \cated{dgMod}R \to \cate{C}(\Bbbk), \]
+	upgrade naturally to dg-functors. Outline the corresponding statements when
+	$X$ or $Y$ also has a bimodule structure.
+
+	% segment-id: o014.li2.chapter7.exercises-a.hi003
+	\begin{hint}
+		The key is to define the morphisms between the $\Hom$ complexes. For
+		$X\dotimes{R}(\mathord\cdot)$, let $M$ and $N$ be left $R$-modules.
+		The Koszul sign rule requires the image of $f\in\Hom^n_R(M,N)$,
+		namely $\identity_X\otimes f\in
+		\Hom^n(X\dotimes{R}M,X\dotimes{R}N)$, to be defined by
+		% segment-id: o014.li2.chapter7.exercises-a.q007
+		\[ (\identity_X \otimes f)(x \otimes m) = (-1)^{pn} x \otimes f(m), \quad x \in X^p, \; m \in M^q. \]
+		One must verify that
+		$\identity_X\otimes d_{\Hom^\bullet}(f)=
+		d_{\Hom^\bullet}(\identity_X\otimes f)$.
+
+		The case $(\mathord\cdot)\dotimes{R}Y$ is simpler: take
+		$(f\otimes\identity_Y)(m\otimes y)=f(m)\otimes y$.
+	\end{hint}
+
+	% segment-id: o014.li2.chapter7.exercises-a.ex010
+	\item Let $\mathcal{C}$ be a dg-category over a commutative ring $\Bbbk$
+	and let $M\in\Obj(\mathcal{C})$.
+	\begin{enumerate}[(i)]
+		\item Upgrade
+		$\Hom^\bullet(M,\mathord\cdot):\mathcal{C}\to\cate{C}(\Bbbk)$ to a
+		dg-functor.
+
+		% segment-id: o014.li2.chapter7.exercises-a.hi004
+		\begin{hint}
+			Let $X,Y\in\Obj(\mathcal{C})$ and $f\in\Hom^n(X,Y)$. Set
+			$\mathcal{H}_X=\Hom^\bullet(M,X)$. The image of $f$ should be
+			% segment-id: o014.li2.chapter7.exercises-a.q008
+			\[ \left[ f_*: g \xmapsto{\text{morphism of degree }n} fg \right] \in \Hom^n(\mathcal{H}_X, \mathcal{H}_Y). \]
+			Use the definition of the $\Hom$ complex to verify that
+			$(d_{\Hom^\bullet(X,Y)}f)_*=
+			d_{\Hom^\bullet(\mathcal{H}_X,\mathcal{H}_Y)}(f_*)$.
+		\end{hint}
+		\item Upgrade
+		$\Hom^\bullet(\mathord\cdot,M):\mathcal{C}\to
+		\cate{C}(\Bbbk)^{\opp}$ to a dg-functor.
+
+		% segment-id: o014.li2.chapter7.exercises-a.hi005
+		\begin{hint}
+			Set $\mathcal{K}_X=\Hom^\bullet(X,M)$. The Koszul sign rule requires
+			the image of $f\in\Hom^n(X,Y)$ to be
+			% segment-id: o014.li2.chapter7.exercises-a.q009
+			\[ \left[\begin{array}{c}
+				f^*: g \xmapsto{\text{morphism of degree }n} (-1)^{np} gf \\
+				\forall p \in \Z , \; \forall\; g \in \Hom^p(Y, M)
+			\end{array}\right] \in \Hom^n(\mathcal{K}_Y, \mathcal{K}_X). \]
+			Verify carefully that
+			\begin{compactitem}
+				\item $(d_{\Hom^\bullet(X,Y)}f)^*=
+				d_{\Hom^\bullet(\mathcal{K}_Y,\mathcal{K}_X)}(f^*)$;
+				\item $(fh)^*$ equals the composite of $h^*$ and $f^*$ in
+				$\Hom^\bullet_{\cate{C}(\Bbbk)}$.
+			\end{compactitem}
+		\end{hint}
+	\end{enumerate}

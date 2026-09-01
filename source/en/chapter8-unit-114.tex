@@ -1,0 +1,308 @@
+% Unit 114 English translation of chapter8.tex lines 1353--1482.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter8.bar-construction-b
+% Coverage: Section 8.7 from the meaning of a bar resolution through the group-homology example.
+% Editorial corrections: the augmented bar complex for a general module is
+% C^{aug}(Bar(M)), not C^{aug}(Bar(R)); a missing tensor sign in the final
+% group-homology differential is restored from the Indonesian correction witness.
+
+% segment-id: o014.li2.chapter8.bar-construction-b.p001
+The augmented simplicial object in
+\eqref{eqn:bar-simplicial-resolution} given by the bar construction can be
+viewed heuristically as a replacement for $M$. To clarify this idea, consider
+the following question. Let $\Gamma$ be a group, and equip the one-point set
+$\{\mathrm{pt}\}$ with the trivial right $\Gamma$-action. How should we
+understand
+% segment-id: o014.li2.chapter8.bar-construction-b.q001
+\[ \text{the ``quotient space''}\; \{\mathrm{pt}\} / \Gamma ? \]
+With the naive definition of a quotient set or topological space, the answer
+is of course uninteresting; in general, taking the quotient by a nonfree
+action erases information from the original space. Various needs arising in
+practice, however, prompt us to seek a more refined definition of a quotient
+by a nonfree action.
+
+% segment-id: o014.li2.chapter8.bar-construction-b.p002
+To this end, write $\cated{Set}\Gamma$ for the category of all small right
+$\Gamma$-sets, and consider the free--forgetful adjunction
+$\cate{Set}\leftrightarrows\cated{Set}\Gamma$. From the one-point right
+$\Gamma$-set $\{\mathrm{pt}\}$, the bar construction produces a simplicial
+object in $\cated{Set}\Gamma$; this is precisely the simplicial set
+$\mathrm{E}\Gamma$ introduced in Example~\ref{eg:classifying-space}. The
+detailed verification is left as an exercise in this chapter. Once this fact
+is understood and the bar construction is accepted as a replacement for
+$\{\mathrm{pt}\}$ in this setting, it is reasonable to define
+$\{\mathrm{pt}\}/\Gamma$ as
+$(\mathrm{E}\Gamma)/\Gamma\simeq\mathrm{B}\Gamma$. This is a quotient by a
+free action and gives the classifying space of $\Gamma$; it is more natural,
+and usually more useful, than the naive quotient set.
+
+% segment-id: o014.li2.chapter8.bar-construction-b.p003
+In what sense can the augmented simplicial objects in
+Examples~\ref{eg:bar-adjunction} and~\ref{eg:bar-comonad} be said to provide a
+kind of replacement, or ``resolution'', of the original object? The idea
+comes from topology, and its precise meaning involves the contractibility of
+Definition~\ref{def:contractible-aug}. One related result is the following.
+
+% segment-id: o014.li2.chapter8.bar-construction-b.pr001
+\begin{proposition}\label{prop:bar-contractible}
+	In the setting of Example~\ref{eg:bar-adjunction}, suppose we are given an
+	adjoint pair
+	% segment-id: o014.li2.chapter8.bar-construction-b.q002
+	\[\begin{tikzcd}
+		F : \mathcal{C} \arrow[shift left, r] & \mathcal{D}: G \arrow[shift left, l] ,
+	\end{tikzcd} \quad \begin{array}{ll}
+		\eta: \identity_{\mathcal{C}} \to GF & \text{unit} \\
+		\epsilon: FG \to \identity_{\mathcal{D}} & \text{counit}
+	\end{array}\]
+	and form the augmented simplicial object $\mathrm{Bar}(F,G)$ in
+	$\End(\mathcal{D})$. Then $G\mathrm{Bar}(F,G)$ is left contractible.
+\end{proposition}
+\begin{proof}
+	Use the notation of Example~\ref{eg:bar-adjunction}, such as $T=GF$ and
+	$\mu:T^2\to T$. Recall that
+	$G\mathrm{Bar}(F,G)_n=T^{n+1}G$. For every $n\geq-1$, define
+	% segment-id: o014.li2.chapter8.bar-construction-b.q003
+	\[ k_n := \eta T^{n+1}G: T^{n+1}G \to T^{n+2}G . \]
+	Recall also that the face morphism $d_i:T^{n+1}G\to T^nG$ of
+	$G\mathrm{Bar}(F,G)$ is $T^i\mu T^{n-i-1}G$ if $0\leq i<n$, and
+	$T^nG\epsilon$ if $i=n$; its augmentation morphism is
+	$G\epsilon:TG\to G$ (note that this notation differs from that in
+	Definition~\ref{def:contractible-aug}). We now verify the conditions for
+	left contractibility one by one.
+
+	First, the triangle identity for the adjunction gives
+	$(G\epsilon)k_{-1}=(G\epsilon)(\eta G)=\identity_G$.
+
+	Second, $(T,\mu,\eta)$ is a monad, so
+	$\mu(\eta T)=\identity_T$. If $n\geq0$, composing both sides on the right
+	with $T^nG$ gives
+	$d_0k_n=\mu T^nG\cdot\eta T^{n+1}G=\identity_{T^{n+1}G}$.
+
+	Finally, by the naturality of $\eta$, the following diagram commutes when
+	$1\leq i\leq n+1$:
+	% segment-id: o014.li2.chapter8.bar-construction-b.q004
+	\[\begin{tikzcd}[column sep=large]
+		T^{n+1} G \arrow[r, "{k_n = \eta T^{n+1}G}" inner sep=0.6em] \arrow[d, "{d_{i-1} = \varphi}"'] & T^{n+2}G \arrow[d, "{d_i = T\varphi}"] \\
+		T^n G \arrow[r, "{k_{n-1} = \eta T^n G}"' inner sep=0.6em] & T^{n+1} G
+	\end{tikzcd} \quad
+		\varphi := \begin{cases}
+			T^{i-1} \mu T^{n-i} G, & 1 \leq i \leq n \\
+			T^n G\epsilon, & i = n+1.
+		\end{cases}\]
+	This gives $d_1k_0=k_{-1}(G\epsilon)$ when $i=1$ and $n=0$, and
+	$d_ik_n=k_{n-1}d_{i-1}$ when $n\geq1$. The result follows.
+\end{proof}
+
+% segment-id: o014.li2.chapter8.bar-construction-b.p004
+Although the contractibility of $G\mathrm{Bar}(F,G)$ does not necessarily
+imply that $\mathrm{Bar}(F,G)$ is contractible,
+Proposition~\ref{prop:bar-contractible} is already sufficient for the
+applications below. The exercises in this chapter will introduce further
+results concerning contractibility.
+
+% segment-id: o014.li2.chapter8.bar-construction-b.p005
+For additive categories, the meaning of ``resolution'' can also be carried to
+the level of chain complexes and thus understood through linear algebra.
+First, by Definition~\ref{def:augmented-C-cplx}, an augmented simplicial
+object $X$ in an additive category gives an augmentation
+$\mathrm{C}^{\mathrm{aug}}X$ of the chain complex $\mathrm{C}X$. If the
+identity morphism of a chain complex is null-homotopic, the chain complex
+itself is called \emph{null-homotopic}.
+
+% segment-id: o014.li2.chapter8.bar-construction-b.th001
+\begin{theorem}\label{prop:bar-null-homotopic}
+	Let $\mathcal{A}$ be an additive category, suppose an adjoint pair is given,
+	% segment-id: o014.li2.chapter8.bar-construction-b.q005
+	\[\begin{tikzcd}
+		F : \mathcal{A} \arrow[shift left, r] & \mathcal{B}: G, \arrow[shift left, l]
+	\end{tikzcd}\]
+	and form the augmented simplicial object $\mathrm{Bar}(F,G)$ in
+	$\End(\mathcal{B})$ (respectively, $G\mathrm{Bar}(F,G)$ in
+	$\mathcal{A}^{\mathcal{B}}$).
+	\begin{itemize}
+		\item Notice that $\mathcal{A}^{\mathcal{B}}$ is an additive category
+		(see the first part of \S\ref{sec:Abel-cat-def}). The chain complex
+		$\mathrm{C}^{\mathrm{aug}}\bigl(G\mathrm{Bar}(F,G)\bigr)$ from
+		Definition~\ref{def:augmented-C-cplx} is null-homotopic.
+		\item For every $Y\in\Obj(\mathcal{B})$, evaluate
+		$\mathrm{Bar}(F,G)$ (respectively, $G\mathrm{Bar}(F,G)$) at $Y$
+		degreewise. This produces an augmented simplicial object
+		$\mathrm{Bar}(Y)$ in $\mathcal{B}$ (respectively,
+		$G\mathrm{Bar}(Y)$ in $\mathcal{A}$), and the chain complex
+		$\mathrm{C}^{\mathrm{aug}}\bigl(G\mathrm{Bar}(Y)\bigr)$ in
+		$\mathcal{A}$ is null-homotopic.
+	\end{itemize}
+\end{theorem}
+\begin{proof}
+	Proposition~\ref{prop:bar-contractible} shows that
+	$G\mathrm{Bar}(F,G)$ is left contractible. Since contractibility is an
+	absolute condition, $G\mathrm{Bar}(Y)$ obtained through the evaluation
+	functor $\mathrm{ev}_Y:\mathcal{A}^{\mathcal{B}}\to\mathcal{A}$ is
+	naturally left contractible as well. Apply
+	Proposition~\ref{prop:contractible-null-homotopic} to both objects.
+\end{proof}
+
+% segment-id: o014.li2.chapter8.bar-construction-b.p006
+Now suppose that $\mathcal{A}$ and $\mathcal{B}$ are both additive
+categories. For an adjoint pair as in
+Theorem~\ref{prop:bar-null-homotopic} and $Y\in\Obj(\mathcal{B})$, since
+$\mathrm{Bar}(Y)_{-1}=Y$, flattening
+$\mathrm{C}^{\mathrm{aug}}(\mathrm{Bar}(Y))$ gives a morphism in
+$\cate{Ch}_{\geq0}(\mathcal{B})$
+% segment-id: o014.li2.chapter8.bar-construction-b.q006
+\begin{equation}\label{eqn:bar-resolution}
+	\epsilon_Y: \mathrm{C}(\mathrm{Bar}(Y)) \to Y;
+\end{equation}
+it is canonical in $Y$, and its degree-zero part is precisely the augmentation
+morphism $\epsilon_Y:FG(Y)\to Y$ of $\mathrm{Bar}(Y)$, so the notation is
+appropriate.
+
+% segment-id: o014.li2.chapter8.bar-construction-b.co001
+\begin{corollary}\label{prop:bar-exactness-G}
+	Suppose an adjoint pair of abelian categories is given\footnote{Here $F$
+	and $G$ are necessarily additive functors; see
+	Corollary~\ref{prop:automatic-additivity}.}
+	% segment-id: o014.li2.chapter8.bar-construction-b.q007
+	$\begin{tikzcd}
+		F : \mathcal{A} \arrow[shift left, r] & \mathcal{B}: G \arrow[shift left, l]
+	\end{tikzcd}$
+	and let $Y\in\Obj(\mathcal{B})$. The morphism obtained by applying $G$
+	degreewise to \eqref{eqn:bar-resolution}, namely
+	% segment-id: o014.li2.chapter8.bar-construction-b.q008
+	\[ G\epsilon_Y: \mathrm{C}(G\mathrm{Bar}(Y)) \to GY ,\]
+	is a quasi-isomorphism in $\cate{Ch}(\mathcal{A})$.
+\end{corollary}
+\begin{proof}
+	Theorem~\ref{prop:bar-null-homotopic} implies that
+	$\mathrm{C}^{\mathrm{aug}}(G\mathrm{Bar}(Y))$ is acyclic, and the result
+	follows immediately.
+\end{proof}
+
+% segment-id: o014.li2.chapter8.bar-construction-b.eg001
+\begin{example}[The bar resolution of a module and Hochschild homology/cohomology]\label{eg:HH-comonad}
+	\index{bar resolution}
+	\index[sym1]{BR}
+	\index[sym1]{B'R}
+	\index[sym1]{HH}
+	Let $\Bbbk$ be a commutative ring and $R$ a $\Bbbk$-algebra. Write
+	$\otimes:=\otimes_{\Bbbk}$. By Example~\ref{eg:comonad-change-ring}, the
+	comonad determined by the adjoint pair
+	% segment-id: o014.li2.chapter8.bar-construction-b.q009
+	\[\begin{tikzcd}
+		R \otimes (\cdot): \Bbbk\dcate{Mod} \arrow[shift left, r] & R\dcate{Mod}: \text{forgetful} \arrow[shift left, l]
+	\end{tikzcd}\]
+	is the endofunctor $L:M\mapsto R\otimes M$ on $R\dcate{Mod}$. There is a
+	corresponding version for right $R$-modules, which we shall not repeat.
+
+	Now apply the bar construction. For every left $R$-module $M$, we have a
+	canonical morphism in $\cate{Ch}_{\geq0}(R\dcate{Mod})$
+	% segment-id: o014.li2.chapter8.bar-construction-b.q010
+	\[ \epsilon_M: \mathrm{C}(\mathrm{Bar}(M)) \to M; \]
+	this is a quasi-isomorphism because
+	Corollary~\ref{prop:bar-exactness-G} ensures that $\epsilon_M$ is a
+	quasi-isomorphism at the level of $\Bbbk\dcate{Mod}$. Explicitly,
+	% segment-id: o014.li2.chapter8.bar-construction-b.q011
+	\[ \mathrm{C}(\mathrm{Bar}(M))_n = L^{n+1}(M) = R^{\otimes (n+1)} \otimes M. \]
+	According to Example~\ref{eg:monad-simplicial} and the description of
+	$L\to\identity$ in Example~\ref{eg:comonad-change-ring} (namely,
+	``multiplying in''), the map $L^{n+1}(M)\to L^n(M)$ is
+	% segment-id: o014.li2.chapter8.bar-construction-b.q012
+	\begin{multline*}
+		\partial_n: r_0 \otimes \cdots \otimes r_n \otimes x \mapsto \\
+		\sum_{k=0}^{n-1} (-1)^k \cdots \otimes r_k r_{k+1} \otimes \cdots \otimes x + (-1)^n r_0 \otimes \cdots \otimes r_{n-1} \otimes r_n x,
+	\end{multline*}
+	where $x\in M$ and $r_i\in R$. This formula still makes sense when
+	$n=0$ ($r_0\otimes x\mapsto r_0x$), and thus gives the augmented version
+	$\epsilon:\mathrm{C}(\mathrm{Bar}(M))\to M$, namely
+	$\mathrm{C}^{\mathrm{aug}}(\mathrm{Bar}(M))$.
+
+	Now consider the special case $M=R$. In this case
+	% segment-id: o014.li2.chapter8.bar-construction-b.q013
+	\begin{align*}
+		\mathrm{C}(\mathrm{Bar}(R))_n & = R^{\otimes (n+2)} = R \otimes R^{\otimes n} \otimes R, \\
+		\partial_n(r_0 \otimes \cdots \otimes r_{n+1}) & = \sum_{k=0}^n (-1)^k \cdots \otimes r_k r_{k+1} \otimes \cdots.
+	\end{align*}
+
+	Although $\mathrm{C}(\mathrm{Bar}(R))$ and its augmentation
+	$\mathrm{C}^{\mathrm{aug}}(\mathrm{Bar}(R))$ are, by definition, chain
+	complexes of left $R$-modules, the description above upgrades both to
+	chain complexes of $(R,R)$-bimodules: $R$ acts by left multiplication on
+	the first factor and by right multiplication on the last factor of
+	$R\otimes R^{\otimes n}\otimes R$. This upgrade of structure is no
+	coincidence. Since $\mathrm{C}^{\mathrm{aug}}(\mathrm{Bar}(\mathord\cdot))$
+	is a functor, every endomorphism of $R$ as a left $R$-module (for example,
+	right multiplication) lifts naturally to the entire bar construction.
+
+	Comparison with Definition~\ref{def:bar-Hochschild} shows immediately
+	that these are precisely the chain complexes used to define Hochschild
+	homology and cohomology:
+	% segment-id: o014.li2.chapter8.bar-construction-b.q014
+	\[ \mathrm{C}(\mathrm{Bar}(R)) = \mathsf{B} R, \quad \mathrm{C}^{\mathrm{aug}}(\mathrm{Bar}(R)) = \mathsf{B}' R. \]
+	Notice also that Lemma~\ref{prop:HH-bar-exactness} is just a special case
+	of Theorem~\ref{prop:bar-null-homotopic}.
+
+	Write $R^e:=R\otimes R^{\opp}$ and, according to
+	Convention~\ref{con:Re-R-R}, identify left $R^e$-modules,
+	$(R,R)$-bimodules, and right $R^e$-modules. From this viewpoint, the
+	Hochschild homology $\HHm_\bullet(M)$ (respectively, cohomology
+	$\HHm^\bullet(M)$) of a bimodule $M$ is a derived version of
+	$M\dotimes{R^e}R$ (respectively, $\Hom_{R^e}(R,M)$): the bimodule $R$ is
+	replaced by its bar resolution $\mathrm{C}(\mathrm{Bar}(R))$, after which
+	homology (respectively, cohomology) is computed.
+
+	This idea of replacement pervades the study of derived functors and
+	derived categories, but the situation here is slightly different. In the
+	framework of \CHref{sec:cplx} and \CHref{sec:triangulated-derived-cat},
+	$R$ should be replaced by its flat resolution (respectively, projective
+	resolution) as a bimodule. This yields $\Tor^{R^e}_\bullet(M,R)$
+	(respectively, $\Ext^\bullet_{R^e}(R,M)$), or the corresponding object in
+	the derived category. Example~\ref{eg:HH-Tor} (respectively,
+	Example~\ref{eg:HH-Ext}) shows that if $R$ is flat (respectively,
+	projective) as a $\Bbbk$-module, these objects are naturally isomorphic to
+	$\HHm_\bullet(M)$ (respectively, $\HHm^\bullet(M)$); this need not hold
+	in general.
+\end{example}
+
+% segment-id: o014.li2.chapter8.bar-construction-b.eg002
+\begin{example}[The bar resolution and group homology]\label{eg:group-H-comonad}
+	Let $\Gamma$ be a group. Continue the discussion of
+	Example~\ref{eg:HH-comonad} for the group algebra $R:=\Bbbk[\Gamma]$; in
+	this case, $M$ is the same as a left $\Gamma$-module in the sense of
+	\S\ref{sec:G-mod}. Recall that
+	$(\mathord\cdot)_{\Gamma}:\Gamma\dcate{Mod}\to\Bbbk\dcate{Mod}$ is the
+	coinvariants functor. We claim that
+	$\epsilon_M:\mathrm{C}(\mathrm{Bar}(M))\to M$ is a
+	$(\mathord\cdot)_{\Gamma}$-acyclic resolution in $\Gamma\dcate{Mod}$
+	(Convention~\ref{con:F-acyclic}). Its quasi-isomorphism property is
+	already known. To see that every
+	$\mathrm{Bar}(M)_n=\Bbbk[\Gamma]^{\otimes(n+1)}\otimes M$ is
+	$(\mathord\cdot)_{\Gamma}$-acyclic, first use Shapiro's lemma
+	(Theorem~\ref{prop:Shapiro}), which gives, for every $\Bbbk$-module $P$,
+	% segment-id: o014.li2.chapter8.bar-construction-b.q015
+	\[ \Hm_k(\Gamma, \Bbbk[\Gamma] \otimes P ) = \Hm_k\left( \Gamma, \iInd^{\Gamma}_{\{1\}}(P) \right) \simeq \Hm_k(\{1\}, P), \]
+	and the right-hand side is always $0$ when $k>0$. Apply this with
+	$P=\Bbbk[\Gamma]^{\otimes n}\otimes M$ to obtain the claim.
+
+	Consequently, Corollary~\ref{prop:acyclic-resolution} implies
+	$\Hm_n(\Gamma,M)\simeq
+	\Hm_n\bigl(\mathrm{C}((\mathrm{Bar}(M)_{\Gamma}))\bigr)$; here the
+	functor $(\mathord\cdot)_{\Gamma}$ may be applied either to the
+	simplicial object or, equivalently, to the corresponding chain complex.
+	This interprets group homology as comonad homology in the sense of the
+	exercises in this chapter. More precisely, taking $\Gamma$-coinvariants
+	of $\mathrm{Bar}(M)_n$ amounts to removing the first tensor factor in
+	$\Bbbk[\Gamma]^{\otimes(n+1)}\otimes M$ via
+	$\Bbbk[\Gamma]\twoheadrightarrow\Bbbk$, giving
+	$\Bbbk[\Gamma]^{\otimes n}\otimes M$. Under this identification,
+	$\mathrm{Bar}(M)_{n,\Gamma}\to\mathrm{Bar}(M)_{n-1,\Gamma}$ is given by
+	% segment-id: o014.li2.chapter8.bar-construction-b.q016
+	\begin{multline*}
+		g_1 \otimes \cdots \otimes g_n \otimes x \mapsto g_2 \otimes \cdots \otimes g_n \otimes x + \sum_{k=1}^{n-1} (-1)^k \cdots \otimes g_k g_{k+1} \otimes \cdots \otimes x \\
+		+ (-1)^n g_1 \otimes \cdots \otimes g_{n-1} \otimes g_n x,
+	\end{multline*}
+	where $g_i\in\Gamma$ and $x\in M$. Comparison with
+	Proposition~\ref{prop:grouph-chain} shows immediately that
+	$\mathrm{C}(\mathrm{Bar}(M))_{\Gamma}$ is precisely the standard chain
+	complex computing $\Hm_n(\Gamma,M)$.
+\end{example}

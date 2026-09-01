@@ -1,0 +1,257 @@
+% Unit 048: English translation of chapter4.tex, lines 9--60.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter4.overview
+% Coverage: Chapter 4 overview before Section 4.1.
+
+% segment-id: o014.li2.chapter4.overview.h001
+\chapter{Triangulated Categories and Derived Categories\texorpdfstring{\hspace{0.1em}}{}}%
+\label{sec:triangulated-derived-cat}
+\hypertarget{o014.aljabr2.chapter4.overview}{ }
+
+% segment-id: o014.li2.chapter4.overview.p001
+Derived categories were pioneered by A.\ Grothendieck and J.-L.\ Verdier in
+the 1960s to study duality theorems in algebraic geometry. Subsequent
+developments have shown that they provide a convenient and powerful language
+in geometry, topology, and representation theory alike. The information
+recorded by the derived category $\cate{D}(\mathcal{A})$ of an Abelian
+category $\mathcal{A}$ lies between a complex and its cohomology. It is
+expressed precisely in the language of triangulated categories introduced in
+\S\S~\sourcecrossref{sec:triangular-def}{4.1}--%
+\sourcecrossref{sec:triangular-basic}{4.2}: $\cate{D}(\mathcal{A})$ is
+equipped with the translation autoequivalence $X\mapsto X[1]$ and a class of
+sequences of morphisms called distinguished triangles (also called exact
+triangles),
+% segment-id: o014.li2.chapter4.overview.q001
+\[
+  X \xrightarrow{f} Y \xrightarrow{g} Z \xrightarrow{h} X[1],
+  \quad \text{or, for short,}\quad X\to Y\to Z\xrightarrow{+1} .
+\]
+These triangles satisfy axioms (TR0)--(TR5). For example, a distinguished
+triangle can be rotated into
+% segment-id: o014.li2.chapter4.overview.q002
+\[
+  Y \xrightarrow{g} Z \xrightarrow{h} X[1] \xrightarrow{-f[1]} Y[1]
+  \quad\text{or}\quad
+  Z[-1] \xrightarrow{-h[-1]} X \xrightarrow{f} Y \xrightarrow{g} Z .
+\]
+
+% segment-id: o014.li2.chapter4.overview.p002
+Distinguished triangles replace short exact sequences in the category of
+complexes $\cate{C}(\mathcal{A})$, though the more accurate analogy is with
+cofiber sequences in homotopy theory. Cohomological functors from a
+triangulated category to an Abelian category provide a mechanism for
+producing long exact sequences from distinguished triangles.
+
+% segment-id: o014.li2.chapter4.overview.p003
+The passage from $\cate{C}(\mathcal{A})$ to $\cate{D}(\mathcal{A})$ is the
+subject of \S~\sourcecrossref{sec:derived-cat}{4.4} and proceeds in two
+steps.
+% segment-id: o014.li2.chapter4.overview.l001
+\begin{enumerate}
+	% segment-id: o014.li2.chapter4.overview.i001
+	\item The first step passes from $\cate{C}(\mathcal{A})$ to
+	$\cate{K}(\mathcal{A})$. The latter is equipped with the translation
+	functor $X\mapsto X[1]$ and the structure of a triangulated category. For
+	every morphism $f:X\to Y$, its mapping cone together with the canonical
+	morphisms
+	% segment-id: o014.li2.chapter4.overview.q003
+	\[
+	  X \xrightarrow{f} Y \xrightarrow{\alpha(f)} \Cone(f)
+	  \xrightarrow{\beta(f)} X[1]
+	\]
+	forms the corresponding distinguished triangle, up to isomorphism. The
+	tools needed for this step were prepared in the first half of
+	\CHref{sec:cplx}.
+	% segment-id: o014.li2.chapter4.overview.i002
+	\item The second step formally adjoins inverses to all
+	quasi-isomorphisms, or equivalently, formally makes every acyclic complex
+	zero, by localization. The result is $\cate{D}(\mathcal{A})$, which has
+	the same collection of objects as $\cate{C}(\mathcal{A})$ and inherits
+	its triangulated structure from $\cate{K}(\mathcal{A})$. This step rests
+	on the general theory of Verdier localization in
+	\S~\sourcecrossref{sec:triangulated-localization}{4.3}. It is here that
+	the octahedral axiom (TR5), the most intricate axiom in the definition of
+	a triangulated category, plays its role.
+\end{enumerate}
+
+% segment-id: o014.li2.chapter4.overview.p004
+Taking cohomology of complexes gives the cohomological functor
+$\Hm^0:\cate{D}(\mathcal{A})\to\mathcal{A}$ at the level of the derived
+category, with $\Hm^n(X):=\Hm^0(X[n])$. Starting instead from the category
+of bounded-below (or bounded-above, or bounded) complexes, the same procedure
+gives the triangulated category $\cate{D}^+(\mathcal{A})$ (or
+$\cate{D}^-(\mathcal{A})$, or $\cate{D}^{\bdd}(\mathcal{A})$). These may
+also be regarded as full triangulated subcategories of
+$\cate{D}(\mathcal{A})$, characterized respectively by
+$n\ll0$ (or $n\gg0$, or $|n|\gg0$) $\implies\Hm^n(X)=0$.
+
+% segment-id: o014.li2.chapter4.overview.p005
+More generally, cohomology-vanishing conditions can be used to define the
+full subcategories $\cate{D}^{\geq0}(\mathcal{A})$ and
+$\cate{D}^{\leq0}(\mathcal{A})$ of $\cate{D}(\mathcal{A})$, and the
+truncation functors on complexes can still be defined on the derived
+category. The canonical functor
+$\mathcal{A}\to\cate{D}(\mathcal{A})$ is fully faithful and identifies
+$\mathcal{A}$ with
+$\cate{D}^{\leq0}(\mathcal{A})\cap\cate{D}^{\geq0}(\mathcal{A})$. If
+$\mathcal{A}$ has enough injective or projective objects, then
+$\Hom_{\cate{D}(\mathcal{A})}(X,Y[n])\simeq
+\Ext^n_{\mathcal{A}}(X,Y)$, where $X$ and $Y$ are objects of $\mathcal{A}$
+viewed as complexes concentrated in degree zero.%
+\footnote{Translator's note (O014-C071): the source describes $X$ and $Y$ as
+complexes over $\mathcal{A}$. The fully faithful embedding
+$\mathcal{A}\to\cate{D}(\mathcal{A})$ in the preceding sentence and the
+definition of $\Ext^n_{\mathcal{A}}$ in \S~\ref{sec:Ext-Tor}, however, give
+this formula for objects of $\mathcal{A}$ viewed as degree-zero complexes;
+the intended scope has been restored here.}
+The definition of $\Ext^n_{\mathcal{A}}$ is given in
+\S~\ref{sec:Ext-Tor}, and all these matters are treated in
+\S~\sourcecrossref{sec:Hom-Ext}{4.5}.
+
+% segment-id: o014.li2.chapter4.overview.p006
+For a left exact functor $F:\mathcal{A}\to\mathcal{A}'$, its classical right
+derived functor is realized at the level of bounded-below derived categories
+as $\mathrm{R}F:\cate{D}^+(\mathcal{A})\to\cate{D}^+(\mathcal{A}')$. It
+can be characterized as a left Kan extension; the relevant data are expressed
+by the following $2$-cell diagram.
+% segment-id: o014.li2.chapter4.overview.g001
+\[\begin{tikzcd}
+	\cate{K}^+(\mathcal{A}) \arrow[r, "{\cate{K}F}"] \arrow[d, "Q"'] &
+	\cate{K}^+(\mathcal{A}') \arrow[d, "{Q'}"] \arrow[Rightarrow, ld] \\
+	\cate{D}^+(\mathcal{A}) \arrow[r, "{\mathrm{R}F}"'] &
+	\cate{D}^+(\mathcal{A}')
+\end{tikzcd}\]
+
+Here $Q$ and $Q'$ denote the localization functors, while
+$\mathrm{R}F$ must also be equipped with a triangulated-functor structure.
+The classical $\mathrm{R}^nF$ is obtained by restricting $\mathrm{R}F$ to
+$\mathcal{A}$ and then taking $\Hm^n$. If instead $F$ is right exact, the
+lift of the classical left derived functor $\mathrm{L}_nF$ is represented as
+follows.%
+\footnote{Translator's note (O014-C070): in the following diagram, the source
+labels the right vertical arrow $Q$, even though its source and target are
+$\cate{K}^-(\mathcal{A}')$ and $\cate{D}^-(\mathcal{A}')$, respectively.
+In accord with the preceding diagram and the names used in the prose, the
+label $Q'$ has been restored here.}
+% segment-id: o014.li2.chapter4.overview.g002
+\[\begin{tikzcd}
+	\cate{K}^-(\mathcal{A}) \arrow[r, "{\cate{K}F}"] \arrow[d, "Q"'] &
+	\cate{K}^-(\mathcal{A}') \arrow[d, "{Q'}"] \\
+	\cate{D}^-(\mathcal{A}) \arrow[r, "{\mathrm{L}F}"']
+	\arrow[ru, Rightarrow] & \cate{D}^-(\mathcal{A}').
+\end{tikzcd}\]
+
+% segment-id: o014.li2.chapter4.overview.p007
+As in the classical theory, the existence of derived functors and the
+detailed structure of derived categories depend on resolutions of complexes.
+Resolutions provide the scaffolding needed to work concretely with derived
+categories. Details appear in
+\S\S~\sourcecrossref{sec:triangulated-functor-localization}{4.6}--%
+\sourcecrossref{sec:bounded-derived-functor}{4.8}. The unbounded version
+$\cate{D}(\mathcal{A})\to\cate{D}(\mathcal{A}')$ has a similar formulation
+and will be discussed in
+\S~\sourcecrossref{sec:unbounded-derived}{4.11}.
+
+% segment-id: o014.li2.chapter4.overview.p008
+By considering the amplitude of a derived functor, that is, the “shift” it
+produces at the level of cohomology, one can discuss the dimension of a
+derived functor
+(Definition--Proposition~\sourcecrossref{def:dim-functor}{in \S~4.7}).
+Under suitable conditions, taking derived functors is also compatible with
+composition
+(Theorem~\sourcecrossref{prop:localization-injective}{in \S~4.8}). This
+provides a uniform explanation for several spectral sequences in the
+classical theory, called Grothendieck spectral sequences and described in
+Theorem~\sourcecrossref{prop:Grothendieck-ss}{in \S~4.8}. The general theory
+of spectral sequences is deferred to
+Chapter~\sourcecrossref{sec:ss}{5}.
+
+% segment-id: o014.li2.chapter4.overview.p009
+All these constructions can be formulated for general triangulated categories
+and their Verdier localizations. It is worth noting that applications often
+involve triangulated categories that do not arise directly from Abelian
+categories, or cohomological functors other than $\Hm^n$. In this general
+setting, the roles of truncation functors and of
+$\cate{D}^{\leq0}$ and $\cate{D}^{\geq0}$ are taken by a $t$-structure on
+the triangulated category, but this book does not treat that topic.
+
+% segment-id: o014.li2.chapter4.overview.p010
+The derived functors discussed concretely in this chapter are limited to
+examples arising in algebra. The first is the functor $\RHom$ in
+\S~\sourcecrossref{sec:RHom}{4.9}. This is the derived-category version of
+the $\Ext$ functor and involves the theory of derived bifunctors. Several
+adjunctions will also be lifted to derived categories, following the principle
+of replacing $\Hom$ by $\RHom$. Next,
+\S~\sourcecrossref{sec:Rlim}{4.10} treats products and coproducts in
+$\cate{D}(\mathcal{A})$ and then introduces the lift of $\lim^n$, denoted
+$\mathrm{R}\lim$. Like $\lim^n$, this functor has a concise description in
+terms of the homotopy limit
+(Definition~\sourcecrossref{def:holim}{in \S~4.10}), though at the level of
+derived categories the description can only be given in a coarse form.
+
+% segment-id: o014.li2.chapter4.overview.p011
+Then \S~\sourcecrossref{sec:otimesL}{4.12} introduces the derived-category
+version of the $\Tor$ functor, namely the derived tensor product $\otimesL$,
+a triangulated bifunctor. That section also proves many facts, including the
+associativity constraint
+(Proposition~\sourcecrossref{prop:otimesL-associativity-constraint}{in
+\S~4.12}) and the $\RHom$ version of the adjunction
+(Theorem~\sourcecrossref{prop:RHom-otimesL-adjunction}{in \S~4.12}). As in
+the classical theory, $\RHom$ and $\otimesL$ are the two fundamental examples
+of derived functors. A complete and clean description requires unbounded
+derived categories and the derived functors between them. This in turn
+requires the theory of
+\S~\sourcecrossref{sec:unbounded-derived}{4.11}, especially the notions of
+K-projective and K-flat resolutions. In the module-theoretic setting
+considered here, the existence of these resolutions poses no problem.
+
+% segment-id: o014.li2.chapter4.overview.p012
+Finally, several shortcomings of the derived category
+$\cate{D}(\mathcal{A})$ should be noted.
+% segment-id: o014.li2.chapter4.overview.l002
+\begin{enumerate}
+	% segment-id: o014.li2.chapter4.overview.i003
+	\item Among the axioms of a triangulated category, (TR2) says that every
+	morphism can be placed in a distinguished triangle. Such a triangle is
+	unique up to isomorphism, but not “up to unique isomorphism” in the sense
+	familiar from algebra.
+	% segment-id: o014.li2.chapter4.overview.i004
+	\item Triangulated categories usually have neither kernels nor cokernels,
+	making the operations $\varinjlim$ and $\varprojlim$ extremely difficult
+	to carry out. Mapping cones provide substitutes in the homotopical sense,
+	but, as already noted, their uniqueness in the derived category is
+	problematic.
+	% segment-id: o014.li2.chapter4.overview.i005
+	\item Although derived functors at the level of derived categories have a
+	clear definition, unlike universal cohomological $\delta$-functors they
+	are difficult to characterize simply by effaceability; see
+	Proposition~\ref{prop:erasable-univ-delta}.
+\end{enumerate}
+
+% segment-id: o014.li2.chapter4.overview.p013
+The root of the problem is that the homotopy relation is erased too crudely
+when $\cate{D}(\mathcal{A})$ is constructed. These shortcomings must be
+remedied by a construction that is higher than the derived category and
+perhaps also more natural; the derived category should be only the shadow
+cast by that construction.
+
+% segment-id: o014.li2.chapter4.overview.n001
+\begin{wenxintishi}
+	Most of this chapter consists of core concepts in the theory of
+	triangulated and derived categories. Side topics include the treatment of
+	$n$-extensions in \S~\sourcecrossref{sec:Hom-Ext}{4.5}, centered mainly
+	on the theorem of Nobuo Yoneda
+	(Theorem~\sourcecrossref{prop:Yoneda-Ext}{in \S~4.5}), and the treatment
+	of unbounded derived functors in
+	\S~\sourcecrossref{sec:unbounded-derived}{4.11}, which rests on the theory
+	of \S~\ref{sec:K-injectives}. Both topics are common knowledge among
+	specialists, but readers should judge for themselves whether they need
+	them. If one considers only derived functors between bounded-below or
+	bounded-above derived categories, every statement in
+	\S~\sourcecrossref{sec:otimesL}{4.12} concerning K-projective (or K-flat)
+	resolutions may be replaced by a projective (or flat) resolution by
+	bounded-above complexes without disrupting the exposition. The validity
+	of this replacement is guaranteed by
+	Proposition~\sourcecrossref{prop:flat-K-flat}{in \S~4.11}.
+\end{wenxintishi}

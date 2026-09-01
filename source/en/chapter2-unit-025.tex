@@ -1,0 +1,416 @@
+% English translation of chapter2.tex lines 721--910.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter2.direct-sum-decomposition
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.h001
+\section{Direct-Sum Decompositions}\label{sec:direct-sum}
+\hypertarget{o014.aljabr2.chapter2.direct-sum-decomposition}{ }
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.p001
+We begin by discussing how morphisms between direct sums are represented by
+matrices. The argument is exactly the same as in the module-theoretic case
+\cite[\S 6.3]{Li1}; only a brief review is given here.
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.p002
+Fix an additive category $\mathcal{A}$. Consider objects
+$X_1,\ldots,X_n$ and $X'_1,\ldots,X'_m$ of $\mathcal{A}$. The direct sum
+$\bigoplus_{i=1}^nX_i$ introduced in
+Definition~\ref{def:additive-category} comes with a family of morphisms
+$X_j\xrightarrow{\iota_j}\bigoplus_{i=1}^nX_i\xrightarrow{p_j}X_j$.
+Likewise, $\bigoplus_{i=1}^mX'_i$ has morphisms $p'_j,\iota'_j$, and so on.
+The universal properties of products and coproducts give
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.q001
+\begin{align*}
+	\Hom \left( \bigoplus_{j=1}^n X_j, \bigoplus_{i=1}^m X'_i \right) & \xrightarrow[\sim]{\phi \mapsto (p'_i \phi)_i } \prod_{i=1}^m \Hom\left(\bigoplus_{j=1}^n X_j , X'_i \right) \\
+	& \xrightarrow[\sim]{(p'_i \phi)_i \mapsto (p'_i \phi \iota_j)_{i, j}} \prod_{j=1}^n \prod_{i=1}^m  \Hom(X_j, X'_i).
+\end{align*}
+Thus every morphism
+$\phi:\bigoplus_{j=1}^nX_j\to\bigoplus_{i=1}^mX'_i$ corresponds to the
+matrix
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.q002
+\[ \mathcal{M}(\phi) = (\phi_{ij})_{\substack{1 \leq i \leq m \\ 1 \leq j \leq n}} = \begin{pmatrix}
+	\phi_{11} & \cdots & \phi_{1n} \\
+	\vdots & \ddots & \vdots \\
+	\phi_{m1} & \cdots & \phi_{mn}
+\end{pmatrix}, \quad \phi_{ij} := p'_i \phi \iota_j: X_j \to X'_i. \]
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.p003
+Conversely, every matrix
+$\mathcal{M}=(\phi_{ij})_{\substack{1\leq i\leq m\\1\leq j\leq n}}$
+formed from morphisms $\phi_{ij}:X_j\to X'_i$ uniquely determines a
+morphism $\phi$ such that $\mathcal{M}=\mathcal{M}(\phi)$. Composition of
+morphisms agrees with matrix multiplication:
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.q003
+\[ \mathcal{M}(\psi\phi) = \mathcal{M}(\psi) \mathcal{M}(\phi) \]
+where multiplication of matrix entries is given by composition
+$\Hom(X'_j,X''_i)\times\Hom(X_k,X'_j)\to\Hom(X_k,X''_i)$.
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.le001
+\begin{lemma}\label{prop:isomorphism-matrix}
+	Given a family of morphisms $\phi_i:X_i\to X'_i$ in $\mathcal{A}$,
+	$i=1,\ldots,n$, set
+	$\phi:=(\phi_1,\ldots,\phi_n):\bigoplus_{i=1}^nX_i\to
+	\bigoplus_{i=1}^nX'_i$. Then $\phi$ is an isomorphism if and only if each
+	$\phi_i$ is an isomorphism.
+\end{lemma}
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.pf001
+\begin{proof}
+	The implication $\impliedby$ is clear. For $\implies$, write
+	write the matrix $\mathcal{M}(\phi^{-1})$ as $(\psi_{ij})_{i,j}$. Then
+	\[ \mathcal{M}(\phi^{-1}) \mathcal{M}(\phi) = \begin{pmatrix}
+		\psi_{11} \phi_1 & \cdots & \psi_{1n} \phi_n \\
+		\vdots & \ddots & \vdots \\
+		\psi_{n1} \phi_1 & \cdots & \psi_{nn} \phi_n
+	\end{pmatrix} = \begin{pmatrix}
+		\identity_{X_1} & & \\
+		& \ddots & \\
+		& & \identity_{X_n}
+	\end{pmatrix}\]
+	so $\phi_1,\ldots,\phi_n$ all have left inverses. The same argument shows
+	that they all have right inverses.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.p004
+Continue to consider a direct-sum decomposition
+$X\simeq\bigoplus_{i=1}^nX_i$, where $n\geq1$ and $X_i\neq0$ for every
+$i$. It gives morphisms $\iota_i:X_i\to X$ and $p_i:X\to X_i$. For each
+$1\leq i\leq n$, set $e_i:=\iota_ip_i\in\End(X)$. These morphisms have the
+following properties. Recall that an \emph{idempotent} in the ring $\End(X)$
+is an element $e\in\End(X)$ satisfying $e^2=e$; when no confusion can arise,
+we also call $e$ an idempotent in $\mathcal{A}$.
+\index{idempotent}
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.l001
+\begin{enumerate}[(E1)]
+	% segment-id: o014.li2.chapter2.direct-sum-decomposition.i001
+	\item Every $e_i$ is idempotent:
+	$e_i^2=(\iota_ip_i)(\iota_ip_i)=\iota_i(p_i\iota_i)p_i=\iota_ip_i$.
+	% segment-id: o014.li2.chapter2.direct-sum-decomposition.i002
+	\item Orthogonality: $i\neq j\implies
+	e_ie_j=\iota_ip_i\iota_jp_j=0$.
+	% segment-id: o014.li2.chapter2.direct-sum-decomposition.i003
+	\item The equality $\sum_{i=1}^ne_i=1$ holds in the ring $\End(X)$.
+\end{enumerate}
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.p005
+From now on we regard the direct summands $X_i$ as subobjects of $X$ and
+write the decomposition as an equality $X=\bigoplus_{i=1}^nX_i$.
+Conversely, if $\mathcal{A}$ is abelian, a family of idempotents
+$e_1,\ldots,e_n\in\End(X)$ satisfying (E1)--(E3) determines subobjects of
+$X$ by
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.q005
+\[ X_i := \Ker\left( \sum_{j \neq i} e_j \right) = \Image(e_i), \quad i=1, \ldots, n. \]
+On the one hand they come with monomorphisms $X_i\xrightarrow{\iota_i}X$;
+on the other, $e_i:X\to X$ factors uniquely as
+$X\xrightarrow{p_i}X_i\xrightarrow{\iota_i}X$. This is precisely the data
+required for a direct sum.
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.p006
+Passing from the idempotents $e_1,\ldots,e_n$ to the direct summands
+$X_1,\ldots,X_n$ does not require all the properties of an abelian category.
+It is enough to assume that $\mathcal{A}$ is an $\cate{Ab}$-category with a
+zero object in which every idempotent has a kernel. Such a category is called
+a \emph{Karoubian category} or a \emph{pseudo-abelian category}. The exercises
+of this chapter discuss this further.
+\index{category!Karoubian}
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.pr001
+\begin{proposition}\label{prop:idempotent-decomposition}
+	Let $X\neq0$ be an object of an abelian category (or, more generally, a
+	Karoubian category) $\mathcal{A}$, and let $n\in\Z_{\geq1}$. The
+	constructions above give a bijection
+	\[\begin{tikzcd}[row sep=small]
+		\left\{\begin{gathered}
+			\text{direct-sum decompositions}\\[-2pt]
+			X = \bigoplus_{i=1}^n X_i
+		\end{gathered}\right\}
+		\arrow[leftrightarrow, r, "1:1"] &
+		\left\{\begin{gathered}
+			(e_i)_{i=1}^n \in \End(X)^n:\\[-2pt]
+			\text{satisfying (E1)--(E3)}
+		\end{gathered}\right\}.
+	\end{tikzcd}\]
+	Reordering the direct summands $X_1,\ldots,X_n$ corresponds to reordering
+	the idempotents $e_1,\ldots,e_n$.
+\end{proposition}
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.pf002
+\begin{proof}
+	See \cite[Proposition 6.12.4]{Li1}.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.p007
+In the special case $n=2$, direct-sum decompositions are related to a special
+class of short exact sequences, called split short exact sequences.
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.pr002
+\begin{proposition}\label{prop:split-ses}
+	\index{short exact sequence!split}
+	For a short exact sequence
+	$0\to X'\xrightarrow{f}X\xrightarrow{g}X''\to0$ in an abelian category,
+	the following statements are equivalent.
+	\begin{enumerate}[(i)]
+		% segment-id: o014.li2.chapter2.direct-sum-decomposition.i004
+		\item There is an $s:X''\to X$ such that $gs=\identity_{X''}$.
+		% segment-id: o014.li2.chapter2.direct-sum-decomposition.i005
+		\item There is an $r:X\to X'$ such that $rf=\identity_{X'}$.
+		% segment-id: o014.li2.chapter2.direct-sum-decomposition.i006
+		\item There is a diagram
+		$\begin{tikzcd}
+			X' \arrow[yshift=-0.7ex, r, "f"'] & X \arrow[yshift=0.7ex, l, "r"'] \arrow[yshift=-0.7ex, r, "g"'] & X'' \arrow[yshift=0.7ex, l, "s"']
+		\end{tikzcd}$
+		for which $X\simeq X'\oplus X''$; see the review of biproducts in
+		\S\ref{sec:Ker-Coker}.
+		% segment-id: o014.li2.chapter2.direct-sum-decomposition.i007
+		\item The map $g_*:\Hom(S,X)\to\Hom(S,X'')$, sending $\varphi$ to
+		$g\varphi$, is surjective for every object $S$.
+		% segment-id: o014.li2.chapter2.direct-sum-decomposition.i008
+		\item The map $f^*:\Hom(X,S)\to\Hom(X',S)$, sending $\psi$ to
+		$\psi f$, is surjective for every object $S$.
+	\end{enumerate}
+	If any of these conditions holds, the short exact sequence
+	$0\to X'\to X\to X''\to0$ is called \emph{split}. The morphism
+	$s:X''\to X$ in (i), the morphism $r:X\to X'$ in (ii),% 
+	\footnote{Editorial correction (O014-C024): the source writes
+	$r:X'\to X$ here, but (ii), the equality $rf=\identity_{X'}$, and the
+	subsequent construction all require $r:X\to X'$. The type-correct direction
+	is used here.}
+	and the isomorphism $X\rightiso X'\oplus X''$ in (iii), denoted by $\Phi$,
+	correspond as follows:
+	\begin{compactitem}
+		% segment-id: o014.li2.chapter2.direct-sum-decomposition.i009
+		\item from $\Phi$ to $s$, take the composite
+		$X''\xrightarrow{\iota_2}X'\oplus X''\xrightarrow{\Phi^{-1}}X$;
+		% segment-id: o014.li2.chapter2.direct-sum-decomposition.i010
+		\item from $s$ to $r$, factor $\identity_X-sg:X\to X$ uniquely as
+		$X\xrightarrow{r}X'\xrightarrow{f}X$; this is the desired $r$;
+		% segment-id: o014.li2.chapter2.direct-sum-decomposition.i011
+		\item from $r$ to $\Phi$, take $(r,g):X\to X'\oplus X''$, which is an
+		isomorphism.
+	\end{compactitem}
+
+	Moreover, for a given $s$ or its corresponding $r$, the orthogonal
+	idempotents corresponding to the direct-sum decomposition in (iii) are
+	\[ e' := fr = \identity_X - sg, \quad e'' := sg = \identity_X - fr. \]
+\end{proposition}
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.pf003
+\begin{proof}
+	For modules, see \cite[Proposition 6.8.5]{Li1}. Its proof uses only
+	algebraic operations in $\Hom$ sets and the characterization of biproducts,
+	all of which also hold in an abelian category, so the argument carries over
+	without change. We omit the details.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.p008
+In the setting of Proposition~\ref{prop:split-ses}, given $f:X'\to X$ and
+$g:X\to X''$, an $s$ satisfying $gs=\identity_{X''}$ is called a
+\emph{section} of $g$, while an $r$ satisfying $rf=\identity_{X'}$ is called
+a \emph{retraction} of $f$; these terms come from topology. The existence of
+a section or retraction implies, respectively, that $g$ is an epimorphism or
+$f$ is a monomorphism, but the converses do not hold.
+\index{section}
+\index{retraction}
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.p009
+Notice also that the five statements (i)--(v) of the proposition are
+collectively self-dual.
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.d001
+\begin{definition}\label{def:indecomposable}\index{object!indecomposable}
+	Let $S$ be a nonzero object of an abelian category $\mathcal{A}$. If
+	$S=S'\oplus S''$ implies $S'=0$ or $S''=0$, then $S$ is called
+	\emph{indecomposable}.
+\end{definition}
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.co001
+\begin{corollary}\label{prop:indecomposable-criterion}
+	A nonzero object $X$ of an abelian category is indecomposable if and only
+	if
+	\[ \forall e \in \End(X), \quad e^2 = e \iff (e = 0 \;\vee\; e = 1). \]
+\end{corollary}
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.pf004
+\begin{proof}
+	Apply Proposition~\ref{prop:idempotent-decomposition}.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.p010
+We wish to study decompositions $X=X_1\oplus\cdots\oplus X_n$, where
+$X\neq0$ and every $X_i$ is indecomposable. There are two questions:
+existence and uniqueness. For modules this is the content of the
+Krull--Remak--Schmidt theorem; see \cite[Corollary 6.12.9]{Li1}. For a
+general abelian category, some preparation is needed. We follow the approach
+of \cite{Kr15}.
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.d002
+\begin{definition}\label{def:bichain}
+	\index{bi-chain condition}
+	Let $\mathcal{A}$ be any category. A \emph{bi-chain} in $\mathcal{A}$ is
+	data $(X_n,\alpha_n,\beta_n)_{n=0}^\infty$, where the $X_n$ are objects
+	and
+	$\begin{tikzcd}
+		X_n \arrow[twoheadrightarrow, r, shift left, "\alpha_n"] & X_{n+1} \arrow[hookrightarrow, l, shift left, "\beta_n"]
+	\end{tikzcd}$
+	are morphisms between them, with $\alpha_n$ an epimorphism and $\beta_n$ a
+	monomorphism for $n\in\Z_{\geq0}$. An object $X$ of $\mathcal{A}$ is said
+	to satisfy the \emph{bi-chain condition} if, for every bi-chain
+	$(X_n,\alpha_n,\beta_n)_{n=0}^\infty$ with $X_0=X$, both $\alpha_n$ and
+	$\beta_n$ are isomorphisms for $n\gg0$.
+\end{definition}
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.p011
+The following result generalizes \cite[Lemma 6.11.5]{Li1}.
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.le002
+\begin{lemma}[Fitting's lemma in an abelian category]\label{prop:Abel-cat-Fitting}
+	Let $\mathcal{A}$ be an abelian category, let $X$ be a nonzero object
+	satisfying the bi-chain condition, and let $f\in\End(X)$.
+	\begin{enumerate}[(i)]
+		% segment-id: o014.li2.chapter2.direct-sum-decomposition.i012
+		\item For $n\gg0$, $\Ker(f^n)$ and $\Image(f^n)$ are independent of
+		$n$; denote them by $\Ker(f^\infty)$ and $\Image(f^\infty)$,
+		respectively. Then
+		$X=\Ker(f^\infty)\oplus\Image(f^\infty)$.
+		% segment-id: o014.li2.chapter2.direct-sum-decomposition.i013
+		\item If $X$ is indecomposable, then $f$ is either invertible or
+		nilpotent in the ring $\End(X)$.
+	\end{enumerate}
+\end{lemma}
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.pf005
+\begin{proof}
+	For $n\in\Z_{\geq0}$, define $X_n:=\Image(f^n)$, so $X_0=X$.
+	Proposition~\ref{prop:Images-f-gf} and $\Coim\rightiso\Image$ give an
+	epimorphism $\alpha_n:X_n\to X_{n+1}$ induced by $f$ and a monomorphism
+	$\beta_n:X_{n+1}\to X_n$. Thus we obtain a bi-chain
+	$(X_n,\alpha_n,\beta_n)_{n=0}^\infty$.
+
+	For $n\gg0$, $\alpha_n$ and $\beta_n$ are isomorphisms. Hence the
+	subobject $\Image(f^\infty):=\Image(f^n)$ of $X$, for $n\gg0$, is well
+	defined; write its monomorphism as
+	$\iota:\Image(f^\infty)\hookrightarrow X$. Likewise,
+	$\Ker(f^n)=\Ker[X\to\Image(f^n)]$ is a subobject $\Ker(f^\infty)$
+	independent of $n$ for $n\gg0$.
+
+	For $n\gg0$, the morphism
+	$\alpha_{2n-1}\cdots\alpha_n:X_n\to X_{2n}$ is invertible. Denote its
+	inverse by
+	$\psi:\Image(f^\infty)\rightiso\Image(f^\infty)$ and set
+	\[ p := \psi f^n: X \to \Image(f^\infty), \quad \Ker(p) = \Ker(f^\infty) \qquad (n \gg 0). \]
+	Since $p\iota=\identity_{\Image(f^\infty)}$, the endomorphism
+	$e:=\iota p\in\End(X)$ is idempotent, with
+	$\Image(e)=\Image(f^\infty)$ and $\Ker(e)=\Ker(f^\infty)$.
+	Proposition~\ref{prop:idempotent-decomposition} gives the decomposition in
+	(i).
+
+	If $X$ is indecomposable, then either $\Image(f^\infty)=0$ and
+	$\Ker(f^\infty)=X$, in which case $f$ is nilpotent, or
+	$\Image(f^\infty)=X$ and $\Ker(f^\infty)=0$, in which case $f$ is
+	invertible. This proves (ii).
+\end{proof}
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.p012
+Recall from \cite[Definition 6.12.3]{Li1} that if $S$ is a ring and
+$S\smallsetminus S^\times$ is a two-sided ideal, then $S$ is called
+\emph{local}.
+\index{local ring}
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.co002
+\begin{corollary}\label{prop:indecomposable-local-ring}
+	Let $X$ be a nonzero object in an abelian category satisfying the bi-chain
+	condition. Then $X$ is indecomposable if and only if $\End(X)$ is a local
+	ring.
+\end{corollary}
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.pf006
+\begin{proof}
+	Lemma~\ref{prop:Abel-cat-Fitting} shows that if $X$ is indecomposable, every
+	element of $\End(X)$ is either nilpotent or invertible. The remainder of
+	the argument concerns only the ring structure of $\End(X)$ and is the same
+	as \cite[Lemma 6.12.6]{Li1}.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.p013
+We can now state the version of the Krull--Remak--Schmidt theorem for abelian
+categories.
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.th001
+\begin{theorem}[M.\ Atiyah]\label{prop:Krull-Schmidt-gen}
+	\index{Krull--Remak--Schmidt theorem}
+	Let $X$ be a nonzero object of an abelian category.
+	\begin{enumerate}[(i)]
+		% segment-id: o014.li2.chapter2.direct-sum-decomposition.i014
+		\item If $X$ satisfies the bi-chain condition, then there exist
+		$n\in\Z_{\geq1}$ and indecomposable subobjects $X_1,\ldots,X_n$ such
+		that $X=\bigoplus_{i=1}^nX_i$, and every $\End(X_i)$ is a local ring.
+		% segment-id: o014.li2.chapter2.direct-sum-decomposition.i015
+		\item Suppose that $X$ has decompositions $\bigoplus_{i=1}^nX_i$ and
+		$\bigoplus_{j=1}^mX'_j$, where every $X_i$ and $X'_j$ is
+		indecomposable and every $\End(X_i)$ and $\End(X'_j)$ is local. Then
+		$n=m$, and there is a bijection $\sigma$ of $\{1,\ldots,n\}$ such that
+		$X_i\simeq X'_{\sigma(i)}$ for every $i$.
+	\end{enumerate}
+\end{theorem}
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.pf007
+\begin{proof}
+	The main point is to prove that an $X$ satisfying the bi-chain condition
+	has a decomposition as in (i). Everything else involves only algebraic
+	operations in the rings $\End$ and is the same as
+	\cite[Theorem 6.12.8]{Li1}. We therefore assume the bi-chain condition in
+	what follows.
+
+	If $X=Y\oplus Z$ with $Y\neq0$, then $Y$ also satisfies the bi-chain
+	condition. Indeed, given a bi-chain
+	$(Y_n,\alpha_n,\beta_n)_{n=0}^\infty$ with $Y_0=Y$, take
+	$X_n:=Y_n\oplus Z$, $\tilde{\alpha}_n:=\alpha_n\oplus\identity_Z$, and
+	$\tilde{\beta}_n:=\beta_n\oplus\identity_Z$. This gives a bi-chain with
+	$X_0=X$, while Lemma~\ref{prop:isomorphism-matrix} shows that
+	$\tilde{\alpha}_n$ (or $\tilde{\beta}_n$) is an isomorphism if and only if
+	$\alpha_n$ (or $\beta_n$) is.
+
+	If $X$ is already indecomposable,
+	Corollary~\ref{prop:indecomposable-local-ring} shows that $\End(X)$ is
+	local, proving (i). If (i) were false for $X$, there would be nonzero
+	subobjects $X_1,Y_1$ such that $X=X_1\oplus Y_1$ and (i) remained false
+	for $X_1$. Repeating the process on $X_1$ gives
+	$X_1=X_2\oplus Y_2$, and iteration
+	produces a bi-chain $(X_n,\alpha_n,\beta_n)_{n=0}^\infty$, where
+	$\alpha_n:X_n\twoheadrightarrow X_{n+1}$ and
+	$\beta_n:X_{n+1}\hookrightarrow X_n$ arise from
+	$X_n=X_{n+1}\oplus Y_{n+1}$. None is an isomorphism, and $X_0:=X$,
+	contradicting the bi-chain condition. This proves the assertion.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.p014
+In applications, the key issue is knowing when the bi-chain condition holds.
+Here is one sufficient condition.
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.pr003
+\begin{proposition}
+	Let $X$ be an object of finite length in an abelian category
+	(Definition~\ref{def:finite-length-object}). Then $X$ satisfies the
+	bi-chain condition.
+\end{proposition}
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.pf008
+\begin{proof}
+	Let $(X_n,\alpha_n,\beta_n)_{n=0}^\infty$ be a bi-chain with $X_0=X$.
+	Then
+	\[
+		\left(\Image(\beta_0\cdots\beta_n)\right)_{n=0}^\infty
+	\]
+	is a descending chain in the partially ordered set $\mathrm{Sub}_X$. Since all
+	$\beta_n$ are monomorphisms, for $n\gg0$ the Artinian condition gives a
+	commutative diagram
+	\[\begin{tikzcd}
+		X_{n+1} \arrow[d, "\beta_n"'] \arrow[r, "\sim"] & \Image(\beta_0 \cdots \beta_n) \arrow[d, "\sim" sloped] \arrow[hookrightarrow, r] & X_0 \\
+		X_n \arrow[r, "\sim"] & \Image(\beta_0 \cdots \beta_{n-1}) \arrow[hookrightarrow, ru] &
+	\end{tikzcd}\]
+	and $\beta_n$ is an isomorphism. Similarly, apply the Noetherian condition
+	to the ascending chain
+	$\left(\Ker(\alpha_n\cdots\alpha_0)\right)_{n=0}^\infty$ and use the fact
+	that every $\alpha_n$ is an epimorphism. For $n\gg0$ this gives a
+	commutative diagram with exact rows
+	\[\begin{tikzcd}
+		0 \arrow[r] & \Ker(\alpha_{n-1} \cdots \alpha_0) \arrow[d, "\sim" sloped] \arrow[r] & X_0 \arrow[r, "{\alpha_{n-1} \cdots \alpha_0}" inner sep=0.7em] \arrow[equal, d] & X_n \arrow[d, "{\alpha_n}"] \arrow[r] & 0 \\
+		0 \arrow[r] & \Ker(\alpha_n \cdots \alpha_0) \arrow[r] & X_0 \arrow[r, "{\alpha_n \cdots \alpha_0}"' inner sep=0.7em] & X_{n+1} \arrow[r] & 0
+	\end{tikzcd}\]
+	and $\alpha_n$ is an isomorphism.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.direct-sum-decomposition.p015
+The exercises introduce further ways to deduce the bi-chain condition.

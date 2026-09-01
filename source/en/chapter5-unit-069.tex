@@ -1,0 +1,467 @@
+% Unit 069 English translation of chapter5.tex lines 740--954.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter5.bicomplex-spectral-sequences-applications
+% Coverage: Complete Section 5.6; stops before Section 5.7 at line 955.
+
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.h001
+\section{Spectral sequences of bicomplexes and their applications}
+\label{sec:double-cplx-ss}
+\hypertarget{o014.aljabr2.chapter5.bicomplex-spectral-sequences-applications}{ }
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.x001
+\index{spectral sequence!of a bicomplex}
+
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.p001
+Throughout this section, we assume that the Abelian category $\mathcal{A}$
+has the countable direct sums or countable products under consideration. Let
+$X$ be a bicomplex over $\mathcal{A}$, written
+$X\in\Obj(\cate{C}^2(\mathcal{A}))$. The total complex $\tot_{\oplus}X$ has
+two decreasing filtrations,
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.q001
+\begin{align*}
+	\mathrm{F}^p_{\mathrm{I}} (\tot_{\oplus} X)^n & = \bigoplus_{\substack{i+j=n \\ i \geq p}} X^{i, j}, \\
+	\mathrm{F}^q_{\mathrm{II}} (\tot_{\oplus} X)^n & = \bigoplus_{\substack{i+j=n \\ j \geq q}} X^{i, j} .
+\end{align*}
+Examining each $(i,j)$ component separately shows that
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.q002
+\[ \bigcap_p \mathrm{F}^p_{\mathrm{I}} = 0 = \bigcap_q \mathrm{F}^q_{\mathrm{II}}, \quad \bigcup_p \mathrm{F}^p_{\mathrm{I}} = \tot_{\oplus} X = \bigcup_q \mathrm{F}^q_{\mathrm{II}}. \]
+
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.p002
+We thus obtain two filtered complexes. The corresponding spectral sequences
+are denoted respectively by
+$\mathscr{E}_{\mathrm{I}}=\mathscr{E}_{\mathrm{I}}(X)$ and
+$\mathscr{E}_{\mathrm{II}}=\mathscr{E}_{\mathrm{II}}(X)$, or more concretely
+by $E_{\mathrm{I},r}^{p,q}$ and $E_{\mathrm{II},r}^{p,q}$, where
+$r\in\Z_{\geq0}$. If $X^{p,q}\neq0\implies p,q\geq0$, we say that $X$
+lies in the first quadrant. In this case, for
+$\star\in\{\mathrm{I},\mathrm{II}\}$,
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.q003
+\[ \mathrm{F}_\star^0 \left(\tot_{\oplus} X \right)^n = \left(\tot_{\oplus} X\right)^n, \quad \mathrm{F}_\star^{n+1} \left(\tot_{\oplus} X \right)^n = 0 , \]
+so the corresponding spectral sequences also lie in the first quadrant.
+
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.p003
+For a chain bicomplex $X$, one similarly defines two increasing filtrations,
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.q004
+\begin{align*}
+	\mathrm{F}_{\mathrm{I}, p} \left( \tot_{\oplus} X \right)_n & = \bigoplus_{\substack{i+j=n \\ i \leq p}} X_{i, j}, \\
+	\mathrm{F}_{\mathrm{II}, q} \left( \tot_{\oplus} X \right)_n & = \bigoplus_{\substack{i+j=n \\ j \leq q}} X_{i, j},
+\end{align*}
+together with the corresponding homological bigraded spectral sequences.
+
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.pr001
+\begin{proposition}\label{prop:double-cplx-ss}
+	For $X\in\Obj(\cate{C}^2(\mathcal{A}))$, the first few pages of its two
+	spectral sequences and their corresponding morphisms $d$ are described as
+	follows:
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.tb001
+	\[\begin{array}{|c|c|c|c|c|c|} \hline
+		& E_0^{p,q} & d_0^{p,q} & E_1^{p,q} & d_1^{p,q} & E_2^{p,q} \\ \hline
+		\mathscr{E}_{\mathrm{I}} & X^{p,q} & (-1)^p \dvert^{p,q} & \Hm^q(X^{p, \bullet}, \dvert) & \Hm^q(\dhori^{p, \bullet}) & \Hm_{\mathrm{I}}\Hm_{\mathrm{II}}(X)^{p,q} \\
+		\mathscr{E}_{\mathrm{II}} & X^{q,p} & \dhori^{q,p} & \Hm^q(X^{\bullet, p}, \dhori) & (-1)^q \Hm^q(\dvert^{\bullet, p}) & \Hm_{\mathrm{II}} \Hm_{\mathrm{I}}(X)^{q,p} \\ \hline
+	\end{array}\]
+	The functors
+	$\Hm_{\mathrm{I}},\Hm_{\mathrm{II}}:\cate{C}^2(\mathcal{A})
+	\to\cate{C}^2(\mathcal{A})$ are defined in
+	\S\ref{sec:double-cplx-coh}, especially in \eqref{eqn:HIHII}.
+
+	For chain complexes and their homology, the same method gives the following
+	table.
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.tb002
+	\[\begin{array}{|c|c|c|c|c|c|} \hline
+		& E^0_{p,q} & d^0_{p,q} & E^1_{p,q} & d^1_{p,q} & E^2_{p,q} \\ \hline
+		\mathscr{E}_{\mathrm{I}} & X_{p,q} & (-1)^p \dvert_{p,q} & \Hm_q(X_{p, \bullet}, \dvert) & \Hm_q(\dhori_{p, \bullet}) & \Hm_{\mathrm{I}}\Hm_{\mathrm{II}}(X)_{p,q} \\
+		\mathscr{E}_{\mathrm{II}} & X_{q,p} & \dhori_{q,p} & \Hm_q(X_{\bullet, p}, \dhori) & (-1)^q \Hm_q(\dvert_{\bullet, p}) & \Hm_{\mathrm{II}} \Hm_{\mathrm{I}}(X)_{q,p} \\ \hline
+	\end{array}\]
+\end{proposition}
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.pf001
+\begin{proof}
+	This follows by a direct verification from the description in
+	Proposition~\ref{prop:filtered-cplx-ss}; the sign on $\dvert$ comes from the
+	definition of the total complex. We omit the details.
+\end{proof}
+
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.p004
+The same definitions and results apply to $\tot_{\Pi}X$, with entirely
+similar properties.
+
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.p005
+For $X\in\Obj(\cate{C}^2_f(\mathcal{A}))$
+(Definition~\ref{def:Cf-Supp}), its total complex involves only finite direct
+sums. Thus there is no need to distinguish the $\oplus$ and $\Pi$ versions;
+both are denoted uniformly by $\tot X$.
+
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.th001
+\begin{theorem}\label{prop:tot-ss}
+	Let $X\in\Obj(\cate{C}^2_f(\mathcal{A}))$. The two corresponding spectral
+	sequences $\mathscr{E}_{\mathrm{I}}$ and $\mathscr{E}_{\mathrm{II}}$ are
+	bounded and strongly convergent, and the two corresponding induced
+	filtrations on $\Hm^n(\tot X)$ are finite for every $n\in\Z$.
+\end{theorem}
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.pf002
+\begin{proof}
+	The definition of $\cate{C}^2_f(\mathcal{A})$ shows that
+	$\mathrm{F}_{\mathrm{I}}^\bullet\left(\tot X\right)^n$ and
+	$\mathrm{F}_{\mathrm{II}}^\bullet\left(\tot X\right)^n$ are finite
+	filtrations for every $n$. Apply
+	Theorem~\ref{prop:classical-convergence}.
+\end{proof}
+
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.p006
+We now present several representative applications. Since all the filtrations
+and spectral sequences involved are finite, these results apply to every
+Abelian category\footnote{More precisely, neither the existence of the limit
+terms $Z_\infty^{p,q}$, $B_\infty^{p,q}$, $E_\infty^{p,q}$ nor the condition
+on exhaustive filtrations in Definition~\ref{def:filtration-properties}
+causes any difficulty.}.
+
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.ex001
+\begin{example}\label{eg:double-cplx-tot-ss}
+	We now reprove Theorem~\ref{prop:double-cplx-tot} using spectral sequences:
+	if a morphism $f:X\to Y$ in $\cate{C}^2_f(\mathcal{A})$ induces
+	$\Hm_{\mathrm{II}}\Hm_{\mathrm{I}}(X)\rightiso
+	\Hm_{\mathrm{II}}\Hm_{\mathrm{I}}(Y)$ (or
+	$\Hm_{\mathrm{I}}\Hm_{\mathrm{II}}(X)\rightiso
+	\Hm_{\mathrm{I}}\Hm_{\mathrm{II}}(Y)$), then
+	$\tot(f):\tot(X)\to\tot(Y)$ is a quasi-isomorphism.
+
+	First suppose that
+	$\Hm_{\mathrm{II}}\Hm_{\mathrm{I}}(X)\rightiso
+	\Hm_{\mathrm{II}}\Hm_{\mathrm{I}}(Y)$. The morphism $f$ induces a
+	morphism of spectral sequences
+	$\mathscr{E}_{\mathrm{II}}(X)\to\mathscr{E}_{\mathrm{II}}(Y)$.
+	This is already an isomorphism on the $E_2$ page and hence also gives an
+	isomorphism on the limit page $E_\infty$
+	(Proposition~\ref{prop:ss-isom-infty}).
+
+	By the convergence guaranteed by Theorem~\ref{prop:tot-ss}, the morphism
+	$\gr^p\left(\Hm^n\tot(X)\right)\to
+	\gr^p\left(\Hm^n\tot(Y)\right)$ induced by $\tot(f)$ is an isomorphism for
+	all $p,n\in\Z$. The induced filtrations on $\Hm^n$ are known to be finite.
+	Therefore
+	$\Hm^n\tot(f):\Hm^n\tot(X)\to\Hm^n\tot(Y)$ is also an isomorphism
+	(Proposition~\ref{prop:gr-isom}).
+
+	If instead we consider the spectral sequence $\mathscr{E}_{\mathrm{I}}$,
+	the analogous argument deduces that $\tot(f)$ is a quasi-isomorphism from
+	$\Hm_{\mathrm{I}}\Hm_{\mathrm{II}}(X)\rightiso
+	\Hm_{\mathrm{I}}\Hm_{\mathrm{II}}(Y)$.
+\end{example}
+
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.ex002
+\begin{example}[Deriving a bifunctor]\label{eg:bifunctor-ss}
+	Let the Abelian categories $\mathcal{A}_1$ and $\mathcal{A}_2$ have enough
+	injective objects (or projective objects), and let the bifunctor
+	$F:\mathcal{A}_1\times\mathcal{A}_2\to\mathcal{B}$ be left exact (or right
+	exact) in each variable. We discuss the left-exact case. Take
+	$X_i\in\Obj(\mathcal{A}_i)$ and choose injective resolutions
+	$0\to X_i\to I_i^0\to\cdots$; define $I_i^n:=0$ for $n<0$
+	($i=1,2$). These data form a first-quadrant bicomplex
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.q005
+	\[ Y^{p, q} := F\left( I_1^p, I_2^q \right). \]
+	The corresponding first-quadrant spectral sequence
+	$\mathscr{E}_{\mathrm{I}}$ therefore satisfies
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.q006
+	\[ E_1^{p,q} = \Hm^q\left( F(I_1^p, I_2^\bullet) \right) \Rightarrow \Hm^{p+q}(\tot(Y)), \quad p,q \in \Z. \]
+	The right-hand side $\Hm^{p+q}(\tot Y)$ is the value of the right-derived
+	bifunctor $\mathrm{R}^{p+q}F(X_1,X_2)$; see
+	Definition~\ref{def:derived-bifunctor}.
+
+	Now suppose in addition that $F$ is balanced
+	(Definition~\ref{def:balanced-functor}); then $F(I_1^p,\cdot)$ is exact.
+	This shows that $q\neq0\implies E_1^{p,q}=0$, while
+	$E_1^{p,0}=F(I_1^p,X_2)$. Hence $q\neq0\implies E_2^{p,q}=0$, and
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.q007
+	\begin{align*}
+		E_2^{p,0} & = \Hm^p\left[ \cdots \to F(I_1^p, X_2) \to F(I_1^{p+1}, X_2) \to \cdots \right] \\
+		& = (\mathrm{R}_{\mathrm{I}}^p F)(X_1, X_2), \quad \text{with the notation of Theorem~\ref{prop:balanced-primer}}.
+	\end{align*}
+	In particular, the spectral sequence degenerates at the $E_2$ page, so
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.q008
+	\begin{align*}
+		E_2^{p,q} & = E_\infty^{p,q}, \\
+		E_\infty^{p,q} & = \gr^p \Hm^{p+q}\left(\tot(Y)\right) = 0, \quad \text{if}\; q \neq 0, \\
+		E_\infty^{p,0} & = \Hm^p\left(\tot(Y)\right) = \mathrm{R}^p F(X_1, X_2) .
+	\end{align*}
+	Thus
+	$\mathrm{R}^nF(X_1,X_2)\simeq
+	(\mathrm{R}_{\mathrm{I}}^nF)(X_1,X_2)$. If instead we use
+	$\mathscr{E}_{\mathrm{II}}$, the same argument gives
+	$\mathrm{R}^nF(X_1,X_2)\simeq
+	(\mathrm{R}_{\mathrm{II}}^nF)(X_1,X_2)$. Hence
+	$\mathrm{R}_{\mathrm{I}}F\simeq\mathrm{R}_{\mathrm{II}}F$, which is
+	precisely the assertion of Theorem~\ref{prop:balanced-primer}.
+\end{example}
+
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.ex003
+\begin{example}[The spectral sequence of hyperderived functors]
+\label{eg:hyperderived-ss}
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.x002
+	\index{hyperderived functor}
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.x003
+	\index{spectral sequence!of hyperderived functors}
+	Let $\mathcal{A}$ and $\mathcal{B}$ be Abelian categories, let
+	$\mathcal{A}$ have enough injective objects (or projective objects), and let
+	$F:\mathcal{A}\to\mathcal{B}$ be a left-exact (or right-exact) additive
+	functor. In the first half of \S\ref{sec:derived-primer}, for a complex
+	$X\in\Obj(\cate{C}^+(\mathcal{A}))$ (or
+	$X\in\Obj(\cate{C}^-(\mathcal{A}))$), we defined the right-derived functors
+	$\mathrm{R}^nF(X)$ (or the left-derived functors $\mathrm{L}_nF(X)$), where
+	$n\in\Z$. When $X\in\Obj(\mathcal{A})$, these are derived functors in the
+	classical sense. By contrast, the case of a general complex is customarily
+	called that of hyperderived functors. Spectral sequences link the two cases.
+	We describe the case of right-derived functors; interchanging superscripts
+	and subscripts gives the version for left-derived functors.
+
+	Take $X\in\Obj(\cate{C}^+(\mathcal{A}))$. Regard $X$ as a bicomplex
+	concentrated in row $0$, and take the Cartan--Eilenberg resolution
+	$\epsilon:X\to I$ supplied by Theorem~\ref{prop:CE-resolution}; this is a
+	morphism in $\cate{C}^2_f(\mathcal{A})$. By
+	Remark~\ref{rem:double-cplx-resolution} or the result of
+	Example~\ref{eg:double-cplx-tot-ss},
+	$\tot(\epsilon):X=\tot(X)\to\tot(I)$ is a quasi-isomorphism in
+	$\cate{C}^+(\mathcal{A})$ and hence is an injective resolution of $X$.
+
+	From the bicomplex
+	$(\cate{C}^2F)(I)\in
+	\Obj\left(\cate{C}^2_f(\mathcal{B})\right)$, construct the convergent
+	spectral sequences $\mathscr{E}_{\mathrm{I}}$ and
+	$\mathscr{E}_{\mathrm{II}}$. They converge to the same target,
+	$\Hm^{p+q}\tot\left((\cate{C}^2F)I\right)
+	=\Hm^{p+q}\cate{C}F(\tot I)$, namely the value of the hyperderived functor
+	$\mathrm{R}^{p+q}F(X)$.
+
+	First consider $\mathscr{E}_{\mathrm{I}}$. Since $I^{p,\bullet}$ is an
+	injective resolution of $X^p$, we have
+	$E_{\mathrm{I},1}^{p,q}=\Hm^q\left(FI^{p,\bullet}\right)
+	\simeq\mathrm{R}^qF(X^p)$; the right-hand side is the value of the classical
+	derived functor $\mathrm{R}^qF$ at $X^p$.\footnote{Translator's correction:
+	the source prints $\mathrm{R}^pF$, whereas the preceding formula and the
+	vertical cohomological index require $\mathrm{R}^qF$.} Similarly,
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.q009
+	\[ E_{\mathrm{I}, 2}^{p,q} = \Hm^p\left[ \cdots \to \mathrm{R}^q F(X^p) \to \mathrm{R}^q F(X^{p+1}) \to \cdots \right]. \]
+
+	Perhaps more interesting is the $E_2$ page of
+	$\mathscr{E}_{\mathrm{II}}$. By the properties of a Cartan--Eilenberg
+	resolution, taking horizontal cohomology gives
+	$\Hm_{\mathrm{I}}(I)^{q,\bullet}$ as an injective resolution of
+	$\Hm^q(X)$, while Remark~\ref{rem:CE-split} shows that $F$ preserves
+	horizontal cohomology:
+	$\Hm_{\mathrm{I}}(\cate{C}^2F(I))^{q,\bullet}
+	\simeq\cate{C}F\left(\Hm_{\mathrm{I}}(I)^{q,\bullet}\right)$. Thus
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.g001
+	\begin{align*}
+		E_{\mathrm{II},2}^{p, q} & =
+		\begin{tikzpicture}[scale=0.7, baseline=(O)]
+			\draw[-Latex] (0, -1) -- (0, 1) node[right] {$p$} node[left=0.5em] {\scriptsize\text{take $\Hm$ second}};
+			\draw[-Latex] (-1, 0) -- (1, 0) node[below] {$q$} node[right=0.5em] {\scriptsize\text{take $\Hm$ first}};
+			\coordinate (O) at (0, -0.3);
+			\draw (current bounding box.north west) rectangle ([yshift=-1ex] current bounding box.south east);
+		\end{tikzpicture}
+		= (\mathrm{R}^p F)\left( \Hm^q(X)\right) \\
+		& \Rightarrow \mathrm{R}^{p+q}F(X) , \quad p, q \in \Z.
+	\end{align*}
+\end{example}
+
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.p007
+The Grothendieck spectral sequence introduced below concerns deriving a
+composition of functors. It encompasses a large class of spectral sequences
+in geometry and algebra, and its argument, like that in
+Example~\ref{eg:hyperderived-ss}, is also based on a Cartan--Eilenberg
+resolution.
+
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.th002
+\begin{theorem}[Grothendieck spectral sequence]
+\label{prop:Grothendieck-ss}
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.x004
+	\index{spectral sequence!Grothendieck}
+	Consider additive functors between Abelian categories
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.q010
+	\[ \mathcal{A} \xrightarrow{F} \mathcal{A}' \xrightarrow{F'} \mathcal{A}''. \]
+	Suppose both are left-exact (or right-exact) functors, $\mathcal{A}$ and
+	$\mathcal{A}'$ have enough injective objects (or projective objects), and
+	$F$ sends injective objects (or projective objects) to $F'$-acyclic objects
+	in the sense of Convention~\ref{con:F-acyclic}. Then for every
+	$X\in\Obj(\mathcal{A})$ there is a first-quadrant cohomological (or
+	homological) bigraded spectral sequence
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.q011
+	\begin{align*}
+		E_2^{p,q} = (\mathrm{R}^p F') (\mathrm{R}^q F)(X) & \Rightarrow \mathrm{R}^{p+q} (F'F)(X), \\
+		\text{or} \quad E^2_{p,q} = (\mathrm{L}_p F') (\mathrm{L}_q F)(X) & \Rightarrow \mathrm{L}_{p+q}(F'F)(X).
+	\end{align*}
+	Its convergence properties are as in Theorem~\ref{prop:tot-ss}. The
+	corresponding exact sequences of low-degree terms
+	(Corollary~\ref{prop:low-degree-ss}) can respectively be written as
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.q012
+	\begin{equation*}\begin{split}
+		0 \to (\mathrm{R}^1 F')(FX) & \to \mathrm{R}^1(F'F)(X) \\
+		& \to F'\left( (\mathrm{R}^1 F)X \right) \to (\mathrm{R}^2 F')(FX) \to \mathrm{R}^2(F'F)(X),
+	\end{split}\end{equation*}
+	or
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.q013
+	\begin{equation*}\begin{split}
+		\mathrm{L}_2(F'F)(X) \to (\mathrm{L}_2 F')(FX) & \to F'\left( (\mathrm{L}_1 F)X \right) \\
+		& \to \mathrm{L}_1(F'F)(X) \to (\mathrm{L}_1 F')(FX) \to 0.
+	\end{split}\end{equation*}
+\end{theorem}
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.pf003
+\begin{proof}
+	By duality, it suffices to discuss the cohomological case. Take an injective
+	resolution $0\to X\to I^0\to I^1\to\cdots$ of $X$ and define $I^n:=0$ for
+	$n<0$. In $\mathcal{A}'$, take a Cartan--Eilenberg resolution
+	$\cate{C}F(I)\to J$ of $\cate{C}F(I):=(FI^p)_p$
+	(Theorem~\ref{prop:CE-resolution}), and then consider the first-quadrant
+	bicomplex $\cate{C}^2F'(J)=(F'(J^{p,q}))_{p,q}$ and its corresponding
+	convergent spectral sequences $\mathscr{E}_{\mathrm{I}}$ and
+	$\mathscr{E}_{\mathrm{II}}$. First,
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.g002
+	\begin{align*}
+		E_{\mathrm{I},2}^{p, q} & =
+		\begin{tikzpicture}[scale=0.7, baseline=(O)]
+			\draw[-Latex] (0, -1) -- (0, 1) node[right] {$q$} node[left=0.5em] {\scriptsize\text{take $\Hm$ first}};
+			\draw[-Latex] (-1, 0) -- (1, 0) node[below] {$p$} node[right=0.5em] {\scriptsize\text{take $\Hm$ second}};
+			\coordinate (O) at (0, -0.3);
+			\draw (current bounding box.north west) rectangle ([yshift=-1ex] current bounding box.south east);
+		\end{tikzpicture} \\
+		& = \Hm^p\left[ \cdots \to (\mathrm{R}^q F')(FI^p) \to (\mathrm{R}^q F')(FI^{p+1}) \to \cdots \right] \\
+		& \Rightarrow \Hm^{p+q}\tot\left(\cate{C}^2 F'(J)\right).
+	\end{align*}
+
+	Since $F(I^p)$ is $F'$-acyclic by hypothesis,
+	$E_{\mathrm{I},2}^{p,q}=0$ when $q\neq0$. The same argument as in
+	Example~\ref{eg:bifunctor-ss} then shows that
+	$\mathscr{E}_{\mathrm{I}}$ degenerates at the $E_2$ page, and
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.q014
+	\[ E_{\mathrm{I}, \infty}^{p,q} = E_{\mathrm{I}, 2}^{p,q} = \begin{cases}
+		\Hm^p\left( F'F(I^\bullet) \right) = \mathrm{R}^p (F' F)(X), & q = 0, \\
+		0, & q \neq 0,
+	\end{cases}\]
+	while
+	$\Hm^p\tot\left(\cate{C}^2F'(J)\right)
+	=E_{\mathrm{I},\infty}^{p,0}=\mathrm{R}^p(F'F)(X)$.
+
+	Now consider $\mathscr{E}_{\mathrm{II}}$. The technique is similar to that
+	in Example~\ref{eg:hyperderived-ss}: the $q$-th column of horizontal
+	cohomology, $\Hm_{\mathrm{I}}(J)^{q,\bullet}$, gives an injective resolution
+	of $\Hm^q(\cate{C}F(I))=(\mathrm{R}^qF)(X)$. Recalling also that $F'$
+	preserves horizontal cohomology, we obtain
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.g003
+	\begin{align*}
+		E_{\mathrm{II},2}^{p, q} & =
+		\begin{tikzpicture}[scale=0.7, baseline=(O)]
+			\draw[-Latex] (0, -1) -- (0, 1) node[right] {$p$} node[left=0.5em] {\scriptsize\text{take $\Hm$ second}};
+			\draw[-Latex] (-1, 0) -- (1, 0) node[below] {$q$} node[right=0.5em] {\scriptsize\text{take $\Hm$ first}};
+			\coordinate (O) at (0, -0.3);
+			\draw (current bounding box.north west) rectangle ([yshift=-1ex] current bounding box.south east);
+		\end{tikzpicture}
+		= (\mathrm{R}^p F')(\mathrm{R}^q F)\left( X \right) \\
+		& \Rightarrow \Hm^{p+q}\tot\left(\cate{C}^2 F'(J)\right) = \mathrm{R}^{p+q}(F'F)(X).
+	\end{align*}
+
+	Thus $\mathscr{E}_{\mathrm{II}}$ is the spectral sequence required in the
+	first part. Substituting the description of
+	$E_{\mathrm{II},2}^{p,q}$ into the low-degree exact sequence of
+	$\mathscr{E}_{\mathrm{II}}$ (Corollary~\ref{prop:low-degree-ss}) gives the
+	assertion in the final part immediately.
+\end{proof}
+
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.p008
+The Grothendieck spectral sequence can be regarded as a concrete version of
+Theorem~\ref{prop:derived-composite}, but the information it contains is more
+explicit than an isomorphism in the derived category. We shall give an
+application in \S\ref{sec:LHS-SS}.
+
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.ex004
+\begin{example}[Change of rings]\label{eg:change-of-rings-SS}
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.x005
+	\index{change of rings}
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.x006
+	\index{spectral sequence!change of rings}
+	Let $R\to S$ be a ring homomorphism. Let $X$ be a right $S$-module and
+	$Y$ a left $R$-module. Write $S_R$ (or $X_R$) for $S$ (or $X$) regarded as
+	a right $R$-module. We claim that there is a first-quadrant homological
+	bigraded spectral sequence
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.q015
+	\begin{gather*}
+		E^2_{p,q} = \Tor^S_p\left( X, \Tor^R_q(S_R, Y) \right) \Rightarrow \Tor^R_{p+q}(X_R, Y);
+	\end{gather*}
+	Here $\Tor^R_q(S_R,Y)$ is given its left $S$-module structure as in
+	Remark~\ref{rem:ExtTor-bimodule}. This is a direct application of
+	Theorem~\ref{prop:Grothendieck-ss}, arising from the isomorphism of functors
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.q016
+	\[ X \dotimes{S} \left( S \dotimes{R} (\cdot) \right) \simeq X \dotimes{R} (\cdot) : R\dcate{Mod} \to \cate{Ab}, \]
+	where the inner functor
+	$S\dotimes{R}(\cdot):R\dcate{Mod}\to S\dcate{Mod}$ has left-derived
+	functors $\Tor^R_\bullet(S_R,\cdot)$ taking values in $S\dcate{Mod}$.
+	By the isomorphism above, the inner functor sends flat modules to flat
+	modules, so the homological version of the Grothendieck spectral sequence
+	indeed applies.
+
+	With entirely analogous notation and techniques, for a right $R$-module
+	$X$ and a left $S$-module $Y$, one also has
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.q017
+	\[ E^2_{p,q} = \Tor^S_p\left( \Tor^R_q(X, {}_R S), Y \right) \Rightarrow \Tor^R_{p+q}(X, {}_R Y). \]
+
+	Next consider the $\Ext$ functor. Let $X$ be a left $S$-module and $Y$ a
+	left $R$-module, and write ${}_RX$ for $X$ regarded as a left $R$-module.
+	Give $\Ext_R^q({}_RS,Y)$ its left $S$-module structure as in
+	Remark~\ref{rem:ExtTor-bimodule}. Then there are first-quadrant
+	cohomological bigraded spectral sequences
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.q018
+	\begin{align*}
+		E_2^{p,q} = \Ext_S^p\left( X, \Ext_R^q({}_R S, Y) \right) & \Rightarrow \Ext_R^{p+q}({}_R X, Y), \\
+		E_2^{p,q} = \Ext_S^p\left( \Tor^R_q(S_R, Y), X \right) & \Rightarrow \Ext_R^{p+q}(Y, {}_R X).
+	\end{align*}
+	They correspond respectively to the following isomorphisms of composite
+	functors:
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.q019
+	\begin{gather*}
+		\Hom_S\left( X, \Hom_R({}_R S, \cdot) \right) \simeq \Hom_R({}_R X, \cdot), \\
+		\Hom_S\left( S \dotimes{R} (\cdot), X \right) \simeq \Hom_R(\cdot, {}_R X),
+	\end{gather*}
+	the adjunctions introduced in \cite[Corollary 6.6.8]{Li1}. Mixing the
+	right-derived functors $\Ext_S^p$ and the left-derived functors
+	$\Tor^R_q$ in the second line causes no problem, because the first variable
+	of $\Hom_S$ lies in the opposite category $S\dcate{Mod}^{\opp}$.
+\end{example}
+
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.p009
+The spectral sequences above should be compared with the derived-category
+versions in \S\ref{sec:otimesL}.
+
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.ex005
+\begin{example}\label{eg:change-of-rings-SS-bis}
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.x007
+\index{universal coefficient theorem}
+	For the spectral sequence
+	$E_2^{p,q}=\Ext_S^p\left(\Tor^R_q(S_R,Y),X\right)
+	\Rightarrow\Ext_R^{p+q}(Y,{}_RX)$ from
+	Example~\ref{eg:change-of-rings-SS}, we record a useful special case, also
+	as an exercise. Suppose the global dimension of $S\dcate{Mod}$ is at most
+	$1$ (Definition--Proposition~\ref{def:global-dim}). Consequently, the
+	nonzero terms $E_2^{p,q}$ are concentrated in the region $p=0,1$. Thus, for
+	$n\geq0$, the decreasing filtration $\mathrm{F}^\bullet$ on
+	$\Ext_R^n(Y,{}_RX)$ must have the form
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.q020
+	\[ \Ext_R^n(Y, {}_R X) = \mathrm{F}^0 \underbracket{\supset}_{E_\infty^{0, n}} \mathrm{F}^1 \underbracket{\supset}_{E_\infty^{1, n-1}} \mathrm{F}^2 = \{0\}. \]
+
+	Moreover, Example~\ref{eg:SS-finite-width} shows that the spectral sequence
+	degenerates at the $E_2$ page, so
+	$E_2^{p,q}\simeq E_\infty^{p,q}$. Combining these facts gives the short
+	exact sequence
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.q021
+	\[ 0 \to \Ext_S^1\left( \Tor^R_{n-1}(S_R, Y), X \right) \to \Ext_R^n(Y, {}_R X) \to \Hom_S\left( \Tor^R_n(S_R, Y), X \right) \to 0; \]
+	by convention $\Tor^R_{-1}=0$. This may be regarded as a variant of the
+	universal coefficient theorem.
+
+	Similarly, suppose the right $S$-module $X$ has $\Tor$-dimension at most
+	$1$ (Example~\ref{eg:Tor-dimension}). The spectral sequence
+	$E^2_{p,q}=\Tor^S_p(X,\Tor^R_q(S_R,Y))
+	\Rightarrow\Tor^R_{p+q}(X_R,Y)$ degenerates at the $E^2$ page. Examining
+	the corresponding increasing filtration on $\Tor^R_n(X_R,Y)$ gives the
+	short exact sequence
+% segment-id: o014.li2.chapter5.bicomplex-spectral-sequences-applications.q022
+	\[ 0 \to X \dotimes{S} \Tor^R_n(S_R, Y) \to \Tor^R_n(X_R, Y) \to \Tor^S_1(X, \Tor^R_{n-1}(S_R, Y)) \to 0. \]
+
+	If $S$ is a principal ideal domain, both the global-dimension and
+	$\Tor$-dimension hypotheses hold automatically.
+\end{example}

@@ -1,0 +1,305 @@
+% English translation of chapter7.tex lines 1806--1967.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter7.morita-theory-b
+% Coverage: Section 7.7 from the change-of-rings example to immediately
+% before Lemma~\ref{prop:fg-module-cat}; continues Unit 096 and continues in Unit 098.
+
+\hypertarget{o014.aljabr2.chapter7.morita-theory-b}{ }
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.e001
+\begin{example}[Change of rings]\label{eg:comonad-change-ring}
+	\index[sym1]{FBA@$\mathcal{F}_{B \mid A}$}
+	Fix a homomorphism of $\Bbbk$-algebras $f:A\to B$. In the preceding
+	framework, take $P:=B$, regarded through $f$ as an $(A,B)$-bimodule. In
+	this case, the right adjoint $\Hom_{\cated{Mod}B}(B,\mathord\cdot)$ of
+	$(\mathord\cdot)\dotimes{A}B$ is isomorphic, via
+	$\varphi\mapsto\varphi(1)$, to the forgetful functor
+	$\mathcal{F}_{B|A}:\cated{Mod}B\to\cated{Mod}A$, and
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.q001
+	\[\begin{array}{|c|c|} \hline
+		\text{unit morphism }\; \eta_N & \text{counit morphism }\; \epsilon_M \\ \hline
+		N \to \mathcal{F}_{B|A}(N \dotimes{A} B) & \mathcal{F}_{B|A}(M) \dotimes{A} B \to M \\
+		x \mapsto x \otimes 1 & y \otimes b \mapsto yb \\ \hline
+	\end{array} \quad \begin{array}{c}
+		N: \;\text{a right $A$-module,} \\
+		M: \;\text{a right $B$-module.}
+	\end{array}\]
+
+	In discussions of change of rings, $\mathcal{F}_{B|A}$ is usually omitted
+	from the notation for simplicity. Thus the monad $T$ and comonad $L$ may
+	respectively be written as
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.q002
+	\[\begin{array}{|c|c|c|} \hline
+		T & \identity \to T & T^2 \to T \\ \hline
+		N \mapsto N \dotimes{A} B & N \to N \dotimes{A} B & (N \dotimes{A} B) \dotimes{A} B \to N \dotimes{A} B \\
+		& x \mapsto x \otimes 1 & (x \otimes b) \otimes b' \mapsto x \otimes bb' \\ \hline\hline
+		L & L \to \identity & L \to L^2 \\ \hline
+		M \mapsto M \dotimes{A} B & M \dotimes{A} B \to M & M \dotimes{A} B \to (M \dotimes{A} B) \dotimes{A} B \\
+		& y \otimes b \mapsto yb & y \otimes b \mapsto (y \otimes 1) \otimes b \\ \hline
+	\end{array}\]
+	The required verifications are routine.
+\end{example}
+
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.p001
+We next consider a slightly more general situation. First, for arbitrary
+right $B$-modules $P$ and $X$, regard $B$ as a $(B,B)$-bimodule in order to
+define the left $B$-module
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.q003
+\begin{equation}\label{eqn:P-vee}
+	P^\vee := \Hom_{\cated{Mod}B}(P, B)
+\end{equation}
+and the canonical homomorphism of $\Bbbk$-modules
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.q004
+\begin{equation}\label{eqn:dual-Hom-X}\begin{aligned}
+	X \dotimes{B} P^\vee & \to \Hom_{\cated{Mod}B}(P, X) \\
+	x \otimes \lambda & \mapsto x \lambda(\cdot).
+\end{aligned}\end{equation}
+\index[sym1]{Pvee@$P^\vee$}
+
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.p002
+If $P$ is an $(A,B)$-bimodule, then $P^\vee$ has the structure of a
+$(B,A)$-bimodule, $\Hom_{\cated{Mod}B}(P,X)$ has the structure of a right
+$A$-module, and \eqref{eqn:dual-Hom-X} is a homomorphism of right
+$A$-modules.
+
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.p003
+The same construction naturally has a version with left and right
+interchanged. Consequently, $P^{\vee\vee}$ is defined, and there is also a
+canonical homomorphism of right $B$-modules $P\to P^{\vee\vee}$.
+
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.l001
+\begin{lemma}\label{prop:AB-comonad-aux}
+	Let $P$ be an $(A,B)$-bimodule which, as a right $B$-module, is finitely
+	generated and projective. Then $P^\vee$, as a left $B$-module, is also
+	finitely generated and projective, and in this situation:
+	\begin{itemize}
+		\item for every $X$, \eqref{eqn:dual-Hom-X} gives a canonical
+		isomorphism of right $A$-modules;
+		\item $P\to P^{\vee\vee}$ is an isomorphism.
+	\end{itemize}
+\end{lemma}
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.pf001
+\begin{proof}
+	As a right $B$-module, write $P$ as a direct summand of $B^{\oplus n}$ for
+	some $n\in\Z_{\geq0}$. Then $P^\vee$ is naturally a direct summand of
+	$B^{\oplus n}$. It is clear that replacing $P$ by $B^{\oplus n}$ in
+	\eqref{eqn:dual-Hom-X} gives an isomorphism of $\Bbbk$-modules. Restricting
+	to the direct summand $P$ therefore still gives an isomorphism of
+	$\Bbbk$-modules, hence an isomorphism of right $A$-modules. The assertion
+	$P\rightiso P^{\vee\vee}$ is proved in the same way: it is enough to check
+	it for $B^{\oplus n}$.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.p004
+Under the preceding hypothesis, the adjoint pair
+\eqref{eqn:AB-adjunction} can therefore be rewritten as
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.q005
+\begin{equation}\label{eqn:AB-adjunction-2}\begin{tikzcd}
+	(\cdot) \dotimes{A} P : \cated{Mod}A \arrow[shift left, r] & \cated{Mod}B: (\cdot) \dotimes{B} P^\vee . \arrow[shift left, l]
+\end{tikzcd}\end{equation}
+
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.d001
+\begin{definition}\label{def:bimodule-ev-coev}
+	\index[sym1]{ev-coev@$\mathrm{ev}, \mathrm{coev}$}
+	Let $P$ be an $(A,B)$-bimodule which, as a right $B$-module, is finitely
+	generated and projective. Define the homomorphism of $(B,B)$-bimodules
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.q006
+	\[\begin{tikzcd}[row sep=tiny]
+		\mathrm{ev}: & P^\vee \dotimes{A} P \arrow[r] & B \\
+		& \lambda \otimes p \arrow[mapsto, r] & \lambda(p)
+	\end{tikzcd}\]
+	and the homomorphism of $(A,A)$-bimodules
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.q007
+	\[\begin{tikzcd}[row sep=tiny]
+		\mathrm{coev}: & A \arrow[r] & P \dotimes{B} P^\vee \arrow[r, "{\text{Lemma \ref{prop:AB-comonad-aux}}}" inner sep=0.6em, "\sim"'] & \End_{\cated{Mod}B}(P) \\
+		& a \arrow[mapsto, rr] & & {[p \mapsto ap]} .
+	\end{tikzcd}\]
+\end{definition}
+
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.p005
+It is easy to check that both maps are well defined. Combining
+\eqref{eqn:bimod-adjunction} with Lemma~\ref{prop:AB-comonad-aux}, for every
+right $A$-module $N$ and right $B$-module $M$, the unit morphism $\eta_N$ and
+counit morphism $\epsilon_M$ of the adjoint pair
+\eqref{eqn:AB-adjunction-2} satisfy
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.q008
+\[\begin{tikzcd}[row sep=tiny]
+	N \arrow[r, "\eta_N"] & \Hom_{\cated{Mod}B}(P, N \dotimes{A} P) & N \dotimes{A} P \dotimes{B} P^\vee \arrow[l, "\sim"'] \\
+	x \arrow[mapsto, r] & {[p \mapsto x \otimes p]} & x \otimes \mathrm{coev}(1) \arrow[mapsto, l] \\
+	M \dotimes{B} P^\vee \dotimes{A} P \arrow[r, "\sim"] & \Hom_{\cated{Mod}B}(P, M) \dotimes{A} P \arrow[r, "\epsilon_M"] & M \\
+	x \otimes \lambda \otimes p \arrow[mapsto, r] & x \lambda(\cdot) \otimes p \arrow[mapsto, r] & x\lambda(p) \arrow[equal, d] \\
+	& & (\identity_M \otimes \mathrm{ev})(x \otimes \lambda \otimes p).
+\end{tikzcd}\]
+Thus we may identify
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.q009
+\begin{align*}
+	\eta_N = \identity_N \otimes \mathrm{coev}: \; & N \to N \dotimes{A} P \dotimes{B} P^\vee , \\
+	\epsilon_M = \identity_M \otimes \mathrm{ev}: \; & M \dotimes{B} P^\vee \dotimes{A} P \to M.
+\end{align*}
+
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.p006
+The preceding constructions take place at the level of the bimodules $P$ and
+$P^\vee$ and do not depend on $M$ or $N$ at all.
+
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.d002
+\begin{definition}\label{def:cogebroid}
+	\index{module} \index{comodule}
+	For an arbitrary $\Bbbk$-algebra $A$, the category
+	$(A,A)\dcate{Mod}$ is monoidal under $\otimes:=\dotimes{A}$. Hence
+	\S\ref{sec:alg-in-monoidal-cat} and \S\ref{sec:bialgebra} define what is
+	meant by an algebra $E$ (or coalgebra $C$) in $(A,A)\dcate{Mod}$, as well
+	as by left and right $E$-modules (or left and right $C$-comodules). Since
+	the definition of a module (or comodule) involves $\otimes$ on only one
+	side, the following slight generalization is needed.
+	\begin{itemize}
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.i001
+		\item A left $E$-module means the following data: an
+		$M\in\Obj(A\dcate{Mod})$ together with a morphism in $A\dcate{Mod}$,
+		$\mu_M:E\otimes M\to M$, such that the diagrams in
+		Definition~\ref{def:module-algebra} commute in $A\dcate{Mod}$.
+
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.i002
+		\item A left $C$-comodule means the following data: an
+		$M\in\Obj(A\dcate{Mod})$ together with a morphism in $A\dcate{Mod}$,
+		$\rho_M:M\to C\otimes M$, such that the diagrams in
+		Definition~\ref{def:comodule-cogebra} commute in $A\dcate{Mod}$.
+	\end{itemize}
+	Right $E$-modules and right $C$-comodules are defined similarly, and
+	morphisms between modules or comodules are defined in the standard way.
+\end{definition}
+
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.p007
+Applying the preceding sequence of results to describe the monad and comonad
+determined by the adjoint pair \eqref{eqn:AB-adjunction-2} immediately gives
+the following result.
+
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.pr001
+\begin{proposition}\label{prop:Morita-comonad}
+	Let $P$ be an $(A,B)$-bimodule which, as a right $B$-module, is finitely
+	generated and projective, and define the $(B,A)$-bimodule $P^\vee$ as
+	above. Then:
+	\begin{itemize}
+		\item $P\dotimes{B}P^\vee$ is an algebra in the monoidal category
+		$(A,A)\dcate{Mod}$. Its multiplication is given by
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.q010
+		\[ \identity_P \otimes \mathrm{ev} \otimes \identity_{P^\vee}: P \dotimes{B} P^\vee \dotimes{A} P \dotimes{B} P^\vee \to P \dotimes{B} P^\vee \]
+		and its unit comes from
+		$\mathrm{coev}:A\to P\dotimes{B}P^\vee$;
+		\item $P^\vee\dotimes{A}P$ is a coalgebra in the monoidal category
+		$(B,B)\dcate{Mod}$. Its comultiplication is given by
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.q011
+		\[ \identity_{P^\vee} \otimes \mathrm{coev} \otimes \identity_P: P^\vee \dotimes{A} P \to P^\vee \dotimes{A} P \dotimes{B} P^\vee \dotimes{A} P \]
+		and its counit comes from
+		$\mathrm{ev}:P^\vee\dotimes{A}P\to B$.
+	\end{itemize}
+
+	Next, consider the monad $T$ on $\cated{Mod}A$ determined by the adjoint
+	pair \eqref{eqn:AB-adjunction-2}, and the comonad $L$ on
+	$\cated{Mod}B$ determined by it. Use Definition~\ref{def:cogebroid} when
+	discussing modules and comodules.
+	\begin{itemize}
+		\item Specifying a $T$-module is equivalent to specifying a right
+		$A$-module $N$ together with a homomorphism satisfying the usual
+		properties such as associativity and unitality,
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.q012
+		\[ N \dotimes{A} (P \dotimes{B} P^\vee) \to N; \]
+		in other words, it is equivalent to making $N$ a
+		$(P\dotimes{B}P^\vee)$-module.
+		\item Specifying an $L$-comodule is equivalent to specifying a right
+		$B$-module $M$ together with a homomorphism satisfying the usual
+		properties such as coassociativity and counitality,
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.q013
+		\[ M \to M \dotimes{B} (P^\vee \dotimes{A} P); \]
+		in other words, it is equivalent to making $M$ a
+		$(P^\vee\dotimes{A}P)$-comodule.
+	\end{itemize}
+\end{proposition}
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.pf002
+\begin{proof}
+	The proof is easier than the statement.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.p008
+As a ring, $P\dotimes{B}P^\vee$ is simply
+$\End_{B\dcate{Mod}}(P)$. By contrast, the coalgebra structure on
+$P^\vee\dotimes{A}P$ looks cumbersome, but it is often more convenient in
+applications. Nevertheless, comodules do not have an absolute advantage:
+for example, the coalgebra must be flat for its comodule category to be
+abelian. We give only an outline of a simple proof; the exercises at the end
+of the chapter provide more.
+
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.pr002
+\begin{proposition}\label{prop:Comod-abelian}
+	Let $C$ be a coalgebra in $(B,B)\dcate{Mod}$. Write the category of right
+	(or left) $C$-comodules as $\cated{Comod}C$ (or $C\dcate{Comod}$), and
+	write its forgetful functor to $\cated{Mod}B$ (or $B\dcate{Mod}$) as
+	$U$. If $C$, as a left (or right) $B$-module, is flat
+	\cite[Definition 6.9.4]{Li1}, then $\cated{Comod}C$ (or
+	$C\dcate{Comod}$) is an abelian category and $U$ is faithful and exact.
+\end{proposition}
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.pf003
+\begin{proof}
+	It is enough to discuss the version for $\cated{Comod}C$. Let
+	$f:M\to N$ be a homomorphism of right $C$-comodules and denote its
+	cokernel at the level of $B$-modules by $\Coker(Uf)$. Then there is a
+	commutative diagram in $\cated{Mod}B$ with exact rows,
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.q014
+	\[\begin{tikzcd}
+		M \arrow[r, "Uf"] \arrow[d] & N \arrow[d] \arrow[r] & \Coker(Uf) \arrow[dashed, d] \arrow[r] & 0 \\
+		M \dotimes{B} C \arrow[r, "{Uf \otimes \identity}"'] & N \dotimes{B} C \arrow[r] & \Coker(Uf) \dotimes{B} C \arrow[r] & 0,
+	\end{tikzcd}\]
+	where the dashed arrow is uniquely determined by functoriality of the
+	cokernel. It is easy to prove that this dashed arrow gives $\Coker(Uf)$ a
+	comodule structure; we denote this object by $\Coker(f)$, and it is the
+	cokernel of $f$. The reader may check the details if desired.
+
+	We wish to lift $\Ker(Uf)$ to a comodule in the same way. The key is to
+	ensure that
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.q015
+	\[ 0 \to \Ker(Uf) \dotimes{B} C \to M \dotimes{B} C \xrightarrow{Uf \otimes \identity} N \dotimes{B} C \]
+	is exact in $\cated{Mod}B$. This is where the flatness of $C$ as a left
+	$B$-module is needed; the remaining routine verification is similar to
+	the cokernel case.
+
+	To prove that $\cated{Comod}C$ is an abelian category, it remains to show
+	that the canonical morphism
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.q016
+	\[ \Coim(f) = \Coker[\Ker(f) \hookrightarrow M] \to \Ker[N \twoheadrightarrow \Coker(f)] = \Image(f) \]
+	is an isomorphism, but this need only be checked at the level of
+	$\cated{Mod}B$.
+
+	By construction, $U$ preserves kernels and cokernels and is therefore
+	exact; it is plainly faithful as well.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.p009
+Returning to the main discussion, we continue the study of the functor
+$(\mathord\cdot)\dotimes{A}P$.
+
+% Reference: Deligne, Categories tannakiennes, 4.5 Proposition.
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.pr003
+\begin{proposition}\label{prop:Morita-comonad-ft}
+	Let $P$ be an $(A,B)$-bimodule which, as a right $B$-module, is finitely
+	generated and projective, and suppose that
+	$(\mathord\cdot)\dotimes{A}P$ is a faithful exact functor. A right
+	$A$-module $N$ is finitely generated if and only if the right $B$-module
+	$N\dotimes{A}P$ is finitely generated.
+\end{proposition}
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.pf004
+\begin{proof}
+	For the ``only if'' direction, suppose there are $n\in\Z_{\geq0}$ and a
+	surjective homomorphism $A^{\oplus n}\twoheadrightarrow N$. Applying the
+	functor gives a surjective homomorphism
+	$P^{\oplus n}\twoheadrightarrow N\dotimes{A}P$, while $P$, as a right
+	$B$-module, is finitely generated.
+
+	For the ``if'' direction, take a finitely generated submodule $N'$ of $N$
+	such that the image of $N'\dotimes{A}P$ contains a set of generators of
+	$N\dotimes{A}P$ as a $B$-module. Since
+	$(\mathord\cdot)\dotimes{A}P$ is faithful and exact, we in fact have
+	$N'\dotimes{A}P\rightiso N\dotimes{A}P$, and hence $N'=N$.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter7.morita-theory-b.p010
+In fact, the property that a module is finitely generated admits an entirely
+categorical characterization, as follows.

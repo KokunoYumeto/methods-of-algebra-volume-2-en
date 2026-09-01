@@ -1,0 +1,484 @@
+% English translation of prelude.tex, lines 207--495.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.prelude.conventions
+
+% segment-id: o014.li2.prelude.conventions.h001
+\section*{Conventions}
+\addcontentsline{toc}{section}{Conventions}
+\hypertarget{o014.aljabr2.prelude.conventions}{ }
+
+% segment-id: o014.li2.prelude.conventions.p001
+The notational conventions in this book are the same as in Volume~I. They are summarized here, at the risk of some length.
+
+% segment-id: o014.li2.prelude.conventions.h002
+\subsection*{Basic Conventions}
+
+% segment-id: o014.li2.prelude.conventions.p002
+The book uses standard logical symbols such as $\forall$, $\exists$, and $\implies$. The symbol $\exists !$ means ``there exists exactly one,'' and $\iff$ means ``if and only if.'' The end of a proof is marked by $\Box$. The notation $A:=B$ means ``$A$ is defined to be $B$.'' If the definition of a mathematical object does not depend on choices of auxiliary data, it is called well-defined.
+\index{well-defined}
+
+% segment-id: o014.li2.prelude.conventions.p003
+The arrow $\rightiso$ denotes an isomorphism between objects, sometimes written without direction as $\simeq$. The symbols $\xrightarrow{1:1}$ and $\stackrel{1:1}{\longleftrightarrow}$ denote a bijection between sets, that is, a one-to-one correspondence. Notation such as $F(\cdot)$ emphasizes the variable of a map or functor $F$.
+
+% segment-id: o014.li2.prelude.conventions.p004
+The notation $n\gg m$ means that $n$ is sufficiently larger than $m$. Thus $n\gg0$ means that $n$ is sufficiently large, while $n\ll0$ means that $-n$ is sufficiently large.
+
+% segment-id: o014.li2.prelude.conventions.p005
+The language of commutative diagrams is used extensively. The simplest case is the following.
+
+% segment-id: o014.li2.prelude.conventions.d001
+\[\begin{tikzcd}
+	A \arrow[r, "f"] \arrow[d, "h"'] & B \arrow[ld, "g"] \\
+	C &
+\end{tikzcd} \; \text{commutes} \stackrel{\text{definition}}{\iff} g \circ f = h. \]
+
+% segment-id: o014.li2.prelude.conventions.p006
+Here $f$, $g$, and $h$ may be maps, homomorphisms, or morphisms in an arbitrary category. More complicated commutative diagrams are understood in the same way.
+
+% segment-id: o014.li2.prelude.conventions.h003
+\subsection*{Sets and Order Structures}
+
+% segment-id: o014.li2.prelude.conventions.p007
+The book uses Zermelo--Fraenkel axiomatic set theory and accepts the axiom of choice.
+
+% segment-id: o014.li2.prelude.conventions.p008
+The empty set is denoted by $\emptyset$. The notation $A\subset B$ means that $A$ is a subset of $B$, with equality allowed; strict inclusion is written $A\subsetneq B$. Set difference is $A\smallsetminus B:=\{a\in A:a\notin B\}$, and disjoint union is $A\sqcup B$. For a map $f:A\to B$, the notation $a\mapsto b$ means that $a\in A$ is mapped by $f$ to $b\in B$, and $f|_{A'}$ is the restriction of $f$ to a subset $A'\subset A$. The identity map on $A$ is denoted by $\identity=\identity_A$. The number of elements of $A$, also called its cardinality or cardinal, is denoted by $|A|$.
+
+% segment-id: o014.li2.prelude.conventions.p009
+Following \cite[Definition~1.2.1]{Li1}, a \emph{partially ordered set}
+\index{partially ordered set}
+is a set $P$ equipped with a reflexive, transitive, and antisymmetric binary relation $\leq$. Omitting antisymmetry gives a \emph{preordered set}. The notation $x<y$ means $x\lneq y$. A partially ordered set $(P,\leq)$ is often abbreviated to $P$.
+
+% segment-id: o014.li2.prelude.conventions.l001
+\begin{itemize}
+	% segment-id: o014.li2.prelude.conventions.i001
+	\item If $m\in P$ satisfies $\forall x\in P,\;x\geq m\iff x=m$, then $m$ is a maximal element of $P$. Replacing $\geq$ by $\leq$ defines a minimal element. In general these need not be unique.
+	% segment-id: o014.li2.prelude.conventions.i002
+	\item Let $S$ be a subset of $P$. If $b\in P$ satisfies $\forall x\in S,\;x\leq b$, then $b$ is an upper bound of $S$ in $P$. Lower bounds are defined similarly.
+	% segment-id: o014.li2.prelude.conventions.i003
+	\item If $b$ is an upper bound of $S$ and every other upper bound $b'$ satisfies $b'\geq b$, then $b$ is the supremum of $S$, denoted $\sup S$. A supremum, if it exists, is unique. The infimum $\inf S$ is defined similarly.
+\end{itemize}
+
+% segment-id: o014.li2.prelude.conventions.p010
+A map $f:P\to Q$ of partially ordered sets is order-preserving if $a\leq b\implies f(a)\leq f(b)$. If $f$ is bijective and both $f$ and $f^{-1}$ are order-preserving, it is an isomorphism of partially ordered sets, or an order-preserving bijection.
+
+% segment-id: o014.li2.prelude.conventions.p011
+If every two elements of a partially ordered set $P$ are comparable, then $P$ is totally ordered. A nonempty totally ordered set in which every nonempty subset has a least element is \emph{well-ordered}
+\index{well-ordered set}. Certain special well-ordered sets are called \emph{ordinals}\index{ordinal}, and any two ordinals are comparable. Briefly:
+
+% segment-id: o014.li2.prelude.conventions.l002
+\begin{itemize}
+	% segment-id: o014.li2.prelude.conventions.i004
+	\item for every ordinal $\alpha$, one has $\alpha=\{\beta:\text{ordinal},\;\beta<\alpha\}$;
+	% segment-id: o014.li2.prelude.conventions.i005
+	\item if an ordinal $\kappa$, as a set, is not equinumerous with any ordinal smaller than $\kappa$, then it is called a \emph{cardinal};
+	\index{cardinal}
+	% segment-id: o014.li2.prelude.conventions.i006
+	\item the cardinality $|S|$ of a set $S$ is defined as the least ordinal in its equinumerosity class. This uses the fact that every set can be well-ordered (which requires the axiom of choice) and that every well-ordered set is isomorphic to a unique ordinal;
+	% segment-id: o014.li2.prelude.conventions.i007
+	\item in particular, $|\alpha|\leq\alpha$ for every ordinal $\alpha$.
+\end{itemize}
+
+% segment-id: o014.li2.prelude.conventions.p012
+This is von Neumann's viewpoint; see \cite[\S~1.2]{Li1} or \cite{Je03}. It is slightly more circuitous than the usual definition of a cardinal as an equinumerosity class, but has its conveniences.
+
+% segment-id: o014.li2.prelude.conventions.p013
+Finite ordinals may be identified with nonnegative integers: for each $n\in\Z_{\geq0}$ there is a corresponding totally ordered set $\mathbf n$, recursively defined as a set by $\mathbf0:=\emptyset$ and $\mathbf{n+1}:=\{\mathbf0,\ldots,\mathbf n\}$, with the evident order. The least infinite ordinal $\omega$ is the well-ordered set $\mathbf0\leq\mathbf1\leq\cdots$, and is also the countable cardinal $\aleph_0$.
+\index[sym1]{012@$\mathbf{0}, \mathbf{1}, \mathbf{2}, \ldots$}
+
+% segment-id: o014.li2.prelude.conventions.p014
+We choose a \emph{Grothendieck universe}
+\index{Grothendieck universe}
+\index[sym1]{U@$\mathcal{U}$} $\mathcal U$ to distinguish sizes of sets. Elements of $\mathcal U$ are called $\mathcal U$-sets; sets equinumerous with a $\mathcal U$-set are called $\mathcal U$-small, or simply \emph{small sets}\index{small set}. If a cardinal $\mu$, regarded as a set, is $\mathcal U$-small, it is a \emph{small cardinal}\index{cardinal!small}. We assume that every set $X$ belongs to some $\mathcal U$; see \cite[Assumption~1.5.2]{Li1} and the accompanying discussion.
+
+% segment-id: o014.li2.prelude.conventions.h004
+\subsection*{Categories}
+
+% segment-id: o014.li2.prelude.conventions.p015
+Our conventions for categories agree with \cite[\S~1.5, Definition~2.1.3]{Li1}: the objects and morphisms of a category $\mathcal C$ each form a set, denoted by $\Obj(\mathcal C)$ and $\Mor(\mathcal C)$. The set of morphisms between two objects is denoted by $\Hom_{\mathcal C}(\cdot,\cdot)$, or simply $\Hom(\cdot,\cdot)$. The identity morphism of $X$ is $\identity_X$. Monomorphisms are marked by $\hookrightarrow$ and epimorphisms by $\twoheadrightarrow$; a monomorphism is also called an embedding.
+\index{category}
+\index{object}
+
+% segment-id: o014.li2.prelude.conventions.l003
+\begin{itemize}
+	% segment-id: o014.li2.prelude.conventions.i008
+	\item For any morphism $f:X\to Y$ in a category and any object $T$, $f$ induces pullback $f^*$ and pushforward $f_*$ operations on $\Hom$ sets:
+	\begin{align*}
+		f^*: \Hom(Y, T) & \to \Hom(X, T), & f_*: \Hom(T, X) & \to \Hom(T, Y) \\
+		\beta & \mapsto \beta f & \alpha & \mapsto f\alpha .
+	\end{align*}
+	% segment-id: o014.li2.prelude.conventions.i009
+	\item Subcategories are written using subset notation, $\mathcal C'\subset\mathcal C$. If $\Hom_{\mathcal C'}(X,Y)=\Hom_{\mathcal C}(X,Y)$, then $\mathcal C'$ is a full subcategory.
+
+	% segment-id: o014.li2.prelude.conventions.i010
+	\item The product $\mathcal C_1\times\mathcal C_2$ of two categories has object set $\Obj(\mathcal C_1)\times\Obj(\mathcal C_2)$. A morphism from $(X_1,X_2)$ to $(Y_1,Y_2)$ is an element of $\Hom_{\mathcal C_1}(X_1,Y_1)\times\Hom_{\mathcal C_2}(X_2,Y_2)$, and composition is componentwise. This immediately defines products $\prod_i\mathcal C_i$ of arbitrary families of categories. Likewise, $\mathcal C^n:=\mathcal C\times\cdots\times\mathcal C$ ($n$ factors), or more generally $\mathcal C^I$ for a set $I$. See \cite[Definition~2.3.1]{Li1}.
+	\index{product category}
+\end{itemize}
+
+% segment-id: o014.li2.prelude.conventions.p016
+For example, every preordered set $(P,\leq)$ determines a category $\mathcal P$ with object set $P$ and
+
+% segment-id: o014.li2.prelude.conventions.d002
+\[ \forall a,b \in P, \quad \Hom_{\mathcal{P}}(a, b) = \begin{cases}
+	\text{the singleton} \; \{ \star \}, & a \leq b \\
+	\emptyset, & \text{otherwise.}
+\end{cases}\]
+
+% segment-id: o014.li2.prelude.conventions.p017
+In particular, $\mathbf0$ may be identified with the empty category, having no objects and no morphisms, while $\mathbf1$ is identified with the category having exactly one object $\mathbf0$ and one morphism $\identity_{\mathbf0}$.
+
+% segment-id: o014.li2.prelude.conventions.p018
+A category satisfying $\Mor(\mathcal C)=\{\identity_X:X\in\Obj(\mathcal C)\}$ is called \emph{discrete}. Discrete categories correspond bijectively to sets under $\mathcal C\mapsto\Obj(\mathcal C)$.
+\index{category!discrete}
+
+% segment-id: o014.li2.prelude.conventions.h005
+\subsection*{Terminology: Small and Large Categories}
+
+% segment-id: o014.li2.prelude.conventions.p019
+Fix a Grothendieck universe $\mathcal U$, and let $\mathcal C$ be a category. If $\mathrm{Mor}(\mathcal C)$ is $\mathcal U$-small, then $\mathcal C$ is a $\mathcal U$-small category. If only $\Hom_{\mathcal C}(X,Y)$ is required to be $\mathcal U$-small for every $X,Y\in\Obj(\mathcal C)$, then $\mathcal C$ is a $\mathcal U$-category.
+\footnote{In much of the literature, the objects of a category are understood to form a class, while the $\Hom$ between any two objects is a set. Thus their ``classes'' correspond to this book's sets, their ``sets'' to this book's $\mathcal U$-sets, and their ``categories'' essentially to this book's $\mathcal U$-categories.}
+
+% segment-id: o014.li2.prelude.conventions.p020
+For example, all $\mathcal U$-sets and maps between them form the $\mathcal U$-category $\cate{Set}$, which is not $\mathcal U$-small. Without a choice of $\mathcal U$, on the other hand, all sets form a proper class and not a category in the sense of this book. Similarly, $\cate{Grp}$ (or $\cate{Ab}$) denotes the category of all groups (or abelian groups) realized on $\mathcal U$-sets; these are $\mathcal U$-categories.
+\index[sym1]{Set@$\cate{Set}$}
+
+% segment-id: o014.li2.prelude.conventions.p021
+To see that size is a genuine issue, observe that the $\Hom$ functor $\Hom_{\mathcal C}:\mathcal C^{\opp}\times\mathcal C\to\cate{Set}$ can be defined only when $\mathcal C$ is a $\mathcal U$-category.
+
+% segment-id: o014.li2.prelude.conventions.p022
+Unless otherwise stated, categories in this book are $\mathcal U$-categories, and $\mathcal U$-small categories are simply called \emph{small}. A category not necessarily a $\mathcal U$-category is called \emph{large}.
+\index{category!small, large}
+\index{size issues}
+
+% segment-id: o014.li2.prelude.conventions.p023
+Large categories are hard to avoid in many constructions, especially in theories involving functor categories or localization. Whenever a large category may occur and has substantive consequences, this will be stated explicitly.
+
+% segment-id: o014.li2.prelude.conventions.h006
+\subsection*{Functors and Functor Categories}
+
+% segment-id: o014.li2.prelude.conventions.p024
+The identity functor of $\mathcal C$ is denoted by $\identity_{\mathcal C}$. A functor $F:\mathcal C\to\mathcal D$ sends a morphism $f:X\to Y$ in $\mathcal C$ to a morphism $Ff:FX\to FY$ in $\mathcal D$. If $\Hom_{\mathcal C}(X,Y)\to\Hom_{\mathcal D}(FX,FY)$ is injective (respectively bijective) for every $X,Y$, then $F$ is faithful (respectively fully faithful). If every object of $\mathcal D$ is isomorphic to some $FX$, then $F$ is essentially surjective.
+\index{functor}
+
+% segment-id: o014.li2.prelude.conventions.p025
+For categories associated with partially ordered sets, an order-preserving map $P\to Q$ is precisely a functor $\mathcal P\to\mathcal Q$.
+
+\index{natural transformation}
+\index{2-cell}
+% segment-id: o014.li2.prelude.conventions.p026
+In some of the literature, a morphism $\varphi:F\to G$ between functors is also called a natural transformation and is sometimes written with a double arrow $\varphi:F\Rightarrow G$. It consists of a compatible family $(\varphi_X:FX\to GX)_{X\in\Obj(\mathcal C)}$, and may be represented by the \emph{$2$-cell} diagram introduced in \cite[\S~2.2]{Li1}:
+
+% segment-id: o014.li2.prelude.conventions.d003
+\[\begin{tikzcd}
+	\mathcal{C} \arrow[rr, bend left=45, "F", ""'{name=F}] \arrow[rr, bend right=45, "G"', ""{name=G}] & & \mathcal{D} \arrow[Rightarrow, from=F, to=G, "\varphi"].
+\end{tikzcd}\]
+
+% segment-id: o014.li2.prelude.conventions.p027
+When $\cate{Ab}$-categories (see \S\sourcecrossref{sec:Ker-Coker}{1.3}) or $\Bbbk$-linear categories (see \S\sourcecrossref{sec:linear-cat}{1.4}) are discussed later, corresponding conditions will also be imposed on functors.
+
+% segment-id: o014.li2.prelude.conventions.p028
+Given functors
+$\begin{tikzcd}
+	\mathcal{B} \arrow[r, "R"] & \mathcal{C} \arrow[shift left, r, "F"] \arrow[shift right, r, "G"'] & \mathcal{D} \arrow[r, "L"] & \mathcal{E}
+\end{tikzcd}$
+and a morphism $\varphi:F\to G$, one naturally obtains $L\varphi:LF\to LG$ and $\varphi R:FR\to GR$. Morphisms $\varphi:F\to G$ and $\psi:G\to H$ can also be composed to form $\psi\varphi:F\to H$. These operations can be expressed as composition of $2$-cells, that is, by pasting diagrams. The triangle identities reviewed shortly are a basic example.
+
+\index{functor category}
+\index[sym1]{DC@$\mathcal{D}^{\mathcal{C}}$}
+\index[sym1]{Fct@$\mathrm{Fct}$}
+% segment-id: o014.li2.prelude.conventions.p029
+All functors from $\mathcal C$ to $\mathcal D$ form the functor category $\mathcal D^{\mathcal C}$, also denoted $\mathrm{Fct}(\mathcal C,\mathcal D)$. Unless $\mathcal C$ is small, $\mathcal D^{\mathcal C}$ is often a ``large category.'' As special cases, for $n\in\Z_{\geq0}$ and the corresponding totally ordered set $\mathbf n$, the categories $\mathcal C^{\mathbf n}$ are described as follows.
+
+% segment-id: o014.li2.prelude.conventions.l004
+\begin{compactitem}
+	% segment-id: o014.li2.prelude.conventions.i011
+	\item by definition, $\mathcal C^{\mathbf0}:=\mathbf1$;
+	% segment-id: o014.li2.prelude.conventions.i012
+	\item there is a unique functor $\mathcal C\to\mathbf1$, hence $\mathbf1^{\mathcal C}=\mathbf1$;
+	% segment-id: o014.li2.prelude.conventions.i013
+	\item specifying a functor $\mathbf1\to\mathcal C$ is equivalent to specifying an object of $\mathcal C$, hence $\mathcal C^{\mathbf1}\simeq\mathcal C$;
+	% segment-id: o014.li2.prelude.conventions.i014
+	\item the objects of $\mathcal C^{\mathbf2}$ are morphisms in $\mathcal C$, and its morphisms are commutative squares between them.
+\end{compactitem}
+
+% segment-id: o014.li2.prelude.conventions.p030
+Thus $\mathbf0$ may be called the initial category, $\mathbf1=[\bullet]$ the terminal category, and $\mathbf2=[\bullet\to\bullet]$ may be pictured as a walking arrow.
+
+\index{category!opposite}
+\index[sym1]{Cop@$\mathcal{C}^{\opp}$}
+% segment-id: o014.li2.prelude.conventions.p031
+The opposite category $\mathcal C^{\opp}$ has the same objects as $\mathcal C$. Every morphism $f:X\to Y$ may be regarded as a morphism $Y\to X$ in $\mathcal C^{\opp}$ and is then written $f^{\opp}$\index[sym1]{fop@$f^{\opp}$}. Moreover, $\mathrm{Fct}(\mathcal C,\mathcal D)^{\opp}$ is naturally identified with $\mathrm{Fct}(\mathcal C^{\opp},\mathcal D^{\opp})$. Passing from $\mathcal C$ to $\mathcal C^{\opp}$ reverses arrows; this mechanism is called duality in category theory.
+
+% segment-id: o014.li2.prelude.conventions.p032
+If functors $F:\mathcal C\leftrightarrows\mathcal D:G$ satisfy $GF\simeq\identity_{\mathcal C}$ and $FG\simeq\identity_{\mathcal D}$, they are mutually quasi-inverse. A functor having a quasi-inverse is an equivalence of categories, a fundamental notion in category theory. If the strict equalities $GF=\identity_{\mathcal C}$ and $FG=\identity_{\mathcal D}$ hold, then they are mutually inverse isomorphisms of categories.
+
+% segment-id: o014.li2.prelude.conventions.h007
+\subsection*{Algebraic Structures}
+
+% segment-id: o014.li2.prelude.conventions.p033
+The identity element of a group is denoted by $1$ in multiplicative notation and by $0$ for an abelian group in additive notation. The opposite group, with reversed multiplication, is $G^{\opp}$. If $H$ is a subgroup of $G$, its index is $(G:H)$, also equal to the number of cosets $|G/H|$ or $|H\backslash G|$.
+\index[sym1]{GH@$(G:H)$}
+
+% segment-id: o014.li2.prelude.conventions.p034
+Unless otherwise stated, rings are associative and unital, as are algebras over commutative rings. The multiplicative identity of $R$ is $1$ or $1_R$, and its invertible elements form the multiplicative group $R^\times$. The characteristic of a field or integral domain $R$ is $\mathrm{char}(R)$. The opposite ring $R^{\opp}$ has multiplication in the reverse order.
+% Correction O014-C002: the source indexes A^{\opp}, although this paragraph
+% defines R^{\opp}.
+\index[sym1]{Rop@$R^{\opp}$}
+
+% segment-id: o014.li2.prelude.conventions.p035
+Let $r$ be a nonzero element of a commutative ring $R$. If the additive-group homomorphism $R\xrightarrow{\text{multiplication by}\;r}R$ has a nonzero kernel, then $r$ is a zero divisor. The ideal generated by $x,y,\ldots$ in a commutative ring is denoted by $(x,y,\ldots)$.
+
+% segment-id: o014.li2.prelude.conventions.p036
+The polynomial algebra over a commutative ring $R$ in variables $X_1,X_2,\ldots$ is $R[X_1,X_2,\ldots]$, and the formal power-series ring is $R\llbracket X_1,X_2,\ldots\rrbracket$. If $M$ is a monoid, its monoid algebra over $R$ is $R[M]$.
+
+% segment-id: o014.li2.prelude.conventions.p037
+By convention, $\Z\subset\Q\subset\R\subset\CC$ denote, respectively, the ring of integers, the field of rational numbers, the field of real numbers, and the field of complex numbers. If $q$ is a prime power, $\F_q$ is the finite field with $q$ elements. If $F\hookrightarrow E$ is an embedding of fields, the corresponding field extension is denoted by $E|F$ and its degree by $[E:F]$. If $E|F$ is Galois, its Galois group is $\Gal(E|F)$.
+\index[sym1]{Gal}
+
+% The following matrix block is inactive in the source and remains disabled.
+%The book uses horizontal rows and vertical columns; an $n \times m$ matrix is written
+%\[ A = (a_{ij})_{\substack{1 \leq i \leq n \\ 1 \leq j \leq m}} = \begin{tikzpicture}[baseline]
+%	\matrix (M) [matrix of math nodes, left delimiter=(, right delimiter=)] {
+%		& \vdots & \\
+%		\cdots & a_{ij} & \cdots \\
+%		& \vdots & \\
+%	};
+%	\node[right=2.5em] at (M-2-3) {\scriptsize row $i$};
+%	\node[below=1em] at (M-3-2) {\scriptsize column $j$};
+%\end{tikzpicture}\]
+%its transpose is denoted by ${}^t A$; the $n\times n$ identity matrix is $1_{n\times n}$ or $1$. For an $n\times n$ matrix $A$ over a commutative ring, its determinant is $\det A$.
+
+% segment-id: o014.li2.prelude.conventions.p038
+The common categories associated with some basic algebraic structures are denoted as follows.
+
+% segment-id: o014.li2.prelude.conventions.t001
+\begin{center}\small \begin{tabular}{|c|c|}\hline
+	Monoids & $\cate{Mon}$ \\
+	Groups &  $\cate{Grp}$ \\
+	Abelian groups & $\cate{Ab} = \Z\dcate{Mod}$ \\
+	Left or right $R$-modules & $R\dcate{Mod}$ or $\cated{Mod}R$ \\
+	$\Bbbk$-vector spaces & $\cate{Vect}(\Bbbk)$ \\
+	$(R,S)$-bimodules & $(R,S)\dcate{Mod}$ \\
+	$\Bbbk$-algebras & $\Bbbk\dcate{Alg}$ \\
+	Commutative $\Bbbk$-algebras & $\Bbbk\dcate{CAlg}$
+	\\ \hline
+\end{tabular} \quad \begin{tabular}{l}
+	$R$, $S$: arbitrary rings, \\
+	$\Bbbk$: a field (for vector spaces), \\
+	$\Bbbk$: a commutative ring (for algebras), \\
+	the module category $\Bbbk\dcate{Mod}$ does not distinguish left from right.
+\end{tabular}\end{center}
+\index[sym1]{Mod@$\cate{Mod}$}
+\index[sym1]{Ab@$\cate{Ab}$}
+\index[sym1]{Grp@$\cate{Grp}$}
+\index[sym1]{Vect@$\cate{Vect}$}
+
+% segment-id: o014.li2.prelude.conventions.p039
+If $\Bbbk$ is fixed and $R,S$ are $\Bbbk$-algebras, then an $(R,S)$-bimodule is understood by default to arise from a left $R\dotimes{\Bbbk}S^{\opp}$-module structure. In other words, the left and right actions of $\Bbbk$ are required to agree.
+
+% segment-id: o014.li2.prelude.conventions.p040
+The group of homomorphisms between two left $R$-modules or two right $R$-modules is denoted by $\Hom_R(X,Y)$. For $(R,S)$-bimodules, the analogous notation is $\Hom_{(R,S)}(X,Y)$.
+
+% segment-id: o014.li2.prelude.conventions.p041
+For a commutative ring $R$ and a multiplicative subset $U$, the corresponding localization is $R[U^{-1}]$.
+
+% segment-id: o014.li2.prelude.conventions.p042
+As with the category of sets $\cate{Set}$, groups, rings, modules, and the other structures here are understood to be realized on $\mathcal U$-sets for the chosen Grothendieck universe $\mathcal U$. Every category in the table therefore has a forgetful functor to $\cate{Set}$. Other examples used in this book, such as the category $\cate{Top}$ of topological spaces and the category $\cate{CHaus}$ of compact Hausdorff spaces, obey the same convention: their spaces are realized on $\mathcal U$-sets.
+
+% segment-id: o014.li2.prelude.conventions.h008
+\subsection*{Adjunctions}
+
+% segment-id: o014.li2.prelude.conventions.p043
+An adjoint pair $(F,G,\varphi)$ consists of two functors
+
+% segment-id: o014.li2.prelude.conventions.d004
+$\begin{tikzcd}
+	\mathcal{C} \arrow[shift left, r, "F"] & \mathcal{C}' \arrow[shift left, l, "G"]
+\end{tikzcd}$
+
+% segment-id: o014.li2.prelude.conventions.p044
+together with a family of canonical bijections $\varphi_{X,Y}:\Hom_{\mathcal C'}(FX,Y)\rightiso\Hom_{\mathcal C}(X,GY)$, that is, an isomorphism of functors
+
+% segment-id: o014.li2.prelude.conventions.d005
+\[ \varphi: \Hom_{\mathcal{C}'}\left(F(\cdot), \cdot \right) \rightiso
+\Hom_{\mathcal{C}}\left(\cdot, G(\cdot) \right): \;
+\mathcal{C}^{\opp} \times \mathcal{C}' \to \cate{Set}. \]
+
+% segment-id: o014.li2.prelude.conventions.p045
+An adjoint pair is also often displayed as
+
+% segment-id: o014.li2.prelude.conventions.d006
+$\begin{tikzcd}
+	F: \mathcal{C} \arrow[shift left, r] & \mathcal{C}' \arrow[l, shift left] : G
+\end{tikzcd}$
+
+% segment-id: o014.li2.prelude.conventions.p046
+meaning that $F$ is left adjoint to $G$, or $G$ is right adjoint to $F$. The datum $\varphi$ is frequently omitted, and the adjoint pair is then written $(F,G)$.
+
+% segment-id: o014.li2.prelude.conventions.p047
+Equivalently, $\varphi$ can be characterized by a \emph{unit} $\eta:\identity_{\mathcal C}\to GF$ and a \emph{counit} $\varepsilon:FG\to\identity_{\mathcal C'}$. The data $(F,G,\eta,\varepsilon)$ form an adjoint pair if and only if they satisfy the \emph{triangle identities}
+\index{unit}
+\index{counit}
+\index{triangle identities}:
+
+% segment-id: o014.li2.prelude.conventions.d007
+\[ G\varepsilon \circ \eta G = \identity_G, \quad
+\varepsilon F \circ F\eta = \identity_F. \]
+
+% segment-id: o014.li2.prelude.conventions.p048
+See \cite[(2.6) + Proposition~2.6.5]{Li1}. Equivalently, these identities may be written as equalities of composites of $2$-cells:
+
+% segment-id: o014.li2.prelude.conventions.d008
+\begin{equation*}\begin{gathered}
+	\begin{tikzcd}
+		\mathcal{C}' \arrow[r, "G"] \arrow[rr, bend right=60, "\identity_{\mathcal{C}'}"', "" {name=B}] & \mathcal{C} \arrow[r, "F"] \arrow[Rightarrow, to=B, "\varepsilon"] \arrow[rr, bend left=60, "\identity_{\mathcal{C}}", ""' {name=T}] & \mathcal{C}' \arrow[r, "G"] \arrow[Rightarrow, from=T, "\eta"] & \mathcal{C}
+	\end{tikzcd} \quad = \quad \begin{tikzcd}[column sep=large]
+		\mathcal{C}' \arrow[r, bend left=60, "G", ""' {name=T}] \arrow[r, bend right=60, "G"', "" {name=B}] & \mathcal{C} \arrow[Rightarrow, from=T, to=B, "{\identity_G}" description]
+	\end{tikzcd} , \\
+	\begin{tikzcd}
+		\mathcal{C} \arrow[r, "F"] \arrow[rr, bend left=60, "\identity_{\mathcal{C}}", ""' {name=T}] & \mathcal{C}' \arrow[r, "G"] \arrow[Rightarrow, from=T, "\eta"] \arrow[rr, bend right=60, "\identity_{\mathcal{C}'}"', ""' {name=B}] & \mathcal{C} \arrow[r, "F"] \arrow[Rightarrow, to=B, "\varepsilon"] & \mathcal{C}'
+	\end{tikzcd} \quad = \quad \begin{tikzcd}[column sep=large]
+		\mathcal{C} \arrow[r, bend left=60, "F", ""' {name=T}] \arrow[r, bend right=60, "F"', "" {name=B}] & \mathcal{C}' \arrow[Rightarrow, from=T, to=B, "{\identity_F}" description]
+	\end{tikzcd}.
+\end{gathered}\end{equation*}
+
+% segment-id: o014.li2.prelude.conventions.p049
+For details, see \cite[Remark~2.6.6]{Li1}.
+
+% segment-id: o014.li2.prelude.conventions.h009
+\subsection*{Limits}
+
+% segment-id: o014.li2.prelude.conventions.p050
+Consider a functor $\alpha:I\to\mathcal C$.
+
+% segment-id: o014.li2.prelude.conventions.l005
+\begin{itemize}
+	% segment-id: o014.li2.prelude.conventions.i015
+	\item The inductive limit of $\alpha$, if it exists, is denoted by $\varinjlim\alpha$ or $\varinjlim_{i\in\Obj(I)}\alpha(i)$. It is an object of $\mathcal C$ equipped with morphisms $\alpha(i)\to\varinjlim\alpha$ and determined by a universal property.
+	\index{limit}
+	% segment-id: o014.li2.prelude.conventions.i016
+	\item Similarly, the projective limit of $\alpha$, if it exists, is denoted by $\varprojlim\alpha$ or $\varprojlim_{i\in\Obj(I)}\alpha(i)$. It is equipped with morphisms $\varprojlim\alpha\to\alpha(i)$ and determined by a universal property.
+\end{itemize}
+
+% segment-id: o014.li2.prelude.conventions.p051
+The two kinds of limits are dual: the $\varinjlim$ of $\alpha:I\to\mathcal C$ is the $\varprojlim$ of $\alpha^{\opp}:I^{\opp}\to\mathcal C^{\opp}$. For this reason, functors involved in $\varprojlim$ are often written in the form $I^{\opp}\to\mathcal C$.
+
+% segment-id: o014.li2.prelude.conventions.p052
+In much of the literature, $\varinjlim$ is called a colimit and denoted by $\mathrm{colim}$, while $\varprojlim$ is called a limit and denoted by $\lim$. Unless otherwise stated, ``limit'' in this book includes both $\varinjlim$ and $\varprojlim$.
+\index[sym1]{lim@$\varinjlim$, $\varprojlim$, $\lim$, $\mathrm{colim}$}
+
+% segment-id: o014.li2.prelude.conventions.p053
+If $I$ is small, the corresponding $\varinjlim$ or $\varprojlim$ is a \emph{small limit}\index{limit!small}. Following the standard terminology of \cite[\S~2.8]{Li1}, a category $\mathcal C$ having all small $\varprojlim$ (respectively all small $\varinjlim$) is \emph{complete} (respectively \emph{cocomplete}). This notion depends on the choice of $\mathcal U$.
+\index{category!complete, cocomplete}
+
+% segment-id: o014.li2.prelude.conventions.p054
+To fix notation, choose a category $\mathcal C$ and review several common special cases of limits. Detailed definitions may be found in \cite[\S~2.7]{Li1} or other textbooks. In the universal properties below, $T$ is an arbitrary object of $\mathcal C$ and $I$ is an arbitrary set.
+
+% segment-id: o014.li2.prelude.conventions.t002
+\begin{center}\small\setlength{\tabcolsep}{2.5pt}\begin{tabular}{|c|c|c|c|c|} \hline
+	Limit & Input & Object & Canonical morphism & Universal property \\ \hline
+	Equalizer & $\begin{tikzcd}[column sep=small] X \arrow[shift left, r, "f"] \arrow[shift right, r, "g"'] & Y\end{tikzcd}$ & $\Ker(f,g)$ & $\Ker(f,g) \xrightarrow{\iota} X$ & $\begin{tikzcd}[row sep=small, column sep=tiny, every cell/.append style={font = \footnotesize}]
+		\Hom(T, \Ker(f,g)) \arrow[d, "1:1"'] & \psi \arrow[mapsto, d] \\
+		\left\{\begin{array}{l} \phi \in \Hom(T, X): \\ f\phi = g\phi \end{array}\right\} & \iota\psi
+	\end{tikzcd}$ \\
+	Coequalizer & (as above) & $\Coker(f,g)$ & $Y \xrightarrow{p} \Coker(f,g)$ & $\begin{tikzcd}[row sep=small, column sep=tiny, every cell/.append style={font = \footnotesize}]
+		\Hom(\Coker(f,g), T) \arrow[d, "1:1"'] & \psi \arrow[mapsto, d] \\
+		\left\{\begin{array}{l} \phi \in \Hom(Y, T): \\ \phi f = \phi g \end{array}\right\} & \psi p
+	\end{tikzcd}$ \\
+	Product & $(X_i)_{i \in I}$ & $\displaystyle\prod_{i \in I} X_i$ & $\displaystyle\prod_{j \in I} X_j \xrightarrow{p_i} X_i$ & $\begin{tikzcd}[row sep=small, column sep=tiny, every cell/.append style={font = \footnotesize}]
+		\Hom\left(T, \displaystyle\prod_{i \in I} X_i \right) \arrow[d, "1:1"'] & \psi \arrow[mapsto, d] \\
+		\displaystyle\prod_{i \in I} \Hom(T, X_i) & \left( p_i \psi \right)_{i \in I}
+	\end{tikzcd}$ \\
+	Coproduct & (as above) & $\displaystyle\coprod_{i \in I} X_i$ & $X_i \xrightarrow{\iota_i} \displaystyle\coprod_{j \in I} X_j$ & $\begin{tikzcd}[row sep=small, column sep=tiny, every cell/.append style={font = \footnotesize}]
+		\Hom\left(\displaystyle\coprod_{i \in I} X_i, T \right) \arrow[d, "1:1"'] & \psi \arrow[mapsto, d] \\
+		\displaystyle\prod_{i \in I} \Hom(X_i, T) & \left( \psi \iota_i \right)_{i \in I}
+	\end{tikzcd}$ \\ \hline
+\end{tabular}\end{center}
+
+% segment-id: o014.li2.prelude.conventions.n001
+\begin{quote}\small
+\textbf{Translator's note.} In the coproduct row, the source gives the target of the canonical injection as $\prod_{j\in I}X_j$. It has been corrected to $\coprod_{j\in I}X_j$, in agreement with the preceding object column and the following universal property; see correction O014-C003.
+\end{quote}
+
+% segment-id: o014.li2.prelude.conventions.p055
+Finite products (respectively coproducts) are also written $X_1\times X_2\times\cdots$ (respectively $X_1\sqcup X_2\sqcup\cdots$). If $\mathcal C$ is additive, the coproduct $\coprod_i$ is often written using the direct-sum symbol $\bigoplus_i$ from module theory.
+\index[sym1]{oplus@$\oplus$}
+
+% segment-id: o014.li2.prelude.conventions.p056
+Equalizers and coequalizers, and products and coproducts, form dual pairs. These universal-property characterizations may also be written as commutative diagrams as in \cite[\S~2.7]{Li1}, or interpreted through the Yoneda embedding reviewed in \S\sourcecrossref{sec:Yoneda}{A.1}. Suppose that $\coprod_{i\in I}X_i$ and $\prod_{j\in J}Y_j$ exist. Their universal properties give a bijection
+
+% segment-id: o014.li2.prelude.conventions.d009
+\[ \Hom\left( \coprod_{i \in I} X_i, \prod_{j \in J} Y_j \right)
+\xrightarrow{1:1} \prod_{\substack{i \in I \\ j \in J}} \Hom(X_i, Y_j),
+\quad \psi \mapsto (p_j \psi \iota_i)_{i,j} . \]
+
+% segment-id: o014.li2.prelude.conventions.l006
+\begin{description}
+	% segment-id: o014.li2.prelude.conventions.i017
+	\item[Terminal object] A product corresponding to $I=\emptyset$, if it exists, is a terminal object of $\mathcal C$, temporarily denoted by $Z$. By convention, $\prod_{i\in\emptyset}:=\{\emptyset\}$, so the universal property of $Z$ says that $\Hom(T,Z)$ is a singleton for every $T\in\Obj(\mathcal C)$.
+	% segment-id: o014.li2.prelude.conventions.i018
+	\item[Initial object] A coproduct corresponding to $I=\emptyset$, if it exists, is an initial object of $\mathcal C$, temporarily denoted by $S$. Its universal property says that $\Hom(S,T)$ is a singleton for every $T\in\Obj(\mathcal C)$.
+	% segment-id: o014.li2.prelude.conventions.i019
+	\item[Zero object and zero morphism] If an object $0$ of $\mathcal C$ is both initial and terminal, it is called a zero object; morphisms to and from it exist and are unique. For $X,Y\in\Obj(\mathcal C)$, the composite $X\to0\to Y$ gives a canonical element of $\Hom(X,Y)$ called the zero morphism.
+	\index{object!zero}
+\end{description}
+
+% segment-id: o014.li2.prelude.conventions.p057
+Because an isomorphism from any object $X$ to a zero object, if it exists, is unique, one customarily says that $X$ is a zero object or writes $X=0$, rather than saying that $X$ is isomorphic to a zero object.
+
+% segment-id: o014.li2.prelude.conventions.p058
+We next review two important, mutually dual kinds of limit.
+
+% segment-id: o014.li2.prelude.conventions.t003
+\begin{center}\small\setlength{\tabcolsep}{2.5pt}\begin{tabular}{|c|c|c|c|c|} \hline
+	Name & Input & Object & Canonical morphism & Universal property \\ \hline
+	Fiber product & $\left( X_i \xrightarrow{f_i} Z \right)_{i \in I}$ & $\displaystyle\prod_{i \in I} (X_i \to Z)$ & $\begin{tikzcd}[every cell/.append style={font = \footnotesize}] \displaystyle\prod_{j \in I} (X_j \to Z) \arrow[d, "p_i"] \\ X_i \end{tikzcd}$ & $\begin{tikzcd}[every cell/.append style={font = \footnotesize}]
+		\Hom\left(T, \displaystyle\prod_{i \in I} (X_i \to Z) \right) \arrow[d, "1:1"', "{\psi \mapsto (p_i \psi)_i}"] \\
+		\left\{\begin{array}{l} (\xi_i: T \to X_i)_{i \in I}: \\ \forall i,j \in I, \\ f_i \xi_i = f_j \xi_j \end{array}\right\}
+	\end{tikzcd}$ \\
+	Fiber coproduct & $\left( Z \xrightarrow{g_i} X_i \right)_{i \in I}$ & $\displaystyle\coprod_{i \in I} (Z \to X_i)$ & $\begin{tikzcd}[every cell/.append style={font = \footnotesize}] X_i \arrow[d, "\iota_i"] \\ \displaystyle\coprod_{j \in I} (Z \to X_j) \end{tikzcd}$ & $\begin{tikzcd}[every cell/.append style={font = \footnotesize}]
+		\Hom\left(\displaystyle\coprod_{i \in I} (Z \to X_i), T \right) \arrow[d, "1:1"', "{\psi \mapsto (\psi \iota_i)_i}"] \\
+		\left\{\begin{array}{l} (\xi_i: X_i \to T)_{i \in I}: \\ \forall i,j \in I, \\ \xi_i g_i = \xi_j g_j \end{array}\right\}
+	\end{tikzcd}$ \\ \hline
+\end{tabular}\end{center}
+
+% segment-id: o014.li2.prelude.conventions.p059
+Taking $\psi=\identity$ in the universal property of the fiber product shows that $f_ip_i=f_jp_j$ for all $i,j$, yielding a canonical morphism $\prod_{i\in I}(X_i\to Z)\to Z$. Similarly, for the fiber coproduct, taking $\psi=\identity$ shows that $\iota_ig_i=\iota_jg_j$ for all $i,j$, yielding a canonical morphism $Z\to\coprod_{i\in I}(Z\to X_i)$.
+
+% segment-id: o014.li2.prelude.conventions.p060
+Fiber products of finitely many objects $X_1\dtimes{Z}X_2\dtimes{Z}\cdots$, and fiber coproducts $X_1\dsqcup{Z}X_2\dsqcup{Z}\cdots$, reduce to repeated instances of the two-object case. Consider the following two commutative diagrams.
+
+% segment-id: o014.li2.prelude.conventions.d010
+\[\begin{tikzcd}
+	X \dtimes{Z} Y \arrow[r, "p_1"] \arrow[d, "p_2"'] & X \arrow[d] \\
+	Y \arrow[r] & Z
+\end{tikzcd} \quad \text{and} \quad \begin{tikzcd}
+	Z \arrow[r] \arrow[d] & X \arrow[d, "\iota_1"] \\
+	Y \arrow[r, "\iota_2"'] & X \dsqcup{Z} Y
+\end{tikzcd}\]
+% Correction O014-C004: an extra backslash after the opening tikzcd in the
+% source was removed as a syntax artifact with no mathematical content.
+
+% segment-id: o014.li2.prelude.conventions.p061
+These are called a \emph{pullback} diagram and a \emph{pushout} diagram, respectively. The morphism $X\dtimes{Z}Y\to Y$ is called the pullback of $X\to Z$, and $Y\to X\dsqcup{Z}Y$ the pushout of $Z\to X$; the roles of $X$ and $Y$ are symmetric. More generally, commutative diagrams isomorphic to these are also called pullback and pushout diagrams; see \cite[Definition~2.8.5]{Li1}.
+\index{pullback diagram}
+\index{pushout diagram}
+
+% segment-id: o014.li2.prelude.conventions.p062
+In this book, the center of the square in a pullback (respectively pushout) diagram is marked by $\Box$ (respectively $\boxplus$).
+\index[sym1]{Box@$\Box$, $\boxplus$}
+
+% segment-id: o014.li2.prelude.conventions.h010
+\subsection*{Translation}
+
+% segment-id: o014.li2.prelude.conventions.p063
+In the Chinese source edition, the conventions for translation agree with \cite{Li1}; Chinese terminology is kept compatible with \cite{ZG} unless that work's translation is clearly inappropriate or erroneous.
+
+% segment-id: o014.li2.prelude.conventions.p064
+In the source index, Chinese terms are accompanied by English equivalents. This helps readers who need to read or write articles in English, provides a reference for readers whose native language is not Chinese, and, finally, reflects the historical fact that knowledge of foreign languages remains necessary for understanding the meaning of many mathematical symbols.
+
+% segment-id: o014.li2.prelude.conventions.n002
+\begin{quote}\small
+\textbf{Translator's note.} This English edition indexes English headwords and records the Chinese--English terminological choices in a separate production glossary.
+\end{quote}

@@ -1,0 +1,71 @@
+{
+  "schema": "o014-reader-diagram-description-overrides-en-v1",
+  "purpose": "Reader-only source-derived English replacements for malformed or truncated ledger descriptions.",
+  "overrides": [
+    {
+      "diagram_id": "chapter1-unit-015-d003",
+      "source_ref": "source/en/chapter1-unit-015.tex:52-59",
+      "description_en": "Left Kan-extension 2-cell diagram. Functors K: C → D and F: C → E; the two functors D → E are Lan_K F and L. Natural transformations η: F ⇒ (Lan_K F)K and χ: Lan_K F ⇒ L express ξ = (χK)η."
+    },
+    {
+      "diagram_id": "chapter1-unit-015-d005",
+      "source_ref": "source/en/chapter1-unit-015.tex:76-83",
+      "description_en": "Right Kan-extension 2-cell diagram. Functors K: C → D and F: C → E; the two functors D → E are Ran_K F and R. Natural transformations ε: (Ran_K F)K ⇒ F and θ: R ⇒ Ran_K F express δ = ε(θK)."
+    },
+    {
+      "diagram_id": "chapter1-unit-017-d004",
+      "source_ref": "source/en/chapter1-unit-017.tex:208-215",
+      "description_en": "Commutative diagram for condition S4. Morphisms t: Z ⇢ X and s: Y → W belong to S, and there are two morphisms f, g: X → Y. The equality sf = sg implies ft = gt."
+    },
+    {
+      "diagram_id": "chapter3-unit-037-d002",
+      "source_ref": "source/en/chapter3-unit-037.tex:143-162",
+      "description_en": "Long exact sequence: … → H^(n−1)(Y) → H^(n−1)(Z) → H^n(X) → H^n(Y) → H^n(Z) → H^(n+1)(X) → …. Successive arrows are labeled H^(n−1)(g), δ^(n−1), H^n(f), H^n(g), and δ^n."
+    },
+    {
+      "diagram_id": "chapter3-unit-038-d005",
+      "source_ref": "source/en/chapter3-unit-038.tex:160-177",
+      "description_en": "Long exact sequence: … → H^(n−1)(Y) → H^(n−1)(Z) → H^n(X) → H^n(Y) → H^n(Z) → H^(n+1)(X) → H^(n+1)(Y) → …."
+    },
+    {
+      "diagram_id": "chapter3-unit-043-d008",
+      "source_ref": "source/en/chapter3-unit-043.tex:153-176",
+      "description_en": "Long exact sequence for a cohomological delta functor: 0 → F^0(X) → F^0(Y) → F^0(Z) → F^1(X) → F^1(Y) → F^1(Z) → F^2(X) → F^2(Y) → …. The connecting arrow F^n(Z) → F^(n+1)(X) is labeled δ^n."
+    },
+    {
+      "diagram_id": "chapter3-unit-043-d010",
+      "source_ref": "source/en/chapter3-unit-043.tex:187-207",
+      "description_en": "Long exact sequence for a homological delta functor: … → F_2(Y) → F_2(Z) → F_1(X) → F_1(Y) → F_1(Z) → F_0(X) → F_0(Y) → F_0(Z) → 0. The connecting arrow F_n(Z) → F_(n−1)(X) is labeled ∂_n."
+    },
+    {
+      "diagram_id": "chapter3-unit-046-d010",
+      "source_ref": "source/en/chapter3-unit-046.tex:453-461",
+      "description_en": "Commutative square. The top row is I → Cone(Δ_I)[−1], as in equation K-injective-diagonal; the bottom row is A → Cone(Δ_(τA))[−1]. The left vertical arrow is f: A → I, and the right vertical arrow is induced by all f_k."
+    },
+    {
+      "diagram_id": "chapter4-unit-056-d008",
+      "source_ref": "source/en/chapter4-unit-056.tex:221-232",
+      "description_en": "Composition-comparison 2-cell diagram. Functors F'F: D → D'', Q: D → D/N, and Q'': D'' → D''/N''. The two functors D/N → D''/N'', namely R^(N''_N)(F'F) and R'R, are connected by the canonical natural transformation R^(N''_N)(F'F) ⇒ R'R."
+    },
+    {
+      "diagram_id": "chapter4-unit-062-d004",
+      "source_ref": "source/en/chapter4-unit-062.tex:412-465",
+      "description_en": "Composition of 2-cells along the edges of a cube. A starting path containing a dashed edge is changed through a sequence of 2-cells into the final path; the resulting composite morphism is named beth."
+    },
+    {
+      "diagram_id": "chapter6-unit-086-d001",
+      "source_ref": "source/en/chapter6-unit-086.tex:318-328",
+      "description_en": "Exact sequence of pointed sets: 1 → H^0(G,A) → H^0(G,B) → H^0(G,C) → H^1(G,A) → H^1(G,B). Successive arrows are labeled H^0(u), H^0(v), δ^0, and H^1(u)."
+    },
+    {
+      "diagram_id": "chapter6-unit-086-d002",
+      "source_ref": "source/en/chapter6-unit-086.tex:330-342",
+      "description_en": "Exact sequence of pointed sets: 1 → H^0(G,A) → H^0(G,B) → H^0(G,C) → H^1(G,A) → H^1(G,B) → H^1(G,C). The connecting arrow H^0(G,C) → H^1(G,A) is labeled δ^0."
+    },
+    {
+      "diagram_id": "chapter6-unit-086-d003",
+      "source_ref": "source/en/chapter6-unit-086.tex:344-360",
+      "description_en": "Exact sequence: 1 → H^0(G,A) → H^0(G,B) → H^0(G,C) → H^1(G,A) → H^1(G,B) → H^1(G,C) → H^2(G,A). Connecting arrows are labeled δ^0 and δ^1; the other arrows are induced by u and v."
+    }
+  ]
+}

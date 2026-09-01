@@ -1,0 +1,144 @@
+% O014 / D80 -- Methods of Algebra, Volume 2 -- en
+% Source: appendix2.tex, lines 1--137 inclusive.
+% Stable unit ID: o014.aljabr2.appendix-b.profinite-groups
+% Original source copyright 2024 Wen-Wei Li, CC BY 4.0.
+
+\chapter{Introduction to Ind-Objects and Pro-Objects}\label{sec:app-Ind}
+Given a category $\mathcal{C}$, what is an ind-object over it? Through the Yoneda embedding $\mathcal{C}\to\mathcal{C}^{\wedge}$, an ind-object can be defined rigorously as an object of $\mathcal{C}^\wedge$ of the form $X=\Yinjlim X_i$, where $i$ ranges over a small filtered category $I$ and $X_i\in\Obj(\mathcal{C})$. The symbol $\Yinjlim$ distinguishes $\varinjlim$ in $\mathcal{C}^{\wedge}$ from $\varinjlim$ in $\mathcal{C}$. One can prove that
+\[ \Hom(X, Y) = \varprojlim_i \varinjlim_j \Hom_{\mathcal{C}}(X_i, Y_j), \quad X = \Yinjlim X_i, \; Y = \Yinjlim Y_j. \]
+Thus, roughly speaking, an ind-object $X$ may be imagined as a filtered system represented by a family of objects $X_i$ of $\mathcal{C}$ together with a compatible family of morphisms $X_i\to X_j$, as $i\to j$ ranges over $\Mor(I)$. The choice of $(X_i)_i$ representing $X$, however, is not unique. There is also a dual notion, called a pro-object over $\mathcal{C}$. The presentation here follows \cite{KS06}.
+
+As a source of examples, \S\ref{sec:profinite-groups} begins with profinite groups. These are both a special class of topological groups and, equivalently, filtered $\varprojlim$ of finite groups in the category of topological groups (Remark~\ref{rem:profinite-group-lim}). On this basis, Example~\ref{eg:profinite-group} will later show that profinite groups are precisely the pro-objects over the category of finite groups, and so can be handled by algebraic methods. This class of topological groups occurs especially often in mathematics and is also background knowledge for several chapters of this book.
+
+Section~\ref{sec:ind-pro} gives the formal definitions of ind-objects and pro-objects, a description of their morphisms, and some preliminary examples. The subsequent discussion focuses on ind-objects. Section~\ref{sec:Indization} studies the category $\IndC\mathcal{C}$ of all ind-objects over $\mathcal{C}$, also called the Ind-completion of $\mathcal{C}$; it contains $\mathcal{C}$ as a full subcategory. We shall study how to recognize ind-objects inside $\mathcal{C}^{\wedge}$ (Proposition~\ref{prop:recognize-ind}), that is, how to characterize when a functor $\mathcal{C}^{\opp}\to\cate{Set}$ is ind-representable, and then discuss the interaction between $\mathcal{C}\to\IndC\mathcal{C}$ and limits. In particular, we shall show that $\IndC\mathcal{C}$ has all small filtered $\varinjlim$.
+
+Dually, $\mathcal{C}$ also has a Pro-completion: all pro-objects form the category
+$\ProC\mathcal{C}=\IndC\left(\mathcal{C}^{\opp}\right)^{\opp}$.
+
+The Ind-extension of functors is the subject of \S\ref{sec:Indization-functor}. The results include how to extend a functor $\mathcal{C}\to\mathcal{D}$ to $\IndC\mathcal{C}$ (Definition--Proposition~\ref{def:Ind-hat-functor}), and how to recognize whether a category $\mathcal{C}$ is the Ind-completion of a full subcategory $\mathcal{C}'$ (Proposition~\ref{prop:Ind-hat-small}).
+
+In \S\ref{sec:Indization-Abel}, these results are applied to an Abelian category $\mathcal{C}$ to show that both embeddings
+$\mathcal{C}\to\IndC\mathcal{C}$ and $\mathcal{C}\to\ProC\mathcal{C}$ are fully faithful exact functors between Abelian categories (Theorem~\ref{prop:Ind-Abel}). That section also discusses exactness of functor extensions for Abelian categories (Proposition~\ref{prop:Ind-ext-exactness}). Furthermore, Theorem~\ref{prop:Ind-Grothendieck} shows that the Ind-completion of a small Abelian category is a Grothendieck category.
+
+Using the preceding results and the basic fact that Grothendieck categories have injective cogenerators, \S\ref{sec:FM} proves the Freyd--Mitchell embedding theorem: every small Abelian category admits a fully faithful exact embedding into $\cated{Mod}R$, where $R$ is a ring realized on a small set. The route through Ind-completion is neither the most elementary nor the shortest; compared with the Freyd--Mitchell theorem itself, however, Ind-completion may be a more valuable technique.
+
+\section{Prelude: Profinite Groups}\label{sec:profinite-groups}
+We first define profinite groups from the topological viewpoint: they are topological groups with specified properties. On the few occasions when set size must be distinguished, the topological groups under consideration are understood to be realized on small sets; otherwise we shall not mention this point again.
+
+\begin{definition}\label{def:profinite-group}
+	\index{profinite group}
+	A \emph{profinite group} is a topological group $G$ satisfying:
+	\begin{itemize}
+		\item $G$ is a compact Hausdorff group;
+		\item $G$ has a neighborhood basis at the identity $1_G$ consisting of normal subgroups.
+	\end{itemize}
+
+	Let $\cate{TopGrp}$ denote the category of all topological groups, with continuous homomorphisms as morphisms. The profinite groups form a full subcategory of $\cate{TopGrp}$.
+\end{definition}
+
+If $G$ is profinite, a neighborhood basis at $1_G$ may be taken to consist of all open normal subgroups $K\lhd G$. For a detailed discussion, see \cite[\S 1.9]{FL14} or \cite[\S 4.10]{Li1}.
+
+\begin{remark}
+	Another characterization is that a topological group $G$ is profinite if and only if it is a totally disconnected compact group; see \cite[\S 1.7 and Proposition 1.9.3]{FL14}. The following related fact is also useful: a Hausdorff topological space $E$ is locally compact and totally disconnected if and only if every $e\in E$ has a neighborhood basis consisting of compact open subsets.
+\end{remark}
+
+If $H$ is an open subgroup of $G$, choose a representative $g$ for each coset $\bar g\in G/H$. The decomposition
+$G=\bigsqcup_{\bar g\in G/H}gH$, together with compactness, implies that $(G:H)$ is finite. Moreover,
+$H=G\smallsetminus\bigcup_{\bar g\neq H}gH$ shows that $H$ is closed.
+
+We record a few more basic properties.
+
+\begin{lemma}
+	Let $G$ be a topological group and $H$ a subgroup. Then:
+	\begin{enumerate}[(i)]
+		\item the quotient map $\pi:G\to G/H$ is open with respect to the quotient topology on $G/H$;
+		\item $G/H$ with the quotient topology is Hausdorff if and only if $H$ is closed;
+		\item the quotient topology on $G/H$ is discrete if and only if $H$ is open.
+	\end{enumerate}
+	The same assertions of course hold for $H\backslash G$.
+\end{lemma}
+\begin{proof}
+	For (i), if $U$ is an open subset of $G$,\footnote{Translator's note: the source says that $U$ is an open subset of $G/H$, but the expressions $\pi(U)$ and $\bigcup_{h\in H}Uh$ require $U\subset G$.} then
+	$\pi^{-1}(\pi(U))=\bigcup_{h\in H}Uh$ is open. Hence $\pi(U)$ is open by the definition of the quotient topology.
+
+	The only-if direction of (ii) follows from $H=\pi^{-1}(1_G\cdot H)$. For the if direction, given distinct cosets $xH\neq yH$, choose an open subset $V\ni1_G$ of $G$ such that $Vx\cap yH=\emptyset$, and then choose an open subset $U\ni1_G$ such that $U^{-1}U\subset V$. This ensures $UxH\cap UyH=\emptyset$, while (i) shows that $\pi(Ux)$ and $\pi(Uy)$ are both open.
+
+	The only-if direction of (iii) again follows from $H=\pi^{-1}(1_G\cdot H)$. Now suppose that $H$ is open. By (i), $\{1_G\cdot H\}=\pi(H)$ is open; translation shows that every singleton in $G/H$ is open. This proves the if direction.
+\end{proof}
+
+\begin{proposition}
+	Let $G$ be a profinite group.
+	\begin{enumerate}[(i)]
+		\item If $H$ is a closed subgroup of $G$, then $H$ is profinite.
+		\item If $H$ is a closed normal subgroup of $G$, then $G/H$ is profinite with the quotient topology.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	For (i), the closed subgroup $H$ is of course compact and Hausdorff. A neighborhood basis at $1_G$ is given by all $K\cap H$, where $K$ ranges over the open normal subgroups of $G$.
+
+	For (ii), closedness of $H$ implies that $G/H$ is Hausdorff, and compactness of $G$ implies that $G/H$ is compact. A neighborhood basis of $G/H$ at $1_G\cdot H$ is given by all $KH/H$, where $K$ ranges over the open normal subgroups of $G$; each $KH/H$ is an open normal subgroup of $G/H$.
+\end{proof}
+
+It is easy to prove that the product of a family of profinite groups $(G_i)_i$, indexed by a small set, is again profinite. For any small category $I$ and functor $\beta:I^{\opp}\to\cate{TopGrp}$, abbreviated as $(G_i)_{i\in\Obj(I)}$ with $G_i:=\beta(i)$, give
+\[ \left( \varprojlim_i G_i := \varprojlim \beta \right) \hookrightarrow \prod_i G_i \]
+the topology inherited from the product space on the right, making it a closed subgroup. This gives the $\varprojlim$ in $\cate{TopGrp}$. Hence if every $G_i$ is profinite, then $\varprojlim_iG_i$ is profinite. It follows that the category of profinite groups is complete.
+
+\begin{example}
+	The simplest example is a finite group $G$; in this case there is only one Hausdorff topology, namely the discrete topology. The following examples are also common.
+	\begin{itemize}
+		\item Let $G:=\Gal(E|F)$ be the Galois group of a Galois extension $E|F$, endowed with the Krull topology \cite[\S 9.2]{Li1}. The corresponding neighborhood basis consists of the subgroups $\Gal(E|L)$, where $L|F$ ranges over the finite Galois subextensions of $E|F$.
+
+		\item For a prime $p$, let $\Z_p$ be the ring of $p$-adic integers, and let $\SL(n,\Z_p)$ be the group of $n\times n$ matrices over it with determinant $1$. Endowed with the topology inherited from the space $\mathrm{M}_n(\Z_p)$ of $n\times n$ matrices, this too is a profinite group.
+
+		\item For any group $G$, its profinite completion is defined by
+		\[ \hat{G} := \varprojlim_{\substack{N \lhd G \\ (G:N) < \infty}} G/N, \]
+		where each $G/N$ is given the discrete topology. As the name suggests, this is a profinite group.
+	\end{itemize}
+\end{example}
+
+\begin{remark}\label{rem:profinite-group-lim}
+	The preceding discussion shows that if finite groups are given the discrete topology, then their small $\varprojlim$ are profinite. Conversely, every profinite group $G$ can be written as $\varprojlim_iG_i$, where $(I,\leq)$ is a small filtered partially ordered set and every $G_i$ is finite; see \cite[Theorem 4.10.6]{Li1}. Concretely, one may choose a neighborhood basis $(K_i)_{i\in I}$ at $1_G$ consisting of open normal subgroups, order the index set by reverse inclusion, and put $G_i:=G/K_i$.
+
+	For a Galois-group example,
+	$\Gal(E|F)=\varprojlim_{L|F}\Gal(L|F)$, where $L|F$ ranges over the finite Galois subextensions of $E|F$.
+
+	Consider profinite groups $G=\varprojlim_iG_i$ and $H=\varprojlim_jH_j$ presented as above. Since the subgroups $\Ker[G\to G_i]$ form a neighborhood basis at $1_G$, there are canonical isomorphisms
+	\begin{align*}
+		\Hom_{\cate{TopGrp}}(G, H) & = \Hom_{\cate{TopGrp}}\left(\varprojlim_i G_i, \varprojlim_j H_j \right) \\
+		& \simeq \varprojlim_j \Hom_{\cate{TopGrp}}\left( \varprojlim_i G_i, H_j \right) \quad \text{($\because\; \varprojlim$ has its universal property)} \\
+		& \simeq \varprojlim_j \varinjlim_i \Hom_{\cate{Grp}}(G_i, H_j) \quad \text{($\because$\; every continuous homomorphism factors through some $G_i$)};
+	\end{align*}
+	Thus profinite groups can also be handled algebraically; see Example~\ref{eg:profinite-group} below.
+\end{remark}
+
+\begin{definition}
+	\index{pro-$p$ group}
+	Let $p$ be a prime. A profinite group $G$ is called a \emph{pro-$p$ group} if, for every sufficiently small open normal subgroup $K\lhd G$, the quotient $G/K$ is a $p$-group. Equivalently, $G$ can be written as $\varprojlim_iG_i$, where $(I,\leq)$ is a filtered partially ordered set and every $G_i$ is a $p$-group.
+\end{definition}
+
+Such groups occur frequently in number theory. The exercises contain further discussion of pro-$p$ groups.
+
+The following result shows that quotient maps of profinite groups by closed subgroups have particularly simple topological behavior, quite unlike the usual situation for Lie groups.
+
+\begin{lemma}\label{prop:profinite-section}
+	Let $H$ and $H'$ be closed subgroups of a profinite group $G$, with $H'\subset H$. Then the quotient map $\pi:G/H'\twoheadrightarrow G/H$ has a continuous section $s:G/H\to G/H'$; in other words, $s$ is continuous and satisfies $\pi s=\identity_{G/H}$.\footnote{Translator's note: the source has the undefined subscript $G/H_2$ on this identity; the codomain of $\pi$ makes $G/H$ the type-correct subscript.}
+
+	An analogous assertion holds for the quotient map
+	$H'\backslash G\twoheadrightarrow H\backslash G$.
+\end{lemma}
+\begin{proof}
+	First consider the case in which $(H:H')$ is finite. Then $H$ is the disjoint union of $H'$ and finitely many of its left translates, so $H'$ is open in $H$. There is an open normal subgroup $U\lhd G$ such that $U\cap H\subset H'$. The restriction of $\pi$ is therefore a bijection $UH'/H'\to UH/H$; by compactness it is a homeomorphism, and its inverse gives a continuous section on the open subset $UH/H$ of $G/H$. Finally, translate this section to extend it over all of $G/H$.
+
+	In the general case, the reader is asked to reduce the problem to $H'=\{1_G\}$. In that case, consider all data $(T,t)$, where $T\subset H$ is a closed subgroup and $t$ is a continuous section of $G/T\twoheadrightarrow G/H$. Partially order these data by declaring $(T_1,t_1)\preceq(T_2,t_2)$ if $T_2\subset T_1$ and $t_1$ factors as
+	$G/H\xrightarrow{t_2}G/T_2\twoheadrightarrow G/T_1$. Zorn's lemma ensures the existence of a maximal element. The key point is that if $((S_i,s_i))_i$ is a chain for $\preceq$ and $S':=\bigcap_iS_i$, then the canonical map
+	$G/S'\to\varprojlim_iG/S_i$ is continuous and injective with dense image; compactness therefore makes it a homeomorphism. We may consequently define
+	$s':=\varprojlim_i s_i:G/H\to G/S'$, obtaining an upper bound $(S',s')$ for the chain.
+
+	Let $(S,s)$ be a maximal element of this partially ordered set. If $S=\{1\}$, we are done. If $S\neq\{1\}$, choose an open normal subgroup $U$ of $G$ such that $S\cap U\neq S$. Since $(S:S\cap U)$ is finite, the first step of the proof gives a continuous section of $G/(S\cap U)\to G/S$. Composing it with $s$ gives a continuous section of
+	$G/(S\cap U)\to G/H$, contradicting the maximality of $(S,s)$.
+
+	The version for $H'\backslash G\twoheadrightarrow H\backslash G$ is identical.
+\end{proof}
+
+The most important special case is $H'=\{1_G\}$. Then a continuous section $s$ induces a homeomorphism of topological spaces
+$(G/H)\times H\rightiso G$, sending $(x,h)$ to $s(x)h$. The conclusion for $G\twoheadrightarrow H\backslash G$ is of course analogous.

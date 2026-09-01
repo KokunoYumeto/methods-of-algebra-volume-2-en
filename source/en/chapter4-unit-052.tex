@@ -1,0 +1,145 @@
+% Unit 052: English translation of chapter4.tex, lines 561--622.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter4.triangulated-localization
+% Coverage: the beginning of Section 4.3, from the motivation and
+% multiplicative systems compatible with triangulation through preservation
+% of the (pre)triangulated structure under localization; ends before the
+% construction of $S\mathcal{N}$.
+
+% segment-id: o014.li2.chapter4.triangulated-localization.h001
+\section{Localization of Triangulated Categories}\label{sec:triangulated-localization}
+\hypertarget{o014.aljabr2.chapter4.triangulated-localization}{ }
+
+% segment-id: o014.li2.chapter4.triangulated-localization.p001
+This section examines the relation between triangulated categories and
+Gabriel--Zisman localization. More precisely,
+\begin{compactitem}
+	\item the construction of categorical localization in
+	\S\ref{sec:cat-localization} formally adjoins inverses to the morphisms in
+	a multiplicative system, and our first task is to show that this
+	construction preserves the (pre)triangulated structure;
+	\item for a triangulated category, localization can also be viewed as
+	formally making a triangulated subcategory zero; this idea is analogous to
+	the construction of Serre quotients in \S\ref{sec:Serre-subcat}.
+\end{compactitem}
+
+% segment-id: o014.li2.chapter4.triangulated-localization.p002
+Throughout what follows, $(\mathcal{D}, T)$ is assumed to be a
+pretriangulated category. If one passes from additive categories to the
+$\Bbbk$-linear setting, where $\Bbbk$ is any commutative ring, every result
+in this section has a corresponding generalization; we omit the details.
+
+% segment-id: o014.li2.chapter4.triangulated-localization.d001
+\begin{definition}
+	\index{multiplicative system!compatible with triangulation}
+	Let $S \subset \Mor(\mathcal{D})$ be a multiplicative system as in
+	Definition~\ref{def:multiplicative-family}. We say that $S$ is
+	\emph{compatible with triangulation} if the following conditions hold.
+	\begin{enumerate}[(ST1)]
+		\item For $s \in \Mor(\mathcal{D})$, one has $s \in S$ if and only if
+		$Ts \in S$.
+		\item Consider the following diagram, in which the solid part is
+		given:
+% segment-id: o014.li2.chapter4.triangulated-localization.g001
+		\[\begin{tikzcd}
+			X \arrow[d, "\alpha"'] \arrow[r] & Y \arrow[d, "\beta"] \arrow[r] & Z \arrow[dashed, d, "\gamma"] \arrow[r] & TX \arrow[dashed, d, "T\alpha"] \\
+			X' \arrow[r] & Y' \arrow[r] & Z' \arrow[r] & TX'
+		\end{tikzcd}\]
+		If $\alpha, \beta \in S$, then there is a morphism $\gamma$, as
+		indicated by the dashed arrow, such that the entire diagram commutes
+		and $\gamma \in S$.
+	\end{enumerate}
+\end{definition}
+
+% segment-id: o014.li2.chapter4.triangulated-localization.p003
+Notice that (ST2) is a strengthening of (TR4) for $S$.
+
+% segment-id: o014.li2.chapter4.triangulated-localization.pr001
+\begin{proposition}\label{prop:localization-triangulated}
+	Let $S \subset \Mor(\mathcal{D})$ be a multiplicative system compatible
+	with triangulation. Then the localization $\mathcal{D}[S^{-1}]$ has a
+	unique pretriangulated-category structure for which
+	$Q: \mathcal{D} \to \mathcal{D}[S^{-1}]$ is a triangulated functor.
+	Up to isomorphism, the distinguished triangles in
+	$\mathcal{D}[S^{-1}]$ are precisely the images of distinguished
+	triangles in $\mathcal{D}$. If $\mathcal{D}$ is triangulated, then so is
+	$\mathcal{D}[S^{-1}]$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter4.triangulated-localization.pf001
+\begin{proof}
+	Theorem~\ref{prop:localization-additivity} shows that
+	$\mathcal{D}[S^{-1}]$ is an additive category. Moreover, (ST1) and the
+	universal property of localization give a unique pair of endofunctors of
+	$\mathcal{D}[S^{-1}]$ that make the following diagram commute:
+% segment-id: o014.li2.chapter4.triangulated-localization.g002
+	\[\begin{tikzcd}
+		\mathcal{D} \arrow[r, "T", shift left] \arrow[d, "Q"'] & \mathcal{D} \arrow[l, "{T^{-1}}", shift left] \arrow[d, "Q"] \\
+		\mathcal{D}[S^{-1}] \arrow[r, shift left] & \mathcal{D}[S^{-1}] \arrow[l, shift left]
+	\end{tikzcd}\]
+	The universal property also shows that the two functors in the second row
+	are mutually inverse. To simplify notation, we continue to write them as
+% segment-id: o014.li2.chapter4.triangulated-localization.g003
+	$\begin{tikzcd}
+		\mathcal{D}[S^{-1}] \arrow[r, "T", shift left] & \mathcal{D}[S^{-1}] \arrow[l, "{T^{-1}}", shift left]
+	\end{tikzcd}$.
+	Thus $(\mathcal{D}[S^{-1}], T)$ is an additive category with translation.
+	
+	We first prove uniqueness of the pretriangulated structure. By definition,
+	the triangulated functor $Q$ must preserve distinguished triangles.
+	Conversely, let
+	$X \xrightarrow{f} Y \to Z \xrightarrow{+1}$ be a distinguished triangle
+	in $\mathcal{D}[S^{-1}]$. After replacing it by an isomorphic triangle,
+	we may assume that $f: X \to Y$ comes from a morphism in $\mathcal{D}$,
+	which we denote by $f_0: X_0 \to Y_0$ to avoid ambiguity. By (TR2), extend
+	$f_0$ to a distinguished triangle
+	$X_0 \xrightarrow{f_0} Y_0 \to Z_0 \xrightarrow{+1}$.
+	Corollary~\ref{prop:Cone-uniqueness} then guarantees that its image under
+	$Q$ is isomorphic to the original triangle.
+	
+	We now prove existence of the pretriangulated structure. Define the
+	distinguished triangles in $\mathcal{D}[S^{-1}]$ as stated in the
+	proposition. Axiom (TR0) is immediate, while (TR1) and (TR3) are inherited
+	directly from $\mathcal{D}$. For (TR2), consider a morphism
+	$f: X \to Y$ in $\mathcal{D}[S^{-1}]$. As usual, after replacing its
+	objects by isomorphic ones using morphisms from $S$, we may assume that
+	$f$ comes from $\mathcal{D}$; thus (TR2) reduces to the assertion in
+	$\mathcal{D}$.
+	
+	For (TR4), consider the following commutative diagram in
+	$\mathcal{D}[S^{-1}]$; the dashed part will be dealt with below.
+% segment-id: o014.li2.chapter4.triangulated-localization.g004
+	\begin{equation}\label{eqn:localization-triangulated-aux}\begin{tikzcd}
+		X \arrow[r, "f"] \arrow[d, "\alpha"'] & Y \arrow[r, "g"] \arrow[d, "\beta"] & Z \arrow[r, "h"] \arrow[dashed, d, "\gamma"] & TX \arrow[dashed, d, "T\alpha"] \\
+		X' \arrow[r, "{f'}"'] & Y' \arrow[r, "{g'}"'] & Z' \arrow[r, "{h'}"'] & T X'
+	\end{tikzcd}\end{equation}
+	Here each row is a distinguished triangle and all horizontal arrows come
+	from $\mathcal{D}$. From the construction in
+	\S\ref{sec:cat-localization}, one can show that there are objects
+	$A, B \in \Obj(\mathcal{D})$, a morphism
+	$[A \to B] \in \Mor(\mathcal{D})$, and $s, t \in S$ such that
+	$\alpha = as^{-1}$ and $\beta = bt^{-1}$ in
+	$\mathcal{D}[S^{-1}]$, and such that the solid part of the following
+	diagram commutes in $\mathcal{D}$. The dashed part and the object $C$
+	will be discussed presently.
+% segment-id: o014.li2.chapter4.triangulated-localization.g005
+	\[\begin{tikzcd}
+		X \arrow[r, "f"] & Y \arrow[r, "g"] & Z \arrow[r, "h"] & TX \\
+		A \arrow[u, "s"] \arrow[d, "a"'] \arrow[r] & B \arrow[u, "t"] \arrow[d, "b"'] \arrow[dashed, r] & C \arrow[dashed, u, "u"] \arrow[dashed, r] \arrow[dashed, d, "c"'] & TA \arrow[dashed, u, "Ts"'] \arrow[dashed, d, "Ta"] \\
+		X' \arrow[r, "{f'}"'] & Y' \arrow[r, "{g'}"'] & Z' \arrow[r, "{h'}"'] & T X' .
+	\end{tikzcd}\]
+	The explicit construction is somewhat cumbersome and appears as a guided
+	exercise in \CHref{sec:categories}.
+
+	Apply (TR2) to $A \to B$ in $\mathcal{D}$ to obtain a distinguished
+	triangle $A \to B \to C \xrightarrow{+1}$ as the second row. Then apply
+	(ST2) to obtain $C \xrightarrow{u \in S} Z$, and apply (TR4) to obtain
+	$C \xrightarrow{c} Z'$, so that the entire diagram commutes in
+	$\mathcal{D}$. In $\mathcal{D}[S^{-1}]$, set $\gamma := c u^{-1}$.
+	With this choice the whole diagram
+	\eqref{eqn:localization-triangulated-aux} commutes. This verifies (TR4).
+	
+	If $\mathcal{D}$ is triangulated, verification of (TR5) for
+	$\mathcal{D}[S^{-1}]$ likewise reduces to verification in $\mathcal{D}$.
+\end{proof}

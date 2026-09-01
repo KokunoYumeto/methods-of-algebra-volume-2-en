@@ -1,0 +1,463 @@
+% English translation of chapter2.tex lines 293--518.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter2.diagram-lemmas
+
+% segment-id: o014.li2.chapter2.diagram-lemmas.h001
+\section{Some Diagram Lemmas}\label{sec:diagram-lemmas}
+\hypertarget{o014.aljabr2.chapter2.diagram-lemmas}{ }
+
+% segment-id: o014.li2.chapter2.diagram-lemmas.p001
+The arguments in this section follow \cite[Chapters 8 and 12]{KS06}. We begin
+with a criterion for exactness that may be viewed as a substitute for diagram
+chasing \cite[\S~6.8]{Li1} in general abelian categories. Throughout this
+section, fix an abelian category $\mathcal{A}$.
+
+% segment-id: o014.li2.chapter2.diagram-lemmas.le001
+\begin{lemma}\label{prop:Abel-cat-exact-aux}
+	Let $X'\xrightarrow{f}X\xrightarrow{g}X''$ be a complex. This complex is
+	exact if and only if, for every morphism $S\xrightarrow{h}X$ satisfying
+	$gh=0$, there are a morphism $S'\to X'$ and an epimorphism
+	$S'\twoheadrightarrow S$ that make the following diagram commute:
+	% segment-id: o014.li2.chapter2.diagram-lemmas.g001
+	\[\begin{tikzcd}
+		S' \arrow[twoheadrightarrow, r] \arrow[d] & S \arrow[d, "h"] \\
+		X' \arrow[r, "f"'] & X .
+	\end{tikzcd}\]
+\end{lemma}
+
+% segment-id: o014.li2.chapter2.diagram-lemmas.pf001
+\begin{proof}
+	First consider the ``only if'' direction. The morphisms $f$ and $h$ both
+	factor through $\Ker(g)$. On the basis of these factorizations, take
+	$S':=S\dtimes{\Ker(g)}X'$, and take $S'\to S$ and $S'\to X'$ to be the
+	natural morphisms from the fiber product. Exactness implies that
+	$X'\twoheadrightarrow\Ker(g)$, so
+	Proposition~\ref{prop:Abel-cat-pull-push} implies that $S'\to S$ is also an
+	epimorphism.
+
+	Now consider the ``if'' direction. For $S:=\Ker(g)$ with its natural
+	morphism $h:S\hookrightarrow X$, the hypothesis supplies the solid part of
+	the following diagram:
+	% segment-id: o014.li2.chapter2.diagram-lemmas.g002
+	\[\begin{tikzcd}
+		S' \arrow[d] \arrow[twoheadrightarrow, r] & S \arrow[d, "h"] \\
+		X' \arrow[dashed, ru, "\alpha" description] \arrow[r, "f"'] & X
+	\end{tikzcd}\]
+	The dashed part, namely $\alpha$, comes from the factorization of $f$ given
+	by $gf=0$. We show that the diagram commutes. The outer frame and the
+	lower-right triangle are already known to commute. Thus the two morphisms in
+	the upper-left triangle become equal after composition with $h$. Since $h$
+	is a monomorphism, the upper-left triangle also commutes, proving the claim.
+	Finally, the diagram shows that the composite
+	$S'\to X'\xrightarrow{\alpha}S$ is an epimorphism, and hence $\alpha$ is an
+	epimorphism. Thus $f$ has an epi--mono factorization
+	$X'\twoheadrightarrow\Ker(g)\hookrightarrow X$, which gives
+	$\Image(f)=\Ker(g)$. The complex is therefore exact.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.diagram-lemmas.p002
+For another approach that replaces diagram chasing in general abelian
+categories, see \cite[Tag 05PL]{stacks}.
+
+% segment-id: o014.li2.chapter2.diagram-lemmas.p003
+We now discuss the Snake Lemma, which is indispensable in applications.
+Consider the diagram
+
+% segment-id: o014.li2.chapter2.diagram-lemmas.q001
+\begin{equation}\label{eqn:snake}
+% segment-id: o014.li2.chapter2.diagram-lemmas.g003
+\begin{tikzcd}
+	& \Ker' \arrow[r] \arrow[d] & \Ker \arrow[r] \arrow[d] & \Ker'' \arrow[d] & \\
+	& X' \arrow[d] \arrow[r, "f"]  & X \arrow[d] \arrow[r, "g"]  & X'' \arrow[r] \arrow[d, ""{coordinate, name=Z}] & 0  \\
+	0 \arrow[r] & Y' \arrow[r, "u"] \arrow[d] & Y \arrow[r, "v"] \arrow[d] & Y'' \arrow[d] & \\
+	& \Coker' \arrow[uuurr, "\delta" description, crossing over, dashed, leftarrow, rounded corners, to path= {-- ([xshift=-2ex]\tikztostart.west) |- (Z) [near end]\tikztonodes -| ([xshift=2ex]\tikztotarget.east) -- (\tikztotarget) } ] \arrow[r] & \Coker \arrow[r] & \Coker'' &
+\end{tikzcd}
+\end{equation}
+
+% segment-id: o014.li2.chapter2.diagram-lemmas.p004
+subject to the following assumptions:
+% segment-id: o014.li2.chapter2.diagram-lemmas.l001
+\begin{itemize}
+	% segment-id: o014.li2.chapter2.diagram-lemmas.i001
+	\item $X'\xrightarrow{f}X\xrightarrow{g}X''\to0$ and
+	$0\to Y'\xrightarrow{u}Y\xrightarrow{v}Y''$ are given exact sequences;
+	% segment-id: o014.li2.chapter2.diagram-lemmas.i002
+	\item $\Ker':=\Ker[X'\to Y']\hookrightarrow X'$, with $\Ker$ and
+	$\Ker''$ defined in the same way;
+	% segment-id: o014.li2.chapter2.diagram-lemmas.i003
+	\item $Y'\twoheadrightarrow\Coker':=\Coker[X'\to Y']$, with $\Coker$ and
+	$\Coker''$ defined in the same way;
+	% segment-id: o014.li2.chapter2.diagram-lemmas.i004
+	\item the morphisms $\Ker'\to\Ker$, $\Coker'\to\Coker$, and so forth come
+	from the functoriality of kernels and cokernels in
+	\eqref{eqn:Ker-Coker-functoriality}.
+\end{itemize}
+
+% segment-id: o014.li2.chapter2.diagram-lemmas.p005
+Thus \eqref{eqn:snake} is a commutative diagram; every column and both middle
+rows are exact. We now explain how to construct the dashed \emph{connecting
+morphism} $\delta:\Ker''\to\Coker'$.
+\index{connecting morphism}
+
+% segment-id: o014.li2.chapter2.diagram-lemmas.p006
+The first step is to derive the following commutative diagram from
+\eqref{eqn:snake}; all its rows are exact:
+
+% segment-id: o014.li2.chapter2.diagram-lemmas.q002
+\begin{equation}\label{eqn:snake-conn}
+% segment-id: o014.li2.chapter2.diagram-lemmas.g004
+\begin{tikzcd}
+	0 \arrow[r] & \Ker(g) \arrow[hookrightarrow, r, "s"] \arrow[equal, d] & X \dtimes{X''} \Ker'' \arrow[twoheadrightarrow, r] \arrow[d] \arrow[phantom, rd, "\Box" description] & \Ker'' \arrow[d] & \\
+	0 \arrow[r] & \Ker(g) \arrow[hookrightarrow, r] \arrow[dashrightarrow, d] & X \arrow[r, "g"'] \arrow[d] & X'' \arrow[dashrightarrow, d] \arrow[r] & 0 \\
+	0 \arrow[r] & Y' \arrow[r, "u"] \arrow[d] & Y \arrow[twoheadrightarrow, r] \arrow[d] & \Coker(u) \arrow[equal, d] \arrow[r] & 0 \\
+	& \Coker' \arrow[hookrightarrow, r] & \Coker' \dsqcup{Y'} Y \arrow[r] \arrow[phantom, lu, "\boxplus" description] \arrow[twoheadrightarrow, r, "t"'] & \Coker(u) \arrow[r] & 0
+\end{tikzcd}
+\end{equation}
+
+% segment-id: o014.li2.chapter2.diagram-lemmas.p007
+Here the following points apply:
+% segment-id: o014.li2.chapter2.diagram-lemmas.l002
+\begin{compactitem}
+	% segment-id: o014.li2.chapter2.diagram-lemmas.i005
+	\item $\Box$ and $\boxplus$ indicate that the corresponding squares are,
+	respectively, a pullback and a pushout diagram. Pullbacks preserve kernels,
+	while pushouts preserve cokernels; this explains the upper-left and
+	lower-right squares in the diagram;
+	% segment-id: o014.li2.chapter2.diagram-lemmas.i006
+	\item Proposition~\ref{prop:Abel-cat-pull-push} applies to the $\Box$ and
+	$\boxplus$ parts of \eqref{eqn:snake-conn}. This explains why
+	$X\dtimes{X''}\Ker''\to\Ker''$ is an epimorphism and
+	$\Coker'\to\Coker'\dsqcup{Y'}Y$ is a monomorphism;
+	% segment-id: o014.li2.chapter2.diagram-lemmas.i007
+	\item the dashed arrow $\Ker(g)\dashrightarrow Y'$ is none other than the
+	natural morphism $\Ker(g)\to\Ker(v)$ coming from the functoriality of
+	kernels in \eqref{eqn:Ker-Coker-functoriality};
+	% segment-id: o014.li2.chapter2.diagram-lemmas.i008
+	\item similarly, the functoriality of cokernels gives the dashed arrow
+	$X''\simeq\Coker(f)\to\Coker(u)$.
+\end{compactitem}
+
+% segment-id: o014.li2.chapter2.diagram-lemmas.p008
+Notice that the composite
+$\Ker(g)\dashrightarrow Y'\to\Coker'$ in \eqref{eqn:snake-conn} is zero,
+because it becomes zero after precomposition with
+$X'\twoheadrightarrow\Image(f)\rightiso\Ker(g)$. Similarly, the composite
+$\Ker''\to X''\dashrightarrow\Coker(u)$ is zero, because its further
+composite with $\Coker(u)\rightiso\Image(v)\hookrightarrow Y''$ is zero.
+
+% segment-id: o014.li2.chapter2.diagram-lemmas.p009
+Denote the composite along the middle path in \eqref{eqn:snake-conn} by
+$\delta_0:X\dtimes{X''}\Ker''\to\Coker'\dsqcup{Y'}Y$. The preceding
+observation immediately gives
+% segment-id: o014.li2.chapter2.diagram-lemmas.q003
+\[ \delta_0 s = 0, \quad t \delta_0 = 0. \]
+Consequently, $\delta_0$ has a unique factorization
+% segment-id: o014.li2.chapter2.diagram-lemmas.q004
+\[ X \dtimes{X''} \Ker'' \twoheadrightarrow \Coker(s) \xrightarrow{\exists!} \Ker(t) \hookrightarrow \Coker' \dsqcup{Y'} Y . \]
+
+The horizontal morphisms in the upper-right and lower-left corners of
+\eqref{eqn:snake-conn} are known to be an epimorphism and a monomorphism,
+respectively. Hence $\Coker(s)\rightiso\Ker''$ and
+$\Coker'\rightiso\Ker(t)$. We have therefore obtained the desired canonical
+morphism $\delta:\Ker''\to\Coker'$.
+
+% segment-id: o014.li2.chapter2.diagram-lemmas.r001
+\begin{remark}\label{rem:connecting-canonical}
+	The canonical nature of the connecting morphism can be stated more
+	explicitly as follows. Consider the commutative diagram
+	% segment-id: o014.li2.chapter2.diagram-lemmas.g005
+	\[\begin{tikzcd}[row sep=tiny, column sep=small]
+		& & X' \arrow[rr] \arrow[ld] \arrow[dd] & & X \arrow[rr] \arrow[ld] \arrow[dd] & & X'' \arrow[r] \arrow[ld] \arrow[dd] & 0 \\
+		0 \arrow[r] & Y' \arrow[rr, crossing over] & & Y \arrow[rr, crossing over] & & Y'' & & \\
+		& & \underline{X'} \arrow[rr] \arrow[ld] & & \underline{X} \arrow[rr] \arrow[ld] & & \underline{X''} \arrow[ld] \arrow[r] & 0 \\
+		0 \arrow[r] & \underline{Y'} \arrow[rr] \arrow[leftarrow, uu, crossing over] & & \underline{Y} \arrow[rr] \arrow[leftarrow, uu, crossing over] & & \underline{Y''} \arrow[leftarrow, uu, crossing over] & &
+	\end{tikzcd}\]
+	with every row exact. The diagram gives rise to $\Ker'$,
+	$\underline{\Ker'}$, and so forth. The corresponding connecting morphisms
+	$\delta$ and $\underline{\delta}$ fit into the commutative diagram
+	% segment-id: o014.li2.chapter2.diagram-lemmas.g006
+	\[\begin{tikzcd}
+		\Ker'' \arrow[r, "\delta"] \arrow[d, "\text{natural morphism}"'] & \Coker' \arrow[d, "\text{natural morphism}"] \\
+		\underline{\Ker''} \arrow[r, "\underline{\delta}"'] & \underline{\Coker'} .
+	\end{tikzcd}\]
+	By definition, to prove this it suffices to show that $\delta_0$ and
+	$\underline{\delta_0}$ also fit into the corresponding commutative square.
+	Everything follows from the functoriality of kernels, cokernels, products,
+	and coproducts. The details are left to the reader.
+\end{remark}
+
+% segment-id: o014.li2.chapter2.diagram-lemmas.p010
+The following two observations will be used in the proof below.
+% segment-id: o014.li2.chapter2.diagram-lemmas.l003
+\begin{itemize}
+	% segment-id: o014.li2.chapter2.diagram-lemmas.i009
+	\item The construction of the connecting morphism is self-dual: when
+	\eqref{eqn:snake} is viewed in $\mathcal{A}^{\opp}$, all arrows are
+	reversed, while the roles of $\Ker'$ and $\Coker'$, and so forth, are
+	interchanged. The resulting diagram in $\mathcal{A}^{\opp}$ still resembles
+	\eqref{eqn:snake}, except that it is rotated through half a turn. When the
+	corresponding connecting morphism is viewed back in $\mathcal{A}$, it still
+	runs from $\Ker''$ to $\Coker'$, and it agrees with the $\delta$ constructed
+	above.
+	
+	% segment-id: o014.li2.chapter2.diagram-lemmas.i010
+	\item The morphism $\Ker\to\Ker''$ factors as
+	$\Ker\to X\dtimes{X''}\Ker''\to\Ker''$. Inspection of
+	\eqref{eqn:snake-conn} shows that the two composites
+	% segment-id: o014.li2.chapter2.diagram-lemmas.q005
+	\[ \Ker \to \Ker'' \xrightarrow{\delta} \Coker' \hookrightarrow \Coker' \dsqcup{Y'} Y, \qquad \Ker \to X \dtimes{X''} \Ker'' \xrightarrow{\delta_0} \Coker' \dsqcup{Y'} Y \]
+		are equal. But the second composite is also equal to
+	$\Ker\to X\to Y\to\Coker'\dsqcup{Y'}Y$, which is zero. We therefore obtain
+	% segment-id: o014.li2.chapter2.diagram-lemmas.q006
+	\begin{equation}\label{eqn:snake-conn-complex}
+		\Ker \to \Ker'' \xrightarrow{\delta} \Coker' \quad \text{has composite}\; 0.
+	\end{equation}
+\end{itemize}
+
+% segment-id: o014.li2.chapter2.diagram-lemmas.th001
+\begin{theorem}[Snake Lemma]\label{prop:snake-lemma}\index{Snake Lemma}
+	Consider diagram \eqref{eqn:snake} in an abelian category $\mathcal{A}$.
+	Then
+	$\Ker'\to\Ker\to\Ker''\xrightarrow{\delta}\Coker'\to\Coker\to\Coker''$
+	is an exact sequence. If $f:X'\to X$ in the diagram is a monomorphism (or
+	$v:Y\to Y''$ is an epimorphism), then $\Ker'\to\Ker$ is also a
+	monomorphism (or $\Coker\to\Coker''$ is also an epimorphism).
+\end{theorem}
+% segment-id: o014.li2.chapter2.diagram-lemmas.pf002
+\begin{proof}
+	The last assertion is easy to prove: if $f$ is a monomorphism, then the
+	composite $\Ker'\hookrightarrow X'\xrightarrow{f}X$ is also a
+	monomorphism. Since \eqref{eqn:snake} commutes, this implies that
+	$\Ker'\to\Ker$ is a monomorphism. The case in which $v$ is an epimorphism
+	is obtained by reversing all arrows.
+
+	The main part of the proof is the exactness of the first sequence. By the
+	duality observed above, it suffices to prove that
+	$\Ker'\to\Ker\to\Ker''\to\Coker'$ is exact.
+	
+	First, $\Ker'\to\Ker\to\Ker''$ is a complex. Indeed, it is induced by
+	$X'\to X\to X''$, whose composite is zero. We now use
+	Lemma~\ref{prop:Abel-cat-exact-aux} to prove exactness. Suppose that a
+	morphism $\psi:S\to\Ker$ makes the composite
+	$S\xrightarrow{\psi}\Ker\to\Ker''$ zero. We must construct a commutative
+	diagram
+	% segment-id: o014.li2.chapter2.diagram-lemmas.q007
+	\begin{equation}\label{eqn:snake-lemma-aux-1}
+	% segment-id: o014.li2.chapter2.diagram-lemmas.g007
+	\begin{tikzcd}
+		S' \arrow[twoheadrightarrow, r, "h"] \arrow[d] & S \arrow[d, "\psi"] \arrow[rd, "0"] & \\
+		\Ker' \arrow[r] \arrow[hookrightarrow, d] & \Ker \arrow[hookrightarrow, d] \arrow[r] & \Ker'' \arrow[hookrightarrow, d] \\
+		X' \arrow[r, "f"'] & X \arrow[r, "g"'] & X''
+	\end{tikzcd}\end{equation}
+	where $\Ker'\leftarrow S'\xrightarrow{h}S$ remains to be constructed. To
+	do so, first apply Lemma~\ref{prop:Abel-cat-exact-aux} to the composite
+	$S\xrightarrow{\psi}\Ker\to X$ to obtain the commutative diagram
+	% segment-id: o014.li2.chapter2.diagram-lemmas.g008
+	\[\begin{tikzcd}
+		S' \arrow[twoheadrightarrow, r, "h"] \arrow[d] & S \arrow[d] \arrow[rd, "0"] & \\
+		X' \arrow[r, "f"'] & X \arrow[r, "g"'] & X'' .
+	\end{tikzcd}\]
+	Thus the composite $S'\to X'\to Y'\xrightarrow{u}Y$ is equal to the
+	composite $S'\xrightarrow{\psi h}\Ker\to X\to Y$, namely zero. Since $u$
+	is a monomorphism, the composite $S'\to X'\to Y'$ is also zero. Hence
+	$S'\to X'$ factors through $\Ker'$, giving all the arrows in
+	\eqref{eqn:snake-lemma-aux-1}.
+	
+	Now consider the left part of \eqref{eqn:snake-lemma-aux-1}: the outer
+	frame and the lower square commute. The familiar
+	Lemma~\ref{prop:epi-mono-morphism} shows that the upper square also
+	commutes. Therefore $\Ker'\to\Ker\to\Ker''$ is exact.
+	
+	Next consider $\Ker\to\Ker''\xrightarrow{\delta}\Coker'$. Equation
+	\eqref{eqn:snake-conn-complex} first shows that this sequence is a complex.
+	To prove its exactness, we again use Lemma~\ref{prop:Abel-cat-exact-aux}.
+	Suppose that a morphism $\psi:S\to\Ker''$ satisfies $\delta\psi=0$. We
+	must construct a commutative diagram of the form
+	% segment-id: o014.li2.chapter2.diagram-lemmas.q008
+	\begin{equation}\label{eqn:snake-lemma-aux-2}
+	% segment-id: o014.li2.chapter2.diagram-lemmas.g009
+	\begin{tikzcd}
+		S_0 \arrow[d] \arrow[twoheadrightarrow, r] & S \arrow[d, "\psi"] \\
+		\Ker \arrow[r] & \Ker''
+	\end{tikzcd}\end{equation}
+	The construction of $\delta$ showed that
+	$X\dtimes{X''}\Ker''\to\Ker''\to0$ is exact. Hence there is a commutative
+	diagram
+	% segment-id: o014.li2.chapter2.diagram-lemmas.q009
+	\begin{equation}\label{eqn:snake-lemma-aux-3}
+	% segment-id: o014.li2.chapter2.diagram-lemmas.g010
+	\begin{tikzcd}
+		S_1 \arrow[twoheadrightarrow, r] \arrow[d] & S \arrow[d, "\psi"'] \arrow[rd, "0"] & \\
+		X \dtimes{X''} \Ker'' \arrow[r] & \Ker'' \arrow[r] & 0 .
+	\end{tikzcd}\end{equation}
+
+	Consider the composite
+	$S_1\to X\dtimes{X''}\Ker''\to X\to Y\xrightarrow{v}Y''$. Comparing the
+	diagram above with \eqref{eqn:snake} and \eqref{eqn:snake-conn}, we see that
+	this composite is zero. Hence $S_1\to X\dtimes{X''}\Ker''\to X\to Y$
+	factors as $S_1\xrightarrow{\xi}Y'\xrightarrow{u}Y$. We now prove that the
+	composite $S_1\xrightarrow{\xi}Y'\to\Coker'$ is zero. Begin with the
+	commutative diagram
+	% segment-id: o014.li2.chapter2.diagram-lemmas.g011
+	\[\begin{tikzcd}
+		S \arrow[r, "\psi"] & \Ker'' \arrow[r, "\delta"] & \Coker' \arrow[hookrightarrow, d] \\
+		S_1 \arrow[twoheadrightarrow, u] \arrow[r] & X \dtimes{X''} \Ker'' \arrow[r, "\delta_0"] \arrow[u] \arrow[d] & \Coker' \dsqcup{Y'} Y \\
+		& X \arrow[r] & Y \arrow[u]
+	\end{tikzcd}\]
+
+	The composite along the first row is $\delta\psi=0$, so the composite along
+	the second row is also zero. Consequently, the composite
+	$S_1\xrightarrow{\xi}Y'\xrightarrow{u}Y\to\Coker'\dsqcup{Y'}Y$ is zero.
+	On the other hand, the composite
+	$Y'\xrightarrow{u}Y\to\Coker'\dsqcup{Y'}Y$ equals
+	$Y'\to\Coker'\to\Coker'\dsqcup{Y'}Y$. In the construction of $\delta$ we
+	proved that $\Coker'\to\Coker'\dsqcup{Y'}Y$ is a monomorphism. Thus the
+	composite $S_1\xrightarrow{\xi}Y'\to\Coker'$ is indeed zero.
+
+	The next step is to apply Lemma~\ref{prop:Abel-cat-exact-aux} to the exact
+	sequence $X'\to Y'\to\Coker'$. This gives a commutative diagram
+	% segment-id: o014.li2.chapter2.diagram-lemmas.g012
+	\[\begin{tikzcd}
+		S_0 \arrow[twoheadrightarrow, r] \arrow[d, "k"'] & S_1 \arrow[d, "\xi"] \arrow[rd, "0"] & \\
+		X' \arrow[r] & Y' \arrow[r] & \Coker' .
+	\end{tikzcd}\]
+
+	Write $\lambda$ for the composite
+	$S_0\twoheadrightarrow S_1\to X\dtimes{X''}\Ker''\to X$. Also write the
+	morphisms $X'\to Y'$ and $X\to Y$ as $a$ and $b$, respectively. The
+	preceding discussion gives the commutative diagram
+	% segment-id: o014.li2.chapter2.diagram-lemmas.g013
+	\[\begin{tikzcd}
+		S_0 \arrow[twoheadrightarrow, r] \arrow[d, "k"' near end] \arrow[rrd, "\lambda" description, near end] & S_1 \arrow[d, crossing over, "\xi"' near end] \arrow[r] & X \dtimes{X''} \Ker'' \arrow[d] \\
+		X' \arrow[r, "a"] \arrow[d, "f"'] & Y' \arrow[d, "u"'] & X \arrow[ld, "b"] \\
+		X \arrow[r, "b"] & Y &
+	\end{tikzcd}\]
+	Both squares in this diagram are known to commute; commutativity of the
+	triangle comes from the definition of $\lambda$, while commutativity of the
+	trapezoid on the right comes from the preceding discussion of $\xi$.
+	
+	It follows at once that $b\lambda=bfk$, so
+	$\lambda-fk:S_0\to X$ factors through $\Ker=\Ker(b)\hookrightarrow X$.
+	Finally, consider the diagram
+	% segment-id: o014.li2.chapter2.diagram-lemmas.g014
+	\[\begin{tikzcd}
+		S_0 \arrow[twoheadrightarrow, r] \arrow[d] \arrow[dd, bend right=50, "{\lambda -fk}"'] & S_1 \arrow[twoheadrightarrow, r] & S \arrow[d, "\psi"] \\
+		\Ker \arrow[hookrightarrow, d] \arrow[rr] & & \Ker'' \arrow[hookrightarrow, d] \\
+		X \arrow[rr, "g"] & & X'' .
+	\end{tikzcd}\]
+	To obtain the diagram in \eqref{eqn:snake-lemma-aux-2}, it suffices to show
+	that its upper square commutes. The lower square and the curved part are
+	known to commute; the usual argument reduces the problem to commutativity of
+	the outer frame. Since $g(\lambda-fk)=g\lambda$, this in turn reduces to the
+	known commutative diagram (see \eqref{eqn:snake-lemma-aux-3}):
+	% segment-id: o014.li2.chapter2.diagram-lemmas.g015
+	\[\begin{tikzcd}
+		S_0 \arrow[twoheadrightarrow, r] \arrow[rdd, bend right, "\lambda"'] & S_1 \arrow[twoheadrightarrow, r] \arrow[d] & S \arrow[d, "\psi"] \\
+		& X \dtimes{X''} \Ker'' \arrow[r] \arrow[d] & \Ker'' \arrow[d] \\
+		& X \arrow[r, "g"] & X'' .
+	\end{tikzcd}\]
+	All the required conditions are therefore satisfied.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.diagram-lemmas.p011
+The connecting homomorphism $\delta$ and Theorem~\ref{prop:snake-lemma} are
+much simpler in the category $R\dcate{Mod}$ of $R$-modules; see
+\cite[Proposition 6.8.6]{Li1}.
+
+% segment-id: o014.li2.chapter2.diagram-lemmas.pr001
+\begin{proposition}[Five Lemma]\label{prop:5-lemma}
+	\index{Five Lemma}
+	Consider a commutative diagram with exact rows in an abelian category
+	$\mathcal{A}$:
+	% segment-id: o014.li2.chapter2.diagram-lemmas.g016
+	\[\begin{tikzcd}
+		X_1 \arrow[r] \arrow[d, "f_1"'] & X_2 \arrow[r] \arrow[d, "f_2"'] & X_3 \arrow[r] \arrow[d, "f_3" description] & X_4 \arrow[r] \arrow[d, "f_4"] & X_5 \arrow[d, "f_5"] \\
+		Y_1 \arrow[r] & Y_2 \arrow[r] & Y_3 \arrow[r] & Y_4 \arrow[r] & Y_5
+	\end{tikzcd}\]
+	% segment-id: o014.li2.chapter2.diagram-lemmas.l004
+	\begin{enumerate}[(i)]
+		% segment-id: o014.li2.chapter2.diagram-lemmas.i011
+		\item If $f_1$ is an epimorphism and $f_2,f_4$ are monomorphisms, then
+		$f_3$ is a monomorphism (only the first four columns are involved);
+		% segment-id: o014.li2.chapter2.diagram-lemmas.i012
+		\item if $f_5$ is a monomorphism and $f_2,f_4$ are epimorphisms, then
+		$f_3$ is an epimorphism (only the last four columns are involved);
+		% segment-id: o014.li2.chapter2.diagram-lemmas.i013
+		\item if $f_1$ is an epimorphism, $f_5$ is a monomorphism, and $f_2,f_4$
+		are both isomorphisms, then $f_3$ is an isomorphism.
+	\end{enumerate}
+\end{proposition}
+% segment-id: o014.li2.chapter2.diagram-lemmas.pf003
+\begin{proof}
+	Clearly (i) and (ii) are dual to each other, while (iii) follows from
+	(i)--(ii) and Proposition~\ref{prop:strict-isomorphism}. It therefore
+	suffices to prove (i).
+	
+	Suppose that a morphism $h:S\to X_3$ satisfies $f_3h=0$; we must prove
+	that $h=0$. The composite
+	$S\xrightarrow{h}X_3\to X_4\xrightarrow{f_4}Y_4$ is zero, and therefore so
+	is $S\xrightarrow{h}X_3\to X_4$. Applying
+	Lemma~\ref{prop:Abel-cat-exact-aux} to the exact sequence
+	$X_2\to X_3\to X_4$ gives a commutative diagram
+	% segment-id: o014.li2.chapter2.diagram-lemmas.g017
+	\[\begin{tikzcd}
+		S' \arrow[twoheadrightarrow, r] \arrow[d] & S \arrow[d, "h"] \\
+		X_2 \arrow[r] & X_3 .
+	\end{tikzcd}\]
+
+	We now construct a commutative diagram
+	% segment-id: o014.li2.chapter2.diagram-lemmas.g018
+	\[\begin{tikzcd}[row sep=small]
+		S''' \arrow[twoheadrightarrow, r] \arrow[dd] & S'' \arrow[twoheadrightarrow, r] \arrow[dd] & S' \arrow[d] \\
+		& & X_2 \arrow[d, "f_2" inner sep=0.5em] \\
+		X_1 \arrow[r, "f_1"'] & Y_1 \arrow[r] & Y_2 . 
+	\end{tikzcd}\]
+	Here is how. Since $f_3h=0$, the composite
+	$S'\to X_2\xrightarrow{f_2}Y_2\to Y_3$ is zero. Applying
+	Lemma~\ref{prop:Abel-cat-exact-aux} to $S'\to Y_2$ and the exact sequence
+	$Y_1\to Y_2\to Y_3$ gives the right-hand part of the diagram. Applying
+	Lemma~\ref{prop:Abel-cat-exact-aux} to $S''\to Y_1$ and the exact sequence
+	$X_1\xrightarrow{f_1}Y_1\to0$ gives the left-hand part.
+	
+	Take the composite $S'''\to S'$ and consider the following diagram:
+	% segment-id: o014.li2.chapter2.diagram-lemmas.g019
+	\[\begin{tikzcd}
+		S''' \arrow[twoheadrightarrow, r] \arrow[d] & S' \arrow[twoheadrightarrow, r] \arrow[d] & S \arrow[d, "h"] & \\
+		X_1 \arrow[r] \arrow[d, "f_1"'] & X_2 \arrow[r] \arrow[d, "f_2"] & X_3 \arrow[r] & X_4 \\
+		Y_1 \arrow[r] & Y_2 & &
+	\end{tikzcd}\]
+	We show that this diagram commutes. The only issue is the upper-left square.
+	Compose the two paths
+	% segment-id: o014.li2.chapter2.diagram-lemmas.g020
+	\begin{tikzpicture}[scale=0.3]
+		\draw[->] (0,1) -- (1,1) -- (1,0); \end{tikzpicture}
+	and
+	% segment-id: o014.li2.chapter2.diagram-lemmas.g021
+	\begin{tikzpicture}[scale=0.3]
+		\draw[->] (0,1) -- (0,0) -- (1,0);
+	\end{tikzpicture}
+	in that square with $f_2$ on the right. Since the two squares
+	% segment-id: o014.li2.chapter2.diagram-lemmas.g022
+	$\begin{tikzcd}[row sep=small, column sep=small]
+		X_1 \arrow[r] \arrow[d] & X_2 \arrow[d] \\
+		Y_1 \arrow[r] & Y_2
+	\end{tikzcd}$ and
+	% segment-id: o014.li2.chapter2.diagram-lemmas.g023
+	$\begin{tikzcd}[row sep=small, column sep=small]
+		S''' \arrow[r] \arrow[d] & S' \arrow[d] \\
+		Y_1 \arrow[r] & Y_2
+	\end{tikzcd}$
+	commute and $f_2$ is a monomorphism, the upper-left square also commutes.
+	
+	Thus the composite
+	$S'''\twoheadrightarrow S'\twoheadrightarrow S\xrightarrow{h}X_3$ is zero,
+	and hence $h=0$. This proves the result.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.diagram-lemmas.p012
+This section has introduced only two of the most commonly used diagram lemmas.
+Using the language of double complexes, G.\ Bergman found the comprehensive
+Salamander Lemma, which subsumes the Snake Lemma and several classical diagram
+lemmas of homological algebra. Interested readers may consult \cite{Be12}.
+\index{Salamander Lemma}

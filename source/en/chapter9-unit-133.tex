@@ -1,0 +1,146 @@
+% Stable unit: chapter9-unit-133; source chapter9.tex, lines 1805--1949.
+% Stable unit ID: o014.aljabr2.chapter9.tannaka-krein-finite-groups
+\section{The Tannaka--Krein Theorem for Finite Groups}\label{sec:TK}
+Classical Tannaka--Krein theory \cite{Ta38, Kr49} is chiefly concerned with the following question: given a compact topological group $G$, how can $G$ be reconstructed from its category of representations? The answer is closely tied to the tensor-product structure and duality; see \cite[\S 4.3]{FL14}. This section gives a concise interpretation of the Tannaka--Krein reconstruction theorem based on the preceding results, but treats only finite groups rather than compact groups.
+
+Let $G$ be a group and $\Bbbk$ a field. Henceforth write $\otimes := \otimes_{\Bbbk}$, and denote the identity element of $G$ by $1_G$.
+
+The principal objects of interest are the $G$-modules introduced in Definition \ref{def:G-mod}, which in many contexts are also called representations of $G$. In brief, they are $\Bbbk$-vector spaces $V$ equipped with a linear left $G$-action $G \times V \to V$, written as left multiplication $(g,v)\mapsto gv$. All $G$-modules form a $\Bbbk$-linear Abelian category $G\dcate{Mod}$, whose $\Hom$ is denoted by $\Hom_G$. The forgetful functor
+\[ \omega: G\dcate{Mod} \to \cate{Vect}(\Bbbk) \]
+of course sends a $G$-module $V$ to its underlying $\Bbbk$-vector space $V$.
+\index{representation}
+
+Write the group algebra of $G$ as $\Bbbk[G]$; by Example \ref{eg:group-Hopf-algebra}, it is a Hopf algebra. As stated in Proposition \ref{prop:G-mod-kG}, $G\dcate{Mod}$ is isomorphic to $\Bbbk[G]\dcate{Mod}$, and we shall switch between these two viewpoints without further comment.
+
+\begin{convention}
+	The dimension of a $G$-module means its dimension as a $\Bbbk$-vector space. Write $G\dcate{Mod}_{\mathrm{f}}$ for the full subcategory of $G\dcate{Mod}$ consisting of finite-dimensional $G$-modules.
+\end{convention}
+
+The field $\Bbbk$ endowed with the trivial $G$-action is called the trivial $G$-module (Example \ref{eg:trivial-G-mod}). For $G$-modules $V$ and $W$, the spaces $V\otimes W$ and $\Hom(V,W):=\Hom_{\Bbbk}(V,W)$ carry canonical $G$-module structures. The special case $\Hom(V,\Bbbk)$ of the latter is called the contragredient $G$-module of $V$, and is also denoted by $V^*$ to distinguish it from the vector-space dual. These operations were described in detail after Definition \ref{def:HomG}.
+
+\begin{proposition}\label{prop:RepG-Tannakian}
+	The tensor-product operation above, $(V,W)\mapsto V\otimes W$, gives $G\dcate{Mod}$ a symmetric monoidal structure whose unit is the trivial $G$-module $\Bbbk$, and makes the forgetful functor $G\dcate{Mod}\to\cate{Vect}(\Bbbk)$ monoidal. The full subcategory $G\dcate{Mod}_{\mathrm{f}}$ is then a neutral Tannakian category, and the forgetful functor $\omega:G\dcate{Mod}_{\mathrm{f}}\to\cate{Vect}_{\mathrm{f}}(\Bbbk)$ is its fiber functor.
+\end{proposition}
+\begin{proof}
+	The symmetric monoidal structure on $G\dcate{Mod}$ can be checked directly from the definition of the tensor product. Readers who prefer a big-picture account may instead reason as follows.
+	\begin{itemize}
+		\item Since $\Bbbk[G]$ is a Hopf algebra, Proposition \ref{prop:bialgebra-Mod-monoidal} equips $\Bbbk[G]\dcate{Mod}$ with a monoidal structure for which the forgetful functor is monoidal. Because the comultiplication on $\Bbbk[G]$ is $g\mapsto g\otimes g$, carefully expanding the definitions shows that this is precisely the tensor-product operation defined above.
+		\item Since $\Bbbk[G]$ is cocommutative, Proposition \ref{prop:bialgebra-mod-symmetry} (i) further implies that $\Bbbk[G]\dcate{Mod}$ is a symmetric monoidal category.
+	\end{itemize}
+
+	Clearly $G\dcate{Mod}_{\mathrm{f}}$ is a monoidal subcategory of $G\dcate{Mod}$ and is also an Abelian category. For every $n\in\Z_{\geq 0}$, all $G$-module structures that can be placed on $\Bbbk^n$ form a small set; hence $G\dcate{Mod}_{\mathrm{f}}$ is essentially small. Plainly,
+	\[ \End_G\left(\Bbbk:\; \text{the trivial $G$-module}\right) = \Bbbk. \]
+
+	Checking the definition of duality in \S\ref{def:dualizable-obj} step by step shows that the contragredient operation $V\mapsto V^*$ makes $G\dcate{Mod}_{\mathrm{f}}$ rigid. Its duality data come from the familiar morphisms
+	\[\begin{tikzcd}[row sep=tiny]
+		V \otimes V^* \arrow[r, "{\mathrm{ev}}"] & \Bbbk \\
+		v \otimes \lambda \arrow[mapsto, r] & \lambda(v),
+	\end{tikzcd} \quad \begin{tikzcd}[row sep=tiny]
+		\Bbbk \arrow[r, "{\mathrm{coev}}"] & V^* \otimes V \\
+		1 \arrow[mapsto, r] & \sum_i \check{v}_i \otimes v_i,
+	\end{tikzcd}\]
+	where $(v_i)_i$ is any basis of $V$ as a vector space and $(\check v_i)_i$ is its dual basis; both are morphisms in $G\dcate{Mod}$. From the viewpoint of the Hopf algebra $\Bbbk[G]$, rigidity also follows from Proposition \ref{prop:Hopf-module-dual} and the fact that the antipode of $\Bbbk[G]$ is $g\mapsto g^{-1}$.
+
+	The constructions above also show that the forgetful functor $\omega:G\dcate{Mod}_{\mathrm{f}}\to\cate{Vect}_{\mathrm{f}}(\Bbbk)$ is monoidal, compatible with the symmetric monoidal structures on both sides, and plainly exact. Thus $\omega$ is a neutral fiber functor on the neutral Tannakian category $G\dcate{Mod}_{\mathrm{f}}$.
+\end{proof}
+
+From now on suppose that $G$ is finite. The central question of this section is:
+\begin{center}
+	How can the group $G$ be reconstructed from the data $\left(G\dcate{Mod}_{\mathrm{f}},\omega\right)$?
+\end{center}
+The results obtained in \S\ref{sec:Tannakian-cat} already bring us close to an answer, but the machinery still requires some adjustment. First we must interpret $G\dcate{Mod}_{\mathrm{f}}$ as a comodule category.
+
+\begin{definition}
+	Continue to assume that $G$ is finite. Define the $\Bbbk$-vector space
+	\[ C(G) := \left\{\text{maps}\; f: G \to \Bbbk \right\}, \]
+	with vector-space structure given by pointwise operations. There is moreover a canonical isomorphism
+	\[\begin{tikzcd}[row sep=tiny]
+		C(G) \otimes C(G) \arrow[r, "\sim"] & C(G \times G) \\
+		f_1 \otimes f_2 \arrow[mapsto, r] & {[(g_1, g_2) \mapsto f_1(g_1) f_2(g_2)]}.
+	\end{tikzcd}\]
+\end{definition}
+
+Identifying $C(G)\otimes C(G)$ with $C(G\times G)$, the space $C(G)$ has the following structure:
+\begin{center}\begin{tabular}{|c|c|c|c|c|} \hline
+	Multiplication & Comultiplication $\Delta$ & Unit & Counit $\epsilon$ & Antipode $S$ \\ \hline
+	Pointwise multiplication & $f \mapsto \left[ (g_1, g_2) \mapsto f(g_1 g_2) \right]$ & Constant function $1$ & $f \mapsto f(1_G)$ & $(Sf)(g) = f(g^{-1})$ \\ \hline
+\end{tabular}\end{center}
+The reader is invited to give a brief verification that this is a commutative Hopf algebra. Consequently, Proposition \ref{prop:bialgebra-mod-symmetry} (ii) ensures that $\cated{Comod}C(G)$ is a symmetric monoidal category, while Proposition \ref{prop:Hopf-module-dual} makes $\catesubd{Comod}{\mathrm{f}}C(G)$ a rigid symmetric monoidal category; compare the big-picture part of the preceding proof.
+
+For every $g\in G$, let $\mathbf{1}_g\in C(G)$ be the element equal to $1$ at $g$ and $0$ elsewhere. These elements form a basis of $C(G)$, and multiplication and comultiplication are respectively determined by $\mathbf{1}_{g_1}\mathbf{1}_{g_2}=\delta_{g_1,g_2}\mathbf{1}_{g_1}$ (with $\delta$ the Kronecker symbol) and $\Delta(\mathbf{1}_g)=\sum_{xy=g}\mathbf{1}_x\otimes\mathbf{1}_y$.
+
+\begin{proposition}\label{prop:Rep-comod-fiber}
+	There is an isomorphism of categories $G\dcate{Mod}\simeq\cated{Comod}C(G)$. The right $C(G)$-comodule corresponding to a $G$-module $V$ is $V$ equipped with the linear map
+	\[\begin{tikzcd}[row sep=tiny]
+		\rho: V \arrow[r] & V \otimes C(G) \arrow[r, "\sim"] & \left\{\text{maps}\; G \to V \right\} \\
+		v \arrow[mapsto, r] & \displaystyle\sum_{g \in G} gv \otimes \mathbf{1}_g \arrow[mapsto, r] & {[g \mapsto gv]},
+	\end{tikzcd}\]
+	while the $G$-module corresponding to a right $C(G)$-comodule $(V,\rho)$ is $V$ equipped with the map
+	\begin{align*}
+		G \times V & \to V \\
+		(g, v) & \mapsto \underbracket{\rho(v)}_{\text{map}\; G \to V}(g).
+	\end{align*}
+
+	Furthermore, the symmetric monoidal structures on $G\dcate{Mod}$ and $\cated{Comod}C(G)$ correspond under this isomorphism. All these isomorphisms preserve the forgetful functors to $\cate{Vect}(\Bbbk)$, as expressed by the commutative diagram
+	\[\begin{tikzcd}[column sep=small]
+		G\dcate{Mod} \arrow[rr, "\sim"] \arrow[rd, "\omega"'] & & \cated{Comod}C(G) \arrow[ld, "{\omega_{C(G)}}"] \\
+		& \cate{Vect}(\Bbbk). &
+	\end{tikzcd}\]
+
+	In particular, $G\dcate{Mod}_{\mathrm{f}}$ and $\catesubd{Comod}{\mathrm{f}}C(G)$ are likewise isomorphic, and the isomorphism preserves their forgetful functors to $\cate{Vect}_{\mathrm{f}}(\Bbbk)$.
+\end{proposition}
+\begin{proof}
+	Unwind the definitions.
+\end{proof}
+
+\begin{lemma}\label{prop:CG-group}
+	There is a bijection $G\xrightarrow{1:1}\Hom_{\Bbbk\dcate{CAlg}}(C(G),\Bbbk)$ sending $g$ to the evaluation homomorphism $f\mapsto f(g)$. Endow the right-hand side with the binary operation induced by $\Delta:C(G)\to C(G\times G)\simeq C(G)\otimes C(G)$, which sends $(\varphi_1,\varphi_2)$ to $(\varphi_1\otimes\varphi_2)\circ\Delta$. Then this bijection is an isomorphism of groups.
+\end{lemma}
+\begin{proof}
+	Every $\Bbbk$-algebra homomorphism $\varphi:C(G)\to\Bbbk$ is surjective, so $\Ker(\varphi)$ is a maximal ideal. As a $\Bbbk$-algebra, however, $C(G)$ is the direct product of $G$ copies of $\Bbbk$, via the map $f\mapsto(f(g))_{g\in G}$. It is easy to show that the maximal ideals of $\prod_{g\in G}\Bbbk$ correspond bijectively to the elements of $G$ through
+	\[  g \in G \quad \leftrightarrow \quad \Bbbk \times \cdots \times \underbracket{\{0\}}_{\text{$g$-component}} \times \cdots \times \Bbbk \]
+	See \cite[Lemma 8.9.7]{Li1}, or prove this directly. The required bijection follows at once.
+
+	To see how group multiplication is reflected on $\Hom_{\Bbbk\dcate{CAlg}}(C(G),\Bbbk)$, it suffices to verify that
+	\[\begin{tikzcd}
+		(g_1, g_2) \arrow[phantom, r, "\in" description] \arrow[mapsto, d] & G \times G \arrow[r, "1:1"] \arrow[d] & \Hom_{\Bbbk\dcate{CAlg}}(C(G \times G), \Bbbk) \arrow[d] & {[F \mapsto F(g_1, g_2)]} \arrow[phantom, l, "\ni" description, sloped] \arrow[mapsto, d] \\
+		g_1 g_2 \arrow[phantom, r, "\in" description] & G \arrow[r, "1:1"'] & \Hom_{\Bbbk\dcate{CAlg}}(C(G), \Bbbk) & {[f \mapsto (\Delta f)(g_1, g_2)]} \arrow[phantom, l, "\ni" description, sloped]
+	\end{tikzcd}\]
+	is commutative. This presents no essential difficulty.
+\end{proof}
+
+We can now answer the reconstruction question posed above. The answer involves the group $\Aut^{\otimes}(\omega)$ introduced in Corollary \ref{prop:Aut-Tannakian}; the point is to describe the isomorphism explicitly.
+
+\begin{theorem}[T.\ Tannaka, M.\ Krein]\label{prop:Tannaka-Krein}
+	\index{Tannaka--Krein theorem (Tannaka--Krein Theorem)}
+	Let $\Bbbk$ be a field and $G$ a finite group. Consider the forgetful functor $\omega:G\dcate{Mod}_{\mathrm{f}}\to\cate{Vect}_{\mathrm{f}}(\Bbbk)$. There is an isomorphism of groups
+	\[ A: G \rightiso \Aut^\otimes(\omega), \]
+	described explicitly as follows: for $g\in G$ and a finite-dimensional $G$-module $V$, the map $A(g)_V:V\to V$ is the $\Bbbk$-linear map $v\mapsto gv$.
+\end{theorem}
+\begin{proof}
+	We know that $\omega$ is a neutral fiber functor on the Tannakian category $G\dcate{Mod}_{\mathrm{f}}$ (Proposition \ref{prop:RepG-Tannakian}), and therefore it has an associated commutative Hopf algebra $\coEnd(\omega)$. Taking $B=B'=\Bbbk$ in Corollary \ref{prop:Aut-Tannakian} gives an isomorphism of groups
+	\[ \Aut^{\otimes}(\omega) \simeq \Hom_{\Bbbk\dcate{CAlg}}\left(\coEnd(\omega), \Bbbk \right). \]
+
+	The commutative diagram in Proposition \ref{prop:Rep-comod-fiber} implies
+	\[ \coEnd(\omega) \simeq \coEnd\left(\omega_{C(G)}: \catesubd{Comod}{\mathrm{f}}C(G) \to \cate{Vect}_{\mathrm{f}}(\Bbbk) \right), \]
+	while Lemma \ref{prop:reconstruction-cat-aux}, together with the explanation following it, further gives
+	\[ \coEnd\left( \omega_{C(G)} \right) \simeq C(G); \]
+	all of these are canonical isomorphisms of bialgebras. Substituting Lemma \ref{prop:CG-group}, we obtain isomorphisms of groups
+	\[\begin{tikzcd}[row sep=tiny]
+		G \arrow[r, "\sim"] & \Hom_{\Bbbk\dcate{CAlg}}\left(C(G), \Bbbk \right) \arrow[r, "\sim"] & \Aut^{\otimes}(\omega) \\
+		g \arrow[mapsto, r] & B(g) \arrow[mapsto, r] & A(g).
+	\end{tikzcd}\]
+	The image $B(g)$ under the first isomorphism is the evaluation homomorphism $f\mapsto f(g)$. On the other hand, by the universal property of $\coEnd(\omega)=\coHom(\omega,\omega)\simeq C(G)$ in Definition \ref{def:cogebra-L-universal} (with $L=\Bbbk$), the second isomorphism in fact extends to
+	\[ \Hom_{\Bbbk}(C(G), \Bbbk) \rightiso \Hom_{\Bbbk}(\omega, \omega), \]
+	and that universal property shows that the correspondence between $A$ and $B$ is characterized by the following commutative diagram in $\cate{Vect}_{\mathrm{f}}(\Bbbk)$:
+	\[\begin{tikzcd}[column sep=large]
+		& \omega(V) \arrow[ld, "\rho"'] \arrow[rd, "{A(g)_V}"] & \\
+		\omega(V) \otimes C(G) \arrow[r, "{\identity \otimes B(g)}"'] & \omega(V) \otimes \Bbbk \arrow[r, "\sim"'] & \omega(V),
+	\end{tikzcd}\]
+	where $V$ ranges over the finite-dimensional $G$-modules and $\rho$ is defined as in Proposition \ref{prop:Rep-comod-fiber}. Substituting $B(g)(f)=f(g)$ immediately gives $A(g)_V(v)=gv$, as required.
+\end{proof}
+
+Under suitable conditions on $\Bbbk$, one can go further and characterize those commutative Hopf algebras isomorphic to $C(G)$ for some finite group $G$. Such questions belong to elementary algebraic geometry or commutative ring theory, and we shall not pursue them here.
+
+\index{Doplicher--Roberts theorem (Doplicher--Roberts Theorem)}
+Finally, there is another method that does not depend on a fiber functor and reconstructs a compact group solely from its category of $G$-modules. It is called the Doplicher--Roberts reconstruction theorem and has its origins in quantum field theory. Interested readers may consult the survey \cite{Mu07}.

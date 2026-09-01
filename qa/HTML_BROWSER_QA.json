@@ -1,0 +1,78 @@
+{
+  "schema": "o014-english-html-browser-qa-v1",
+  "recorded_at_utc": "2026-09-01T00:32:51.5203991Z",
+  "result": "PASS",
+  "target": "reader/dist/index.html",
+  "target_bytes": 4499295,
+  "target_sha256": "894749f6fc9e19d37ff981a0e5a2681539d2dc04b33952967ac989b3d70abff3",
+  "runtime": "Chromium-based Codex in-app browser against an HTTP localhost origin",
+  "coverage": {
+    "logical_sections": 149,
+    "source_units": 146,
+    "mastery_bridges": 2,
+    "bibliography_sections": 1,
+    "diagram_fallbacks": 907,
+    "diagram_captions": 907,
+    "rendered_mathjax_containers": 28454
+  },
+  "desktop": {
+    "viewport_css_px": {"width": 1440, "height": 900},
+    "layout_client_css_px": {"width": 1425, "height": 900},
+    "mjx_merror_nodes": 0,
+    "visible_ensuremath_tokens": 0,
+    "unsupported_raw_tex_pgf_tikz_print_tokens": 0,
+    "diagram_captions_with_raw_tex_commands": 0,
+    "known_indonesian_caption_residue": 0,
+    "page_level_horizontal_overflow": false,
+    "page_scroll_width_css_px": 1425,
+    "wide_candidates": 49,
+    "wide_candidates_without_local_scroller": 0,
+    "main_column_css_px": {"left": 104.44444274902344, "right": 1320.4444427490234, "width": 1216},
+    "centered_margin_delta_css_px": 0.111114501953125,
+    "visual_inspection": "PASS: centered reader cover and navigation are legible without clipping or unresolved macro text."
+  },
+  "mobile": {
+    "viewport_css_px": {"width": 390, "height": 844},
+    "layout_client_css_px": {"width": 375, "height": 844},
+    "mjx_merror_nodes": 0,
+    "visible_ensuremath_tokens": 0,
+    "unsupported_raw_tex_pgf_tikz_print_tokens": 0,
+    "diagram_captions_with_raw_tex_commands": 0,
+    "known_indonesian_caption_residue": 0,
+    "page_level_horizontal_overflow": false,
+    "page_scroll_width_css_px": 375,
+    "wide_candidates": 1368,
+    "wide_candidates_without_local_scroller": 0,
+    "main_column_css_px": {"left": 8, "right": 367.1111145019531, "width": 359.1111145019531},
+    "visual_inspection": "PASS: cover, navigation, body prose, formulas, and source-traced diagram descriptions reflow at 390 px; wide mathematics remains locally scrollable."
+  },
+  "local_links_and_assets": {
+    "same_origin_links_checked": 3636,
+    "broken_same_document_targets": 0,
+    "manifest_files_http_read_back": 31,
+    "manifest_files_http_read_back_bytes": 6200748,
+    "http_failures": 0,
+    "byte_or_sha256_mismatches": 0,
+    "manifest_path": "reader/dist/SHA256SUMS.txt",
+    "manifest_bytes": 3897,
+    "manifest_sha256": "c6df455b6e0203e69165dd1d2d9279d5af2f947147f80b5bd14b89a0efa246db",
+    "browser_console_warnings_or_errors": 0
+  },
+  "representative_diagram": {
+    "diagram_id": "chapter4-unit-055-d012",
+    "visible_description": "Category diagram: … 0 → 0; 0 → 0; 0 → …; … → X; X → 0 …; … 0 → Z^-n; Z^-n → Z^-n+1; Z^-n → Y; and 11 other arrows.",
+    "raw_tex_exposed": false
+  },
+  "build_receipt": {
+    "path": "qa/HTML_BUILD_RECEIPT.json",
+    "bytes": 32563,
+    "sha256": "315372b00a23c98808be310975295eafb47424d3e1a37ee13ee228288b97e756"
+  },
+  "static_validation": {
+    "path": "reader/dist/validation-report.json",
+    "bytes": 632,
+    "sha256": "2c4eddec8daa988eee2067fe67e6d875368001bc8ae2a1c27a6330438cc72c54",
+    "local_references_checked": 3609,
+    "errors": 0
+  }
+}

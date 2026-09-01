@@ -1,0 +1,25 @@
+{
+  "schema": "o014-english-diagram-ledger-validation-v1",
+  "recorded_at_utc": "2026-09-01T00:24:34.289555+00:00",
+  "result": "PASS",
+  "checks": {
+    "columns_exact": true,
+    "rows_907": true,
+    "files_with_diagrams_exact": true,
+    "diagram_ids_unique": true,
+    "unit_local_orders_unique": true,
+    "descriptions_and_provenance_valid": true,
+    "witness_counts_exact": true,
+    "target_counts_and_orders_exact": true
+  },
+  "rows": 907,
+  "unit_files": 128,
+  "unique_descriptions": 887,
+  "duplicate_ids": [],
+  "duplicate_unit_orders": [],
+  "description_defects": [],
+  "witness_mismatches": [],
+  "target_mismatches": [],
+  "ledger_bytes": 337312,
+  "ledger_sha256": "aa15c68e8e0f19ee58dc9329199c4ff84db1deb1df9bf58dd5a11105ff293937"
+}

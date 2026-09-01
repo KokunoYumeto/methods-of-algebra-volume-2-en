@@ -1,0 +1,218 @@
+{
+  "schema": "o014-english-range-receipt-v1",
+  "range": {
+    "first_sequence": 56,
+    "last_sequence": 64
+  },
+  "status": "PASS",
+  "source_commit": "9a5803ff77dd3257484cb177f851a73770a59dd3",
+  "validation": {
+    "source_slice_sha256_verified": true,
+    "indonesian_witness_sha256_verified": true,
+    "stable_unit_ids_verified": true,
+    "segment_id_sequence_parity": true,
+    "localized_environment_roles_canonicalized_to_english": true,
+    "environment_role_order_parity": true,
+    "label_sequence_parity": true,
+    "reference_key_coverage_parity": true,
+    "citation_key_sequence_parity": true,
+    "display_formula_order_parity": true,
+    "display_formula_comparison_ignores_translated_text_and_whitespace": true,
+    "balanced_braces_math_delimiters_and_nested_environments": true,
+    "han_residue_count": 0,
+    "indonesian_residue_count": 0,
+    "placeholder_count": 0,
+    "tex_or_git_invoked": false
+  },
+  "units": [
+    {
+      "sequence": 56,
+      "unit_id": "o014.aljabr2.chapter4.triangulated-functor-localization",
+      "target_path": "source/en/chapter4-unit-056.tex",
+      "target_sha256": "84b32ccf185f4b94f0b233b41cdd808166730dda480abe92fc7bbd0a2a984c07",
+      "bytes": 24206,
+      "lines": 426,
+      "chinese_source": {
+        "path": "chapter4.tex",
+        "start_line": 1314,
+        "end_line": 1512,
+        "sha256": "2a132295081171c6bebd9e6732bda6aa4d0a4e9260be22a23f07d5e56e7daa2a"
+      },
+      "indonesian_witness_sha256": "fe3532587304626a0072cea466b5dc0b252c06e2310b725425d0611ff894a77d",
+      "segments": 35,
+      "environment_tokens": 74,
+      "labels": 14,
+      "references": 23,
+      "citation_keys": 1,
+      "display_math_blocks": 16
+    },
+    {
+      "sequence": 57,
+      "unit_id": "o014.aljabr2.chapter4.derived-functors-general",
+      "target_path": "source/en/chapter4-unit-057.tex",
+      "target_sha256": "743b278c968b3eac7ff62bcaa708ee321385374848a06f99c6e7df84ad70b3d9",
+      "bytes": 19838,
+      "lines": 359,
+      "chinese_source": {
+        "path": "chapter4.tex",
+        "start_line": 1513,
+        "end_line": 1680,
+        "sha256": "fd735e234edc9b9889d1d659df6bb3be4a19f4e6e463951157f53fd352ef86f9"
+      },
+      "indonesian_witness_sha256": "55cb87441166552fb20406faa7ad9453e27f1d415cf2e8ba77a2884e21bc4af8",
+      "segments": 32,
+      "environment_tokens": 62,
+      "labels": 11,
+      "references": 30,
+      "citation_keys": 0,
+      "display_math_blocks": 21
+    },
+    {
+      "sequence": 58,
+      "unit_id": "o014.aljabr2.chapter4.bounded-derived-functors",
+      "target_path": "source/en/chapter4-unit-058.tex",
+      "target_sha256": "a571ee959483b02a0a755d314a1d346269aebb150eba78aa2754844bc6855f32",
+      "bytes": 21082,
+      "lines": 416,
+      "chinese_source": {
+        "path": "chapter4.tex",
+        "start_line": 1681,
+        "end_line": 1840,
+        "sha256": "4cb469b4b2afda51677ea59c7a3d50bc6ec7cea10e8c32052801e2ebb28852ec"
+      },
+      "indonesian_witness_sha256": "d81bc022db5bed6e08d347391bb18b8540244f54a6a6f137848fae77b9be04bb",
+      "segments": 31,
+      "environment_tokens": 50,
+      "labels": 10,
+      "references": 46,
+      "citation_keys": 1,
+      "display_math_blocks": 8
+    },
+    {
+      "sequence": 59,
+      "unit_id": "o014.aljabr2.chapter4.rhom",
+      "target_path": "source/en/chapter4-unit-059.tex",
+      "target_sha256": "aadcb8f5270f16dedde1846063f1d8f38fba636165b660a5839eccd919c7e749",
+      "bytes": 15799,
+      "lines": 331,
+      "chinese_source": {
+        "path": "chapter4.tex",
+        "start_line": 1841,
+        "end_line": 2001,
+        "sha256": "49d8091473a6b7e54d30166665f4e383ff780a393a56454e990889475d574100"
+      },
+      "indonesian_witness_sha256": "3420cac1635e706d45bd9dffed38be4d75dffa0d7323a91e96ba9ca85398a030",
+      "segments": 28,
+      "environment_tokens": 52,
+      "labels": 8,
+      "references": 28,
+      "citation_keys": 1,
+      "display_math_blocks": 13
+    },
+    {
+      "sequence": 60,
+      "unit_id": "o014.aljabr2.chapter4.rlim-homotopy-limit",
+      "target_path": "source/en/chapter4-unit-060.tex",
+      "target_sha256": "e9a4f30617bb1b430b2daf546a90dc03a6161818b567e6ae14d7b1b02cc32ec3",
+      "bytes": 11855,
+      "lines": 235,
+      "chinese_source": {
+        "path": "chapter4.tex",
+        "start_line": 2002,
+        "end_line": 2115,
+        "sha256": "ed2ca1a894f40fcd13f4a95aeea5cc945f8927e65bc77710179cfef8c06e291f"
+      },
+      "indonesian_witness_sha256": "6ae2212255a6406287b39297df23ce8e054a76cbc87bbf512d4eea3f4d2701de",
+      "segments": 19,
+      "environment_tokens": 32,
+      "labels": 5,
+      "references": 15,
+      "citation_keys": 1,
+      "display_math_blocks": 13
+    },
+    {
+      "sequence": 61,
+      "unit_id": "o014.aljabr2.chapter4.unbounded-derived-functors",
+      "target_path": "source/en/chapter4-unit-061.tex",
+      "target_sha256": "1822a0c5463f9464b8c380389e8186de79de9e111ca446476cbea00bc82ba170",
+      "bytes": 19849,
+      "lines": 382,
+      "chinese_source": {
+        "path": "chapter4.tex",
+        "start_line": 2116,
+        "end_line": 2267,
+        "sha256": "73adc09e336acb1d9e902f9b76e25ccaf85a3dc5e8fcfa5a2323732bf95524b1"
+      },
+      "indonesian_witness_sha256": "ea2580ad9efdcacc4d7edea5a061183b0d0b52dc69858e8e088432ec27b154f6",
+      "segments": 63,
+      "environment_tokens": 54,
+      "labels": 11,
+      "references": 38,
+      "citation_keys": 1,
+      "display_math_blocks": 13
+    },
+    {
+      "sequence": 62,
+      "unit_id": "o014.aljabr2.chapter4.k-flat-derived-tensor-a",
+      "target_path": "source/en/chapter4-unit-062.tex",
+      "target_sha256": "e3bc656117326ea0e4fad4a38a8961c428bc7f64a75cd4d2b5fa56154e734754",
+      "bytes": 24861,
+      "lines": 467,
+      "chinese_source": {
+        "path": "chapter4.tex",
+        "start_line": 2268,
+        "end_line": 2499,
+        "sha256": "6dbb6672a1eabcfd96cf467501130f93f2168a05f41c5b6df6dc75f9d4f00cc1"
+      },
+      "indonesian_witness_sha256": "ade8d4a30054424e2e77177e0cedf40c0705da6ad8306b705a45687c3346e2bb",
+      "segments": 67,
+      "environment_tokens": 66,
+      "labels": 11,
+      "references": 18,
+      "citation_keys": 5,
+      "display_math_blocks": 25
+    },
+    {
+      "sequence": 63,
+      "unit_id": "o014.aljabr2.chapter4.k-flat-derived-tensor-b",
+      "target_path": "source/en/chapter4-unit-063.tex",
+      "target_sha256": "712f3277addcf14951363c6f19ac75a9b7077f3bac70230e1ec1850f1ba53cc6",
+      "bytes": 29015,
+      "lines": 548,
+      "chinese_source": {
+        "path": "chapter4.tex",
+        "start_line": 2500,
+        "end_line": 2745,
+        "sha256": "0d1c94c350b6b8f31b7afc0a554d38a7795072f26d117c48c95bb5823e6bc8d1"
+      },
+      "indonesian_witness_sha256": "4bb8f590fed27c0a5e2f74b4bf3748d8cf2677c54d44a587a8184b59d34dd904",
+      "segments": 78,
+      "environment_tokens": 80,
+      "labels": 6,
+      "references": 32,
+      "citation_keys": 8,
+      "display_math_blocks": 25
+    },
+    {
+      "sequence": 64,
+      "unit_id": "o014.aljabr2.chapter5.intro-filtration-grading",
+      "target_path": "source/en/chapter5-unit-064.tex",
+      "target_sha256": "e29c2a43819cb356f49f1e1c525a83ba72062a316a0b096dd52df5b634a7e124",
+      "bytes": 18690,
+      "lines": 342,
+      "chinese_source": {
+        "path": "chapter5.tex",
+        "start_line": 9,
+        "end_line": 140,
+        "sha256": "7077a6bcd01bd37c810fdbfdf1a10238a2b175121ed57f27952f70403bc16389"
+      },
+      "indonesian_witness_sha256": "bc4d9105c99197d7037cebe8ea52ebd401d3f09233746e9a1e901d561db43eaa",
+      "segments": 32,
+      "environment_tokens": 32,
+      "labels": 6,
+      "references": 34,
+      "citation_keys": 1,
+      "display_math_blocks": 10
+    }
+  ]
+}

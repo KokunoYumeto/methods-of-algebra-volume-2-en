@@ -1,0 +1,801 @@
+% Unit 082 English translation of chapter6.tex lines 1740--2123.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter6.cup-product
+% Coverage: Section 6.10 in full on cup products; stops immediately before
+% Section 6.11 on Tate cohomology at line 2124.
+
+% segment-id: o014.li2.chapter6.cup-product.h001
+\section{The cup-product operation}\label{sec:cup-product}
+\hypertarget{o014.aljabr2.chapter6.cup-product}{ }
+
+% segment-id: o014.li2.chapter6.cup-product.p001
+Let $G$ be an arbitrary group. As usual, write
+$\otimes=\otimes_{\Bbbk}$; this notation denotes both the tensor product of
+$\Bbbk$-modules and the tensor product of $G$-modules.
+
+% segment-id: o014.li2.chapter6.cup-product.cv001
+\begin{convention}
+	Write $\Ext_G^\bullet:=\Ext_{\Bbbk[G]}^\bullet$ and
+	$\cate{D}(G):=\cate{D}(G\dcate{Mod})$.
+\end{convention}
+
+% segment-id: o014.li2.chapter6.cup-product.p002
+The aim of this section is to construct a cup-product operation on cohomology
+for arbitrary $G$-modules $M_1$ and $M_2$,
+% segment-id: o014.li2.chapter6.cup-product.q001
+\[ \cup: \Hm^p(G, M_1) \otimes \Hm^q(G, M_2) \to \Hm^{p+q}(G, M_1 \otimes M_2), \quad p, q \in \Z_{\geq 0}, \]
+which for $p=q=0$ gives the evident morphism
+$M_1^G\otimes M_2^G\to(M_1\otimes M_2)^G$.
+
+% segment-id: o014.li2.chapter6.cup-product.p003
+Reformulated in terms of $\Ext_G^\bullet$, the aim is equivalently to define
+% segment-id: o014.li2.chapter6.cup-product.q002
+\[ \cup: \Ext^p_G(\Bbbk, M_1) \otimes \Ext^q_G(\Bbbk, M_2) \to \Ext_G^{p+q}(\Bbbk, M_1 \otimes M_2). \]
+
+% segment-id: o014.li2.chapter6.cup-product.p004
+Recall that
+$\Ext^p_G(\Bbbk,M_1)\simeq\Hom_{\cate{D}(G)}(\Bbbk,M_1[p])$. Our first
+viewpoint on the cup product is based on morphisms in the derived category.
+Readers interested only in concrete computations with complexes may proceed
+directly to Definition--Proposition~\ref{def:group-cup-3}.
+
+% segment-id: o014.li2.chapter6.cup-product.d001
+\begin{definition}
+	Write the left-derived bifunctor of
+	$\otimes:G\dcate{Mod}\times G\dcate{Mod}\to G\dcate{Mod}$ as
+	$\otimesL$. This bifunctor gives $\cate{D}^-(G)$ the structure of a
+	symmetric monoidal category, with the trivial $G$-module $\Bbbk$ as its
+	unit object.
+\end{definition}
+
+% segment-id: o014.li2.chapter6.cup-product.p005
+The tensor product $\otimes$ of complexes is defined, as usual, by taking the
+total complex $\tot_{\oplus}$. The commutativity constraint in the symmetric
+monoidal structure involves several signs; see
+Proposition~\ref{prop:double-cplx-swap} for details.
+
+% segment-id: o014.li2.chapter6.cup-product.p006
+A projective $G$-module remains projective as a $\Bbbk$-module
+(Proposition~\ref{prop:Ind-preservation}, with $H$ trivial), and is therefore
+also flat. If $X$ and $Y$ are bounded-above complexes of $G$-modules, and
+every term of $X$ is flat as a $\Bbbk$-module, then
+% segment-id: o014.li2.chapter6.cup-product.q003
+\[ X \otimes Y = X \otimesL Y, \quad Y \otimes X = Y \otimesL X; \]
+see Proposition~\ref{prop:flat-K-flat}. In particular,
+% segment-id: o014.li2.chapter6.cup-product.e001
+\begin{equation}\label{eqn:G-mod-tensor-unit}
+	\Bbbk \otimes Y = \Bbbk \otimesL Y \simeq Y \simeq Y \otimesL \Bbbk = Y \otimes \Bbbk.
+\end{equation}
+
+% segment-id: o014.li2.chapter6.cup-product.le001
+\begin{lemma}\label{prop:group-pullback-monoidal}
+	Let $\varphi:H\to G$ be a group homomorphism. Continue to write the functor
+	on derived categories induced by the exact functor $\varphi^*$ as
+	$\varphi^*:\cate{D}^-(G)\to\cate{D}^-(H)$. Then $\varphi^*$ is a
+	monoidal functor with respect to $\otimesL$; see
+	\cite[Definition 3.1.7]{Li1} and the remark following it. In other words,
+	there are canonical isomorphisms satisfying all compatibility conditions,
+% segment-id: o014.li2.chapter6.cup-product.q004
+	\[ \varphi^*(\Bbbk) \simeq \Bbbk, \quad \varphi^* X_1 \otimesL \varphi^* X_2 \simeq \varphi^* (X_1 \otimesL X_2). \]
+\end{lemma}
+
+% segment-id: o014.li2.chapter6.cup-product.pf001
+\begin{proof}
+	The isomorphism $\varphi^*\Bbbk\simeq\Bbbk$ (indeed, an equality) and all
+	its compatibilities are immediate. Furthermore, if a $G$-module $M$ is
+	flat as a $\Bbbk$-module, then so is $\varphi^*M$. Since $\otimesL$ can be
+	computed using resolutions that are flat over $\Bbbk$, the canonical
+	isomorphism
+	$\varphi^*X_1\otimesL\varphi^*X_2\simeq\varphi^*(X_1\otimesL X_2)$
+	is obtained by reducing to the case in which $X_1$ and $X_2$ are termwise
+	flat over $\Bbbk$.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.cup-product.p007
+We can now formulate a preliminary version of the cup product in the derived
+category; the operation simply reflects the tensor-product operation. For the
+moment, write the isomorphism
+$\Bbbk\rightiso\Bbbk\otimes\Bbbk=\Bbbk\otimesL\Bbbk$ given by
+\eqref{eqn:G-mod-tensor-unit} as $\delta$.
+
+% segment-id: o014.li2.chapter6.cup-product.d002
+\begin{definition}\label{def:group-cup-1}
+	Let $X_1$ and $X_2$ be objects of $\cate{D}^-(G)$. Define the
+	$\Bbbk$-module homomorphism
+% segment-id: o014.li2.chapter6.cup-product.q005
+	\[ \overset{\mathrm{L}}{\cup}: \Hom_{\cate{D}(G)}(\Bbbk, X_1) \otimes \Hom_{\cate{D}(G)}(\Bbbk, X_2) \to \Hom_{\cate{D}(G)}\left(\Bbbk, X_1 \otimesL X_2\right) \]
+	as follows: $\alpha\overset{\mathrm{L}}{\cup}\beta$ is the composite
+	morphism
+% segment-id: o014.li2.chapter6.cup-product.q006
+	\[ \Bbbk \xrightarrow{\delta} \Bbbk \otimes \Bbbk = \Bbbk \otimesL \Bbbk \xrightarrow{\alpha \otimesL \beta} X_1 \otimesL X_2. \]
+\end{definition}
+
+% segment-id: o014.li2.chapter6.cup-product.p008
+Clearly, the map
+$(\alpha,\beta)\mapsto\alpha\overset{\mathrm{L}}{\cup}\beta$ is bilinear,
+so the definition is valid. The operation can also be understood as the
+composition of morphisms. Indeed, from the general properties of monoidal
+categories, it is easy to see that
+$\alpha\overset{\mathrm{L}}{\cup}\beta$ is given by the following composite:
+% segment-id: o014.li2.chapter6.cup-product.g001
+\[\begin{tikzcd}[row sep=small]
+	\Hom_{\cate{D}(G)}(\Bbbk, X_1) \otimes \Hom_{\cate{D}(G)}(\Bbbk, X_2) \arrow[d] \\
+	\Hom_{\cate{D}(G)}\left( \Bbbk \otimes X_2, X_1 \otimesL X_2\right) \otimes \Hom_{\cate{D}(G)}(\Bbbk \otimes \Bbbk, \Bbbk \otimes X_2) \arrow[d] \\
+	\Hom_{\cate{D}(G)}\left(\Bbbk, X_1 \otimesL X_2 \right)
+\end{tikzcd}\]
+The first part is based on \eqref{eqn:G-mod-tensor-unit}, while the second is
+composition of morphisms in $\cate{D}(G)$.
+
+% segment-id: o014.li2.chapter6.cup-product.p009
+The following properties are formal consequences of
+Definition~\ref{def:group-cup-1}, or of the reformulation above; throughout,
+$X_i$ and $X$ are objects of $\cate{D}^-(G)$.
+
+% segment-id: o014.li2.chapter6.cup-product.l001
+\begin{description}
+% segment-id: o014.li2.chapter6.cup-product.i001
+	\item[Functoriality] The operation $\overset{\mathrm{L}}{\cup}$ is
+	functorial in $X_1$ and $X_2$.
+% segment-id: o014.li2.chapter6.cup-product.i002
+	\item[Unit] Under the isomorphisms in
+	\eqref{eqn:G-mod-tensor-unit}, both the left and the right action of
+	$\identity\in\End_{\cate{D}(G)}(\Bbbk)$ through
+	$\overset{\mathrm{L}}{\cup}$ on $\Hom_{\cate{D}(G)}(\Bbbk,X)$ are the
+	identity.
+% segment-id: o014.li2.chapter6.cup-product.i003
+	\item[Associativity] Let
+	$\alpha_i\in\Hom_{\cate{D}(G)}(\Bbbk,X_i)$ for $i=1,2,3$. Up to the
+	associativity constraint for $\otimesL$,
+% segment-id: o014.li2.chapter6.cup-product.q007
+	\[ \alpha_1 \overset{\mathrm{L}}{\cup} (\alpha_2 \overset{\mathrm{L}}{\cup} \alpha_3) = (\alpha_1 \overset{\mathrm{L}}{\cup} \alpha_2) \overset{\mathrm{L}}{\cup} \alpha_3 . \]
+% segment-id: o014.li2.chapter6.cup-product.i004
+	\item[Commutativity] Under the commutativity constraint
+	$X_1\otimesL X_2\rightiso X_2\otimesL X_1$, the element
+	$\alpha\overset{\mathrm{L}}{\cup}\beta$ is mapped to
+	$\beta\overset{\mathrm{L}}{\cup}\alpha$. To see this, it suffices to
+	apply Definition~\ref{def:group-cup-1} and the following commutative
+	diagram:
+% segment-id: o014.li2.chapter6.cup-product.g002
+	\[\begin{tikzcd}
+		\Bbbk \arrow[r, "\delta"] \arrow[rd, "\delta"'] & \Bbbk \otimesL \Bbbk \arrow[d] \arrow[r, "{\alpha \otimesL \beta}"] & X_1 \otimesL X_2 \arrow[d] \\
+		& \Bbbk \otimesL \Bbbk \arrow[r, "{\beta \otimesL \alpha}"] & X_2 \otimesL X_1
+	\end{tikzcd}\]
+	All vertical arrows are commutativity constraints for $\otimesL$. This is
+	a general fact about symmetric monoidal categories.
+\end{description}
+
+% segment-id: o014.li2.chapter6.cup-product.p010
+We next define the cup product at the level of cohomology of $G$-modules;
+several signs will be involved.
+
+% segment-id: o014.li2.chapter6.cup-product.d003
+\begin{definition}[Cup product]\label{def:group-cup-2}
+	\index{cup product}
+	\index[sym1]{cup@$\cup$}
+	Let $M_1$ and $M_2$ be $G$-modules and let $p_1,p_2\in\Z$. In
+	Definition~\ref{def:group-cup-1}, take $X_i=M_i[p_i]$, and then compose
+	$\overset{\mathrm{L}}{\cup}$ with the canonical morphisms
+% segment-id: o014.li2.chapter6.cup-product.q008
+	\begin{align*}
+		M_1[p_1] \otimesL M_2[p_2] & \xrightarrow{\text{can}} M_1[p_1] \otimes M_2[p_2] \\
+		& \xrightarrow[\sim]{\theta'} (M_1[p_1] \otimes M_2) [p_2] \xrightarrow[\sim]{\theta} (M_1 \otimes M_2)[p_1 + p_2]
+	\end{align*}
+	in $\cate{D}(G)$, where
+% segment-id: o014.li2.chapter6.cup-product.l002
+	\begin{compactitem}
+% segment-id: o014.li2.chapter6.cup-product.i005
+		\item $\mathrm{can}$ is the canonical morphism associated with the
+		left-derived bifunctor;
+% segment-id: o014.li2.chapter6.cup-product.i006
+		\item the canonical isomorphisms $\theta$ and $\theta'$ are defined as
+		in Proposition~\ref{prop:tot-shift}.
+	\end{compactitem}
+	This yields the cup product on cohomology,
+% segment-id: o014.li2.chapter6.cup-product.q009
+	\[ \cup: \Ext^{p_1}_G(\Bbbk, M_1) \otimes \Ext^{p_2}_G(\Bbbk, M_2) \to \Ext^{p_1 + p_2}_G(\Bbbk, M_1 \otimes M_2), \]
+	or, in other notation,
+	$\cup:\Hm^{p_1}(G,M_1)\otimes\Hm^{p_2}(G,M_2)
+	\to\Hm^{p_1+p_2}(G,M_1\otimes M_2)$.
+\end{definition}
+
+% segment-id: o014.li2.chapter6.cup-product.p011
+If $p_1=p_2=0$, the cup product is obtained by taking the tensor product of
+two morphisms $\Bbbk\to M_1$ and $\Bbbk\to M_2$ in $G\dcate{Mod}$, namely
+$\Bbbk\simeq\Bbbk\otimes\Bbbk\to M_1\otimes M_2$. The result is precisely
+the evident map $(M_1)^G\otimes(M_2)^G\to(M_1\otimes M_2)^G$.
+
+% segment-id: o014.li2.chapter6.cup-product.p012
+Inspecting the definition, the isomorphism
+$M_1[p_1]\otimes M_2[p_2]\rightiso(M_1\otimes M_2)[p_1+p_2]$ involved has
+the following concrete description: on its only nonzero term
+$M_1[p_1]^{-p_1}\otimes M_2[p_2]^{-p_2}=M_1\otimes M_2$, it acts as
+$(-1)^{p_1p_2}$; the sign comes from $\theta'$.
+
+% segment-id: o014.li2.chapter6.cup-product.p013
+In addition to the functoriality and unit law already formulated in the
+derived category, the cup product has the following properties.
+
+% segment-id: o014.li2.chapter6.cup-product.l003
+\begin{description}
+% segment-id: o014.li2.chapter6.cup-product.i007
+	\item[Associativity] For $\alpha_i\in\Hm^{p_i}(G,M_i)$ with
+	$i=1,2,3$, one has
+% segment-id: o014.li2.chapter6.cup-product.q010
+	\[ (\alpha_1 \cup \alpha_2) \cup \alpha_3 = \alpha_1 \cup (\alpha_2 \cup \alpha_3). \]
+	This property follows easily from the associativity of
+	$\overset{\mathrm{L}}{\cup}$, but the sign mentioned above still needs to
+	be taken into account. In fact, the sign on both sides is
+	$(-1)^{p_1p_2+p_2p_3+p_1p_3}$.
+
+% segment-id: o014.li2.chapter6.cup-product.i008
+	\item[Graded commutativity] Let
+	$c:M_1\otimes M_2\rightiso M_2\otimes M_1$ be the isomorphism determined
+	by $x\otimes y\mapsto y\otimes x$. For all
+	$\alpha\in\Hm^p(G,M_1)$ and $\beta\in\Hm^q(G,M_2)$, one has
+% segment-id: o014.li2.chapter6.cup-product.q011
+	\[ \Hm^{p+q}(c)(\alpha \cup \beta) = (-1)^{pq} \beta \cup \alpha. \]
+
+	Indeed, by the commutativity of $\overset{\mathrm{L}}{\cup}$, it suffices
+	to check that the following diagram commutes:
+% segment-id: o014.li2.chapter6.cup-product.g003
+	\[\begin{tikzcd}
+		{M_1[p]} \otimesL {M_2[q]} \arrow[d] \arrow[r, "\text{can}"] & {M_1[p]} \otimes {M_2[q]} \arrow[d] \arrow[r, "\text{extract $[q]$ first}" inner sep=0.6em] & (M_1 \otimes M_2){[p+q]} \arrow[d, "{(-1)^{pq} c[p+q]}"] \\
+		{M_2[q]} \otimesL {M_1[p]} \arrow[r, "\text{can}"'] & {M_2[q]} \otimes {M_1[p]} \arrow[r, "\text{extract $[p]$ first}"' inner sep=0.6em] & (M_2 \otimes M_1) {[p+q]}
+	\end{tikzcd}\]
+	The vertical arrows on the left and in the middle are the commutativity
+	constraints for tensor products in the derived category or the category of
+	complexes. The left square plainly commutes. For the right square, the last
+	part of Proposition~\ref{prop:tot-shift} says that the following diagram
+	commutes:
+% segment-id: o014.li2.chapter6.cup-product.g004
+	\[\begin{tikzcd}[column sep=large]
+		{M_1[p]} \otimes {M_2[q]} \arrow[d] \arrow[r, "\text{extract $[q]$ first}"] & (M_1 \otimes M_2) {[p+q]} \arrow[d, "{c[p+q]}"] \\
+		{M_2[q]} \otimes {M_1[p]} \arrow[r, "\text{extract $[q]$ first}"'] & (M_2 \otimes M_1) {[p+q]}.
+	\end{tikzcd}\]
+	However, by the anticommutative diagram in
+	Proposition~\ref{prop:tot-shift} and its straightforward generalization,
+	the isomorphism
+	$M_2[q]\otimes M_1[p]\rightiso(M_2\otimes M_1)[p+q]$ obtained by
+	extracting $[q]$ first differs by $(-1)^{pq}$ from the one obtained by
+	extracting $[p]$ first. This proves commutativity of the right square in
+	the original diagram.
+
+% segment-id: o014.li2.chapter6.cup-product.i009
+	\item[Cohomology algebra] In particular,
+	$\Hm^\bullet(G,\Bbbk):=\bigoplus_p\Hm^p(G,\Bbbk)$ becomes a graded
+	$\Bbbk$-algebra under $\cup$, and its multiplication satisfies the graded
+	commutativity law above,
+	$\beta\cup\alpha=(-1)^{pq}\alpha\cup\beta$. In fact, one can prove that
+	$\Hm^\bullet(G,\Bbbk)$ is the same as the graded $\Bbbk$-algebra in
+	Definition~\ref{def:Ext-algebra},
+% segment-id: o014.li2.chapter6.cup-product.q012
+	\[ \Ext_G(\Bbbk) := \bigoplus_p \Ext^p_G(\Bbbk, \Bbbk) = \bigoplus_p \Hm^p(G, \Bbbk). \]
+	% Reference: Brown, Cohomology of Groups, V.4.6 Theorem.
+
+% segment-id: o014.li2.chapter6.cup-product.i010
+	\item[Bimodule structure]
+	Under the operation $\cup$, $\bigoplus_p\Hm^p(G,M)$ becomes a graded
+	bimodule with left and right actions by $\Hm^\bullet(G,\Bbbk)$.
+\end{description}
+
+% segment-id: o014.li2.chapter6.cup-product.p014
+A group homomorphism $\varphi:H\to G$ induces a homomorphism of cohomology
+algebras $\varphi^*:\Hm^\bullet(G,\Bbbk)\to\Hm^\bullet(H,\Bbbk)$. This is an
+immediate consequence of the following result.
+
+% segment-id: o014.li2.chapter6.cup-product.pr001
+\begin{proposition}[Change of groups]
+	Use the notation of Definition~\ref{def:group-cup-2}. Let
+	$\varphi:H\to G$ be a group homomorphism. Write
+	$\varphi^*:\Hm^{p_i}(G,M_i)\to\Hm^{p_i}(H,\varphi^*M_i)$ for the
+	canonical homomorphism in \eqref{eqn:change-of-group-coh}, for $i=1,2$.
+	Then
+% segment-id: o014.li2.chapter6.cup-product.q013
+	\[ \varphi^*(\alpha \cup \beta) = \varphi^* \alpha \cup \varphi^* \beta. \]
+
+	As a special case, if $H\subset G$ is a subgroup, the restriction map
+	$\mathrm{res}^n:\Hm^n(G,M)\to\Hm^n(H,M)$ discussed in
+	\S\ref{sec:group-finite-index} preserves cup products.
+\end{proposition}
+
+% segment-id: o014.li2.chapter6.cup-product.pf002
+\begin{proof}
+	Apply $\varphi^*$ to every morphism in
+	Definition~\ref{def:group-cup-1}, and then use the fact that $\varphi^*$ is
+	a monoidal functor (Lemma~\ref{prop:group-pullback-monoidal}). In
+	$\Ext_H^{p_1+p_2}(\Bbbk,\varphi^*M_1\otimes\varphi^*M_2)$, this gives
+% segment-id: o014.li2.chapter6.cup-product.g005
+	\begin{multline*}
+		\varphi^*(\alpha \cup \beta) \xlongequal{\text{identified with}} \;\text{the composite morphism} \\
+		\left[ \Bbbk \xrightarrow{\delta} \Bbbk \otimesL \Bbbk \xrightarrow{\varphi^* \alpha \otimesL \varphi^* \beta} \varphi^* M_1[p_1] \otimesL \varphi^* M_2[p_2] \to (\varphi^* M_1 \otimes \varphi^* M_2)[p_1 + p_2] \right].
+	\end{multline*}
+	Here,
+	$\varphi^*\alpha\in\Ext_H^{p_1}(\Bbbk,\varphi^*M_1)
+	\simeq\Hom_H(\varphi^*\Bbbk,\varphi^*M_1[p_1])$ is obtained by applying
+	the functor $\varphi^*$ to the morphism $\alpha$. By
+	Remark~\ref{rem:change-of-group-Yoneda}, however, this element is also the
+	image of $\alpha$ under the canonical homomorphism
+	\eqref{eqn:change-of-group-coh}; the same applies to $\varphi^*\beta$.
+	The result is $\varphi^*\alpha\cup\varphi^*\beta$.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.cup-product.p015
+Our next aim is to describe the cup product through the standard complex
+$C(G,M)$ of Proposition~\ref{prop:groupcoh-cochain}. This description is not
+only more concrete; it also lifts the cup product canonically to the level of
+complexes. We begin with the definition. Later,
+Proposition~\ref{prop:std-cplx-cup} will show that it agrees with the previous
+version.
+
+% segment-id: o014.li2.chapter6.cup-product.dp001
+\begin{definition-proposition}[Cup product on the standard complex]\label{def:group-cup-3}
+	\index{cup product}
+	Let $M_1$ and $M_2$ be $G$-modules. For all $p_1,p_2\in\Z$, define the
+	homomorphisms
+% segment-id: o014.li2.chapter6.cup-product.g006
+	\[\begin{tikzcd}[row sep=small, column sep=small]
+		\cup: C^{p_1}(G, M_1) \otimes C^{p_2}(G, M_2) \arrow[r] & C^{p_1 + p_2}(G, M_1 \otimes M_2) \\
+		f_1 \otimes f_2 \arrow[mapsto, r] & f_1(g_1, \ldots, g_{p_1}) \otimes (g_1 \cdots g_{p_1} f_2(g_{p_1 + 1}, \ldots, g_{p_1 + p_2}))
+	\end{tikzcd}\]
+	where $g_1,\ldots,g_{p_1+p_2}\in G$.
+% segment-id: o014.li2.chapter6.cup-product.l004
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter6.cup-product.i011
+		\item These homomorphisms satisfy associativity (taking $M_1$, $M_2$,
+		and $M_3$ into account) and the Leibniz rule
+% segment-id: o014.li2.chapter6.cup-product.q014
+		\[ d(f_1 \cup f_2) = df_1 \cup f_2 + (-1)^{p_1} f_1 \cup d f_2; \]
+		in particular, $\cup$ gives a morphism of complexes
+		$\cup:C(G,M_1)\otimes C(G,M_2)\to C(G,M_1\otimes M_2)$.
+% segment-id: o014.li2.chapter6.cup-product.i012
+		\item The normalized standard complex introduced in
+		Remark~\ref{rem:nor-cochain} is closed under $\cup$, and hence there is
+		a morphism
+% segment-id: o014.li2.chapter6.cup-product.q015
+		\[ \cup: \overline{C}(G, M_1) \otimes \overline{C}(G, M_2) \to \overline{C}(G, M_1 \otimes M_2). \]
+	\end{enumerate}
+\end{definition-proposition}
+
+% segment-id: o014.li2.chapter6.cup-product.pf003
+\begin{proof}
+	Associativity follows immediately from the formula for $\cup$, while the
+	Leibniz rule is also easy to verify. Let
+% segment-id: o014.li2.chapter6.cup-product.q016
+	\[ \varphi \in C^p(G, M_1), \quad \psi \in C^q(G, M_2). \]
+	In
+% segment-id: o014.li2.chapter6.cup-product.g007
+	\begin{multline*}
+		(d\varphi \cup \psi)(g_1, \ldots, g_{p+q+1}) = \\
+		\left( g_1 \varphi(g_2, \ldots, g_{p+1}) + \sum_{k=1}^p (-1)^k \varphi(\ldots, g_k g_{k+1}, \ldots) + (-1)^{p+1} \varphi(g_1, \ldots, g_p) \right) \\
+		\otimes (g_1 \cdots g_{p+1}) \psi(g_{p+2}, \ldots, g_{p+q+1})
+	\end{multline*}
+and
+% segment-id: o014.li2.chapter6.cup-product.g008
+	\begin{multline*}
+		(-1)^p (\varphi \cup d\psi)(g_1, \ldots, g_{p+q+1}) = \varphi(g_1, \ldots, g_p) \otimes \\
+		(g_1 \cdots g_p) \bigg( (-1)^p g_{p+1} \psi(g_{p+2}, \ldots, g_{p+q+1}) + \sum_{k=p+1}^{p+q} (-1)^k \psi(\ldots, g_k g_{k+1}, \ldots) \\
+		+ (-1)^{p+q+1} \psi(g_{p+1}, \ldots, g_{p+q}) \bigg),
+	\end{multline*}
+	the term
+	$\varphi(g_1,\ldots,g_p)\otimes(g_1\cdots g_{p+1})
+	\psi(g_{p+2},\ldots)$ occurs respectively as the last and first term,
+	and the two cancel. The sum of the two expressions is therefore
+	$d(\varphi\cup\psi)(g_1,\ldots,g_{p+q+1})$.
+
+	Notice that the Leibniz rule is equivalent to saying that, as $p_1,p_2$
+	vary, $\cup$ gives a morphism of complexes. This proves~(i).
+
+	% Editorial correction: the stated vanishing on every input position
+	% requires both cochains to be normalized; “or” in the source is insufficient.
+	If both $f_1$ and $f_2$ belong to the normalized standard complex, the
+	definition implies that
+	$(f_1\cup f_2)(g_1,\ldots,g_{p_1+p_2})=0$ whenever one of
+	$g_1,\ldots,g_{p_1+p_2}$ equals $1_G$. This also proves~(ii).
+\end{proof}
+
+% segment-id: o014.li2.chapter6.cup-product.p016
+Recall that the standard complex $C(G,M)$ essentially computes
+$\RHom_G(\Bbbk,M)=\Hom_G^\bullet(\mathsf{L},M)$ through the free resolution
+$\mathsf{L}\to\Bbbk$, where $M$ is a $G$-module. More precisely, for
+$\mathsf{L}$ we use the chain complex $(\mathsf{L}_n,\partial_n)_n$ in
+Definition~\ref{def:resolution-trivial-module}. By setting
+$\mathsf{L}^n:=\mathsf{L}_{-n}$ while retaining the morphisms $\partial_n$,
+$\mathsf{L}$ may be regarded as a complex.
+
+% segment-id: o014.li2.chapter6.cup-product.le002
+\begin{lemma}\label{prop:cup-resolution}
+	Write the free resolution of Definition~\ref{def:resolution-trivial-module}
+	as $\epsilon:\mathsf{L}\to\Bbbk$. Then:
+% segment-id: o014.li2.chapter6.cup-product.l005
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter6.cup-product.i013
+		\item $\epsilon\otimes\epsilon:\mathsf{L}\otimes\mathsf{L}
+		\to\Bbbk\otimes\Bbbk\simeq\Bbbk$ is a projective resolution of the
+		$G$-module $\Bbbk$;
+% segment-id: o014.li2.chapter6.cup-product.i014
+		\item one can define a morphism of complexes
+		$\Delta:\mathsf{L}\to\mathsf{L}\otimes\mathsf{L}$ whose degree-$-n$
+		term is given by
+% segment-id: o014.li2.chapter6.cup-product.g009
+		\[\begin{tikzcd}[row sep=tiny]
+			\Delta_n: \mathsf{L}_n \arrow[r] & \bigoplus_{p=0}^n \mathsf{L}_p \otimes \mathsf{L}_{n-p} \\
+			(g_0, \ldots, g_n) \arrow[mapsto, r] & \left( (-1)^{p(n-p)} (g_0, \ldots, g_p) \otimes (g_p, \ldots, g_n) \right)_{p=0}^n
+		\end{tikzcd}\]
+		and which makes the following diagram commute:
+% segment-id: o014.li2.chapter6.cup-product.g010
+		\[\begin{tikzcd}
+			\mathsf{L} \arrow[r, "\Delta"] \arrow[d, "\epsilon"'] & \mathsf{L} \otimes \mathsf{L} \arrow[d, "{\epsilon \otimes \epsilon}"] \\
+			\Bbbk \arrow[r, "\sim", "\delta"'] & \Bbbk \otimes \Bbbk .
+		\end{tikzcd}\]
+	\end{enumerate}
+\end{lemma}
+
+% segment-id: o014.li2.chapter6.cup-product.pf004
+\begin{proof}
+	For~(i), notice that every term of $\mathsf{L}\otimes\mathsf{L}$ remains a
+	projective $G$-module; one may use
+	Proposition~\ref{prop:group-tensor-proj}. To prove that
+	$\epsilon\otimes\epsilon$ is a quasi-isomorphism, factor the morphism as
+% segment-id: o014.li2.chapter6.cup-product.q017
+	\[ \mathsf{L} \otimes \mathsf{L} \to \mathsf{L} \otimes \Bbbk \to \Bbbk \otimes \Bbbk. \]
+	Since $\mathsf{L}$ consists of flat $\Bbbk$-modules, both parts are
+	quasi-isomorphisms.
+
+	For~(ii), it is clear that every $\Delta_n$ is a homomorphism of
+	$G$-modules. A direct calculation, split into the various cases, verifies
+	that $\Delta$ is indeed a morphism of complexes. Commutativity of the
+	diagram is immediate.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.cup-product.p017
+In comparison with the cup product in topology, $\Delta$ here is analogous
+to the ``diagonal embedding'' of a space. This morphism can also be
+interpreted through the Alexander--Whitney map to be introduced in
+\S\ref{sec:bisimplicial}; see the exercises in \CHref{sec:simplicial}.
+
+% segment-id: o014.li2.chapter6.cup-product.p018
+Notice that, because $\epsilon\otimes\epsilon$ is a quasi-isomorphism, the
+general theory of complexes guarantees the existence of a morphism
+$\mathsf{L}\to\mathsf{L}\otimes\mathsf{L}$ that makes the diagram in~(ii)
+commute, and this morphism is unique up to homotopy
+(Theorem~\ref{prop:resolution-homotopy}). The value of
+Lemma~\ref{prop:cup-resolution}~(ii) lies in its explicit formula.
+
+% segment-id: o014.li2.chapter6.cup-product.p019
+Return to the description of $\overset{\mathrm{L}}{\cup}$ in
+Definition~\ref{def:group-cup-1}. Represent the morphisms $\alpha$ and
+$\beta$ in $\cate{D}(G)$ by morphisms of complexes
+$\mathsf{L}\to X_1$ and $\mathsf{L}\to X_2$, respectively, where the $X_i$
+are bounded-above complexes, and lift $\delta$ to $\Delta$ through
+Lemma~\ref{prop:cup-resolution}. The composite of
+$\alpha\overset{\mathrm{L}}{\cup}\beta
+\in\Hom_{\cate{D}(G)}(\Bbbk,X_1\otimesL X_2)$ with the canonical morphism
+$X_1\otimesL X_2\xrightarrow{\text{can}}X_1\otimes X_2$ is given concretely
+by the composite of morphisms of complexes
+% segment-id: o014.li2.chapter6.cup-product.g011
+\[\begin{tikzcd}[row sep=small]
+	\mathsf{L} \arrow[r, "\Delta"] & \mathsf{L} \otimes \mathsf{L} \arrow[r, "{\alpha \otimes \beta}"] & X_1 \otimes X_2. \\
+	& \mathsf{L} \otimesL \mathsf{L} \arrow[equal, u] &
+\end{tikzcd}\]
+
+% segment-id: o014.li2.chapter6.cup-product.p020
+For $G$-modules $M_i$ and $p_i\in\Z$, one has
+$\Hm^{p_i}\Hom^\bullet(\mathsf{L},M_i)\simeq\Hm^{p_i}(G,M_i)$, for
+$i=1,2$.
+
+% segment-id: o014.li2.chapter6.cup-product.p021
+We next interpret the cup product through $\Hom$ complexes. For arbitrary
+complexes of $G$-modules $X,Y,X',Y'$ and $m,n\in\Z$, define the
+$\Bbbk$-module homomorphism
+% segment-id: o014.li2.chapter6.cup-product.e002
+\begin{equation}\label{eqn:group-cup-3-aux}
+	\mu^{m, n}: \Hom_G^m(X, Y) \otimes \Hom_G^n(X', Y') \to \Hom_G^{m+n}(X \otimes X', Y \otimes Y'),
+\end{equation}
+as follows. For an element $f\otimes g$ on the left, define
+% segment-id: o014.li2.chapter6.cup-product.g012
+\begin{gather*}
+	\mu^{m, n}(f \otimes g)(x \otimes x') := (-1)^{pn} f(x) \otimes g(x') \; \in Y^{p+m} \otimes (Y')^{q+n}, \\
+	x \otimes x' \in X^p \otimes (X')^q .
+\end{gather*}
+A direct verification shows that all the $\mu^{m,n}$ give a morphism of
+complexes
+% segment-id: o014.li2.chapter6.cup-product.q018
+\[ \mu: \Hom_G^\bullet(X, Y) \otimes \Hom_G^\bullet(X', Y') \to \Hom_G^\bullet(X \otimes X', Y \otimes Y'), \]
+or, in other words, that \eqref{eqn:group-cup-3-aux} satisfies the Leibniz
+rule. The sign $(-1)^{pn}$ in the definition can be explained by the Koszul
+sign rule to be discussed in \S\ref{sec:alg-in-monoidal-cat} and the
+exercises in \CHref{sec:monads}, since the formula interchanges the positions
+of $g$ and $x$.
+
+% segment-id: o014.li2.chapter6.cup-product.le003
+\begin{lemma}\label{prop:std-cplx-cup-aux}
+	Apply the operation above with $X=X'=\mathsf{L}$, $Y=M_1$, and $Y'=M_2$.
+	Then the morphism of complexes
+% segment-id: o014.li2.chapter6.cup-product.e003
+	\begin{multline}\label{eqn:group-cup-3-aux1}
+		\Hom^\bullet_G(\mathsf{L}, M_1) \otimes \Hom^\bullet_G(\mathsf{L}, M_2) \xrightarrow{\mu} \Hom^\bullet_G(\mathsf{L} \otimes \mathsf{L}, M_1 \otimes M_2) \\
+		\xrightarrow{\Delta^*} \Hom^\bullet(\mathsf{L}, M_1 \otimes M_2)
+	\end{multline}
+	induces on cohomology the cup product of
+	Definition~\ref{def:group-cup-2}.
+\end{lemma}
+
+% segment-id: o014.li2.chapter6.cup-product.pf005
+\begin{proof}
+	For $i=1,2$, use Lemma~\ref{prop:Hom-cplx-d-translate} to identify
+	$\Hom_G^{p_i}(\mathsf{L},M_i)$ with
+	$\Hom_G^0(\mathsf{L},M_i[p_i])$. Choose $f_i$ in it satisfying
+	$d_{\Hom^\bullet}f_i=0$, and consider the image of $f_1\otimes f_2$ under
+\eqref{eqn:group-cup-3-aux}. Since $f_i$ can be nonzero only on
+$\mathsf{L}_{p_i}$, the sign in this image is $(-1)^{p_1p_2}$, exactly the
+sign in Definition~\ref{def:group-cup-2}. The remaining verification is
+immediate.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.cup-product.p022
+Recall that $\Hom^\bullet(\mathsf{L},M_i)\simeq C(G,M_i)$, so that
+$\Hm^{p_i}(G,M_i)\simeq\Hm^{p_i}(C(G,M_i))$. The concrete map is given in
+the proof of Proposition~\ref{prop:groupcoh-cochain}, for $i=1,2$.
+
+% segment-id: o014.li2.chapter6.cup-product.pr002
+\begin{proposition}\label{prop:std-cplx-cup}
+	The cup product in Definition~\ref{def:group-cup-2} is the same as the
+	composite homomorphism
+% segment-id: o014.li2.chapter6.cup-product.g013
+	\begin{multline*}
+		\Hm^{p_1}(G, M_1) \otimes \Hm^{p_2}(G, M_2) \simeq \Hm^{p_1}(C(G, M_1)) \otimes \Hm^{p_2}(C(G, M_2)) \\
+		\xrightarrow{\kappa} \Hm^{p_1 + p_2}\left( C(G, M_1) \otimes C(G, M_2) \right) \\
+		\xrightarrow{\Hm^{p_1 + p_2}(\cup)} \Hm^{p_1 + p_2}(C(G, M_1 \otimes M_2)) \simeq \Hm^{p_1 + p_2}(G, M_1 \otimes M_2),
+	\end{multline*}
+	where the canonical morphism $\kappa$ is as described immediately before
+	Theorem~\ref{prop:Kunneth-homology}. The conclusion is the same when the
+	normalized standard complex is used.
+\end{proposition}
+
+% segment-id: o014.li2.chapter6.cup-product.pf006
+\begin{proof}
+	Interpret the cup product as in Lemma~\ref{prop:std-cplx-cup-aux}. Take
+	$f_i\in C^{p_i}(G,M_i)$. For the bar notation in the display below, put
+	$p:=p_1$. For $g_1,\ldots,g_{p_1+p_2}\in G$, the element
+% segment-id: o014.li2.chapter6.cup-product.q019
+	\[ (g_1 | \cdots | g_{p_1 + p_2}) := \left(1_G, g_{[1, 1]}, \ldots, g_{[1, p_1 + p_2]} \right) \in \mathsf{L}_{p_1 + p_2} \]
+	has, after applying $\Delta$, the following component in
+	$\mathsf{L}_{p_1}\otimes\mathsf{L}_{p_2}$:
+% segment-id: o014.li2.chapter6.cup-product.g014
+	\begin{multline*}
+		(-1)^{p_1 p_2} \left( 1_G, \ldots, g_{[1, p_1]}\right) \otimes \left(g_{[1, p_1]}, \ldots, g_{[1, p_1 + p_2]} \right) \\
+		= (-1)^{p_1 p_2} (g_1 | \cdots | g_p) \otimes g_1 \cdots g_{p_1} \left( g_{p_1 + 1} |\cdots| g_{p_1 + p_2} \right).
+	\end{multline*}
+
+	Under $\mu^{p_1,p_2}(f_1\otimes f_2)$ in
+	\eqref{eqn:group-cup-3-aux}, this element is mapped to
+% segment-id: o014.li2.chapter6.cup-product.q020
+	\[ f_1(g_1, \ldots, g_{p_1}) \otimes g_1 \cdots g_{p_1} f_2(g_{p_1 + 1}, \cdots, g_{p_1 + p_2}). \]
+	Thus the operation in \eqref{eqn:group-cup-3-aux1} is indeed compatible
+	with $\cup$ on $C(G,M)$. The version for the normalized standard complex
+	is the same.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.cup-product.p023
+Notice that although the description of the cup product on the standard
+complex is direct and transparent, graded commutativity is difficult to
+derive directly from it; in the framework of the standard complex, a rather
+roundabout proof is required. This book does not take that route.
+
+% segment-id: o014.li2.chapter6.cup-product.r001
+\begin{remark}
+	The structure exhibited by
+	Definition--Proposition~\ref{def:group-cup-3} is genuinely richer than its
+	cohomological version in Definition~\ref{def:group-cup-2}, because it
+	equips the entire standard complex with a differential graded structure.
+	Thus $C(G,\Bbbk)$ under $\cup$ becomes a differential graded algebra in
+	the sense of Definition~\ref{def:dg-algebra-preview} or
+	\ref{def:dg-algebra}; the same holds for $\overline{C}(G,\Bbbk)$. The
+	cohomological version of the cup product is obtained only after taking
+	$\Hm^\bullet$: it is graded, but not differential.
+\end{remark}
+
+% segment-id: o014.li2.chapter6.cup-product.p024
+The cup product on the standard complex is functorial. Let
+$\varphi:H\to G$ be a group homomorphism, let $M_i$ (respectively, $N_i$)
+be $G$-modules (respectively, $H$-modules), and let $f_i:M_i\to N_i$ be a
+homomorphism equivariant with respect to $\varphi$, for $i=1,2$; see
+Definition~\ref{def:group-equivariance}. Then the following diagram commutes:
+% segment-id: o014.li2.chapter6.cup-product.g015
+\[\begin{tikzcd}
+	C(G, M_1) \otimes C(G, M_2) \arrow[r, "\cup"] \arrow[d] & C(G, M_1 \otimes M_2) \arrow[d] \\
+	C(H, N_1) \otimes C(H, N_2) \arrow[r, "\cup"'] & C(H, N_1 \otimes N_2);
+\end{tikzcd}\]
+The vertical arrows come from the equivariant homomorphisms $f_1$, $f_2$,
+and $f_1\otimes f_2$; see Proposition~\ref{prop:grp-equiv}. The normalized
+standard complex inherits this property.
+
+% segment-id: o014.li2.chapter6.cup-product.co001
+\begin{corollary}\label{prop:cup-ses}
+	Suppose there is a short exact sequence of $G$-modules
+	$0\to M'_1\xrightarrow{f}M_1\xrightarrow{g}M''_1\to0$ such that the
+	corresponding sequence
+% segment-id: o014.li2.chapter6.cup-product.q021
+	\[ 0 \to M'_1 \otimes M_2 \to M_1 \otimes M_2 \to M''_1 \otimes M_2 \to 0 \]
+	is also short exact. Write the connecting homomorphism on cohomology as
+	$\delta^p:\Hm^p(G,M''_1)\to\Hm^{p+1}(G,M'_1)$, and so forth. Then
+% segment-id: o014.li2.chapter6.cup-product.q022
+	\[ (\delta^p \alpha) \cup \beta = \delta^{p+q}(\alpha \cup \beta), \quad \alpha \in \Hm^p(G, M''_1), \; \beta \in \Hm^q(G, M_2). \]
+
+	If instead one takes a short exact sequence
+	$0\to M'_2\to M_2\to M''_2\to0$ such that
+% segment-id: o014.li2.chapter6.cup-product.q023
+	\[ 0 \to M_1 \otimes M'_2 \to M_1 \otimes M_2 \to M_1 \otimes M''_2 \to 0 \]
+	remains exact, then
+% segment-id: o014.li2.chapter6.cup-product.q024
+	\[ \alpha \cup (\delta^q \beta) = (-1)^p \delta^{p+q} (\alpha \cup \beta). \]
+\end{corollary}
+
+% segment-id: o014.li2.chapter6.cup-product.pf007
+\begin{proof}
+	Handle the first case using the cup product on the standard complex. Choose
+	a representative $a''\in C^p(G,M''_1)$ of $\alpha$. Recall the concrete
+	construction of $\delta^p\alpha$ through the snake lemma: there is an
+	$a\in C^p(G,M_1)$ mapping to $a''$, and $da''=0$ implies that $da$ comes
+	from some $a'\in C^{p+1}(G,M'_1)$; the cohomology class of the latter
+	element is $\delta^p\alpha$. Diagrammatically:
+% segment-id: o014.li2.chapter6.cup-product.g016
+	\[\begin{tikzcd}
+		& a \arrow[mapsto, r] \arrow[mapsto, d, "d"'] & a'' \\
+		a' \arrow[mapsto, r] & da &
+	\end{tikzcd}\]
+
+	Next, choose a representative $b\in C^q(G,M_2)$ of $\beta$. From $db=0$
+	and the Leibniz rule, one obtains $d(a''\cup b)=0$ and
+% segment-id: o014.li2.chapter6.cup-product.g017
+	\[\begin{tikzcd}
+		& a \cup b \arrow[mapsto, r] \arrow[mapsto, d, "d"'] & a'' \cup b \\
+		a' \cup b \arrow[mapsto, r] & da \cup b &
+	\end{tikzcd}\]
+	This implies that the cohomology class of $a'\cup b$ is
+	$\delta^{p+q}(\alpha\cup\beta)$.
+
+	The argument for the second case is similar, or it can be reduced to the
+	first case by graded commutativity.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.cup-product.p025
+As an application, we now explain the relationship between the
+corestriction $\mathrm{cor}^n$ of
+Definition--Proposition~\ref{def:cor} and the cup product.
+
+% segment-id: o014.li2.chapter6.cup-product.pr003
+\begin{proposition}[Projection formula]
+	Let $M_1$ and $M_2$ be $G$-modules, let $H$ be a subgroup of $G$, and
+	suppose $(G:H)$ is finite. For all $\alpha\in\Hm^p(G,M_1)$ and
+	$\beta\in\Hm^q(H,M_2)$, the following equality holds in
+	$\Hm^{p+q}(G,M_1\otimes M_2)$:
+% segment-id: o014.li2.chapter6.cup-product.e004
+	\begin{equation*}
+		\mathrm{cor}^{p+q}(\mathrm{res}^p(\alpha) \cup \beta) = \alpha \cup \mathrm{cor}^q(\beta);
+	\end{equation*}
+	and likewise with the left and right positions interchanged.
+\end{proposition}
+
+% segment-id: o014.li2.chapter6.cup-product.pf008
+\begin{proof}
+	First handle the case $p=q=0$. Recall that $\mathrm{cor}^0$ becomes
+	$\nu^{G|H}:M_i^H\to M_i^G$, which sends $x\in M_i^H$ to
+	$\sum_{gH}gx\in M_i^G$. It therefore suffices to prove that the following
+	diagram commutes:
+% segment-id: o014.li2.chapter6.cup-product.g018
+	\[\begin{tikzcd}
+		M_1^G \otimes M_2^H \arrow[rr, "{\identity \otimes \nu^{G|H}}"] \arrow[d] & & M_1^G \otimes M_2^G \arrow[d, "\text{evident}"] \\
+		M_1^H \otimes M_2^H \arrow[r, "\text{evident}"'] & (M_1 \otimes M_2)^H \arrow[r, "{\nu^{G|H}}"'] & (M_1 \otimes M_2)^G .
+	\end{tikzcd}\]
+
+	This is immediate. If $x\in M_1^G$ and $y\in M_2^H$, then
+	$\nu^{G|H}(x\otimes y)=\sum_{gH}gx\otimes gy
+	=\sum_{gH}x\otimes gy=x\otimes\nu^{G|H}(y)$.
+
+	For the case $p\geq1$ or $q\geq1$, we use dimension shifting and a
+	recursive argument. For example, consider the case $p\geq1$ and the short
+	exact sequence of $G$-modules
+% segment-id: o014.li2.chapter6.cup-product.q025
+	\[ 0 \to M_1 \to \Ind^G_{\{1\}} M_1 \to M'_1 \to 0, \]
+	where the first morphism sends $x$ to $[g\mapsto gx]$, for $g\in G$. As a
+	homomorphism of $\Bbbk$-modules, this morphism has the left inverse
+	$\varphi\mapsto\varphi(1_G)$; hence tensoring the short exact sequence with
+	$M_2$ preserves exactness. On the other hand, for $n\geq1$,
+	$\Hm^n(G,\Ind^G_{\{1\}}(M_1))\simeq\Hm^n(\{1\},M_1)=0$
+	(Theorem~\ref{prop:Shapiro}). Thus the connecting homomorphism gives a
+	surjection
+% segment-id: o014.li2.chapter6.cup-product.q026
+	\[ \delta_G^{p-1}: \Hm^{p-1}(G, M'_1) \twoheadrightarrow \Hm^p(G, M_1). \]
+
+	If this short exact sequence is restricted to $H$, one still obtains a
+	connecting homomorphism
+	$\delta_H^{p-1}:\Hm^{p-1}(H,M'_1)\to\Hm^p(H,M_1)$, and so forth. Notice
+	that $\Res^G_H$ commutes with the operation $\otimes M_2$.
+
+	We may therefore suppose that
+	$\alpha=\delta_G^{p-1}(\alpha')$. Compatibility of $\mathrm{res}$ and
+	$\mathrm{cor}$ with connecting homomorphisms gives
+% segment-id: o014.li2.chapter6.cup-product.g019
+	\begin{multline*}
+		\mathrm{cor}^{p+q}\left( \mathrm{res}^p(\delta_G^{p-1} \alpha') \cup \beta \right) = \mathrm{cor}^{p+q}\left( \delta_H^{p-1} (\mathrm{res}^{p-1} \alpha') \cup \beta \right) \\
+		\xlongequal{\text{Corollary \ref{prop:cup-ses}}} \mathrm{cor}^{p+q} \delta_H^{p+q-1} \left( (\mathrm{res}^{p-1} \alpha') \cup \beta \right) \\
+		= \delta^{p+q-1}_G \mathrm{cor}^{p+q-1} \left( (\mathrm{res}^{p-1} \alpha') \cup \beta \right)
+		\xlongequal{\text{induction}} \delta^{p+q-1}_G \left(\alpha' \cup \mathrm{cor}^q \beta\right) \\
+		\xlongequal{\text{Corollary \ref{prop:cup-ses}}} (\delta^{p-1}_G \alpha') \cup \mathrm{cor}^q \beta .
+	\end{multline*}
+
+	The induction on $q$ is entirely similar. The version with the left and
+	right positions interchanged follows from graded commutativity.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.cup-product.ex001
+\begin{example}\label{eg:cup-periodicity}
+	Let $C_m$ be a cyclic group of order $m$, where
+	$m\in\Z_{\geq1}$. Take the coefficient ring $\Bbbk=\Z$. We explain how to
+	understand, through the cup product, the periodic isomorphism
+	$\Hm^n(C_m,A)\simeq\Hm^{n+2}(C_m,A)$ implied by
+	Proposition~\ref{prop:group-cohomology-cyclic}, where $A$ is an arbitrary
+	$C_m$-module and $n\geq1$.
+
+	Choose any generator $t$ of $\Hm^2(C_m,\Z)\simeq\Z/m\Z$. We claim that
+	for $n\geq1$, the cup product induces an isomorphism
+% segment-id: o014.li2.chapter6.cup-product.q027
+	\[ t \cup (\cdot): \Hm^n(C_m, A) \rightiso \Hm^{n+2}(C_m, \Bbbk \otimes A) = \Hm^{n+2}(C_m, A). \]
+
+	Choose a generator $\sigma$ of $C_m$. There are short exact sequences
+% segment-id: o014.li2.chapter6.cup-product.tb001
+	\[\begin{array}{cc}
+		0 \to \mathfrak{I} \to \Z[C_m] \to \Z \to 0, & 0 \to \mathfrak{I} \otimes A \to \Z[C_m] \otimes A \to A \to 0, \\
+		0 \to \Z \xrightarrow{\nu} \Z[C_m] \xrightarrow{\sigma - 1} \mathfrak{I} \to 0, & 0 \to A \xrightarrow{\nu \otimes \identity} \Z[C_m] \otimes A \xrightarrow{(\sigma-1) \otimes \identity} \mathfrak{I} \otimes A \to 0.
+	\end{array}\]
+	The sequences on the left come from
+	Lemma~\ref{prop:cyclic-resolution-prep}. Each of their terms is a free
+	$\Z$-module, so the sequences on the right obtained by applying
+	$\otimes A$ are also exact. First, this gives
+% segment-id: o014.li2.chapter6.cup-product.q028
+	\[ \Z = \Hm^0(C_m, \Z) \twoheadrightarrow \Hm^1(C_m, \mathfrak{I}) \rightiso \Hm^2(C_m, \Z) = \Z/m\Z, \]
+	where both maps are connecting homomorphisms from the long exact
+	sequences. Choose a preimage $\tilde{t}$ of $t$ in $\Z$; this integer must
+	be relatively prime to $m$. Corollary~\ref{prop:cup-ses} gives the
+	commutative diagram
+% segment-id: o014.li2.chapter6.cup-product.g020
+	\[\begin{tikzcd}[column sep=large]
+		\Hm^n(C_m, A) \arrow[r, "\text{connecting homomorphism}"] & \Hm^{n+1}(C_m, \mathfrak{I} \otimes A) \arrow[r, "\text{connecting homomorphism}"] & \Hm^{n+2}(C_m, A). \\
+		& \Hm^n(C_m, A) \arrow[lu, "{\tilde{t} \cup (\cdot)}"] \arrow[u] \arrow[ru, "{t \cup (\cdot)}"'] &
+	\end{tikzcd}\]
+
+	The exercises in this chapter will show that the composite in the first
+	row is the periodic isomorphism. It therefore suffices to prove that
+	$\tilde{t}\cup(\cdot)$ is an isomorphism. This is clear: the operation is
+	precisely multiplication by $\tilde{t}\in\Z$, while
+	$m\Hm^n(C_m,A)=\{0\}$
+	(Corollary~\ref{prop:group-coh-torsion}). In fact, if $t$ corresponds to
+	$1\bmod m$, take $\tilde{t}=1$; it is then immediately clear that the
+	periodic isomorphism is exactly $t\cup(\cdot)$.
+\end{example}
+
+% segment-id: o014.li2.chapter6.cup-product.r002
+\begin{remark}[Cap product]\label{rem:cap-product}
+	\index{cap product}
+	As in topology, there is also an operation between group cohomology and
+	group homology called the cap product,
+% segment-id: o014.li2.chapter6.cup-product.q029
+	\[ \cap: \Hm^p(G, M_1) \otimes \Hm_q(G, M_2) \to \Hm_{q-p}(G, M_1 \otimes M_2), \quad M_1, M_2: \text{$G$-modules}. \]
+	Since this book does not use the cap product, we mention it only briefly.
+	Regard an element $\alpha\in\Hm^p(G,M_1)$ as a morphism
+	$\Bbbk\to M_1[p]$ in $\cate{D}(G)$. This element induces the following
+	morphism in $\cate{D}^-(G)$:
+% segment-id: o014.li2.chapter6.cup-product.g021
+	\begin{multline*}
+		\Bbbk \otimesL[{\Bbbk[G]}] M_2 \rightiso \Bbbk \otimesL[{\Bbbk[G]}] (\Bbbk \otimesL M_2) \xrightarrow{\identity \otimes \alpha \otimes \identity} \Bbbk \otimesL[{\Bbbk[G]}] (M_1[p] \otimesL M_2) \\
+		\xrightarrow{\identity \otimesL \mathrm{can}} \Bbbk \otimesL[{\Bbbk[G]}] (M_1[p] \otimes M_2) \xrightarrow{\identity \otimesL \theta} \Bbbk \otimesL[{\Bbbk[G]}] \left( (M_1 \otimes M_2)[p] \right) \xrightarrow{\theta'} \left(\Bbbk \otimesL[{\Bbbk[G]}] (M_1 \otimes M_2)\right) [p].
+	\end{multline*}
+	Finally, take $\Hm^{-q}$ of this composite to obtain
+% segment-id: o014.li2.chapter6.cup-product.q030
+	\[ \alpha \cap (\cdot): \Hm_q(G, M_2) \to \Hm_{q-p}(G, M_1 \otimes M_2). \]
+	In the special case $p=q$, one obtains a pairing
+% segment-id: o014.li2.chapter6.cup-product.q031
+	\[ \lrangle{\cdot, \cdot}: \Hm^p(G, M_1) \otimes \Hm_p(G, M_2) \to \left( M_1 \otimes M_2 \right)_G . \]
+\end{remark}

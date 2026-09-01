@@ -1,0 +1,20 @@
+Methods of Algebra, Volume 2: Linear Algebra — Independent English Edition
+
+Source work: Wen-Wei Li, Methods of Algebra, Volume 2: Linear Algebra,
+2024 edition.
+
+The source and this derivative edition are licensed under Creative Commons
+Attribution 4.0 International (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/
+
+Changes include English translation, terminology reconciliation, metadata,
+the modular backend, HTML-reader configuration, and separately identified
+source corrections. Production used OpenAI Codex gpt-5.6-sol, Ultra, acting on
+instructions of the user.
+
+This edition is independent. Wen-Wei Li and the source publisher do not
+endorse this translation or reader.
+
+The reader includes MathJax 3.2.2, Copyright (c) 2009-2021 The MathJax
+Consortium, under the Apache License 2.0. A copy of the component license is in
+vendor/mathjax-3.2.2/LICENSE-MathJax.txt.

@@ -1,0 +1,120 @@
+% English translation of chapter2.tex lines 9--32.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter2.overview
+
+% segment-id: o014.li2.chapter2.overview.h001
+\chapter{Abelian Categories}\label{sec:Abel-cat}
+\hypertarget{o014.aljabr2.chapter2.overview}{ }
+
+% segment-id: o014.li2.chapter2.overview.p001
+An abelian category is an additive category with kernels and cokernels in
+which every morphism is strict. Abelian categories generalize the category
+$R\dcate{Mod}$ of left modules or $\cated{Mod}R$ of right modules over a ring
+$R$, and support the study of such notions as injective and projective
+objects, complexes, homology and cohomology, and exact sequences.
+
+% segment-id: o014.li2.chapter2.overview.p002
+Module categories are the prototype of abelian categories, but do not exhaust
+their substance. There are two reasons for this.
+% segment-id: o014.li2.chapter2.overview.l001
+\begin{enumerate}
+% segment-id: o014.li2.chapter2.overview.i001
+	\item In a general abelian category, objects have no elements and
+	morphisms are not maps. Diagram-chasing methods from module categories are
+	therefore no longer available; the most basic exact sequences must instead
+	be derived by operations on objects and functors. Prominent examples are
+	the snake lemma and the five lemma discussed in
+	\S\ref{sec:diagram-lemmas}, whose proofs use a substitute for diagram
+	chasing (Lemma \ref{prop:Abel-cat-exact-aux}). Even so, the arguments are
+	considerably more involved than their module-category counterparts.
+
+% segment-id: o014.li2.chapter2.overview.i002
+	\item Even when one starts with a module category or one of its abelian
+	subcategories, abstract abelian categories arise when studying functor
+	categories, localizations, or Serre quotients. In geometry and topology,
+	sheaf theory naturally leads to such constructions.
+\end{enumerate}
+
+% segment-id: o014.li2.chapter2.overview.p003
+The Freyd--Mitchell embedding theorem \ref{prop:FM} states that every small
+abelian category admits a fully faithful embedding into some
+$\cated{Mod}R$, and that the embedding functor preserves exact sequences.
+Once this result is accepted, many assertions about exact sequences reduce
+readily to the case of $\cated{Mod}R$. This reduction keeps diagram chasing
+available, but its chief benefit may be psychological reassurance: on the one
+hand it sidesteps the essence of abelian categories, and on the other hand any
+proof of the embedding theorem must still establish several core facts about
+abelian categories from scratch. This chapter does not depend on the
+embedding theorem, nor logically on module theory, but readers are expected
+to have a basic knowledge of homological algebra in module categories.
+Diagram-chasing skills remain useful and may even be indispensable in the
+natural order of study; readers are encouraged to consult \cite{Li1} or the
+relevant parts of another textbook. Appendix \S\ref{sec:FM} derives the
+embedding theorem as an application of the Ind construction.
+
+% segment-id: o014.li2.chapter2.overview.p004
+A cocomplete abelian category with a generator in which filtered small
+colimits are exact is called a Grothendieck category. Such categories are the
+subject of the final section, \S\ref{sec:Grothendieck-cat}; these conditions
+are directly related to assumptions on set size. Grothendieck categories
+occur frequently in geometry and enjoy better properties, such as
+completeness (Corollary \ref{prop:Grothendieck-cat-complete}) and the existence
+of canonical injective resolutions (Theorem
+\ref{prop:Grothendieck-injective}). They are a closer analogue of module
+categories than general abelian categories; the precise meaning of this
+statement is explained by the Gabriel--Popescu theorem \ref{prop:GP} in the
+appendix.
+
+% segment-id: o014.li2.chapter2.overview.p005
+The basic isomorphism theorems of module theory remain valid for general
+abelian categories. The same is true of such fundamental notions as
+subobjects, quotient objects, direct-sum decompositions, indecomposable
+objects, simple objects, and composition series, all central concerns of
+algebra. They will be treated in \S\S\ref{sec:direct-sum}---
+\ref{sec:semisimple}. For example, the Krull--Remak--Schmidt theorem on
+direct-sum decompositions has an abstract generalization (Theorem
+\ref{prop:Krull-Schmidt-gen}). The language of lattice theory is useful here;
+see \S\ref{sec:lattices}. It should be stressed that statements involving
+infinite direct sums often hold only in Grothendieck categories.
+
+% segment-id: o014.li2.chapter2.overview.p006
+Section \ref{sec:Serre-subcat} begins with the definition and characterization
+of abelian subcategories, and then introduces quotients of an abelian category
+by a certain kind of abelian subcategory, called a Serre subcategory; the
+result is a Serre quotient. These quotients are characterized by a universal
+property and can be constructed by the localization introduced in
+\S\ref{sec:cat-localization}. The section also introduces the group
+$\mathrm{K}_0$ of an abelian category and its basic properties, including the
+Euler--Poincar\'e principle (Theorem \ref{prop:EP}) and the exact sequence for
+$\mathrm{K}_0$ of a Serre quotient (Proposition
+\ref{prop:K0-exact-seq}). These techniques are common in applications. The
+construction of $\mathrm{K}_0$ applies to a broader class of structures than
+abelian categories, called \emph{exact categories}; see \cite{Bu10} for the
+theory. Moreover, $\mathrm{K}_0$ is only the beginning of a sequence of
+abelian groups $\mathrm{K}_n$ for $n\in\Z_{\geq0}$. A satisfactory
+interpretation of the higher K-groups requires homotopy-theoretic ideas,
+especially the notion of a ``spectrum'', and lies beyond the scope of this
+book.
+\index{exact category}
+
+% segment-id: o014.li2.chapter2.overview.n001
+\begin{petunjukbacaan}
+	As noted above, readers should have some familiarity with concrete
+	operations in module categories. For the basic theory of complexes and
+	their cohomology, the material in
+	\S\S\ref{sec:Abel-cat-def}---\ref{sec:inj-proj} is essential. Apart from
+	the treatment of abelian subcategories, the material in
+	\S\ref{sec:Serre-subcat} is used less often later, but it remains standard
+	knowledge and is related to several definitions in the discussion of
+	derived categories. Section \ref{sec:Grothendieck-cat} on Grothendieck
+	categories is supplementary; it requires relatively involved arguments
+	and material from the appendices, and may be skipped on a first reading.
+
+	A complex written as data $(X^n,d^n)_n$, where
+	$d^n:X^n\to X^{n+1}$, is also called a cochain complex. If instead one
+	uses subscripts, writing $(X_n,d_n)_n$ with
+	$d_n:X_n\to X_{n-1}$, it is called a chain complex. Except in
+	Chapter~\sourcecrossref{sec:simplicial}{8}, this book primarily uses
+	cochain notation.
+\end{petunjukbacaan}

@@ -1,0 +1,44 @@
+% English translation of prelude.tex, lines 104--126.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.prelude.book-purpose
+
+\section*{The Purpose of This Book}
+\addcontentsline{toc}{section}{The Purpose of This Book}
+\hypertarget{o014.aljabr2.prelude.book-purpose}{ }
+
+\subsection*{Organizational Aims}
+
+% segment-id: o014.li2.prelude.book-purpose.p001
+The preceding introduction shows that what is called linear algebra divides roughly into two main branches: the theory of abelian categories and the theory of complexes built upon them. This book centers on these two branches and seeks to provide the ideas and techniques needed to understand contemporary mathematics. Its contents include both the algebraic methods used in applications and the theoretical foundations those methods require. Since the methods primarily serve research in pure mathematics and are meant to apply as broadly as possible, the book may also be characterized as ``pure applied mathematics.''
+
+% segment-id: o014.li2.prelude.book-purpose.p002
+The book also attempts to serve both as a textbook and as a reference, which necessarily calls for attention to detail and systematic development. These goals pull against one another, yet the book must state its purpose, develop its themes, and bring them home within a finite space. This creates an enormous organizational challenge, but one that must be accepted.
+
+% segment-id: o014.li2.prelude.book-purpose.p003
+As to content, derived categories, derived functors, and spectral sequences are essential knowledge for contemporary mathematicians. Yet they pose real difficulties for beginners, chiefly at the level of ideas and definitions. The Inner Part is organized around this objective and lays the foundation for the Outer Part. To keep the exposition flowing and save space, we shall not retrace history step by step, but will more often follow the logical order made visible by hindsight.
+
+% segment-id: o014.li2.prelude.book-purpose.p004
+Constrained by these aims, what critics of art and literature call an ``aura'' inevitably recedes from the prose, replaced at times by the heaviness of systematic structure and rigorous proof. The aura opposed to that heaviness is mathematics' first knock upon the human mind, and perhaps its last. In the author's view, however, a light, agile, direct style belongs either to a theory's formative period or relies upon a complete supporting literature. Such support must be embedded in the native linguistic culture and shared by every reader. The author has chosen to carry the burden, hoping that the appearance of this book will leave future authors free to travel more lightly.
+
+% segment-id: o014.li2.prelude.book-purpose.p005
+During its preparation, the book drew extensively on related works, among them \cite{Wei94, ML98, KS06, Rie16, Yek20}. The Stacks Project \cite{stacks} and the \href{https://ncatlab.org}{nLab} website also proved invaluable.
+
+\subsection*{Approach and Trade-offs}
+
+% segment-id: o014.li2.prelude.book-purpose.p006
+The book must accommodate many fields and styles while finding a balance between classical and modern approaches, so that the material remains reasonably accessible to beginners. Compromise is therefore the author's guiding principle. Few readers, however, open a book in search of compromise. Compromise brings detours, so the path of this book is a geodesic for no reader; that is unavoidable.
+
+% segment-id: o014.li2.prelude.book-purpose.p007
+For the same reason, the selection of material cannot satisfy everyone. Geometrically inclined readers will not find sheaves or $t$-structures, while readers interested in the representation theory of algebras will not find tilting theory. These topics are omitted because the corresponding theories cannot be adequately motivated without first entering those subjects more deeply.
+
+% segment-id: o014.li2.prelude.book-purpose.p008
+Category theorists may regard the book's approach as no more than semiclassical. Even so, readers may notice that the main text and exercises leave entry points for more advanced viewpoints, such as dg-categories, monad theory, and simplicial objects, though each is touched on only briefly. These topics can be viewed as a warm-up for infinity-category theory and point toward a new world deeper than linear algebra, called advanced or higher algebra, which lies beyond the scope of this book.
+
+% segment-id: o014.li2.prelude.book-purpose.p009
+One further choice deserves explanation: the book treats general abelian categories and develops their basic properties directly from the axioms, unlike some homological-algebra texts that consider only modules. This generality is demanded both by theoretical completeness and by practical necessity: even if modules were our sole starting point, constructions such as functor categories and Serre quotients would still require it. Because diagram chases in module theory do not extend directly to the general setting, some foundational results about abelian categories require rather indirect proofs. To help with these details, the book expects readers to have some elementary experience with complexes of modules and their cohomology, such as the material of \cite[Chapter~6]{Li1}, though this is not logically necessary.
+
+% segment-id: o014.li2.prelude.book-purpose.p010
+The celebrated Freyd--Mitchell embedding theorem states that every small abelian category admits an exact, fully faithful embedding into $\cated{Mod}R$ for some ring $R$. Granting this theorem, many basic facts about abelian categories can be checked in the concrete module category $\cated{Mod}R$. A proof of the theorem is given in Appendix
+% source-xref: sec:FM; partial-reader fallback: B.6
+\S\sourcecrossref{sec:FM}{B.6}. Because the proof is itself nontrivial and depends on basic properties of abelian categories, the theorem does not essentially simplify their theory; its role is chiefly heuristic.

@@ -1,0 +1,425 @@
+% English translation of chapter2.tex lines 519--720.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter2.glimpse-of-lattice-theory
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.h001
+\section{A Glimpse of Lattice Theory}\label{sec:lattices}
+\hypertarget{o014.aljabr2.chapter2.glimpse-of-lattice-theory}{ }
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.p001
+This section gives a brief introduction to a class of partially ordered
+structures called lattices. The discussion will help clarify the structure of
+abelian categories.
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.p002
+Throughout this section we consider various partially ordered sets $(P,\leq)$;
+the corresponding category is denoted by $\mathcal{P}$.
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.p003
+For every subset $S$ of a partially ordered set $(P,\leq)$, there are notions
+of upper and lower bounds, a supremum $\sup S$, and an infimum $\inf S$. A
+subset $S\subset P$ has a supremum (or infimum) if and only if the coproduct
+(or product) of all the objects in $S$ exists in the category $\mathcal{P}$;
+in that case the supremum (or infimum) is precisely that coproduct (or
+product).
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.d001
+\begin{definition}\label{def:lattice-order}
+	\index{lattice}
+	\index{lattice!bounded}
+	\index{interval}
+	\index[sym1]{veewedge@$\vee$, $\wedge$}
+	If every two elements $a,b$ of a partially ordered set $(P,\leq)$ have a
+	supremum $a\vee b$ and an infimum $a\wedge b$, then $(P,\leq)$ is called a
+	\emph{lattice}. If, in addition, $(P,\leq)$ itself has an upper bound and a
+	lower bound, they are both unique and are denoted by $1$ and $0$,
+	respectively; in this case $P$ is called a \emph{bounded lattice}.
+
+	If $a,b$ are elements of a partially ordered set $(P,\leq)$ and $a\leq b$,
+	then $[a,b]:=\left\{x\in P:a\leq x\leq b\right\}$ is also a partially
+	ordered set under $\leq$ and is called the \emph{interval} determined by
+	$a,b$.
+\end{definition}
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.p004
+If $P$ is a lattice, every interval in $P$ is closed under $\vee$ and
+$\wedge$ and is a bounded lattice. If $P$ is a bounded lattice, then
+$P=[0,1]$, and for every $x\in P$ one has
+$x\wedge0=0$, $x\vee0=x=x\wedge1$, and $x\vee1=1$.
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.p005
+From the categorical point of view, $a\wedge b$, $a\vee b$, $1$, and $0$
+correspond, respectively, to the product of two objects, the coproduct of two
+objects, a terminal object (that is, an empty product), and an initial object
+(that is, an empty coproduct) in the category; this can be checked directly.
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.p006
+As an illustration of the operations $\wedge$ and $\vee$, prove the following
+fact. If $a^\flat,a,b\in P$ satisfy $a^\flat\leq a$, then
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.q001
+\begin{equation}\label{eqn:modular-inequality}
+	a^\flat \vee (a \wedge b) \leq (a^\flat \vee b) \wedge a.
+\end{equation}
+By the definition of a supremum, it first suffices to prove
+$a^\flat\leq(a^\flat\vee b)\wedge a$ and
+$(a\wedge b)\leq(a^\flat\vee b)\wedge a$. By the definition of an infimum,
+it then suffices to prove, respectively, the inequalities
+\[ a^\flat \leq a^\flat \vee b, \quad a^\flat \leq a, \quad a \wedge b \leq a^\flat \vee b, \quad a \wedge b \leq a; \]
+the third follows from $a\wedge b\leq b\leq a^\flat\vee b$, and the others
+are clear.
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.d002
+\begin{definition}\label{def:modular-lattice}
+	\index{lattice!modular}
+	\index{complement}
+	Let $P$ be a lattice.
+	% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.l001
+	\begin{itemize}
+		% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.i001
+		\item $P$ is called a \emph{modular lattice} if the following property
+		holds: whenever $a^\flat,a,b\in P$ satisfy $a^\flat\leq a$, then
+		% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.q002
+		\[ a^\flat \vee (a \wedge b) = (a^\flat \vee b) \wedge a. \]
+		% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.i002
+		\item Suppose that $P$ is a bounded lattice. If $x,c\in P$ satisfy
+		$x\vee c=1$ and $x\wedge c=0$, then $c$ is called a \emph{complement} of
+		$x$ in $P$.
+	\end{itemize}
+\end{definition}
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.p007
+We now consider some basic examples of lattices.
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.l002
+\begin{itemize}
+	% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.i003
+	\item The set of positive integers $\Z_{\geq1}$ is a lattice under
+	divisibility ($x\mid y\iff x\leq y$):
+	$x\vee y=\mathrm{lcm}(x,y)$ and $x\wedge y=\mathrm{gcd}(x,y)$. The reader
+	can check that this lattice is modular, has lower bound $1$, but has no
+	upper bound.
+
+	% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.i004
+	\item Let $R$ be a ring and $M$ a left $R$-module. Its set of submodules
+	$\mathrm{Sub}_M$ is a bounded modular lattice under $\subset$:
+	$x\vee y=x+y$ and $x\wedge y=x\cap y$; its upper bound is $M$ and its lower
+	bound is $\{0\}$. This is the origin of the term ``modular lattice.''
+
+	% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.i005
+	\item All closed subspaces of a Hilbert space $H$ form a bounded lattice
+	under $\subset$: $x\vee y:=\overline{x+y}$ and $x\wedge y=x\cap y$. One can
+	prove that this lattice is not modular when $H$ is infinite-dimensional
+	(Birkhoff--von Neumann).
+	% Possible reference: Proposition 4.4 in https://link.springer.com/chapter/10.1007/978-94-015-9026-6_4
+\end{itemize}
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.r001
+\begin{remark}\label{rem:lattice-duality}
+	The definition of a lattice also contains a duality. Given the partial order
+	$\leq$ on a set $P$, we may consider the opposite partial order
+	$\leq^{\opp}$: $x\leq^{\opp}y\iff x\geq y$; this is equivalent to replacing
+	$\mathcal{P}$ by $\mathcal{P}^{\opp}$. If $(P,\leq)$ is a lattice (or a
+	bounded lattice), then so is $(P,\leq^{\opp})$. Moreover, $\wedge,\vee,0,1$
+	in $(P,\leq)$ correspond, respectively, to $\vee,\wedge,1,0$ in
+	$(P,\leq^{\opp})$.
+\end{remark}
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.le001
+\begin{lemma}\label{prop:modularity-criterion}
+	Let $P$ be a lattice. Then $P$ is modular if and only if the following
+	property holds for every interval $I$ in $P$: if $c^\flat,c$ are both
+	complements of $x\in I$ in $I$ and $c^\flat\leq c$, then $c^\flat=c$.
+\end{lemma}
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.pf001
+\begin{proof}
+	If $P$ is a modular lattice, then every interval $I$ is also a modular
+	lattice. Without loss of generality, assume $I=P$; for the $x,c^\flat,c$ in
+	the statement, we have
+	% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.q003
+	\[ c = c \wedge 1 = c \wedge (x \vee c^\flat) = c^\flat \vee (x \wedge c) = c^\flat \vee 0 = c^\flat . \]
+
+	Conversely, assume that the condition on complements holds for every
+	interval. Let $a^\flat,a,b\in P$ satisfy $a^\flat\leq a$. Set
+	% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.q004
+	\[ b \wedge a \leq c_1 := a^\flat \vee (b \wedge a) \underset{\because \eqref{eqn:modular-inequality}}{\leq} a \wedge (b \vee a^\flat) =: c_2 \leq b \vee a^\flat. \]
+	We prove that $c_1,c_2$ are both complements of $b$ in
+	$\left[b\wedge a,\;b\vee a^\flat\right]$, so that $c_1=c_2$. First, the
+	definition immediately gives $c_1\leq a$; therefore
+	% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.q005
+	\[ b \wedge a \geq b \wedge c_1 = (a^\flat \vee (b \wedge a)) \wedge b \underset{\because \eqref{eqn:modular-inequality}}{\geq} (a^\flat \wedge b) \vee (b \wedge a) = b \wedge a , \]
+	so $b\wedge c_1=b\wedge a$. On the other hand,
+	$b\vee c_1=a^\flat\vee(b\wedge a)\vee b=a^\flat\vee b$. Thus $c_1$ is
+	indeed a complement of $b$ in
+	$\left[b\wedge a,\;b\vee a^\flat\right]$.
+
+	Lattice duality (Remark~\ref{rem:lattice-duality}) reverses the order
+	relation between $a^\flat,a$, interchanges $\wedge$ and $\vee$, and
+	interchanges the roles of $c_1$ and $c_2$. Thus the preceding argument,
+	carried out in $(P,\leq^{\opp})$, shows that $c_2$ is a complement of $b$
+	in $\left[b\wedge a,\;b\vee a^\flat\right]$.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.pr001
+\begin{proposition}\label{prop:lattice-diamond-isom}
+	\index{standard isomorphism}
+	Let $a,b$ be elements of a modular lattice $(P,\leq)$. Then there is an
+	isomorphism of partially ordered sets
+	% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.g001
+	\[\begin{tikzcd}[row sep=tiny]
+		{[a \wedge b, a]} \arrow[leftrightarrow, r, "1:1"] & {[b, a \vee b]} \\
+		x \arrow[mapsto, r] & x \vee b \\
+		y \wedge a & y \arrow[mapsto, l]
+	\end{tikzcd}\]
+	called the \emph{standard isomorphism}.
+\end{proposition}
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.pf002
+\begin{proof}
+	The two maps are clearly well defined and order-preserving. For
+	$x\in[a\wedge b,a]$, the definition of a modular lattice gives
+	$(x\vee b)\wedge a=(a\wedge b)\vee x$, whose right-hand side is $x$.
+	Dually, $y\in[b,a\vee b]$ implies $(y\wedge a)\vee b=y$
+	(Remark~\ref{rem:lattice-duality}); thus the two maps are mutually inverse.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.p008
+The Zassenhaus lemma of elementary algebra (see \cite[Lemma 4.6.4]{Li1},
+especially its module-theoretic version) and its consequences can be distilled
+using lattice theory.
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.th001
+\begin{theorem}[Zassenhaus Lemma for Modular Lattices]\label{prop:lattice-Zassenhaus}
+	\index{Zassenhaus Lemma}
+	Let $(P,\leq)$ be a modular lattice. For given elements
+	$u^\flat\leq u$ and $v^\flat\leq v$, there is a diagram
+	% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.g002
+	\[ \begin{tikzcd}[column sep=tiny, row sep=small]
+		u^\flat \vee (u \wedge v) \arrow[dash, dd] \arrow[dash, rd] & & (u \wedge v) \vee v^\flat \arrow[dash, dd] \arrow[dash, ld] \\
+		& u \wedge v \arrow[dash, dd] & \\
+		u^\flat \vee (u \wedge v^\flat) \arrow[dash, rd] & & (u^\flat \wedge v) \vee v^\flat \arrow[dash, ld] \\
+		& (u^\flat \wedge v) \vee (u \wedge v^\flat)
+	\end{tikzcd} \]
+	meaning that its elements satisfy the following patterns:
+	% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.q006
+	\begin{equation}\label{eqn:Zassenhaus-cases}
+	% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.g003
+	\begin{tikzcd}
+		x \arrow[dash, d, "\geq" description, sloped] \\ y
+	\end{tikzcd} \qquad
+	% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.g004
+	\begin{tikzcd}[column sep=tiny]
+		x \arrow[dash, rd] & & y \arrow[dash, ld] \\
+		& x \wedge y &
+	\end{tikzcd} \quad
+	% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.g005
+	\begin{tikzcd}[column sep=tiny]
+		{} & x \vee y \arrow[dash, ld] \arrow[dash, rd] & \\
+		x & & y
+	\end{tikzcd} .
+	\end{equation}
+	Moreover, there are standard isomorphisms between the intervals
+	% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.q007
+	\begin{multline*}
+		\left[ u^\flat \vee (u \wedge v^\flat), \; u^\flat \vee (u \wedge v) \right] \leftiso \left[ (u^\flat \wedge v) \vee (u \wedge v^\flat), \; u \wedge v \right] \\
+		\rightiso \left[ (u^\flat \wedge v) \vee v^\flat, \; (u \wedge v) \vee v^\flat \right],
+	\end{multline*}
+	realized by the maps
+	$x\vee u^\flat\vee(u\wedge v^\flat)\mapsfrom x\mapsto
+	x\vee(u^\flat\wedge v)\vee v^\flat$ in
+	Proposition~\ref{prop:lattice-diamond-isom}.
+\end{theorem}
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.pf003
+\begin{proof}
+	The isomorphisms in the last part are obtained by applying
+	Proposition~\ref{prop:lattice-diamond-isom} to the two parallelograms in the
+	diagram; what remains to be checked are the relations in
+	\eqref{eqn:Zassenhaus-cases}. Notice that the diagram is left--right
+	symmetric under $u\leftrightarrow v$ and
+	$u^\flat\leftrightarrow v^\flat$; it therefore suffices to check its left
+	half. The partial-order relations among its elements are immediate. For the
+	$\wedge$ case, the definition of a modular lattice gives
+	% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.q008
+	\begin{equation*}
+		\left( u^\flat \vee (u \wedge v^\flat)\right) \wedge (u \wedge v) = \left( u^\flat \wedge (u \wedge v) \right) \vee (u \wedge v^\flat) = (u^\flat \wedge v) \vee (u \wedge v^\flat).
+	\end{equation*}
+	For the $\vee$ case, the inequality $u\wedge v^\flat\leq u\wedge v$
+	immediately gives
+	% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.q009
+	\begin{equation*}
+		u^\flat \vee (u \wedge v^\flat) \vee (u \wedge v) = u^\flat \vee (u \wedge v).
+	\end{equation*}
+	This proves \eqref{eqn:Zassenhaus-cases}.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.p009
+Next consider a finite descending chain in a lattice, written
+$x_0\geq x_1\geq\cdots\geq x_r$ ($r\in\Z_{\geq0}$). A descending chain
+obtained by inserting finitely many intermediate elements is called a
+\emph{refinement} of the original descending chain; if the inserted elements
+include some $y\notin\{x_0,\ldots,x_r\}$, it is called a proper refinement.
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.d003
+\begin{definition}\label{def:Schreier-equiv}
+	Two descending chains of the same length in a modular lattice,
+	$x_0\geq\cdots\geq x_r$ and $x'_0\geq\cdots\geq x'_r$, are called
+	\emph{equivalent} if the following condition holds: there is a bijection
+	$\sigma$ from $\{0,\ldots,r-1\}$ to itself (that is, a
+	permutation)\footnote{Translator's note (O014-C021): the source has
+	$\{0,\ldots,r\}$, but the successive factors being paired are indexed by
+	$0\leq i<r$; the index $i=r$ would leave $x_{i+1}$ undefined.} such that,
+	for every $0\leq i<r$, there is an isomorphism of partially ordered sets
+	% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.q010
+	\[ \tau_i: \left[ x_{i+1}, x_i \right] \simeq \left[ x'_{\sigma(i) + 1}, x'_{\sigma(i)} \right], \]
+	and $\tau_i$ decomposes into a finite composite of standard isomorphisms
+	(Proposition~\ref{prop:lattice-diamond-isom}) or their inverses.
+\end{definition}
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.th002
+\begin{theorem}[Schreier Refinement Theorem for Modular Lattices]\label{prop:Schreier-refinement}
+	\index{Schreier Refinement Theorem}
+	\mbox{}\par
+	Consider descending chains
+	% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.q011
+	\[ x_0 \geq \cdots \geq x_r, \quad y_0 \geq \cdots \geq y_s, \]
+	in a modular lattice $(P,\leq)$ such that $x_0=y_0$ and $x_r=y_s$, with
+	$r,s\in\Z_{\geq0}$. Then each chain has a refinement, and the two
+	refinements are equivalent.
+\end{theorem}
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.pf004
+\begin{proof}
+	The argument is the same as in the case of groups
+	\cite[Theorem 4.6.6]{Li1}; both are based on
+	Theorem~\ref{prop:lattice-Zassenhaus}. We give the outline. Define
+	% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.q012
+	\[ x_{i, j} := x_{i+1} \vee (x_i \wedge y_j), \quad y_{j, i} := (x_i \wedge y_j) \vee y_{j+1}, \]
+	with $0\leq i<r$ and $0\leq j\leq s$ for $x_{i,j}$, and with
+	$0\leq i\leq r$ and $0\leq j<s$ for $y_{j,i}$. Then
+	$x_{i,j+1}\leq x_{i,j}$, $x_{i,0}=x_i$, and $x_{i,s}=x_{i+1}$, so
+	$\left(x_{i,j}\right)_{i,j}$, in that order, refines
+	$x_0\geq\cdots\geq x_r$. Similarly,
+	$\left(y_{j,i}\right)_{j,i}$ refines $y_0\geq\cdots\geq y_s$. Taking
+	$u^\flat=x_{i+1}$, $u=x_i$, $v^\flat=y_{j+1}$, and $v=y_j$ in
+	Theorem~\ref{prop:lattice-Zassenhaus}, we obtain
+	% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.q013
+	\[ \left[ x_{i, j+1}, x_{i,j} \right] \simeq \left[ y_{j, i+1}, y_{j, i} \right], \]
+	and this isomorphism decomposes into standard isomorphisms and their
+	inverses. The assertion follows.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.p010
+From now on, we consider only strictly ascending or strictly descending
+chains.
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.d004
+\begin{definition}\index{composition series}
+	Fix a partially ordered set $P$ and elements $a\leq b$ in
+	it.\footnote{Translator's note (O014-C022): the source has $a<b$, but the
+	next sentence explicitly includes the case $a=b$ and $r=0$; the target uses
+	the weaker hypothesis consistent with that case.} If a descending chain
+	$b=x_0>\cdots>x_r=a$ in $P$ has no proper refinement, it is called a
+	\emph{composition series} of $[a,b]$.
+\end{definition}
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.p011
+The length of this composition series is defined to be
+$r\in\Z_{\geq0}$; notice that $r=0$ if and only if $a=b$.
+\index{length}
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.th003
+\begin{theorem}[Jordan--Hölder Theorem for Modular Lattices]\label{prop:lattice-JH}
+	\index{Jordan-Holder@Jordan--Hölder Theorem}
+	Let $a<b$ be elements of a modular lattice $(P,\leq)$. Then any two
+	composition series of $[a,b]$ have the same length and are equivalent in
+	the sense of Definition~\ref{def:Schreier-equiv}.
+\end{theorem}
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.pf005
+\begin{proof}
+	This follows immediately from
+	Theorem~\ref{prop:Schreier-refinement}.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.p012
+The next important question is to determine which intervals in a partially
+ordered set have composition series. As in the familiar theory of modules,
+their existence can be guaranteed by ascending- and descending-chain
+conditions.
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.d005
+\begin{definition}\label{def:lattice-Noether-Artin}
+	\index{partially ordered set!finite length}
+	\index{partially ordered set!Artinian, Noetherian}
+	Let $(P,\leq)$ be a partially ordered set. If there is no infinite
+	ascending chain $x_1<x_2<x_3<\cdots$ in $P$, then $P$ is called
+	\emph{Noetherian}; if there is no infinite descending chain
+	$x_1>x_2>x_3>\cdots$, then $P$ is called \emph{Artinian}. A partially
+	ordered set that is both Artinian and Noetherian is said to have
+	\emph{finite length}.
+\end{definition}
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.p013
+If $(P,\leq)$ is Noetherian (or Artinian, or of finite length), then every
+subset of it has the same property. It is easy to prove that the Noetherian
+(or Artinian) condition is equivalent to the assertion that every nonempty
+subset of $P$ has a maximal (or minimal) element with respect to $\leq$. In
+this chapter these notions will be applied chiefly to partially ordered sets
+of subobjects; see Definition~\ref{def:sub-quot-obj}.
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.d006
+\begin{definition}\label{def:finite-length-object}
+	\index{object!finite length}
+	\index{object!Noetherian}
+	\index{object!Artinian}
+	Fix a category $\mathcal{C}$. An object $X$ of $\mathcal{C}$ is called
+	Noetherian (or Artinian, or of finite length) if its partially ordered set
+	of subobjects $(\mathrm{Sub}_X,\subset)$ is Noetherian (or Artinian, or of
+	finite length).
+\end{definition}
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.p014
+We now return to general partially ordered sets.
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.le002
+\begin{lemma}\label{prop:lattice-composition-series}
+	Let $a\leq b$ be elements of a partially ordered set $(P,\leq)$.
+	% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.l003
+	\begin{enumerate}[(i)]
+		% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.i006
+		\item If $[a,b]$ has finite length, then every chain in it can be refined
+		to a composition series; in particular, $[a,b]$ has a composition series.
+		% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.i007
+		\item If $[a,b]$ is a modular lattice and has a composition series, then
+		$[a,b]$ has finite length.
+	\end{enumerate}
+\end{lemma}
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.pf006
+\begin{proof}
+	Without loss of generality, assume $a<b$. For (i), given a chain
+	$y_0>\cdots>y_r$, it suffices to show that every $[y_{i+1},y_i]$ has a
+	composition series.\footnote{Translator's note (O014-C023): the source has
+	$[y_i,y_{i+1}]$ and then sets $y_i=a$, $y_{i+1}=b$. Since
+	$y_i>y_{i+1}$, both orders are reversed; the target uses the interval
+	$[y_{i+1},y_i]$ and the well-typed assignment.} Without loss of generality,
+	assume $y_{i+1}=a$ and $y_i=b$. The Artinian condition guarantees a minimal
+	element $x^0\in[a,b]$ with $x^0>a$. Similarly, if $x^0\neq b$, there is a
+	minimal element $x^1\in[a,b]$ with $x^1>x^0$, and so on. By the Noetherian
+	condition, this process must stop after finitely many steps, producing a
+	chain $b>\cdots>x^0>a$ with no proper refinement.
+
+	For (ii), choose a composition series $b=x_0>\cdots>x_r=a$.
+	Theorem~\ref{prop:Schreier-refinement} shows that every finite chain
+	$\cdots>y_i>y_{i+1}>\cdots$ has a refinement equivalent to the composition
+	series above; hence the length of that chain cannot exceed the length of the
+	composition series. Thus $[a,b]$ is a partially ordered set of finite
+	length.
+\end{proof}
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.d007
+\begin{definition}\label{def:lattice-length}
+	Let $(P,\leq)$ be a bounded modular lattice of finite length. Choose any
+	composition series $1=x_0>\cdots>x_r=0$ of $P$. The number
+	$r\in\Z_{\geq0}$ is called the \emph{length} of $(P,\leq)$.
+\end{definition}
+
+% segment-id: o014.li2.chapter2.glimpse-of-lattice-theory.p015
+Theorem~\ref{prop:lattice-JH} shows that this length is well defined and does
+not depend on the chosen composition series; the length of $(P,\leq)$ is $0$
+if and only if $P$ is a one-point set.

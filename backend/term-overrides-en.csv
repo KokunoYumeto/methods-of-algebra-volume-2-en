@@ -1,0 +1,512 @@
+concept_id,preferred_en
+math.algebra.ring,ring
+math.algebra.module,module
+math.algebra.field,field
+math.algebra.abelian_group,abelian group
+math.category.category,category
+math.category.functor,functor
+math.category.natural_transformation,natural transformation
+math.category.monoidal_category,monoidal category
+math.category.limit,limit
+math.category.representability,representability
+math.category.enrichment,category enrichment
+math.algebra.tensor_product,tensor product
+math.analysis.completion,completion
+math.algebra.submodule,submodule
+math.algebra.quotient_module,quotient module
+math.algebra.module_homomorphism,module homomorphism
+math.category.morphism,morphism
+math.category.kernel,kernel
+math.category.cokernel,cokernel
+math.category.image,image
+math.algebra.vector_space,vector space
+math.homological.cochain_complex,cochain complex
+math.homological.chain_complex,chain complex
+math.homological.differential,differential
+math.homological.cohomology,cohomology
+math.homological.homology,homology
+math.homological.exact_sequence,exact sequence
+math.homological.acyclic_complex,acyclic complex
+math.homological.abelian_category,abelian category
+math.homological.homological_algebra,homological algebra
+math.topology.genus,genus
+math.topology.betti_number,Betti number
+math.algebra.torsion,torsion
+math.topology.topological_invariant,topological invariant
+math.homological.universal_coefficient_theorem,universal coefficient theorem
+math.homological.cup_product,cup product
+math.homotopy.aspherical_space,aspherical space
+math.homotopy.homotopy_group,homotopy group
+math.homological.group_cohomology,group cohomology
+math.algebra.syzygy,syzygy
+math.homological.free_resolution,free resolution
+math.homological.group_extension,group extension
+math.algebra.derivation,derivation
+math.algebra.inner_derivation,inner derivation
+math.homological.hochschild_homology,Hochschild homology
+math.homological.hochschild_cohomology,Hochschild cohomology
+math.algebra.bimodule,bimodule
+math.geometry.sheaf,sheaf
+math.homological.spectral_sequence,spectral sequence
+math.homological.sheaf_cohomology,sheaf cohomology
+math.homological.injective_module,injective module
+math.homological.projective_module,projective module
+math.homological.injective_resolution,injective resolution
+math.homological.projective_resolution,projective resolution
+math.homological.derived_functor,derived functor
+math.category.additive_category,additive category
+math.category.strict_morphism,strict morphism
+math.homological.delta_functor,δ-functor
+math.category.grothendieck_category,Grothendieck category
+math.homological.derived_category,derived category
+math.homological.quasi_isomorphism,quasi-isomorphism
+math.category.localization,categorical localization
+math.homological.distinguished_triangle,distinguished triangle
+math.homological.shift,shift
+math.homological.triangulated_category,triangulated category
+math.homotopy.cofiber_sequence,cofiber sequence
+math.homological.octahedral_axiom,octahedral axiom
+math.homological.derived_equivalence,derived equivalence
+math.simplicial.simplicial_set,simplicial set
+math.simplicial.simplicial_object,simplicial object
+math.simplicial.nerve,nerve
+math.simplicial.dold_kan_correspondence,Dold–Kan correspondence
+math.category.adjoint_equivalence,adjoint equivalence
+math.homological.bar_construction,bar construction
+math.homotopy.homotopical_algebra,homotopical algebra
+math.ktheory.higher_k_theory,higher K-theory
+math.category.infinity_category,∞-category
+math.homological.complex,complex
+math.homological.t_structure,t-structure
+math.representation.tilting_theory,tilting theory
+math.category.dg_category,dg-category
+math.category.monad_theory,monad theory
+math.higher.higher_algebra,higher algebra
+math.category.functor_category,functor category
+math.category.serre_quotient,Serre quotient
+math.category.diagram_chase,diagram chase
+math.category.small_category,small category
+math.category.fully_faithful,fully faithful
+math.category.exact_embedding,exact embedding
+math.category.freyd_mitchell_theorem,Freyd–Mitchell embedding theorem
+pedagogy.exercise,exercise
+pedagogy.hint,hint
+publishing.cross_reference,cross-reference
+publishing.modular_writing,modular writing
+pedagogy.optional_reading,optional reading
+pedagogy.reading_guidance,reading guidance
+math.category.category_theory,category theory
+math.category.object,object
+math.set_theory.set,set
+math.set_theory.class,class
+math.set_theory.proper_class,proper class
+math.set_theory.grothendieck_universe,Grothendieck universe
+math.set_theory.strongly_inaccessible_cardinal,strongly inaccessible cardinal
+math.probability.probability_theory,probability theory
+math.measure.measure_theory,measure theory
+math.category.kan_extension,Kan extension
+math.category.gabriel_zisman_localization,Gabriel–Zisman localization
+math.homological.bicomplex,bicomplex
+math.homological.mapping_cone,mapping cone
+math.homological.k_injective_resolution,K-injective resolution
+math.homological.k_projective_resolution,K-projective resolution
+math.category.triangulated_functor,triangulated functor
+math.homological.exact_couple,exact couple
+math.homological.filtered_complex,filtered complex
+math.group.group_homology,group homology
+math.group.tate_cohomology,Tate cohomology
+math.group.profinite_group,profinite group
+math.group.profinite_group_cohomology,profinite group cohomology
+math.group.nonabelian_cohomology,nonabelian cohomology
+math.algebra.differential_graded_structure,differential graded structure
+math.algebra.coalgebra,coalgebra
+math.algebra.bialgebra,bialgebra
+math.algebra.hopf_algebra,Hopf algebra
+math.category.beck_monadicity_theorem,Beck monadicity theorem
+math.algebra.morita_theory,Morita theory
+math.descent.flat_descent_modules,flat descent for modules
+math.descent.galois_descent,Galois descent
+math.category.duality,duality
+math.category.reconstruction_theorem,reconstruction theorem
+math.category.tannakian_category,Tannakian category
+math.algebra.representation_theory,representation theory
+math.category.ind_object,ind-object
+math.category.pro_object,pro-object
+math.category.ind_construction,Ind-construction
+publishing.errata,errata
+math.foundations.well_defined,well-defined
+math.order.partially_ordered_set,partially ordered set
+math.order.preordered_set,preordered set
+math.order.maximal_element,maximal element
+math.order.minimal_element,minimal element
+math.order.upper_bound,upper bound
+math.order.lower_bound,lower bound
+math.order.supremum,supremum
+math.order.infimum,infimum
+math.order.order_preserving_map,order-preserving map
+math.order.order_isomorphism,order isomorphism
+math.order.totally_ordered_set,totally ordered set
+math.order.well_ordered_set,well-ordered set
+math.set_theory.ordinal,ordinal
+math.set_theory.cardinal,cardinal
+math.set_theory.small_set,small set
+math.set_theory.small_cardinal,small cardinal
+math.category.monomorphism,monomorphism
+math.category.epimorphism,epimorphism
+math.category.full_subcategory,full subcategory
+math.category.product_category,product category
+math.category.discrete_category,discrete category
+math.category.u_category,U-category
+math.category.large_category,large category
+math.category.size_issues,size issues
+math.category.faithful_functor,faithful functor
+math.category.essentially_surjective_functor,essentially surjective functor
+math.category.two_cell,2-cell
+math.category.opposite_category,opposite category
+math.category.quasi_inverse,quasi-inverse
+math.category.equivalence,equivalence of categories
+math.category.category_isomorphism,isomorphism of categories
+math.algebra.zero_divisor,zero divisor
+math.category.adjunction,adjunction
+math.category.adjunction_unit,unit of an adjunction
+math.category.adjunction_counit,counit of an adjunction
+math.category.triangle_identities,triangle identities
+math.category.colimit,colimit
+math.category.small_limit,small limit
+math.category.complete_category,complete category
+math.category.cocomplete_category,cocomplete category
+math.category.universal_property,universal property
+math.category.equalizer,equalizer
+math.category.coequalizer,coequalizer
+math.category.product,product
+math.category.coproduct,coproduct
+math.algebra.direct_sum,direct sum
+math.category.yoneda_embedding,Yoneda embedding
+math.category.terminal_object,terminal object
+math.category.initial_object,initial object
+math.category.zero_object,zero object
+math.category.zero_morphism,zero morphism
+math.category.fiber_product,fiber product
+math.category.fiber_coproduct,fiber coproduct
+math.category.pullback,pullback
+math.category.pushout,pushout
+math.category.subobject,subobject
+math.category.quotient_object,quotient object
+math.category.coimage,coimage
+math.category.ab_category,Ab-category
+math.category.additive_functor,additive functor
+math.category.k_linear_category,k-linear category
+math.category.preserves_limit,preservation of limits
+math.category.creates_limit,creation of limits
+math.category.cofinal_functor,cofinal functor
+math.category.filtered_inductive_limit,filtered inductive limit
+math.category.absolute_kan_extension,absolute Kan extension
+math.category.multiplicative_system,multiplicative system
+math.category.adjoint_functor_theorem,adjoint functor theorem
+math.category.generator,generator
+math.category.cogenerator,cogenerator
+math.category.left_cancellation_law,left cancellation law
+math.category.right_cancellation_law,right cancellation law
+math.category.subquotient,subquotient
+math.category.canonical_morphism,canonical morphism
+math.set_theory.equivalence_class,equivalence class
+math.order.partial_order_relation,partial order relation
+math.set_theory.injective_map,injective map
+math.set_theory.surjective_map,surjective map
+math.category.isomorphism,isomorphism
+math.category.projection_morphism,projection morphism
+math.category.coimage_image_comparison,coimage–image comparison morphism
+math.category.epi_mono_factorization,epi–mono factorization
+math.category.epi_mono_factorization_category,epi–mono factorization category
+math.category.ab_subcategory,Ab-subcategory
+math.category.biproduct,biproduct
+math.category.diagonal_morphism,diagonal morphism
+math.category.codiagonal_morphism,codiagonal morphism
+math.category.additive_subcategory,additive subcategory
+math.category.direct_sum_summand,direct-sum summand
+math.category.finite_product,finite product
+math.category.finite_coproduct,finite coproduct
+math.category.addition_of_morphisms,addition of morphisms
+math.category.functoriality,functoriality
+math.algebra.bilinear_map,bilinear map
+math.algebra.pointwise_addition,pointwise addition
+math.category.forgetful_functor,forgetful functor
+math.functional_analysis.banach_space,Banach space
+math.functional_analysis.quotient_norm,quotient norm
+math.topology.quotient_topology,quotient topology
+math.topology.induced_topology,induced topology
+math.topology.dense_image,dense image
+math.topology.closure,closure
+math.algebra.commutative_ring,commutative ring
+math.algebra.scalar_multiplication,scalar multiplication
+math.category.k_mod_enriched_category,k-Mod-enriched category
+math.category.k_linear_functor,k-linear functor
+math.algebra.k_algebra,k-algebra
+math.category.identity_functor,identity functor
+math.category.category_center,center of a category
+math.algebra.commutative_monoid,commutative monoid
+math.algebra.ring_homomorphism,ring homomorphism
+math.category.cocone,cocone
+math.category.categorical_cone,cone
+math.category.cone_base,base of a cone
+math.category.cone_apex,apex of a cone
+math.category.diagonal_functor,diagonal functor
+math.category.projective_limit,projective limit
+math.category.reflects_limit,reflection of limits
+math.category.conservative_functor,conservative functor
+math.group.group_homomorphism,group homomorphism
+math.algebra.direct_product,direct product
+math.group.subgroup,subgroup
+math.topology.compact_hausdorff_space,compact Hausdorff space
+math.category.projection_functor,projection functor
+math.category.evaluation_functor,evaluation functor
+math.category.pointwise_limit,pointwise limit
+math.category.connected_category,connected category
+math.category.comma_category,comma category
+math.category.constant_functor,constant functor
+math.category.inclusion_functor,inclusion functor
+math.category.filtered_category,filtered category
+math.order.filtered_poset,filtered poset
+math.category.functor_restriction,functor restriction
+math.category.iterated_limit,iterated limit
+math.set_theory.binary_relation,binary relation
+math.set_theory.equivalence_relation,equivalence relation
+math.set_theory.disjoint_union,disjoint union
+math.category.finite_category,finite category
+math.category.natural_isomorphism,natural isomorphism
+math.category.left_kan_extension,left Kan extension
+math.category.right_kan_extension,right Kan extension
+math.category.precomposition_functor,precomposition functor
+math.category.two_category,2-category
+math.category.vertical_composition,vertical composition
+math.category.horizontal_composition,horizontal composition
+math.category.pointwise_kan_extension,pointwise Kan extension
+math.category.preserves_kan_extension,preservation of Kan extensions
+math.sheaf.presheaf,presheaf
+math.sheaf.direct_image,direct image
+math.sheaf.inverse_image,inverse image
+math.category.localization_functor,localization functor
+math.category.essential_image,essential image
+math.category.left_multiplicative_system,left multiplicative system
+math.category.right_multiplicative_system,right multiplicative system
+math.category.calculus_of_fractions,calculus of fractions
+math.algebra.multiplicative_subset,multiplicative subset
+math.algebra.ring_localization,localization of a ring
+math.algebra.noncommutative_localization,noncommutative localization
+math.category.central_localization,central localization
+math.category.reflective_localization,reflective localization
+math.category.kan_extension_along_localization,Kan extension along a localization
+math.category.resolution_condition,resolution condition
+math.category.weakly_initial_family,weakly initial family
+math.category.weakly_initial_object,weakly initial object
+math.category.weakly_terminal_family,weakly terminal family
+math.category.weakly_terminal_object,weakly terminal object
+math.category.solution_set_condition,solution set condition
+math.category.cosolution_set_condition,cosolution set condition
+math.category.general_adjoint_functor_theorem,general adjoint functor theorem
+math.category.special_adjoint_functor_theorem,special adjoint functor theorem
+math.category.generating_family,generating family
+math.category.cogenerating_family,cogenerating family
+math.category.well_powered_category,well-powered category
+math.category.well_copowered_category,well-copowered category
+math.category.representable_functor,representable functor
+math.topology.stone_cech_compactification,Stone–Čech compactification
+math.group.free_group,free group
+math.group.free_product,free product
+math.group.amalgamated_free_product,amalgamated free product
+math.category.injective_object,injective object
+math.category.projective_object,projective object
+math.homological.snake_lemma,Snake Lemma
+math.homological.five_lemma,Five Lemma
+math.category.abelian_subcategory,abelian subcategory
+math.category.serre_subcategory,Serre subcategory
+math.category.indecomposable_object,indecomposable object
+math.category.simple_object,simple object
+math.algebra.composition_series,composition series
+math.order.lattice_theory,lattice theory
+math.ktheory.k0_group,K₀ group
+math.ktheory.euler_poincare_principle,Euler–Poincaré principle
+math.category.exact_category,exact category
+math.category.krull_remak_schmidt_theorem,Krull–Remak–Schmidt theorem
+math.homological.short_exact_sequence,short exact sequence
+math.category.exactness_criterion,exactness criterion
+math.homological.connecting_morphism,connecting morphism
+math.category.canonicality,canonicality
+math.category.self_dual,self-dual
+math.homological.salamander_lemma,Salamander Lemma
+math.order.lattice,lattice
+math.order.bounded_lattice,bounded lattice
+math.order.modular_lattice,modular lattice
+math.order.complement,complement
+math.order.standard_isomorphism,standard isomorphism
+math.order.refinement,refinement
+math.order.proper_refinement,proper refinement
+math.order.ascending_chain,ascending chain
+math.order.descending_chain,descending chain
+math.order.noetherian,Noetherian
+math.order.artinian,Artinian
+math.order.finite_length,finite length
+math.algebra.idempotent,idempotent
+math.category.karoubian_category,Karoubian category
+math.category.pseudoabelian_category,pseudoabelian category
+math.homological.split_short_exact_sequence,split short exact sequence
+math.category.section,section
+math.category.retraction,retraction
+math.category.double_chain,double chain
+math.category.double_chain_condition,double chain condition
+math.algebra.nilpotent,nilpotent
+math.algebra.local_ring,local ring
+math.category.fitting_lemma,Fitting Lemma
+math.category.subobject_intersection,intersection of subobjects
+math.category.subobject_sum,sum of subobjects
+math.category.increasing_union,increasing union
+math.category.subobject_preimage,preimage of a subobject
+math.category.canonical_isomorphism,canonical isomorphism
+math.category.antidiagonal_morphism,antidiagonal morphism
+math.order.order_reversing_bijection,order-reversing bijection
+math.algebra.isomorphism_theorem,isomorphism theorem
+math.category.semisimple_object,semisimple object
+math.category.split_object,split object
+math.category.semisimple_abelian_category,semisimple abelian category
+math.category.split_abelian_category,split abelian category
+math.algebra.composition_factor,composition factor
+math.algebra.multiplicity,multiplicity
+math.algebra.division_ring,division ring
+math.algebra.schur_lemma,Schur's Lemma
+math.category.exact_functor,exact functor
+math.category.left_exact_functor,left exact functor
+math.category.right_exact_functor,right exact functor
+math.category.faithfully_exact_functor,faithfully exact functor
+math.category.enough_injective_objects,enough injective objects
+math.category.enough_projective_objects,enough projective objects
+math.category.arrow_category,arrow category
+math.category.localization_exactness,exactness of localization
+math.category.weak_serre_subcategory,weak Serre subcategory
+math.category.small_skeleton,small skeleton
+math.algebra.s_torsion_module,S-torsion module
+math.category.strong_generator,strong generator
+math.category.injective_cogenerator,injective cogenerator
+math.category.small_object_argument,small object argument
+math.category.alpha_small_object_relative_to_i,α-small object relative to I
+math.set_theory.regular_small_cardinal,regular small cardinal
+math.set_theory.transfinite_recursion,transfinite recursion
+math.set_theory.successor_ordinal,successor ordinal
+math.set_theory.limit_ordinal,limit ordinal
+math.category.karoubi_envelope,Karoubi envelope
+math.homological.schanuel_lemma,Schanuel's Lemma
+math.homological.complex_homotopy,complex homotopy
+math.homological.hom_complex,Hom complex
+math.homological.total_complex,total complex
+math.homological.long_exact_sequence,long exact sequence
+math.homological.resolution,resolution
+math.homological.truncation_functor,truncation functor
+math.homological.cartan_eilenberg_resolution,Cartan–Eilenberg resolution
+math.homological.hyperderived_functor,hyperderived functor
+math.homological.effaceable_functor,effaceable functor
+math.homological.coeffaceable_functor,coeffaceable functor
+math.category.bifunctor,bifunctor
+math.homological.balanced_bifunctor,balanced bifunctor
+math.homological.mittag_leffler_condition,Mittag–Leffler condition
+math.homological.k_injective_complex,K-injective complex
+math.homological.k_projective_complex,K-projective complex
+math.homological.mapping_cylinder,mapping cylinder
+math.algebra.graded_object,graded object
+math.algebra.differential_graded_object,differential graded object
+math.algebra.bigraded_object,bigraded object
+math.homological.complex_category,category of complexes
+math.homological.concentrated_complex,concentrated complex
+math.algebra.leibniz_rule,Leibniz rule
+math.homological.homotopic_morphism,homotopic morphism
+math.homological.null_homotopic_morphism,null-homotopic morphism
+math.homological.homotopy_category,homotopy category
+math.homological.homotopy_cokernel,homotopy cokernel
+math.homological.homotopy_kernel,homotopy kernel
+math.homological.homotopy_coimage,homotopy coimage
+math.homological.koszul_sign_rule,Koszul sign rule
+math.homological.k_fold_complex,k-fold complex
+math.homological.hom_bicomplex,Hom bicomplex
+math.homological.bicomplex_homotopy,bicomplex homotopy
+math.homological.rotation_axiom,rotation axiom
+math.algebra.tensor_power,tensor power
+math.homological.bar_complex,bar complex
+math.homological.augmented_bar_complex,augmented bar complex
+math.homological.augmentation_morphism,augmentation morphism
+math.category.comonad,comonad
+math.homological.hochschild_complex,Hochschild complex
+math.homological.relative_tor,relative Tor
+math.homological.relative_ext,relative Ext
+math.algebra.center,center
+math.algebra.cocenter,cocenter
+math.algebra.kahler_differentials,Kähler differentials
+math.algebra.universal_derivation,universal derivation
+math.homological.cyclic_bicomplex,cyclic bicomplex
+math.homological.brutal_truncation,brutal truncation
+math.homological.cyclic_homology,cyclic homology
+math.homological.periodic_cyclic_homology,periodic cyclic homology
+math.homological.connes_periodicity_operator,Connes periodicity operator
+math.homological.cyclic_cohomology,cyclic cohomology
+math.homological.periodic_cyclic_cohomology,periodic cyclic cohomology
+math.algebra.linear_dual,linear dual
+math.homological.bounded_complex,bounded complex
+math.homological.bounded_below_complex,bounded-below complex
+math.homological.bounded_above_complex,bounded-above complex
+math.homological.diagonally_finite_bicomplex,diagonally finite bicomplex
+math.homological.row_exact_bicomplex,row-exact bicomplex
+math.homological.column_exact_bicomplex,column-exact bicomplex
+math.homological.complex_of_injective_objects,complex of injective objects
+math.homological.complex_of_projective_objects,complex of projective objects
+math.homological.horseshoe_lemma,Horseshoe Lemma
+math.homological.classical_derived_functor,classical derived functor
+math.homological.right_derived_functor,right derived functor
+math.homological.left_derived_functor,left derived functor
+math.homological.higher_derived_functor,higher derived functor
+math.homological.cohomological_delta_functor,cohomological δ-functor
+math.homological.homological_delta_functor,homological δ-functor
+math.homological.f_acyclic_object,F-acyclic object
+math.homological.dimension_shifting,dimension shifting
+math.homological.universal_cohomological_delta_functor,universal cohomological δ-functor
+math.homological.universal_homological_delta_functor,universal homological δ-functor
+math.homological.inverse_system,inverse system
+math.category.countable_product,countable product
+math.category.countable_coproduct,countable coproduct
+math.homological.exact_countable_product,exact countable product
+math.category.shift_morphism,shift morphism
+math.category.stable_image,stable image
+math.homological.ext_functor,Ext functor
+math.homological.tor_functor,Tor functor
+math.homological.flat_resolution,flat resolution
+math.homological.kunneth_theorem,Künneth theorem
+math.homological.enough_k_injective_complexes,enough K-injective complexes
+math.homological.enough_k_projective_complexes,enough K-projective complexes
+math.homological.split_exact_complex,split exact complex
+math.homological.reduced_bar_complex,reduced bar complex
+math.algebra.square_zero_extension,square-zero extension
+math.category.autoequivalence,autoequivalence
+math.homological.cohomological_functor,cohomological functor
+math.category.verdier_localization,Verdier localization
+math.homological.triangulated_subcategory,triangulated subcategory
+math.homological.bounded_below_derived_category,bounded-below derived category
+math.homological.bounded_above_derived_category,bounded-above derived category
+math.homological.bounded_derived_category,bounded derived category
+math.homological.unbounded_derived_category,unbounded derived category
+math.homological.derived_functor_amplitude,derived functor amplitude
+math.homological.derived_functor_dimension,derived functor dimension
+math.homological.grothendieck_spectral_sequence,Grothendieck spectral sequence
+math.homological.derived_hom_functor,derived Hom functor
+math.homological.derived_bifunctor_theory,derived bifunctor theory
+math.homological.derived_inverse_limit_functor,derived inverse limit functor
+math.homotopy.homotopy_limit,homotopy limit
+math.homological.derived_tensor_product,derived tensor product
+math.homological.triangulated_bifunctor,triangulated bifunctor
+math.category.associativity_constraint,associativity constraint
+math.homological.derived_tensor_hom_adjunction,derived tensor–Hom adjunction
+math.homological.k_flat_resolution,K-flat resolution
+math.homological.effaceability,effaceability
+math.homological.n_extension,n-extension
+math.homological.yoneda_ext_theorem,Yoneda Ext theorem
+math.homological.unbounded_derived_functor,unbounded derived functor
+math.category.category_with_translation,category with translation
+math.category.translation_functor,translation functor
+math.category.morphism_with_degree,morphism of degree
+math.homological.triangle,triangle
+math.homological.pretriangulated_category,pretriangulated category

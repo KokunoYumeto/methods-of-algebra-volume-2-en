@@ -1,0 +1,442 @@
+% Unit 038 English translation of chapter3.tex lines 1061--1292.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter3.mapping-cone-and-long-exact-sequences
+% Coverage: Section 3.7 in full.
+
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.h001
+\section{Mapping Cones and Long Exact Sequences}\label{sec:cone-vs-long-exact-sequence}
+\hypertarget{o014.aljabr2.chapter3.mapping-cone-and-long-exact-sequences}{ }
+
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.p001
+Long exact sequences are a principal tool of homological algebra. This section
+compares three ways of constructing a long exact sequence from a short exact
+sequence. Up to certain signs, all three give the same result. Throughout the
+section, $\mathcal{A}$ is assumed to be an abelian category.
+
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.pr001
+\begin{proposition}\label{prop:cone-triangle-ses}
+	Let $f:X\to Y$ be a morphism in $\cate{C}(\mathcal{A})$. Take
+	$\alpha(f)$ and $\beta(f)$ as in Definition~\ref{def:cone-triangle}. Then
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.q001
+	\[ 0 \to Y \xrightarrow{\alpha(f)} \Cone(f) \xrightarrow{\beta(f)} X[1] \to 0 \]
+	is an exact sequence in $\cate{C}(\mathcal{A})$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.pf001
+\begin{proof}
+	Recall the definitions of $\alpha(f)$ and $\beta(f)$. Since exactness can
+	be checked degreewise (Proposition~\ref{prop:abelian-cat-cplx}), it
+	suffices to prove the exactness of
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.q002
+	\[ 0 \to Y^n \xrightarrow{(0, \identity)} X^{n+1} \oplus Y^n \xrightarrow{\text{projection}} X^{n+1} \to 0, \]
+	for every $n\in\Z$. This is Proposition~\ref{prop:biproduct-ses}.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.p002
+Given a morphism $f:X\to Y$ in $\cate{C}(\mathcal{A})$, the short exact
+sequence in Proposition~\ref{prop:cone-triangle-ses}, together with
+Proposition~\ref{prop:long-exact-sequence-ses}, gives the following long exact
+sequence in $\mathcal{A}$:
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.q003
+\begin{equation}\label{eqn:cone-long-exact-sequence}
+	\cdots \to \Hm^n(Y) \xrightarrow{\Hm^n(\alpha(f))} \Hm^n(\Cone(f)) \xrightarrow{\Hm^n(\beta(f))} \underbracket{\Hm^n(X[1])}_{= \Hm^{n+1}(X)} \xrightarrow{\xi^n} \Hm^{n+1}(Y) \to \cdots
+\end{equation}
+The morphism labeled $\xi^n$ is the connecting morphism induced by this short
+exact sequence. Corollary~\ref{prop:cone-connecting} will prove that $\xi^n$
+is precisely $\Hm^{n+1}(f):\Hm^{n+1}(X)\to\Hm^{n+1}(Y)$. Thus every part of
+the mapping-cone long exact sequence \eqref{eqn:cone-long-exact-sequence} is
+explicit and comes from $f$, $\alpha(f)$, and $\beta(f)$.
+
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.p003
+The next result goes in the opposite direction: every short exact sequence in
+$\cate{C}(\mathcal{A})$ also has a natural relation with a mapping cone. This
+relation can be constructed in two ways.
+
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.le001
+\begin{lemma}\label{prop:cone-qis}
+	Given a short exact sequence
+	$0\to X\xrightarrow{f}Y\xrightarrow{g}Z\to0$ in
+	$\cate{C}(\mathcal{A})$, the two morphisms
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.q004
+	\[ \Phi := (0, g): \Cone(f) \to Z, \quad \Phi' := (f[1], 0): X[1] \to \Cone(g) \]
+	are quasi-isomorphisms of complexes and have the following properties:
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.l001
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.i001
+		\item $\Phi \circ \alpha(f) = g$ and $\beta(g) \circ \Phi' = f[1]$;
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.i002
+		\item $\alpha(g)\Phi + \Phi'\beta(f):\Cone(f)\to\Cone(g)$ is
+		canonically null-homotopic.
+	\end{enumerate}
+\end{lemma}
+
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.pf002
+\begin{proof}
+	Consider the following commutative diagrams in $\cate{C}(\mathcal{A})$:
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.g001
+	\[\begin{tikzcd}[column sep=small]
+		0 \arrow[r] & X \arrow[r, "\identity_X"] \arrow[d, "{\identity_X}"'] & X \arrow[r] \arrow[d, "f"] & 0 \arrow[r] \arrow[d] & 0 \\
+		0 \arrow[r] & X \arrow[r, "f"'] & Y \arrow[r, "g"'] & Z \arrow[r] & 0
+	\end{tikzcd} \quad \begin{tikzcd}[column sep=small]
+		0 \arrow[r] & X \arrow[d] \arrow[r, "f"] & Y \arrow[d, "g"'] \arrow[r, "g"] & Z \arrow[d, "\identity_Z"] \arrow[r] & 0 \\
+		0 \arrow[r] & 0 \arrow[r] & Z \arrow[r, "\identity_Z"'] & Z \arrow[r] & 0
+	\end{tikzcd}\]
+	Every row is exact. Hence functoriality of mapping cones
+	(Proposition~\ref{prop:cone-functorial}) gives morphisms in
+	$\cate{C}(\mathcal{A})$ arranged as
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.g002
+	\begin{equation}\label{eqn:cone-qis-aux}\begin{tikzcd}[row sep=tiny]
+		0 \arrow[r] & \Cone\left( \identity_X \right) \arrow[r] & \Cone\left( X \xrightarrow{f} Y \right) \arrow[r] & \Cone\left( 0 \to Z \right) \arrow[r] & 0 \\
+		0 \arrow[r] & \Cone(X \to 0) \arrow[r] & \Cone\left( Y \xrightarrow{g} Z \right) \arrow[r] & \Cone\left( \identity_Z \right) \arrow[r] & 0
+	\end{tikzcd}\end{equation}
+	Checking degree by degree and using the diagrams above and the definition
+	of a mapping cone shows that both rows of \eqref{eqn:cone-qis-aux} are
+	exact. It is also easy to see that
+	$\Cone(f)\to\Cone(0\to Z)\simeq Z$ (or
+	$X[1]\simeq\Cone(X\to0)\to\Cone(g)$) is exactly $\Phi$ (or $\Phi'$).
+	Once they are known to be morphisms of complexes, the equalities in (i)
+	are immediate.
+
+	Applying Proposition~\ref{prop:long-exact-sequence-ses} to
+	\eqref{eqn:cone-qis-aux} gives, for every $n\in\Z$, exact sequences
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.q005
+	\begin{gather*}
+		\Hm^n\left( \Cone(\identity_X) \right) \to \Hm^n \left( \Cone(f) \right) \xrightarrow{\Hm^n(\Phi)} \Hm^n(Z) \to \Hm^{n+1} \left( \Cone(\identity_X) \right), \\
+		\Hm^{n-1}\left( \Cone(\identity_Z) \right) \to \Hm^n(X[1]) \xrightarrow{\Hm^n(\Phi')} \Hm^n\left( \Cone(g) \right) \to \Hm^n\left( \Cone(\identity_Z) \right).
+	\end{gather*}
+	Lemma~\ref{prop:cone-homotopy} (i) and
+	Proposition~\ref{prop:null-homotopic-cohomology} show that the terms at
+	both ends are all $0$. Thus $\Phi$ and $\Phi'$ are quasi-isomorphisms.
+
+	Finally, verify (ii). Using $\Cone(f)^n=X^{n+1}\oplus Y^n$ and
+	$\Cone(g)^n=Y^{n+1}\oplus Z^n$, write the morphisms as matrices:
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.g003
+	\begin{gather*}\begin{tikzcd}[row sep=tiny, column sep=large, ampersand replacement=\&]
+		\& Z \arrow[rd, "\alpha(g)" description, "{\bigl(\begin{smallmatrix} 0 \\ \identity \end{smallmatrix} \bigr)}" inner sep=0.6em] \& \\
+		\Cone(f) \arrow[ru, "\Phi" description, "{\bigl( 0 \; g \bigr)}" inner sep=0.6em] \arrow[rd, "\beta(f)" description, "{\big( \identity \; 0 \bigr)}"' inner sep=0.6em] \& \& \Cone(g) \\
+		\& X[1] \arrow[ru, "{\Phi'}" description, "{\bigl( \begin{smallmatrix} f[1] \\ 0 \end{smallmatrix} \bigr)}"' inner sep=0.6em] \&
+	\end{tikzcd}, \quad
+		\alpha(g) \Phi + \Phi' \beta(f) = \begin{pmatrix} f[1] & 0 \\ 0 & g  \end{pmatrix}.
+	\end{gather*}
+	On the other hand, take
+	$s=(s^n)_n\in\Hom^{-1}\left(\Cone(f),\Cone(g)\right)$ with
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.q006
+	\[ s^n := \begin{pmatrix}
+		0 & \identity_{Y^n} \\
+		0 & 0
+	\end{pmatrix}: X^{n+1} \oplus Y^n \to Y^n \oplus Z^{n-1} , \]
+	which is also the only natural choice. A direct matrix calculation shows
+	that $d_{\Cone(g)}^{n-1}s^n+s^{n+1}d_{\Cone(f)}^n$ equals
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.q007
+	\[\begin{pmatrix}
+		-d_Y^n & 0 \\
+		g^n & d_Z^{n-1}
+	\end{pmatrix} \begin{pmatrix}
+		0 & \identity_{Y^n} \\
+		0 & 0
+	\end{pmatrix} + \begin{pmatrix}
+		0 & \identity_{Y^{n+1}} \\
+		0 & 0
+	\end{pmatrix} \begin{pmatrix}
+		-d_X^{n+1} & 0 \\
+		f^{n+1} & d_Y^n
+	\end{pmatrix} = \begin{pmatrix}
+		f^{n+1} & 0 \\
+		0 & g^n
+	\end{pmatrix}.\]
+	Thus $\alpha(g)\Phi+\Phi'\beta(f)$ is indeed null-homotopic.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.p004
+In summary, a short exact sequence
+$0\to X\xrightarrow{f}Y\xrightarrow{g}Z\to0$ in
+$\cate{C}(\mathcal{A})$ gives three ways to obtain the following long exact
+sequence in $\mathcal{A}$:
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.g004
+\[\begin{tikzcd}[row sep=large]
+	\cdots \arrow[r] & \Hm^{n-1}(Y) \arrow[r] \arrow[phantom, d, ""{coordinate, name=A}] & \Hm^{n-1}(Z) \arrow[dll, rounded corners, to path={
+		-- ([xshift=2ex]\tikztostart.east)
+		|- (A) [near end]\tikztonodes
+		-| ([xshift=-2ex]\tikztotarget.west)
+		-- (\tikztotarget)}] \\
+	\Hm^n(X) \arrow[r] & \Hm^n(Y) \arrow[r] \arrow[phantom, d, ""{coordinate, name=B}] & \Hm^n(Z) \arrow[dll, rounded corners, to path={
+		-- ([xshift=2ex]\tikztostart.east)
+		|- (B) [near end]\tikztonodes
+		-| ([xshift=-2ex]\tikztotarget.west)
+		-- (\tikztotarget)}] \\
+	\Hm^{n+1}(X) \arrow[r] & \Hm^{n+1}(Y) \arrow[r] & \cdots .
+\end{tikzcd}\]
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.l002
+\begin{enumerate}[(A)]
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.i003
+	\item Applying Proposition~\ref{prop:long-exact-sequence-ses} directly
+	gives the long exact sequence
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.g005
+	\[\begin{tikzcd}
+		\cdots \arrow[r] & \Hm^n(Y) \arrow[r, "{\Hm^n(g)}" inner sep=0.6em] & \Hm^n(Z) \arrow[r, "{\delta^n}" inner sep=0.6em] & \Hm^{n+1}(X) \arrow[r, "{\Hm^{n+1}(f)}" inner sep=0.6em] & \Hm^{n+1}(Y) \arrow[r] & \cdots
+	\end{tikzcd}\]
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.i004
+	\item Use the quasi-isomorphism $\Phi:\Cone(f)\to Z$ from
+	Lemma~\ref{prop:cone-qis} together with
+	\eqref{eqn:cone-long-exact-sequence} to obtain the commutative diagram
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.g006
+	\[\begin{tikzcd}[column sep=scriptsize]
+		\cdots \arrow[r] & \Hm^n(Y) \arrow[r, "{\Hm^n(\alpha(f))}" inner sep=0.6em] \arrow[equal, d] & \Hm^n\left( \Cone(f) \right) \arrow[r, "{\Hm^n(\beta(f))}" inner sep=0.6em] \arrow[d, "{\Hm^n(\Phi)}"] & \Hm^n(X[1]) \arrow[r] \arrow[equal, d] & \Hm^{n+1}(Y) \arrow[r] \arrow[equal, d] & \cdots \\
+		\cdots \arrow[r] & \Hm^n(Y) \arrow[r, "{\Hm^n(g)}"' inner sep=0.6em] & \Hm^n(Z) \arrow[r, "{\eta^n}"' inner sep=0.6em] & \Hm^{n+1}(X) \arrow[r, "{\xi^n}"' inner sep=0.6em] & \Hm^{n+1}(Y) \arrow[r] & \cdots
+	\end{tikzcd}\]
+	where
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.l003
+	\begin{compactitem}
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.i005
+		\item $\eta^n := \Hm^n(\beta(f)) \Hm^n(\Phi)^{-1}$;
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.i006
+		\item $\xi^n$ is the connecting morphism in
+		\eqref{eqn:cone-long-exact-sequence}, of the form
+		\[
+			\Hm^{n+1}(X)=\Hm^n(X[1])\to\Hm^{n+1}(Y).
+		\]
+	\end{compactitem}
+	Since the first row is known to be exact, the second is exact as well.
+
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.i007
+	\item Proceed similarly, now using the quasi-isomorphism
+	$\Phi':X[1]\to\Cone(g)$ from Lemma~\ref{prop:cone-qis}. This gives the
+	commutative diagram
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.g007
+	\[\begin{tikzcd}[column sep=scriptsize]
+		\cdots \arrow[r] & \Hm^n(Z) \arrow[r, "{\Hm^n(\alpha(g))}" inner sep=0.6em] & \Hm^n\left( \Cone(g) \right) \arrow[r, "{\Hm^n(\beta(g))}" inner sep=0.6em] & \Hm^n(Y[1]) \arrow[r] & \Hm^{n+1}(Z) \arrow[r] & \cdots \\
+		\cdots \arrow[r] & \Hm^n(Z) \arrow[r, "{(\eta')^n}"' inner sep=0.6em] \arrow[equal, u] & \Hm^n(X[1]) \arrow[r, "{\Hm^n(f[1])}"' inner sep=0.6em] \arrow[u, "{\Hm^n(\Phi')}"', "\simeq"] & \Hm^{n+1}(Y) \arrow[r, "{(\xi')^n}"' inner sep=0.6em] \arrow[equal, u] & \Hm^{n+1}(Z) \arrow[r] \arrow[equal, u] & \cdots
+	\end{tikzcd}\]
+	where
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.l004
+	\begin{compactitem}
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.i008
+		\item $(\eta')^n := \Hm^n(\Phi')^{-1} \Hm^n(\alpha(g))$;
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.i009
+		\item $(\xi')^n$ comes from the connecting morphism
+		$\Hm^{n+1}(Y)=\Hm^n(Y[1])\to\Hm^{n+1}(Z)$ in
+		\eqref{eqn:cone-long-exact-sequence}, with $g$ in place of $f$.
+	\end{compactitem}
+	Since the first row is known to be exact, the second is exact as well.
+\end{enumerate}
+
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.p005
+How are these three long exact sequences alike, and how do they differ? We
+first state the conclusions.
+
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.l005
+\begin{itemize}
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.i010
+	\item Constructions (A) and (B) differ only by certain minus signs:
+	Proposition~\ref{prop:connecting-eta-delta} will show that
+	$\eta^n=-\delta^n$, while Corollary~\ref{prop:cone-connecting} implies
+	$\xi^n=\Hm^{n+1}(f)$.
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.i011
+	\item Constructions (A) and (C) give the same result:
+	Corollary~\ref{prop:connecting-eta-delta-2}, based on the result for (B),
+	will show that $(\eta')^n=\delta^n$, while
+	Corollary~\ref{prop:cone-connecting} implies
+	$(\xi')^n=\Hm^{n+1}(g)$.
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.i012
+	\item Thus (B) and (C) differ only by a sign in the connecting morphism
+	$\Hm^n(Z)\to\Hm^{n+1}(X)$. This can be explained by the rotation axiom
+	(TR3) for triangulated categories; see
+	Proposition~\sourcecrossref{prop:ses-vs-triangle}{in the discussion of
+	derived categories in Chapter~4}.
+\end{itemize}
+
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.p006
+We now prove these relations.
+
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.pr002
+\begin{proposition}\label{prop:connecting-eta-delta}
+	In the situation above, $\eta^n=-\delta^n$ for every $n\in\Z$.
+\end{proposition}
+
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.pf003
+\begin{proof}
+	The following argument is taken from \cite[Proposition~12.3.6]{KS06}.
+	Because it is rather intricate, readers are encouraged first to try the
+	concrete case $\mathcal{A}=R\dcate{Mod}$, with $R$ a ring; the
+	diagram-chasing method of \cite[\S 6.8]{Li1} gives a direct proof in that
+	case.
+
+	For a general abelian category $\mathcal{A}$, fix $n\in\Z$ and take the
+	fiber product
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.q008
+	\[ S := \Coker(d_Y^{n-1}) \dtimes{\Coker(d_Z^{n-1})} \Hm^n(Z). \]
+	How is the connecting morphism $\delta^n$ constructed? It is obtained by
+	applying \eqref{eqn:snake-conn} to the diagram in
+	\eqref{eqn:long-exact-sequence-ses-aux},
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.g008
+	\[\begin{tikzcd}
+		& \Coker(d_X^{n-1}) \arrow[r] \arrow[d] & \Coker(d_Y^{n-1}) \arrow[r] \arrow[d] & \Coker(d_Z^{n-1}) \arrow[d] \arrow[r] & 0 \\
+		0 \arrow[r] & \Ker(d_X^{n+1}) \arrow[r] & \Ker(d_Y^{n+1}) \arrow[r] & \Ker(d_Z^{n+1}) &
+	\end{tikzcd}\]
+	here rearranged into the form
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.g009
+	\begin{equation}\label{eqn:connecting-eta-delta-0}\begin{tikzcd}
+		& S \arrow[twoheadrightarrow, r, "w"] \arrow[d, "v"] \arrow[ldd, bend right, "u"'] \arrow[rd, phantom, "\Box" description] & \Hm^n(Z) \arrow[hookrightarrow, d] \\
+		& \Coker(d_Y^{n-1}) \arrow[twoheadrightarrow, r] \arrow[d, "a"] & \Coker(d_Z^{n-1}) \arrow[d] \\
+		\Ker(d_X^{n+1}) \arrow[hookrightarrow, r, "b"'] \arrow[twoheadrightarrow, d] & \Ker(d_Y^{n+1}) \arrow[r, "c"'] & \Ker(d_Z^{n+1}) \\
+		\Hm^{n+1}(X) & &
+	\end{tikzcd}\end{equation}
+	All rows and columns here are exact. The arrow $a$ is induced by $d_Y^n$,
+	the arrow $b$ is induced by $f^{n+1}$, and the existence and uniqueness of
+	$u$ follow because commutativity of the right-hand part implies $cav=0$.
+	Inspecting the construction in \eqref{eqn:snake-conn} shows that the
+	diagram
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.g010
+	\begin{equation}\label{eqn:connecting-eta-delta-0.5}\begin{tikzcd}[row sep=tiny]
+		& \Hm^n(Z) \arrow[rd, "\delta^n"] & \\
+		S \arrow[twoheadrightarrow, ru, "w"] \arrow[rd, "u"'] & & \Hm^{n+1}(X) \\
+		& \Ker\left( d_X^{n+1} \right) \arrow[twoheadrightarrow, ru] &
+	\end{tikzcd} \quad \text{commutes}; \end{equation}
+	since $w$ is known to be an epimorphism, this diagram also uniquely
+	determines $\delta^n$.
+
+	To compare it with the mapping cone, verify directly from the definitions
+	that the following diagram commutes:
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.g011
+	\[\begin{tikzcd}
+		\Ker(d_X^{n+1}) \oplus \Coker(d_Y^{n-1}) \arrow[d, "{(b,a)}"'] \arrow[hookrightarrow, r] & X^{n+1} \oplus \Coker\left( d_Y^{n-1} \right) \arrow[twoheadrightarrow, r] & \Coker\left( d_{\Cone(f)}^{n-1} \right) \arrow[d, "{d_{\Cone(f)}^n}"] \\
+		\Ker(d_Y^{n+1}) \arrow[r, "\sim"] & 0 \oplus \Ker\left( d_Y^{n+1} \right) \arrow[hookrightarrow, r] & \Ker\left( d_{\Cone(f)}^{n+1} \right)
+	\end{tikzcd}\]
+	The definitions of the horizontal arrows should be clear. Since the
+	fan-shaped part of \eqref{eqn:connecting-eta-delta-0} commutes, the diagram
+	above implies that the composite
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.q009
+	\[
+	\begin{multlined}
+		S \xrightarrow{(-u, v)}
+		\Ker\left( d_X^{n+1} \right) \oplus \Coker\left( d_Y^{n-1} \right)
+		\\
+		{}\xrightarrow[\text{top row}]{\text{of the diagram above}}
+		\Coker\left( d_{\Cone(f)}^{n-1} \right)
+		\xrightarrow{d_{\Cone(f)}^n}
+		\Ker\left( d_{\Cone(f)}^{n+1} \right)
+	\end{multlined}
+	\]
+	is $0$. Therefore
+	$S \xrightarrow{(-u, v)} \Ker\left( d_X^{n+1} \right) \oplus
+	\Coker\left( d_Y^{n-1} \right) \to
+	\Coker\left( d_{\Cone(f)}^{n-1} \right)$ factors uniquely as
+	$S \to \Hm^n(\Cone(f)) \hookrightarrow
+	\Coker\left( d_{\Cone(f)}^{n-1} \right)$. We claim that the following
+	diagram commutes:
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.g012
+	\begin{equation}\label{eqn:connecting-eta-delta-1}\begin{tikzcd}
+		S \arrow[ddd, bend right=60, "w"'] \arrow[dd] \arrow[r, "{(-u, v)}"] & \Ker\left( d_X^{n+1} \right) \oplus \Coker\left( d_Y^{n-1} \right) \arrow[dd, "\text{evident}"] \arrow[r, "\text{projection}"] & \Ker\left( d_X^{n+1} \right) \arrow[twoheadrightarrow, d] \\
+		& & \Hm^{n+1}(X) \arrow[hookrightarrow, d] \\
+		\Hm^n\left( \Cone(f) \right) \arrow[d, "\simeq"', "{\Hm^n(\Phi)}"] \arrow[hookrightarrow, r] & \Coker\left( d_{\Cone(f)}^{n-1} \right) \arrow[r, "\text{induced by $\beta(f)$}"' inner sep=0.5em] \arrow[d, "\text{induced by $\Phi$}"' inner sep=0.2em] & \Coker\left( d_X^n \right) \\
+		\Hm^n(Z) \arrow[hookrightarrow, r] & \Coker\left( d_Z^{n-1} \right) . &
+	\end{tikzcd}\end{equation}
+	Indeed, commutativity of each square is routine to verify. By the
+	upper-right square in \eqref{eqn:connecting-eta-delta-0} and
+	$\Phi=(0,g)$, the part
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.g013
+	\[\begin{tikzcd}
+		S \arrow[r, "{(-u, v)}"]  \arrow[bend right=60, d, "w"'] & \Ker\left( d_X^{n+1} \right) \oplus \Coker\left( d_Y^{n-1} \right) \arrow[d] \\
+		\Hm^n(Z) \arrow[hookrightarrow, r] & \Coker\left( d_Z^{n-1} \right)
+	\end{tikzcd}\]
+	of diagram \eqref{eqn:connecting-eta-delta-1} also commutes. Moreover,
+	because $\Hm^n(Z)\to\Coker(d_Z^{n-1})$ is a monomorphism, composing with
+	this arrow shows that the remaining curved left-hand part of
+	\eqref{eqn:connecting-eta-delta-1} commutes as well.
+
+	Notice that the two composites
+	\[
+	\begin{aligned}
+		\Hm^n(\Cone(f)) &\hookrightarrow
+		\Coker \left( d_{\Cone(f)}^{n-1} \right)
+		\to \Coker(d_X^n), \\
+		\Hm^n(\Cone(f)) &\xrightarrow{\Hm^n(\beta(f))}
+		\Hm^{n+1}(X) \hookrightarrow \Coker(d_X^n)
+	\end{aligned}
+	\]
+	are equal, since both are induced by projection onto $X^{n+1}$. Hence
+	\eqref{eqn:connecting-eta-delta-1} gives the commutative diagram
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.g014
+	\[\begin{tikzcd}
+		S \arrow[d, "w"'] \arrow[rr, "-u"] & & \Ker\left( d_X^{n+1} \right) \arrow[d] \\
+		\Hm^n(Z) \arrow[r, "\sim", "{\Hm^n(\Phi)^{-1}}"' inner sep=0.5em] & \Hm^n\left( \Cone(f) \right) \arrow[r, "{\Hm^n(\beta(f))}"' inner sep=0.5em] & \Hm^{n+1}(X) .
+	\end{tikzcd}\]
+	By \eqref{eqn:connecting-eta-delta-0.5}, this implies that the composites
+	$S\xrightarrow{w}\Hm^n(Z)\xrightarrow{\delta^n}\Hm^{n+1}(X)$ and
+	$S\xrightarrow{w}\Hm^n(Z)\xrightarrow{\eta^n}\Hm^{n+1}(X)$ differ by a
+	minus sign. Since $w$ is an epimorphism, $\eta^n=-\delta^n$, as required.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.co001
+\begin{corollary}\label{prop:connecting-eta-delta-2}
+	In the situation above, $(\eta')^n=\delta^n$ for every $n\in\Z$.
+\end{corollary}
+
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.pf004
+\begin{proof}
+	Use the notation of Lemma~\ref{prop:cone-qis}. By
+	Proposition~\ref{prop:connecting-eta-delta}, it suffices to prove that
+	$(\eta')^n+\eta^n=0$. This equality follows immediately from the fact
+	that $\alpha(g)\Phi+\Phi'\beta(f):\Cone(f)\to\Cone(g)$ is null-homotopic
+	(Lemma~\ref{prop:cone-qis} (ii)).
+\end{proof}
+
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.co002
+\begin{corollary}\label{prop:cone-connecting}
+	For any morphism $f:X\to Y$ in $\cate{C}(\mathcal{A})$, the connecting
+	morphism $\xi^n:\Hm^{n+1}(X)\simeq\Hm^n(X[1])\to\Hm^{n+1}(Y)$ in the
+	long exact sequence \eqref{eqn:cone-long-exact-sequence} equals
+	$\Hm^{n+1}(f)$.
+\end{corollary}
+
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.pf005
+\begin{proof}
+	Apply Lemma~\ref{prop:cone-qis} to the short exact sequence
+	$0\to Y\to\Cone(f)\to X[1]\to0$. This gives the quasi-isomorphism
+	$(0,\beta(f))$ and the following commutative diagram with exact rows:
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.g015
+	\[\begin{tikzcd}
+		0 \arrow[r] & Y \arrow[r, "\alpha(f)"] & \Cone(f) \arrow[r, "{\alpha(\alpha(f))}"] & \Cone(\alpha(f)) \arrow[d, "{\Phi = (0, \beta(f))}"] \arrow[r] & 0 \\
+		0 \arrow[r] & Y \arrow[r, "\alpha(f)"'] \arrow[equal, u] & \Cone(f) \arrow[r, "\beta(f)"'] \arrow[equal, u] & X[1] \arrow[r] & 0
+	\end{tikzcd}\]
+	The morphism $\psi:\Cone(\alpha(f))\to X[1]$ discussed in
+	Lemma~\ref{prop:cone-alpha} is precisely $(0,\beta(f))$ here: its
+	degree-$n$ component is the projection from
+	$Y^{n+1}\oplus\Cone(f)^n=Y^{n+1}\oplus X^{n+1}\oplus Y^n$ onto
+	$X^{n+1}$. The commutative diagram in that lemma therefore gives
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.q010
+	\begin{equation}\label{eqn:cone-connecting-aux}
+		\text{in $\cate{K}(\mathcal{A})$} \quad f[1] \circ (0, \beta(f)) + \beta(\alpha(f)) = 0 .
+	\end{equation}
+
+	Now recall that
+	\[
+		\xi^n:\Hm^n(X[1])\to\Hm^{n+1}(Y)
+	\]
+	is the connecting morphism of the short exact sequence
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.q011
+	\[ 0 \to Y \xrightarrow{\alpha(f)} \Cone(f) \xrightarrow{\beta(f)} X[1] \to 0, \]
+	and applying Proposition~\ref{prop:connecting-eta-delta} to this sequence
+	shows immediately that the composite
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.q012
+	\[ \Hm^n(\Cone(\alpha(f))) \xrightarrow[\sim]{\Hm^n((0, \beta(f)))} \Hm^n(X[1]) \xrightarrow{\xi^n} \Hm^{n+1}(Y) \]
+	equals $-\Hm^n(\beta(\alpha(f)))$. But
+	\eqref{eqn:cone-connecting-aux} implies
+	$\Hm^n(\beta(\alpha(f)))=-\Hm^n(f[1])\circ
+	\Hm^n((0,\beta(f)))$. Thus
+	$\xi^n=\Hm^n(f[1])=\Hm^{n+1}(f)$.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.co003
+\begin{corollary}\label{prop:quism-cone}
+	With the notation above, $f$ is a quasi-isomorphism if and only if
+	$\Hm^n(\Cone(f))=0$ for every $n\in\Z$.
+\end{corollary}
+
+% segment-id: o014.li2.chapter3.mapping-cone-and-long-exact-sequences.pf006
+\begin{proof}
+	Substitute Corollary~\ref{prop:cone-connecting} into the long exact
+	sequence \eqref{eqn:cone-long-exact-sequence}; the conclusion follows at
+	once.
+\end{proof}

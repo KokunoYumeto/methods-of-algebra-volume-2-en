@@ -1,0 +1,331 @@
+% English translation of chapter7.tex lines 712--891.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter7.closed-structure-dgcat
+% Coverage: all of Section 7.4, ``Case Study: The Closed Structure on
+% dg-Categories''; ends immediately before Section 7.5 at line 892.
+
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.h001
+\section{Case Study: The Closed Structure on dg-Categories}\label{sec:dg-closed}
+\hypertarget{o014.aljabr2.chapter7.closed-structure-dgcat}{ }
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.p001
+We previously discussed the closed monoidal structure on $\cate{Cat}$, where
+$\otimes$ comes from the ordinary product of categories
+$\mathcal{C}_1\times\mathcal{C}_2$. On the other hand, relative to a fixed
+commutative ring $\Bbbk$, Definition~\ref{def:dgCat} introduced
+dg-categories, namely categories enriched over
+$(\cate{C}(\Bbbk\dcate{Mod}),\otimes)$. The aim of this section is to show
+that all small dg-categories themselves form a closed monoidal category
+$\cate{dgCat}_{\Bbbk}$. This category can be regarded as both a linearized
+and a complex-enriched version of $\cate{Cat}$, and it arises naturally and
+usefully in many situations. All that is needed is a sequence of lengthy but
+straightforward constructions.
+
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.p002
+The first step is to upgrade the ordinary product of categories to a tensor
+product of dg-categories. This involves the symmetric braiding on
+$(\cate{C}(\Bbbk\dcate{Mod}),\otimes)$.
+
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.d001
+\begin{definition}\label{def:dgCat-tensor}
+	Let $\mathcal{C}_1$ and $\mathcal{C}_2$ be dg-categories over $\Bbbk$.
+	Define a new dg-category $\mathcal{C}_1\otimes\mathcal{C}_2$ by
+	% segment-id: o014.li2.chapter7.closed-structure-dgcat.q001
+	\begin{align*}
+		\Obj(\mathcal{C}_1 \otimes \mathcal{C}_2) & := \Obj(\mathcal{C}_1) \times \Obj(\mathcal{C}_2), \\
+		\Hom_{\mathcal{C}_1 \otimes \mathcal{C}_2}^\bullet((X, X'), (Y, Y')) & := \Hom_{\mathcal{C}_1}^\bullet(X, Y) \otimes \Hom_{\mathcal{C}_2}^\bullet(X', Y'),
+	\end{align*}
+	and take $\identity_X\otimes\identity_{X'}$ as the unit of
+	$\Hom_{\mathcal{C}_1\otimes\mathcal{C}_2}^\bullet((X,X'),(X,X'))$.
+	Composition of morphisms is defined by
+	% segment-id: o014.li2.chapter7.closed-structure-dgcat.q002
+	\[\begin{tikzcd}
+		\left( \Hom_{\mathcal{C}_1}^\bullet(Y, Z) \otimes \Hom_{\mathcal{C}_2}^\bullet(Y', Z')\right) \otimes
+		\left( \Hom_{\mathcal{C}_1}^\bullet(X, Y) \otimes \Hom_{\mathcal{C}_2}^\bullet(X', Y') \right) \arrow[d, "\sim" sloped] \\
+		\left( \Hom_{\mathcal{C}_1}^\bullet(Y, Z) \otimes \Hom_{\mathcal{C}_1}^\bullet(X, Y) \right) \otimes
+		\left( \Hom_{\mathcal{C}_2}^\bullet(Y', Z') \otimes \Hom_{\mathcal{C}_2}^\bullet(X', Y') \right) \arrow[d] \\
+		\Hom_{\mathcal{C}_1}^\bullet(X, Z) \otimes \Hom_{\mathcal{C}_2}^\bullet(X', Z')
+	\end{tikzcd}\]
+	where the isomorphism comes from the Koszul braiding and the associativity
+	constraint.
+\end{definition}
+
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.p003
+The symmetry of the braiding shows that
+$\mathcal{C}_1\otimes\mathcal{C}_2$ is naturally equivalent to
+$\mathcal{C}_2\otimes\mathcal{C}_1$. Write $\Bbbk$ for the dg-category with
+one object and endomorphism complex $\Bbbk$. It is easy to prove that
+$\Bbbk\otimes\mathcal{C}$ is equivalent to $\mathcal{C}\otimes\Bbbk$.
+
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.d002
+\begin{definition}\label{def:dgCat-as-cat}
+	\index[sym1]{dgCat@$\cate{dgCat}_{\Bbbk}$}
+	Let $\Bbbk$ be a commutative ring. Write $\cate{dgCat}_{\Bbbk}$ for the
+	category of all small dg-categories over $\Bbbk$. This is a symmetric
+	monoidal category with unit $\Bbbk$.
+\end{definition}
+
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.p004
+The restriction to small categories is, of course, meant to avoid
+set-theoretic difficulties. Its chief benefit is that all functors between
+two given small categories $\mathcal{C}$ and $\mathcal{D}$ form a small set.
+
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.p005
+The second step is to enrich the $\Hom$ set between dg-functors into a
+complex.
+
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.d003
+\begin{definition}
+	Let $F,G:\mathcal{C}\to\mathcal{D}$ be dg-functors between dg-categories.
+	For every $n\in\Z$, a morphism of degree $n$ from $F$ to $G$ is defined to
+	be data
+	% segment-id: o014.li2.chapter7.closed-structure-dgcat.q003
+	\[ \phi = \left( \phi_X \right)_{X \in \Obj(\mathcal{C})}, \quad \phi_X \in \Hom_{\mathcal{D}}^n(FX, GX), \]
+	such that, for all $m\in\Z$, $X,Y\in\Obj(\mathcal{C})$, and
+	$f\in\Hom^m_{\mathcal{C}}(X,Y)$, the following equality holds in
+	$\Hom^{n+m}_{\mathcal{D}}(FX,GY)$:
+	% segment-id: o014.li2.chapter7.closed-structure-dgcat.q004
+	\[ (Gf) \phi_X = (-1)^{nm} \phi_Y (Ff); \]
+	here composition in this formula is understood as the morphisms in
+	$\Bbbk\dcate{Mod}$
+	% segment-id: o014.li2.chapter7.closed-structure-dgcat.q005
+	\begin{gather*}
+		\Hom^m_{\mathcal{D}}(GX, GY) \otimes \Hom^n_{\mathcal{D}}(FX, GX) \to \Hom^{m+n}_{\mathcal{D}}(FX, GY), \\
+		\Hom^n_{\mathcal{D}}(FY, GY) \otimes \Hom^m_{\mathcal{D}}(FX, FY) \to \Hom^{m+n}_{\mathcal{D}}(FX, GY).
+	\end{gather*}
+	The $\Bbbk$-module of all degree-$n$ morphisms $\phi:F\to G$ is denoted by
+	$\iHom^n(F,G)$.
+\end{definition}
+
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.p006
+The condition above may be viewed as saying that the diagram of graded
+morphisms
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.q006
+\[\begin{tikzcd}
+	FX \arrow[r, "{\phi_X}"] \arrow[d, "Ff"'] & GX \arrow[d, "Gf"] \\
+	FY \arrow[r, "{\phi_Y}"'] & GY
+\end{tikzcd} \quad
+\begin{array}{cc}
+	\phi: \text{degree }n \\
+	f: \text{degree }m
+\end{array}\]
+commutes up to the sign $(-1)^{nm}$ required by the Koszul sign rule.
+Strictly speaking, these ``graded morphisms'' are not morphisms, but must be
+understood as elements of a $\Hom$ complex.
+
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.dp001
+\begin{definition-proposition}
+	For dg-functors $F,G:\mathcal{C}\to\mathcal{D}$ and every $n\in\Z$, one
+	can define a homomorphism
+	% segment-id: o014.li2.chapter7.closed-structure-dgcat.q007
+	\[ d^n = d^n_{\iHom^\bullet(F, G)}: \iHom^n(F, G) \to \iHom^{n+1}(F, G). \]
+
+	For every $\phi=(\phi_X)_{X\in\Obj(\mathcal{C})}$, set
+	% segment-id: o014.li2.chapter7.closed-structure-dgcat.q008
+	\[ (d^n \phi)_X := d^n_{\Hom^\bullet(FX, GX)}(\phi_X). \]
+	This makes $\left(\iHom^n(F,G),d^n\right)_{n\in\Z}$ into a complex
+	$\iHom^\bullet(F,G)$.
+\end{definition-proposition}
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.pf001
+\begin{proof}
+	First check that $d^n\phi$ does indeed belong to
+	$\iHom^{n+1}(F,G)$. Let $f\in\Hom^m_{\mathcal{C}}(X,Y)$. Apply
+	$d^{m+n}$ to both sides of
+	$(Gf)\phi_X=(-1)^{nm}\phi_Y(Ff)$ (suppressing the subscript
+	$\Hom^\bullet(FX,GY)$). This gives
+	% segment-id: o014.li2.chapter7.closed-structure-dgcat.q009
+	\begin{align*}
+		d^{m+n}((Gf) \phi_X) & = (d^m Gf) \phi_X + (-1)^m (Gf) (d^n \phi_X) \\
+		& = G (d^m f) \phi_X + (-1)^m (Gf) (d^n \phi)_X \\
+		& = (-1)^{n(m+1)} \phi_Y F(d^m f) + (-1)^m (Gf) (d^n \phi)_X, \\
+		(-1)^{nm} d^{m+n}(\phi_Y (Ff)) & = (-1)^{nm} (d^n \phi_Y) Ff + (-1)^{nm+n} \phi_Y d^n(Ff) \\
+		& = (-1)^{nm} (d^n \phi)_Y Ff + (-1)^{nm+n} \phi_Y F(d^m f).
+	\end{align*}
+	Equality of these two expressions immediately yields
+	$(Gf)(d^n\phi)_X=(-1)^{(n+1)m}(d^n\phi)_YFf$.
+
+	Second, since $\Hom^\bullet(FX,GX)$ is a complex,
+	% segment-id: o014.li2.chapter7.closed-structure-dgcat.q010
+	\begin{align*}
+		(d^{n+1} d^n \phi)_X & = d^{n+1}_{\Hom^\bullet(FX, GX)}((d^n \phi)_X) \\
+		& = d^{n+1}_{\Hom^\bullet(FX, GX)} d^n_{\Hom^\bullet(FX, GX)} \phi_X = 0.
+	\end{align*}
+	Thus we obtain the complex $\iHom^\bullet(F,G)$.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.p007
+For three dg-functors $F,G,H:\mathcal{C}\to\mathcal{D}$, there is a
+composition operation
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.q011
+\begin{equation}\label{eqn:dgfct-iHom}\begin{aligned}
+	\iHom^a(G, H) \otimes \iHom^b(F, G) & \to \iHom^{a+b}(F, H) \\
+	\psi \otimes \phi & \mapsto \psi\phi := \left( \psi_X \phi_X \right)_{X \in \Obj(\mathcal{C})},
+\end{aligned}\end{equation}
+where $a,b\in\Z$. This operation is associative and satisfies
+$d^{a+b}(\psi\phi)=(d^a\psi)\phi+(-1)^a\psi(d^b\phi)$. By definition,
+everything reduces to a verification in $\Hom^\bullet_{\mathcal{D}}$. This
+composition should be understood as vertical composition of graded
+morphisms, depicted as
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.q012
+\[\begin{tikzcd}
+	\mathcal{C}
+	\arrow[bend left=70, rr, "F", ""' name=U]
+	\arrow[rr, "G" name=MM, ""' name=M]
+	\arrow[bend right=70, rr, "" name=D, "H"'] & &
+	\arrow[Rightarrow, to path=(U) -- (MM) \tikztonodes, "\phi"] \arrow[Rightarrow, to path=(M) -- (D) \tikztonodes, "\psi"] \mathcal{D}
+\end{tikzcd}  \quad \text{composed to give} \quad \begin{tikzcd}
+	\mathcal{C}
+	\arrow[bend left=50, rr, "F", ""' name=U]
+	\arrow[bend right=50, rr, "" name=D, "H"']
+	& & \arrow[Rightarrow, to path=(U) -- (D) \tikztonodes, "\psi \phi"] \mathcal{D} .
+\end{tikzcd}\]
+
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.p008
+Consider the special case $n=0$. The condition on
+$\phi=(\phi_X)_X\in\iHom^0(F,G)$ says precisely that
+$(Gf)\phi_X=\phi_Y(Ff)$ for every $f\in\Hom^m(X,Y)$, while the condition
+$d^0\phi=0$ says precisely that
+$\phi_X\in\Ker\left(d^0_{\Hom^\bullet(FX,GX)}\right)$ for every
+$X\in\Obj(\mathcal{C})$. Hence the elements of the $\Bbbk$-module
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.q013
+\[ \Ker\left[ \iHom^0(F, G) \xrightarrow{d^0} \iHom^1(F, G) \right] \]
+are exactly the morphisms $\phi:F\to G$ between the dg-functors $F$ and $G$
+in the ordinary sense.
+
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.p009
+The next step is to enrich the functor category between dg-categories into a
+dg-category.
+
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.d004
+\begin{definition}
+	For arbitrary dg-categories $\mathcal{C}$ and $\mathcal{D}$, define the
+	dg-category $\iHom(\mathcal{C},\mathcal{D})$ as follows.
+	\begin{itemize}
+		\item Its objects are all dg-functors $F:\mathcal{C}\to\mathcal{D}$.
+		\item For any dg-functors $F,G:\mathcal{C}\to\mathcal{D}$, their
+		$\Hom$ complex is the complex $\iHom^\bullet(F,G)$ defined above.
+		\item The composition operation
+		$\iHom^\bullet(G,H)\otimes\iHom^\bullet(F,G)\to
+		\iHom^\bullet(F,H)$ is defined as in \eqref{eqn:dgfct-iHom}; it is
+		called vertical composition.
+	\end{itemize}
+\end{definition}
+
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.p010
+If $\mathcal{C}$ and $\mathcal{D}$ are both small dg-categories, then
+$\iHom(\mathcal{C},\mathcal{D})$ is also small: its set of objects is a small
+set.
+
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.p011
+In Definition~\ref{def:dgCat-tensor} we defined the tensor product of two
+dg-categories, making the category $\cate{dgCat}_{\Bbbk}$ of
+Definition~\ref{def:dgCat-as-cat} a symmetric monoidal category under
+$\otimes$. The relation between $\otimes$ and $\iHom$ can now be stated
+clearly as follows.
+
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.pr001
+\begin{proposition}\label{prop:dgCat-closed}
+	The symmetric monoidal category $\cate{dgCat}_{\Bbbk}$ is closed. Its
+	internal Hom is given by $\iHom(\mathcal{C},\mathcal{D})$ as defined above,
+	where $\mathcal{C}$ and $\mathcal{D}$ range over all small dg-categories.
+\end{proposition}
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.pf002
+\begin{proof}
+	The key is to give a canonical isomorphism
+	% segment-id: o014.li2.chapter7.closed-structure-dgcat.q014
+	\[ \Hom_{\cate{dgCat}_{\Bbbk}}(\mathcal{C} \otimes \mathcal{D}, \mathcal{E}) \simeq \Hom_{\cate{dgCat}_{\Bbbk}}(\mathcal{C}, \iHom(\mathcal{D}, \mathcal{E}) ). \]
+
+	If the dg-structure is ignored, the matter is simple: specifying
+	$F:\mathcal{C}\times\mathcal{D}\to\mathcal{E}$ is equivalent to
+	specifying a functor $\mathcal{C}\to\mathcal{E}^{\mathcal{D}}$ that maps
+	an object $X$ to the functor
+	$F(X,\mathord\cdot):\mathcal{D}\to\mathcal{E}$. The essential issue is
+	the condition at the level of $\Hom$ that makes a functor a dg-functor.
+
+	By definition, making $F$ into a dg-functor is equivalent to upgrading the
+	maps on $\Hom$ sets to morphisms of complexes
+	% segment-id: o014.li2.chapter7.closed-structure-dgcat.q015
+	\[ F_{X, Y, Z, W}: \Hom^\bullet_{\mathcal{C}}(X, Y) \otimes \Hom^\bullet_{\mathcal{D}}(Z, W) \to \Hom^\bullet_{\mathcal{E}}(F(X, Z), F(Y, W)), \]
+	functorial in all four variables. Treating the two variables of $F$
+	separately, these data can be split into two parts:
+	\begin{itemize}
+		\item for every $X\in\Obj(\mathcal{C})$, the functor
+		$F(X,\mathord\cdot)$ is upgraded to a dg-functor;
+		\item there is a family of morphisms
+		$F_{X,Y,Z}:\Hom^\bullet_{\mathcal{C}}(X,Y)\to
+		\Hom^\bullet_{\mathcal{E}}(F(X,Z),F(Y,Z))$, functorial in all three
+		variables.
+	\end{itemize}
+	For illustration, $F_{X,Y,Z,W}(f\otimes g)$ is obtained from
+	$F_{X,Y,Z}(f)$ by using $g\in\Hom^b_{\mathcal{D}}(Z,W)$ through
+	$F(Y,\mathord\cdot)$. The data in the second item are equivalent to a
+	family of morphisms
+	% segment-id: o014.li2.chapter7.closed-structure-dgcat.q016
+	\[ \Hom^\bullet_{\mathcal{C}}(X, Y) \to \iHom^\bullet(F(X, \cdot), F(Y, \cdot)), \]
+	functorial in $X$ and $Y$. In conclusion, specifying the dg-functor $F$
+	is equivalent to specifying a dg-functor from $\mathcal{C}$ to
+	$\iHom(\mathcal{D},\mathcal{E})$.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.p012
+Together with the theory in \S\ref{sec:closed-monoidal}, the preceding
+discussion shows that $\cate{dgCat}_{\Bbbk}$ is enriched over itself: for any
+small dg-categories $\mathcal{C}$ and $\mathcal{D}$, their $\iHom$ object is
+again a dg-category.
+
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.p013
+Since $\otimes$ and $\iHom$ determine each other through the adjunction
+\eqref{eqn:closed-monoidal-adj0}, once either the definition of $\otimes$ or
+that of $\iHom$ is accepted, the other definition is at least equally
+natural.
+
+% segment-id: o014.li2.chapter7.closed-structure-dgcat.r001
+\begin{remark}
+	With Proposition~\ref{prop:dgCat-closed} in hand, the general properties of
+	closed monoidal categories show that for any three small dg-categories
+	$\mathcal{C}$, $\mathcal{D}$, and $\mathcal{E}$, composition of functors
+	can be upgraded to a dg-functor
+	% segment-id: o014.li2.chapter7.closed-structure-dgcat.q017
+	\[ \iHom(\mathcal{D}, \mathcal{E}) \otimes \iHom(\mathcal{C}, \mathcal{D}) \to \iHom(\mathcal{C}, \mathcal{E}). \]
+	On objects, this functor maps $(G,F)$ to $GF$; on $\Hom$ complexes, it is
+	written
+	% segment-id: o014.li2.chapter7.closed-structure-dgcat.q018
+	\begin{equation}\begin{gathered}\label{eqn:dgCat-fct-compose}
+		\begin{tikzcd}[row sep=small, column sep=small]
+			\iHom^\bullet(G_1, G_2) \otimes \iHom^\bullet(F_1, F_2) \arrow[r] \arrow[equal, d] & \iHom^\bullet(G_1 F_1, G_2 F_2) \\
+			\Hom^\bullet_{ \iHom(\mathcal{D}, \mathcal{E}) \otimes \iHom(\mathcal{C}, \mathcal{D}) }((G_1, F_1), (G_2, F_2)) &
+		\end{tikzcd} \\
+		F_i: \mathcal{C} \to \mathcal{D}, \quad G_i: \mathcal{D} \to \mathcal{E}, \quad i = 1, 2 .
+	\end{gathered}\end{equation}
+
+	The operation above may be pictured as horizontal composition of
+	morphisms between dg-functors, with diagram
+	% segment-id: o014.li2.chapter7.closed-structure-dgcat.q019
+	\[ \begin{tikzcd}
+		\mathcal{C} \arrow[bend left=50, r, "F_1", ""' name=LU] \arrow[bend right=50, r, "" name=LD, "F_2"'] &
+		\mathcal{D} \arrow[bend left=50, r, "G_1", ""' name=RU] \arrow[bend right=50, r, "" name=RD, "G_2"'] &
+		\arrow[Rightarrow, to path=(LU) -- (LD) \tikztonodes, "\phi"] \arrow[Rightarrow, to path=(RU) -- (RD) \tikztonodes, "\psi"] \mathcal{E}
+	\end{tikzcd} \quad \text{composed to give} \quad \begin{tikzcd}
+		\mathcal{C}
+		\arrow[bend left=50, rr, "G_1 F_1", ""' name=U]
+		\arrow[bend right=50, rr, "" name=D, "G_2 F_2"']
+		& & \arrow[Rightarrow, to path=(U) -- (D) \tikztonodes, "\psi \phi"] \mathcal{E} .
+	\end{tikzcd} \]
+	Because this gives a functor, \eqref{eqn:dgCat-fct-compose} must
+	\begin{inparaenum}[(a)]
+		\item be associative,
+		\item commute with pullback (or pushforward) along graded morphisms in
+		the dg-category $\iHom(\mathcal{D},\mathcal{E})$ (or
+		$\iHom(\mathcal{C},\mathcal{D})$).
+	\end{inparaenum}
+	But the operation in (b) is precisely the vertical composition introduced
+	in \eqref{eqn:dgfct-iHom}. Thus, we see that the order of vertical and
+	horizontal composition can be interchanged.
+
+	For functors between ordinary categories, morphisms between the functors
+	likewise have commuting vertical and horizontal compositions. This can be
+	understood as a property of the Cartesian closed category $\cate{Cat}$ (or
+	by regarding it as a $2$-category; see \cite[Example 3.5.3]{Li1}). The
+	property of $\cate{dgCat}_{\Bbbk}$ above is its dg version, or its linear
+	algebra version.
+\end{remark}

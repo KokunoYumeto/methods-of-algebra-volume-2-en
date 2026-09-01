@@ -1,0 +1,692 @@
+% Unit 043 English translation of chapter3.tex lines 2215--2552.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter3.classical-derived-functors
+% Coverage: Section 3.12 in full.
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.h001
+\section{Classical derived functors}\label{sec:derived-primer}
+\hypertarget{o014.aljabr2.chapter3.classical-derived-functors}{ }
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.p001
+The purpose of this section is to explain, without using the language of
+derived categories, how to study right derived functors (respectively left
+derived functors) for abelian categories with enough injectives (respectively
+projectives). This already encompasses many cohomology theories commonly
+encountered in applications. The definitions use the injective resolutions
+(respectively projective resolutions) introduced in \S\ref{sec:resolutions}.
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.de001
+\begin{definition}\label{def:derived-primer}
+	\index{derived functor}
+	\index[sym1]{RnF@$\mathrm{R}^n F$}
+	\index[sym1]{LnF@$\mathrm{L}_n F$}
+	Let $F:\mathcal{A}\to\mathcal{B}$ be an additive functor between abelian
+	categories.
+% segment-id: o014.li2.chapter3.classical-derived-functors.l001
+	\begin{itemize}
+% segment-id: o014.li2.chapter3.classical-derived-functors.i001
+		\item Suppose that $\mathcal{A}$ has enough injectives. For every
+		$X\in\cate{C}^+(\mathcal{A})$, choose an injective resolution
+		$X\to I$. For each $n\in\Z$, define the value at $X$ of the
+		\emph{$n$-th right derived functor} $\mathrm{R}^nF$ by
+% segment-id: o014.li2.chapter3.classical-derived-functors.q001
+		\[ \mathrm{R}^n F(X) := \Hm^n(\cate{C}F(I)). \]
+% segment-id: o014.li2.chapter3.classical-derived-functors.i002
+		\item Suppose that $\mathcal{A}$ has enough projectives. For every
+		$X\in\cate{C}^-(\mathcal{A})$, choose a projective resolution
+		$P\to X$. For each $n\in\Z$, define the value at $X$ of the
+		\emph{$n$-th left derived functor} $\mathrm{L}_nF$ by
+% segment-id: o014.li2.chapter3.classical-derived-functors.q002
+		\[ \mathrm{L}_n F(X) := \Hm^{-n}(\cate{C}F(P)). \]
+	\end{itemize}
+	These functors all take values in $\mathcal{B}$. By construction, they come
+	with canonical families of morphisms
+	$\Hm^n(\cate{C}F(X))\to\mathrm{R}^nF(X)$ and
+	$\mathrm{L}_nF(X)\to\Hm^{-n}(\cate{C}F(X))$.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.p002
+This formulation leaves several questions. In what sense do these objects
+depend on the chosen resolutions? And how does one promote a definition on
+objects to a functor? Right and left derived functors are plainly dual, so we
+discuss only right derived functors below. We begin with the second question,
+encapsulating the basic tool in a lemma.
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.le001
+\begin{lemma}\label{prop:resolution-homotopy-classical}
+	Consider the solid part of the following diagram in
+	$\cate{C}^+(\mathcal{A})$:
+% segment-id: o014.li2.chapter3.classical-derived-functors.g001
+	\[\begin{tikzcd}
+		X \arrow[d, "f"'] \arrow[r] & I \arrow[dashed, d, "\beta"]\\
+		Y \arrow[r] & J
+	\end{tikzcd} \qquad \begin{array}{rl}
+		X \to I: & \text{a quasi-isomorphism}, \\
+		Y \to J: & \text{an injective resolution}, \\
+		f: & \text{an arbitrary morphism}.
+	\end{array}\]
+	There is a unique morphism $\beta$ in $\cate{K}(\mathcal{A})$ for which
+	the diagram commutes in $\cate{K}(\mathcal{A})$.
+\end{lemma}
+% segment-id: o014.li2.chapter3.classical-derived-functors.pf001
+\begin{proof}
+	Apply Theorem~\ref{prop:resolution-homotopy} to $X\to I$ and to the
+	composite $X\xrightarrow{f}Y\to J$.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.p003
+Reversing arrows gives the projective-resolution version in
+$\cate{C}^-(\mathcal{A})$. In fact, the exercises for this chapter show that
+when $X\hookrightarrow I$, one may choose $\beta$ so that the diagram commutes
+in $\cate{C}(\mathcal{A})$. Since this section uses only $\Hm^n(\beta)$, the
+version in $\cate{K}(\mathcal{A})$ suffices.
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.p004
+Return to derived functors. Let $f:X\to Y$ be a morphism in
+$\cate{C}^+(\mathcal{A})$, and choose injective resolutions $X\to I$ and
+$Y\to J$. Lemma~\ref{prop:resolution-homotopy-classical} shows that, for every
+$n\in\Z$, the morphism
+% segment-id: o014.li2.chapter3.classical-derived-functors.q003
+\[ \mathrm{R}^n F(f) := \Hm^n(\cate{K}F\beta): \; \Hm^n(\cate{K}F(I)) \to \Hm^n(\cate{K}F(J)) \]
+depends only on $f$ and the resolutions $X\to I$, $Y\to J$. Once the
+resolutions are fixed, one has
+% segment-id: o014.li2.chapter3.classical-derived-functors.q004
+\begin{gather*}
+	\mathrm{R}^n F(f_1 + f_2) = \mathrm{R}^n F(f_1) + \mathrm{R}^n F(f_2), \\
+	\mathrm{R}^n F(gf) = \mathrm{R}^n F(g) \; \mathrm{R}^n F(f), \quad \mathrm{R}^n F(\identity) = \identity.
+\end{gather*}
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.p005
+Taking $X=Y$ and $f=\identity_X$ also shows that different injective
+resolutions give the same $(\mathrm{R}^nF)(X)$ up to a unique isomorphism.
+Thus, like objects characterized by universal properties throughout category
+theory, $\mathrm{R}^nF(X)$ is independent of its auxiliary data (the injective
+resolution) up to canonical isomorphism, and
+$\mathrm{R}^nF:\cate{C}^+(\mathcal{A})\to\mathcal{B}$ is an additive functor.
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.p006
+By construction, if $F,G:\mathcal{A}\to\mathcal{B}$ are additive functors,
+every morphism $F\to G$ canonically induces
+$\mathrm{R}^nF\to\mathrm{R}^nG$ for all $n\in\Z$. Once an injective resolution
+$X\to I$ is fixed, the morphism
+$\mathrm{R}^nF(X)\to\mathrm{R}^nG(X)$ is concretely determined by
+$\cate{C}F(I)\to\cate{C}G(I)$. Similarly, it induces
+$\mathrm{L}_nF\to\mathrm{L}_nG$.
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.cn001
+\begin{convention}
+	Whenever we speak below of right derived functors (respectively left
+	derived functors) of an additive functor
+	$F:\mathcal{A}\to\mathcal{B}$, we implicitly assume that $\mathcal{A}$ has
+	enough injectives (respectively enough projectives).
+\end{convention}
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.th001
+\begin{theorem}[Long exact sequence of derived functors]\label{prop:long-exact-sequence-primer}
+	\index{long exact sequence!of derived functors}
+	Let $F:\mathcal{A}\to\mathcal{B}$ be an additive functor between abelian
+	categories, and consider a short exact sequence
+	$0\to X\to Y\to Z\to0$ in $\cate{C}(\mathcal{A})$.
+% segment-id: o014.li2.chapter3.classical-derived-functors.l002
+	\begin{itemize}
+% segment-id: o014.li2.chapter3.classical-derived-functors.i003
+		\item If $X,Y,Z\in\Obj(\cate{C}^+(\mathcal{A}))$, there are canonical
+		morphisms
+		$\delta^n=\delta^n_{X,Y,Z}:\mathrm{R}^nF(Z)\to
+		\mathrm{R}^{n+1}F(X)$ for $n\in\Z$, and an exact sequence
+% segment-id: o014.li2.chapter3.classical-derived-functors.q005
+		\[ \cdots \to \mathrm{R}^{n-1} F(Z) \xrightarrow{\delta^{n-1}} \mathrm{R}^n F(X) \to \mathrm{R}^n F(Y) \to \mathrm{R}^n F(Z) \xrightarrow{\delta^n} \mathrm{R}^{n+1} F(X) \to \cdots . \]
+% segment-id: o014.li2.chapter3.classical-derived-functors.i004
+		\item If $X,Y,Z\in\Obj(\cate{C}^-(\mathcal{A}))$, there are canonical
+		morphisms
+		$\partial_n=\partial_n^{X,Y,Z}:\mathrm{L}_nF(Z)\to
+		\mathrm{L}_{n-1}F(X)$ for $n\in\Z$, and an exact sequence
+% segment-id: o014.li2.chapter3.classical-derived-functors.q006
+		\[ \cdots \to \mathrm{L}_{n+1} F(Z) \xrightarrow{\partial_{n+1}} \mathrm{L}_n F(X) \to \mathrm{L}_n F(Y) \to \mathrm{L}_n F(Z) \xrightarrow{\partial_n} \mathrm{L}_{n-1} F(X) \to \cdots . \]
+	\end{itemize}
+	The connecting morphisms $\delta^n$ and $\partial_n$ are functorial as
+	follows. If
+% segment-id: o014.li2.chapter3.classical-derived-functors.g002
+	\[\begin{tikzcd}
+		0 \arrow[r] & X \arrow[d, "\alpha"] \arrow[r] & Y \arrow[d, "\beta"] \arrow[r] & Z \arrow[d, "\gamma"] \arrow[r] & 0 \\
+		0 \arrow[r] & X' \arrow[r] & Y' \arrow[r] & Z' \arrow[r] & 0
+	\end{tikzcd}\]
+	is a commutative diagram with exact rows, then, in the respective cases,
+	the two diagrams
+% segment-id: o014.li2.chapter3.classical-derived-functors.g003
+	\[\begin{tikzcd}
+		\mathrm{R}^n F(Z) \arrow[r, "{\delta^n}"] \arrow[d, "{\mathrm{R}^n F(\gamma)}"'] & \mathrm{R}^{n+1} F(X) \arrow[d, "{\mathrm{R}^{n+1} F(\alpha)}"] \\
+		\mathrm{R}^n F(Z') \arrow[r, "{\delta^n}"'] & \mathrm{R}^{n+1} F(X')
+	\end{tikzcd} \quad \text{and} \quad
+% segment-id: o014.li2.chapter3.classical-derived-functors.g004
+	\begin{tikzcd}
+		\mathrm{L}_n F(Z) \arrow[r, "{\partial_n}"] \arrow[d, "{\mathrm{L}_n F(\gamma)}"'] & \mathrm{L}_{n-1} F(X) \arrow[d, "{\mathrm{L}_{n-1} F(\alpha)}"] \\
+		\mathrm{L}_n F(Z') \arrow[r, "{\partial_n}"'] & \mathrm{L}_{n-1} F(X')
+	\end{tikzcd}\]
+	commute for every $n\in\Z$.
+\end{theorem}
+% segment-id: o014.li2.chapter3.classical-derived-functors.pf002
+\begin{proof}
+	We treat only $\mathrm{R}^nF$. Apply Proposition~\ref{prop:horseshoe} to
+	$0\to X\to Y\to Z\to0$ to obtain a commutative diagram with exact rows
+% segment-id: o014.li2.chapter3.classical-derived-functors.g005
+	\[\begin{tikzcd}
+		0 \arrow[r] & I \arrow[r] & J \arrow[r] & K \arrow[r] & 0 \\
+		0 \arrow[r] & X \arrow[r] \arrow[u] & Y \arrow[r] \arrow[u] & Z \arrow[r] \arrow[u] & 0
+	\end{tikzcd}\]
+	in which every column is an injective resolution.
+	Lemma~\ref{prop:inj-proj-split} ensures that
+	$0\to I^n\to J^n\to K^n\to0$ splits. Its image under $F$ is therefore
+	still a split short exact sequence, so
+	$0\to\cate{C}F(I)\to\cate{C}F(J)\to\cate{C}F(K)\to0$ remains exact.
+	Proposition~\ref{prop:long-exact-sequence-ses} now gives the morphisms
+	$\delta^n$ and the long exact sequence
+% segment-id: o014.li2.chapter3.classical-derived-functors.q007
+	\[ \cdots \to \mathrm{R}^{n-1} F(Z) \xrightarrow{\delta^{n-1}} \mathrm{R}^n F(X) \to \mathrm{R}^n F(Y) \to \mathrm{R}^n F(Z) \xrightarrow{\delta^n} \cdots \]
+
+	Functoriality of $\delta^n$ is more involved. We use the abelian category
+	$\mathcal{A}^{\mathbf{2}}$ of Example~\ref{eg:A2-injective-projective}.
+	First express the given commutative diagram with exact rows as the short
+	exact sequence in $\mathcal{A}^{\mathbf{2}}$
+% segment-id: o014.li2.chapter3.classical-derived-functors.q008
+	\[ 0 \to [X \xrightarrow{\alpha} X'] \to [Y \xrightarrow{\beta} Y'] \to [Z \xrightarrow{\gamma} Z'] \to 0. \]
+	Example~\ref{eg:A2-injective-projective} says that
+	$\mathcal{A}^{\mathbf{2}}$ has enough injectives. Choose injective
+	resolutions $[X\to X']\hookrightarrow\mathcal{I}$ and
+	$[Z\to Z']\hookrightarrow\mathcal{K}$, and use
+	Proposition~\ref{prop:horseshoe} to extend them to a commutative diagram
+	with exact rows in $\cate{C}(\mathcal{A}^{\mathbf{2}})$:
+% segment-id: o014.li2.chapter3.classical-derived-functors.g006
+	\begin{equation}\label{eqn:long-exact-sequence-primer-aux}\begin{tikzcd}
+		0 \arrow[r] & \mathcal{I} \arrow[r] & \mathcal{J} \arrow[r] & \mathcal{K} \arrow[r] & 0 \\
+		0 \arrow[r] & {[X \to X']} \arrow[r] \arrow[hookrightarrow, u] & {[Y \to Y']} \arrow[r] \arrow[hookrightarrow, u] & {[Z \to Z']} \arrow[r] \arrow[hookrightarrow, u] & 0
+	\end{tikzcd}\end{equation}
+	such that $[Y\to Y']\to\mathcal{J}$ is also an injective resolution.
+	Write $\mathcal{J}^n=[J^n\to(J')^n]$, and similarly for the other terms.
+	The evaluation functors $\mathrm{ev}_0$ and $\mathrm{ev}_1$ from
+	Example~\ref{eg:A2-injective-projective} show that $J^n$, $(J')^n$, and
+	the corresponding terms are injective objects of $\mathcal{A}$, while
+	$Y\to J$, $Y'\to J'$, and the corresponding maps are injective
+	resolutions in $\cate{C}(\mathcal{A})$. Thus compatible injective
+	resolutions have been erected above the original diagram.
+
+	Now expand the first row of
+	\eqref{eqn:long-exact-sequence-primer-aux} as the following commutative
+	diagram with exact rows in $\cate{C}(\mathcal{A})$:
+% segment-id: o014.li2.chapter3.classical-derived-functors.g007
+	\[\begin{tikzcd}
+		0 \arrow[r] & I \arrow[d] \arrow[r] & J \arrow[d] \arrow[r] & K \arrow[d] \arrow[r] & 0 \\
+		0 \arrow[r] & I' \arrow[r] & J' \arrow[r] & K' \arrow[r] & 0
+	\end{tikzcd}\]
+	For every $n$, both rows split because $I^n$ and $(I')^n$ are injective.
+	Applying $F$ degreewise therefore preserves their exactness. Functoriality
+	of $\delta^n$ now reduces to the corresponding assertion of
+	Proposition~\ref{prop:long-exact-sequence-ses}.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.p007
+In the classical setting, one is mainly interested in the restrictions of
+$\mathrm{R}^nF$ and $\mathrm{L}_nF$ to $\mathcal{A}$, still written
+$\mathrm{R}^nF(X)$ and $\mathrm{L}_nF(X)$ for
+$X\in\Obj(\mathcal{A})$. They are computed by flattening an injective
+resolution to an exact sequence $0\to X\to I^0\to I^1\to\cdots$ (or a
+projective resolution to $\cdots\to P^1\to P^0\to X\to0$); see
+Example~\ref{eg:resolution-single}. Derived functors defined on complexes were
+called \emph{hyper-derived functors} in the early literature and are more
+naturally treated using derived categories or spectral sequences. We therefore
+focus below on the classical case $X\in\Obj(\mathcal{A})$.
+\index{hyper-derived functor}
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.p008
+The first step is to distill the long exact sequence of
+Theorem~\ref{prop:long-exact-sequence-primer} into the notion of a
+$\delta$-functor.
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.de002
+\begin{definition}\label{def:delta-functor}
+	\index{$\delta$-functor}
+	Let $\mathcal{A}$ and $\mathcal{B}$ be abelian categories. A
+	\emph{cohomological $\delta$-functor} from $\mathcal{A}$ to $\mathcal{B}$
+	consists of the following data:
+% segment-id: o014.li2.chapter3.classical-derived-functors.l003
+	\begin{compactitem}
+% segment-id: o014.li2.chapter3.classical-derived-functors.i005
+		\item additive functors $F^n:\mathcal{A}\to\mathcal{B}$ for
+		$n\in\Z_{\geq0}$;
+% segment-id: o014.li2.chapter3.classical-derived-functors.i006
+		\item for each short exact sequence $0\to X\to Y\to Z\to0$ in
+		$\mathcal{A}$, specified morphisms $\delta^n:F^nZ\to F^{n+1}X$,
+		called connecting morphisms, for $n\in\Z_{\geq0}$. They are
+		functorial in morphisms of short exact sequences and yield an exact
+		sequence
+% segment-id: o014.li2.chapter3.classical-derived-functors.g008
+		\begin{equation*}\begin{tikzcd}[row sep=large]
+			0 \arrow[r] & F^0(X) \arrow[r] & F^0(Y) \arrow[r] \arrow[phantom, d, ""{coordinate, name=A}] & F^0(Z) \arrow[dll, rounded corners, "{\delta^0}" description, to path={
+				-- ([xshift=2ex]\tikztostart.east)
+				|- (A) [near end]\tikztonodes
+				-| ([xshift=-2ex]\tikztotarget.west)
+				-- (\tikztotarget)}] \\
+			& F^1(X) \arrow[r] & F^1(Y) \arrow[r] \arrow[phantom, d, ""{coordinate, name=B}] & F^1(Z) \arrow[dll, rounded corners, "{\delta^1}" description, to path={
+				-- ([xshift=2ex]\tikztostart.east)
+				|- (B) [near end]\tikztonodes
+				-| ([xshift=-2ex]\tikztotarget.west)
+				-- (\tikztotarget)}] \\
+			& F^2(X) \arrow[r] & F^2(Y) \arrow[r] & \cdots .
+		\end{tikzcd}\end{equation*}
+	\end{compactitem}
+	A morphism from a cohomological $\delta$-functor
+	$(F^n,\delta^n)_{n\geq0}$ to $(G^n,\eta^n)_{n\geq0}$ is a family of
+	morphisms $\varphi^n:F^n\to G^n$ compatible with the connecting morphisms
+	of short exact sequences. In other words, the diagram
+% segment-id: o014.li2.chapter3.classical-derived-functors.g009
+	\[\begin{tikzcd}
+		G^{n-1} (Z) \arrow[r, "{\eta^{n-1}}"] & G^n (X) \\
+		F^{n-1} (Z) \arrow[r, "{\delta^{n-1}}"'] \arrow[u, "{\varphi^{n-1}}"] & F^n (X) \arrow[u, "\varphi^n"']
+	\end{tikzcd}\]%
+	\footnote{Translator's note (O014-C060): both objects in the left column
+	are printed as $X$ in the source. For a short exact sequence
+	$0\to X\to Y\to Z\to0$, the connecting morphisms $\delta^{n-1}$ and
+	$\eta^{n-1}$ have domains $F^{n-1}(Z)$ and $G^{n-1}(Z)$, respectively,
+	and codomains $F^n(X)$ and $G^n(X)$. Both left-hand objects have therefore
+	been restored to $Z$.}
+	must commute for all $n\geq1$ and every short exact sequence
+	$0\to X\to Y\to Z\to0$.
+
+	Dually, a \emph{homological $\delta$-functor} from $\mathcal{A}$ to
+	$\mathcal{B}$ consists of the following data:
+% segment-id: o014.li2.chapter3.classical-derived-functors.l004
+	\begin{compactitem}
+% segment-id: o014.li2.chapter3.classical-derived-functors.i007
+		\item additive functors $F_n:\mathcal{A}\to\mathcal{B}$ for
+		$n\in\Z_{\geq0}$;
+% segment-id: o014.li2.chapter3.classical-derived-functors.i008
+		\item for each short exact sequence $0\to X\to Y\to Z\to0$ in
+		$\mathcal{A}$, specified connecting morphisms
+		$\partial_n:F_nZ\to F_{n-1}X$ for $n\geq1$, functorial in morphisms of
+		short exact sequences and yielding an exact sequence
+% segment-id: o014.li2.chapter3.classical-derived-functors.g010
+		\begin{equation*}\begin{tikzcd}[row sep=large]
+			\cdots \arrow[r] & F_2(Y) \arrow[r] \arrow[phantom, d, ""{coordinate, name=A}] & F_2(Z) \arrow[dll, rounded corners, "{\partial_2}" description, to path={
+				-- ([xshift=2ex]\tikztostart.east)
+				|- (A) [near end]\tikztonodes
+				-| ([xshift=-2ex]\tikztotarget.west)
+				-- (\tikztotarget)}] & \\
+			F_1(X) \arrow[r] & F_1(Y) \arrow[r] \arrow[phantom, d, ""{coordinate, name=B}] & F_1(Z) \arrow[dll, rounded corners, "{\partial_1}" description, to path={
+				-- ([xshift=2ex]\tikztostart.east)
+				|- (B) [near end]\tikztonodes
+				-| ([xshift=-2ex]\tikztotarget.west)
+				-- (\tikztotarget)}] & \\
+			F_0 (X) \arrow[r] & F_0 (Y) \arrow[r] & F_0 (Z) \arrow[r] & 0.
+		\end{tikzcd}\end{equation*}
+	\end{compactitem}
+	Morphisms of homological $\delta$-functors are defined analogously, with
+	compatibility with connecting morphisms.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.p009
+The long exact sequences in the definition automatically imply that $F^0$ is
+left exact and $F_0$ is right exact. We now return to derived functors.
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.pr001
+\begin{proposition}\label{prop:derived-primer-long}
+	Let $F:\mathcal{A}\to\mathcal{B}$ be an additive functor between abelian
+	categories. If $\mathcal{A}$ has enough injectives, then:
+% segment-id: o014.li2.chapter3.classical-derived-functors.l005
+	\begin{compactitem}
+% segment-id: o014.li2.chapter3.classical-derived-functors.i009
+		\item $n<0\implies\mathrm{R}^nF=0$;
+% segment-id: o014.li2.chapter3.classical-derived-functors.i010
+		\item if $I$ is injective in $\mathcal{A}$, then
+		$n>0\implies\mathrm{R}^nF(I)=0$;
+% segment-id: o014.li2.chapter3.classical-derived-functors.i011
+		\item $(\mathrm{R}^nF,\delta^n)_{n\geq0}$ is a cohomological
+		$\delta$-functor;
+% segment-id: o014.li2.chapter3.classical-derived-functors.i012
+		\item if $F$ is left exact, there is a canonical isomorphism
+		$F\rightiso\mathrm{R}^0F$.
+	\end{compactitem}
+	Dually, if $\mathcal{A}$ has enough projectives, then:
+% segment-id: o014.li2.chapter3.classical-derived-functors.l006
+	\begin{compactitem}
+% segment-id: o014.li2.chapter3.classical-derived-functors.i013
+		\item $n<0\implies\mathrm{L}_nF=0$;
+% segment-id: o014.li2.chapter3.classical-derived-functors.i014
+		\item if $P$ is projective in $\mathcal{A}$, then
+		$n>0\implies\mathrm{L}_nF(P)=0$;
+% segment-id: o014.li2.chapter3.classical-derived-functors.i015
+		\item $(\mathrm{L}_nF,\partial_n)_{n\geq0}$ is a homological
+		$\delta$-functor;
+% segment-id: o014.li2.chapter3.classical-derived-functors.i016
+		\item if $F$ is right exact, there is a canonical isomorphism
+		$\mathrm{L}_0F\rightiso F$.
+	\end{compactitem}
+\end{proposition}
+% segment-id: o014.li2.chapter3.classical-derived-functors.pf003
+\begin{proof}
+	By duality, it suffices to treat $\mathrm{R}^nF$. Choose an injective
+	resolution $0\to X\to I^0\to I^1\to\cdots$ of
+	$X\in\Obj(\mathcal{A})$. Then
+% segment-id: o014.li2.chapter3.classical-derived-functors.q009
+	\[ \mathrm{R}^n F(X) = \Hm^n ( \cdots \to 0 \to 0 \to \underbracket{FI^0}_{\text{term in degree $0$}} \to \underbracket{FI^1}_{\text{term in degree $1$}} \to \cdots ). \]
+	This immediately gives $\mathrm{R}^nF(X)=0$ when $n<0$. If $X=I$ is
+	injective, take the resolution $0\to I\xrightarrow{\identity}I\to0\to
+	\cdots$, which gives $\mathrm{R}^nF(I)=0$ for $n>0$.
+
+	In view of this, the assertion about cohomological $\delta$-functors is
+	just a restatement of Theorem~\ref{prop:long-exact-sequence-primer}.
+
+	Finally suppose that $F$ is left exact. Since
+	$X\rightiso\Ker[I^0\to I^1]$ and a left exact functor preserves kernels,
+	$\mathrm{R}^0F(X)=\Ker[FI^0\to FI^1]$ is canonically isomorphic to $FX$.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.p010
+In general, one considers right derived functors only for left exact functors,
+and left derived functors only for right exact functors. Why? An elementary
+explanation comes from the problem of extending exact sequences. For example,
+if $F$ is left exact and $0\to X\to Y\to Z\to0$ is a short exact sequence in
+$\mathcal{A}$, we would like to extend the exact sequence
+$0\to FX\to FY\to FZ$ as far as possible to the right. Right derived
+functors do exactly this.
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.p011
+For $n\geq1$, the functors $\mathrm{R}^nF$ and $\mathrm{L}_nF$ are
+customarily called the \emph{higher derived functors} of $F$, with domain
+understood to be the objects of $\mathcal{A}$ rather than complexes. As an
+application of extending an exact sequence, the following corollary says that
+higher derived functors are precisely the obstructions to exactness.
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.co001
+\begin{corollary}\label{prop:obstruction-exactness}
+	For a left exact (respectively right exact) additive functor
+	$F:\mathcal{A}\to\mathcal{B}$, the following are equivalent.
+% segment-id: o014.li2.chapter3.classical-derived-functors.l007
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter3.classical-derived-functors.i017
+		\item $F:\mathcal{A}\to\mathcal{B}$ is exact.
+% segment-id: o014.li2.chapter3.classical-derived-functors.i018
+		\item For every $X\in\Obj(\mathcal{A})$ and $n>0$,
+		$\mathrm{R}^nF(X)=0$ (respectively $\mathrm{L}_nF(X)=0$).
+% segment-id: o014.li2.chapter3.classical-derived-functors.i019
+		\item For every $X\in\Obj(\mathcal{A})$,
+		$\mathrm{R}^1F(X)=0$ (respectively $\mathrm{L}_1F(X)=0$).
+	\end{enumerate}
+\end{corollary}
+% segment-id: o014.li2.chapter3.classical-derived-functors.pf004
+\begin{proof}
+	Consider the left exact case. For (i) $\implies$ (ii), the complex
+	$I^0\to I^1\to\cdots$ used to compute the derived functors is exact away
+	from its zeroth term, and therefore so is its image under $F$. The
+	implication (ii) $\implies$ (iii) is trivial. For (iii) $\implies$ (i), use
+	$\mathrm{R}^0F\simeq F$ and apply the exact sequence
+% segment-id: o014.li2.chapter3.classical-derived-functors.q010
+	\[ 0 \to FX \to FY \to FZ \to \mathrm{R}^1 F(X) \]
+	to each short exact sequence $0\to X\to Y\to Z\to0$ in $\mathcal{A}$.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.cn002
+\begin{convention}\label{con:F-acyclic}\index{$F$-acyclic object}
+	Let $F:\mathcal{A}\to\mathcal{B}$ be a left exact (respectively right
+	exact) additive functor. An object $A\in\Obj(\mathcal{A})$ is called
+	\emph{$F$-acyclic} if all its higher right derived functors (respectively
+	left derived functors) under $F$ vanish. For example, when $F$ is left
+	exact (respectively right exact), Proposition~\ref{prop:derived-primer-long}
+	implies that every injective (respectively projective) object is
+	$F$-acyclic.
+\end{convention}
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.p012
+The following classical technique, called dimension shifting, is often used in
+recursive arguments with derived functors.
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.pr002
+\begin{proposition}[Dimension shifting]\label{prop:dimension-shifting}
+	\index{dimension shifting}
+	Let $F:\mathcal{A}\to\mathcal{B}$ be a left exact (respectively right
+	exact) additive functor, and suppose that $\mathcal{A}$ has enough
+	injectives (respectively enough projectives). Let
+% segment-id: o014.li2.chapter3.classical-derived-functors.q011
+	\[ 0 \to X \to A \to B \to 0, \quad (\text{respectively}\; 0 \to B \to A \to X \to 0 ), \]
+	be a short exact sequence in $\mathcal{A}$, with $A$ $F$-acyclic. Then for
+	$n\geq1$ there are natural isomorphisms
+% segment-id: o014.li2.chapter3.classical-derived-functors.q012
+	\[\mathrm{R}^n F(X) \simeq \begin{cases}
+		\mathrm{R}^{n-1} F(B), & n \geq 2, \\
+		\Coker\left[FA \to FB \right], & n = 1,
+	\end{cases}\]
+	respectively
+% segment-id: o014.li2.chapter3.classical-derived-functors.q013
+	\[ \mathrm{L}_n F(X) \simeq \begin{cases}
+		\mathrm{L}_{n-1} F(B), & n \geq 2, \\
+		\Ker\left[ FB \to FA \right], & n = 1.
+	\end{cases} \]
+\end{proposition}
+% segment-id: o014.li2.chapter3.classical-derived-functors.pf005
+\begin{proof}
+	By duality, prove only the assertion about $\mathrm{R}^nF(X)$. Inspect the
+	corresponding long exact sequence
+% segment-id: o014.li2.chapter3.classical-derived-functors.q014
+	\[ \mathrm{R}^{n-1} F(A) \to \mathrm{R}^{n-1} F(B) \to \mathrm{R}^n F(X) \to \underbracket{\mathrm{R}^n F(A)}_{= 0}, \quad n \in \Z_{\geq 1}, \]
+	and use $\mathrm{R}^0F(A)\simeq FA$ and $\mathrm{R}^0F(B)=FB$.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.p013
+The next key result shows that $F$-acyclic objects may also be used to compute
+derived functors.
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.co002
+\begin{corollary}\label{prop:acyclic-resolution}
+	Let $F:\mathcal{A}\to\mathcal{B}$ be left exact (respectively right
+	exact), and suppose there is an exact sequence in $\mathcal{A}$
+% segment-id: o014.li2.chapter3.classical-derived-functors.q015
+	\[ 0 \to X  \to A^0 \to A^1 \to \cdots \quad (\text{respectively}\; \cdots \to A_1 \to A_0 \to X \to 0 ), \]
+	where every $A^n$ (respectively $A_n$) is $F$-acyclic for $n\geq0$.
+	In addition, set $A^{-n}=0$ (respectively $A_{-n}=0$) for every
+	$n\geq1$.\footnote{Translator's note (O014-C062): the source gives no
+	range for the convention $A^{-n}=0$ (respectively $A_{-n}=0$). If it were
+	applied also at $n=0$, it would force $A^0=0$ (respectively $A_0=0$),
+	contradicting the resolution term just introduced. The intended range
+	$n\geq1$ has been made explicit.} Then, for every $n\geq0$, there are
+	natural isomorphisms
+% segment-id: o014.li2.chapter3.classical-derived-functors.q016
+	\[ \mathrm{R}^n F(X) \simeq \Hm^n\left( FA^\bullet \right) \quad \text{or}\quad \mathrm{L}_n F(X) \simeq \Hm_n\left(FA_\bullet\right). \]
+\end{corollary}
+% segment-id: o014.li2.chapter3.classical-derived-functors.pf006
+\begin{proof}
+	We prove only the assertion about $\mathrm{R}^nF(X)$. For $m\geq1$, put
+% segment-id: o014.li2.chapter3.classical-derived-functors.q017
+	\[ B^m := \Image\left[ A^{m-1} \to A^m \right] = \Ker\left[ A^m \to A^{m+1} \right]; \]
+	also put $B^0:=X$. The original exact sequence then decomposes into
+% segment-id: o014.li2.chapter3.classical-derived-functors.q018
+	\[ 0 \to B^m \to A^m \to B^{m+1} \to 0, \quad m \in \Z_{\geq 0}. \]
+	When $n=0$, the claim reduces to preservation of kernels:
+	$FX\simeq\Ker[FA^0\to FA^1]$. For $n\geq1$, repeated dimension shifting
+	using Proposition~\ref{prop:dimension-shifting} gives natural isomorphisms
+% segment-id: o014.li2.chapter3.classical-derived-functors.q019
+	\[ \mathrm{R}^n F(X) = \mathrm{R}^n F(B^0) \simeq \cdots \simeq \mathrm{R}^1 F(B^{n-1}) \simeq \Coker\left[ FA^{n-1} \to FB^n \right]; \]
+	and because $F$ preserves kernels, the definition of $B^n$ identifies
+	$FB^n$ with $\Ker[FA^n\to FA^{n+1}]$. Thus, for $n\geq1$,
+% segment-id: o014.li2.chapter3.classical-derived-functors.q020
+	\[ \mathrm{R}^n F(X) \simeq \frac{\Ker\left[ FA^n \to FA^{n+1} \right]}{\Image\left[ FA^{n-1} \to FA^n \right]}. \]
+\end{proof}
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.p014
+The preceding argument relies mainly on the long exact sequence and hardly at
+all on the definition of derived functors. This suggests characterizing the
+derived functors of $F$ among general cohomological (respectively homological)
+$\delta$-functors. The key requirement is that their positive-degree terms be
+effaceable (respectively co-effaceable).
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.de003
+\begin{definition}[A.\ Grothendieck]\label{def:erasable}
+	\index{effaceable functor}
+	\index{co-effaceable functor}
+	Let $E:\mathcal{A}\to\mathcal{B}$ be an additive functor between abelian
+	categories. It is called \emph{effaceable} (respectively
+	\emph{co-effaceable}) if for every $X\in\Obj(\mathcal{A})$ there is a
+	monomorphism $a:X\hookrightarrow Y$ (respectively an epimorphism
+	$a:Y\twoheadrightarrow X$) such that $Ea=0$.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.p015
+We shall derive the following universal property from effaceability.
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.de004
+\begin{definition}\label{def:universal-delta-functor}
+	\index{$\delta$-functor!universal}
+	Let $(R^n,\delta^n)_{n\geq0}$ be a cohomological $\delta$-functor from
+	$\mathcal{A}$ to $\mathcal{B}$. It is called a \emph{universal
+	cohomological $\delta$-functor} if, for every cohomological $\delta$-functor
+	$(F^n,\delta_F^n)_{n\geq0}$ from $\mathcal{A}$ to $\mathcal{B}$, every
+	morphism $\varphi^0:R^0\to F^0$ extends uniquely to a morphism
+	$(\varphi^n)_{n\geq0}$ of $\delta$-functors.
+
+	Dually, let $(L_n,\partial_n)_{n\geq0}$ be a homological $\delta$-functor
+	with the following property: for every homological $\delta$-functor
+	$(F_n,\partial_n^F)_{n\geq0}$, every morphism $\varphi_0:F_0\to L_0$
+	extends uniquely to $(\varphi_n)_{n\geq0}$. Then
+	$(L_n,\partial_n)_{n\geq0}$ is called a \emph{universal homological
+	$\delta$-functor}.
+\end{definition}
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.p016
+Our goal is to show that, for a left exact (respectively right exact) functor
+$F:\mathcal{A}\to\mathcal{B}$, a universal cohomological $\delta$-functor
+with $R^0=F$ (respectively a universal homological $\delta$-functor with
+$L_0=F$), if it exists, is unique up to a unique isomorphism.
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.le002
+\begin{lemma}\label{prop:erasable-aux}
+	Let $E:\mathcal{A}\to\mathcal{B}$ be effaceable, let
+	$0\to X\xrightarrow{u}I\xrightarrow{v}B\to0$ be a short exact sequence
+	in $\mathcal{A}$, and let $f:X\to Y$ be any morphism. There is a
+	commutative diagram with exact rows
+% segment-id: o014.li2.chapter3.classical-derived-functors.g011
+	\begin{equation*}\begin{tikzcd}
+			0 \arrow[r] & X \arrow[d, "f"'] \arrow[r, "u"] & I \arrow[r, "v"] \arrow[d] & B \arrow[d] \arrow[r] & 0 \\
+			0 \arrow[r] & Y \arrow[r, "\iota"'] & J \arrow[r] & C \arrow[r] & 0 ,
+	\end{tikzcd}\end{equation*}
+	such that $E\iota=0$.
+\end{lemma}
+% segment-id: o014.li2.chapter3.classical-derived-functors.pf007
+\begin{proof}
+	Choose a monomorphism $h:Y\hookrightarrow J_0$ such that $Eh=0$, and form
+	the pushout diagram
+% segment-id: o014.li2.chapter3.classical-derived-functors.g012
+	\[\begin{tikzcd}
+		X \arrow[hookrightarrow, r, "u"] \arrow[d, "hf"'] & I \arrow[d] \\
+		J_0 \arrow[r, "k"'] & J \arrow[phantom, lu, "\boxplus" description] ,
+	\end{tikzcd}\]
+	where $k$ is a monomorphism by
+	Proposition~\ref{prop:Abel-cat-pull-push}. Set $\iota=kh:Y\to J$ and
+	$C:=\Coker(\iota)$. This gives the left-hand square of the required
+	diagram; functoriality of cokernels gives the right-hand square.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.pr003
+\begin{proposition}\label{prop:erasable-univ-delta}
+	Let $(R^n,\delta^n)_{n\geq0}$ be a cohomological $\delta$-functor from
+	$\mathcal{A}$ to $\mathcal{B}$. If $R^n$ is effaceable for every $n>0$,
+	then $(R^n,\delta^n)_{n\geq0}$ is universal.
+
+	Dually, a homological $\delta$-functor whose positive-degree parts are
+	co-effaceable is universal.
+\end{proposition}
+% segment-id: o014.li2.chapter3.classical-derived-functors.pf008
+\begin{proof}
+	We prove only the cohomological version. Let
+	$(F^n,\delta_F^n)_{n\geq0}$ be another cohomological $\delta$-functor from
+	$\mathcal{A}$ to $\mathcal{B}$, and fix $\varphi^0:R^0\to F^0$. We
+	construct $\varphi^n$ recursively for $n\geq1$. Given
+	$X\in\Obj(\mathcal{A})$, the hypothesis supplies a short exact sequence
+% segment-id: o014.li2.chapter3.classical-derived-functors.q021
+	\[ 0 \to X \to I \to B \to 0 \]
+	such that $R^n(X\to I)=0$. The corresponding long exact sequences give
+	the solid part of a commutative diagram with exact rows
+% segment-id: o014.li2.chapter3.classical-derived-functors.g013
+	\[\begin{tikzcd}
+		F^{n-1} I \arrow[r] & F^{n-1} B \arrow[r, "{\delta_F^{n-1}}"] & F^n X \arrow[r] & F^n I \\
+		R^{n-1} I \arrow[u, "{\varphi^{n-1}_I}"] \arrow[r] & R^{n-1} B \arrow[u, "{\varphi^{n-1}_B}"] \arrow[r, "{\delta^{n-1}}"'] & R^n X \arrow[dashed, u, "{\varphi^n_X}"'] \arrow[r] & 0 .
+	\end{tikzcd}\]
+	Exactness of the rows and the universal property of the cokernel give a
+	unique dashed arrow $\varphi_X^n$ making the whole diagram commute. This
+	characterizes $\varphi_X^n$, although it still appears to depend on the
+	choice of $X\hookrightarrow I$.
+
+	Given any morphism $f:X\to Y$, we claim there is a commutative diagram
+	with exact rows
+% segment-id: o014.li2.chapter3.classical-derived-functors.g014
+	\begin{equation}\label{eqn:erasable-univ-delta}\begin{tikzcd}
+		0 \arrow[r] & X \arrow[d, "f"'] \arrow[r] & I \arrow[r] \arrow[d] & B \arrow[d] \arrow[r] & 0 \\
+		0 \arrow[r] & Y \arrow[r] & J \arrow[r] & C \arrow[r] & 0 ,
+	\end{tikzcd}\end{equation}
+	such that both $R^n(X\to I)$ and $R^n(Y\to J)$ are zero. Indeed, first
+	choose $X\hookrightarrow I$, then apply Lemma~\ref{prop:erasable-aux}.
+	Substituting this into the constructions of $\varphi_X^n$ and
+	$\varphi_Y^n$ yields
+% segment-id: o014.li2.chapter3.classical-derived-functors.g015
+	\[\begin{tikzcd}[row sep=small, column sep=small]
+		& F^{n-1} B \arrow[rr] \arrow[dd] & & F^n X \arrow[dd] \\
+		R^{n-1} B \arrow[ru] \arrow[rr, crossing over] \arrow[dd] & & R^n X \arrow[ru, "{\varphi_X^n}"'] & \\
+		& F^{n-1} C \arrow[rr] & & F^n Y \\
+		R^{n-1} C \arrow[ru] \arrow[rr] & & R^n Y \arrow[ru, "{\varphi_Y^n}"'] \arrow[leftarrow, uu, crossing over] &
+	\end{tikzcd}\]
+	Every face except the right one commutes by construction, definition, or
+	the induction hypothesis. Since $R^{n-1}B\to R^nX$ is an epimorphism, the
+	usual argument shows that the right face commutes too.
+
+	This simultaneously proves that $\varphi_X^n$ is independent of the choice
+	of $X\hookrightarrow I$ (take $f=\identity_X$ and observe from the proof of
+	Lemma~\ref{prop:erasable-aux} that any two maps $X\hookrightarrow I_i$ can
+	be sent by pushouts into a common $X\hookrightarrow J$) and that it is
+	functorial in $X$ (take arbitrary $f$). This recursively completes the
+	construction of $\varphi^n$.
+
+	It remains to show that $(\varphi^n)_{n\geq0}$ is compatible with the
+	connecting morphisms. Given a short exact sequence
+	$0\to X\to Y\to Z\to0$, use Lemma~\ref{prop:erasable-aux} to choose a
+	commutative diagram with exact rows
+% segment-id: o014.li2.chapter3.classical-derived-functors.g016
+	\[\begin{tikzcd}
+		0 \arrow[r] & X \arrow[d, "\identity_X"'] \arrow[r] & Y \arrow[r] \arrow[d] & Z \arrow[d, "\alpha"] \arrow[r] & 0 \\
+		0 \arrow[r] & X \arrow[r] & I \arrow[r] & B \arrow[r] & 0
+	\end{tikzcd}\]
+	such that $R^n(X\to I)=0$. For each $n\geq1$, form the diagram
+% segment-id: o014.li2.chapter3.classical-derived-functors.g017
+	\[\begin{tikzcd}[column sep=large]
+		F^{n-1} Z \arrow[r, "{F^{n-1}\alpha}"] & F^{n-1} B \arrow[r, "{\delta_F^{n-1}}"] & F^n X \\
+		R^{n-1} Z \arrow[u, "{\varphi_Z^{n-1}}"] \arrow[r, "{R^{n-1}\alpha}"'] & R^{n-1} B \arrow[u, "{\varphi_B^{n-1}}"] \arrow[r, "{\delta^{n-1}}"'] & R^n X \arrow[u, "{\varphi_X^n}"']
+	\end{tikzcd}\]%
+	\footnote{Translator's note (O014-C061): the source labels the two
+	connecting arrows in this diagram $\delta_F^n$ and $\delta^n$. Since their
+	domains are $F^{n-1}B$ and $R^{n-1}B$, and their codomains are $F^nX$ and
+	$R^nX$, the well-typed indices are $n-1$; the labels have been restored to
+	$\delta_F^{n-1}$ and $\delta^{n-1}$.}
+	By the preceding commutative diagram and the axioms of a cohomological
+	$\delta$-functor, the composites along the two rows are the connecting
+	morphisms $F^{n-1}Z\to F^nX$ and $R^{n-1}Z\to R^nX$ whose compatibility
+	is at issue. The left square commutes by functoriality of
+	$\varphi^{n-1}$, and the right square by the construction of
+	$\varphi_X^n$.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.classical-derived-functors.co003
+\begin{corollary}[Characterization of derived functors]\label{prop:derived-erasable}
+	Let $F:\mathcal{A}\to\mathcal{B}$ be left exact and suppose that
+	$\mathcal{A}$ has enough injectives. Then
+	$(\mathrm{R}^nF,\delta^n)_{n\geq0}$ is the universal cohomological
+	$\delta$-functor satisfying $\mathrm{R}^0F\simeq F$.
+
+	Dually, if $F$ is right exact and $\mathcal{A}$ has enough projectives,
+	then $(\mathrm{L}_nF,\partial_n)_{n\geq0}$ is the universal homological
+	$\delta$-functor satisfying $\mathrm{L}_0F\simeq F$.
+\end{corollary}
+% segment-id: o014.li2.chapter3.classical-derived-functors.pf009
+\begin{proof}
+	It is enough to discuss the left exact case. For $n>0$, the functor
+	$\mathrm{R}^nF$ is effaceable: every $X\in\Obj(\mathcal{A})$ embeds into
+	an injective object $I$, and Proposition~\ref{prop:derived-primer-long}
+	gives $\mathrm{R}^nF(I)=0$. The same proposition gives
+	$\mathrm{R}^0F\simeq F$. Apply Proposition~\ref{prop:erasable-univ-delta}.
+\end{proof}

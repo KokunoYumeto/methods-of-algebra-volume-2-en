@@ -1,0 +1,67 @@
+% Portable font setup for the English derivative.
+% Derived from upstream font-setup-open.tex (CC BY 4.0).
+% The upstream fallback still names Noto Sans CJK SC in three families;
+% this version uses only Fandol fonts shipped with TeX Live/MiKTeX.
+\ProvidesFile{font-setup-en.tex}[2026/08/21 English portable fonts]
+
+\setsansfont{TeX Gyre Heros}
+
+\setCJKmainfont[
+  BoldFont=FandolSong-Bold.otf,
+  ItalicFont=FandolKai-Regular.otf
+]{FandolSong-Regular.otf}
+
+\setCJKsansfont[
+  BoldFont=FandolHei-Bold.otf
+]{FandolHei-Regular.otf}
+
+\setCJKmonofont[
+  BoldFont=FandolHei-Bold.otf
+]{FandolHei-Regular.otf}
+
+\setCJKfamilyfont{kai}[
+  BoldFont=FandolKai-Regular.otf,
+  ItalicFont=FandolKai-Regular.otf
+]{FandolKai-Regular.otf}
+
+\setCJKfamilyfont{song}[
+  BoldFont=FandolSong-Bold.otf,
+  ItalicFont=FandolKai-Regular.otf
+]{FandolSong-Regular.otf}
+
+\setCJKfamilyfont{fangsong}[
+  BoldFont=FandolSong-Bold.otf,
+  ItalicFont=FandolKai-Regular.otf
+]{FandolFang-Regular.otf}
+
+\setCJKfamilyfont{hei}[
+  BoldFont=FandolHei-Bold.otf,
+  ItalicFont=FandolHei-Regular.otf
+]{FandolHei-Regular.otf}
+
+\setCJKfamilyfont{hei2}[
+  BoldFont=FandolHei-Bold.otf
+]{FandolHei-Regular.otf}
+
+\setCJKfamilyfont{sectionfont}[
+  BoldFont=FandolHei-Bold.otf
+]{FandolHei-Regular.otf}
+
+\setCJKfamilyfont{pffont}[
+  BoldFont=FandolHei-Bold.otf
+]{FandolHei-Regular.otf}
+
+\setCJKfamilyfont{emfont}[
+  BoldFont=FandolHei-Regular.otf
+]{FandolHei-Regular.otf}
+
+\defaultfontfeatures{Ligatures=TeX}
+\XeTeXlinebreaklocale "en"
+\XeTeXlinebreakskip=0pt plus 1pt minus 0.1pt
+
+\newcommand\kaishu{\CJKfamily{kai}}
+\newcommand\songti{\CJKfamily{song}}
+\newcommand\heiti{\CJKfamily{hei}}
+\newcommand\thmheiti{\CJKfamily{hei2}}
+\newcommand\fangsong{\CJKfamily{fangsong}}
+\renewcommand{\em}{\bfseries\mathversion{bold}\CJKfamily{emfont}}

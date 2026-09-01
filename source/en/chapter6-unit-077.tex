@@ -1,0 +1,310 @@
+% Unit 077 English translation of chapter6.tex lines 1094--1221.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter6.group-extensions-revisited
+% Coverage: Section 6.6 in full.
+
+% segment-id: o014.li2.chapter6.group-extensions-revisited.h001
+\section{Group extensions revisited}\label{sec:group-ext-revisited}
+\hypertarget{o014.aljabr2.chapter6.group-extensions-revisited}{ }
+
+% segment-id: o014.li2.chapter6.group-extensions-revisited.p001
+To gain a more concrete understanding of the operations defined in
+\S\ref{sec:change-of-group}, and to continue the preliminary discussion in
+\S\ref{sec:grp-low-degree} of group extensions
+(Definition~\ref{def:group-ext}), we return to the relationship between group
+extensions and $\Hm^2$. We begin from the viewpoint of group theory. In what
+follows, consider a $G$-module $M$ and an extension
+$0\to M\to E\xrightarrow{\pi}G\to1$. Such extensions have natural pullback,
+pushout, and addition operations, following ideas similar to those of
+\S\ref{sec:Hom-Ext}.
+
+% segment-id: o014.li2.chapter6.group-extensions-revisited.p002
+\begin{description}
+	\item[Pullback] Let $\varphi:H\to G$ be a group homomorphism. Form the
+	fiber product in the category of groups
+	\[ \varphi^*E:=E\dtimes{G}H
+	=\{(e,h)\in E\times H:\pi(e)=\varphi(h)\}. \]
+	The monomorphism $M\to\varphi^*E$, $x\mapsto(x,1_H)$, determines a group
+	extension
+	$0\to M\to\varphi^*E\xrightarrow{\text{projection}}H\to1$. This gives a
+	functor $\cate{Ext}(G,M)\to\cate{Ext}(H,M)$. If $\varphi$ is the
+	inclusion of a subgroup $H$, pullback along $\varphi$ simply amounts to
+	taking $\pi^{-1}(H)$.
+
+	\item[Pushout] Let $\theta:M\to N$ be a homomorphism of $G$-modules. Form
+	the fibered coproduct
+	\[ \theta_*E:=N\dsqcup{M}E
+	=\frac{N\times E}{(y+\theta(x),e)\sim(y,xe)},
+	\qquad x\in M,\ y\in N,\ e\in E. \]
+	Write $[y,e]$ for the image of $(y,e)\in N\times E$ in it. Its
+	multiplication is
+	\[ [y_1,e_1][y_2,e_2]
+	=[y_1+\pi(e_1)y_2,e_1e_2]. \]
+	There are natural homomorphisms
+	\[ N\xrightarrow{y\mapsto[y,1_E]}\theta_*E
+	\xrightarrow{[y,e]\mapsto\pi(e)}G, \]
+	which determine a group extension $\theta_*E$. This gives a functor
+	$\cate{Ext}(G,M)\to\cate{Ext}(G,N)$.
+
+	\item[Taking the inverse] As a special case, $E$ can be pushed out along
+	the $G$-module homomorphism $M\xrightarrow{x\mapsto-x}M$; denote the
+	resulting extension by $-E$.
+
+	\item[Direct sum] Given objects $E_i$ of $\cate{Ext}(G_i,M_i)$ for
+	$i=1,2$, there is an evident group extension
+	\[ 0\to M_1\oplus M_2\to E_1\times E_2\to G_1\times G_2\to1, \]
+	where $G_1\times G_2$ acts on $M_1\oplus M_2$ by
+	$(g_1,g_2)(x_1,x_2)=(g_1x_1,g_2x_2)$. Denote this extension by
+	$E_1\oplus E_2$.
+
+	\item[Baer sum] Now take objects $E_1,E_2$ of $\cate{Ext}(G,M)$ and form
+	$E_1\oplus E_2$. The addition map $M\oplus M\to M$ is a $G$-module
+	homomorphism for the action of the diagonal subgroup $G$ of $G\times G$.
+	Thus first pull $E_1\oplus E_2$ back along the diagonal inclusion
+	$G\hookrightarrow G\times G$, and then push out along the addition
+	homomorphism $M\oplus M\to M$. Denote the resulting object of
+	$\cate{Ext}(G,M)$ by $E_1\dot{+}E_2$.
+	\index{group extension!Baer sum}
+\end{description}
+
+% segment-id: o014.li2.chapter6.group-extensions-revisited.p003
+Pullback and pushout can be combined into a single operation. Let
+$\varphi:H\to G$ be a group homomorphism and let the additive-group
+homomorphism $\theta:M\to N$ be $\varphi$-equivariant
+(Definition~\ref{def:group-equivariance}). There is a corresponding functor
+$\cate{Ext}(G,M)\to\cate{Ext}(H,N)$, defined by first pulling back along
+$\varphi$ and then pushing out along $\theta:\varphi^*M\to N$.
+
+% segment-id: o014.li2.chapter6.group-extensions-revisited.p004
+The normalized standard complex $\overline{C}(G,M)$ has parallel operations.
+Given $\varphi$ and $\theta$ as above, Proposition~\ref{prop:grp-equiv}
+explicitly gives a morphism of complexes
+$\overline{C}(G,M)\to\overline{C}(H,N)$; this defines the corresponding
+pullback, pushout, and inverse operations. The direct sum is defined by
+\begin{gather*}
+	\oplus:\overline{C}^n(G_1,M_1)\oplus\overline{C}^n(G_2,M_2)
+	\to\overline{C}^n(G_1\times G_2,M_1\oplus M_2),\\
+	f_1\oplus f_2:((g_{1,i},g_{2,i}))_{i=1}^n\mapsto
+	\left(f_1(g_{1,1},\ldots,g_{1,n}),
+	f_2(g_{2,1},\ldots,g_{2,n})\right).
+\end{gather*}
+As $n$ varies, this gives a morphism of complexes
+$\overline{C}(G_1,M_1)\oplus\overline{C}(G_2,M_2)
+\to\overline{C}(G_1\times G_2,M_1\oplus M_2)$. Following the same pattern,
+define the Baer sum on $\overline{C}(G,M)$ using direct sum, pullback, and
+pushout. The result is simply addition in $\overline{C}^n(G,M)$.
+
+% segment-id: o014.li2.chapter6.group-extensions-revisited.t001
+\begin{proposition}\label{prop:factor-set-operation}
+	Up to canonical isomorphism, pullback, pushout, taking inverses, direct
+	sum, and Baer sum of group extensions correspond, under the equivalence
+	of Theorem~\ref{prop:factor-set}, to the respective operations on the
+	complex $\tau^{\leq2}\overline{C}(G,M)$ (or the category
+	$\tau^{\leq2}\overline{\cate{C}}(G,M)$).
+\end{proposition}
+\begin{proof}
+	Given a group extension $0\to M\to E\to G\to1$, choose a normalized
+	section $s:G\to E$ and the corresponding
+	$f\in\overline{Z}^2(G,M)$ as in the proof of
+	Theorem~\ref{prop:factor-set}. Let $\varphi:H\to G$ be a group
+	homomorphism. A normalized section of $\varphi^*E$ can be chosen as
+	\[ s':h\mapsto(s(\varphi(h)),h)\in E\dtimes{G}H. \]
+	Then $s'(h_1)s'(h_2)=f'(h_1,h_2)s'(h_1h_2)$, where
+	\[ f'(h_1,h_2):=f(\varphi(h_1),\varphi(h_2)),\qquad h_1,h_2\in H. \]
+	This proves the pullback case. For pushout along a $G$-module
+	homomorphism $\theta:M\to N$, use the notation above and choose the
+	normalized section of $\theta_*E$ to be
+	\[ s'(g):=[0,s(g)]\in\theta_*E=N\dsqcup{M}E. \]
+	Computing in $\theta_*E$ gives
+	\begin{align*}
+		s'(g_1)s'(g_2)&=[0,s(g_1)][0,s(g_2)]=[0,s(g_1)s(g_2)]\\
+		&=[0,f(g_1,g_2)s(g_1g_2)]
+		=[\theta f(g_1,g_2),s(g_1g_2)]\\
+		&=[\theta f(g_1,g_2),1_E]s'(g_1g_2).
+	\end{align*}
+	Thus the $f'$ corresponding to $s'$ is precisely $\theta f$. This proves
+	the pushout case.
+
+	The direct-sum case is checked in the same way, and the details are left
+	to the reader. Taking inverses and forming Baer sums decompose into the
+	operations above.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.group-extensions-revisited.p005
+As a special case, up to canonical isomorphism, taking inverses and forming
+Baer sums of group extensions correspond respectively to inversion and
+addition in the group $\Hm^2(G,M)$.
+
+% segment-id: o014.li2.chapter6.group-extensions-revisited.d001
+\begin{definition}\label{def:central-ext}
+	\index{group extension!central}
+	If $A$ is a central subgroup of $E$ in a group extension
+	$0\to A\to E\to G\to1$, the extension is called a \emph{central
+	extension}.
+
+	Given a central extension as above, suppose that for every central
+	extension $0\to B\to F\to G\to1$, there is a unique group homomorphism
+	$\varphi:E\to F$ making the following diagram commute:
+	\[\begin{tikzcd}
+		0 \arrow[r] & A \arrow[r] \arrow[d,"{\varphi|_A}"'] &
+		E \arrow[d,"\varphi"] \arrow[r] & G \arrow[equal,d] \arrow[r] & 1 \\
+		0 \arrow[r] & B \arrow[r] & F \arrow[r] & G \arrow[r] & 1,
+	\end{tikzcd}\]
+	Then $0\to A\to E\to G\to1$ is called a \emph{universal central
+	extension} of $G$. If it exists, it is unique up to a unique isomorphism.
+\end{definition}
+
+% segment-id: o014.li2.chapter6.group-extensions-revisited.p006
+By definition, every inner automorphism of a central extension is trivial.
+For every additive group $A$, define the corresponding category of central
+extensions by
+\[ \cate{CExt}(G,A):=\cate{Ext}(G,A),\qquad
+	\text{with $A$ regarded as a $G$-module with trivial action}. \]
+
+% segment-id: o014.li2.chapter6.group-extensions-revisited.l001
+\begin{lemma}\label{prop:univ-central-ext-prep}
+	If a group $G$ has a universal central extension
+	$0\to A\to E\xrightarrow{\pi}G\to1$, then
+	$G=G_{\mathrm{der}}$ and $E=E_{\mathrm{der}}$.
+\end{lemma}
+\begin{proof}
+	Consider the split central extension
+	$0\to E_{\mathrm{ab}}\to E_{\mathrm{ab}}\times G\to G\to1$ of $G$.
+	There are homomorphisms $(0,\pi)$ and $(q,\pi)$ from the extension $E$
+	to $E_{\mathrm{ab}}\times G$, where $q:E\to E_{\mathrm{ab}}$ is the
+	quotient homomorphism. The uniqueness part of the universal property
+	implies $q=0$, that is, $E=E_{\mathrm{der}}$. It follows at once that
+	$G=G_{\mathrm{der}}$.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.group-extensions-revisited.p007
+Using the pushout construction, it is not difficult to prove that $\varphi$
+in Definition~\ref{def:central-ext} factors uniquely through
+$E\to(\varphi|_A)_*E$. Thus the universal property can be rewritten as
+follows: for every central extension $0\to B\to F\to G\to1$, there is a
+unique group homomorphism $\theta:A\to B$ and a unique isomorphism
+$\theta_*E\rightiso F$ in $\cate{CExt}(G,B)$. Under the assumption
+$G=G_{\mathrm{der}}$, the category $\cate{CExt}(G,B)$ has no nontrivial
+automorphisms. The definition of a universal central extension can therefore
+be reformulated once more: for every abelian group $B$, there is a bijection
+\[\begin{tikzcd}[row sep=tiny]
+	\Hom_{\cate{Ab}}(A,B) \arrow[r,"1:1"] &
+	\Obj(\cate{CExt}(G,B))\big/\simeq \\
+	\theta \arrow[mapsto,r] & \text{the isomorphism class of }\theta_*E.
+\end{tikzcd}\]
+The left-hand side is a functor of $B$. The right-hand side likewise gives a
+functor $\kappa:\cate{Ab}\to\cate{Set}$, whose functoriality in $B$ is given
+by pushout of extensions. Thus the existence of a universal central extension
+becomes the question whether $\kappa$ is representable.
+
+% segment-id: o014.li2.chapter6.group-extensions-revisited.t002
+\begin{theorem}
+	A group $G$ has a universal central extension if and only if
+	$G=G_{\mathrm{der}}$. When this condition holds, the central subgroup $A$
+	in a universal central extension is isomorphic to $\Hm_2(G,\Z)$.
+\end{theorem}
+\begin{proof}
+	By Lemma~\ref{prop:univ-central-ext-prep}, it suffices to prove the “if”
+	direction. Consider the functor $\kappa$ above.
+	Theorem~\ref{prop:factor-set} identifies $\kappa(B)$ with $\Hm^2(G,B)$,
+	while Proposition~\ref{prop:factor-set-operation} shows that pushout
+	corresponds to the respective operation on $\Hm^2(G,\cdot)$. We know that
+	$\Hm_1(G,\Z)\simeq G_{\mathrm{ab}}=0$
+	(Example~\ref{eg:group-H1-further}). Taking $n=2$ in
+	Proposition~\ref{prop:group-UCT} therefore gives
+	$\Hm^2(G,B)\simeq\Hom_{\cate{Ab}}(\Hm_2(G,\Z),B)$, naturally in $B$.
+	Hence $\kappa$ is representable.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.group-extensions-revisited.p008
+The group $\Hm_2(G,\Z)$ is also called the \emph{Schur multiplier} of $G$.
+Corollary~\ref{prop:Hopf-H2} below is useful for computing it. In practice,
+the crucial matter is often an explicit description of the universal central
+extension; the existence criterion above is only the first step.
+\index{Schur multiplier}
+
+% segment-id: o014.li2.chapter6.group-extensions-revisited.p009
+As another application of $\Hm^2$, we derive a result in group theory.
+
+% segment-id: o014.li2.chapter6.group-extensions-revisited.t003
+\begin{theorem}[Schur--Zassenhaus]\label{prop:Schur-Zassenhaus}
+	% Editorial correction: the Chinese source ends this group extension in
+	% 0; the Indonesian witness and the definition of a group extension
+	% require the terminal group 1.
+	Let $1\to A\to E\xrightarrow{\pi}G\to1$ be a group extension in which
+	$A$ and $G$ are finite groups of relatively prime orders. Then the
+	extension splits.
+\end{theorem}
+\begin{proof}
+	The first step is to handle the case in which $A$ is abelian. Give $A$
+	the $G$-module structure arising from the group extension. It is enough
+	to prove that $\Hm^2(G,A)$ is trivial. Since $|A|$ and $|G|$ are
+	relatively prime, it suffices to prove the following equalities for $k=2$:
+	\[ k\geq1\implies |A|\cdot\Hm^k(G,A)=0
+	=|G|\cdot\Hm^k(G,A). \]
+
+	The first equality is easy. For every $t\in\Z$, the endomorphism
+	$A\to A$ given by multiplication by $t$ induces on every $\Hm^k(G,A)$
+	the endomorphism that is likewise multiplication by $t$; this is a
+	simple exercise in this chapter. The second equality is another exercise
+	in this chapter; Corollary~\ref{prop:group-coh-torsion} below will give a
+	complete, though somewhat circuitous, proof.
+
+	For general $A$, our next aim is to show that $E$ has a subgroup $H$ of
+	order $|G|$. This will imply $H\cap A=\{1\}$ and make
+	$\pi|_H:H\rightiso G$ an isomorphism, whose inverse gives a splitting of
+	the group extension. We argue by induction on $|E|$. We may assume
+	without loss of generality that $|A|>1$.
+
+	Choose a prime $p$ dividing $|A|$, so that $p\nmid|G|$, and take a Sylow
+	$p$-subgroup $P$ of $A$. Then $P$ is also a Sylow $p$-subgroup of $E$.
+	Since $A\lhd E$ and all Sylow $p$-subgroups are conjugate, all of them
+	are contained in $A$. Counting the Sylow $p$-subgroups in $A$ and $E$,
+	respectively, gives $(E:N_E(P))=(A:N_A(P))$, where $N_E$ and $N_A$
+	denote normalizers; rearranging,
+	\[ (N_E(P):N_A(P))=(E:A)=|G|. \]
+
+	We have $N_A(P)\lhd N_E(P)$. The corresponding group extension
+	\[ 1\to N_A(P)\to N_E(P)\to N_E(P)/N_A(P)\to1 \]
+	still satisfies the hypotheses of the theorem. If $N_E(P)\neq E$, the
+	induction hypothesis gives a subgroup $H$ of $N_E(P)$ with
+	$|H|=(N_E(P):N_A(P))=|G|$, proving the assertion.
+
+	We may therefore assume that $P\lhd E$, hence $P\lhd A$. Consider the
+	group extension
+	\[ 1\to A/P\to E/P\to G\to1. \]
+	By induction, there is a subgroup $H$ of $E$ such that $H\supset P$ and
+	$|H/P|=|G|$. A basic fact of group theory says that the center
+	$Z:=Z_P$ of $P$ is nontrivial. We have $Z\lhd H$ and
+	$(H/Z:P/Z)=(H:P)=|G|$. Applying induction again, there is a subgroup $K$
+	of $H$ such that $K\supset Z$ and $|K/Z|=|G|$.
+
+	We now have a group extension $1\to Z\to K\to K/Z\to1$. Since $Z$ is a
+	$p$-group, if $K\neq E$, induction gives a subgroup of $K$ of order
+	$|K/Z|=|G|$, proving the assertion. Henceforth assume $K=E$. Then
+	necessarily $H=E$, so $(H:P)=|G|$ gives $P=A$; in this case
+	$Z=Z_A\lhd E$.
+
+	Finally, consider the group extension
+	$1\to A/Z\to E/Z\to G\to1$. We obtain a subgroup $Q$ of $E$ such that
+	$Q\supset Z$ and $|Q/Z|=|G|$. If $A$ is nonabelian, then $Z\neq A$ and
+	$Q\neq E$; considering the group extension
+	$1\to Z\to Q\to Q/Z\to1$ yields a subgroup of $Q$ of order $|G|$. If
+	$A$ is abelian, the problem was already solved at the beginning of the
+	proof.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.group-extensions-revisited.p010
+If $A$ is abelian, all splittings of the extension $E$ in
+Theorem~\ref{prop:Schur-Zassenhaus} are conjugate by $A$. Indeed, specifying a
+splitting is equivalent to specifying an isomorphism of group extensions
+$A\rtimes G\simeq E$, so any two splittings $s,s':G\to E$ differ by an
+automorphism of $E$. But Lemma~\ref{prop:factor-set-prep} or
+Theorem~\ref{prop:factor-set} shows that the outer automorphism group of the
+extension is $\Hm^1(G,A)$, and the first step in the proof of
+Theorem~\ref{prop:Schur-Zassenhaus} showed that this group is trivial.
+
+% segment-id: o014.li2.chapter6.group-extensions-revisited.p011
+The conjugacy property of splittings extends to general $A$, but its proof is
+more involved.

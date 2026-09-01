@@ -1,0 +1,221 @@
+% Unit 113 English translation of chapter8.tex lines 1229--1352.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter8.bar-construction-a
+% Coverage: Section 8.7 from its opening through the free--forgetful bar construction.
+% Editorial correction note: the boundary conditions in the source's formula
+% for the cofaces of Cobar(F,G)G are interchanged; the formula is annotated below.
+
+% segment-id: o014.li2.chapter8.bar-construction-a.h001
+\section{The Bar Construction}\label{sec:bar-resolution}
+\hypertarget{o014.aljabr2.chapter8.bar-construction-a}{ }
+\index{bar construction}
+% segment-id: o014.li2.chapter8.bar-construction-a.p001
+Definition~\ref{def:monad} explains what is meant by a monad on a category
+$\mathcal{C}$, as well as its dual notion, a comonad. The starting point of
+this section is a way to produce an augmented cosimplicial (respectively,
+simplicial) object in $\End(\mathcal{C})$ from a monad (respectively, a
+comonad). In this way, many basic constructions in homological algebra can be
+explained naturally, including Hochschild homology and cohomology, which will
+be revisited at the end of the section (Example~\ref{eg:HH-comonad}).
+
+% segment-id: o014.li2.chapter8.bar-construction-a.eg001
+\begin{example}\label{eg:monad-simplicial}
+	Let $(T,\mu,\eta)$ be a monad on a category $\mathcal{C}$, that is, an
+	algebra in the category of endofunctors
+	$\End(\mathcal{C})=\mathcal{C}^{\mathcal{C}}$. The ``walking algebra''
+	construction of Remark~\ref{rem:walking-algebra} gives the corresponding
+	monoidal functor
+	% segment-id: o014.li2.chapter8.bar-construction-a.q001
+	\[ \cate{FinOrd} \to \End(\mathcal{C}), \quad \mathbf{n} \mapsto T^n , \]
+	that is, an augmented cosimplicial object in $\End(\mathcal{C})$. Dually,
+	a comonad $(L,\delta,\epsilon)$ on a category $\mathcal{D}$ gives an
+	augmented simplicial object in $\End(\mathcal{D})$; here
+	$\delta:L\to L^2$ and $\epsilon:L\to\identity_{\mathcal{D}}$.
+
+	\begin{itemize}
+		\item In this section we shall mainly consider the augmented simplicial
+		object on $\mathcal{D}$ given by the comonad. Explicitly, its term in
+		degree $n$ is $L^{n+1}$, while its face and degeneracy morphisms are
+		readily written as
+		% segment-id: o014.li2.chapter8.bar-construction-a.q002
+		\begin{align*}
+			d_i := L^i \epsilon L^{n-i}: L^{n+1} & \to L^n, \\
+			s_j := L^j \delta L^{n-j}: L^{n+1} & \to L^{n+2}, \quad 0 \leq i, j \leq n ;
+		\end{align*}
+		the term in degree $-1$ of the augmented object is the identity
+		functor. Notice that the formula for $d_0$ still makes sense when
+		$n=0$ and gives the augmentation morphism
+		$\epsilon:L\to\identity_{\mathcal{D}}$.
+
+		\item Correspondingly, the augmented cosimplicial object on
+		$\mathcal{C}$ has $T^{n+1}$ as its term in degree $n$, and
+		% segment-id: o014.li2.chapter8.bar-construction-a.q003
+		\begin{align*}
+			d^i & : = T^i \eta T^{n-i}: T^n \to T^{n+1}, \\
+			s^j & := T^j \mu T^{n-j}: T^{n+2} \to T^{n+1}, \quad 0 \leq i, j \leq n ;
+		\end{align*}
+		when $n=0$, $d^0$ becomes the augmentation morphism
+		$\eta:\identity_{\mathcal{C}}\to T$.
+	\end{itemize}
+\end{example}
+
+% segment-id: o014.li2.chapter8.bar-construction-a.p002
+An important source of monads and comonads is adjoint pairs of functors. In
+view of their origins in classical theory (see \S\ref{sec:HH}), constructions
+of this kind are collectively called \emph{bar constructions}.
+
+% segment-id: o014.li2.chapter8.bar-construction-a.eg002
+\begin{example}[Bar construction: an adjoint pair]\label{eg:bar-adjunction}
+	Suppose we are given an adjoint pair
+	% segment-id: o014.li2.chapter8.bar-construction-a.q004
+	\[\begin{tikzcd}
+		F : \mathcal{C} \arrow[shift left, r] & \mathcal{D}: G \arrow[shift left, l] ,
+	\end{tikzcd} \quad \begin{array}{ll}
+		\eta: \identity_{\mathcal{C}} \to GF & \text{unit} \\
+		\epsilon: FG \to \identity_{\mathcal{D}} & \text{counit}
+	\end{array}\]
+	By Example~\ref{eg:adjunction-monad}, this gives
+	\begin{itemize}
+		\item the monad $(T,\mu,\eta):=(GF,G\epsilon F,\eta)$ on
+		$\mathcal{C}$, whose corresponding augmented cosimplicial object is
+		denoted by
+		% segment-id: o014.li2.chapter8.bar-construction-a.q005
+		\[ \mathrm{Cobar}(F, G): \cate{FinOrd} \to \End(\mathcal{C}); \]
+		\item the comonad $(L,\delta,\varepsilon):=(FG,F\eta G,\epsilon)$ on
+		$\mathcal{D}$, whose corresponding augmented simplicial object is
+		denoted by
+		% segment-id: o014.li2.chapter8.bar-construction-a.q006
+		\[ \mathrm{Bar}(F, G): \cate{FinOrd}^{\opp} \to \End(\mathcal{D}). \]
+	\end{itemize}
+	The corresponding face and degeneracy morphisms (and their dual versions)
+	have been described in Example~\ref{eg:monad-simplicial}.
+
+	Since $\mathrm{Bar}(F,G)$ (respectively, $\mathrm{Cobar}(F,G)$) takes
+	values in the functor category $\End(\mathcal{D})$ (respectively,
+	$\End(\mathcal{C})$), we can compose each of its terms with $G$ on the
+	left (respectively, on the right). The former composition produces an
+	augmented simplicial object
+	$G\mathrm{Bar}(F,G):\cate{FinOrd}^{\opp}\to
+	\mathcal{C}^{\mathcal{D}}$, whose general term is the functor
+	% segment-id: o014.li2.chapter8.bar-construction-a.q007
+	\begin{align*}
+		G\mathrm{Bar}(F, G)_n & = GL^{n+1} = (GF)^{n+1} G \\
+		& = T^{n+1}G: \mathcal{D} \to \mathcal{C}, \quad n \geq -1.
+	\end{align*}
+
+	The face morphism $d_i:T^{n+1}G\to T^nG$ (understood as the augmentation
+	morphism when $i=n=0$) is
+	% segment-id: o014.li2.chapter8.bar-construction-a.q008
+	\[d_i = \left\{\begin{array}{rll}
+		G L^i \epsilon L^{n-i} & = T^i G \epsilon F T^{n-i-1} G & \\
+		& = T^i \mu T^{n-i-1} G, & \text{if}\; 0 \leq i < n, \\
+		G L^n \epsilon & = T^n G \epsilon , & \text{if}\; i = n.
+	\end{array}\right.\]
+
+	The degeneracy morphism with source the term in degree $n\geq0$,
+	$s_j:T^{n+1}G\to T^{n+2}G$, is given by
+	% segment-id: o014.li2.chapter8.bar-construction-a.q009
+	\begin{align*}
+		s_j = G L^j \delta L^{n-j} & =
+		G L^j F \eta G L^{n-j} \\
+		& = T^{j+1} \eta T^{n-j} G, \quad 0 \leq j \leq n.
+	\end{align*}
+
+	The augmented cosimplicial object $\mathrm{Cobar}(F,G)G$ has a
+	corresponding description: its term in degree $n$ is again
+	$T^{n+1}G=GL^{n+1}$, while
+	% segment-id: o014.li2.chapter8.bar-construction-a.q010
+	\begin{gather*}
+		\left[ d^i: GL^n \to GL^{n+1} \right] =
+		\begin{cases}
+			GL^{i-1} \delta L^{n-i}, & 0 \leq i < n \\
+			\eta GL^n , & i = n,
+		\end{cases} \\
+		\left[ s^j: GL^{n+2} \to GL^{n+1} \right] =
+		GL^j \epsilon L^{n-j+1}, \quad 0 \leq j \leq n.
+	\end{gather*}
+	\footnote{Translator's note: in the printed case distinction for $d^i$,
+	the boundary conditions are interchanged. Consistently with
+	$d^i=T^i\eta T^{n-i}$, the first line applies for $1\leq i\leq n$,
+	while the second applies for $i=0$.}
+	Likewise, when $i=n=0$, $d^0$ is to be understood as the augmentation
+	morphism $\eta G:G\to GFG=GL$.
+\end{example}
+
+% segment-id: o014.li2.chapter8.bar-construction-a.p003
+Readers new to the subject are advised to pause here. For a homomorphism
+$f:A\to B$ of $\Bbbk$-algebras and the adjoint pair
+% segment-id: o014.li2.chapter8.bar-construction-a.q011
+\[\begin{tikzcd}
+	B \dotimes{A} (\cdot): A\dcate{Mod} \arrow[shift left, r] & B\dcate{Mod}: \text{forgetful} \arrow[shift left, l]
+\end{tikzcd}\]
+describe the value of $\mathrm{Bar}$ (respectively, $\mathrm{Cobar}$) at a
+left $B$-module $M$ (respectively, a left $A$-module $N$), and then use the
+functor $\mathrm{C}$ of Definition~\ref{def:unnormalized-chain} to write down
+the corresponding chain complex. For the right-module version, the
+corresponding comonad (respectively, monad) was described completely in
+Example~\ref{eg:comonad-change-ring}.
+
+% segment-id: o014.li2.chapter8.bar-construction-a.eg003
+\begin{example}[Bar construction: free and forgetful]\label{eg:bar-comonad}
+	Let $(T,\mu,\eta)$ be a monad on a category $\mathcal{C}$.
+	Definition--Proposition~\ref{def:free-T-Alg} gives an adjoint pair
+	% segment-id: o014.li2.chapter8.bar-construction-a.q012
+	\[\begin{tikzcd}
+		\mathrm{Free}^T : \mathcal{C} \arrow[shift left, r, "\text{free}"] & \mathcal{C}^T: U^T \arrow[shift left, l, "\text{forgetful}"] ,
+	\end{tikzcd}\]
+	and its induced monad is precisely $(T,\mu,\eta)$. Substituting this into
+	Example~\ref{eg:bar-adjunction} produces the augmented simplicial object
+	% segment-id: o014.li2.chapter8.bar-construction-a.q013
+	\[ \mathrm{Bar}(T) := \mathrm{Bar}(\mathrm{Free}^T, U^T): \cate{FinOrd}^{\opp} \to \End(\mathcal{C}^T). \]
+
+	Evaluation at $(M,a)\in\Obj(\mathcal{C}^T)$ is a functor from
+	$\End(\mathcal{C}^T)$ to $\mathcal{C}^T$. Evaluating every term of
+	$\mathrm{Bar}(T)$ gives the augmented simplicial object
+	% segment-id: o014.li2.chapter8.bar-construction-a.q014
+	\[ \mathrm{Bar}(M, a): \cate{FinOrd}^{\opp} \to \mathcal{C}^T .\]
+
+	Now consider $U^T\mathrm{Bar}(M,a):\cate{FinOrd}^{\opp}\to
+	\mathcal{C}$; this is also the result of evaluating
+	$U^T\mathrm{Bar}(T)$ at $(M,a)$.
+	\begin{itemize}
+		\item Substitution into Example~\ref{eg:bar-adjunction} shows that the
+		general term of $U^T\mathrm{Bar}(M,a)$ is
+		% segment-id: o014.li2.chapter8.bar-construction-a.q015
+		\[ U^T \mathrm{Bar}(M, a)_n = T^{n+1} U^T (M, a) = T^{n+1} M, \quad n \geq -1. \]
+		\item Again denote the counit of $(\mathrm{Free}^T,U^T)$ by
+		$\epsilon$. The proof of Definition--Proposition~\ref{def:free-T-Alg}
+		has shown that
+		% segment-id: o014.li2.chapter8.bar-construction-a.q016
+		\[ \left[ \epsilon_{(M, a)} : \mathrm{Free}^T U^T (M, a) = (TM, \mu_M) \to (M, a) \right] = a, \]
+		so the face morphisms of $U^T\mathrm{Bar}(M,a)$ are
+		% segment-id: o014.li2.chapter8.bar-construction-a.q017
+		\begin{equation*}
+			\left[ d_i: T^{n+1}M \to T^n M \right] = \begin{cases}
+				T^i \mu_{T^{n-i-1} M}, & 0 \leq i < n \\
+				T^n a, & i = n.
+			\end{cases}
+		\end{equation*}
+		This formula also makes sense when $i=n=0$ and gives the augmentation
+		morphism, namely $a:TM\to M$.
+		\item Its degeneracy morphisms are
+		% segment-id: o014.li2.chapter8.bar-construction-a.q018
+		\[ \left[ s_j: T^{n+1} M \to T^{n+2} M \right] =
+		T^{j+1} \eta_{T^{n-j} M}, \quad 0 \leq j \leq n .\]
+	\end{itemize}
+
+	Thus $U^T\mathrm{Bar}(M,a)$ can be written concisely as
+	% segment-id: o014.li2.chapter8.bar-construction-a.q019
+	\begin{equation}\label{eqn:bar-simplicial-resolution}
+		\begin{tikzcd}[column sep=large]
+			\cdots \arrow[r, shift left=3, "{\mu_{T^2 M}}"] \arrow[r, shift left=1] \arrow[r, shift right=1] \arrow[r, shift right=3, "{T^3 a}"'] & T^3 M \arrow[r, shift left=2.5, "\mu_{TM}"] \arrow[r, "{T\mu_M}" description] \arrow[r, shift right=2.5, "{T^2 a}"'] & T^2 M \arrow[r, shift left, "{\mu_M}"] \arrow[shift right, r, "Ta"'] & TM \arrow[r, "a"] & M .
+		\end{tikzcd}
+	\end{equation}
+
+	We have already explained abstractly that these arrows satisfy the
+	simplicial identities \eqref{eqn:simplicial-identity}, although a direct
+	verification also presents no essential difficulty. Moreover,
+	Example~\ref{eg:T-split-fork} shows that the right end of the diagram
+	realizes $a:TM\to M$ as a coequalizer.
+\end{example}

@@ -1,0 +1,168 @@
+% English translation of appendix1.tex, lines 1--120.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.appendix1.yoneda-density
+% Coverage: opening of Appendix A and all of Section A.1.
+
+% segment-id: o014.li2.appendix1.yoneda-density.h001
+\chapter{Further Material on Abelian Categories}\label{sec:app-Abel}
+\hypertarget{o014.aljabr2.appendix1.yoneda-density}{ }
+% segment-id: o014.li2.appendix1.yoneda-density.p001
+This appendix is a collection of topics related, directly or indirectly, to Abelian categories; it is almost a miscellaneous stew. In principle, the prerequisites extend no further than the first half of \CHref{sec:categories} and a small part of \CHref{sec:Abel-cat}.
+
+% segment-id: o014.li2.appendix1.yoneda-density.p002
+Section~\ref{sec:Yoneda} begins with a brief review of the Yoneda embedding. Its density theorem, Theorem~\ref{prop:Yoneda-density}, is standard knowledge in category theory, yet is often omitted from textbooks. These tools will be used frequently in \S\ref{sec:ind-pro}.
+
+% segment-id: o014.li2.appendix1.yoneda-density.p003
+Although the compact objects and presentable categories introduced in \S\ref{sec:cpt-objects} are not absolutely necessary elsewhere in this book, they provide a convenient and common language. The discussion of regular cardinals there also paves the way for \S\ref{sec:Grothendieck-cat}.
+
+% segment-id: o014.li2.appendix1.yoneda-density.p004
+The next two sections are directly related to Abelian categories. The Gabriel--Popescu theorem in \S\ref{sec:GP} explains the structure of Grothendieck categories, while the locally finite Abelian categories discussed in \S\ref{sec:locally-finite-Abel-cat} are needed in \S\ref{sec:Tannaka-coend}. The focus of the latter section is Proposition~\ref{prop:subcat-union}, due to O.\ Gabber, whose proof requires some ingenuity.
+
+% segment-id: o014.li2.appendix1.yoneda-density.h002
+\section{Density of the Yoneda Embedding}\label{sec:Yoneda}
+% segment-id: o014.li2.appendix1.yoneda-density.p005
+We first recall the theoretical framework surrounding the Yoneda embedding. For any category $\mathcal{C}$, define the functor categories
+% segment-id: o014.li2.appendix1.yoneda-density.q001
+\[ \mathcal{C}^\wedge := \cate{Set}^{\mathcal{C}^{\opp}}, \quad \mathcal{C}^\vee := \left(\cate{Set}^{\opp}\right)^{\mathcal{C}^{\opp}} = \left( \cate{Set}^{\mathcal{C}} \right)^{\opp}. \]
+They are dual to each other:
+$(\mathcal{C}^\vee)^{\opp}=(\mathcal{C}^{\opp})^\wedge$. Relative to a previously chosen Grothendieck universe $\mathcal{U}$, the categories $\mathcal{C}^\wedge$ and $\mathcal{C}^\vee$ are generally large unless $\mathcal{C}$ is small.
+\index{size issues}
+
+% segment-id: o014.li2.appendix1.yoneda-density.p006
+The \emph{Yoneda embeddings} are the following functors:
+% segment-id: o014.li2.appendix1.yoneda-density.q002
+\begin{align*}
+	h_{\mathcal{C}}: \mathcal{C} & \longrightarrow \mathcal{C}^\wedge & k_{\mathcal{C}}: \mathcal{C} & \longrightarrow \mathcal{C}^\vee \\
+	S & \longmapsto \Hom_{\mathcal{C}}(\cdot, S), & S & \longmapsto \Hom_{\mathcal{C}}(S, \cdot).
+\end{align*}
+\index{Yoneda embedding}
+
+% segment-id: o014.li2.appendix1.yoneda-density.p007
+The following restates \cite[Theorem 2.5.1]{Li1}.
+
+% segment-id: o014.li2.appendix1.yoneda-density.th001
+\begin{theorem}[Nobuo Yoneda]\label{prop:Yoneda}
+	For every $S\in\Obj(\mathcal{C})$, $A\in\Obj(\mathcal{C}^\wedge)$, and $B\in\Obj(\mathcal{C}^\vee)$, the canonical maps
+	% segment-id: o014.li2.appendix1.yoneda-density.q003
+	\[\begin{tikzcd}[row sep=tiny]
+		\Hom_{\mathcal{C}^\wedge}\left(h_{\mathcal{C}}(S), A \right) \arrow[r] & A(S) \\
+		{\left[ \Hom_{\mathcal{C}}(\cdot, S) \xrightarrow{\phi} A(\cdot) \right]} \arrow[mapsto, r] & \phi_S(\identity_S)
+	\end{tikzcd} \quad \begin{tikzcd}[row sep=tiny]
+		\Hom_{\mathcal{C}^\vee}\left(B, k_{\mathcal{C}}(S) \right) \arrow[equal, d] & \\
+		\Hom_{\cate{Set}^{\mathcal{C}}}\left(k_{\mathcal{C}}(S), B \right) \arrow[r] & B(S) \\
+		{\left[ \Hom_{\mathcal{C}}(S, \cdot) \xrightarrow{\psi} B(\cdot) \right]} \arrow[mapsto, r] & \psi_S(\identity_S)
+	\end{tikzcd}\]
+	are bijections. Consequently, $h_{\mathcal{C}}$ and $k_{\mathcal{C}}$ are both fully faithful functors.
+\end{theorem}
+
+% segment-id: o014.li2.appendix1.yoneda-density.d001
+\begin{definition}\label{def:representable-functor}
+	\index{functor!representable}
+	A functor $\mathcal{C}^{\opp}\to\cate{Set}$ (respectively $\mathcal{C}\to\cate{Set}$) that, up to isomorphism, lies in the image of $h_{\mathcal{C}}$ (respectively $k_{\mathcal{C}}$) is called a \emph{representable functor}.
+\end{definition}
+
+% segment-id: o014.li2.appendix1.yoneda-density.p008
+Although $\mathcal{C}^\wedge$ (respectively $\mathcal{C}^\vee$) is much larger than $\mathcal{C}$, each of its objects can be written canonically as a $\varinjlim$ (respectively $\varprojlim$) of representable functors. Before stating this density theorem, we need a few definitions.
+\begin{itemize}
+	\item For each $A\in\Obj(\mathcal{C}^\wedge)$, define the category $(h_{\mathcal{C}}/A)$ as in Definition~\ref{def:comma-category}. Its objects are data
+	$\underline S:=\left(S,h_{\mathcal{C}}(S)\xrightarrow{\phi_{\underline S}}A\right)$.
+	A morphism from $\underline S$ to $\underline S'$ is an
+	$f\in\Hom_{\mathcal{C}}(S,S')$ satisfying
+	$\phi_{\underline S}=\phi_{\underline S'}h_{\mathcal{C}}(f)$.
+
+	\item Dually, for $B\in\Obj(\mathcal{C}^\vee)$ there is a category
+	$(B/k_{\mathcal{C}})$. Its objects are data
+	$\overline S:=\left(S,B\xrightarrow{\psi_{\overline S}}k_{\mathcal{C}}(S)\right)$,
+	where $\psi_{\overline S}$ is regarded as a morphism in $\mathcal{C}^\vee$; morphisms $\overline S\to\overline S'$ are defined similarly.
+\end{itemize}
+
+% segment-id: o014.li2.appendix1.yoneda-density.th002
+\begin{theorem}[Density]\label{prop:Yoneda-density}
+	\index{Yoneda embedding!density}
+	For every $A\in\Obj(\mathcal{C}^\wedge)$ and $B\in\Obj(\mathcal{C}^\vee)$, the families of morphisms $\phi_{\underline S}$ and $\psi_{\overline S}$ above respectively give canonical isomorphisms in $\mathcal{C}^\wedge$ and $\mathcal{C}^\vee$
+	% segment-id: o014.li2.appendix1.yoneda-density.q004
+	\[ \varinjlim_{\underline{S}} h_{\mathcal{C}}(S) \rightiso A, \quad B \rightiso \varprojlim_{\overline{S}} k_{\mathcal{C}}(S). \]
+\end{theorem}
+\begin{proof}
+	It suffices to prove the first assertion. For any $A'\in\Obj(\mathcal{C}^\wedge)$, there is a map
+	% segment-id: o014.li2.appendix1.yoneda-density.q005
+	\begin{equation}\label{eqn:Yoneda-density-aux} \begin{aligned}
+		\Hom_{\mathcal{C}^\wedge}(A, A') & \longrightarrow \left\{\begin{array}{l}
+			\text{compatible families of morphisms}\; a'_{\underline{S}}: h_{\mathcal{C}}(S) \to A' , \\
+			\text{where}\; \underline{S} = (S, \phi_{\underline{S}}) \in \Obj((h_{\mathcal{C}}/A))
+		\end{array}\right\} \\
+		\varphi & \longmapsto \left( a'_{\underline{S}} := \varphi \phi_{\underline{S}}\right)_{\underline{S}} .
+	\end{aligned}\end{equation}
+
+	Define the reverse map as follows. Given data $(a'_{\underline S})_{\underline S}$, for every $S\in\Obj(\mathcal{C})$ and $a_S\in A(S)$ take, by Theorem~\ref{prop:Yoneda}, the corresponding morphism $\phi:h_{\mathcal{C}}(S)\to A$, thereby determining
+	$\underline S:=(S,\phi)\in\Obj((h_{\mathcal{C}}/A))$. The assignment
+	$a_S\mapsto a'_{\underline S}$ then gives a map $A(S)\to A'(S)$. We claim:
+	\begin{compactitem}
+		\item as $S$ varies, the maps $A(S)\to A'(S)$ give a morphism $\varphi:A\to A'$ in $\mathcal{C}^\wedge$;
+		\item the map $(a'_{\underline S})_{\underline S}\mapsto\varphi$ and the map in \eqref{eqn:Yoneda-density-aux} are mutually inverse.
+	\end{compactitem}
+	As with many results concerning the Yoneda embedding, the detailed verification is nearly tautological and is omitted.
+
+	Thus \eqref{eqn:Yoneda-density-aux} is a bijection. In the special case $A'=A$, it sends $\identity_A$ to
+	$(a'_{\underline S}=\phi_{\underline S})_{\underline S}$. This verifies precisely that $A$, together with the morphisms
+	$\phi_{\underline S}:h_{\mathcal{C}}(S)\to A$, has the universal property of the colimit.
+\end{proof}
+
+% segment-id: o014.li2.appendix1.yoneda-density.p009
+The reader may also consult the treatment in \cite[pp. 76--77]{ML98}.
+
+% segment-id: o014.li2.appendix1.yoneda-density.r001
+\begin{remark}\label{rem:Yoneda-density}
+	The isomorphism involving $B$ can also be restated in $\cate{Set}^{\mathcal{C}}$ as
+	$\varinjlim_{\overline S}\Hom_{\mathcal{C}}(S,\mathord\cdot)\rightiso B$,
+	where $\overline S$ ranges over data $(S,\psi'_{\overline S})$ with
+	$S\in\Obj(\mathcal{C})$ and
+	$\psi'_{\overline S}:\Hom_{\mathcal{C}}(S,\mathord\cdot)\to B(\mathord\cdot)$
+	a morphism in $\cate{Set}^{\mathcal{C}}$.
+\end{remark}
+
+% segment-id: o014.li2.appendix1.yoneda-density.p010
+One application of Theorem~\ref{prop:Yoneda-density} is the extension of functors defined on a small category. We state only the version for $\mathcal{C}^\wedge$. Let $\mathcal{C}$ be a small category, let $\mathcal{D}$ be a cocomplete category, possibly large but required to have all small colimits, and let $F:\mathcal{C}\to\mathcal{D}$ be a functor. Define
+% segment-id: o014.li2.appendix1.yoneda-density.q006
+\begin{equation}\label{eqn:Yoneda-F-tilde}\begin{aligned}
+	\tilde{F}: \mathcal{C}^\wedge & \to \mathcal{D} \\
+	X & \mapsto \varinjlim_{\underline{S}} F(S),
+\end{aligned}\end{equation}
+where $\underline S=(S,\phi_{\underline S}:h_{\mathcal{C}}(S)\to X)$ ranges over the small category $(h_{\mathcal{C}}/X)$. If $X$ comes from an object $T$ of $\mathcal{C}$, then $(h_{\mathcal{C}}/X)$ has the terminal object $(T,h_{\mathcal{C}}(T)\rightiso X)$. Thus the meaning of extension is that the following diagram commutes up to canonical isomorphism:
+% segment-id: o014.li2.appendix1.yoneda-density.q007
+\[\begin{tikzcd}
+	\mathcal{C}^\wedge \arrow[r, "{\tilde{F}}"] & \mathcal{D}. \\
+	\mathcal{C} \arrow[u, "{h_{\mathcal{C}}}"] \arrow[ru, "F"'] &
+\end{tikzcd}\]
+
+% segment-id: o014.li2.appendix1.yoneda-density.p011
+We now show that $\tilde F$ always has a right adjoint and therefore preserves all small colimits. This fact will be used in \S\ref{sec:Indization}.
+
+% segment-id: o014.li2.appendix1.yoneda-density.pr001
+\begin{proposition}\label{prop:Yoneda-F-tilde}
+	Let $\mathcal{C}$ be a small category and $\mathcal{D}$ a cocomplete category, possibly large. For a functor $F:\mathcal{C}\to\mathcal{D}$, take the canonical extension
+	$\tilde F:\mathcal{C}^\wedge\to\mathcal{D}$ defined in
+	\eqref{eqn:Yoneda-F-tilde}. Then $\tilde F$ has the right adjoint
+	% segment-id: o014.li2.appendix1.yoneda-density.q008
+	\[ \iHom(F, \cdot): \mathcal{D} \to \mathcal{C}^\wedge , \]
+	defined by:
+	\begin{itemize}
+		\item $\iHom(F,Y)(S)=\Hom_{\mathcal{D}}(FS,Y)$ for every
+		$S\in\Obj(\mathcal{C})$ and $Y\in\Obj(\mathcal{D})$;
+		\item a morphism $f:Y\to Y'$ induces a morphism
+		$f_*:\Hom(F(\mathord\cdot),Y)\to\Hom(F(\mathord\cdot),Y')$ in $\mathcal{C}^\wedge$.
+	\end{itemize}
+	Consequently, $\tilde F$ preserves all small colimits.
+\end{proposition}
+\begin{proof}
+	For $X\in\Obj(\mathcal{C}^\wedge)$ and $Y\in\Obj(\mathcal{D})$, the equality
+	$X=\varinjlim_{\underline S}h_{\mathcal{C}}(S)$ and the universal property of the colimit give canonical bijections
+	% segment-id: o014.li2.appendix1.yoneda-density.q009
+	\begin{multline*}
+		\Hom_{\mathcal{C}^\wedge}(X, \iHom(F, Y)) \simeq \varprojlim_{\underline{S}} \Hom_{\mathcal{C}^\wedge}(h_{\mathcal{C}}(S), \iHom(F, Y)) \simeq \varprojlim_{\underline{S}} \Hom_{\mathcal{D}}(FS, Y) \\
+		\simeq \Hom_{\mathcal{D}}(\varinjlim_{\underline{S}} FS, Y ) = \Hom_{\mathcal{D}}(\tilde{F}X, Y).
+	\end{multline*}
+	Thus $\iHom(F,\mathord\cdot)$ is indeed right adjoint to
+	$\tilde F:\mathcal{C}^\wedge\to\mathcal{D}$.
+\end{proof}

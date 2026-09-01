@@ -1,0 +1,90 @@
+% O014 / D80 -- Methods of Algebra, Volume 2 -- en
+% Source: appendix2.tex, lines 416--501 inclusive.
+% Stable unit ID: o014.aljabr2.appendix-b.indization-functors
+% Original source copyright 2024 Wen-Wei Li, CC BY 4.0.
+
+\section{Ind-Completion and Extension of Functors}\label{sec:Indization-functor}
+We continue the discussion of the preceding section, but shift the focus to functors.
+
+\begin{definition-proposition}[Ind-completion of a functor]\label{def:Ind-functor}
+	Let $F:\mathcal{C}\to\mathcal{D}$ be a functor. There is a canonical functor $\IndC F:\IndC\mathcal{C}\to\IndC\mathcal{D}$ such that the following diagram commutes up to canonical isomorphism:
+	\[\begin{tikzcd}
+		\IndC\mathcal{C} \arrow[r, "{\IndC F}"] & \IndC \mathcal{D} \\
+		\mathcal{C} \arrow[u] \arrow[r, "F"'] & \mathcal{D}. \arrow[u]
+	\end{tikzcd}\]
+	For every ind-object $X=\Yinjlim X_i$ over $\mathcal{C}$, there is a canonical isomorphism $(\IndC F)(X)\simeq\Yinjlim F(X_i)$.
+\end{definition-proposition}
+\begin{proof}
+	The density theorem for the Yoneda embedding, Theorem~\ref{prop:Yoneda-density}, canonically presents every $X\in\Obj(\mathcal{C}^\wedge)$ as
+	\[ X \simeq \Yinjlim_{\phi: S \to X} S, \]
+	where the data on the right are indexed by the category $(h_{\mathcal{C}}/X)$. For an ind-object $X$, we wish to define
+	\[ (\IndC F)(X) := \Yinjlim_{\phi: S \to X} F(S), \]
+	which is plainly canonical; the issue is to show that the right-hand side is an ind-object over $\mathcal{D}$. By Proposition~\ref{prop:recognize-ind}, $(h_{\mathcal{C}}/X)$ is a filtered, cofinally small category. By Lemma~\ref{prop:cofinally-small-sub}, choose a cofinal full subcategory $I$ that is small and filtered. Thus $(\IndC F)(X)$ is presented as a small filtered colimit indexed by $I$, and hence is indeed an ind-object.
+
+	For a given ind-object $X=\Yinjlim X_i$, the proof of Proposition~\ref{prop:recognize-ind} showed that the family of canonical morphisms $(X_i\to X)_i$ gives a cofinal functor $I\to(h_{\mathcal{C}}/X)$. It follows immediately that $(\IndC F)(X)\simeq\Yinjlim F(X_i)$. Taking $X\in\Obj(\mathcal{C})$ and taking $I$ to be the filtered poset with a single object gives the desired commutative diagram, up to canonical isomorphism.
+\end{proof}
+
+\begin{lemma}\label{prop:Ind-hat-functor-prep}
+	Let $F:\mathcal{C}\to\mathcal{D}$ be a functor. If $\mathcal{C}$ and $\mathcal{D}$ have finite $\varinjlim$ (respectively, finite $\varprojlim$), and if $F$ preserves them, then the functor $\IndC F:\IndC\mathcal{C}\to\IndC\mathcal{D}$ constructed in Definition--Proposition~\ref{def:Ind-functor} also preserves them.
+\end{lemma}
+\begin{proof}
+	The existence of finite $\varinjlim$ (respectively, finite $\varprojlim$) in $\IndC\mathcal{C}$ and $\IndC\mathcal{D}$ is guaranteed by Lemma~\ref{prop:Ind-colim} (respectively, Lemma~\ref{prop:Ind-lim}). Reviewing their proofs, one sees that all the $\varinjlim$ (respectively, $\varprojlim$) considered there are described ``index by index,'' once the ind-objects and morphisms in question have been suitably aligned; meanwhile, $\IndC F$ has the corresponding description. The issue therefore reduces to the assumption that $F:\mathcal{C}\to\mathcal{D}$ preserves finite $\varinjlim$ (respectively, finite $\varprojlim$).
+\end{proof}
+
+\begin{lemma}\label{prop:IndF-vs-Yoneda}
+	Let $F:\mathcal{C}\to\mathcal{D}$ be a functor, and suppose that $\mathcal{C}$ is small. Write $F^\wedge:\mathcal{C}^\wedge\to\mathcal{D}^\wedge$ for the functor obtained by applying \eqref{eqn:Yoneda-F-tilde} to the composite $\mathcal{C}\xrightarrow{F}\mathcal{D}\xrightarrow{h_{\mathcal{D}}}\mathcal{D}^\wedge$. Up to isomorphism, the following diagram commutes:
+	\[\begin{tikzcd}
+		\IndC\mathcal{C} \arrow[r, "{\IndC F}"] \arrow[d] & \IndC\mathcal{D} \arrow[d] \\
+		\mathcal{C}^\wedge \arrow[r, "{F^\wedge}"'] & \mathcal{D}^\wedge ,
+	\end{tikzcd}\]
+	where both vertical functors are the evident embeddings.
+
+	Consequently, $\IndC F$ preserves small filtered $\varinjlim$.
+\end{lemma}
+\begin{proof}
+	Recall that $\mathcal{D}^\wedge$ is cocomplete, so $F^\wedge$ is indeed defined. For the first assertion, take an ind-object $X=\Yinjlim X_i$ over $\mathcal{C}$, where $i$ ranges over a small filtered category $I$, or more generally over a cofinally small filtered category; the latter can canonically be taken to be $(h_{\mathcal{C}}/X)$. By the construction in \eqref{eqn:Yoneda-F-tilde}, its image under $F^\wedge$ is $\Yinjlim F(X_i)$ in $\mathcal{D}^\wedge$. By the proof of Definition--Proposition~\ref{def:Ind-functor}, this is also precisely the image of $(\IndC F)(X)$ in $\mathcal{D}^\wedge$.
+
+	For the second assertion, Proposition~\ref{prop:Yoneda-F-tilde} states that $F^\wedge$ preserves small $\varinjlim$. Since the vertical functors in the diagram create small filtered $\varinjlim$ (Proposition~\ref{prop:Ind-filtered-colim}), it follows immediately that $\IndC F$ preserves small filtered $\varinjlim$.
+\end{proof}
+
+\begin{definition-proposition}\label{def:Ind-hat-functor}
+	Let $F:\mathcal{C}\to\mathcal{D}$ be a functor, and suppose that $\mathcal{D}$ has small filtered $\varinjlim$. Define $\hat{F}:\IndC\mathcal{C}\to\mathcal{D}$ to be the composite functor
+	\[ \IndC\mathcal{C} \xrightarrow{\IndC F} \IndC\mathcal{D} \xrightarrow[\text{Proposition \ref{prop:Ind-adjunction}}]{\sigma} \mathcal{D}; \]
+	if $X=\Yinjlim X_i$ is an ind-object over $\mathcal{C}$, then there is a canonical isomorphism $\hat{F}(X)\simeq\varinjlim_i F(X_i)$. In particular, the composite of $\hat{F}$ with the embedding $\mathcal{C}\to\IndC\mathcal{C}$ is isomorphic to $F$.
+
+	If, in addition, $\mathcal{C}$ and $\mathcal{D}$ have finite $\varinjlim$, and $F$ preserves them, then $\hat{F}$ preserves them as well.
+\end{definition-proposition}
+\begin{proof}
+	The first assertion merely combines the relevant statements in Proposition~\ref{prop:Ind-adjunction} and Definition--Proposition~\ref{def:Ind-functor}.
+
+	For the second assertion, Lemma~\ref{prop:Ind-hat-functor-prep} shows that $\IndC F$ preserves finite $\varinjlim$. On the other hand, since $\sigma$ has a right adjoint, it too preserves $\varinjlim$.
+\end{proof}
+
+When $\mathcal{C}$ is a small category, Definition--Proposition~\ref{def:Ind-hat-functor} can be strengthened further.
+
+\begin{proposition}\label{prop:Ind-hat-small}
+	Let $F:\mathcal{C}\to\mathcal{D}$ be a functor, suppose that $\mathcal{C}$ is small, and suppose that $\mathcal{D}$ has small filtered $\varinjlim$. Then $\hat{F}:\IndC\mathcal{C}\to\mathcal{D}$ preserves all small filtered $\varinjlim$.
+\end{proposition}
+\begin{proof}
+	Lemma~\ref{prop:IndF-vs-Yoneda} shows that $\IndC F$ preserves small filtered $\varinjlim$, while $\sigma$ has a right adjoint.
+\end{proof}
+
+\begin{proposition}[Recognizing an Ind-completion]\label{prop:recognition-Ind}
+	Suppose that $\mathcal{C}$ has small filtered $\varinjlim$ and that $\mathcal{C}'$ is a full subcategory of $\mathcal{C}$. The embedding functor $\iota:\mathcal{C}'\to\mathcal{C}$ induces a functor $\hat{\iota}:\IndC(\mathcal{C}')\to\mathcal{C}$ by the construction of Definition--Proposition~\ref{def:Ind-hat-functor}. Suppose that $\mathcal{C}'$ satisfies the following conditions:
+	\begin{itemize}
+		\item every object of $\mathcal{C}'$ is compact in $\mathcal{C}$ (Definition~\ref{def:cpt-objects});
+		\item every object of $\mathcal{C}$ can be presented as a small filtered $\varinjlim$ of objects in $\mathcal{C}'$.
+	\end{itemize}
+	Then $\hat{\iota}$ is an equivalence.
+\end{proposition}
+\begin{proof}
+	By construction, $\hat{\iota}$ sends an ind-object $\Yinjlim X_i$ over $\mathcal{C}'$ to $\varinjlim X_i$ in $\mathcal{C}$; here $I\to\mathcal{C}'$ is the given functor and $I$ is small and filtered. By assumption, every object of $\mathcal{C}$ can be presented in this form, so $\hat{\iota}$ is essentially surjective.
+
+	We next prove that $\hat{\iota}$ is fully faithful. Consider ind-objects $\Yinjlim X_i$ and $\Yinjlim Y_j$ over $\mathcal{C}'$. By compactness of the objects of $\mathcal{C}'$ in $\mathcal{C}$, an argument similar to that of Proposition~\ref{prop:Ind-Hom} gives
+	\begin{gather*}
+		\Hom_{\mathcal{C}}\left( \varinjlim_i X_i, \; \varinjlim_j Y_j\right) \simeq \varprojlim_i \varinjlim_j \Hom_{\mathcal{C}'}(X_i, Y_j).
+	\end{gather*}
+	This is a canonical bijection, proving the assertion.
+\end{proof}
+
+Conversely, if $\mathcal{C}=\IndC(\mathcal{C}')$, then $\mathcal{C}'$ embeds as a full subcategory of $\mathcal{C}$ and satisfies all the conditions above.

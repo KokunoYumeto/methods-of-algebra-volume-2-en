@@ -1,0 +1,35 @@
+{
+  "schema": "o014-english-current-state-v1",
+  "scope": "complete 146-unit English edition plus two mastery bridges",
+  "indonesian_edition_unchanged": true,
+  "translated_units": 146,
+  "admitted_units": 146,
+  "next_sequence": null,
+  "status": "unit_translation_complete",
+  "build_status": "backend_and_offline_html_passed_pdf_waiting_for_global_tex_slot",
+  "backend": {
+    "units": 146,
+    "segments": 6347,
+    "terms": 511,
+    "figures": 907,
+    "bridges": 2,
+    "receipt": "backend/BACKEND_VALIDATION.json"
+  },
+  "offline_html": {
+    "logical_sections": 149,
+    "files": 31,
+    "bytes": 6200748,
+    "index_sha256": "894749f6fc9e19d37ff981a0e5a2681539d2dc04b33952967ac989b3d70abff3",
+    "build_receipt": "qa/HTML_BUILD_RECEIPT.json",
+    "browser_receipt": "qa/HTML_BROWSER_QA.json"
+  },
+  "pdf": {
+    "status": "mutex_safe_build_waiting",
+    "command": "python -B tools/build_english_pdf.py"
+  },
+  "published": false,
+  "source_map": "controls/SOURCE_UNIT_MAP.json",
+  "workflow": "controls/ENGLISH_EDITION_SCOPE.md",
+  "last_admission_utc": "2026-08-31T23:22:09.423465+00:00",
+  "admission_receipt": "qa/UNIT_ADMISSION.json"
+}

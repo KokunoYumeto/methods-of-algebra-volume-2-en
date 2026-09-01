@@ -1,0 +1,283 @@
+% English translation of chapter7.tex lines 1661--1805.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter7.morita-theory-a
+% Coverage: Section 7.7 from its opening through the Morita descent
+% proposition; continued in Unit 097 at line 1806.
+
+% segment-id: o014.li2.chapter7.morita-theory-a.h001
+\section{Morita Theory}\label{sec:Morita}
+\hypertarget{o014.aljabr2.chapter7.morita-theory-a}{ }
+% segment-id: o014.li2.chapter7.morita-theory-a.p001
+Throughout this section, fix a Grothendieck universe $\mathcal{U}$ and a
+commutative ring $\Bbbk$. Relative to $\mathcal{U}$, all rings are understood
+to be small by default. Functors between $\Bbbk$-linear categories are also
+understood to be $\Bbbk$-linear unless otherwise stated, as in
+Definitions~\ref{def:cat-k-linear} and \ref{def:k-linear-cat}. When
+$\Bbbk=\Z$, $\Bbbk$-linearity is the same as additivity.
+
+% segment-id: o014.li2.chapter7.morita-theory-a.p002
+For $\Bbbk$-linear categories $\mathcal{C}$ and $\mathcal{D}$, the notation
+$\mathrm{Fct}(\mathcal{C},\mathcal{D})$ or
+$\mathcal{D}^{\mathcal{C}}$ denotes the category of all functors
+$F:\mathcal{C}\to\mathcal{D}$. Although
+$\mathrm{Fct}(\mathcal{C},\mathcal{D})$ need not be a
+$\mathcal{U}$-category, this causes no difficulty below because we shall not
+form limits or similar constructions within it.
+
+% segment-id: o014.li2.chapter7.morita-theory-a.d001
+\begin{definition}
+	\index[sym1]{Fctc@$\mathrm{Fct}^c, \mathrm{Fct}_c$}
+	Let $\mathcal{C}$ and $\mathcal{D}$ be $\Bbbk$-linear categories.
+	\begin{itemize}
+		\item If $\mathcal{C}$ and $\mathcal{D}$ are cocomplete, define
+		the full subcategory $\mathrm{Fct}^c(\mathcal{C},\mathcal{D})$ of
+		$\mathrm{Fct}(\mathcal{C},\mathcal{D})$ to consist of all functors
+		that preserve small $\varinjlim$.
+		\item If $\mathcal{C}$ and $\mathcal{D}$ are complete, define
+		the full subcategory $\cate{Fct}_c(\mathcal{C},\mathcal{D})$ of
+		$\mathrm{Fct}(\mathcal{C},\mathcal{D})$ to consist of all functors
+		that preserve small $\varprojlim$.
+	\end{itemize}
+	In some of the literature, objects of $\mathrm{Fct}_c$ (or
+	$\mathrm{Fct}^c$) are called continuous (or cocontinuous) functors.
+\end{definition}
+
+% segment-id: o014.li2.chapter7.morita-theory-a.p003
+We use the notation of \S\ref{sec:otimesL}. For arbitrary $\Bbbk$-algebras
+$A$ and $B$, define
+% segment-id: o014.li2.chapter7.morita-theory-a.q001
+\begin{align*}
+	(A, B)\dcate{Mod} & := \text{the category of $(A,B)$-bimodules}, \\
+	A\dcate{Mod} & := \text{the category of left $A$-modules} \simeq (A, \Bbbk)\dcate{Mod}, \\
+	\cated{Mod}B & := \text{the category of right $B$-modules} \simeq (\Bbbk, B)\dcate{Mod}.
+\end{align*}
+These are elementary examples of $\Bbbk$-linear categories.
+
+% segment-id: o014.li2.chapter7.morita-theory-a.p004
+Recall the following basic facts from module theory. Every $(A,B)$-bimodule
+$P$ canonically induces functors preserving small $\varinjlim$,
+% segment-id: o014.li2.chapter7.morita-theory-a.q002
+\[ P \dotimes{B} (\cdot): B\dcate{Mod} \to A\dcate{Mod}, \quad (\cdot) \dotimes{A} P : \cated{Mod}A \to \cated{Mod}B, \]
+while every $(B,A)$-bimodule $Q$ canonically induces functors preserving
+small $\varprojlim$,
+% segment-id: o014.li2.chapter7.morita-theory-a.q003
+\[ \Hom_{\cated{Mod}B}(Q, \cdot): B\dcate{Mod} \to A\dcate{Mod}, \quad \Hom_{\cated{Mod}A}(Q, \cdot): \cated{Mod}A \to \cated{Mod}B. \]
+If instead one takes the functor $\Hom(\mathord\cdot,R)$, where $R$ is a
+$(B,A)$-bimodule, its domain must be replaced by an opposite category such
+as $(B\dcate{Mod})^{\opp}$ in order for the functor still to preserve small
+$\varprojlim$.
+
+% segment-id: o014.li2.chapter7.morita-theory-a.th001
+\begin{theorem}[S.\ Eilenberg, C.\ E.\ Watts]\label{prop:Morita}
+	For arbitrary $\Bbbk$-algebras $A$ and $B$, there are equivalences
+	% segment-id: o014.li2.chapter7.morita-theory-a.q004
+	\[\begin{tikzcd}[row sep=tiny]
+		\mathrm{Fct}^c\left(B\dcate{Mod}, A\dcate{Mod}\right) & (A, B)\dcate{Mod} \arrow[l, "\sim"'] \arrow[r, "\sim"] & \mathrm{Fct}^c\left(\cated{Mod}A, \cated{Mod}B\right) \\
+		P \dotimes{B} (\cdot) & P \arrow[mapsto, l] \arrow[mapsto, r] & (\cdot) \dotimes{A} P \\
+		\mathrm{Fct}_c\left(B\dcate{Mod}, A\dcate{Mod}\right) & (B, A)\dcate{Mod} \arrow[l, "\sim"'] \arrow[r, "\sim"] & \mathrm{Fct}_c\left(\cated{Mod}A, \cated{Mod}B\right) \\
+		\Hom_{B\dcate{Mod}}(Q, \cdot) & Q \arrow[mapsto, l] \arrow[mapsto, r] & \Hom_{\cated{Mod}A}(Q, \cdot) \\
+		\mathrm{Fct}_c\left((B\dcate{Mod})^{\opp}, \cated{Mod}A \right) & (B, A)\dcate{Mod} \arrow[l, "\sim"'] \arrow[r, "\sim"] & \mathrm{Fct}_c\left((\cated{Mod}A)^{\opp}, B\dcate{Mod}\right) \\
+		\Hom_{B\dcate{Mod}}(\cdot, R) & R \arrow[mapsto, l] \arrow[mapsto, r] & \Hom_{\cated{Mod}A}(\cdot, R).
+	\end{tikzcd}\]
+
+	For the first and second equivalences, composition of functors corresponds
+	to tensor product of bimodules; when $A=B$, the identity functor comes from
+	$A$ as an $(A,A)$-bimodule, up to isomorphism.
+\end{theorem}
+% segment-id: o014.li2.chapter7.morita-theory-a.pf001
+\begin{proof}
+	The arguments for the various equivalences are similar. We discuss only
+	% segment-id: o014.li2.chapter7.morita-theory-a.q005
+	\[ (A, B)\dcate{Mod} \to \mathrm{Fct}^c(B\dcate{Mod}, A\dcate{Mod}). \]
+	The discussion preceding the theorem has shown that
+	$P\dotimes{B}(\mathord\cdot)$ is indeed an object of
+	$\mathrm{Fct}^c(B\dcate{Mod},A\dcate{Mod})$, and a bimodule homomorphism
+	$P\to P'$ plainly induces a morphism of functors
+	$P\dotimes{B}(\mathord\cdot)\to P'\dotimes{B}(\mathord\cdot)$. We now
+	construct a quasi-inverse functor.
+
+	For an object $F$ of
+	$\mathrm{Fct}^c(B\dcate{Mod},A\dcate{Mod})$, regard $B$ as a left
+	$B$-module and define $P:=F(B)$. Since $B$ also acts on itself on the
+	right by multiplication and $F$ is a $\Bbbk$-linear functor, $P$
+	naturally acquires the structure of an $(A,B)$-bimodule. The canonical
+	isomorphism $P\dotimes{B}B\simeq P$ shows that
+	% segment-id: o014.li2.chapter7.morita-theory-a.q006
+	\[ (A, B)\dcate{Mod} \to \mathrm{Fct}^c\left(B\dcate{Mod}, A\dcate{Mod} \right) \xrightarrow{F \mapsto P} (A, B)\dcate{Mod} \;\text{has composite}\; \simeq \identity. \]
+
+	For the composite in the other direction, take a functor $F$ as above and
+	set $P:=F(B)$. For any left $B$-module $M$, there is a canonical
+	surjective homomorphism
+	% segment-id: o014.li2.chapter7.morita-theory-a.q007
+	\[ \bigoplus_{\varphi \in \Hom(B, M)} B \twoheadrightarrow M. \]
+	Notice that $\bigoplus_\varphi$ is ``small.'' Repeating the construction
+	for the kernel of this surjective homomorphism gives a canonical exact
+	sequence for $M$,
+	% segment-id: o014.li2.chapter7.morita-theory-a.q008
+	\begin{equation}\label{eqn:Morita-aux0}
+		\bigoplus_\psi B \to \bigoplus_\varphi B \to M \to 0,
+	\end{equation}
+	whose first map may be regarded as right multiplication by an infinite
+	matrix with entries in $B=\End_{B\dcate{Mod}}(B)$. Since $F$ and
+	$P\dotimes{B}(\mathord\cdot)$ both preserve small $\varinjlim$, applying
+	them to \eqref{eqn:Morita-aux0} gives exact sequences in
+	$A\dcate{Mod}$,
+	% segment-id: o014.li2.chapter7.morita-theory-a.q009
+	\begin{gather*}
+		\bigoplus_\psi P \to \bigoplus_\varphi P \to F(M) \to 0, \\
+		\bigoplus_\psi P \to \bigoplus_\varphi P \to P \dotimes{B} M \to 0.
+	\end{gather*}
+	In both rows, the map
+	$\bigoplus_\psi P\to\bigoplus_\varphi P$ comes from the same matrix
+	(with entries in $B$), and hence there is a canonical isomorphism
+	$F(M)\simeq P\dotimes{B}M$.
+
+	By the associativity constraint for tensor products, the first equivalence
+	$(A,B)\dcate{Mod}\to\mathrm{Fct}^c(B\dcate{Mod},A\dcate{Mod})$ sends
+	tensor products of bimodules to composition of functors, up to
+	isomorphism. For the second equivalence, the corresponding statement
+	follows from the adjunction between tensor product and $\Hom$; see
+	\cite[Theorem 6.6.5]{Li1}. In both cases, it is easy to see that the
+	$(A,A)$-bimodule $A$ corresponds to the identity functor, up to
+	isomorphism.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.morita-theory-a.p005
+The sizes of these functor categories are now easy to control.
+
+% segment-id: o014.li2.chapter7.morita-theory-a.c001
+\begin{corollary}
+	For arbitrary $\Bbbk$-algebras $A$ and $B$, all the functor categories
+	$\mathrm{Fct}^c(\cdots)$ and $\mathrm{Fct}_c(\cdots)$ appearing in
+	Theorem~\ref{prop:Morita} are $\mathcal{U}$-categories.
+\end{corollary}
+% segment-id: o014.li2.chapter7.morita-theory-a.pf002
+\begin{proof}
+	Indeed, $(A,B)\dcate{Mod}$ and $(B,A)\dcate{Mod}$ are both
+	$\mathcal{U}$-categories.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.morita-theory-a.dp001
+\begin{definition-proposition}\label{def:Morita-equiv}
+	\index{Morita equivalence}
+	For arbitrary $\Bbbk$-algebras $A$ and $B$, the following statements are
+	equivalent.
+	\begin{enumerate}[(i)]
+		\item $A\dcate{Mod}$ and $B\dcate{Mod}$ are equivalent.
+		\item There are an $(A,B)$-bimodule $P$ and a $(B,A)$-bimodule $Q$
+		together with
+		\begin{compactitem}
+			\item an isomorphism of $(A,A)$-bimodules
+			$P\dotimes{B}Q\simeq A$;
+			\item an isomorphism of $(B,B)$-bimodules
+			$Q\dotimes{A}P\simeq B$.
+		\end{compactitem}
+		\item $\cated{Mod}A$ and $\cated{Mod}B$ are equivalent.
+	\end{enumerate}
+	When one of these conditions holds, $A$ and $B$ are called
+	\emph{Morita equivalent}.
+\end{definition-proposition}
+% segment-id: o014.li2.chapter7.morita-theory-a.pf003
+\begin{proof}
+	Equivalences necessarily preserve $\varinjlim$ and $\varprojlim$.
+	Theorem~\ref{prop:Morita} gives (i) $\iff$ (ii) and
+	(iii) $\iff$ (ii).
+\end{proof}
+
+% segment-id: o014.li2.chapter7.morita-theory-a.p006
+Condition (ii) is concise but not yet sufficiently explicit. It will be
+refined by Theorem~\ref{prop:Morita-refined} at the end of this section.
+Before that, we introduce several examples and related results.
+
+% segment-id: o014.li2.chapter7.morita-theory-a.eg001
+\begin{example}
+	For commutative $\Bbbk$-algebras, Morita equivalence is the same as
+	isomorphism of algebras. This rests on the canonical isomorphism
+	$Z(A\dcate{Mod})\simeq Z(A)$, where the left-hand side is the center of
+	the abelian category and the right-hand side is the center of the
+	$\Bbbk$-algebra.
+\end{example}
+
+% segment-id: o014.li2.chapter7.morita-theory-a.eg002
+\begin{example}
+	Let $n\in\Z_{\geq1}$. Every $\Bbbk$-algebra $A$ is Morita equivalent to
+	the $n\times n$ matrix algebra $\mathrm{M}_n(A)$. To see this, use matrix
+	operations to define
+	% segment-id: o014.li2.chapter7.morita-theory-a.q010
+	\begin{align*}
+		P & := \text{the $(A,\mathrm{M}_{n \times n}(A))$-bimodule } A^n \quad \text{(row vectors)}, \\
+		Q & := \text{the $(\mathrm{M}_{n \times n}(A),A)$-bimodule } A^n \quad \text{(column vectors)}.
+	\end{align*}
+	Matrix multiplication gives the required isomorphisms,
+	% segment-id: o014.li2.chapter7.morita-theory-a.q011
+	\begin{gather*}
+		P \dotimes{\mathrm{M}_{n \times n}(A)} Q \rightiso A \quad \text{(as an $(A,A)$-bimodule)}, \\
+		Q \dotimes{A} P \rightiso \mathrm{M}_{n \times n}(A) \quad \text{(as an $(\mathrm{M}_{n \times n}(A), \mathrm{M}_{n \times n}(A))$-bimodule)}.
+	\end{gather*}
+\end{example}
+
+% segment-id: o014.li2.chapter7.morita-theory-a.p007
+Return to the general setting. For any $(A,B)$-bimodule $P$, a basic fact of
+module theory \cite[Theorem 6.6.5]{Li1} gives an adjoint pair
+% segment-id: o014.li2.chapter7.morita-theory-a.q012
+\begin{equation}\label{eqn:AB-adjunction}\begin{tikzcd}
+	(\cdot) \dotimes{A} P : \cated{Mod}A \arrow[shift left, r] & \cated{Mod}B: \Hom_{\cated{Mod}B}(P, \cdot). \arrow[shift left, l]
+\end{tikzcd}\end{equation}
+Theorem~\ref{prop:Morita} shows that, up to isomorphism, the functors on the
+left and right exhaust the objects of
+$\mathrm{Fct}^c(\cated{Mod}A,\cated{Mod}B)$ and
+$\mathrm{Fct}_c(\cated{Mod}B,\cated{Mod}A)$, respectively.
+
+% segment-id: o014.li2.chapter7.morita-theory-a.p008
+By Example~\ref{eg:adjunction-monad}, the adjoint pair
+\eqref{eqn:AB-adjunction} determines a monad $T$ on $\cated{Mod}A$ and a
+comonad $L$ on $\cated{Mod}B$. Their general description is as follows.
+Consider a right $A$-module $N$ and a right $B$-module $M$:
+% segment-id: o014.li2.chapter7.morita-theory-a.q013
+\begin{equation}\label{eqn:bimod-adjunction}
+	\begin{array}{|c|c|} \hline
+		\text{unit } \eta_N & \text{counit } \epsilon_M \\ \hline
+		N \to \Hom_{\cated{Mod}B}\left( P, N \dotimes{A} P \right) & \Hom_{\cated{Mod}B}(P, M) \dotimes{A} P \to M \\
+		x \mapsto \left[ p \mapsto x \otimes p \right] & \varphi \otimes p \mapsto \varphi(p) \\ \hline
+	\end{array}
+\end{equation}
+
+% segment-id: o014.li2.chapter7.morita-theory-a.p009
+Recall the definition of an exact functor in
+Definition~\ref{def:exact-functor}.
+
+% segment-id: o014.li2.chapter7.morita-theory-a.pr001
+\begin{proposition}\label{prop:Morita-descent}
+	Let $P$ be an $(A,B)$-bimodule. If
+	$(\mathord\cdot)\dotimes{A}P$ (or
+	$\Hom_{\cated{Mod}B}(P,\mathord\cdot)$) is a faithful exact functor, then
+	the adjoint pair \eqref{eqn:AB-adjunction} is comonadic (or monadic); see
+	Definition~\ref{def:monadic} and its dual version.
+\end{proposition}
+% segment-id: o014.li2.chapter7.morita-theory-a.pf004
+\begin{proof}
+	We give the proof for $(\mathord\cdot)\dotimes{A}P$; the argument for the
+	other side is exactly the same.
+
+	We have already shown that $(\mathord\cdot)\dotimes{A}P$ has a right
+	adjoint. It remains to verify the dual of condition (iii) in
+	Theorem~\ref{prop:Beck}. First, we prove that
+	$(\mathord\cdot)\dotimes{A}P$ is conservative. For a homomorphism of
+	right $A$-modules $f:N\to N'$, the required conservativity follows from
+	% segment-id: o014.li2.chapter7.morita-theory-a.q014
+	\begin{multline*}
+		f \;\text{is an isomorphism} \iff 0 \to N \xrightarrow{f} N' \to 0 \;\text{is exact} \\
+		\stackrel{\text{Proposition \ref{prop:faithful-exact} (iii)}}{\iff} 0 \to N \dotimes{A} P \xrightarrow{\identity \otimes f} N' \dotimes{A} P \to 0 \;\text{is exact} \iff \identity \otimes f \;\text{is an isomorphism}.
+	\end{multline*}
+
+	Next, every pair of morphisms in $\cated{Mod}A$ and $\cated{Mod}B$ has an
+	equalizer, and the faithful exactness hypothesis ensures that
+	$(\mathord\cdot)\dotimes{A}P$ preserves equalizers. Thus all the
+	conditions of Theorem~\ref{prop:Beck}~(iii) are satisfied.
+\end{proof}
+
+% segment-id: o014.li2.chapter7.morita-theory-a.p010
+This is only an abstract result. To apply it, the corresponding monad $T$ and
+comonad $L$ must be described explicitly in certain special cases. We begin
+with change of rings.

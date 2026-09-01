@@ -1,0 +1,266 @@
+% Unit 070 English translation of chapter5.tex lines 955--1063.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter5.multiplicative-structures
+% Coverage: Complete Section 5.7, before the exercises.
+
+% segment-id: o014.li2.chapter5.multiplicative-structures.h001
+\section{A glimpse of multiplicative structures}\label{sec:multiplicative-SS}
+\hypertarget{o014.aljabr2.chapter5.multiplicative-structures}{ }
+
+% segment-id: o014.li2.chapter5.multiplicative-structures.p001
+For simplicity and concreteness, in this section we take a commutative ring
+$\Bbbk$ and $\mathcal{A}=\Bbbk\dcate{Mod}$; this suffices for the classical
+applications. We refer to $\Bbbk$-modules simply as modules and to
+$\Bbbk$-algebras simply as algebras, and write
+$\otimes:=\otimes_{\Bbbk}$.
+
+% segment-id: o014.li2.chapter5.multiplicative-structures.p002
+Let $I$ be a commutative monoid, with its binary operation written additively.
+The definitions from \cite[\S 7.4]{Li1} may be summarized as follows:
+\begin{itemize}
+	\item an $I$-graded module is a module with a direct-sum decomposition
+	$M=\bigoplus_{i\in I}M^i$; elements of $M^i$ are called homogeneous
+	elements of degree $i$;
+	\item an $I$-graded algebra is a graded module equipped with a homomorphism
+	$\mu:A\otimes A\to A$, also written as a multiplication
+	$xy:=\mu(x\otimes y)$, such that $A$ becomes a ring and
+	\[ 1_A\in A^0,\qquad A^i\cdot A^j\subset A^{i+j},
+	\qquad i,j\in I; \]
+	thus the multiplication $\mu$ is completely determined by the data
+	$\mu^{i,j}:A^i\otimes A^j\to A^{i+j}$;
+	\item homomorphisms and isomorphisms between $I$-graded modules or algebras
+	are defined in the usual way; $I$-graded subalgebras and ideals are defined
+	similarly.
+\end{itemize}
+
+% segment-id: o014.li2.chapter5.multiplicative-structures.p003
+For $k\in I$, also define a homomorphism of degree $k$ between $I$-graded
+modules: this is a module homomorphism $\varphi:M\to N$ satisfying
+$\varphi(M^i)\subset M^{i+k}$ for every $i$, and it is determined by the data
+$(\varphi^i:M^i\to M^{i+k})_{i\in I}$. Taking $k=0$ recovers homomorphisms in
+the usual sense. Degrees of homomorphisms add under composition.
+
+% segment-id: o014.li2.chapter5.multiplicative-structures.d001
+\begin{definition}\label{def:dg-algebra-preview}
+	\index{differential graded algebra}
+	Let $I$ be a commutative monoid equipped with a homomorphism
+	$\epsilon:I\to\Z/2\Z$. A \emph{differential $I$-graded algebra} whose
+	differential has degree $k$ is an $I$-graded algebra
+	$A=\bigoplus_{p\in I}A^p$ together with an endomorphism of degree $k\in I$,
+	$d=(d^p)_p:A\to A$, satisfying $d^2=0$ and the Leibniz rule
+	\[ d(xy)=(dx)\cdot y+(-1)^{\epsilon(p)}x\cdot dy,
+	\qquad x\in A^p,\quad y\in A^{p'},\quad p,p'\in I. \]
+\end{definition}
+
+% segment-id: o014.li2.chapter5.multiplicative-structures.p004
+Observe that $d(1_A)=d(1_A\cdot1_A)=d(1_A)+d(1_A)$, hence $d(1_A)=0$.
+Clearly $\Ker(d)$ is an $I$-graded subalgebra of $A$, while $\Image(d)$ is a
+two-sided $I$-graded ideal in $\Ker(d)$. Therefore
+\[ \Hm(A,d):=\Ker(d)/\Image(d) \]
+is again an $I$-graded algebra.
+
+% segment-id: o014.li2.chapter5.multiplicative-structures.e001
+\begin{example}
+	Take $I=\Z$ and $\epsilon(p)=p\;\bmod 2$. For any complex $X$ over a
+	$\Bbbk$-linear category $\mathcal{B}$, the $\Hom$ complex
+	$\Hom^\bullet(X,X)$ of Definition~\ref{def:Hom-cplx}, together with
+	$d=d_{\Hom^\bullet(X,X)}$, becomes a differential $\Z$-graded algebra
+	whose differential has degree $1$. These assertions are essentially the
+	content of Lemma~\ref{prop:Hom-cplx-Leibniz}. We have
+	\[ \Hm(\Hom^\bullet(X,X),d)=
+	\bigoplus_{n\in\Z}\Hom_{\cate{K}(\mathcal{B})}(X,X[n]), \]
+	with multiplication induced by composition of morphisms in
+	$\cate{K}(\mathcal{B})$.
+\end{example}
+
+% segment-id: o014.li2.chapter5.multiplicative-structures.e002
+\begin{example}
+	Take $\Bbbk=\CC$, $I=\Z$, and $\epsilon(p)=p\;\bmod2$. The
+	$\CC$-valued differential forms of degree $p$ on a smooth manifold
+	$\mathfrak{X}$ form a vector space $A^p(\mathfrak{X})$. Set
+	$A(\mathfrak{X}):=\bigoplus_{p=0}^{\dim X}A^p(\mathfrak{X})$. With
+	multiplication $\mu(\omega\otimes\eta):=\omega\wedge\eta$ and exterior
+	differentiation $\dd$, this becomes a differential $\Z$-graded algebra
+	whose differential has degree $1$. The associated algebra
+	$\Hm(A(\mathfrak{X}),\dd)=\bigoplus_p\Hm^p_{\mathrm{dR}}(\mathfrak{X})$
+	is precisely the de Rham cohomology of $\mathfrak{X}$; the multiplication
+	induced by $\wedge$ gives it a graded-algebra structure. This is a
+	fundamental object in topology and is isomorphic as a graded algebra to the
+	singular cohomology ring of $\mathfrak{X}$.
+
+	The multiplication on $\Hm(A(\mathfrak{X}),\dd)$ also satisfies
+	$xy=(-1)^{pq}yx$, where $x$ and $y$ are homogeneous elements of degrees
+	$p$ and $q$, respectively, because the multiplication on
+	$A(\mathfrak{X})$ already has this property. As a simple and beautiful
+	example, complex projective space $\mathfrak{X}:=\mathbb{P}^n(\CC)$ gives
+	the graded algebra
+	$\Hm(A(\mathfrak{X}),\dd)\simeq\CC[t]/(t^{n+1})$, where the variable $t$
+	corresponds to a homogeneous element of degree $2$.
+\end{example}
+
+% segment-id: o014.li2.chapter5.multiplicative-structures.p005
+Returning to our main subject, in this section we consider the following
+cases:
+\begin{center}\begin{tabular}{|c|c|c|} \hline
+	Abbreviation & $I$ & $\epsilon:I\to\Z/2\Z$ \\ \hline
+	Singly graded & $\Z$ & $\epsilon(p)=p\;\bmod2$ \\
+	Bigraded & $\Z^2$ & $\epsilon(p,q)=p+q\;\bmod2$ \\ \hline
+\end{tabular}\end{center}
+
+% segment-id: o014.li2.chapter5.multiplicative-structures.p006
+This theory overlaps with Definition~\ref{def:differential-object}, but the
+focus of this section is the multiplication, which was not mentioned there.
+
+% segment-id: o014.li2.chapter5.multiplicative-structures.p007
+To lighten the notation, below we collectively call these various cases
+``graded'', distinguishing them mainly by the superscript $p$ or $(p,q)$.
+Likewise, we refer collectively to differential $I$-graded algebras as
+differential graded algebras.
+
+% segment-id: o014.li2.chapter5.multiplicative-structures.c001
+\begin{convention}
+	For a cohomological bigraded spectral sequence $\mathscr{E}$ in the case
+	$\mathcal{A}=\Bbbk\dcate{Mod}$, we identify every page $E_r$ with the
+	graded module $\bigoplus_{p,q}E_r^{p,q}$ and regard
+	$d_r=(d_r^{p,q})_{p,q}$ as an endomorphism of degree $(r,-r+1)$ of the
+	graded module $E_r$. The homological and singly graded cases are treated
+	similarly.
+\end{convention}
+
+% segment-id: o014.li2.chapter5.multiplicative-structures.p008
+In short, a spectral sequence with a multiplicative structure is a spectral
+sequence consisting of differential graded algebras.
+
+% segment-id: o014.li2.chapter5.multiplicative-structures.d002
+\begin{definition}\label{def:mult-ss}
+	\index{spectral sequence!multiplicative structure}
+	A \emph{multiplicative structure} on a cohomological bigraded spectral
+	sequence $\mathscr{E}$ is a family of homomorphisms
+	$\mu_r:E_r\otimes E_r\to E_r$ (that is, ``multiplications'') such that
+	\begin{itemize}
+		\item every $(E_r,\mu_r,d_r)$ is a differential graded algebra whose
+		differential has degree $(r,-r+1)$;
+		\item the map $t_{r+1}:\Hm(E_r,d_r)\rightiso E_{r+1}$ in the spectral
+		sequence data is an isomorphism of graded algebras.
+	\end{itemize}
+	Multiplicative structures on singly graded or homological spectral sequences
+	are defined similarly.
+\end{definition}
+
+% segment-id: o014.li2.chapter5.multiplicative-structures.p009
+The preceding discussion shows that $Z_r=\Ker(d_r)$ is a graded subalgebra of
+$E_r$, while $B_r=\Image(d_r)$ is a two-sided graded ideal of $Z_r$. Hence
+$\Hm(E_r,d_r)$ becomes a graded algebra; this is the precise meaning of
+Definition~\ref{def:mult-ss}.
+
+% segment-id: o014.li2.chapter5.multiplicative-structures.p010
+Furthermore, if the limit exists, then
+$Z_\infty=\bigoplus_{p,q}Z_\infty^{p,q}$ is also a graded subalgebra, with
+$B_\infty=\bigoplus_{p,q}B_\infty^{p,q}$ as its graded ideal. Thus
+$E_\infty$ is also a graded algebra.
+
+% segment-id: o014.li2.chapter5.multiplicative-structures.p011
+\index{dg-algebra}
+As an example, consider differential graded algebras whose differential has
+degree $1$, abbreviated as dg-algebras. Expanding the definition, this is
+equivalent to a complex of $\Bbbk$-modules
+$X=(X^n,d_X^n)_{n\in\Z}$ such that
+$X\xlongequal{\text{identified}}\bigoplus_nX^n$ is equipped with a
+multiplication $\mu:X\otimes X\to X$ satisfying
+$X^p\cdot X^{p'}\subset X^{p+p'}$ and the Leibniz rule
+\[ d(xy)=dx\cdot y+(-1)^px\cdot dy,
+	\qquad x\in X^p,\quad y\in X^{p'}. \]
+Now suppose the data $(X,d)$ are extended to a filtered complex
+$(X,d,\mathrm{F}^\bullet X)$. Recall that this already entails
+$d(\mathrm{F}^pX)\subset\mathrm{F}^pX$; we further require the multiplication
+on $X$ to be compatible with the filtration:
+\[ \mathrm{F}^pX^n\cdot\mathrm{F}^{p'}X^{n'}
+	\subset\mathrm{F}^{p+p'}X^{n+n'}. \]
+In this case $(X,d,\mu,\mathrm{F}^\bullet X)$ is called a filtered
+differential graded algebra. For the induced filtration on $\Hm(X,d)$, the
+condition above ensures that
+\[ \gr\Hm(X,d)\xlongequal{\text{identified}}
+	\bigoplus_{(p,q)\in\Z^2}\gr^p\Hm^{p+q}(X,d) \]
+naturally becomes a graded algebra.
+\index{differential graded algebra!filtered}
+
+% segment-id: o014.li2.chapter5.multiplicative-structures.t001
+\begin{proposition}\label{prop:dga-mult-ss}
+	Let $(X,d,\mu,\mathrm{F}^\bullet X)$ be a filtered differential graded
+	algebra whose differential has degree $1$.
+	\begin{enumerate}[(i)]
+		\item The spectral sequence $\mathscr{E}$ of the filtered complex
+		$(X,d,\mathrm{F}^\bullet X)$ has a canonical multiplicative structure.
+		\item The isomorphisms
+		$E_\infty^{p,q}\simeq\gr^p\Hm^{p+q}(X,d)$ in the classical convergence
+		theorem~\ref{prop:classical-convergence} in fact give an isomorphism of
+		graded algebras $E_\infty\simeq\gr\Hm(X,d)$.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	Take $x\in E_r^{p,q}$ and $y\in E_r^{p',q'}$. By the description in
+	Proposition~\ref{prop:filtered-cplx-ss}, choose lifts
+	\begin{gather*}
+		\widetilde{x}\in\mathrm{F}^pX^{p+q}\cap
+		d^{-1}\left(\mathrm{F}^{p+r}X^{p+q+1}\right),\qquad
+		\widetilde{y}\in\mathrm{F}^{p'}X^{p'+q'}\cap
+		d^{-1}\left(\mathrm{F}^{p'+r}X^{p'+q'+1}\right).
+	\end{gather*}
+	By definition,
+	\begin{gather*}
+		\widetilde{x}\widetilde{y}\in
+		\mathrm{F}^{p+p'}X^{p+q+p'+q'},\\
+		d(\widetilde{x}\widetilde{y})
+		=d\widetilde{x}\cdot\widetilde{y}
+		+(-1)^{p+q}\widetilde{x}\cdot d\widetilde{y}
+		\in\mathrm{F}^{p+p'+r}X^{p+q+p'+q'+1}.
+	\end{gather*}
+	Thus $\widetilde{x}\widetilde{y}$ determines an element
+	$xy\in E_r^{p+p',q+q'}$. A routine calculation (please verify it) shows
+	that $xy$ depends only on $x$ and $y$.
+
+	Next, $d_r:E_r\xrightarrow{(r,-r+1)}E_r$ is induced by the differential
+	$d$ on $X$. This gives $E_r$ the structure of a differential graded
+	algebra; associativity, the Leibniz rule, and all other required properties
+	reduce to checks on $(X,d)$. The same argument shows that
+	$\Hm(E_r,d_r)\simeq E_{r+1}$ is an isomorphism of graded algebras.
+
+	The assertion that the canonical isomorphisms
+	$E_\infty^{p,q}\simeq\gr^p\Hm^{p+q}(X,d)$ in the classical convergence
+	theorem preserve multiplication likewise reduces to a check on $X$, so we
+	omit the details.
+\end{proof}
+
+% segment-id: o014.li2.chapter5.multiplicative-structures.r001
+\begin{remark}
+	\index{Cartan--Eilenberg system}
+	Multiplicative structures are an indispensable tool in topology. Algebraic
+	topology without multiplication is almost unimaginable, or at least
+	insipid. Historically, when Leray first encountered spectral sequences, he
+	already considered multiplicative structures, calling them ``spectral
+	rings''. They often greatly simplify spectral-sequence calculations in
+	topology. This is why the present section gives a brief introduction to
+	multiplicative structures, though it only scratches the surface.
+
+	There is an evident difficulty in applying Definition~\ref{def:mult-ss}.
+	The differential graded algebra structures on all the $E_r$ must be given
+	at once, since the definition alone provides no reason for the
+	multiplication on one page to induce a multiplication on the next. This can
+	indeed be done in some situations, as in
+	Proposition~\ref{prop:dga-mult-ss}.
+
+	For general cases, or for those that are difficult to compute by hand,
+	spectral sequences are often constructed from simple data, such as the exact
+	couples of \S\ref{sec:exact-couples}. It is therefore natural to ask whether
+	there are simple conditions on an exact couple ensuring that the corresponding
+	spectral sequence has a multiplicative structure.
+
+	The answer appears to be negative: information beyond the exact couple is
+	required. One useful construction is the equally classical
+	\emph{Cartan--Eilenberg system}, together with its spectral product; see
+	\cite[II.A]{Dou58}. As an application, the Serre--Atiyah--Hirzebruch
+	spectral sequence, which is of central importance in topology, has a
+	multiplicative structure for every multiplicative generalized cohomology
+	theory. Since this material departs from our main line, we stop here.
+\end{remark}

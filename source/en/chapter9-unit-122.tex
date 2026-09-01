@@ -1,0 +1,300 @@
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.p001
+From the relationship between left and right duals and Definition--Proposition \ref{def:dualizable-obj}, one checks that ${}^* (f^*) = f = ({}^* f)^*$; this is immediately apparent upon drawing a ``diagram within a diagram''. Moreover, ${}^* (\identity_X) = \identity_{{}^* X}$ and $(\identity_X)^* = \identity_{X^*}$ follow directly from the definitions.
+
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.p002
+Here are two useful sets of identities concerning the left and right duals of $f: X \to Y$; once again, the diagrams provide the proof.
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.eq001
+\begin{gather}
+	\label{eqn:f-dual-coev}
+	\begin{tikzpicture}[baseline=(M)]
+		\coordinate (A) at (0, 0);
+		\coordinate (B) at (1, 0);
+		\coordinate (C) at (0, -1);
+		\coordinate (D) at (1, -1);
+		\draw (C) -- (A) arc[start angle=180, end angle=0, radius=0.5] -- (D);
+		\node[draw, fill=white] (M) at ($(A)!.5!(C)$) {$f$};
+		\node [below=0.05cm of C] {$Y$};
+		\node [below=0.05cm of D] {${}^* X$};
+	\end{tikzpicture} = \begin{tikzpicture}[baseline=(M)]
+		\coordinate (A) at (0, 0);
+		\coordinate (B) at (1, 0);
+		\coordinate (C) at (0, -1);
+		\coordinate (D) at (1, -1);
+		\draw (C) -- (A) arc[start angle=180, end angle=0, radius=0.5] -- (D);
+		\node[draw, fill=white] (M) at ($(B)!.5!(D)$) {${}^* f$};
+		\node [below=0.05cm of C] {$Y$};
+		\node [below=0.05cm of D] {${}^* X$};
+	\end{tikzpicture} \qquad \begin{tikzpicture}[baseline=(M)]
+		\coordinate (A) at (0, 0);
+		\coordinate (B) at (1, 0);
+		\coordinate (C) at (0, -1);
+		\coordinate (D) at (1, -1);
+		\draw (C) -- (A) arc[start angle=180, end angle=0, radius=0.5] -- (D);
+		\node[draw, fill=white] (M) at ($(A)!.5!(C)$) {$f^*$};
+		\node [below=0.05cm of C] {$X^*$};
+		\node [below=0.05cm of D] {$Y$};
+	\end{tikzpicture} = \begin{tikzpicture}[baseline=(M)]
+		\coordinate (A) at (0, 0);
+		\coordinate (B) at (1, 0);
+		\coordinate (C) at (0, -1);
+		\coordinate (D) at (1, -1);
+		\draw (C) -- (A) arc[start angle=180, end angle=0, radius=0.5] -- (D);
+		\node[draw, fill=white] (M) at ($(B)!.5!(D)$) {$f$};
+		\node [below=0.05cm of C] {$X^*$};
+		\node [below=0.05cm of D] {$Y$};
+	\end{tikzpicture} \\
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.eq002
+	\label{eqn:f-dual-ev}
+	\begin{tikzpicture}[baseline=(M)]
+		\coordinate (A) at (0, 0);
+		\coordinate (B) at (1, 0);
+		\coordinate (C) at (0, -1);
+		\coordinate (D) at (1, -1);
+		\draw (B) -- (D) arc[start angle=360, end angle=180, radius=0.5] -- (A);
+		\node[draw, fill=white] (M) at ($(A)!.5!(C)$) {$f$};
+		\node [above=0.05cm of A] {$X$};
+		\node [above=0.05cm of B] {$Y^*$};
+	\end{tikzpicture} \; = \; \begin{tikzpicture}[baseline=(M)]
+		\coordinate (A) at (0, 0);
+		\coordinate (B) at (1, 0);
+		\coordinate (C) at (0, -1);
+		\coordinate (D) at (1, -1);
+		\draw (B) -- (D) arc[start angle=360, end angle=180, radius=0.5] -- (A);
+		\node[draw, fill=white] (M) at ($(B)!.5!(D)$) {$f^*$};
+		\node [above=0.05cm of A] {$X$};
+		\node [above=0.05cm of B] {$Y^*$};
+	\end{tikzpicture} \qquad \begin{tikzpicture}[baseline=(M)]
+		\coordinate (A) at (0, 0);
+		\coordinate (B) at (1, 0);
+		\coordinate (C) at (0, -1);
+		\coordinate (D) at (1, -1);
+		\draw (B) -- (D) arc[start angle=360, end angle=180, radius=0.5] -- (A);
+		\node[draw, fill=white] (M) at ($(A)!.5!(C)$) {${}^* f$};
+		\node [above=0.05cm of A] {${}^* Y$};
+		\node [above=0.05cm of B] {$X$};
+	\end{tikzpicture} \; = \; \begin{tikzpicture}[baseline=(M)]
+		\coordinate (A) at (0, 0);
+		\coordinate (B) at (1, 0);
+		\coordinate (C) at (0, -1);
+		\coordinate (D) at (1, -1);
+		\draw (B) -- (D) arc[start angle=360, end angle=180, radius=0.5] -- (A);
+		\node[draw, fill=white] (M) at ($(B)!.5!(D)$) {$f$};
+		\node [above=0.05cm of A] {${}^* Y$};
+		\node [above=0.05cm of B] {$X$};
+	\end{tikzpicture}
+\end{gather}
+
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.prop001
+\begin{proposition}
+	Let $X \xrightarrow{f} Y \xrightarrow{g} Z$ be morphisms in a monoidal category $\mathcal{C}$. If all these objects have left duals (respectively, right duals), then ${}^* (gf) = {}^* f \; {}^* g$ (respectively, $(gf)^* = f^* g^*$).
+\end{proposition}
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.proof001
+\begin{proof}
+	Apply the Zorro identity \eqref{eqn:Zorro}; one picture is worth a thousand words.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.cor001
+\begin{corollary}
+	Let $\mathcal{C}$ be a left rigid (respectively, right rigid) category, and equip $\mathcal{C}^{\opp}$ with the monoidal structure that reverses both the arrows and the order of the arguments of $\otimes$. Then there is a monoidal functor $\mathcal{C} \to \mathcal{C}^{\opp}$ sending an object $X$ to ${}^* X$ (respectively, $X^*$) and a morphism $f$ to ${}^* f$ (respectively, $f^*$).
+\end{corollary}
+
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.p003
+Somewhat surprisingly, every morphism between monoidal functors whose source is a left or right rigid category must be an isomorphism. This helps explain the meaning of the term ``rigid''.
+
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.prop002
+\begin{proposition}\label{prop:monoidal-functor-rigidity}
+	Let $F, G: \mathcal{C} \rightrightarrows \mathcal{D}$ be monoidal functors between monoidal categories. If $\mathcal{C}$ is left rigid (respectively, right rigid), then every morphism $\varphi: F \to G$ of monoidal functors is an isomorphism. In fact, $(\varphi_X)^{-1} = \left(\varphi_{{}^* X}\right)^*$ (respectively, ${}^* \left( \varphi_{X^*} \right)$).
+\end{proposition}
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.proof002
+\begin{proof}
+	It suffices to consider the left rigid case. Fix $X \in \Obj(\mathcal{C})$, together with its left dual ${}^* X$ and the data $\mathrm{ev}$ and $\mathrm{coev}$. We have the commutative diagrams
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.eq003
+	\begin{equation*}\begin{gathered}
+		\begin{tikzcd}
+			\munit \arrow[r, "\sim"] \arrow[rd, "\sim"' sloped] & F(\munit) \arrow[d, "{\varphi_{\munit}}"] \arrow[r, "{F\mathrm{coev}}"] & F(X \otimes {}^* X) \arrow[r, "\sim"] \arrow[d, "{\varphi_{X \otimes {}^* X}}"] & F(X) \otimes F({}^* X) \arrow[d, "{\varphi_X \otimes \varphi_{{}^* X}}"] \\
+			& G(\munit) \arrow[r, "{G\mathrm{coev}}"'] & G(X \otimes {}^* X) \arrow[r, "\sim"'] & G(X) \otimes G({}^* X)
+		\end{tikzcd} \\
+		\begin{tikzcd}
+			F({}^* X) \otimes F(X) \arrow[r, "\sim"] \arrow[d, "{\varphi_{{}^* X} \otimes \varphi_X}"'] & F({}^* X \otimes X) \arrow[r, "{F\mathrm{ev}}"] \arrow[d, "{\varphi_{{}^* X \otimes X}}"] & F(\munit) \arrow[r, "\sim"] \arrow[d, "{\varphi_{\munit}}"] & \munit \\
+			G({}^* X) \otimes G(X) \arrow[r, "\sim"'] & G({}^* X \otimes X) \arrow[r, "{G\mathrm{ev}}"'] & G(\munit) \arrow[ru, "\sim"' sloped] &
+		\end{tikzcd}
+	\end{gathered}\end{equation*}
+	Moreover, Proposition \ref{prop:monoidal-functor-dual} shows that composition along the two rows makes $F({}^* X)$ and $G({}^* X)$ into left duals of $F(X)$ and $G(X)$, respectively. Thus $(\varphi_{{}^* X})^*: G(X) \to F(X)$ is defined. We thereby obtain the following diagrammatic identities:
+
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.eq004
+	\begin{equation*}\begin{aligned}
+		\begin{tikzpicture}[baseline=(T), bend angle=70, auto]
+			\node (A) {$G(X)$};
+			\node (B) [below=of A] {$G(X)$};
+			\node (C) [left=of B] {$G({}^* X)$};
+			\node (S) [left=of A] {$F({}^* X)$};
+			\node[draw, fill=white] (T) at ($(S)!.5!(C)$) {$\varphi_{{}^* X}$};
+			\node (D) [left=of S] {$F(X)$}; 
+			\node (E) [below=of D] {$G(X)$};
+				
+			\path (A) edge[->] (B);
+			\path (C) edge[bend right] node {$G\mathrm{ev}$} (B);
+			\path (C) edge (T);
+			\path (T) edge (S);
+			\path (D) edge[bend left] node {$F\mathrm{coev}$} (S);
+			\path (D) edge[->] (E);
+			\node[draw, fill=white] at ($(D)!.5!(E)$) {$\varphi_X$};
+		\end{tikzpicture} & = \begin{tikzpicture}[baseline=(A)]
+			\node (A) {$G(X)$};
+			\node (B) [right=of A] {$G({}^* X)$};
+			\node (C) [right=of B] {$G(X)$};
+			\path (A) edge[bend left=70] node[midway, auto] {$G(\mathrm{coev})$} (B);
+			\path (B) edge[bend right=70] node[midway, auto] {$G(\mathrm{ev})$} (C);	
+		\end{tikzpicture}, \\
+		\begin{tikzpicture}[baseline=(T), bend angle=70, auto]
+			\node (A) {$F(X)$};
+			\node (B) [below=of A] {$G(X)$};
+			\node (C) [left=of B] {$G({}^* X)$};
+			\node (S) [left=of A] {$F({}^* X)$};
+			\node[draw, fill=white] (T) at ($(S)!.5!(C)$) {$\varphi_{{}^* X}$};
+			\node (D) [left=of S] {$F(X)$}; 
+			\node (E) [below=of D] {$F(X)$};
+				
+			\path (A) edge[->] (B);
+			\path (C) edge[bend right] node {$G\mathrm{ev}$} (B);
+			\path (C) edge (T);
+			\path (T) edge (S);
+			\path (D) edge[bend left] node {$F\mathrm{coev}$} (S);
+			\path (D) edge[->] (E);
+			\node[draw, fill=white] at ($(A)!.5!(B)$) {$\varphi_X$};
+		\end{tikzpicture} & = \begin{tikzpicture}[baseline=(A)]
+			\node (A) {$F(X)$};
+			\node (B) [right=of A] {$F({}^* X)$};
+			\node (C) [right=of B] {$F(X)$};
+			\path (A) edge[bend left=70] node[midway, auto] {$F(\mathrm{coev})$} (B);
+			\path (B) edge[bend right=70] node[midway, auto] {$F(\mathrm{ev})$} (C);	
+		\end{tikzpicture},
+	\end{aligned}\end{equation*}
+	By \eqref{eqn:Zorro}, the two right-hand sides are $\identity_{GX}$ and $\identity_{FX}$, respectively. This proves that $\left(\varphi_{{}^* X}\right)^*$ is indeed the inverse of $\varphi_X$.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.prop003
+\begin{proposition}\label{prop:dual-internal-Hom}
+	Let $\mathcal{C}$ be a monoidal category and let $X, Y \in \Obj(\mathcal{C})$.
+	\begin{enumerate}[(i)]
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.item001
+		\item If $X$ has a left dual ${}^* X$, there are mutually inverse bijections $\Hom_{\mathcal{C}}(X, Y) \xleftrightarrow{1:1} \Hom_{\mathcal{C}}(\munit, Y \otimes {}^* X)$ as follows.
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.eq005
+		\begin{equation*}\begin{aligned}
+			\begin{tikzpicture}[baseline=(M)]
+				\node (A) {$X$};
+				\node (B) [below=of A]{$Y$};
+				\path (A) edge[->] node[midway, draw, fill=white] {$f$} (B);
+				\coordinate (M) at ($(A)!.5!(B)$);
+			\end{tikzpicture}
+			& \; \longmapsto \; \begin{tikzpicture}[baseline=(B), bend angle=70]
+				\node (A) {$X$};
+				\node (B) [right=of A] {${}^* X$};
+				\node (C) [below=of A] {$Y$};
+				\node (D) [below=of B] {${}^* X$};
+				\path (A) edge[bend left] node[auto] {$\mathrm{coev}_X$} (B);
+				\path (A) edge[->] node[midway, draw, fill=white] {$f$} (C);
+				\path (B) edge (D);
+			\end{tikzpicture}
+			\\
+			\begin{tikzpicture}[baseline=(D), bend angle=70]
+				\node (B) {$X$};
+				\node (C) [left=of B] {${}^* X$};
+				\node (D) [left=of C] {$Y$};
+				\node (A) [below=of D] {$Y$};
+				\path (D) edge[->] (A);
+				\path (C) edge[bend right] node[auto] {$\mathrm{ev}_X$} (B);
+				\path (D) edge[bend left] node[midway, draw, fill=white] {$\varphi$} (C);
+			\end{tikzpicture}
+			& \; \longmapsfrom \;
+			\begin{tikzpicture}[baseline=(A), bend angle=70]
+				\node (A) {$Y$};
+				\node (B) [right=of A] {${}^* X$};
+				\path (A) edge[bend left] node[midway, draw, fill=white] {$\varphi$} (B);
+			\end{tikzpicture}
+		\end{aligned}\end{equation*}
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.item002
+		\item If $X$ has a right dual $X^*$, there are mutually inverse bijections $\Hom_{\mathcal{C}}(X, Y) \xleftrightarrow{1:1} \Hom_{\mathcal{C}}(\munit, X^* \otimes Y)$ as follows.
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.eq006
+		\begin{equation*}\begin{aligned}
+			\begin{tikzpicture}[baseline=(M)]
+				\node (A) {$X$};
+				\node (B) [below=of A]{$Y$};
+				\path (A) edge[->] node[midway, draw, fill=white] {$f$} (B);
+				\coordinate (M) at ($(A)!.5!(B)$);
+			\end{tikzpicture}
+			& \; \longmapsto \; \begin{tikzpicture}[baseline=(B), bend angle=70]
+				\node (A) {$X$};
+				\node (B) [left=of A] {$X^*$};
+				\node (C) [below=of A] {$Y$};
+				\node (D) [below=of B] {$X^*$};
+				\path (B) edge[bend left] node[auto] {$\mathrm{coev}_X$} (A);
+				\path (A) edge[->] node[midway, draw, fill=white] {$f$} (C);
+				\path (B) edge (D);
+			\end{tikzpicture}
+			\\
+			\begin{tikzpicture}[baseline=(D), bend angle=70]
+				\node (B) {$X$};
+				\node (C) [right=of B] {$X^*$};
+				\node (D) [right=of C] {$Y$};
+				\node (A) [below=of D] {$Y$};
+				\path (D) edge[->] (A);
+				\path (B) edge[bend right] node[auto] {$\mathrm{ev}_X$} (C);
+				\path (C) edge[bend left] node[midway, draw, fill=white] {$\varphi$} (D);
+			\end{tikzpicture}
+			& \; \longmapsfrom \;
+			\begin{tikzpicture}[baseline=(A), bend angle=70]
+				\node (A) {$X^*$};
+				\node (B) [right=of A] {$Y$};
+				\path (A) edge[bend left] node[midway, draw, fill=white] {$\varphi$} (B);
+			\end{tikzpicture}
+		\end{aligned}\end{equation*}
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.item003
+		\item More generally, whenever the duals in question exist, there are canonical bijections
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.eq007
+		\[\begin{tikzcd}[row sep=tiny]
+			\Hom_{\mathcal{C}}\left( W \otimes X, Y \right) \arrow[r, "1:1"] & \Hom_{\mathcal{C}}(W, Y \otimes {}^* X) \\
+			f \arrow[mapsto, r] & (f \otimes \identity_{{}^* X}) (\identity_W \otimes \mathrm{coev}_X)
+		\end{tikzcd}\]
+		and
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.eq008
+		\[\begin{tikzcd}
+			\Hom_{\mathcal{C}}\left( X \otimes W, Y \right) \arrow[r, "1:1"] & \Hom_{\mathcal{C}}(W, X^* \otimes Y) \\
+			f \arrow[mapsto, r] & (\identity_{X^*} \otimes f) (\mathrm{coev}_X \otimes \identity_W).
+		\end{tikzcd}\]
+	\end{enumerate}
+\end{proposition}
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.proof003
+\begin{proof}
+	For (i) and (ii), checking that the displayed maps are mutually inverse is merely an application of \eqref{eqn:Zorro}. The same idea, expressed by a slightly more awkward diagram, also proves (iii).
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.p004
+In the settings of (i) and (ii), it is easy to describe composition of morphisms on the element $\varphi$ on the right-hand side of the bijection (hint: apply the morphism $\mathrm{ev}$). These canonical operations lead to the following result.
+
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.cor002
+\begin{corollary}\label{prop:rigid-Hom-internal}
+	\index[sym1]{Hom-internal}
+	Let $\mathcal{C}$ be a left rigid (respectively, right rigid) category in the sense of Definition \ref{def:rigid-cat}. Defining the internal $\Hom$ by $\iHom_{\text{left}}(X, Y) := Y \otimes {}^* X$ (respectively, $\iHom_{\text{right}}(X, Y) := X^* \otimes Y$) makes $\mathcal{C}$ a right closed (respectively, left closed) monoidal category in the sense of Definition \ref{def:closed-monoidal-cat}.
+\end{corollary}
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.proof004
+\begin{proof}
+	Apply Proposition \ref{prop:dual-internal-Hom} (iii) to Definition \ref{def:closed-monoidal-cat}; the remaining verifications are routine.
+\end{proof}
+
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.cor003
+\begin{corollary}\label{prop:rigid-exact}
+	Let $X \in \Obj(\mathcal{C})$.
+	\begin{itemize}
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.item004
+		\item If $X$ has a left dual ${}^* X$, then $(\cdot) \otimes X$ preserves all small $\varinjlim$, while $X \otimes (\cdot)$ preserves all small $\varprojlim$.
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.item005
+		\item If $X$ has a right dual $X^*$, then $(\cdot) \otimes X$ preserves all small $\varprojlim$, while $X \otimes (\cdot)$ preserves all small $\varinjlim$.
+	\end{itemize}
+\end{corollary}
+% segment-id: o014.aljabr2.chapter9.duality-rigidity-b.proof005
+\begin{proof}
+	Consider the case in which $X$ has a left dual ${}^* X$. Proposition \ref{prop:dual-internal-Hom} (iii) implies that the functor $(\cdot) \otimes X$ has right adjoint $(\cdot) \otimes {}^* X$, whereas the functor $X \otimes (\cdot) \simeq ({}^* X)^* \otimes (\cdot)$ has left adjoint ${}^* X \otimes (\cdot)$.
+	
+	Reversing the order of $\otimes$ in the preceding argument gives the case in which $X$ has a right dual $X^*$.
+\end{proof}

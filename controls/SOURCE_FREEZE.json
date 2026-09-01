@@ -1,0 +1,165 @@
+{
+  "schema": "o014-english-source-freeze-v1",
+  "recorded_at_utc": "2026-08-31T15:22:29.531004+00:00",
+  "author": "Wen-Wei Li",
+  "title_original": "代数学方法, 卷二, 线性代数",
+  "edition": "2024 Higher Education Press",
+  "isbn": "978-7-04-062754-1",
+  "repository": "https://github.com/wenweili/AlJabr-2",
+  "commit": "9a5803ff77dd3257484cb177f851a73770a59dd3",
+  "tree": "23bd05c2fb8434278df4fdfb636559a6a2b0d2ff",
+  "license_id": "CC-BY-4.0",
+  "license_sha256": "48a83a6e39f7b2f166763b30776132c9a99aa816f17cb06f87ad5b8542a7b71f",
+  "source_files": [
+    {
+      "path": "Al-jabr-2.tex",
+      "bytes": 3928,
+      "sha256": "b43725fbb761519af1350bd26bed7202fc4aaa7045d7f3c378f265ec095784e3"
+    },
+    {
+      "path": "AJbook2.cls",
+      "bytes": 13852,
+      "sha256": "d671788b2a9f24d1a8a7227144f9d8677622a50dbce097baaf632d880b0d0e29"
+    },
+    {
+      "path": "Al-jabr.bib",
+      "bytes": 23967,
+      "sha256": "1114bf4fe47e94d90658f288ae3d72c1a38f8bc297cbd88acd450ca004240306"
+    },
+    {
+      "path": "prelude.tex",
+      "bytes": 53566,
+      "sha256": "39c76ab54972cfb989cdabb8839dc56e173796b890ff66ad9e2734d73e87b30c"
+    },
+    {
+      "path": "chapter1.tex",
+      "bytes": 172770,
+      "sha256": "f2dc243ca862ef3cc179535771780404b7378f2165cc50e7c930c8dda5065617"
+    },
+    {
+      "path": "chapter2.tex",
+      "bytes": 168436,
+      "sha256": "440c4c9e6b3bffbae4525d67ae1cabbca137b63e042cf82517b682e06fda6a79"
+    },
+    {
+      "path": "chapter3.tex",
+      "bytes": 275812,
+      "sha256": "a54cf151bba1ea74aa7278d65c7e6a7a98831cd40db718f73f828ebaa6d186d0"
+    },
+    {
+      "path": "chapter4.tex",
+      "bytes": 243783,
+      "sha256": "300cc5f74ad45069d1169734cd6015d841d83fca4f7cd35d186bf3288b4aa3a5"
+    },
+    {
+      "path": "chapter5.tex",
+      "bytes": 94924,
+      "sha256": "2ebfafcf893ea5441e024d94a4cb8d264b1a9b751ec65917006dc8e9d615a58a"
+    },
+    {
+      "path": "chapter6.tex",
+      "bytes": 249151,
+      "sha256": "af19936498652133ca6ab203f803bd6574d0b6d6f16a3190894503f35ad57043"
+    },
+    {
+      "path": "chapter7.tex",
+      "bytes": 237783,
+      "sha256": "be5d4477c953d2106ba80316fd0b63497d329baf153af10f87ff833d40ac04ba"
+    },
+    {
+      "path": "chapter8.tex",
+      "bytes": 179011,
+      "sha256": "21048d0e1853ae960eddbb0f3e9b9291f5236328dd51f594d46aa936a551e078"
+    },
+    {
+      "path": "chapter9.tex",
+      "bytes": 161168,
+      "sha256": "9413ad102cf9385710ef0dd73340f83651bf44f1ca090fa15723cfec2ca4c3b6"
+    },
+    {
+      "path": "appendix1.tex",
+      "bytes": 44943,
+      "sha256": "0e460fb807c056557ea5257c8a69a95210c3c96105fe04e62006f593b35358b1"
+    },
+    {
+      "path": "appendix2.tex",
+      "bytes": 64634,
+      "sha256": "22311c31aae93cdd7289ffa2cf7845983e1cac17f273a70851c87f823e380c6c"
+    },
+    {
+      "path": "coverpage.tex",
+      "bytes": 5239,
+      "sha256": "208b6dbc0f6c479bb8bbd6bc5e42ff7a0571a8f1473fb1130e78d363d7b5d7d7"
+    },
+    {
+      "path": "pre-prelude.tex",
+      "bytes": 4803,
+      "sha256": "586d4f5f00d0a1747fde7ac3b61d8a660db5d998a95aab487290eae9680bb757"
+    },
+    {
+      "path": "font-setup-HEP.tex",
+      "bytes": 1923,
+      "sha256": "863136c21765a7b4fb9ca90794e7ccf82b8f8df58fbebbc35ef167e7f12b8d1f"
+    },
+    {
+      "path": "font-setup-Noto.tex",
+      "bytes": 2170,
+      "sha256": "1f674fa39faba41daeccb4a51bd6a77090e99e9baf3cbead04f0a9572ae8f380"
+    },
+    {
+      "path": "font-setup-open.tex",
+      "bytes": 2373,
+      "sha256": "dcf07280c551fc973160009f96a83ac64a0ef49f57456dc8d21893704b1df23d"
+    },
+    {
+      "path": "titles-setup.tex",
+      "bytes": 6614,
+      "sha256": "9dc217a4bc566d91526ce69ee1a7675f6136d66c532525d2e2c7797bde1b088d"
+    },
+    {
+      "path": "mycommand.sty",
+      "bytes": 7883,
+      "sha256": "a0ee58270f72078a71c065fda51b027bec7b40fc49721997d996c1c10683496a"
+    },
+    {
+      "path": "myarrows.sty",
+      "bytes": 3651,
+      "sha256": "9641d56b1d7659da85360ebabb46eddd203d403bf257eaf82541f21d39b0a809"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4314,
+      "sha256": "b16c0b27d50c1820bc9590d85fbca5017bc0cd7e511821fd43cd363a09c16063"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 19045,
+      "sha256": "48a83a6e39f7b2f166763b30776132c9a99aa816f17cb06f87ad5b8542a7b71f"
+    },
+    {
+      "path": "ccby.png",
+      "bytes": 12588,
+      "sha256": "633aae44a5d5b8915debc82f56a8e05c1b62b567b1aefeabc18617b81d8a04a9"
+    },
+    {
+      "path": "Lanzhou.png",
+      "bytes": 276766,
+      "sha256": "6000d7740aab58f1959c07af2c057680e2518dcc75b225f3180ed4b996fe9455"
+    }
+  ],
+  "source_unit_map": "controls/SOURCE_UNIT_MAP.json",
+  "mapped_units": 146,
+  "build_paths": [
+    "XeLaTeX/Biber/index PDF",
+    "Pandoc plus local MathJax offline HTML"
+  ],
+  "official_reuse_check": {
+    "result": "no_suitable_complete_english_edition_found_in_inspected_official_sources",
+    "sources": [
+      "https://wwli.asia/docs/books/",
+      "https://github.com/wenweili/AlJabr-2/tree/9a5803ff77dd3257484cb177f851a73770a59dd3"
+    ],
+    "scope_note": "Bounded official-source result, not a universal nonexistence claim."
+  },
+  "result": "PASS"
+}

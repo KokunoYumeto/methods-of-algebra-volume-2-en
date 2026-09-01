@@ -1,0 +1,262 @@
+% Unit 126 English translation of chapter9.tex, lines 1043--1156.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter9.coendomorphism-coalgebra-a
+% Coverage: Section 9.4, from the universal property of coHom through the
+% bracket convention.
+% Carried necessary source correction: source line 1105 reverses omega_1 and
+% omega_2 in the canonical coaction; this translation uses
+% omega_2(TX)->omega_1(TX) tensor coHom.
+
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.h001
+\section{The Endomorphism Coalgebra}\label{sec:coend}
+\hypertarget{o014.aljabr2.chapter9.coendomorphism-coalgebra-a}{ }
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.p001
+Beginning with this section, we lay a series of foundations for the theory of
+Tannakian categories (see \S\ref{sec:Tannakian-cat}); some of the tools and
+ideas involved have broader applications. The principal reference is
+\cite{Del90}.
+
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.p002
+Let $\Bbbk$ be a commutative ring. For any category $\mathcal{A}$ and functor
+$\xi:\mathcal{A}\to\Bbbk\dcate{Mod}$, we may consider the $\Bbbk$-algebra
+$\End(\xi)$ of endomorphisms of the functor. It gives a family of
+$\Bbbk$-linear maps
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.q001
+\[ \End(\xi) \dotimes{\Bbbk} \xi(X) \to \xi(X), \quad X \in \Obj(\mathcal{A}), \]
+functorial in $X$, or briefly $\End(\xi)\dotimes{\Bbbk}\xi\to\xi$.
+Moreover, $\End(\xi)$ is universal for such actions: tautologically, giving
+an action of a $\Bbbk$-algebra $E$ on $\xi$ is equivalent to giving an
+algebra homomorphism $E\to\End(\xi)$. The multiplication on $\End(\xi)$ can
+be derived abstractly from this universal property.
+
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.p003
+For the problems we shall address, the dual version of this construction is
+both more useful and simpler. We must, however, consider functors taking
+values in $\cated{Mod}B$, where $B$ is a $\Bbbk$-algebra, assumed nonzero by
+convention. This construction is closely related to the abstract categorical
+construction called a \emph{coend}; an exercise in this chapter gives further
+details.
+
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.d001
+\begin{definition}\label{def:cogebra-L-universal}
+	\index[sym1]{coHom-coEnd@$\coHom, \coEnd$}
+	Let $\Bbbk$ be a commutative ring, $B$ a $\Bbbk$-algebra, and
+	$\omega_1,\omega_2:\mathcal{A}\to\cated{Mod}B$ functors. Consider a
+	$(B,B)$-bimodule $L$ together with a natural transformation
+	$a:\omega_2\to\omega_1\dotimes{B}L$, that is, a family of right
+	$B$-module homomorphisms
+	% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.q002
+	\[ a_X: \omega_2(X) \to \omega_1(X) \dotimes{B} L, \quad X \in \Obj(\mathcal{A}), \]
+	such that the following diagram commutes for every
+	$f\in\Hom_{\mathcal{A}}(X,Y)$:
+	% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.q003
+	\[\begin{tikzcd}
+		\omega_2(X) \arrow[r, "a_X"] \arrow[d, "{\omega_2(f)}"'] & \omega_1(X) \dotimes{B} L \arrow[d, "{\omega_1(f) \otimes \identity}"] \\
+		\omega_2(Y) \arrow[r, "a_Y"'] & \omega_1(Y) \dotimes{B} L.
+	\end{tikzcd}\]
+
+	A morphism from the data $(L,a)$ to $(L',a')$ is defined to be a bimodule
+	homomorphism $t:L\to L'$ that makes the following diagram commute for all
+	$X$:
+	% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.q004
+	\[\begin{tikzcd}
+		\omega_2(X) \arrow[r, "{a_X}"] \arrow[rd, "{a'_X}"'] & \omega_1(X) \dotimes{B} L \arrow[d, "{\identity \otimes t}"] \\
+		& \omega_1(X) \dotimes{B} L'.
+	\end{tikzcd}\]
+	Conversely, data $(L,a)$ and a bimodule homomorphism $t:L\to L'$ determine
+	$a'$ by this diagram, together with a morphism $t:(L,a)\to(L',a')$.
+
+	If the category of all such data $(L,a)$ and morphisms has an initial
+	object, denote the corresponding $(B,B)$-bimodule by
+	% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.q005
+	\[ \coHom(\omega_1, \omega_2) = \coHom_{\Bbbk}(\omega_1, \omega_2), \]
+	and denote the corresponding morphism by
+	$\lambda:\omega_2\to\omega_1\dotimes{B}L$. We also write
+	% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.q006
+	\[ \coEnd(\omega) = \coEnd_{\Bbbk}(\omega) := \coHom(\omega, \omega). \]
+\end{definition}
+
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.p004
+The symbols $\coHom$ and $\coEnd$ stand for $\operatorname{coHom}$ and
+$\operatorname{coEnd}$, respectively; they should be viewed as dual to
+$\Hom$ and $\End$, and the abbreviations are merely typographical. Note that
+the notion of a $(B,B)$-bimodule depends not only on the ring structure of
+$B$, but also on $\Bbbk$.
+
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.r001
+\begin{remark}
+	The equality $\coHom(\omega_1,\omega_2)=0$ means that every morphism
+	$\omega_2\to\omega_1\dotimes{B}L$ is zero; the definition does not exclude
+	this possibility. By contrast, if $\coEnd(\omega)$ exists and $\omega$ is
+	not the constant zero functor, then $\coEnd(\omega)\neq0$, since
+	$\omega\rightiso\omega\dotimes{B}B$.
+\end{remark}
+
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.p005
+If $\coEnd(\omega)$ exists, applying the universal property to
+$\omega\rightiso\omega\dotimes{B}B$ gives a bimodule homomorphism
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.q007
+\[ \epsilon: \coEnd(\omega) \to B. \]
+
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.p006
+On the other hand, assuming the relevant $\coHom$ objects exist, successive
+application to $\omega_1,\omega_2,\omega_3$ yields the morphism
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.q008
+\begin{equation*}
+	\omega_3 \to \omega_2 \dotimes{B} \coHom(\omega_2, \omega_3) \to \omega_1 \dotimes{B} \coHom(\omega_1, \omega_2) \dotimes{B} \coHom(\omega_2, \omega_3).
+\end{equation*}
+The universal property then gives a canonical bimodule homomorphism
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.q009
+\begin{equation}\label{eqn:L-comult-prep}
+	\coHom(\omega_1, \omega_3) \to \coHom(\omega_1, \omega_2) \dotimes{B} \coHom(\omega_2, \omega_3).
+\end{equation}
+
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.p007
+A routine check with the functors $\omega_1,\ldots,\omega_4$ shows that
+\eqref{eqn:L-comult-prep} satisfies coassociativity. Thus $\coEnd(\omega)$
+becomes a coalgebra in $(B,B)\dcate{Mod}$, with
+$\epsilon:\coEnd(\omega)\to B$ as counit, while every $\omega(X)$ becomes a
+$\coEnd(\omega)$-comodule via the canonical morphism $\lambda$. This
+discussion is summarized as follows.
+
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.dp001
+\begin{definition-proposition}[Endomorphism coalgebra]\label{def:cogebra-L}
+	\index{endomorphism coalgebra}
+	Let $\omega:\mathcal{A}\to\cated{Mod}B$ be a functor and suppose
+	$\coEnd(\omega)$ exists.
+	\begin{itemize}
+		\item As an object of the monoidal category $(B,B)\dcate{Mod}$,
+		$\coEnd(\omega)$ has a canonical coalgebra structure such that every
+		$\omega(X)$ becomes a $\coEnd(\omega)$-comodule via the canonical
+		morphism, and morphisms in $\mathcal{A}$ induce comodule
+		homomorphisms. We call $\coEnd(\omega)$ the \emph{endomorphism
+		coalgebra} of $\omega$.\footnote{Perhaps ``coendomorphism coalgebra''
+		would be a more accurate name.}
+		\item For every coalgebra $L$ in $(B,B)\dcate{Mod}$, compatibly giving
+		all $\omega(X)$ an $L$-comodule structure is equivalent to giving a
+		coalgebra homomorphism $\coEnd(\omega)\to L$.
+	\end{itemize}
+\end{definition-proposition}
+
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.r002
+\begin{remark}\label{rem:L-cogebra-functoriality}
+	Given a functor $T:\mathcal{A}'\to\mathcal{A}$ and
+	$\omega_1,\omega_2:\mathcal{A}\to\cated{Mod}B$, assuming the relevant
+	$\coHom$ objects exist, the canonical morphism
+	$\omega_2(TX)\to\omega_1(TX)\dotimes{B}\coHom(\omega_1,\omega_2)$
+	together with the universal property naturally induces a homomorphism
+	% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.q010
+	\[ \coHom(\omega_1 T, \omega_2 T) \to \coHom(\omega_1, \omega_2), \]
+	compatible with all the structures above. In particular, taking
+	$\omega_1=\omega=\omega_2$ gives a coalgebra homomorphism
+	$\coEnd(\omega T)\to\coEnd(\omega)$.
+\end{remark}
+
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.pr001
+\begin{proposition}\label{prop:coHom-colim}
+	Let $\omega_1,\omega_2:\mathcal{A}\to\cated{Mod}B$ be functors. Suppose
+	$\mathcal{A}$ is the union of a family of subcategories, each denoted by
+	$\mathcal{A}'$, and write $\omega_i':=\omega_i|_{\mathcal{A}'}$. If
+	$\coHom(\omega_1',\omega_2')$ exists for every $\mathcal{A}'$, then
+	$\coHom(\omega_1,\omega_2)$ exists and there is a canonical isomorphism
+	% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.q011
+	\[ \varinjlim_{\mathcal{A}'} \coHom(\omega'_1, \omega'_2) \rightiso \coHom(\omega_1, \omega_2). \]
+	The colimit on the left is ordered by inclusion; its transition
+	homomorphisms are given as in Remark~\ref{rem:L-cogebra-functoriality}.
+	The isomorphism is compatible with \eqref{eqn:L-comult-prep}.
+\end{proposition}
+\begin{proof}
+	For every $(B,B)$-bimodule $L$, giving a morphism
+	$\omega_2\to\omega_1\dotimes{B}L$ is equivalent to compatibly giving
+	$\omega_2'\to\omega_1'\dotimes{B}L$ for every $\mathcal{A}'$; this in turn
+	is equivalent to giving a compatible family of homomorphisms
+	$\coHom(\omega_1',\omega_2')\to L$.
+\end{proof}
+
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.p008
+The issue is how to ensure the existence of $\coHom(\omega_1,\omega_2)$,
+which is not automatic. We must first control the size of the category. Fix
+a Grothendieck universe $\mathcal{U}$, relative to which we may speak of
+small sets and small categories. A category is called \emph{essentially
+small} if the isomorphism classes of its objects form a small set
+(Definition~\ref{def:essentially-small-cat}).
+
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.cv001
+\begin{convention}\label{con:Mod-pfg}
+	\index[sym1]{Modpfg@$\cate{Mod}_{\mathrm{pfg}}$}
+	Let $\Bbbk$ be a commutative ring and $B$ a $\Bbbk$-algebra. We shall
+	need the following notation.
+	\begin{itemize}
+		\item Consider the full subcategories
+		% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.q012
+		\[ \underbracket{\catesubd{Mod}{\mathrm{pfg}}B}_{\text{projective + finitely generated}} \subset \underbracket{\catesubd{Mod}{\mathrm{fg}}B}_{\text{finitely generated}} \subset \cated{Mod}B. \]
+		\item For every right $B$-module $P$, define the left $B$-module
+		$P^\vee$ according to \eqref{eqn:P-vee}. Every homomorphism
+		$\varphi:P\to Q$ induces the dual homomorphism
+		$\varphi^\vee:Q^\vee\to P^\vee$.
+	\end{itemize}
+	Following this book's convention for algebraic structures, $\Bbbk$ and
+	$B$ are assumed to be realized on small sets. Finite generation ensures
+	that $\catesubd{Mod}{\mathrm{fg}}B$ and
+	$\cate{Vect}_{\mathrm f}(\Bbbk)$ are essentially small categories; they
+	are also $\Bbbk$-linear. The essentially small category $\mathcal{A}$
+	considered in this section, however, need not have a $\Bbbk$-linear
+	structure.
+\end{convention}
+
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.p009
+For every $P_1,P_2\in\Obj(\catesubd{Mod}{\mathrm{pfg}}B)$, there is a
+canonical isomorphism
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.q013
+\begin{equation*}\begin{aligned}
+	\Hom_{\cated{Mod}B}\left( P_2, P_1 \dotimes{B} L \right) & \rightiso \Hom_{(B, B)\dcate{Mod}}\left( P_1^\vee \dotimes{\Bbbk} P_2, L \right) \\
+	\varphi & \mapsto \left[ \check{p}_1 \otimes p_2 \mapsto (\check{p}_1 \otimes \identity_L)(\varphi(p_2)) \right] .
+\end{aligned}\end{equation*}
+This is easily reduced to the case in which $P_1$ and $P_2$ are finite-rank
+free modules. Therefore, when
+$\omega_1,\omega_2:\mathcal{A}\to\cated{Mod}B$ take values in
+$\catesubd{Mod}{\mathrm{pfg}}B$, giving data $a=(a_X)_X$ as in
+Definition~\ref{def:cogebra-L-universal} is equivalent to giving a family of
+homomorphisms
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.q014
+\[ \alpha_X: \omega_1(X)^\vee \dotimes{\Bbbk} \omega_2(X) \to L, \quad X \in \Obj(\mathcal{A}), \]
+whose functoriality in $X$ translates into commutativity of the following
+diagram for every $f\in\Hom_{\mathcal{A}}(X,Y)$:
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.q015
+\begin{equation}\label{eqn:cogebra-L}\begin{tikzcd}
+	\omega_1(Y)^\vee \dotimes{\Bbbk} \omega_2(X) \arrow[r, "{\omega_1(f)^\vee \otimes \identity}" inner sep=0.6em] \arrow[d, "{\identity \otimes \omega_2(f)}"'] & \omega_1(X)^\vee \dotimes{\Bbbk} \omega_2(X) \arrow[d, "{\alpha_X}"] \\
+	\omega_1(Y)^\vee \dotimes{\Bbbk} \omega_2(Y) \arrow[r, "{\alpha_Y}"'] & L.
+\end{tikzcd}\end{equation}
+
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.pr002
+\begin{proposition}\label{prop:cogebra-L-universal}
+	Let $\mathcal{A}$ be an essentially small category and let
+	$\omega_1,\omega_2:\mathcal{A}\to
+	\catesubd{Mod}{\mathrm{pfg}}B$ be arbitrary functors. Then
+	$\coHom(\omega_1,\omega_2)$ of
+	Definition~\ref{def:cogebra-L-universal} exists.
+\end{proposition}
+\begin{proof}
+	The only point to prove is the existence of an initial object. Use the
+	commutative diagram \eqref{eqn:cogebra-L}. Let $L_0$ be the direct sum of
+	all $\omega_1(X)^\vee\dotimes{\Bbbk}\omega_2(X)$, where $X$ ranges over a
+	set of representatives for $\Obj(\mathcal{A})/\simeq$; this is where
+	essential smallness is needed. For every $f:X\to Y$, define
+	% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.q016
+	\[ \delta_f := \omega_1(f)^\vee \otimes \identity - \identity \otimes \omega_2(f) : \omega_1(Y)^\vee \dotimes{\Bbbk} \omega_2(X) \to L_0. \]
+	Then $\coHom(\omega_1,\omega_2):=L_0/\sum_f\Image(\delta_f)$ is the
+	desired object.
+\end{proof}
+
+% segment-id: o014.li2.chapter9.coendomorphism-coalgebra-a.cv002
+\begin{convention}\label{con:coend-bracket}
+	The following concrete notation will be useful. For
+	$t\in\omega_1(X)^\vee\dotimes{\Bbbk}\omega_2(X)$, write $[t]$ for its
+	image in $\coHom(\omega_1,\omega_2)$; these images generate
+	$\coHom(\omega_1,\omega_2)$. In the universal property of
+	Definition~\ref{def:cogebra-L}, the image in $L$ of
+	$[\phi\otimes x]\in\coEnd(\omega)$ is obtained by first mapping
+	$x\in\omega(X)$ through $\omega(X)\to\omega(X)\dotimes{B}L$ and then
+	contracting with $\phi\in\omega(X)^\vee$.
+\end{convention}

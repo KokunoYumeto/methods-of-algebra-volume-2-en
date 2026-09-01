@@ -1,0 +1,239 @@
+{
+  "schema": "o014-english-range-receipt-v1",
+  "range": {
+    "first_sequence": 90,
+    "last_sequence": 99
+  },
+  "status": "PASS",
+  "source_commit": "9a5803ff77dd3257484cb177f851a73770a59dd3",
+  "validation": {
+    "source_slice_sha256_verified": true,
+    "indonesian_witness_sha256_verified": true,
+    "stable_unit_ids_verified": true,
+    "segment_id_sequence_parity": true,
+    "localized_environment_roles_canonicalized_to_english": true,
+    "environment_role_order_parity": true,
+    "label_sequence_parity": true,
+    "reference_key_coverage_parity": true,
+    "citation_key_sequence_parity": true,
+    "display_formula_order_parity": true,
+    "display_formula_comparison_ignores_translated_text_and_whitespace": true,
+    "balanced_braces_math_delimiters_and_nested_environments": true,
+    "han_residue_count": 0,
+    "indonesian_residue_count": 0,
+    "placeholder_count": 0,
+    "tex_or_git_invoked": false
+  },
+  "units": [
+    {
+      "sequence": 90,
+      "unit_id": "o014.aljabr2.chapter7.closed-monoidal-categories",
+      "target_path": "source/en/chapter7-unit-090.tex",
+      "target_sha256": "1d0e6f912f1cd77cf91ed205a1c69aa84952b7e1ea4d7c7071cb8f9416d18fb1",
+      "bytes": 12729,
+      "lines": 243,
+      "chinese_source": {
+        "path": "chapter7.tex",
+        "start_line": 611,
+        "end_line": 711,
+        "sha256": "c529a3ee3d2deff32a3887a2d4ad90fc70faacbccde83383464808695cb6f453"
+      },
+      "indonesian_witness_sha256": "df6c4f1ad042eb00150b626a7c3813d035734b846f3747610e26ff6c2e5d7e90",
+      "segments": 45,
+      "environment_tokens": 28,
+      "labels": 5,
+      "references": 14,
+      "citation_keys": 1,
+      "display_math_blocks": 9
+    },
+    {
+      "sequence": 91,
+      "unit_id": "o014.aljabr2.chapter7.closed-structure-dgcat",
+      "target_path": "source/en/chapter7-unit-091.tex",
+      "target_sha256": "3e44e60faa355810966eabafc47f39484b780f588e6ad1e07d531996fd5aa0c3",
+      "bytes": 17069,
+      "lines": 331,
+      "chinese_source": {
+        "path": "chapter7.tex",
+        "start_line": 712,
+        "end_line": 891,
+        "sha256": "e8dd5da84118bf1e2e7d62ab18ef461015bb4e8c4f47db2939e54cac2eb0adac"
+      },
+      "indonesian_witness_sha256": "243ada847819fce19218e8c706baf3717ecdb550e677f2b79f5936c35f8353b9",
+      "segments": 27,
+      "environment_tokens": 56,
+      "labels": 6,
+      "references": 9,
+      "citation_keys": 1,
+      "display_math_blocks": 19
+    },
+    {
+      "sequence": 92,
+      "unit_id": "o014.aljabr2.chapter7.coalgebra-to-hopf-a",
+      "target_path": "source/en/chapter7-unit-092.tex",
+      "target_sha256": "a44f575872a8b424b19fd4c8c18d55904f71eb20a0668342004fb30f5c2b2470",
+      "bytes": 21131,
+      "lines": 417,
+      "chinese_source": {
+        "path": "chapter7.tex",
+        "start_line": 892,
+        "end_line": 1129,
+        "sha256": "2b905d636bc52b931601f2828a460127f92cbcb5d477625031a4418f700a124d"
+      },
+      "indonesian_witness_sha256": "c6ceb536beb8174de7dc5d5e7047b2408cb52a31f77f4b91755d783ae757b2d0",
+      "segments": 28,
+      "environment_tokens": 68,
+      "labels": 8,
+      "references": 8,
+      "citation_keys": 4,
+      "display_math_blocks": 20
+    },
+    {
+      "sequence": 93,
+      "unit_id": "o014.aljabr2.chapter7.coalgebra-to-hopf-b",
+      "target_path": "source/en/chapter7-unit-093.tex",
+      "target_sha256": "15489fd304cd613516109492e4ca2d89b32002007c57edf2d7dac87bd3c63d1e",
+      "bytes": 18037,
+      "lines": 335,
+      "chinese_source": {
+        "path": "chapter7.tex",
+        "start_line": 1130,
+        "end_line": 1279,
+        "sha256": "9f2f96aa8d683be7fa0de0dcc4dae2d8ffad9c26fec5891b4e856ef6889bdfd9"
+      },
+      "indonesian_witness_sha256": "fb457624c924d4f52e349db4ba0a1b2be78098e37a1692526405599fb8b0c6ad",
+      "segments": 44,
+      "environment_tokens": 44,
+      "labels": 7,
+      "references": 11,
+      "citation_keys": 2,
+      "display_math_blocks": 13
+    },
+    {
+      "sequence": 94,
+      "unit_id": "o014.aljabr2.chapter7.beck-monadicity-a",
+      "target_path": "source/en/chapter7-unit-094.tex",
+      "target_sha256": "0f6655db030ba06516ce93c39fb20b5af5a683c50d7976a0234bc71ce4c1b9f7",
+      "bytes": 15254,
+      "lines": 300,
+      "chinese_source": {
+        "path": "chapter7.tex",
+        "start_line": 1280,
+        "end_line": 1444,
+        "sha256": "60698eed12c9693fdd9668c786df9aa3e44f3eae16fe6a611e58d3b99aa25847"
+      },
+      "indonesian_witness_sha256": "06ac52f8bde8e7395072881742f2725b396be110b332505494961a6016955757",
+      "segments": 20,
+      "environment_tokens": 64,
+      "labels": 7,
+      "references": 7,
+      "citation_keys": 2,
+      "display_math_blocks": 20
+    },
+    {
+      "sequence": 95,
+      "unit_id": "o014.aljabr2.chapter7.beck-monadicity-b",
+      "target_path": "source/en/chapter7-unit-095.tex",
+      "target_sha256": "60fc13499001a96a9b4af8df48900f3043f915241dc8799de036e15aafd0de0f",
+      "bytes": 21133,
+      "lines": 416,
+      "chinese_source": {
+        "path": "chapter7.tex",
+        "start_line": 1445,
+        "end_line": 1660,
+        "sha256": "470cac7213dc2b83d4cea50f1cb5c70cc398f978fbe70034fef77c3b099903df"
+      },
+      "indonesian_witness_sha256": "9167524d1771cc3d9715c1fdace8bf5981feba7e716db247d5ef18c4183dbde4",
+      "segments": 22,
+      "environment_tokens": 102,
+      "labels": 10,
+      "references": 33,
+      "citation_keys": 0,
+      "display_math_blocks": 17
+    },
+    {
+      "sequence": 96,
+      "unit_id": "o014.aljabr2.chapter7.morita-theory-a",
+      "target_path": "source/en/chapter7-unit-096.tex",
+      "target_sha256": "ad3c661340d9d10f31dca14461931ac426da1f0ccb7150d5f059fe06c36ef2ee",
+      "bytes": 14504,
+      "lines": 283,
+      "chinese_source": {
+        "path": "chapter7.tex",
+        "start_line": 1661,
+        "end_line": 1805,
+        "sha256": "b134dbc12729d608e9d2cf138f78eaaa71143fe658cca303d9be50820f4fad6c"
+      },
+      "indonesian_witness_sha256": "d07286828021220865e3d2d6eb2268dcfa3224b40da602ee967bcfb852d83845",
+      "segments": 27,
+      "environment_tokens": 50,
+      "labels": 7,
+      "references": 16,
+      "citation_keys": 2,
+      "display_math_blocks": 14
+    },
+    {
+      "sequence": 97,
+      "unit_id": "o014.aljabr2.chapter7.morita-theory-b",
+      "target_path": "source/en/chapter7-unit-097.tex",
+      "target_sha256": "07a2308565082725d6e8259c055e92c436199889ded333ae2ae576e1d2d76561",
+      "bytes": 15662,
+      "lines": 305,
+      "chinese_source": {
+        "path": "chapter7.tex",
+        "start_line": 1806,
+        "end_line": 1967,
+        "sha256": "849246fbd0a0aa317e93e3803eb53c07a402b9de2291a127c9935cfa51de24f7"
+      },
+      "indonesian_witness_sha256": "11cbc0c3311426a7bc761b5dbb775c1eac46c64cdf930fd66dcfaec5c1adf1d5",
+      "segments": 39,
+      "environment_tokens": 56,
+      "labels": 10,
+      "references": 16,
+      "citation_keys": 1,
+      "display_math_blocks": 16
+    },
+    {
+      "sequence": 98,
+      "unit_id": "o014.aljabr2.chapter7.morita-theory-c",
+      "target_path": "source/en/chapter7-unit-098.tex",
+      "target_sha256": "3d4643f95e047f2f8b1a7d8c6b707cda366c64322ae87f1e8c6676acca672a7a",
+      "bytes": 7975,
+      "lines": 180,
+      "chinese_source": {
+        "path": "chapter7.tex",
+        "start_line": 1968,
+        "end_line": 2035,
+        "sha256": "f193af1f3c733052909d1f267487feca2391be34cc98c35b0b7da8cc7985372a"
+      },
+      "indonesian_witness_sha256": "e8e8bc34468a1410a47936bae2e0d2db9a15265bcae5d654abf338d04438336f",
+      "segments": 8,
+      "environment_tokens": 20,
+      "labels": 3,
+      "references": 9,
+      "citation_keys": 0,
+      "display_math_blocks": 7
+    },
+    {
+      "sequence": 99,
+      "unit_id": "o014.aljabr2.chapter7.identifying-module-categories",
+      "target_path": "source/en/chapter7-unit-099.tex",
+      "target_sha256": "1c2a88d3a2759c05e6759c6dce2adc22337cde6cef5ae1af1e700e3902eb1470",
+      "bytes": 12865,
+      "lines": 252,
+      "chinese_source": {
+        "path": "chapter7.tex",
+        "start_line": 2036,
+        "end_line": 2140,
+        "sha256": "14f3387dca884b6ca287fd8bd407dc988c0137b7cf256ead19dc885aea9ba626"
+      },
+      "indonesian_witness_sha256": "f78df2a8fdb78f448b894f21fcef50f855386753279bb0010be2ea9a3b16e413",
+      "segments": 16,
+      "environment_tokens": 30,
+      "labels": 6,
+      "references": 11,
+      "citation_keys": 1,
+      "display_math_blocks": 11
+    }
+  ]
+}

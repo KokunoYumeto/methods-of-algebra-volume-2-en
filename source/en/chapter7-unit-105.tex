@@ -1,0 +1,166 @@
+% Unit 105 English translation of chapter7.tex lines 2945--3002.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter7.exercises-c
+% Coverage: concluding Chapter 7 exercises on Galois descent, twisting in
+% nonabelian cohomology, and quadratic forms; closes the Exercises environment.
+
+\hypertarget{o014.aljabr2.chapter7.exercises-c}{ }
+% segment-id: o014.aljabr2.chapter7.exercises-c.ex001
+	\item Following the explanation at the end of
+	\S\ref{sec:descent-Galois}, give a direct proof of the Galois descent
+	Theorem~\ref{prop:Galois-descent} by the following steps. Use the notation
+	from that section: let $M\in\Obj(\cate{Vect}^{\Gamma,\infty}(L))$ and
+	define the canonical map $\iota_M$ by \eqref{eqn:Galois-descent-iotaM}.
+	\begin{enumerate}[(i)]
+% segment-id: o014.aljabr2.chapter7.exercises-c.i001
+		\item Let $M'$ be a $\Gamma$-invariant subspace of
+		$L\dotimes{K}(M^\Gamma)$, that is, $\Gamma M'\subset M'$. Prove that
+		if $M'\cap(1\otimes M^\Gamma)=\{0\}$, then $M'=\{0\}$.
+
+% segment-id: o014.aljabr2.chapter7.exercises-c.hi001
+		\begin{hint}
+			Choose a basis $(y_i)_{i\in I}$ of $M^\Gamma$. If $M'\neq\{0\}$,
+			choose in it a nonzero expression with the fewest possible terms,
+			$\sum_{i\in I}\ell_i\otimes y_i$ (a finite sum). After a suitable
+			normalization, it may be assumed to have the form
+% segment-id: o014.aljabr2.chapter7.exercises-c.q001
+			\[ m' = 1 \otimes y_{i_0} + \ell_1 \otimes y_{i_1} + \cdots, \quad \ell_1 \notin K. \]
+			Choose $\sigma\in\Gamma$ such that
+			$\sigma(\ell_1)\neq\ell_1$, and consider $m'-\sigma(m')$ to obtain a
+			contradiction.
+		\end{hint}
+
+% segment-id: o014.aljabr2.chapter7.exercises-c.i002
+		\item Prove that $\iota_M:L\dotimes{K}(M^\Gamma)\to M$ is injective.
+% segment-id: o014.aljabr2.chapter7.exercises-c.hi002
+		\begin{hint}
+			Consider $M':=\Ker(\iota_M)$.
+		\end{hint}
+
+% segment-id: o014.aljabr2.chapter7.exercises-c.i003
+		\item Prove that $\iota_M$ is surjective.
+
+% segment-id: o014.aljabr2.chapter7.exercises-c.hi003
+		\begin{hint}
+			Consider a finite Galois subextension $E|K$ of $L|K$. Take
+			$a_1,\ldots,a_n$ as a basis of $E$ as a vector space over $K$, and
+			choose representatives $\identity=\sigma_1,\ldots,\sigma_n\in\Gamma$
+			for the elements of $\Gal(E|K)$. Field theory shows that
+			$(\sigma_i(a_j))_{1\leq i,j\leq n}$ is an invertible matrix over $E$;
+			write its inverse as $(b_{ij})_{1\leq i,j\leq n}$. For
+			$m\in M^{\Gal(L|E)}$, derive
+% segment-id: o014.aljabr2.chapter7.exercises-c.q002
+			\[ m = \sum_{i=1}^n b_{i1} \sum_{j=1}^n \sigma_j(a_i m) \; \in \Image(\iota_M). \]
+		\end{hint}
+
+% segment-id: o014.aljabr2.chapter7.exercises-c.i004
+		\item Use the preceding results to show that
+		\eqref{eqn:Galois-descent-adjunction} is an adjoint equivalence, thus
+		giving a direct proof of Theorem~\ref{prop:Galois-descent}.
+	\end{enumerate}
+
+% segment-id: o014.aljabr2.chapter7.exercises-c.ex002
+	\item Let $G$ be a group and $L|K$ a Galois extension of fields. Write
+	$G\dcate{Mod}$ (or $G\dcate{Mod}_L$) for the category of $G$-modules with
+	coefficients in $K$ (or $L$); see Definition~\ref{def:G-mod}. Use the
+	Galois descent methods of
+	\S\S\ref{sec:descent-Galois}---\ref{sec:Galois-H1} to describe
+	$G\dcate{Mod}$ in terms of objects of $G\dcate{Mod}_L$ equipped with an
+	appropriate $\Gal(L|K)$-action.
+
+% segment-id: o014.aljabr2.chapter7.exercises-c.ex003
+	\item Use the notation of \S\ref{sec:Galois-H1}. Let
+	$c\in Z^1(\Gamma,G(\mathbf{t}_{0,L}))$. Recall from the proof of
+	Theorem~\ref{prop:Galois-H1} that, through Galois descent, $c$ defines a
+	$K$-vector space $W$ with data $\mathbf{t}$ on it, as well as an
+	isomorphism $h:\mathbf{t}_{0,L}\rightiso\mathbf{t}_L$.
+	\begin{enumerate}[(i)]
+% segment-id: o014.aljabr2.chapter7.exercises-c.i005
+		\item Show that $g\mapsto h^{-1}gh$ gives a group isomorphism
+		$\nu:G(\mathbf{t}_L)\rightiso G(\mathbf{t}_{0,L})$. Show that
+% segment-id: o014.aljabr2.chapter7.exercises-c.q003
+		$ f \xmapsto{\sigma \in \Gamma} c(\sigma)({}^\sigma f)c(\sigma)^{-1} $
+		gives a new $\Gamma$-action on $G(\mathbf{t}_{0,L})$. Denote this
+		structure by ${}^cG(\mathbf{t}_{0,L})$, and show that
+		$\nu:G(\mathbf{t}_L)\rightiso{}^cG(\mathbf{t}_{0,L})$ is
+		$\Gamma$-equivariant.
+
+% segment-id: o014.aljabr2.chapter7.exercises-c.i006
+		\item Show that the following formula gives a well-defined map:
+% segment-id: o014.aljabr2.chapter7.exercises-c.q004
+		\begin{align*}
+			Z^1(\Gamma, G(\mathbf{t}_L)) & \to Z^1(\Gamma, G(\mathbf{t}_{0, L})) \\
+			\tilde{c} & \mapsto \left[\sigma \mapsto \nu(\tilde{c}(\sigma)) c(\sigma) \right].
+		\end{align*}
+		It induces a bijection
+		$\Hm^1(\Gamma,G(\mathbf{t}_L))\to
+		\Hm^1(\Gamma,G(\mathbf{t}_{0,L}))$ that maps the base point to $[c]$.
+% segment-id: o014.aljabr2.chapter7.exercises-c.hi004
+		\begin{hint}
+			Compare the ``twisting'' construction in the exercises for
+			\CHref{sec:group-coh}.
+		\end{hint}
+
+% segment-id: o014.aljabr2.chapter7.exercises-c.i007
+		\item Show that, under the correspondence in
+		Theorem~\ref{prop:Galois-H1}, this bijection corresponds to the equality
+		$\mathscr{T}(\mathbf{t})=\mathscr{T}(\mathbf{t}_0)$.
+	\end{enumerate}
+
+% segment-id: o014.aljabr2.chapter7.exercises-c.ex004
+	\item Let $K$ be a field with $\mathrm{char}(K)\neq2$. A nondegenerate
+	symmetric bilinear form $q:V\times V\to K$ on a finite-dimensional
+	$K$-vector space $V$ will simply be called a nondegenerate quadratic form.
+	In the orthogonal group $\mathrm{O}(q)=\mathrm{O}(V,q)$, write
+	$\SO(q)=\SO(V,q)$ for the subgroup cut out by $\det=1$. For every Galois
+	extension $L|K$, there is a nondegenerate quadratic form $(V_L,q_L)$ and
+	the corresponding groups, all equipped with a smooth action of
+	$\Gamma:=\Gal(L|K)$.
+	\begin{enumerate}[(i)]
+% segment-id: o014.aljabr2.chapter7.exercises-c.i008
+		\item Write $\mu_2:=\{\pm1\}\subset K^\times$. Show that
+		$\mathrm{O}(q)/\SO(q)\simeq\mu_2$. For the version
+		$\mathrm{O}(q_L)/\SO(q_L)$, explain the relation between this
+		isomorphism and the $\Gamma$-action.
+
+% segment-id: o014.aljabr2.chapter7.exercises-c.i009
+		\item Using the tools of \S\ref{sec:Galois-H1}, show that the elements
+		of $\Hm^1(\Gamma,\mathrm{O}(q_L))$ correspond bijectively to the
+		isomorphism classes of nondegenerate quadratic forms $(V',q')$ over $K$
+		with $\dim V'=\dim V$, where the base point corresponds to $(V,q)$.
+
+% segment-id: o014.aljabr2.chapter7.exercises-c.i010
+		\item Apply Theorem~\ref{prop:nonabelian-long} to obtain the exact
+		sequence of pointed sets
+% segment-id: o014.aljabr2.chapter7.exercises-c.q005
+		\[ \mathrm{O}(q) \xrightarrow{\det} \mu_2 \to \Hm^1(\Gamma, \SO(q_L)) \xrightarrow{\varphi} \Hm^1(\Gamma, \mathrm{O}(q_L)) \xrightarrow{\psi} \Hm^1(\Gamma, \mu_2). \]
+		Try to show that $\varphi$ is injective.
+% segment-id: o014.aljabr2.chapter7.exercises-c.hi005
+		\begin{hint}
+			Surjectivity of $\det$ only shows that
+			$\varphi^{-1}(\text{base point})=\{\text{base point}\}$. To prove
+			injectivity, one must vary $(V,q)$ and apply the twisting technique
+			from the preceding exercise.
+		\end{hint}
+
+% segment-id: o014.aljabr2.chapter7.exercises-c.i011
+		\item Show that
+		$\Hm^1(\Gamma,\mu_2)\simeq K^\times/K^{\times,2}$. Also show that
+		$\psi$ is the map
+% segment-id: o014.aljabr2.chapter7.exercises-c.q006
+		\[ \left[ (V', q'):\; \text{nondegenerate quadratic form} \right] \mapsto \mathrm{disc}(q') / \mathrm{disc}(q), \]
+		where one chooses any basis of $V'$, identifies $q'$ with a symmetric
+		matrix, and defines
+% segment-id: o014.aljabr2.chapter7.exercises-c.q007
+		\[ \mathrm{disc}(q') := (-1)^n \det(q') \bmod K^{\times 2}, \quad \dim V = 2n \;\text{or}\; 2n+1. \]
+
+% segment-id: o014.aljabr2.chapter7.exercises-c.i012
+		\item Show that the elements of $\Hm^1(\Gamma,\SO(q_L))$ correspond
+		bijectively to the isomorphism classes of nondegenerate quadratic forms
+		$(V',q')$ over $K$ satisfying $\dim V'=\dim V$ and
+		$\mathrm{disc}(q')=\mathrm{disc}(q)$, with the base point corresponding
+		to $(V,q)$.
+	\end{enumerate}
+% segment-id: o014.aljabr2.chapter7.exercises-c.c001
+\end{Exercises}

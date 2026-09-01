@@ -1,0 +1,548 @@
+% Unit 063 English translation of chapter4.tex lines 2500--2745.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter4.k-flat-derived-tensor-b
+% Coverage: end of Section 4.12 and all Chapter 4 exercises (17 exercises and
+% 10 hints); closes chapter4.tex exactly at the end of the Exercises environment.
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.co001
+\hypertarget{o014.aljabr2.chapter4.k-flat-derived-tensor-b}{ }
+\begin{corollary}\label{prop:otimesL-Tor}
+	\index[sym1]{Tor}
+	The functor $\otimesL[R]$ of Definition~\ref{def:otimesL}, under the
+	assumption that $A$ or $B$ is flat as a $\Bbbk$-module, satisfies the
+	canonical isomorphism
+	\[ \Hm^{-n}\left( X \otimesL[R] Y \right) \simeq \Tor^R_n(X, Y), \quad n \in \Z, \]
+	where $X$ is an $(A,R)$-bimodule, $Y$ is an $(R,B)$-bimodule, and
+	$\Tor^R_n$ is as in Definition--Proposition~\ref{def:Tor-classical}.
+\end{corollary}
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.pf001
+\begin{proof}
+	The left-hand side is obtained by composing the diagram of
+	Proposition~\ref{prop:otimesL-enrichment} in the direction
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.g001
+	\begin{tikzpicture}[xscale=0.3, yscale=0.3, baseline=(O)]
+		\draw[->] (0,0) -- (1,0) -- (1, -1);
+		\coordinate (O) at (0, -0.7);
+	\end{tikzpicture}
+	whereas the right-hand side is obtained by composing it in the direction
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.g002
+	\begin{tikzpicture}[xscale=0.3, yscale=0.3, baseline=(O)]
+		\draw[->] (0,0) -- (0, -1) -- (1, -1);
+		\coordinate (O) at (0, -0.7);
+	\end{tikzpicture}.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.pr001
+\begin{proposition}[Associativity constraint]\label{prop:otimesL-associativity-constraint}
+	\index{derived tensor product!associativity constraint}
+	Let $A$, $B$, $R$, and $S$ be $\Bbbk$-algebras. Consider the following two
+	functors:
+	\begin{gather*}
+		\cate{D}((A,R)\dcate{Mod}) \times \cate{D}((R,S)\dcate{Mod}) \times \cate{D}((S,B)\dcate{Mod}) \to \cate{D}((A,B)\dcate{Mod}), \\
+		(X, Y, Z) \mapsto (X \otimesL[R] Y) \otimesL[S] Z, \\
+		(X, Y, Z) \mapsto X \otimesL[R] (Y \otimesL[S] Z).
+	\end{gather*}
+	If $A$ and $B$ are both flat as $\Bbbk$-modules, there is a canonical
+	isomorphism
+	\[ a(X,Y,Z): (X \otimesL[R] Y) \otimesL[S] Z \rightiso X \otimesL[R] (Y \otimesL[S] Z). \]
+\end{proposition}
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.pf002
+\begin{proof}
+	Fix $Y$. By Proposition~\ref{prop:K-flat}, we may assume that $X_R$ and
+	${}_R Z$ are K-flat. Then every $\otimesL[R]$ can be computed at the level
+	of complexes, and the assertion reduces to the associativity constraint for
+	tensor products \cite[Proposition 6.5.12]{Li1}.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.p001
+Under these flatness assumptions, taking $\otimesL$ of three or more objects
+in different orders yields results that are mutually isomorphic through the
+associativity constraint. These isomorphisms also satisfy coherence, which can
+be formulated by imitating the pentagon axiom for monoidal categories; see
+\cite[Definition 3.1.1]{Li1}. Again, one takes K-flat resolutions and checks
+the assertion at the level of complexes. To keep the discussion brief, this
+book presents only the special case of a commutative ring.
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.e001
+\begin{example}[$\otimesL$ over a commutative ring]\label{eg:commutative-otimesL}
+	\index{derived tensor product!commutativity constraint}
+	Let $R$ be a commutative ring. In the definition
+	$\otimesL:=\otimesL[R]$, take every ring to be $R$, in particular
+	$\Bbbk=R$. Then $(R,R)\dcate{Mod}=R\dcate{Mod}$, and all the preceding
+	flatness assumptions are automatically satisfied. Consequently,
+	$\Hm^{-n}(X\otimesL Y)\simeq\Tor^R_n(X,Y)$ for all $R$-modules $X$ and
+	$Y$.
+
+	This makes $\cate{D}(R\dcate{Mod})$ a monoidal category with respect to
+	$\otimesL$ in the sense of \cite[\S 3.1]{Li1}. Its unit object is $R$
+	itself, and its associativity constraint comes from
+	$a=(a(X,Y,Z))_{X,Y,Z}$ in
+	Proposition~\ref{prop:otimesL-associativity-constraint}. Since $R$ is a flat
+	$R$-module, it is K-flat (Proposition~\ref{prop:flat-K-flat}); hence both
+	$R\otimesL(\cdot)$ and $(\cdot)\otimesL R$ can be computed at the level of
+	complexes, making all the monoidal-category axioms easy to prove.
+	Furthermore, $\cate{D}(R\dcate{Mod})$ is a symmetric monoidal category in
+	the sense of \cite[Definition 3.3.1]{Li1}. Its braiding (or commutativity
+	constraint) $c(X,Y):X\otimesL Y\rightiso Y\otimesL X$ comes from the
+	commutativity constraint at the level of complexes, and its axioms are also
+	checked there. In view of Proposition~\ref{prop:double-cplx-swap}, swapping
+	the superscripts in the total complex causes no difficulty here.
+\end{example}
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.e002
+\begin{example}[$\Tor$-algebra]
+	Continue with the setting of Example~\ref{eg:commutative-otimesL}, with $R$
+	commutative. Identify the complexes of $R$-modules $X,Y,Z,W$ with their
+	images in the derived category. For every $(p,q)\in\Z^2$, there is a
+	canonical morphism
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.q001
+	\begin{multline*}
+		\Hm^{-p}\left( X \otimesL Y \right) \otimes \Hm^{-q}\left( Z \otimesL W \right) \to \Hm^{-p-q}\left( (X \otimesL Y) \otimesL (Z \otimesL W) \right) \\
+		\simeq \Hm^{-p-q}\left( (X \otimesL Z) \otimesL (Y \otimesL W) \right) \to \Hm^{-p-q} \left( (X \otimes Z) \otimesL (Y \otimes W) \right),
+	\end{multline*}
+	where the first part applies Proposition~\ref{prop:bifunctor-cup} (take
+	$F=\otimes$), the second uses the associativity and commutativity constraints
+	on $(\cate{D}(R\dcate{Mod}),\otimesL)$, and the third comes from the
+	canonical morphism accompanying $\otimesL$ as a left derived bifunctor:
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.q002
+	\[ QX_1 \otimesL QX_2 \to Q(X_1 \otimes X_2), \quad X_1, X_2 \in \Obj(\cate{K}(R\dcate{Mod})), \]
+	For precision, the localization functor
+	$Q:\cate{K}(R\dcate{Mod})\to\cate{D}(R\dcate{Mod})$ has been written
+	explicitly again here.
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.l001
+	\begin{itemize}
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.i001
+		\item The composite of the three canonical morphisms above gives an
+		``external product'' for the $\Tor$ functor:
+		\[ \Tor^R_p(X, Y) \otimes \Tor^R_q(Z, W) \to \Tor^R_{p+q}(X \otimes Z, Y \otimes W). \]
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.i002
+		\item Take $Z=X$ and $W=Y$ to be $R$-algebras (concentrated in degree
+		$0$). Their multiplications give homomorphisms of $R$-modules
+		$X\otimes X\to X$ and $Y\otimes Y\to Y$. Composing the external product
+		with these homomorphisms gives
+		\[ \Tor^R_p(X, Y) \otimes \Tor^R_q(X, Y) \to \Tor^R_{p+q}(X,Y), \]
+		called the ``internal product'' for the $\Tor$ functor. This makes
+		$\bigoplus_{n \in \Z} \Tor^R_n(X, Y)$ a $\Z$-graded $R$-algebra in the
+		sense of \cite[Definition 7.4.1]{Li1}, called the \emph{$\Tor$-algebra}.
+		It has nonzero components only in nonnegative degrees, and its degree-zero
+		component is the subalgebra $\Tor^R_0(X,Y)=X\otimes Y$, whose definition
+		may be found in \cite[Definition 7.3.1]{Li1}. The associativity required
+		for the product can be verified by reducing it to the associativity
+		constraint for $\otimesL$ and to the associativity of multiplication on
+		$X$ and $Y$ separately.
+		\index{Tor-algebra@$\Tor$-algebra}
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.i003
+		\item Suppose further that $X$ and $Y$ are commutative $R$-algebras. In
+		this case, the $\Tor$-algebra is also an ``anticommutative''
+		$\Z$-graded algebra in the sense of
+		\cite[Definition 7.4.3]{Li1}\footnote{The literal term is somewhat
+		misleading, because this property is a natural manifestation of
+		commutativity. Graded-commutative is more appropriate, as in
+		Example~\ref{eg:graded-module}.}: for all $p,q\in\Z$,
+		\[ a \in \Tor^R_p(X, Y), \; b \in \Tor^R_q(X, Y) \implies ab = (-1)^{pq} ba. \]
+		Since both $X\otimes X\to X$ and $Y\otimes Y\to Y$ are commutative,
+		where does the sign come from? Its source is the definition of the
+		external product. Let $C_1$ and $C_2$ be two copies of $X\otimesL Y$.
+		Then $ab$ and $ba$ differ through the isomorphism
+		$C_1\otimesL C_2\rightiso C_2\otimesL C_1$, namely the commutativity
+		constraint for $\otimesL$. If $C_1$ and $C_2$ are represented by K-flat
+		complexes, this isomorphism of total complexes is exactly the isomorphism
+		$r_{C_1^\bullet \otimes C_2^\bullet}$ of
+		Proposition~\ref{prop:double-cplx-swap}; on the component of bidegree
+		$(p,q)$, it produces the sign $(-1)^{pq}$.
+	\end{itemize}
+\end{example}
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.p002
+Return to general $\Bbbk$-algebras. To discuss the adjunction between
+$\otimesL$ and $\RHom$, one more lemma is needed. Below,
+$\RHom_{(A,B)}$ denotes $\RHom$ in $(A,B)\dcate{Mod}$; analogous notation is
+used for other categories of bimodules (or of left or right modules).
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.le001
+\begin{lemma}\label{prop:RHom-enrichment}
+	Fix $\Bbbk$-algebras $A$, $B$, and $R$. Suppose that $B$ is flat as a
+	$\Bbbk$-module. Then the forgetful functor from $(A,B)\dcate{Mod}$ to
+	$A\dcate{Mod}$ preserves K-injective complexes, and $\RHom_A$ has a
+	canonical lift to a functor
+	\[ \cate{D}\left((A,R)\dcate{Mod}\right)^{\opp} \times \cate{D}\left((A,B)\dcate{Mod}\right) \to \cate{D}\left((R,B)\dcate{Mod}\right), \]
+	in other words, there is a canonical $2$-cell diagram
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.g003
+	\[\begin{tikzcd}
+		\cate{D}\left((A,R)\dcate{Mod}\right)^{\opp} \times \cate{D}\left((A,B)\dcate{Mod}\right) \arrow[r] \arrow[d, "\text{forgetful}"'] & \cate{D}\left((R,B)\dcate{Mod}\right) \arrow[d, "\text{forgetful}"] \arrow[Rightarrow, ld, "\sim", sloped] \\
+		\cate{D}(A\dcate{Mod})^{\opp} \times \cate{D}(A\dcate{Mod}) \arrow[r, "{\RHom_A}"'] & \cate{D}(\cate{Ab}) .
+	\end{tikzcd}\]
+
+	Likewise, if $A$ is flat as a $\Bbbk$-module, then $\RHom_B$ has an
+	analogous lift.
+\end{lemma}
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.pf003
+\begin{proof}
+	Because $B$ is a flat $\Bbbk$-module, the functor $Y\mapsto{}_A Y$ has the
+	exact left adjoint $(\cdot)\dotimes{\Bbbk}B$, and therefore preserves
+	K-injective complexes.
+
+	Next take $X\in\Obj(\cate{K}((A,R)\dcate{Mod}))$ and
+	$Y\in\Obj(\cate{K}(A,B)\dcate{Mod})$, with $Y$ K-injective. By the
+	preceding step, $\Hom^\bullet\left({}_A X,{}_A Y\right)$ computes
+	$\RHom_A({}_A X,{}_A Y)$, while at the same time it is a complex of
+	$(R,B)$-bimodules. This completes the lift.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.th001
+\begin{theorem}[Adjunction between $\RHom$ and $\otimesL$]\label{prop:RHom-otimesL-adjunction}
+	\index{$\RHom$ functor}
+	\index{derived tensor product}
+	Let $A$, $B$, and $R$ be $\Bbbk$-algebras. Below, $X$, $Y$, and $Z$ denote
+	objects of $\cate{D}((A,R)\dcate{Mod})$,
+	$\cate{D}((R,B)\dcate{Mod})$, and
+	$\cate{D}((A,B)\dcate{Mod})$, respectively. Suppose that $B$ is flat as a
+	$\Bbbk$-module. Then there is a canonical isomorphism in
+	$\cate{D}(\Bbbk\dcate{Mod})$
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.q003
+	\begin{equation*}
+		\RHom_{(A,B)} \left( X \otimesL[R] Y, Z \right) \rightiso \RHom_{(R,B)}\left( Y, \RHom_A \left( {}_A X, {}_A Z \right) \right).
+	\end{equation*}
+
+	If instead $A$ is assumed flat as a $\Bbbk$-module, there is a canonical
+	isomorphism in $\cate{D}(\Bbbk\dcate{Mod})$
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.q004
+	\begin{equation*}
+		\RHom_{(A,B)}\left( X \otimesL[R] Y, Z \right) \rightiso \RHom_{(A,R)}\left( X, \RHom_B\left( Y_B , Z_B \right) \right).
+	\end{equation*}
+\end{theorem}
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.pf004
+\begin{proof}
+	Consider the first equality. Suppose that $Y$ is K-projective and $Z$ is
+	K-injective. Lemma~\ref{prop:K-projective-flat} ensures that ${}_R Y$ is
+	K-flat, while Lemma~\ref{prop:RHom-enrichment} ensures that ${}_A Z$
+	remains K-injective. Every displayed $\RHom$ and $\otimesL[R]$ can therefore
+	be computed at the level of complexes. The desired isomorphism then follows
+	from Proposition~\ref{prop:tensor-Hom-cplx}.
+\end{proof}
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.e003
+\begin{example}[Adjunction for change of rings]\label{eg:change-of-ring-adjunction}
+	In the setting of Example~\ref{eg:change-of-rings} (take a homomorphism
+	$R\to S$ of $\Bbbk$-algebras, $A=S$, $B=\Bbbk$, and $X=S$), the first
+	equality in Theorem~\ref{prop:RHom-otimesL-adjunction} becomes the canonical
+	isomorphism
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.q005
+	\begin{gather*}
+		\RHom_S\left( \mathrm{L} {}_{R \to S} P(Y), Z \right) \simeq \RHom_R\left( Y, {}_R Z \right), \\
+		Y \in \Obj(\cate{D}(R\dcate{Mod})), \quad Z \in \Obj(\cate{D}(S\dcate{Mod})).
+	\end{gather*}
+	The only point still requiring explanation is
+	$\RHom_S({}_S S,{}_S Z)\simeq{}_R Z$, which follows immediately from the
+	isomorphism at the level of complexes
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.q006
+	\[ \Hom^\bullet\left({}_S S, \cdot\right) \simeq {}_R (\cdot) : \cate{C}(S\dcate{Mod}) \to \cate{C}(R\dcate{Mod}). \]
+
+	If, furthermore, both $R$ and $S$ are commutative rings and $\Bbbk:=R$,
+	then $\RHom_S$ (respectively, $\RHom_R$) takes values in
+	$\cate{D}(S\dcate{Mod})$ (respectively, $\cate{D}(R\dcate{Mod})$). The
+	adjunction isomorphism can then be written as the canonical isomorphism in
+	$\cate{D}(R\dcate{Mod})$:
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.q007
+	\[ {}_R \RHom_S\left( \mathrm{L} {}_{R \to S} P(Y), Z \right) \simeq \RHom_R\left( Y, {}_R Z \right) . \]
+	Everything can be verified at the level of complexes by taking K-injective
+	and K-projective resolutions. The case of right modules is similar.
+\end{example}
+
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.x001
+\begin{Exercises}
+	% Reference: [KS06, Exercise 10.10]
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.ex001
+	\item Let $(\mathcal{D}, T, \mathcal{H})$ be a pretriangulated category
+	(respectively, a triangulated category). Define a new family of triangles
+	$\mathcal{H}^-$ by
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.q008
+	\[ [X \xrightarrow{f} Y \xrightarrow{g} Z \xrightarrow{h} TX] \in \mathcal{H} \iff [X \xrightarrow{f} Y \xrightarrow{g} Z \xrightarrow{-h} TX] \in \mathcal{H}^- . \]
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.l002
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.i004
+		\item Prove that $(\mathcal{D},T,\mathcal{H}^-)$ is also a
+		pretriangulated category (respectively, a triangulated category).
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.i005
+		\item Prove that $(\mathcal{D},T,\mathcal{H})$ and
+		$(\mathcal{D},T,\mathcal{H}^-)$ are equivalent as pretriangulated
+		categories.
+	\end{enumerate}
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.ex002
+	\item Let $(\mathcal{D},T,\mathcal{H})$ be a pretriangulated category.
+	Prove that every monomorphism (respectively, epimorphism) $u:X\to Y$ in
+	$\mathcal{D}$ has a left inverse (respectively, a right inverse). Use this
+	to show that a pretriangulated category that is also abelian must be split
+	(Definition~\ref{def:semisimple}).
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.hn001
+	\begin{hint}
+		Place the monomorphism $u$ in a distinguished triangle
+		$X\xrightarrow{u}Y\xrightarrow{v}Z\xrightarrow{w}TX$. From
+		$u\circ T^{-1}w=0$, deduce that $w=0$, and then apply
+		Proposition~\ref{prop:dt-sum-1}.
+	\end{hint}
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.ex003
+	\item Apply the preceding exercise to give an example of an abelian category
+	$\mathcal{A}$ for which neither $\cate{K}(\mathcal{A})$ nor
+	$\cate{D}(\mathcal{A})$ is an abelian category.
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.hn002
+	\begin{hint}
+		Consider the morphism $f:\Z/p^2\Z\twoheadrightarrow\Z/p\Z$ in
+		$\mathcal{A}=\cate{Ab}$, where $p$ is prime. If
+		$\cate{K}(\mathcal{A})$ were abelian, consider the epi--mono
+		factorizations of $\cate{K}f$ and $\Hm^0(\cate{K}f)$, then express both
+		as projections onto direct summands and inclusion morphisms to obtain a
+		contradiction.
+	\end{hint}
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.ex004
+	\item Let $\mathcal{A}$ be an abelian category. Prove that
+	$\cate{D}(\mathcal{A})$ is an abelian category if and only if
+	$\mathcal{A}$ is split.
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.hn003
+	\begin{hint}
+		For the ``only if'' direction, embed $\mathcal{A}$ in
+		$\cate{D}(\mathcal{A})$ and apply the preceding exercises. For the ``if''
+		direction, show that when $\mathcal{A}$ is split, taking cohomology gives
+		an equivalence from $\cate{D}(\mathcal{A})$ to $\mathcal{A}^{\Z}$.
+	\end{hint}
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.ex005
+	\item It is often said that the octahedral axiom (TR5) for a triangulated
+	category replaces the isomorphism theorem
+	$\dfrac{X/Z}{Y/Z}\simeq X/Y$ in an abelian category, where
+	$X\supset Y\supset Z$ (Theorem~\ref{prop:Abel-cat-isom-thm} (ii)). Explain
+	explicitly what this statement means.
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.ex006
+	\item ($\mathrm{K}_0$ of a pretriangulated category) For every
+	pretriangulated category $(\mathcal{D},T,\mathcal{H})$, define
+	$\mathrm{K}_0(\mathcal{D})$ to be the quotient of the free $\Z$-module
+	generated by $\Obj(\mathcal{D})$ by the relations
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.q009
+	\[ \text{there is a distinguished triangle}\; X \to Y \to Z \xrightarrow{+1} \implies [X] - [Y] + [Z] = 0, \]
+	where $[X]\in\mathrm{K}_0(\mathcal{D})$ denotes the equivalence class
+	containing $X\in\Obj(\mathcal{D})$.
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.l003
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.i006
+		\item Prove that $[0]=0$, $[TX]=-[X]$, and
+		$[X\oplus Y]=[X]+[Y]$.
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.i007
+		\item Show that every triangulated functor
+		$F:\mathcal{D}\to\mathcal{D}'$ induces a canonical homomorphism
+		$\mathrm{K}_0(\mathcal{D})\to\mathrm{K}_0(\mathcal{D}')$.
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.i008
+		\item Consider a cohomological functor $H:\mathcal{D}\to\mathcal{A}$,
+		where $\mathcal{A}$ is an abelian category. Suppose that, for every $X$,
+		$|n|\gg_X0\implies H(T^nX)=0$. Define a natural homomorphism
+		$\mathrm{K}_0(\mathcal{D})\to\mathrm{K}_0(\mathcal{A})$.
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.hn004
+		\begin{hint}
+			Send $[X]$ to $\sum_n(-1)^n[H(T^nX)]$. Apply
+			Lemma~\ref{prop:K0-prep} (iv).
+		\end{hint}
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.i009
+		\item Consider the special case
+		$\mathcal{D}:=\cate{D}^{\bdd}(\mathcal{A})$. Give mutually inverse
+		homomorphisms
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.g004
+		\[\begin{tikzcd}[row sep=tiny]
+			\mathrm{K}_0(\mathcal{A}) \arrow[shift left, r] & \mathrm{K}_0(\cate{D}^{\bdd}(\mathcal{A})) \arrow[shift left, l] \\
+			{[A]} \arrow[mapsto, r] & {[A]} \\
+			\sum_n (-1)^n {[\Hm^n(X)]} & {[X]} \arrow[mapsto, l]
+		\end{tikzcd}\]
+		where $A\in\Obj(\mathcal{A})$, also regarded as a complex concentrated in
+		degree $0$.
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.hn005
+		\begin{hint}
+			One composite is plainly the identity; the other requires truncating the
+			complex.
+		\end{hint}
+	\end{enumerate}
+	\index{K0 group@$\mathrm{K}_0$ group} \index[sym1]{K0}
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.ex007
+	\item Let $X\in\Obj(\cate{D}(\mathcal{A}))$. Prove that
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.q010
+	\begin{gather*}
+		X \in \cate{D}^{\leq 0}(\mathcal{A}) \iff \forall Z \in \Obj(\cate{D}^{\geq 1}(\mathcal{A})), \; \Hom_{\cate{D}(\mathcal{A})}(X, Z) = 0, \\
+		X \in \cate{D}^{\geq 0}(\mathcal{A}) \iff \forall Z \in \Obj(\cate{D}^{\leq -1}(\mathcal{A})), \; \Hom_{\cate{D}(\mathcal{A})}(Z, X) = 0.
+	\end{gather*}
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.hn006
+	\begin{hint}
+		Apply Proposition~\ref{prop:derived-cat-orthogonality} (i), together with
+		the adjoint pairs and distinguished triangle in
+		Proposition~\ref{prop:derived-truncation-adjunction}.
+	\end{hint}
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.ex008
+	\item In the setting of
+	Theorem~\ref{prop:localization-triangulated-composite}, suppose that $F'$
+	satisfies $F'(\Obj(\mathcal{N}'))\subset\Obj(\mathcal{N}'')$ (regard this
+	as a kind of ``exactness''). If $\mathcal{D}$ has an $F$-injective or an
+	$F$-projective subcategory, prove that the canonical morphism
+	\[ \mathrm{R}^{\mathcal{N}''}_{\mathcal{N}} (F' F) \to \left( \mathrm{R}^{\mathcal{N}''}_{\mathcal{N}'} F' \right) \left( \mathrm{R}^{\mathcal{N}'}_{\mathcal{N}} F \right) \]
+	or
+	\[ \left( \mathrm{L}^{\mathcal{N}''}_{\mathcal{N'}} F' \right) \left( \mathrm{L}^{\mathcal{N}'}_{\mathcal{N}} F \right) \to \mathrm{L}^{\mathcal{N}''}_{\mathcal{N}} (F' F) \]
+	is an isomorphism.
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.ex009
+	\item In the setting of
+	Theorem~\ref{prop:localization-triangulated-composite}, show that the
+	following diagrams of functors and morphisms between them commute (the
+	notation $\mathcal{N}$ and so forth is suppressed):
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.g005
+	\[\begin{tikzcd}
+		\mathrm{R}(F'' F' F) \arrow[r] \arrow[d] & \mathrm{R}(F'' F') \mathrm{R}F \arrow[d] \\
+		\mathrm{R}F'' \mathrm{R}(F'F) \arrow[r] & \mathrm{R}F'' \mathrm{R}F' \mathrm{R}F
+	\end{tikzcd} \quad \begin{tikzcd}
+		\mathrm{L}(F'' F' F) & \mathrm{L}(F'' F') \mathrm{L}F \arrow[l] \\
+		\mathrm{L}F'' \mathrm{L}(F'F) \arrow[u] & \mathrm{L}F'' \mathrm{L}F' \mathrm{L}F \arrow[u] \arrow[l] .
+	\end{tikzcd}\]
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.ex010
+	\item For $F=\Hom$, express explicitly the canonical morphism of
+	Proposition~\ref{prop:bifunctor-cup} in the form
+	$\Ext^{q-p}(X,Y)\to\Hom\left(\Hm^p(X),\Hm^q(Y)\right)$.
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.ex011
+	\item Reformulate the bijection in Theorem~\ref{prop:Yoneda-Ext} as follows.
+	From an $n$-extension
+	$0\to Y\to E^1\to\cdots\to E^n\to X\to0$, construct
+	$t^{-1}b\in\Hom_{\cate{D}(\mathcal{A})}(X,Y[n])$ as follows:
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.g006
+	\[\begin{tikzcd}
+		X \arrow[d, "b"']\arrow[phantom, r, "" {name=A, yshift=2ex}] & {} & & & X \arrow[d, "\identity"] \\
+		W & E^1 \arrow[r] & E^2 \arrow[r] & \cdots \arrow[r] & X \\
+		Y[n] \arrow[u, "{t: \text{quasi-isomorphism}}"] \arrow[phantom, r, "" {name=B, yshift=-2ex}] & Y \arrow[u] & & &
+		\arrow[dash, from=A, to=B]
+	\end{tikzcd}\]
+	This gives $t^{-1}b\in\Hom_{\cate{D}(\mathcal{A})}(X,Y[n])$. Prove that
+	this bijection differs by the factor $(-1)^n$ from the original bijection
+	based on $as^{-1}$. In the special case $n=1$, use the $t^{-1}b$ version to
+	derive the corresponding version of Proposition~\ref{prop:Ext1-via-ses}
+	(the one involving the image of $\identity_Y$).
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.hn007
+	\begin{hint}
+		Prove that $ta+(-1)^{n-1}bs:Z\to W$ is canonically null-homotopic. For
+		the second part, note the minus sign in
+		Proposition~\ref{prop:ses-vs-triangle}.
+	\end{hint}
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.ex012
+	\item Suppose that all objects $S,T$ in an abelian category $\mathcal{A}$
+	satisfy $\Ext^2_{\mathcal{A}}(S,T)=0$. Prove that every
+	$X\in\Obj(\cate{D}^{\bdd}(\mathcal{A}))$ is isomorphic to
+	$\bigoplus_n\Hm^n(X)[-n]$. Show that $\mathcal{A}:=\Z\dcate{Mod}$
+	satisfies this condition.
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.hn008
+	\begin{hint}
+		We may assume that $X$ is a bounded complex. Begin with $n\gg0$. Apply
+		Theorem~\ref{prop:Yoneda-Ext} and Proposition~\ref{prop:Yoneda-zero} to
+		the $2$-extension
+		$0\to\Ker(d^n)\to X^n\xrightarrow{d^n}X^{n+1}\to\Coker(d^n)\to0$,
+		then modify $X$ step by step until $d^\bullet=0$, throughout up to
+		isomorphism.
+	\end{hint}
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.ex013
+	\item Prove that if $\mathcal{A}$ has enough injective objects,
+	$F:\mathcal{A}\to\mathcal{A}'$ is a left-exact additive functor, and
+	$\mathrm{R}F$ has finite dimension, then the homomorphism
+	$\mathrm{K}_0(\mathcal{A})\simeq\mathrm{K}_0(\cate{D}^{\bdd}(\mathcal{A}))
+	\to\mathrm{K}_0(\cate{D}^{\bdd}(\mathcal{A}'))\simeq
+	\mathrm{K}_0(\mathcal{A}')$ induced by the triangulated functor
+	$\mathrm{R}F$ is determined by
+	\[ [A] \mapsto \sum_n (-1)^n \left[\mathrm{R}^n F(A)\right], \quad A \in \Obj(\mathcal{A}). \]
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.ex014
+	\item Let $R$ be a ring. Prove that a filtered direct limit $\varinjlim$ of
+	K-flat complexes in $\cate{C}(R\dcate{Mod})$ is again K-flat.
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.ex015
+	\item Let $R$ be a ring. If a complex $P$ of $R$-modules is K-flat and
+	every $P^n$ is a flat $R$-module, then $P$ is called \emph{strongly
+	K-flat}.
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.l004
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.i010
+		\item Prove that for every $X\in\Obj(\cate{C}(R\dcate{Mod}))$ there is a
+		strongly K-flat complex $P$ together with a quasi-isomorphism $P\to X$.
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.hn009
+		\begin{hint}
+			Use the dual of the argument for the existence of K-injective
+			resolutions; see \S\ref{sec:K-injectives}.
+		\end{hint}
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.i011
+		\item Write $\mathcal{SF}$ for the full subcategory of
+		$\cate{K}(R\dcate{Mod})$ formed by the strongly K-flat complexes.
+		Express $\cate{D}(R\dcate{Mod})$ as the localization of $\mathcal{SF}$
+		at the quasi-isomorphisms.
+	\end{enumerate}
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.ex016
+	\item (P.\ Berthelot, A.\ Ogus) Let $f$ be a non-zero-divisor in a
+	commutative ring $R$. For every $R$-module $M$, write
+	$M[f]:=\{m\in M:fm=0\}$. A module $M$ with $M[f]=0$ is called
+	\emph{$f$-torsion-free}. First show that an $f$-torsion-free $M$ can be
+	embedded as a submodule of
+	$M[\frac{1}{f}]=M\dotimes{R}R[\frac{1}{f}]$. Thus $f^mM$ makes sense for
+	every $m\in\Z$.
+
+	Let $X$ be a complex of $f$-torsion-free $R$-modules. Using the observation
+	above, define a subcomplex $\eta_fX$ of
+	$X^\bullet\dotimes{R}R[\frac{1}{f}]$ by
+	\[ (\eta_f X)^n := \left\{ x \in f^n X^n : d_X^n(x) \in f^{n+1} X^{n+1} \right\}, \quad n \in \Z . \]
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.l005
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.i012
+		\item Prove that multiplication degree by degree by $f$ gives an
+		isomorphism $\eta_f(X[1])\rightiso(\eta_fX)[1]$.
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.i013
+		\item Show that if $f,g\in R$ are both non-zero-divisors and every $X^n$
+		is $fg$-torsion-free, then $\eta_f\eta_gX=\eta_{fg}X$.
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.i014
+		\item Give a canonical isomorphism
+		$\Hm^n(X)/\Hm^n(X)[f]\rightiso\Hm^n(\eta_fX)$; thus the effect of
+		$\eta_f$ is to correct $f$-torsion. Deduce that if $X$ and $Y$ are
+		complexes of $f$-torsion-free $R$-modules and $\alpha:X\to Y$ is a
+		quasi-isomorphism, then $\alpha$ induces a quasi-isomorphism
+		$\eta_f(\alpha):\eta_fX\to\eta_fY$.
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.i015
+		\item Prove that in this way $\eta_f$ induces an additive functor
+		$\mathrm{L}\eta_f:\cate{D}(R\dcate{Mod})\to\cate{D}(R\dcate{Mod})$
+		whose restriction to $\mathcal{SF}$ from the preceding exercise equals
+		$\eta_f$.
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.i016
+		\item Show that $\mathrm{L}\eta_f$ is not a triangulated functor. Thus it
+		is not a left derived functor in the sense of
+		Definition~\ref{def:Verdier-localization-functor}, although it remains a
+		right Kan extension.
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.hn010
+		\begin{hint}
+			Take $R=\Z$ and $f=p$ prime. Verify that
+			$\mathrm{L}\eta_p(\Z/p\Z)=0$, whereas
+			$\mathrm{L}\eta_p(\Z/p^2\Z)\simeq\Z/p\Z$.
+		\end{hint}
+	\end{enumerate}
+
+% segment-id: o014.li2.chapter4.k-flat-derived-tensor-b.ex017
+	\item Continuing the preceding exercise, give a canonical morphism
+	$\mathrm{L}\eta_f X \otimesL[R] \mathrm{L}\eta_f Y \to
+	\mathrm{L}\eta_f\left( X \otimesL[R] Y \right)$ and show that this
+	morphism is symmetric in $X$ and $Y$ in the appropriate sense. In the
+	language of \cite[Remark 3.1.8]{Li1}, $\mathrm{L}\eta_f$ is in fact a
+	right-lax monoidal functor with respect to $\otimesL[R]$.
+\end{Exercises}

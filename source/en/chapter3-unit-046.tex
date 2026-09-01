@@ -1,0 +1,651 @@
+% Unit 046 English translation of chapter3.tex lines 2936--3200.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter3.k-injectives
+% Coverage: Section 3.15 in full.
+
+% segment-id: o014.li2.chapter3.k-injectives.h001
+\section{K-injective and K-projective complexes}\label{sec:K-injectives}
+\hypertarget{o014.aljabr2.chapter3.k-injectives}{ }
+
+% segment-id: o014.li2.chapter3.k-injectives.p001
+Injective and projective resolutions of complexes supplied the initial
+definition of derived functors in \S\ref{sec:derived-primer}. That construction
+requires bounded-below or bounded-above complexes, whereas applications
+involving unbounded complexes and their derived categories require a broader
+class of resolutions. The theory of K-injective and K-projective resolutions
+originates with \cite{Spa88}. This section provides some preparation for that
+theory; the arguments follow \cite{stacks}, and the reader may also consult
+\cite[Chapter 14]{KS06} or \cite{BN93}.
+
+% segment-id: o014.li2.chapter3.k-injectives.de001
+\begin{definition}[N.\ Spaltenstein]\label{def:K-resolutions}
+	\index{complex!K-injective, K-projective}
+	\index{resolution!K-injective, K-projective}
+	\index{enough K-injective complexes}
+	\index{enough K-projective complexes}
+	Let $\mathcal{A}$ be an abelian category.
+% segment-id: o014.li2.chapter3.k-injectives.l001
+	\begin{itemize}
+% segment-id: o014.li2.chapter3.k-injectives.i001
+		\item A complex $I\in\Obj(\cate{C}(\mathcal{A}))$ is called a
+		\emph{K-injective complex}\footnote{A perhaps more natural term
+		would be homotopically injective complex, and similarly
+		homotopically projective complex.} if, for every acyclic complex
+		$X\in\Obj(\cate{C}(\mathcal{A}))$, the complex
+		$\Hom^\bullet(X,I)$ is also acyclic.
+
+		If $f:A\to I$ is a quasi-isomorphism in
+		$\cate{C}(\mathcal{A})$ and $I$ is K-injective, then $f$ is called
+		a \emph{K-injective resolution} of $A$.
+% segment-id: o014.li2.chapter3.k-injectives.i002
+		\item A complex $P\in\Obj(\cate{C}(\mathcal{A}))$ is called a
+		\emph{K-projective complex} if, for every acyclic complex
+		$X\in\Obj(\cate{C}(\mathcal{A}))$, the complex
+		$\Hom^\bullet(P,X)$ is also acyclic.
+
+		If $f:P\to A$ is a quasi-isomorphism in
+		$\cate{C}(\mathcal{A})$ and $P$ is K-projective, then $f$ is called
+		a \emph{K-projective resolution} of $A$.
+	\end{itemize}
+
+	If every object of $\cate{C}(\mathcal{A})$ has a K-injective resolution
+	(respectively, a K-projective resolution), then $\mathcal{A}$ is said to
+	have \emph{enough K-injective complexes} (respectively,
+	\emph{enough K-projective complexes}).
+\end{definition}
+
+% segment-id: o014.li2.chapter3.k-injectives.p002
+The two sets of definitions are plainly dual. In practice, the following
+criterion is often easier to use.
+
+% segment-id: o014.li2.chapter3.k-injectives.le001
+\begin{lemma}\label{prop:K-injective-criterion}
+	A complex $I$ (respectively, $P$) is K-injective (respectively,
+	K-projective) if and only if, for every acyclic complex $X$,
+	$\Hom_{\cate{K}(\mathcal{A})}(X,I)=0$ (respectively,
+	$\Hom_{\cate{K}(\mathcal{A})}(P,X)=0$).
+\end{lemma}
+
+% segment-id: o014.li2.chapter3.k-injectives.pf001
+\begin{proof}
+	Let $n\in\Z$. Lemma~\ref{prop:Hom-cplx-d-translate} gives
+	\[
+	\Hm^n \Hom^\bullet(X, I) \simeq
+	\Hom_{\cate{K}(\mathcal{A})}(X[-n], I), \quad
+	\Hm^n \Hom^\bullet(P, X) \simeq
+	\Hom_{\cate{K}(\mathcal{A})}(P, X[n]);
+	\]
+	but $X$ is acyclic if and only if $X[-n]$ is acyclic, and this is also
+	equivalent to $X[n]$ being acyclic.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.k-injectives.ex001
+\begin{example}\label{eg:bdd-K-resolution}
+	Lemma~\ref{prop:resolution-homotopy-aux} can immediately be restated as
+	follows.
+% segment-id: o014.li2.chapter3.k-injectives.l002
+	\begin{compactitem}
+% segment-id: o014.li2.chapter3.k-injectives.i003
+		\item If $I\in\Obj(\cate{C}^+(\mathcal{A}))$ consists of injective
+		objects, then $I$ is K-injective.
+% segment-id: o014.li2.chapter3.k-injectives.i004
+		\item If $P\in\Obj(\cate{C}^-(\mathcal{A}))$ consists of projective
+		objects, then $P$ is K-projective.
+	\end{compactitem}
+	Thus an injective (respectively, projective) resolution is a special case
+	of a K-injective (respectively, K-projective) resolution.
+\end{example}
+
+% segment-id: o014.li2.chapter3.k-injectives.ex002
+\begin{example}[A.\ Dold]
+	The one-sided boundedness condition in Example~\ref{eg:bdd-K-resolution}
+	is essential. For example, take
+	$\mathcal{A}=\Z/4\Z\dcate{Mod}$ and consider the acyclic complex $Q$
+	in it:
+	\[
+	\cdots \xrightarrow{2} \Z/4\Z \xrightarrow{2} \Z/4\Z
+	\xrightarrow{2} \Z/4\Z \xrightarrow{2} \cdots.
+	\]
+	Every term is a free module. On the other hand, the termwise tensor
+	product $Q\dotimes{\Z/4\Z}\Z/2\Z$ is the complex
+	\[
+	\cdots \xrightarrow{0} \Z/2\Z \xrightarrow{0} \Z/2\Z
+	\xrightarrow{0} \Z/2\Z \xrightarrow{0} \cdots.
+	\]
+	Therefore $Q$ is not K-projective. Indeed, if $Q$ were K-projective,
+	then $\identity_Q$ would be homotopic to $0$, and hence so would
+	$\identity_{Q\otimes\Z/2\Z}$, contradicting
+	$\Hm^n(Q\dotimes{\Z/4\Z}\Z/2\Z)=\Z/2\Z$.
+
+	From another point of view, this example also shows that an unbounded
+	complex consisting of projective objects need not be an appropriate
+	resolution: $0\to Q$ and $0\to0$ are both quasi-isomorphisms, but the
+	preceding paragraph shows that $\identity_Q$ is not homotopic to $0$.
+	Thus $Q$ and $0$ are not isomorphic in $\cate{K}(\mathcal{A})$, and
+	Theorem~\ref{prop:resolution-homotopy} cannot simply be extended to the
+	unbounded case.
+\end{example}
+
+% segment-id: o014.li2.chapter3.k-injectives.p003
+The following result is the natural generalization of
+Theorem~\ref{prop:resolution-homotopy}; its proof is likewise postponed until
+the discussion following
+Theorem~\sourcecrossref{prop:cplx-triangulated}{in \S~4.4}.
+
+% segment-id: o014.li2.chapter3.k-injectives.th001
+\begin{theorem}\label{prop:K-resolution-homotopy}
+	Let $\alpha:X\to Y$ be a quasi-isomorphism in
+	$\cate{C}(\mathcal{A})$.
+% segment-id: o014.li2.chapter3.k-injectives.l003
+	\begin{itemize}
+% segment-id: o014.li2.chapter3.k-injectives.i005
+		\item Given a morphism $\gamma:X\to I$, where $I$ is a
+		K-injective complex, there is a commutative diagram in
+		$\cate{K}(\mathcal{A})$
+% segment-id: o014.li2.chapter3.k-injectives.g001
+		\[\begin{tikzcd}[row sep=tiny]
+			& Y \arrow[dd, "\beta"] \\
+			X \arrow[ru, "\alpha"] \arrow[rd, "\gamma"'] & \\
+			& I
+		\end{tikzcd}\]
+% segment-id: o014.li2.chapter3.k-injectives.i006
+		\item Given a morphism $\gamma:P\to Y$, where $P$ is a
+		K-projective complex, there is a commutative diagram in
+		$\cate{K}(\mathcal{A})$
+% segment-id: o014.li2.chapter3.k-injectives.g002
+		\[\begin{tikzcd}[row sep=tiny]
+			& X \arrow[ld, "\alpha"'] \\
+			Y & \\
+			& P \arrow[lu, "\gamma"] \arrow[uu, "\beta"']
+		\end{tikzcd}\]
+	\end{itemize}
+	In both cases, $\beta$ is unique as a morphism in
+	$\cate{K}(\mathcal{A})$.
+\end{theorem}
+
+% segment-id: o014.li2.chapter3.k-injectives.pr001
+\begin{proposition}\label{prop:K-sigma-duality}
+	The equivalence $\sigma$ of
+	Definition--Proposition~\ref{def:sigma} has the following property:
+	$X\in\Obj(\cate{C}(\mathcal{A}^{\opp}))$ is K-injective (respectively,
+	K-projective) if and only if
+	$\sigma X\in\Obj(\cate{C}(\mathcal{A})^{\opp})
+	=\Obj(\cate{C}(\mathcal{A}))$ is K-projective (respectively,
+	K-injective).
+\end{proposition}
+
+% segment-id: o014.li2.chapter3.k-injectives.pf002
+\begin{proof}
+	The functor $\sigma$ preserves acyclic complexes and induces
+	$\cate{K}(\mathcal{A}^{\opp})\rightiso
+	\cate{K}(\mathcal{A})^{\opp}$
+	(Proposition~\ref{prop:sigma-homotopy}); hence $\sigma$ preserves the
+	criterion of Lemma~\ref{prop:K-injective-criterion}.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.k-injectives.p004
+Next consider adjoint functors. Proposition~\ref{prop:adjoint-injective-projective}
+has a corresponding version in this setting.
+
+% segment-id: o014.li2.chapter3.k-injectives.pr002
+\begin{proposition}\label{prop:adjoint-injective-projectives-K}
+	Consider a pair of functors between abelian categories
+% segment-id: o014.li2.chapter3.k-injectives.g003
+	$\begin{tikzcd}
+		\mathcal{A} \arrow[r, shift left, "F"] &
+		\mathcal{B} \arrow[l, shift left, "G"]
+	\end{tikzcd}$,
+	and suppose that $F$ is exact.
+% segment-id: o014.li2.chapter3.k-injectives.l004
+	\begin{compactitem}
+% segment-id: o014.li2.chapter3.k-injectives.i007
+		\item If $G$ is left adjoint to $F$, then
+		$\cate{K}G:\cate{K}(\mathcal{B})\to\cate{K}(\mathcal{A})$
+		carries K-projective complexes to K-projective complexes.
+% segment-id: o014.li2.chapter3.k-injectives.i008
+		\item If $G$ is right adjoint to $F$, then
+		$\cate{K}G:\cate{K}(\mathcal{B})\to\cate{K}(\mathcal{A})$
+		carries K-injective complexes to K-injective complexes.
+	\end{compactitem}
+\end{proposition}
+
+% segment-id: o014.li2.chapter3.k-injectives.pf003
+\begin{proof}
+	By duality it suffices to consider the case in which $G$ is a left
+	adjoint. In this case $G$ is automatically additive
+	(Corollary~\ref{prop:automatic-additivity}). Let
+	$P\in\Obj(\cate{C}(\mathcal{B}))$ be K-projective. For every acyclic
+	complex $X\in\Obj(\cate{C}(\mathcal{A}))$,
+	Proposition~\ref{prop:KF-adjoint} gives an isomorphism
+	\[
+	\Hom_{\cate{K}(\mathcal{A})}(\cate{K}G(P), X) \simeq
+	\Hom_{\cate{K}(\mathcal{B})}(P, \cate{K}F(X)).
+	\]
+	Since $F$ is exact, $\cate{K}F(X)$ is acyclic, so the right-hand side is
+	$0$. Apply Lemma~\ref{prop:K-injective-criterion}.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.k-injectives.p005
+The next task in this section is to investigate the existence of K-injective
+or K-projective resolutions. The argument is somewhat intricate; we begin
+with the K-injective case.
+
+% segment-id: o014.li2.chapter3.k-injectives.le002
+\begin{lemma}\label{prop:K-injective-projlimit-aux}
+	Consider a sequence of complexes over $\mathcal{A}$,
+	$\cdots\to I_2\to I_1\to I_0$. Suppose that:
+% segment-id: o014.li2.chapter3.k-injectives.l005
+	\begin{itemize}
+% segment-id: o014.li2.chapter3.k-injectives.i009
+		\item every $I_k$ is K-injective;
+% segment-id: o014.li2.chapter3.k-injectives.i010
+		\item for every $k$ and $n$, the morphism
+		$I_{k+1}^n\to I_k^n$ is an epimorphism admitting a section
+		(in other words, it has a right inverse; see the discussion after
+		Proposition~\ref{prop:split-ses});
+% segment-id: o014.li2.chapter3.k-injectives.i011
+		\item for every $n$, the object
+		$I^n:=\varprojlim_k I_k^n$ exists in $\mathcal{A}$.
+	\end{itemize}
+	Then the induced differentials
+	$d_I^n:=\varprojlim_k d_{I_k}^n:I^n\to I^{n+1}$ make
+	$I:=(I^n,d_I^n)_n$ a K-injective complex.
+\end{lemma}
+
+% segment-id: o014.li2.chapter3.k-injectives.pf004
+\begin{proof}
+	Let $X\in\Obj(\cate{C}(\mathcal{A}))$ be acyclic. For each
+	$k\in\Z_{\geq0}$, take the following portion of the complex
+	$\Hom^\bullet(X,I_k)$:
+% segment-id: o014.li2.chapter3.k-injectives.e001
+	\begin{equation}\label{eqn:K-injective-projlimit-aux}\begin{tikzcd}
+		[row sep=small, column sep=tiny,
+		every cell/.append style = {font = \small}]
+		\displaystyle\prod_n \Hom\left( X^n, I_k^{n-2} \right) \arrow[r] &
+		\displaystyle\prod_n \Hom\left( X^n, I_k^{n-1} \right) \arrow[r] &
+		\displaystyle\prod_n \Hom\left( X^n, I_k^n \right) \arrow[r] &
+		\displaystyle\prod_n \Hom\left( X^n, I_k^{n+1} \right) \\
+		\Hom^{-2}\left( X, I_k \right) \arrow[equal, u] &
+		\Hom^{-1}\left( X, I_k \right) \arrow[equal, u] &
+		\Hom^0\left( X, I_k \right) \arrow[equal, u] &
+		\Hom^1\left( X, I_k \right) \arrow[equal, u]
+	\end{tikzcd}\end{equation}
+	This sequence is exact because $I_k$ is K-injective. Now consider the
+	homomorphism induced by $I_{k+1}\to I_k$,
+% segment-id: o014.li2.chapter3.k-injectives.q001
+	\[
+	\Hom\left(X^n,I_{k+1}^{n-2}\right)\to
+	\Hom\left(X^n,I_k^{n-2}\right).
+	\]
+	Since there is a section $I_k^{n-2}\to I_{k+1}^{n-2}$, this
+	homomorphism is an epimorphism. The same remains true after taking
+	$\prod_n$. Thus, as $k$ varies, the leftmost term in
+	\eqref{eqn:K-injective-projlimit-aux} satisfies the Mittag--Leffler
+	condition (Definition~\ref{def:ML}).
+
+	Now let $k\in\Z_{\geq0}$ vary in
+	\eqref{eqn:K-injective-projlimit-aux}.
+	Corollary~\ref{prop:ML-4-terms} gives an exact sequence
+% segment-id: o014.li2.chapter3.k-injectives.g004
+	\[\begin{tikzcd}
+		[column sep=small, every cell/.append style = {font = \small}]
+		\displaystyle\varprojlim_k \displaystyle\prod_n
+		\Hom\left( X^n, I_k^{n-1} \right) \arrow[r] &
+		\displaystyle\varprojlim_k \displaystyle\prod_n
+		\Hom\left( X^n, I_k^n \right) \arrow[r] &
+		\displaystyle\varprojlim_k \displaystyle\prod_n
+		\Hom\left( X^n, I_k^{n+1} \right)
+	\end{tikzcd}\]
+	Interchanging $\varprojlim_k$ and $\prod_n$ now gives an exact
+	sequence\footnote{Translator's note (O014-C064): in the third term the
+	source omits the subscript $k$ on $\varprojlim_k$. This sentence
+	explicitly interchanges $\varprojlim_k$ with $\prod_n$, and the vertical
+	isomorphism below identifies the limit with $I^{n+1}$, so the target
+	restores that subscript.}
+% segment-id: o014.li2.chapter3.k-injectives.g005
+	\[\begin{tikzcd}
+		[every cell/.append style = {font = \small}]
+		\displaystyle\prod_n \varprojlim_k
+		\Hom\left( X^n, I_k^{n-1} \right) \arrow[r] &
+		\displaystyle\prod_n \varprojlim_k
+		\Hom\left( X^n, I_k^n \right) \arrow[r] &
+		\displaystyle\prod_n \varprojlim_k
+		\Hom\left( X^n, I_k^{n+1} \right) \\
+		\displaystyle\prod_n \Hom\left( X^n, I^{n-1} \right)
+		\arrow[u, "\sim" sloped] &
+		\displaystyle\prod_n \Hom\left( X^n, I^n \right)
+		\arrow[u, "\sim" sloped] &
+		\displaystyle\prod_n \Hom\left( X^n, I^{n+1} \right)
+		\arrow[u, "\sim" sloped]
+	\end{tikzcd}\]
+	This too is a portion of $\Hom^\bullet(X,I)$, and its cohomology at the
+	middle term is precisely
+	$\Hom_{\cate{K}(\mathcal{A})}(X,I)$. Hence
+	$\Hom_{\cate{K}(\mathcal{A})}(X,I)=0$. Apply
+	Lemma~\ref{prop:K-injective-criterion} to finish the proof.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.k-injectives.le003
+\begin{lemma}\label{prop:K-injective-truncated}
+	Suppose that $\mathcal{A}$ has enough injective objects. For every
+	$A\in\Obj(\cate{C}(\mathcal{A}))$, there is a commutative diagram in
+	$\cate{C}(\mathcal{A})$
+% segment-id: o014.li2.chapter3.k-injectives.g006
+	\[\begin{tikzcd}
+		\cdots \arrow[r] & I_2 \arrow[r] & I_1 \arrow[r] & I_0 \\
+		\cdots \arrow[r] & \tau^{\geq -2} A\arrow[u, "f_2"'] \arrow[r] &
+		\tau^{\geq -1} A \arrow[r] \arrow[u, "f_1"'] &
+		\tau^{\geq 0} A \arrow[u, "f_0"']
+	\end{tikzcd}\]
+	with $\tau^{\geq k}A$ and the arrows between them as in
+	Definition~\ref{def:truncation-cplx}, such that:
+% segment-id: o014.li2.chapter3.k-injectives.l006
+	\begin{itemize}
+% segment-id: o014.li2.chapter3.k-injectives.i012
+		\item every $I_k$ is an object of
+		$\cate{C}^+(\mathcal{A})$ consisting of injective objects;
+% segment-id: o014.li2.chapter3.k-injectives.i013
+		\item every vertical arrow $f_k$ is both a monomorphism and a
+		quasi-isomorphism;
+% segment-id: o014.li2.chapter3.k-injectives.i014
+		\item for every $k$ and $n$, the morphism
+		$I_{k+1}^n\to I_k^n$ is an epimorphism admitting a section.
+	\end{itemize}
+\end{lemma}
+
+% segment-id: o014.li2.chapter3.k-injectives.pf005
+\begin{proof}
+	We construct the diagram from right to left. All injective resolutions
+	discussed below are implicitly monomorphisms.
+
+	First apply Theorem~\ref{prop:resolution-existence} to
+	$\tau^{\geq0}A\in\Obj(\cate{C}^+(\mathcal{A}))$ to obtain an injective
+	resolution $f_0:\tau^{\geq0}A\to I_0$.
+
+	Next, the definitions directly show that
+	$\tau^{\geq-k-1}A\to\tau^{\geq-k}A$ is an epimorphism in every degree,
+	and hence an epimorphism in $\cate{C}^+(\mathcal{A})$. Suppose that the
+	required quasi-isomorphisms
+% segment-id: o014.li2.chapter3.k-injectives.q002
+	\[
+	\tau^{\geq0}A\xrightarrow{f_0}I_0,\quad\ldots,\quad
+	\tau^{\geq-k}A\xrightarrow{f_k}I_k
+	\]
+	and the corresponding commutative diagram have been constructed. Choose
+	an injective resolution $H\xrightarrow{g}J$ of
+	$H:=\Ker[\tau^{\geq-k-1}A\to\tau^{\geq-k}A]$ by
+	Theorem~\ref{prop:resolution-existence}. The
+	Horseshoe Lemma, Proposition~\ref{prop:horseshoe}, then gives a
+	commutative diagram with exact rows in $\cate{C}(\mathcal{A})$:
+% segment-id: o014.li2.chapter3.k-injectives.g007
+	\[\begin{tikzcd}
+		0 \arrow[r] & J \arrow[r] & I_{k+1} \arrow[r] & I_k \arrow[r] & 0 \\
+		0 \arrow[r] & H \arrow[r] \arrow[u, "g"] &
+		\tau^{\geq-k-1}A \arrow[u, "{f_{k+1}}"] \arrow[r] &
+		\tau^{\geq-k}A \arrow[r] \arrow[u, "f_k"'] & 0
+	\end{tikzcd}\]
+	such that $f_{k+1}$ is an injective resolution. Exactness of the first
+	row is equivalent to exactness of
+	$0\to J^n\to I_{k+1}^n\to I_k^n\to0$ for every $n$. Since all its terms
+	are injective objects of $\mathcal{A}$,
+	Lemma~\ref{prop:inj-proj-split} shows that
+	$I_{k+1}^n\to I_k^n$ admits a section. This proves the result.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.k-injectives.p006
+The following discussion uses notation from \S\ref{sec:lim1}.
+
+% segment-id: o014.li2.chapter3.k-injectives.p007
+Take $A$ as above. As $k\geq0$ varies, the complexes
+$\tau^{\geq-k}A$ form an object of
+$\cate{InvSys}(\cate{C}(\mathcal{A}))$, which we denote by $\tau A$. The
+definition of the truncation functors gives a family of canonical morphisms
+$A\to\tau^{\geq-k}A$. Considering the complexes
+$\tau^{\geq-k}A$ degree by degree shows that their $\varprojlim_k$ exists and
+that these canonical morphisms induce an isomorphism
+% segment-id: o014.li2.chapter3.k-injectives.e002
+\begin{equation}\label{eqn:A-lim-truncation}
+	A \rightiso \varprojlim_{k \geq 0} \left( \tau^{\geq -k} A \right).
+\end{equation}
+
+% segment-id: o014.li2.chapter3.k-injectives.p008
+Now consider the $I_k$. Suppose that $\mathcal{A}$ has countable products;
+then $\cate{C}(\mathcal{A})$ also has countable products, constructed degree
+by degree. For $A\in\Obj(\cate{C}(\mathcal{A}))$, consider the diagram in
+Lemma~\ref{prop:K-injective-truncated}. It follows that
+% segment-id: o014.li2.chapter3.k-injectives.q003
+\[
+I:=\varprojlim_k I_k \quad \text{exists}.
+\]
+
+% segment-id: o014.li2.chapter3.k-injectives.p009
+More concretely, Definition~\ref{def:Delta-diff} and the discussion following
+it place $I$ and $A$ in exact sequences
+% segment-id: o014.li2.chapter3.k-injectives.q004
+\begin{gather*}
+	0 \to I \to \prod_k I_k \xrightarrow{\Delta_I} \prod_k I_k, \\
+	0 \to A \to \prod_k \tau^{\geq -k} A
+	\xrightarrow{\Delta_{\tau A}} \prod_k \tau^{\geq -k} A,
+\end{gather*}
+where $\Delta_I$ and $\Delta_{\tau A}$ are as in that definition. We obtain
+commutative diagrams
+% segment-id: o014.li2.chapter3.k-injectives.e003
+\begin{equation}\label{eqn:K-injective-diagonal}\begin{tikzcd}
+	I \arrow[hookrightarrow, r] \arrow[d] & \displaystyle\prod_k I_k \\
+	\Cone(\Delta_I)[-1] \arrow[ru, "{\beta(\Delta_I)[-1]}"'] &
+\end{tikzcd} \quad \begin{tikzcd}
+	A \arrow[hookrightarrow, r] \arrow[d] &
+	\displaystyle\prod_k \tau^{\geq -k} A \\
+	\Cone(\Delta_{\tau A})[-1]
+	\arrow[ru, "{\beta(\Delta_{\tau A})[-1]}"']
+\end{tikzcd}\end{equation}
+The two vertical arrows are defined by inclusion into the first coordinate of
+the mapping cone; the reader may check this directly. Another explanation,
+though more elaborate than necessary, can be given using the universal
+property of the homotopy kernel
+(Proposition~\ref{prop:homotopy-kernel-cokernel}).
+
+% segment-id: o014.li2.chapter3.k-injectives.p010
+On the other hand, $(f_k)_{k\geq0}$ and the universal property of
+$\varprojlim$ give a morphism
+% segment-id: o014.li2.chapter3.k-injectives.q005
+\[
+f:A\simeq\varprojlim_k(\tau^{\geq-k}A)\to\varprojlim_k I_k=I,
+\]
+which makes the following diagram commute:
+% segment-id: o014.li2.chapter3.k-injectives.e004
+\begin{equation}\label{eqn:K-injective-A-I}\begin{tikzcd}
+	I \arrow[r, "\text{as in \eqref{eqn:K-injective-diagonal}}"
+	inner sep=0.4em] & \Cone\left(\Delta_I\right)[-1] \\
+	A \arrow[r] \arrow[u, "f"] &
+	\Cone\left( \Delta_{\tau A} \right)[-1]
+	\arrow[u, "\text{induced by all the $f_k$}"'].
+\end{tikzcd}\end{equation}
+Lemmas~\ref{prop:K-injective-projlimit-aux} and
+\ref{prop:K-injective-truncated} show that $I$ is a K-injective complex. If
+$f$ is a quasi-isomorphism, then $f$ is a K-injective resolution of $A$.
+This last step requires an additional hypothesis.
+
+% segment-id: o014.li2.chapter3.k-injectives.le004
+\begin{lemma}\label{prop:K-injective-equiv}
+	In the situation above, suppose in addition that $\mathcal{A}$ has exact
+	countable products (Convention~\ref{con:exact-product}). Then $f$ is a
+	quasi-isomorphism if and only if
+	$A\to\Cone(\Delta_{\tau A})[-1]$ is a quasi-isomorphism.
+\end{lemma}
+
+% segment-id: o014.li2.chapter3.k-injectives.pf006
+\begin{proof}
+	Consider the natural commutative diagram\footnote{Translator's note
+	(O014-C065): in the source, the first lower horizontal arrow is labelled
+	$\Delta_A$. The lower row belongs to the inverse system $\tau A$, and
+	the right side of that row already uses $\alpha(\Delta_{\tau A})$ and
+	$\Cone(\Delta_{\tau A})$; the target therefore restores the label
+	$\Delta_{\tau A}$.}
+% segment-id: o014.li2.chapter3.k-injectives.g008
+	\[\begin{tikzcd}
+		\prod_k I_k \arrow[r, "\Delta_I"] &
+		\prod_k I_k \arrow[r, "{\alpha(\Delta_I)}"] &
+		\Cone\left(\Delta_I\right) \\
+		\prod_k \tau^{\geq-k}A \arrow[r, "\Delta_{\tau A}"']
+		\arrow[u, "{\prod_k f_k}"] &
+		\prod_k \tau^{\geq-k}A \arrow[u, "{\prod_k f_k}"]
+		\arrow[r, "{\alpha(\Delta_{\tau A})}"'] &
+		\Cone\left(\Delta_{\tau A}\right) \arrow[u]
+	\end{tikzcd}\]
+	Taking the long exact sequences of the mapping cones
+	\eqref{eqn:cone-long-exact-sequence} gives a commutative diagram with
+	exact rows:
+% segment-id: o014.li2.chapter3.k-injectives.g009
+	\[\begin{tikzcd}
+		[column sep=tiny, every cell/.append style = {font = \small}]
+		\cdots \Hm^n\left( \displaystyle\prod_k I_k \right) \arrow[r] &
+		\Hm^n\left( \Cone(\Delta_I) \right) \arrow[r] &
+		\Hm^{n+1}\left( \displaystyle\prod_k I_k \right)
+		\arrow[r, "{\Hm^{n+1}(\Delta_I)}" inner sep=1em] &
+		\Hm^{n+1}\left( \displaystyle\prod_k I_k \right) \\
+		\cdots \Hm^n\left( \displaystyle\prod_k \tau^{\geq-k} A \right)
+		\arrow[r] \arrow[u, "{\Hm^n(\prod_k f_k)}"] &
+		\Hm^n\left( \Cone(\Delta_{\tau A}) \right)
+		\arrow[r] \arrow[u] &
+		\Hm^{n+1}\left(\displaystyle\prod_k \tau^{\geq-k} A \right)
+		\arrow[u, "{\Hm^{n+1}(\prod_k f_k)}"]
+		\arrow[r, "{\Hm^{n+1}(\Delta_{\tau A})}"' inner sep=1.5em] &
+		\Hm^{n+1}\left( \displaystyle\prod_k \tau^{\geq-k} A \right)
+		\arrow[u, "{\Hm^{n+1}(\prod_k f_k)}"'] .
+	\end{tikzcd}\]
+	Every $f_k$ is a quasi-isomorphism, and exactness of countable products
+	ensures that $\prod_k f_k$ remains a quasi-isomorphism. Applying
+	Proposition~\ref{prop:5-lemma} shows that
+	$\Cone(\Delta_{\tau A})\to\Cone(\Delta_I)$\footnote{Translator's note
+	(O014-C066): the source writes $\Delta_{\tau_A}$ at this occurrence,
+	although the inverse-system object that was defined is $\tau A$ and all
+	surrounding notation uses $\Delta_{\tau A}$. The target makes this
+	consistent with the defined notation.} is also a quasi-isomorphism.
+
+	Next we prove that $I\to\Cone(\Delta_I)[-1]$ is a quasi-isomorphism.
+	First, $\Delta_I$ is an epimorphism; this can be checked degree by degree.
+	Indeed,
+	$\Delta_{I^n}:\prod_k I_k^n\to\prod_k I_k^n$ is an epimorphism because
+	$I_{k+1}^n\to I_k^n$ admits a section; see
+	Example~\ref{eg:lim1-section}. Compare the short exact sequence
+	$0\to I\to\prod_k I_k\xrightarrow{\Delta_I}\prod_k I_k\to0$ with
+	Lemma~\ref{prop:cone-qis}. It follows that the previously defined
+	morphism $I\to\Cone(\Delta_I)[-1]$ is indeed a quasi-isomorphism.
+
+	Insert these results into the commutative diagram
+	\eqref{eqn:K-injective-A-I} and then take cohomology. This gives the
+	desired necessary and sufficient condition.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.k-injectives.th002
+\begin{theorem}\label{prop:K-injective-resolution}
+	An abelian category $\mathcal{A}$ satisfying the following two
+	conditions has enough K-injective complexes:
+% segment-id: o014.li2.chapter3.k-injectives.l007
+	\begin{compactitem}
+% segment-id: o014.li2.chapter3.k-injectives.i015
+		\item $\mathcal{A}$ has exact countable products;
+% segment-id: o014.li2.chapter3.k-injectives.i016
+		\item $\mathcal{A}$ has enough injective objects.
+	\end{compactitem}
+\end{theorem}
+
+% segment-id: o014.li2.chapter3.k-injectives.pf007
+\begin{proof}
+	Lemma~\ref{prop:K-injective-equiv} shows that it suffices to prove that
+	$A\to\Cone(\Delta_{\tau A})[-1]$ is a quasi-isomorphism for every
+	$A\in\Obj(\cate{C}(\mathcal{A}))$. Let $n\in\Z$. Since countable
+	products are exact, Lemma~\ref{prop:truncation-ses} gives canonical
+	isomorphisms
+% segment-id: o014.li2.chapter3.k-injectives.q006
+	\[
+	\Hm^n\left( \prod_k \tau^{\geq -k} A \right)
+	\simeq \prod_k \Hm^n\left( \tau^{\geq -k} A \right)
+	\simeq \prod_{k \geq -n} \Hm^n(A).
+	\]
+	If elementwise reasoning is available in $\mathcal{A}$, then after
+	taking $\Hm^n$, the morphism $\Delta_{\tau A}$ has the form
+% segment-id: o014.li2.chapter3.k-injectives.g010
+	\[\begin{tikzcd}[row sep=tiny]
+		\prod_{k \geq -n} \Hm^n(A) \arrow[r, "\nabla^n"] &
+		\prod_{k \geq -n} \Hm^n(A) \\
+		(a_k)_{k \geq -n} \arrow[mapsto, r] &
+		(a_{k+1} - a_k)_{k \geq -n}.
+	\end{tikzcd}\]
+	Clearly $\nabla^n$ is an epimorphism (a section can be written down
+	explicitly), while
+	$\Ker(\nabla^n)=\{(a)_{k\geq-n}:a\in\Hm^n(A)\}$ is the diagonal
+	subobject. This argument readily translates to a general category
+	$\mathcal{A}$. Now consider the long exact sequence of the mapping cone
+% segment-id: o014.li2.chapter3.k-injectives.q007
+	\[
+	\cdots \to \Hm^n \Cone(\Delta_{\tau A})[-1]
+	\to \prod_{k \geq -n} \Hm^n(A)
+	\xrightarrow[\text{epi}]{\nabla^n}
+	\prod_{k \geq -n} \Hm^n(A)
+	\to \Hm^n \Cone(\Delta_{\tau A}) \cdots
+	\]
+	This sequence identifies the morphism
+	$\Hm^n\Cone(\Delta_{\tau A})[-1]\to
+	\prod_{k\geq-n}\Hm^n(A)$ with the inclusion of
+	$\Ker(\nabla^n)$. Moreover, \eqref{eqn:K-injective-diagonal} gives a
+	commutative diagram
+% segment-id: o014.li2.chapter3.k-injectives.g011
+	\[\begin{tikzcd}
+		\Hm^n(A) \arrow[d]
+		\arrow[hookrightarrow, r, "\text{diagonal morphism}"] &
+		\prod_{k \geq -n} \Hm^n(A) \\
+		\Hm^n {\Cone(\Delta_{\tau A})[-1]} \arrow[hookrightarrow, ru] &
+	\end{tikzcd}\]
+	Thus, for every $n$, the morphism
+	$\Hm^n(A)\to\Hm^n(\Cone(\Delta_{\tau A})[-1])$ is an isomorphism.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.k-injectives.p011
+Reversing the arrows by means of Proposition~\ref{prop:K-sigma-duality}
+gives the dual version of Theorem~\ref{prop:K-injective-resolution}.
+
+% segment-id: o014.li2.chapter3.k-injectives.th003
+\begin{theorem}\label{prop:K-projective-resolution}
+	An abelian category $\mathcal{A}$ satisfying the following two
+	conditions has enough K-projective complexes:
+% segment-id: o014.li2.chapter3.k-injectives.l008
+	\begin{compactitem}
+% segment-id: o014.li2.chapter3.k-injectives.i017
+		\item $\mathcal{A}$ has exact countable coproducts;
+% segment-id: o014.li2.chapter3.k-injectives.i018
+		\item $\mathcal{A}$ has enough projective objects.
+	\end{compactitem}
+\end{theorem}
+
+% segment-id: o014.li2.chapter3.k-injectives.co001
+\begin{corollary}\label{prop:Grothendieck-K-projective}
+	If $\mathcal{A}$ is a Grothendieck category with enough projective
+	objects (Definition~\ref{def:Grothendieck-cat}), then $\mathcal{A}$ also
+	has enough K-projective complexes.
+\end{corollary}
+
+% segment-id: o014.li2.chapter3.k-injectives.pf008
+\begin{proof}
+	By definition, a Grothendieck category $\mathcal{A}$ has countable
+	coproducts. Proposition~\ref{prop:Grothendieck-cat-coprod-exact} says
+	that those countable coproducts are exact. Apply
+	Theorem~\ref{prop:K-projective-resolution}.
+\end{proof}
+
+% segment-id: o014.li2.chapter3.k-injectives.ex003
+\begin{example}\label{eg:Mod-K-injectives}
+	Let $R$ be a ring. Theorem~\ref{prop:K-injective-resolution} and
+	Corollary~\ref{prop:Grothendieck-K-projective} show that
+	$R\dcate{Mod}$ has enough K-injective and K-projective complexes.
+\end{example}
+
+% segment-id: o014.li2.chapter3.k-injectives.p012
+In fact, every complex in a Grothendieck category has a K-injective
+resolution, and these K-injective resolutions can be made functorial, as in
+Theorem~\ref{prop:Grothendieck-injective}. This is the main theorem of
+\cite{Serp03}; see also \cite[Tag 079P]{stacks}. That result covers many
+situations arising in geometry that are not covered by
+Theorem~\ref{prop:K-injective-resolution}.

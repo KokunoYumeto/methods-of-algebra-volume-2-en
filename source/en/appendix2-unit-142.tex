@@ -1,0 +1,133 @@
+% O014 / D80 -- Methods of Algebra, Volume 2 -- en
+% Source: appendix2.tex, lines 287--415 inclusive.
+% Stable unit ID: o014.aljabr2.appendix-b.indization-categories
+% Original source copyright 2024 Wen-Wei Li, CC BY 4.0.
+
+\section{Ind-Completion of Categories}\label{sec:Indization}
+Continuing the discussion of \S\ref{sec:ind-pro}, we now focus on ind-objects. The passage from $\mathcal{C}$ to $\IndC\mathcal{C}$ is an important technique, often called the Ind-completion of $\mathcal{C}$.
+
+\begin{definition}
+	\index{category!cofinally small}
+	Let $I$ be a category. If there is a small category $J$ together with a cofinal functor $J\to I$ (Definition~\ref{def:cofinal}), then $I$ is called \emph{cofinally small}.
+\end{definition}
+
+\begin{lemma}\label{prop:cofinally-small-sub}
+	A category $I$ is cofinally small if and only if it has a full subcategory $I'$ such that the inclusion functor $I'\to I$ is cofinal and $I'$ is small. If $I$ is filtered, then $I'$ is filtered as well.
+\end{lemma}
+\begin{proof}
+	It suffices to explain the only-if direction and the final assertion. Take a cofinal functor $H:J\to I$ as in the definition. Let $I'$ be the full subcategory consisting of all objects $H(j)$, for $j\in\Obj(J)$; it is plainly small. Factor $H$ as
+	\[ J \xrightarrow{H'} I' \xrightarrow{G: \text{inclusion functor}} I. \]
+	To prove that $G:I'\to I$ is cofinal is equivalent to proving that the comma category $(i/G)$ is connected for every $i\in\Obj(I)$; see Definition~\ref{def:cofinal}. This follows easily from the connectedness of $(i/H)$, and the verification is left to the reader.
+
+	For the filteredness of the cofinal full subcategory $I'$, see Proposition~\ref{prop:cofinal-filtered}.
+\end{proof}
+
+\begin{proposition}[Recognizing ind-objects]\label{prop:recognize-ind}
+	Let $X\in\Obj(\mathcal{C}^\wedge)$. The following statements are equivalent:
+	\begin{enumerate}[(i)]
+		\item $X$ is an ind-object over $\mathcal{C}$;
+		\item the category $(h_{\mathcal{C}}/X)$ appearing in Theorem~\ref{prop:Yoneda-density} is filtered and cofinally small.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	We first prove (i) $\implies$ (ii). For filteredness, suppose that $X=\Yinjlim X_i$, where $i$ ranges over the objects of a small filtered category $I$ and $X_i\in\Obj(\mathcal{C})$. Let $\phi:S\to X$ and $\phi':S'\to X$ be any two objects of $(h_{\mathcal{C}}/X)$. Proposition~\ref{prop:Ind-cpt} shows that there is an $i$ (respectively, an $i'$) such that $\phi$ (respectively, $\phi'$) factors through $X_i$ (respectively, $X_{i'}$). Since $I$ is filtered, we may assume without loss of generality that $i=i'$. Thus both $\phi$ and $\phi'$ factor through the object $X_i\to X$ of $(h_{\mathcal{C}}/X)$. This is the first condition for a filtered category.
+
+	The same argument also shows that the family of canonical morphisms $(X_i\to X)_i$ defines a cofinal functor $I\to(h_{\mathcal{C}}/X)$. Hence $(h_{\mathcal{C}}/X)$ is cofinally small.
+
+	Next, consider two morphisms in $(h_{\mathcal{C}}/X)$ of the form
+	\[\begin{tikzcd}[row sep=small]
+		S \arrow[rr, shift left, "f"] \arrow[rr, shift right, "g"'] \arrow[rd, "\phi"'] & & S' . \arrow[ld, "{\phi'}"] \\
+		& X &
+	\end{tikzcd}\]
+	We know that $\phi'$ factors through some $\phi'_i:S'\to X_i$. The equality $\phi'f=\phi'g$ implies that there is a morphism $\alpha:i\to j$ in $I$ such that $X(\alpha)\phi'_if=X(\alpha)\phi'_ig$, where $X(\alpha):X_i\to X_j$. Equivalently, $f$ and $g$ are equalized by the following diagram:
+	\[\begin{tikzcd}
+		S \arrow[r, shift left, "f"] \arrow[r, shift right, "g"'] \arrow[rd, "\phi"'] & S' \arrow[d, "{\phi'}"] \arrow[r, "{X(\alpha) \phi'_i}"] & X_j . \arrow[ld] \\
+		& X &
+	\end{tikzcd}\]
+	This proves that $(h_{\mathcal{C}}/X)$ is filtered.
+
+	We now prove (ii) $\implies$ (i). Theorem~\ref{prop:Yoneda-density} shows that $X$ is the $\Yinjlim$ of the functor $(h_{\mathcal{C}}/X)\to\mathcal{C}^\wedge$ that sends $\phi:S\to X$ to $S$. By Lemma~\ref{prop:cofinally-small-sub}, choose a cofinal full subcategory $I$ of $(h_{\mathcal{C}}/X)$ such that $I$ is a small filtered category. We may therefore write $X$ as the ind-object $\Yinjlim X_i$.
+\end{proof}
+
+A functor $X:\mathcal{C}^{\opp}\to\cate{Set}$ that lies in $\IndC\mathcal{C}$ is also called \emph{ind-representable}. Proposition~\ref{prop:recognize-ind} is equivalently a criterion for ind-representability. Dually, one may speak of \emph{pro-representable} functors and give an analogous criterion.
+
+The following results use the terminology of Definition~\ref{def:create-limit}.
+
+\begin{proposition}\label{prop:Ind-filtered-colim}
+	The fully faithful functor $\IndC\mathcal{C}\to\mathcal{C}^\wedge$ creates small filtered $\varinjlim$. In particular, $\IndC\mathcal{C}$ has all small filtered $\varinjlim$.
+\end{proposition}
+\begin{proof}
+	Take a small filtered category $I$ and a functor $\alpha:I\to\IndC\mathcal{C}$, and write $X:=\Yinjlim\alpha\in\Obj(\mathcal{C}^\wedge)$. Our goal is to prove that $X$ lies in $\IndC\mathcal{C}$. By Proposition~\ref{prop:recognize-ind}, it suffices to prove that $(h_{\mathcal{C}}/X)$ is filtered and cofinally small.
+
+	For the first condition of filteredness, take $\phi:S\to X$ and $\phi':S'\to X$. Proposition~\ref{prop:Ind-cpt} implies that there are $i,i'\in\Obj(I)$ such that these morphisms factor respectively through $\phi_i:S\to X_i$ and $\phi'_{i'}:S'\to X_{i'}$;\footnote{Translator's note: the source prints the domain of $\phi'_{i'}$ as $S$. Since $\phi'$ has domain $S'$, the type-correct domain is $S'$.} without loss of generality, we may assume that $i=i'$. Since $X_i$ is an ind-object, write it as $\Yinjlim X_{ij}$. Applying Proposition~\ref{prop:Ind-cpt} once more, we may assume that both $\phi_i$ and $\phi'_i$ factor through some $X_{ij}\in\Obj(\mathcal{C})$; the canonical morphism $X_{ij}\to X$ makes it an object of $(h_{\mathcal{C}}/X)$.
+
+	The second condition, concerning the equalization of morphisms, is handled in the same way.
+
+	We now check that $(h_{\mathcal{C}}/X)$ is cofinally small. By Lemma~\ref{prop:cofinally-small-sub}, for each $i$ there is a small subset $S_i$ of $\Obj((h_{\mathcal{C}}/X_i))$ such that every object of $(h_{\mathcal{C}}/X_i)$ has a morphism to an object of $S_i$. Write $F_i:(h_{\mathcal{C}}/X_i)\to(h_{\mathcal{C}}/X)$ for the evident functor, and set
+	\[ S:=\bigcup_i F_i(S_i)\;\subset\Obj((h_{\mathcal{C}}/X)). \]
+	Then $S$ is a small set, and the preceding argument in fact shows that every object of $(h_{\mathcal{C}}/X)$ has a morphism to an object of $S$. Thus $S$ determines a cofinal full subcategory of $(h_{\mathcal{C}}/X)$ (apply Proposition~\ref{prop:cofinal-filtered}); consequently, $(h_{\mathcal{C}}/X)$ is cofinally small.
+\end{proof}
+
+\begin{lemma}\label{prop:Ind-lim}
+	Suppose that $\mathcal{C}$ has finite $\varprojlim$. Then the functor $\IndC\mathcal{C}\to\mathcal{C}^\wedge$ creates finite $\varprojlim$, while $\mathcal{C}\to\IndC\mathcal{C}$ preserves finite $\varprojlim$. In particular, $\IndC\mathcal{C}$ has finite $\varprojlim$.
+
+	Under these hypotheses, finite $\varprojlim$ in $\IndC\mathcal{C}$ commute with small filtered $\varinjlim$.
+\end{lemma}
+\begin{proof}
+	It is known that the embedding $\mathcal{C}\to\mathcal{C}^\wedge$ preserves small $\varprojlim$. The assertion in the first paragraph therefore reduces to proving that $\IndC\mathcal{C}$ is closed under finite $\varprojlim$ in $\mathcal{C}^\wedge$.
+
+	Since $\mathcal{C}\to\mathcal{C}^\wedge$ preserves small $\varprojlim$, it sends a terminal object to a terminal object. The problem thus reduces further to proving that $\IndC\mathcal{C}$ is closed under finite products and equalizers in $\mathcal{C}^\wedge$. For the product of two ind-objects $X$ and $Y$, use Lemma~\ref{prop:ind-object-morphism} (i) to choose a filtered category $K$ and present them as $X=\Yinjlim X_k$ and $Y=\Yinjlim Y_k$. We claim that $\Yinjlim(X_k\times Y_k)$ gives $X\times Y$ in $\mathcal{C}^\wedge$. Indeed, for every $S\in\Obj(\mathcal{C})$,
+	\begin{multline*}
+		\left(\Yinjlim (X_k \times Y_k)\right)(S) = \varinjlim_k \left((X_k \times Y_k)(S)\right) = \varinjlim_k (X_k(S) \times Y_k(S)) \\
+		\simeq \varinjlim_k X_k(S) \times \varinjlim_k Y_k(S) = X(S) \times Y(S);
+	\end{multline*}
+	the canonical isomorphism on the second line uses the fact that small filtered $\varinjlim$ commute with finite $\varprojlim$ in $\cate{Set}$ (Proposition~\ref{prop:filtered-finite-exchange}).
+
+	Next we handle equalizers. Consider morphisms $f,g:X\rightrightarrows Y$ between ind-objects. By Lemma~\ref{prop:ind-object-morphism} (iii), we may assume that $X=\Yinjlim X_i$, $Y=\Yinjlim Y_i$, and that $f,g$ arise respectively from two families of morphisms $f_i,g_i:X_i\rightrightarrows Y_i$. Take $\Ker(f_i,g_i)$ in $\mathcal{C}$. For every $S\in\Obj(\mathcal{C})$ and every $i$, we obtain an equalizer diagram in $\cate{Set}$:
+	\[\begin{tikzcd}
+		\Hom_{\mathcal{C}}(S, \Ker(f_i, g_i)) \arrow[r] & \Hom_{\mathcal{C}}(S, X_i) \arrow[r, shift left, "{f_{i, *}}"] \arrow[r, shift right, "{g_{i, *}}"'] & \Hom_{\mathcal{C}}(S, Y_i).
+	\end{tikzcd}\]
+	Take $\varinjlim$ over $i$ and apply once again the fact that small filtered $\varinjlim$ commute with finite $\varprojlim$ in $\cate{Set}$. This gives an equalizer diagram
+	\[\begin{tikzcd}
+		\left(\Yinjlim \Ker(f_i, g_i)\right)(S) \arrow[r] & X(S) \arrow[r, shift left, "f"] \arrow[r, shift right, "g"'] & Y(S).
+	\end{tikzcd}\]
+	As $S$ varies, this shows that the ind-object $\Yinjlim\Ker(f_i,g_i)$ gives $\Ker(f,g)$ in $\mathcal{C}^\wedge$.
+
+	In fact, the argument shows that small filtered $\varinjlim$ commute with finite $\varprojlim$ in $\mathcal{C}^\wedge$; this is checked by reducing to $\cate{Set}$. Since $\IndC\mathcal{C}\to\mathcal{C}^\wedge$ creates small filtered $\varinjlim$ (Proposition~\ref{prop:Ind-filtered-colim}) and finite $\varprojlim$, the commutation property continues to hold in $\IndC\mathcal{C}$.
+\end{proof}
+
+\begin{lemma}\label{prop:Ind-colim}
+	Suppose that $\mathcal{C}$ has finite $\varinjlim$. Then $\IndC\mathcal{C}$ also has finite $\varinjlim$, and $\mathcal{C}\to\IndC\mathcal{C}$ preserves them.
+
+	Under these hypotheses, $\IndC\mathcal{C}$ is cocomplete.
+\end{lemma}
+\begin{proof}
+	Decompose finite $\varinjlim$ into three cases: an initial object, coproducts of two objects, and coequalizers.
+
+	Suppose that $X$ is an initial object of $\mathcal{C}$. Then, for every ind-object $Y=\Yinjlim Y_j$, we have $\Hom_{\mathcal{C}^\wedge}(X,Y)\simeq\varinjlim_j\Hom_{\mathcal{C}}(X,Y_j)$, which is plainly a singleton. Thus $X$ is an initial object of $\IndC\mathcal{C}$.
+
+	Next consider the coproduct of ind-objects $X$ and $Y$. Use Lemma~\ref{prop:ind-object-morphism} (i) to choose a filtered category $K$ and present both objects as $X=\Yinjlim X_k$ and $Y=\Yinjlim Y_k$. We claim that their coproduct is given by the ind-object $\Yinjlim(X_k\sqcup Y_k)$. For every ind-object $S=\Yinjlim S_h$,
+	\begin{multline*}
+		\Hom_{\mathcal{C}^\wedge}(\Yinjlim (X_k \sqcup Y_k), S) \simeq \varprojlim_k \varinjlim_h \Hom_{\mathcal{C}}(X_k \sqcup Y_k, S_h) \\
+		\simeq \varprojlim_k \varinjlim_h \left( \Hom_{\mathcal{C}}(X_k, S_h) \times \Hom_{\mathcal{C}}(Y_k, S_h) \right) \\
+		\simeq \varprojlim_k \varinjlim_h \Hom_{\mathcal{C}}(X_k, S_h) \times \varprojlim_k \varinjlim_h \Hom_{\mathcal{C}}(Y_k, S_h),
+	\end{multline*}
+	where the last step uses the commutation of $\varprojlim$ with $\varprojlim$, as well as the commutation of small filtered $\varinjlim$ with finite $\varprojlim$ in $\cate{Set}$. The final result is $\Hom_{\mathcal{C}^\wedge}(X,S)\times\Hom_{\mathcal{C}^\wedge}(Y,S)$, and all the isomorphisms are canonical.
+
+	Now consider the coequalizer case. Let $f,g:X\rightrightarrows Y$ be morphisms between ind-objects. By Lemma~\ref{prop:ind-object-morphism} (iii), we may assume that $X=\Yinjlim X_i$, $Y=\Yinjlim Y_i$, and that $f,g$ arise from two families of morphisms $f_i,g_i:X_i\rightrightarrows Y_i$. For every $S\in\Obj(\mathcal{C})$ and every $i$, we have an equalizer diagram in $\cate{Set}$:
+	\[\begin{tikzcd}
+		\Hom_{\mathcal{C}}(\Coker(f_i, g_i), S) \arrow[r] &
+		\Hom_{\mathcal{C}}(Y_i, S) \arrow[r, shift left, "{f_i^*}"] \arrow[r, shift right, "{g_i^*}"'] & \Hom_{\mathcal{C}}(X_i, S).
+	\end{tikzcd}\]
+
+	If, via the Yoneda embedding, $\Hom_{\mathcal{C}}$ is rewritten as $\Hom_{\mathcal{C}^\wedge}$ and the object $S\in\Obj(\mathcal{C})$ above is enlarged to an ind-object $S=\Yinjlim S_j$, the diagram remains an equalizer. Indeed, by Proposition~\ref{prop:Ind-Hom}, this merely amounts to replacing $S$ by $S_j$ in the formula above and then applying one additional $\varinjlim_j$; an equalizer is a finite $\varprojlim$, however, and hence is preserved by $\varinjlim_j$.
+
+	Take $\varprojlim_i$ of the resulting equalizer diagram, and then move $\varprojlim_i$ into the first argument of $\Hom$, where it becomes $\Yinjlim$. The result is an equalizer diagram in $\cate{Set}$:
+	\[\begin{tikzcd}
+		\Hom_{\mathcal{C}^\wedge}(\Yinjlim \Coker(f_i, g_i), S) \arrow[r] &
+		\Hom_{\mathcal{C}^\wedge}(Y, S) \arrow[r, shift left, "{f^*}"] \arrow[r, shift right, "{g^*}"'] & \Hom_{\mathcal{C}^\wedge}(X, S).
+	\end{tikzcd}\]
+	Thus we have verified that $\Yinjlim\Coker(f_i,g_i)$ has the universal property required of $\Coker(f,g)$ in $\IndC\mathcal{C}$.
+
+	Finally, to prove that $\IndC\mathcal{C}$ is cocomplete, it suffices to show that it has small coproducts. But an arbitrary small coproduct can be expressed as a filtered $\varinjlim$ of finite coproducts. Apply Proposition~\ref{prop:Ind-filtered-colim}. This proves the assertion.
+\end{proof}

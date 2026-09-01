@@ -1,0 +1,211 @@
+% Unit 115 English translation of chapter8.tex lines 1483--1564.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter8.bisimplicial-a
+% Coverage: Section 8.8 from the definition of multisimplicial objects through the tensor example.
+
+% segment-id: o014.li2.chapter8.bisimplicial-a.h001
+\section{Bisimplicial Objects}\label{sec:bisimplicial}
+\hypertarget{o014.aljabr2.chapter8.bisimplicial-a}{ }
+% segment-id: o014.li2.chapter8.bisimplicial-a.p001
+We begin with some general definitions. For objects
+$[m_1],\ldots,[m_n]$ of $\simpDelta$, from now on we shall also write the
+object $([m_1],\ldots,[m_n])$ of $(\simpDelta)^n$ as
+$[m_1]\times\cdots\times[m_n]$ for typographical convenience.
+
+% segment-id: o014.li2.chapter8.bisimplicial-a.d001
+\begin{definition}
+	\index{bisimplicial object}
+	Let $\mathcal{C}$ be an arbitrary category and $n\in\Z_{\geq1}$. A
+	functor of the form $X:(\simpDelta^{\opp})^n\to\mathcal{C}$
+	(respectively, $\simpDelta^n\to\mathcal{C}$) is called an
+	\emph{$n$-fold simplicial object} (respectively, an \emph{$n$-fold
+	cosimplicial object}) in $\mathcal{C}$; its morphisms are morphisms of
+	such functors. When $n=2$, the corresponding objects are called
+	bisimplicial (respectively, bicosimplicial) objects. The value of an
+	$n$-fold simplicial (respectively, cosimplicial) object $X$ at
+	$[m_1]\times\cdots\times[m_n]$ is denoted by $X_{m_1,\ldots,m_n}$
+	(respectively, $X^{m_1,\ldots,m_n}$).
+\end{definition}
+
+% segment-id: o014.li2.chapter8.bisimplicial-a.p002
+Thus an $n$-fold simplicial object is determined by a family of objects
+$X_{m_1,\ldots,m_n}$, where $m_1,\ldots,m_n\in\Z_{\geq0}$, together with
+its face morphisms
+% segment-id: o014.li2.chapter8.bisimplicial-a.q001
+\[ {}^k d_i: X_{m_1, \ldots, m_n} \to X_{\ldots, m_k - 1, \ldots}, \quad 1 \leq k \leq n, \quad 0 \leq i \leq m_k \]
+and its degeneracy morphisms
+% segment-id: o014.li2.chapter8.bisimplicial-a.q002
+\[ {}^k s_j: X_{m_1, \ldots, m_n} \to X_{\ldots, m_k + 1, \ldots}, \quad 1 \leq k \leq n, \quad 0 \leq j \leq m_k . \]
+These morphisms are required to satisfy \eqref{eqn:simplicial-identity} for
+each $k$, and morphisms corresponding to different values of $k$ must
+commute. This is simply the multivariable version of
+Definition~\ref{def:simplicial-obj}.
+
+% segment-id: o014.li2.chapter8.bisimplicial-a.p003
+More generally, for every morphism in $\simpDelta^n$
+% segment-id: o014.li2.chapter8.bisimplicial-a.q003
+\[ f:[m_1]\times\cdots\times[m_n]\to[m'_1]\times\cdots\times[m'_n], \]
+there is a corresponding pullback
+$f^*:X_{m'_1,\ldots,m'_n}\to X_{m_1,\ldots,m_n}$. The case of $n$-fold
+cosimplicial objects is dual.
+
+% segment-id: o014.li2.chapter8.bisimplicial-a.eg001
+\begin{example}\label{eg:standard-n-fold-sSet}
+	\index[sym1]{Deltapq@$\Delta^{p_1, \ldots, p_n}$}
+	Take $\mathcal{C}=\cate{Set}$. As in
+	Definition~\ref{def:standard-simplicial-set}, we can define the standard
+	$n$-fold simplicial set
+	% segment-id: o014.li2.chapter8.bisimplicial-a.q004
+	\[ \Delta^{p_1, \ldots, p_n} := \Hom_{\simpDelta^n}\left(\cdot, [p_1] \times \cdots \times [p_n] \right). \]
+	Next take $\mathcal{C}=\cate{Ab}$. Imitating
+	Definition~\ref{def:free-simplicial-Ab}, for every $n$-fold simplicial set
+	$K$ we can define an $n$-fold simplicial object $\Z K$ in $\cate{Ab}$.
+	Specifying a morphism $\Z\Delta^{p_1,\ldots,p_n}\to X$ is equivalent to
+	specifying an element of $X_{p_1,\ldots,p_n}$.
+\end{example}
+
+% segment-id: o014.li2.chapter8.bisimplicial-a.p004
+If $\mathcal{C}$ is a small category, the category of all $n$-fold
+simplicial objects is denoted by $\cate{s}^n\mathcal{C}$. Thus
+$\cate{s}^1\mathcal{C}=\cate{s}\mathcal{C}$, while, if $n>1$,
+% segment-id: o014.li2.chapter8.bisimplicial-a.q005
+\[ \cate{s}^n\mathcal{C}=\cate{s}\bigl(\cate{s}^{n-1}\mathcal{C}\bigr)
+=\cate{s}^{n-1}\bigl(\cate{s}\mathcal{C}\bigr), \]
+and so on. The case of $n$-fold cosimplicial objects is analogous.
+
+% segment-id: o014.li2.chapter8.bisimplicial-a.p005
+The semisimplicial objects of Remark~\ref{rem:semisimplicial} plainly have
+an $n$-fold version, obtained by removing the degeneracy morphisms and the
+related conditions from the definition above.
+
+% segment-id: o014.li2.chapter8.bisimplicial-a.d002
+\begin{definition}\label{def:bisimplicial-diagonal}
+	\index{functor!diagonal}
+	With the notation above, the \emph{diagonal functor}
+	$d:\cate{s}^n\mathcal{C}\to\cate{s}\mathcal{C}$ maps an $n$-fold
+	simplicial object $X$ to the simplicial object
+	% segment-id: o014.li2.chapter8.bisimplicial-a.q006
+	\[ d(X)_n := X_{n, \ldots, n}, \]
+	whose face and degeneracy morphisms are defined respectively by
+	$d_i=\prod_k{}^kd_i$ and $s_j=\prod_k{}^ks_j$. On morphisms, the functor
+	is defined in the evident way. Equivalently, $d(X)$ is the composite of
+	$X$ with the diagonal embedding
+	$\simpDelta^{\opp}\to(\simpDelta^{\opp})^n$. The cosimplicial case is
+	entirely dual.
+\end{definition}
+
+% segment-id: o014.li2.chapter8.bisimplicial-a.eg002
+\begin{example}\label{eg:boxtimes-bisimplicial}
+	Let $(\mathcal{C},\otimes)$ be a monoidal category, for example
+	$\cate{Set}$ with the product $\times$. For
+	$X_1,\ldots,X_n\in\Obj(\cate{s}\mathcal{C})$, we obtain an object of
+	$\cate{s}^n\mathcal{C}$ whose $(m_1,\ldots,m_n)$-term is
+	$X_{1,m_1}\otimes\cdots\otimes X_{n,m_n}$. This $n$-fold simplicial
+	object is denoted by
+	% segment-id: o014.li2.chapter8.bisimplicial-a.q007
+	\[ X_1 \boxtimes \cdots \boxtimes X_n \in \Obj(\cate{s}^n \mathcal{C}). \]
+
+	This should not be confused with
+	$X_1\otimes\cdots\otimes X_n\in\Obj(\cate{s}\mathcal{C})$ from
+	Definition~\ref{def:monoidal-sObj}; the two are related by
+	% segment-id: o014.li2.chapter8.bisimplicial-a.q008
+	\[ X_1 \otimes \cdots \otimes X_n = d(X_1 \boxtimes \cdots \boxtimes X_n). \]
+	A basic example is obtained from the monoidal category
+	$(\cate{Set},\times)$. In this case
+	$\Delta^{p_1}\boxtimes\cdots\boxtimes\Delta^{p_n}
+	=\Delta^{p_1,\ldots,p_n}$, while
+	$\Delta^{p_1}\otimes\cdots\otimes\Delta^{p_n}
+	=\Delta^{p_1}\times\cdots\times\Delta^{p_n}$, the simplicial set
+	obtained by taking the product degreewise.
+\end{example}
+
+% segment-id: o014.li2.chapter8.bisimplicial-a.p006
+General $n$-fold simplicial objects play an indispensable role in homotopy
+theory and its applications. This section is mainly concerned with abelian
+categories, focusing on the special case $n=2$. The first step is to
+introduce a variant of Definition~\ref{def:unnormalized-chain}.
+
+% segment-id: o014.li2.chapter8.bisimplicial-a.p007
+Recall the definition of a double complex in
+Definition~\ref{def:double-cplx}, or more precisely its chain-complex
+version. The category of double chain complexes is denoted by
+$\cate{Ch}^2(\cdots)$, and $\cate{Ch}^2_{\geq0}(\cdots)$ is defined
+similarly. For a bisemisimplicial object, we also introduce the notation
+% segment-id: o014.li2.chapter8.bisimplicial-a.q009
+\[ \dhori_i := {}^1 d_i , \quad \dvert_i := {}^2 d_i, \]
+for the face morphisms in the ``horizontal'' and ``vertical'' directions.
+For a bisimplicial object, the degeneracy morphisms are similarly denoted by
+$\shori_j={}^1s_j$ and $\svert_j={}^2s_j$.
+
+% segment-id: o014.li2.chapter8.bisimplicial-a.d003
+\begin{definition}
+	\index{unnormalized chain complex}
+	\index[sym1]{CX2@$\mathrm{C}^2 X$}
+	\index{double complex}
+	Let $\mathcal{A}$ be an additive category and $X$ a bisemisimplicial
+	object in $\mathcal{A}$. The corresponding \emph{unnormalized double
+	chain complex} (or \emph{Moore double chain complex}) consists of
+	$\bigl(X_{p,q}\bigr)_{p,q\in\Z_{\geq0}}$ together with the data
+	% segment-id: o014.li2.chapter8.bisimplicial-a.q010
+	\begin{align*}
+		\phori_{p, q} & := \sum_{i=0}^p (-1)^i \dhori_i: X_{p, q} \to X_{p-1, q}, \\
+		\pvert_{p, q} & := \sum_{i=0}^q (-1)^i \dvert_i: X_{p, q} \to X_{p, q-1}.
+	\end{align*}
+	By convention, $X_{p,q}:=0$ when $(p,q)\notin\Z_{\geq0}^2$. The
+	resulting double chain complex is denoted by
+	$\mathrm{C}^2X\in\Obj(\cate{Ch}^2(\mathcal{A}))$.
+\end{definition}
+
+% segment-id: o014.li2.chapter8.bisimplicial-a.p008
+To show that this really is a double chain complex, we must verify
+$\phori_{p-1,q}\phori_{p,q}=0$,
+$\pvert_{p,q-1}\pvert_{p,q}=0$, and
+$\pvert_{p-1,q}\phori_{p,q}=\phori_{p,q-1}\pvert_{p,q}$. The first two
+identities are exactly as in Definition~\ref{def:unnormalized-chain}; the
+last follows directly from the commutativity of $\dhori_i$ and $\dvert_j$.
+We thus obtain an additive functor
+% segment-id: o014.li2.chapter8.bisimplicial-a.q011
+\[ \mathrm{C}^2: \cate{s}^2 \mathcal{A} \to \cate{Ch}^2(\mathcal{A}). \]
+
+% segment-id: o014.li2.chapter8.bisimplicial-a.p009
+Since $(p,q)\notin\Z_{\geq0}^2$ implies $X_{p,q}=0$, we may now naturally
+define its total chain complex by
+% segment-id: o014.li2.chapter8.bisimplicial-a.q012
+\[ (\tot X)_n := \bigoplus_{p+q = n} X_{p, q}, \quad
+\begin{tikzcd}[column sep=large]
+	(\tot X)_n \arrow[r, "{\partial_n}"] & (\tot X)_{n-1} \\
+	X_{p,q} \arrow[hookrightarrow, u] \arrow[r, "{(\phori_{p, q}, \; (-1)^p \pvert_{p, q})}"' inner sep=0.8em] & X_{p-1, q} \oplus X_{p, q-1} . \arrow[hookrightarrow, u]
+\end{tikzcd}\]
+The same argument as in Definition~\ref{def:total-cplx} shows that $\tot X$
+really is a chain complex. Thus the composite functor
+$\tot\circ\mathrm{C}^2:\cate{s}^2\mathcal{A}\to
+\cate{Ch}_{\geq0}(\mathcal{A})$ is defined.
+\index{total complex}
+
+% segment-id: o014.li2.chapter8.bisimplicial-a.p010
+The same construction can be applied to $n$-fold simplicial objects over
+$\mathcal{A}$ to obtain a functor
+$\mathrm{C}^n:\cate{s}^n\mathcal{A}\to\cate{Ch}^n(\mathcal{A})$ and the
+corresponding total chain complex; see Remark~\ref{rem:k-fold-cplx}.
+
+% segment-id: o014.li2.chapter8.bisimplicial-a.eg003
+\begin{example}\label{eg:tensor-bisimplicial}
+	Suppose $\mathcal{A}$ has the structure of a monoidal category such that
+	the bifunctor $\otimes:\mathcal{A}\times\mathcal{A}\to\mathcal{A}$ is
+	additive in each variable. If
+	$C_1,C_2\in\Obj(\cate{Ch}_{\geq0}(\mathcal{A}))$, we naturally obtain a
+	double chain complex $C_1\boxtimes C_2$ whose $(p,q)$-term is
+	$C_{1,p}\otimes C_{2,q}$ and whose $\phori$ and $\pvert$ come from $C_1$
+	and $C_2$, respectively. If $A,B\in\Obj(\cate{s}\mathcal{A})$, there is
+	a simple relation between the double chain complex
+	$\mathrm{C}A\boxtimes\mathrm{C}B$ and the bisimplicial object
+	$A\boxtimes B$ of Example~\ref{eg:boxtimes-bisimplicial}:
+	% segment-id: o014.li2.chapter8.bisimplicial-a.q013
+	\[ \mathrm{C}^2 (A \boxtimes B) = \mathrm{C}A \boxtimes \mathrm{C}B. \]
+	Moreover, $\cate{Ch}_{\geq0}(\mathcal{A})$ becomes a monoidal category
+	with
+	% segment-id: o014.li2.chapter8.bisimplicial-a.q014
+	\[ C_1 \otimes C_2 := \tot(C_1 \boxtimes C_2), \]
+	and its unit is plainly $\munit$ placed in degree zero.
+\end{example}

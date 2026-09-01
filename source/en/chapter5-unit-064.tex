@@ -1,0 +1,342 @@
+% Unit 064 English translation of chapter5.tex lines 9--140.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter5.intro-filtration-grading
+% Coverage: complete introduction to Chapter 5 and complete Section 5.1.
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.h001
+\chapter{Spectral Sequences}\label{sec:ss}
+\hypertarget{o014.aljabr2.chapter5.intro-filtration-grading}{ }
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.p001
+Spectral sequences are classical algebraic tools that continually find new
+uses, and their roots in topology run especially deep. Some textbooks and
+lecture notes even use them as a basic tool of homological algebra to establish
+some of the fundamental properties in \CHref{sec:Abel-cat} and
+\CHref{sec:cplx}.
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.p002
+Spectral sequences were introduced by J.\ Leray in the 1940s and gradually
+assumed their modern form through the work of J.-L.\ Koszul, H.\ Cartan, and
+others. Their chief motivation was the study of the homology groups of fiber
+bundles. In algebraic terms, the original problem amounts to understanding the
+homology (or cohomology) of a chain complex (or complex) $X$. Let us take the
+case of a complex as our example. Although $X$ itself may be difficult to
+grasp, it can be studied through a suitable filtration
+$\cdots\supset\mathrm{F}^pX\supset\mathrm{F}^{p+1}X\supset\cdots$.
+The filtration $\mathrm{F}^\bullet X$ induces a filtration on every
+$\Hm^n(X)$. Information about $\mathrm{F}^\bullet X$ and its subquotients can
+then be used to approximate, step by step, each subquotient
+$\gr^p\Hm^n(X)$ of the filtered cohomology. Spectral sequences are the art of
+organizing such successive approximations.
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.p003
+A complex may also be generalized to a differential object $(X,d)$ in an
+abelian category (Definition~\ref{def:differential-object}), leading to the
+abstract definition of a spectral sequence in
+Definition~\ref{def:SS-abstract}. A spectral sequence is a sequence of
+differential objects $\mathscr{E}=(E_r,d_r)_r$ such that the cohomology of each
+``page,'' $\Hm(E_r,d_r)$, is the next page $E_{r+1}$. Adding a grading and
+allowing the differential $d$ to have a degree gives the notions of graded
+spectral sequences $E_r^p$ and bigraded spectral sequences $E_r^{p,q}$
+(Definition~\ref{def:graded-spectral-sequence}). Concretely, the differentials
+in a bigraded spectral sequence have the form
+\begin{gather*}
+	d_r^{p, q}: E_r^{p, q} \to E_r^{p+r, q-r+1}, \\
+	E_r = (E_r^{p, q})_{(p, q) \in \Z^2}, \quad d_r = (d_r^{p, q})_{(p, q) \in \Z^2}.
+\end{gather*}
+A filtered complex gives a filtered differential object and hence naturally
+produces a bigraded spectral sequence. This is the form of spectral sequence
+that occurs most often in applications. Every notion has a corresponding
+version for chain complexes and their homology.
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.p004
+This chapter begins with W.\ Massey's theory of exact couples. Exact couples
+are another device for producing spectral sequences, and their scope is wider
+than that of filtered differential objects. After introducing filtrations and
+graded structures in \S\ref{sec:grading-filtration}, we give the general
+definition of a spectral sequence in \S\ref{sec:spectral-sequence}, together
+with its graded and bigraded versions and such basic terminology as
+degeneration, boundedness, and the limiting page. At the end of that section,
+Remark~\ref{rem:edge-computing} explains how to read exact sequences from the
+edges of a spectral sequence, an important technique.
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.p005
+Exact couples are defined in \S\ref{sec:exact-couples}. Next,
+\S\ref{sec:filtered-diff-ss} explains how an exact couple produces a graded
+spectral sequence from a filtered differential object, and
+\S\ref{sec:filtered-cplx-ss} goes on to explain how a filtered complex produces
+a bigraded spectral sequence. That section also treats the central notion of
+convergence and the Classical Convergence Theorem~\ref{prop:classical-convergence}.
+Some of the verifications are slightly technical, but there is no fundamental
+difficulty. Readers may first work in a concrete abelian category such as
+$\cate{Ab}$ to simplify the arguments.
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.p006
+A double complex gives rise to a filtered complex in two ways, according as
+the total complex is filtered by the horizontal or the vertical coordinate.
+The corresponding spectral sequences are denoted by
+$\mathscr{E}_{\mathrm{I}}$ and $\mathscr{E}_{\mathrm{II}}$, respectively.
+Their details are the subject of \S\ref{sec:double-cplx-ss}. We also give
+standard applications, including the derivation of balanced bifunctors
+(Example~\ref{eg:bifunctor-ss}), the spectral sequence of hyperderived functors
+(Example~\ref{eg:hyperderived-ss}), and the Grothendieck spectral sequence
+(Theorem~\ref{prop:Grothendieck-ss}). The Cartan--Eilenberg resolutions
+introduced earlier (Theorem~\ref{prop:CE-resolution}) play a role here.
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.p007
+The Grothendieck spectral sequence concerns the derivation of a composite of
+functors and is particularly common in geometry. As an example involving right
+derived functors, consider left-exact additive functors between abelian
+categories
+$\mathcal{A}\xrightarrow{F}\mathcal{A}'\xrightarrow{F'}\mathcal{A}''$,
+where $\mathcal{A}$ and $\mathcal{A}'$ have enough injective objects. If $F$
+sends injective objects to $F'$-acyclic objects
+(Convention~\ref{con:F-acyclic}), there is a canonical strongly convergent
+bigraded spectral sequence
+\[ E_2^{p, q} = (\mathrm{R}^p F') (\mathrm{R}^q F)(X) \Rightarrow \mathrm{R}^{p+q}(F' F)(X), \quad X \in \Obj(\mathcal{A}). \]
+The derivation of composite functors can also be handled at the level of
+derived categories; see
+Theorem~\ref{prop:localization-triangulated-composite}. Besides being formally
+elementary and easy to compute, the spectral-sequence version can provide
+additional information in concrete situations, such as exact sequences in low
+degrees.
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.p008
+The final section of the chapter, \S\ref{sec:multiplicative-SS}, briefly
+introduces multiplicative structures on spectral sequences. This aspect has
+received attention since the earliest history of spectral sequences.
+Proposition~\ref{prop:dga-mult-ss} shows that a filtered differential graded
+algebra gives rise to a spectral sequence with a canonical multiplicative
+structure; a deeper treatment is left to specialized monographs.
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.p009
+As an exercise in applications, the Lyndon--Hochschild--Serre spectral
+sequence, which is fundamental in group cohomology, can be obtained both as an
+application of the Grothendieck spectral sequence and concretely from a
+filtered complex. The latter approach also equips it with a canonical
+multiplicative structure. This topic will be discussed in
+\S\ref{sec:LHS-SS} in the future.
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.note001
+\begin{wenxintishi}
+	This chapter requires only a knowledge of abelian categories and complexes.
+	Apart from a few simple definitions, it does not depend on the material in
+	\CHref{sec:triangulated-derived-cat}; the two chapters can be read
+	independently. Since the spectral sequence of a filtered differential object
+	can be written down directly, the theory of exact couples is not essential
+	for that construction (see Proposition~\ref{prop:filtered-diff-E} and the
+	discussion that follows). Readers may therefore consider temporarily
+	skipping \S\ref{sec:exact-couples}. Moreover, among the later sections of
+	this book, only \S\ref{sec:LHS-SS} requires a knowledge of spectral
+	sequences.
+\end{wenxintishi}
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.h002
+\section{Filtrations and Graded Structures}\label{sec:grading-filtration}
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.p010
+We encountered graded objects in Definition~\ref{def:graded-obj}. A
+$\Z$-graded object in an arbitrary category $\mathcal{A}$ is simply called a
+\emph{graded object}; by definition, these are the objects
+$(X^p)_{p\in\Z}$ of $\mathcal{A}^{\Z}$. A $\Z^2$-graded object is simply
+called a \emph{bigraded object}; by definition, these are the objects
+$(X^{p,q})_{(p,q)\in\Z^2}$ of $\mathcal{A}^{\Z\times\Z}$. Morphisms between
+graded (or bigraded) objects are written as $(f^p)_p$ (or
+$(f^{p,q})_{p,q}$), as usual, and are composed degree by degree.
+\index{graded object}
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.p011
+If $\mathcal{A}$ is an abelian category, then $\mathcal{A}^{\Z}$ and
+$\mathcal{A}^{\Z\times\Z}$ are also abelian categories; kernels, cokernels,
+and all other operations are computed degree by degree.
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.p012
+The category $\mathcal{A}^{\Z}$ has a shift autoequivalence $T$ determined by
+$(TX)^p=X^{p+1}$ and $(Tf)^p=f^{p+1}$. More generally,
+$\mathcal{A}^{\Z^n}$ has a family of shift autoequivalences
+$T_1,\ldots,T_n$ corresponding to shifts along the $n$ coordinates. These
+shifts commute strictly: $T_iT_j=T_jT_i$.
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.p013
+Within the framework of this chapter, graded structures arise primarily from
+filtrations.
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.d001
+\begin{definition}\label{def:filtration}
+	\index{filtration}
+	\index{filtration!finite}
+	\index[sym1]{FilpX@$\mathrm{F}^p X$, $\mathrm{F}_p X$}
+	Let $X$ be an object of an additive category $\mathcal{A}$.
+	\begin{itemize}
+		\item A \emph{decreasing filtration} $\mathrm{F}^\bullet X$ is a
+		sequence of subobjects
+		\[ \cdots \supset \mathrm{F}^p X \supset \mathrm{F}^{p+1} X \supset \cdots \quad (p \in \Z). \]
+		\item If there exist $a\leq b$ such that $\mathrm{F}^aX=X$ and
+		$\mathrm{F}^bX=0$, the filtration is called \emph{finite}.
+		\item Increasing filtrations $\mathrm{F}_\bullet X$ and their finiteness
+		are defined similarly.
+	\end{itemize}
+\end{definition}
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.p014
+Decreasing and increasing filtrations can be distinguished by the position of
+the index $p$. When no confusion is likely, both are simply called
+filtrations. Decreasing filtrations are customary in the study of complexes
+and cohomology, whereas increasing filtrations are customary for chain
+complexes and homology. This chapter mainly uses decreasing filtrations.
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.p015
+All filtered objects $(X,\mathrm{F}^\bullet X)$ form a category
+$\mathrm{Fil}^\bullet(\mathcal{A})$. A morphism
+$f:(X,\mathrm{F}^\bullet X)\to(Y,\mathrm{F}^\bullet Y)$ is a morphism
+$f:X\to Y$ that preserves the filtrations; that is, for every $p$, it
+restricts to a morphism $\mathrm{F}^pX\to\mathrm{F}^pY$. The category
+$\mathrm{Fil}_\bullet(\mathcal{A})$ is defined similarly.
+\index[sym1]{FilA@$\mathrm{Fil}^\bullet(\mathcal{A})$, $\mathrm{Fil}_\bullet(\mathcal{A})$}
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.p016
+For every $X$, a decreasing filtration $\mathrm{F}^\bullet X$ (or increasing
+filtration $\mathrm{F}_\bullet X$) gives a graded object
+$(\mathrm{F}^pX)_{p\in\Z}$ (or $(\mathrm{F}_pX)_{p\in\Z}$). This defines a
+functor $\mathrm{Fil}^\bullet(\mathcal{A})\to\mathcal{A}^{\Z}$ (or
+$\mathrm{Fil}_\bullet(\mathcal{A})\to\mathcal{A}^{\Z}$), called the Rees
+construction.
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.p017
+If $\mathcal{A}$ is an abelian category, there is another way to construct a
+graded object from a filtration.
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.d002
+\begin{definition}
+	\index[sym1]{grX@$\gr^p X$, $\gr_p X$}
+	Let $\mathcal{A}$ be an abelian category, and consider a filtration
+	$\mathrm{F}^\bullet X$ (or $\mathrm{F}_\bullet X$) on an object $X$.
+	Define the graded object $\gr X$ by
+	\[ \gr^p X := \mathrm{F}^p X / \mathrm{F}^{p+1} X \quad (\text{or} \quad \gr_p X := \mathrm{F}_p X / \mathrm{F}_{p-1} X). \]
+	This defines a functor
+	$\gr:\mathrm{Fil}^\bullet(\mathcal{A})\to\mathcal{A}^{\Z}$ (or
+	$\gr:\mathrm{Fil}_\bullet(\mathcal{A})\to\mathcal{A}^{\Z}$).
+\end{definition}
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.p018
+To extract information about $X$ from $(\gr^pX)_p$, we need at least
+$\bigcup_p\mathrm{F}^pX=X$ and $\bigcap_p\mathrm{F}^pX=0$, using the notation
+of Convention~\ref{con:increasing-union}. To make the first condition
+meaningful and useful, we also want $\varinjlim_{p\to-\infty}$ to be exact in
+$\mathcal{A}$, or else we may simply require that there be an $M$ such that
+$\mathrm{F}^MX=X$. We begin with some related notions.
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.d003
+\begin{definition}\label{def:filtration-properties}
+	\index{filtration!complete}
+	\index{filtration!separated}
+	\index{filtration!exhaustive}
+	Let $\mathcal{A}$ be an abelian category and let $X$ be an object with a
+	filtration $\mathrm{F}^\bullet X$.
+	\begin{itemize}
+		\item If $\bigcap_p\mathrm{F}^pX=0$, the filtration is called
+		\emph{separated}.
+		\item If $\bigcup_p\mathrm{F}^pX=X$ and either of the following
+		conditions holds, the filtration is called \emph{exhaustive}:
+		\begin{compactenum}[(a)]
+		\item $\mathcal{A}$ has exact countable filtered direct limits
+		$\varinjlim$; more
+			precisely,
+			$\varinjlim:\mathcal{A}^{(\Z_{\geq0},\leq)}\to\mathcal{A}$ exists
+			and is exact\footnote{If $\mathcal{A}$ is a Grothendieck category,
+			then (a) holds automatically.};
+			\item there is an $M\in\Z$ such that $\mathrm{F}^MX=X$.
+		\end{compactenum}
+		\item If the family of canonical morphisms
+		$X\twoheadrightarrow X/\mathrm{F}^pX$ induces an isomorphism
+		$X\rightiso\varprojlim_pX/\mathrm{F}^pX$, the filtration is called
+		\emph{complete}.
+	\end{itemize}
+	Increasing filtrations $\mathrm{F}_\bullet X$ are treated in the same way.
+\end{definition}
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.p019
+The notion of completeness is inspired by the case of topological groups; see
+\cite[\S 4.10]{Li1}.
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.p020
+A finite filtration is automatically separated, exhaustive, and complete;
+this is the principal case needed in this chapter. Observe that if there is an
+$N$ such that $\mathrm{F}^NX=0$, then $\mathrm{F}^\bullet X$ is separated and
+complete. Moreover, since the kernel of
+$X\to\varprojlim_pX/\mathrm{F}^pX$ is $\bigcap_p\mathrm{F}^pX$,
+completeness implies separatedness.
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.p021
+The image of an exhaustive filtration is still exhaustive; this follows by
+interpreting $\bigcup_p$ as $\sum_p$ and then applying
+Lemma~\ref{prop:image-sum-preimage-intersection} (ii). Moreover, an exhaustive
+filtration satisfies
+\begin{equation}\label{eqn:exhaustion-intersection}\begin{gathered}
+	\varinjlim_{p \to -\infty} \mathrm{F}^p X \rightiso \bigcup_p \mathrm{F}^p X = X, \\
+	K = K \cap \left( \bigcup_p \mathrm{F}^p X \right) = \bigcup_p \left( K \cap \mathrm{F}^p X \right),
+\end{gathered}\end{equation}
+where $K$ is any subobject of $X$. Under condition (a) for an exhaustive
+filtration, these assertions follow readily from
+Proposition~\ref{prop:Grothendieck-cat-intersection}; under condition (b), they
+are immediate.
+
+% segment-id: o014.li2.chapter5.intro-filtration-grading.pr001
+\begin{proposition}\label{prop:gr-isom}
+	Let $\mathcal{A}$ be an abelian category, and let
+	$f:(X,\mathrm{F}^\bullet X)\to(Y,\mathrm{F}^\bullet Y)$ be a morphism in
+	$\mathrm{Fil}^\bullet(\mathcal{A})$.
+	\begin{enumerate}[(i)]
+		\item Suppose that $\mathrm{F}^\bullet X$ is separated and exhaustive. If
+		$\gr(f)$ is a monomorphism, then $f$ is a monomorphism.
+		\item Suppose that $\mathrm{F}^\bullet X$ is complete and exhaustive,
+		while $\mathrm{F}^\bullet Y$ is separated and exhaustive. If $\gr(f)$ is
+		an isomorphism, then $f$ is also an isomorphism, and in this case
+		$\mathrm{F}^\bullet Y$ is complete as well.
+	\end{enumerate}
+	The corresponding statements hold for increasing filtrations.
+\end{proposition}
+% segment-id: o014.li2.chapter5.intro-filtration-grading.pf001
+\begin{proof}
+	For each $p\in\Z$, consider the following commutative diagram with exact
+	rows:
+% segment-id: o014.li2.chapter5.intro-filtration-grading.g001
+	\[\begin{tikzcd}
+		0 \arrow[r] & \mathrm{F}^{p+1} X \arrow[d, "f"'] \arrow[r] & \mathrm{F}^p X \arrow[r] \arrow[d, "f"] & \gr^p X \arrow[r] \arrow[d, "{\gr^p(f)}"] & 0 \\
+		0 \arrow[r] & \mathrm{F}^{p+1} Y \arrow[r] & \mathrm{F}^p Y \arrow[r] & \gr^p Y \arrow[r] & 0
+	\end{tikzcd}\]
+	Write $K^p$ and $C^p$ for the kernel and cokernel of
+	$\mathrm{F}^pX\xrightarrow{f}\mathrm{F}^pY$.
+
+	For (i), apply Theorem~\ref{prop:snake-lemma} to the diagram above. This gives
+	$K^{p+1}=K^p$. In particular,
+	$K^p\subset\bigcap_{\ell\geq p}\mathrm{F}^\ell X=0$, so the restriction of
+	$f$ to every $\mathrm{F}^pX$ is a monomorphism. To prove that $f$ itself is a
+	monomorphism, it remains only to use
+	\[ \Ker(f) \xlongequal{\because\; \text{\eqref{eqn:exhaustion-intersection}}} \bigcup_p \left( \Ker(f) \cap \mathrm{F}^p X \right) = 0. \]
+
+	For (ii), the diagram gives both $K^{p+1}=K^p$ and
+	$C^{p+1}\rightiso C^p$. For each $\ell>p$, consider the commutative diagram
+	with exact rows
+% segment-id: o014.li2.chapter5.intro-filtration-grading.g002
+	\[\begin{tikzcd}
+		0 \arrow[r] & \mathrm{F}^{\ell} X \arrow[r] \arrow[d, "f"] & \mathrm{F}^p X \arrow[r] \arrow[d, "f"] & \mathrm{F}^p X / \mathrm{F}^{\ell} X \arrow[r] \arrow[d] & 0 \\
+		0 \arrow[r] & \mathrm{F}^{\ell} Y \arrow[r] & \mathrm{F}^p Y \arrow[r] & \mathrm{F}^p Y / \mathrm{F}^{\ell} Y \arrow[r] & 0
+	\end{tikzcd}\]
+	Another application of Theorem~\ref{prop:snake-lemma} gives the isomorphism
+	induced by $f$
+	\[ \mathrm{F}^p X / \mathrm{F}^\ell X \rightiso \mathrm{F}^p Y / \mathrm{F}^\ell Y. \]
+
+	Taking $\varinjlim_{p:p<\ell}$ on both sides and using
+	\eqref{eqn:exhaustion-intersection} gives
+	$X/\mathrm{F}^\ell X\rightiso Y/\mathrm{F}^\ell Y$. Taking
+	$\varprojlim_\ell$ now gives the commutative diagram
+% segment-id: o014.li2.chapter5.intro-filtration-grading.g003
+	\[\begin{tikzcd}
+		X \arrow[r, "\sim"] \arrow[d, "f"'] & \varprojlim_\ell X/\mathrm{F}^\ell X \arrow[d, "\sim" sloped] \\
+		Y \arrow[hookrightarrow, r] & \varprojlim_\ell Y/\mathrm{F}^\ell Y
+	\end{tikzcd}\]
+	It follows that both $f$ and
+	$Y\to\varprojlim_\ell Y/\mathrm{F}^\ell Y$ are isomorphisms.
+\end{proof}

@@ -1,0 +1,641 @@
+% Unit 086 English translation of chapter6.tex, lines 2604--2927.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter6.nonabelian-cohomology
+% Coverage: complete Section 6.13, ``Nonabelian Cohomology''; ends immediately
+% before the Exercises environment at line 2928.
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.h001
+\section{Nonabelian Cohomology}\label{sec:nonabelian-coh}
+\hypertarget{o014.aljabr2.chapter6.nonabelian-cohomology}{ }
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p001
+Let $G$ be a group. The cohomology $\Hm^n(G,M)$ discussed previously always
+requires its ``coefficients'' $M$ to have a module structure, or at least to
+be a $\Z$-module, that is, an abelian group. This section studies the case in
+which the coefficients form a nonabelian group. From now on we use the symbol
+$A$ in place of $M$.
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.d001
+\begin{definition}\label{def:G-group}
+	\index[sym1]{G-Grp@$G\dcate{Grp}$}
+	\index{$G$-group}
+	Let $A$ be a group, with its binary operation written multiplicatively
+	and its identity element denoted by $1$. Suppose that $A$ is equipped with
+	a left action of the group $G$, written
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q001
+	\[ G \times A \to A, \quad (g, a) \mapsto {}^g a . \]
+	If the group action is compatible with the multiplicative structure of
+	$A$,
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q002
+	\[ {}^g (a_1 a_2) = {}^g a_1 {}^g a_2, \quad {}^g 1 = 1, \]
+	then $A$ is called a group with a $G$-action, or simply a
+	\emph{$G$-group}. A homomorphism of $G$-groups is defined to be a group
+	homomorphism that preserves the $G$-action. The resulting category is
+	denoted by $G\dcate{Grp}$.
+\end{definition}
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p002
+We will soon see that, for a $G$-group $A$, without additional structure or
+commutativity only $\Hm^0$ and $\Hm^1$ can be defined in a reasonable and
+useful way. In this setting $\Hm^1$ need not be a group; it is instead a
+pointed set.
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.d002
+\begin{definition}\label{def:pointed-set}
+	\index{pointed set}
+	\index[sym1]{Set-pt@$\cate{Set}_\bullet$, $G\dcate{Set}_\bullet$}
+	A \emph{pointed set} is data $(X,x_0)$, where $X$ is a set and
+	$x_0\in X$ is its basepoint. A morphism from $(X,x_0)$ to $(Y,y_0)$ is a
+	map $f:X\to Y$ satisfying $f(x_0)=y_0$. These data form the category
+	$\cate{Set}_\bullet$.
+
+	Let $(X,x_0)$ be a pointed set. If a group $G$ acts on $X$ from the left,
+	written $(g,x)\mapsto{}^gx$, and ${}^gx_0=x_0$ always holds, we say that
+	$G$ acts on $(X,x_0)$. In that case we can define the pointed subset of
+	invariants
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q003
+	\[ (X, x_0)^G := \left\{ x \in X: \forall g \in G, \; gx = x \right\}, \quad \text{basepoint} = x_0. \]
+	All pointed sets with a $G$-action, together with morphisms compatible
+	with that action, form the category denoted by $G\dcate{Set}_\bullet$.
+\end{definition}
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p003
+When no confusion can arise, we often write an object $(X,x_0)$ of
+$\cate{Set}_\bullet$ simply as $X$, and in $G\dcate{Set}_\bullet$ write
+$(X,x_0)^G$ as $X^G$.
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p004
+Every group becomes a pointed set by choosing its identity element as the
+basepoint. This gives the evident functor
+$\cate{Grp}\to\cate{Set}_\bullet$; similarly, there is a functor
+$G\dcate{Grp}\to G\dcate{Set}_\bullet$. Note that the invariant subset
+$A^G$ of a $G$-group $A$ is a subgroup.
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.d003
+\begin{definition}\label{def:pointed-exact}
+	\index{exact sequence}
+	Let
+	$(X,x_0)\xrightarrow{f}(Y,y_0)\xrightarrow{g}(Z,z_0)$ be morphisms in
+	$\cate{Set}_\bullet$ (or $G\dcate{Set}_\bullet$). This sequence of
+	morphisms is called exact if $g^{-1}(z_0)=\Image(f)$. In this way, exact
+	sequences in $\cate{Set}_\bullet$ (or $G\dcate{Set}_\bullet$) are
+	defined.
+\end{definition}
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p005
+For abelian groups this recovers the familiar notion of exactness. We can now
+define $\Hm^0$ and $\Hm^1$ for every $G$-group $A$.
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.d004
+\begin{definition}\label{def:nonabelian-H}
+	\index{group cohomology!nonabelian case}
+	Let $A$ be an object of $G\dcate{Set}_\bullet$. Define the pointed set
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q004
+	\[ \Hm^0(G, A) = Z^0(G, A) := A^G. \]
+
+	If $A$ is a $G$-group, then $\Hm^0(G,A)$ is a group. In this case,
+	further define
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q005
+	\begin{align*}
+		Z^1(G, A) & := \left\{\begin{array}{r|l}
+			c: G \to A & \forall g_1, g_2 \in G, \\
+			& c(g_1 g_2) = c(g_1) \cdot {}^{g_1} c(g_2)
+		\end{array}\right\}, \\
+		\Hm^1(G, A) & := Z^1(G, A) / \sim ,
+	\end{align*}
+	where the equivalence relation $c\sim c'$ means that there is an
+	$a\in A$ such that, for every $g\in G$,
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q006
+	\[ c'(g) = a^{-1} \cdot c(g) \cdot {}^g a . \]
+	It is easy to see that this is indeed an equivalence relation---it comes
+	from a right $A$-action---and $\Hm^1(G,A)$ naturally becomes a pointed
+	set. Its basepoint is the equivalence class determined by the constant
+	map $c(g)=1$.
+\end{definition}
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p006
+Note that substituting $g_1=g_2=1_G$ into the condition defining
+$Z^1(G,A)$ gives $c(1_G)=1$. Henceforth $[c]$ denotes the equivalence class
+of $c\in Z^1(G,A)$.
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.r001
+\begin{remark}[$\Hm^1$ as conjugacy classes of sections]\label{rem:Z1-vs-section}
+	Form the semidirect product $A\rtimes G$ from the $G$-group $A$, and let
+	$\pi$ denote the projection homomorphism $A\rtimes G\to G$. The elements
+	of $Z^1(G,A)$ correspond bijectively to group homomorphisms
+	$\sigma:G\to A\rtimes G$ satisfying $\pi\sigma=\identity_G$ (that is,
+	``sections'' of $\pi$), via the map sending $c\in Z^1(G,A)$ to
+	$\sigma(g)=(c(g),g)$. Moreover, $[c']=[c]$ if and only if there is an
+	$a\in A$ such that $\sigma'=a^{-1}\sigma a$, where $A$ is embedded as a
+	subgroup of $A\rtimes G$ and conjugation is performed pointwise.
+\end{remark}
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p007
+If $A$ is an abelian group, these constructions reduce to the descriptions
+of $\Hm^0$ and $\Hm^1$ using the standard cochain complex
+(Proposition~\ref{prop:groupcoh-cochain}). In the nonabelian case, the
+constructions remain functorial, as follows.
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.l001
+\begin{itemize}
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.i001
+	\item Every morphism $f:A_1\to A_2$ induces
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q007
+	\begin{gather*}
+		\Hm^0(f): \Hm^0(G, A_1) \to \Hm^0(G, A_2), \quad
+		\Hm^1(f): \Hm^1(G, A_1) \to \Hm^1(G, A_2);
+	\end{gather*}
+	the first map is evident, while the second is given by
+	$\Hm^1(f)([c])=[f\circ c]$.
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.i002
+	\item Let $\varphi:H\to G$ be a group homomorphism. Pull the $G$-action
+	on the $G$-group $A$ back to $H$, giving the $H$-group $\varphi^*A$.
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.l002
+	\begin{compactitem}
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.i003
+		\item Define the canonical morphism
+		$\Hm^0(G,A)\to\Hm^0(H,\varphi^*A)$ to be the evident inclusion
+		$A^G\hookrightarrow A^{\varphi(H)}=(\varphi^*A)^H$.
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.i004
+		\item Define the canonical morphism of pointed sets
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q008
+		\[ \Hm^1(G, A) \to \Hm^1(H, \varphi^* A). \]
+		It is given by $[c]\mapsto[c\circ\varphi]$.
+	\end{compactitem}
+\end{itemize}
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p008
+These canonical maps have the various properties seen in
+\S\ref{sec:change-of-group}. They can also be summarized as follows. Given
+$\varphi:H\to G$, let $A_1$ be an object of $G\dcate{Set}_\bullet$ (or
+$G\dcate{Grp}$), let $A_2$ be an object of $H\dcate{Set}_\bullet$ (or
+$H\dcate{Grp}$), and let the morphism $f:A_1\to A_2$ be equivariant with
+respect to $\varphi$, as in Definition~\ref{def:group-equivariance}. There
+are corresponding maps $\Hm^i(f):\Hm^i(G,A_1)\to\Hm^i(H,A_2)$, and the
+analogue of Proposition~\ref{prop:grp-equiv} takes the form:
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.l003
+\begin{itemize}
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.i005
+	\item $\Hm^0(f)$ is the restriction of $f$ to $A_1^G\to A_2^H$;
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.i006
+	\item $\Hm^1(f)$ maps $[c]$ to $[f\circ c\circ\varphi]$.
+\end{itemize}
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.c001
+\begin{convention}
+	Write $1$ for the zero object in $\cate{Set}_\bullet$ or
+	$G\dcate{Set}_\bullet$ determined by the singleton set.
+\end{convention}
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p009
+We now come to the main subject. Henceforth consider a short exact sequence
+in $G\dcate{Set}_\bullet$ (Definition~\ref{def:pointed-exact})
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q009
+\[ 1 \to A \xrightarrow{u} B \xrightarrow{v} C \to 1, \]
+where $A$ and $B$ are assumed to be $G$-groups and $u$ is a group
+homomorphism. Exactness therefore implies that $u$ is injective and $v$ is
+surjective. We further require:
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q010
+\begin{equation}\label{eqn:pointed-ses-condition}
+	\begin{gathered}
+		\forall b, b' \in B, \; \left[ v(b) = v(b') \iff \exists a \in A, \; b' = b u(a) \right], \\
+		\text{in other words: $C$ is identified with $B/u(A)$, basepoint $= 1 \cdot u(A)$.}
+	\end{gathered}
+\end{equation}
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p010
+If $C$ is a group and $v$ is a group homomorphism, considering
+$b^{-1}b'\in v^{-1}(1)=\Image(u)$ shows that
+\eqref{eqn:pointed-ses-condition} holds automatically, and in this case
+$u(A)\lhd B$. Many applications, however, do not fall into this case.
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p011
+Our present goal is to construct from these data an exact sequence that is
+``as long as possible,'' together with the corresponding connecting
+morphisms. Without further comment, we identify $A$ with its image as a
+subgroup of $B$ and omit the symbol $u$.
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p012
+\textbf{The degree-zero case.}\;
+First define the connecting morphism
+$\delta^0:\Hm^0(G,C)\to\Hm^1(G,A)$. Let $c\in C^G$. Choose any
+$b\in v^{-1}(c)$. Since $v$ preserves the $G$-action,
+\eqref{eqn:pointed-ses-condition} shows that, for every $g\in G$, there is
+a unique $a(g)\in A$ such that ${}^gb=ba(g)$. Hence $g\mapsto a(g)$ gives
+an element $a$ of $Z^1(G,A)$, because
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q011
+% Editorial correction: the frozen Chinese source and Indonesian witness have
+% a(g) in the final expression; the cocycle identity requires a(g_1).
+\[ a(g_1 g_2) = b^{-1} \cdot {}^{g_1 g_2} b = b^{-1} \cdot {}^{g_1} b \cdot {}^{g_1} (b^{-1} \cdot {}^{g_2} b) = a(g_1) \cdot {}^{g_1} a(g_2). \]
+If $b',b\in v^{-1}(c)$, there is an $\alpha\in A$ such that
+$b'=b\alpha$, and hence
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q012
+\[ (b')^{-1} \cdot {}^g b' = \alpha^{-1} \cdot b^{-1} \cdot {}^g b \cdot {}^g \alpha. \]
+This shows that the class $[a]\in\Hm^1(G,A)$ is determined solely by $c$.
+If $c$ is the basepoint of $C$, we may take $b=1\in B$. We have therefore
+obtained a morphism in $\cate{Set}_\bullet$,
+$\delta^0:\Hm^0(G,C)\to\Hm^1(G,A)$.
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p013
+\textbf{The degree-zero case: a central subgroup.}\;
+Suppose that $C$ is a group, $v$ is a group homomorphism, and $A$ is
+contained in the center $Z_B$ of the group $B$; in particular, $A$ is
+abelian. In this case $\Hm^0(G,C)=C^G$ and $\Hm^1(G,A)$ are both groups.
+From the definition of $\delta^0$ and the condition $A\subset Z_B$, it is
+easy to check that $\delta^0$ is a group homomorphism.
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p014
+\textbf{The degree-one case.}\;
+Continue to suppose that $C$ is a group, $v$ is a group homomorphism, and
+$A\subset Z_B$; then $\Hm^2(G,A)$ can be described using the standard
+cochain complex. We define $\delta^1:\Hm^1(G,C)\to\Hm^2(G,A)$. Let
+$c\in Z^1(G,C)$. For every $g\in G$, choose
+$b(g)\in v^{-1}(c(g))$. Since \eqref{eqn:pointed-ses-condition} always
+holds and $v$ preserves the $G$-action, there is a unique map $a:G^2\to A$
+satisfying
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q013
+\[ b(g_1) \cdot {}^{g_1} b(g_2) = a(g_1, g_2) b(g_1 g_2). \]
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p015
+We now check that $a\in Z^2(G,A)$. This is equivalent to
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q014
+\[ a(g_1, g_2)^{-1} \cdot a(g_1, g_2 g_3) \cdot a(g_1 g_2, g_3)^{-1} \cdot {}^{g_1} a(g_2, g_3) = 1. \]
+Expand the left-hand side as an expression in $B$:
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q015
+\begin{multline*}
+	\underbracket{b(g_1 g_2) \cdot {}^{g_1} b(g_2)^{-1} \cdot b(g_1)^{-1}}_{a(g_1, g_2)^{-1}} \cdot \underbracket{b(g_1) \cdot {}^{g_1} b(g_2 g_3) b(g_1 g_2 g_3)^{-1}}_{a(g_1, g_2 g_3)} \\
+	\underbracket{b(g_1 g_2 g_3) \cdot {}^{g_1 g_2} b(g_3)^{-1} \cdot b(g_1 g_2)^{-1}}_{a(g_1 g_2, g_3)^{-1}} \; \cdot \; {}^{g_1} a(g_2, g_3),
+\end{multline*}
+and then use $A\subset Z_B$ to simplify it to
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q016
+\begin{multline*}
+	b(g_1 g_2) \cdot {}^{g_1} b(g_2)^{-1} \cdot {}^{g_1} b(g_2 g_3) \cdot {}^{g_1 g_2} b(g_3)^{-1}  b(g_1 g_2)^{-1} \cdot {}^{g_1} a(g_2, g_3) \\
+	= b(g_1 g_2) \cdot {}^{g_1} b(g_2)^{-1} \cdot \underbracket{{}^{g_1} b(g_2) \cdot {}^{g_1 g_2} b(g_3) \cdot {}^{g_1} b(g_2 g_3)^{-1}}_{{}^{g_1} a(g_2, g_3)} \cdot {}^{g_1} b(g_2 g_3) \cdot {}^{g_1 g_2} b(g_3)^{-1}  b(g_1 g_2)^{-1} .
+\end{multline*}
+The last expression is visibly equal to $1$, so $a\in Z^2(G,A)$.
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p016
+If the choice of every $b(g)$ is changed and written
+$b'(g)=\alpha(g)b(g)$, where $\alpha:G\to A$ is any map, then the
+corresponding $a'(g_1,g_2)$ is
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q017
+\begin{align*}
+	a'(g_1, g_2) & = \alpha(g_1) \cdot b(g_1) \cdot {}^{g_1} \alpha(g_2) \cdot {}^{g_1} b(g_2) b(g_1 g_2)^{-1} \alpha(g_1 g_2)^{-1} \\
+	& = \alpha(g_1) \cdot {}^{g_1} \alpha(g_2) \cdot \alpha(g_1 g_2)^{-1} \cdot a(g_1, g_2) \quad (\because\; A \subset Z_B).
+\end{align*}
+Thus $a,a'\in Z^2(G,A)$ differ only by a factor belonging to $B^2(G,A)$.
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p017
+Finally, consider the case in which $c$ is replaced by
+$c'(g)=\gamma^{-1}\cdot c(g)\cdot{}^g\gamma$, with $\gamma\in C$. Choose
+any $\beta\in v^{-1}(\gamma)$. For the $b'$ corresponding to $c'$, we may
+take $b'(g)=\beta^{-1}\cdot b(g)\cdot{}^g\beta$. The map $a':G^2\to A$
+constructed from $b'$ is
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q018
+\begin{align*}
+	a'(g_1, g_2) & = \left( \beta^{-1} \cdot b(g_1) \cdot {}^{g_1} \beta \right) \cdot {}^{g_1} \left( \beta^{-1} \cdot b(g_2) \cdot {}^{g_2} \beta \right) \cdot \left( {}^{g_1 g_2} \beta^{-1} \cdot b(g_1 g_2)^{-1} \cdot \beta \right) \\
+	& = \beta^{-1} \cdot \underbracket{b(g_1) \cdot {}^{g_1} b(g_2) \cdot b(g_1 g_2)^{-1}}_{= a(g_1, g_2)} \cdot \beta \\
+	& = a(g_1, g_2).
+\end{align*}
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p018
+Thus the class of $a$ in $\Hm^2(G,A)$ is determined by
+$[c]\in\Hm^1(G,C)$. If $c$ is the constant map with value $1$, then $b$
+may also be chosen to be constantly $1$, and likewise for $a$. We have thus
+obtained a morphism in $\cate{Set}_\bullet$,
+$\delta^1:\Hm^1(G,C)\to\Hm^2(G,A)$.
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.th001
+\begin{theorem}\label{prop:nonabelian-long}
+	Let $1\to A\xrightarrow{u}B\xrightarrow{v}C\to1$ be a short exact
+	sequence in $G\dcate{Set}_\bullet$, where $A$ and $B$ are $G$-groups and
+	$u$ is a group homomorphism.
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.l004
+	\begin{enumerate}[(i)]
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.i007
+		\item If condition \eqref{eqn:pointed-ses-condition} holds, there is
+		an exact sequence in $\cate{Set}_\bullet$
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.g001
+		\begin{equation*}\begin{tikzcd}[row sep=large]
+			1 \arrow[r] & \Hm^0(G, A) \arrow[r, "{\Hm^0(u)}"] & \Hm^0(G, B) \arrow[r, "{\Hm^0(v)}"] \arrow[phantom, d, ""{coordinate, name=A}] & \Hm^0(G, C) \arrow[dll, rounded corners, "{\delta^0}" description, to path={
+				-- ([xshift=2ex]\tikztostart.east)
+				|- (A) [near end]\tikztonodes
+				-| ([xshift=-2ex]\tikztotarget.west)
+				-- (\tikztotarget)}] \\
+			& \Hm^1(G, A) \arrow[r, "{\Hm^1(u)}"] & \Hm^1(G, B). &
+		\end{tikzcd}\end{equation*}
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.i008
+		\item In addition to the assumptions above, suppose that $C$ is also
+		a group and $v$ is a group homomorphism; this automatically implies
+		\eqref{eqn:pointed-ses-condition}. The exact sequence then extends to
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.g002
+		\begin{equation*}\begin{tikzcd}[row sep=large]
+			1 \arrow[r] & \Hm^0(G, A) \arrow[r, "{\Hm^0(u)}"] & \Hm^0(G, B) \arrow[r, "{\Hm^0(v)}"] \arrow[phantom, d, ""{coordinate, name=A}] & \Hm^0(G, C) \arrow[dll, rounded corners, "{\delta^0}" description, to path={
+				-- ([xshift=2ex]\tikztostart.east)
+				|- (A) [near end]\tikztonodes
+				-| ([xshift=-2ex]\tikztotarget.west)
+				-- (\tikztotarget)}] \\
+			& \Hm^1(G, A) \arrow[r, "{\Hm^1(u)}"] & \Hm^1(G, B) \arrow[r, "{\Hm^1(v)}"] & \Hm^1(G, C).
+		\end{tikzcd}\end{equation*}
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.i009
+		\item If we further require that $u(A)$ be contained in the center
+		$Z_B$ of $B$, then $\delta^0$ is a group homomorphism and the exact
+		sequence extends to
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.g003
+		\begin{equation*}\begin{tikzcd}[row sep=large]
+			1 \arrow[r] & \Hm^0(G, A) \arrow[r, "{\Hm^0(u)}"] & \Hm^0(G, B) \arrow[r, "{\Hm^0(v)}"] \arrow[phantom, d, ""{coordinate, name=A}] & \Hm^0(G, C) \arrow[dll, rounded corners, "{\delta^0}" description, to path={
+				-- ([xshift=2ex]\tikztostart.east)
+				|- (A) [near end]\tikztonodes
+				-| ([xshift=-2ex]\tikztotarget.west)
+				-- (\tikztotarget)}] \\
+			& \Hm^1(G, A) \arrow[r, "{\Hm^1(u)}"] & \Hm^1(G, B) \arrow[r, "{\Hm^1(v)}"] \arrow[phantom, d, ""{coordinate, name=B}] & \Hm^1(G, C) \arrow[dll, rounded corners, "{\delta^1}" description, to path={
+				-- ([xshift=2ex]\tikztostart.east)
+				|- (B) [near end]\tikztonodes
+				-| ([xshift=-2ex]\tikztotarget.west)
+				-- (\tikztotarget)}] \\
+			& \Hm^2(G, A) . & {} & {}
+		\end{tikzcd}\end{equation*}
+	\end{enumerate}
+
+	The connecting morphisms $\delta^0$ and $\delta^1$ are defined as above.
+	Both are canonical, meaning that they are compatible with morphisms of
+	short exact sequences.
+\end{theorem}
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.pf001
+\begin{proof}
+	The detailed constructions of $\delta^0$ and $\delta^1$ above already
+	show that both are canonical; in case (iii), they also showed that
+	$\delta^0$ is a group homomorphism. We now check exactness. Henceforth
+	regard $A$ as a subgroup of $B$ and omit $u$.
+
+	In case (i), exactness at $\Hm^0(G,A)$ and $\Hm^0(G,B)$ is clear. At
+	$\Hm^0(G,C)$, let $c\in C^G$. By definition, $c$ maps to the basepoint
+	of $\Hm^1(G,A)$ if and only if there are $\alpha\in A$ and $b\in B$ such
+	that
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q019
+	\[ v(b) = c, \quad \forall g \in G,\; b^{-1} \cdot {}^g b = \alpha^{-1} \cdot {}^g \alpha. \]
+	But this is equivalent to the existence of $\alpha\in A$ and $b\in B$
+	such that $v(b)=c$ and $b\alpha^{-1}\in B^G$, which is in turn
+	equivalent to $c\in\Image(\Hm^0(u))$.
+
+	At $\Hm^1(G,A)$, let $a\in Z^1(G,A)$. The class
+	$[a]\in\Hm^1(G,A)$ maps to the basepoint if and only if there is a
+	$b\in B$ such that $b^{-1}\cdot a(g)\cdot{}^gb=1$ for every $g$. If this
+	holds, set $c:=v(b^{-1})$. Applying $v$ to
+	${}^gb^{-1}=b^{-1}\cdot a(g)$ shows that $c\in C^G$ and
+	$[a]=\delta^0([c])$. The converse argument is similar.
+
+	In case (ii), what remains is exactness at $\Hm^1(G,B)$. Let
+	$b\in Z^1(G,B)$. Its class $[b]$ maps to the basepoint if and only if
+	there is a $\beta\in B$ such that
+	$\beta^{-1}\cdot b(g)\cdot{}^g\beta\in A$ for every $g$. Clearly, this
+	is the same as saying that, up to $\sim$, the class comes from
+	$Z^1(G,A)$.
+
+	Consider case (iii). Let $c\in Z^1(G,C)$. Its class $[c]$ maps to the
+	basepoint if and only if there are maps $b:G\to B$ and $\alpha:G\to A$
+	such that $v\circ b=c$ and
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q020
+	\[ b(g_1) \cdot {}^{g_1} b(g_2) = \alpha(g_1) \cdot {}^{g_1} \alpha(g_2) \cdot \alpha(g_1 g_2)^{-1} \cdot  b(g_1 g_2). \]
+	Since $A\subset Z_B$, if $\alpha^{-1}b:G\to B$ is defined by pointwise
+	multiplication, the equation above is also equivalent to
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q021
+	\[ (\alpha^{-1} b)(g_1) \cdot {}^{g_1} (\alpha^{-1} b)(g_2) = (\alpha^{-1} b)(g_1 g_2), \]
+	that is, $\alpha^{-1}b\in Z^1(G,B)$. Clearly this is equivalent to saying
+	that $[c]$ comes from $\Hm^1(G,B)$. This proves exactness.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p019
+If $A$ and $B$ are further required to be abelian, then
+$C\simeq B/u(A)$ is an abelian group, and we recover the familiar version
+with coefficients in an abelian group.
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p020
+Note that the exact sequence in Theorem~\ref{prop:nonabelian-long} (i)
+describes the inverse image of the basepoint under $\Hm^1(u)$, but in
+general it cannot determine whether two elements of $\Hm^1(G,A)$ have the
+same image under $\Hm^1(u)$. The ``twisting'' construction introduced in
+the exercises for this chapter helps address this problem.
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.e001
+\begin{example}
+	Let $B$ be a $G$-group and $A$ a subgroup stable under the $G$-action.
+	Equip the set $B/A$ with the basepoint $1\cdot A$ and a left $G$-action.
+	This gives a short exact sequence in $G\dcate{Set}_\bullet$
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q022
+	\[ 1 \to A \xrightarrow{\text{inclusion}} B \xrightarrow{\text{quotient}} B/A \to 1. \]
+	Condition \eqref{eqn:pointed-ses-condition} clearly holds. Hence
+	Theorem~\ref{prop:nonabelian-long} (i) gives an exact sequence in
+	$\cate{Set}_\bullet$
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q023
+	\[ 1 \to A^G \to B^G \to (B/A)^G \xrightarrow{\delta^0} \Hm^1(G, A) \to \Hm^1(G, B). \]
+
+	The evident map $B^G/A^G\hookrightarrow(B/A)^G$ is injective, but it is
+	often not bijective: a coset stable under the $G$-action need not contain
+	a $G$-fixed point; the exercises will give an example. Nevertheless, the
+	exact sequence identifies the cohomological obstruction. For a morphism
+	$f$ in $\cate{Set}_\bullet$, define $\Ker(f)$ to be the inverse image of
+	the basepoint. Then
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q024
+	\begin{align*}
+		% Editorial correction: the frozen Chinese source and Indonesian witness
+		% switch to \delta_0 here; the connecting morphism defined above is \delta^0.
+		\text{the coset}\; bA \in (B/A)^G \;\text{comes from}\; B^G & \iff bA \in \Ker(\delta^0), \\
+		(B/A)^G = B^G/A^G & \iff \Ker[\Hm^1(G, A) \to \Hm^1(G, B)] = 1.
+	\end{align*}
+\end{example}
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p021
+We close this section with the nonabelian version of Shapiro's Lemma
+(Theorem~\ref{prop:Shapiro}). As preparation, first define a nonabelian
+version of induced modules using a mapping space; compare
+Lemma~\ref{prop:Ind-as-mappings}. The construction applies to objects of
+$H\dcate{Grp}$ or $H\dcate{Set}_\bullet$, where $H$ is a subgroup of $G$;
+the group action is written $(h,a)\mapsto{}^ha$.
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.d005
+\begin{definition}
+	Let $H$ be a subgroup of $G$ and let $A$ be an object of
+	$H\dcate{Grp}$ (or $H\dcate{Set}_\bullet$). Define the object
+	$\Ind^G_H(A)$ of $G\dcate{Grp}$ (or $G\dcate{Set}_\bullet$) as follows.
+	As an object of $G\dcate{Set}$, it is
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q025
+	\begin{gather*}
+		\Ind^G_H(A) := \left\{\begin{array}{r|l}
+			f: G \to A & \forall h \in H, \; \forall x \in G \\
+			& f(hx) = {}^h f(x).
+		\end{array}\right\}, \\
+		({}^g f)(x) := f(xg), \quad f \in \Ind^G_H(A), \; x, g \in G,
+	\end{gather*}
+	with the group operation (respectively, basepoint) defined pointwise on
+	maps (respectively, by the constant map to the basepoint). We call
+	$A\mapsto\Ind^G_H(A)$ induction.
+\end{definition}
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p022
+The induction construction gives compatible functors
+$H\dcate{Grp}\to G\dcate{Grp}$ and
+$H\dcate{Set}_\bullet\to G\dcate{Set}_\bullet$.
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.th002
+\begin{theorem}\label{prop:Shapiro-noncommutative}
+	\index{Shapiro's lemma}
+	Let $H$ be a subgroup of $G$ and let $A$ be an object of
+	$H\dcate{Set}_\bullet$ or $H\dcate{Grp}$. There are canonical
+	isomorphisms in $\cate{Set}_\bullet$
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q026
+	\[ \Hm^i\left(G, \Ind^G_H(A)\right) \rightiso \Hm^i(H, A), \]
+	with $i=0$ if $A$ comes from $H\dcate{Set}_\bullet$, or $i=0,1$ if $A$
+	comes from $H\dcate{Grp}$. The maps are as follows.
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.l005
+	\begin{description}
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.i010
+		\item[($i=0$)] Take the map $f\mapsto f(1_G)$, which defines
+		$Z^0\left(G,\Ind^G_H(A)\right)=\Ind^G_H(A)^G\to A^H=Z^0(H,A)$.
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.i011
+		\item[($i=1$)] Take the map
+		$Z^1\left(G,\Ind^G_H(A)\right)\to Z^1(H,A)$ sending
+		$c:G\to\Ind^G_H(A)$ to
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q027
+		\begin{align*}
+			(c|_H)(\cdot)(1_G): H & \to A \\
+			h & \mapsto c(h)(1_G).
+		\end{align*}
+	\end{description}
+	Both induce morphisms on $\Hm^i$. If $A$ comes from $H\dcate{Grp}$, the
+	isomorphism for $i=0$ is also an isomorphism of groups.
+\end{theorem}
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.pf002
+\begin{proof}
+	Routine arguments show that the maps in both cases are well-defined and
+	preserve the basepoint or group structure; details are left to the reader.
+
+	For $i=0$, it is easy to see that $\Ind^G_H(A)^G\to A^H$ is indeed a
+	bijection and gives an isomorphism of groups if $A$ is an $H$-group. We
+	now focus on the case where $A$ is an object of $H\dcate{Grp}$ and
+	$i=1$.
+
+	Suppose that $r,s\in Z^1(G,\Ind^G_H(A))$ have the same image in
+	$\Hm^1(H,A)$. We prove that $r\sim s$. This assumption is equivalent to
+	the existence of an $\alpha\in A$ such that
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q028
+	\[ r(h)(1_G) = \alpha^{-1} \cdot s(h)(1_G) \cdot {}^h \alpha \]
+	for every $h\in H$. There is a $\zeta\in\Ind^G_H(A)$ with
+	$\zeta(1_G)=\alpha$. Adjusting $s$ by $\zeta$ within its equivalence
+	class, we may ensure that $r(h)(1_G)=s(h)(1_G)$ for every $h$.
+
+	The definition of $Z^1(G,\Ind^G_H(A))$ implies the identities in $A$
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q029
+	\begin{gather*}
+		r(g_1 g_2)(x) =r(g_1)(x) \cdot r(g_2)(xg_1), \quad s(g_1 g_2)(x) = s(g_1)(x) \cdot s(g_2)(xg_1)
+	\end{gather*}
+	for all $x,g_1,g_2\in G$. On the one hand, substituting $g_1=g\in G$
+	and $g_2=g^{-1}x^{-1}$ and rearranging gives
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q030
+	\begin{equation}\label{eqn:Shapiro-noncommutative-aux0}
+		\begin{aligned}
+			r(g)(x) & = r(x^{-1})(x) \cdot r(g^{-1} x^{-1})(xg)^{-1}, \\
+			s(g)(x) & = s(x^{-1})(x) \cdot s(g^{-1} x^{-1})(xg)^{-1}.
+		\end{aligned}
+	\end{equation}
+	On the other hand, substituting $g_1=x^{-1}$ and $g_2=h\in H$ gives
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q031
+	\begin{equation}\label{eqn:Shapiro-noncommutative-aux1}
+		s(x^{-1} h)(x) \cdot r(x^{-1} h)(x)^{-1} = s(x^{-1})(x) \cdot r(x^{-1})(x)^{-1}.
+	\end{equation}
+
+	For every $x\in G$, define
+	$t(x):=s(x^{-1})(x)\cdot r(x^{-1})(x)^{-1}$. We claim that
+	$t:G\to A$ belongs to $\Ind^G_H(A)$. Indeed, if $h\in H$ and $x\in G$,
+	then
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q032
+	\begin{multline*}
+		t(hx) = s(x^{-1} h^{-1})(hx) \cdot r(x^{-1} h^{-1})(hx)^{-1} \\
+		= {}^h \left( s(x^{-1}h^{-1})(x) \cdot r(x^{-1} h^{-1})(x)^{-1} \right) \\
+		\xlongequal{\text{\eqref{eqn:Shapiro-noncommutative-aux1}}} {}^h \left( s(x^{-1})(x) \cdot r(x^{-1})(x)^{-1} \right) = {}^h t(x).
+	\end{multline*}
+
+	To prove $r\sim s$, it is enough to check the identity in
+	$\Ind^G_H(A)$ given by $t^{-1}\cdot s(g)\cdot{}^gt=r(g)$. The value of
+	the left-hand side at $x\in G$ is
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q033
+	\[ r(x^{-1})(x) \cdot s(x^{-1})(x)^{-1} \cdot s(g)(x) \cdot s(g^{-1} x^{-1})(xg) \cdot r(g^{-1} x^{-1})(xg)^{-1}; \]
+	expanding $s(g)(x)$ and $r(g)(x)$ using
+	\eqref{eqn:Shapiro-noncommutative-aux0}, this expression is visibly equal
+	to $r(g)(x)$. This proves injectivity.
+
+	Finally, prove surjectivity. Let $s^\flat\in Z^1(H,A)$. Write $\pi$ for
+	the quotient map $G\twoheadrightarrow H\backslash G$, and choose any map
+	$\sigma:H\backslash G\to G$ satisfying $\pi\sigma=\identity$. Without
+	loss of generality, assume $\sigma(H\cdot1_G)=1_G$. Every $g\in G$ has a
+	unique representation
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q034
+	\[ g = \tau(g) \sigma(Hg), \quad \tau(g) \in H. \]
+
+	Note that $\tau(1_G)=1_G$. For every $g,x\in G$, define
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q035
+	\[ s(g)(x) := {}^{\tau(x)} s^\flat\left( \tau(\sigma(Hx)g) \right) \; \in A. \]
+	If $h\in H$, then $\tau(hx)=h\tau(x)$ immediately gives
+	$s(g)(hx)={}^hs(g)(x)$, so $s(g)\in\Ind^G_H(A)$. The next step is to
+	show that $s\in Z^1(G,\Ind^G_H(A))$. The reader is first asked to verify
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q036
+	\begin{equation}\label{eqn:Shapiro-noncommutative-aux2}
+		\tau(uv) = \tau(u) \tau(\sigma(Hu)v), \quad u, v \in G.
+	\end{equation}
+
+	We need to prove that
+	$s(g_1g_2)(x)=s(g_1)(x)\cdot s(g_2)(xg_1)$ for all
+	$g_1,g_2,x\in G$. By the definition of $Z^1(H,A)$, the left-hand side
+	equals
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q037
+	\begin{multline*}
+		{}^{\tau(x)} s^\flat\left( \tau(\sigma(Hx)g_1 g_2) \right) \xlongequal{\text{\eqref{eqn:Shapiro-noncommutative-aux2}}} {}^{\tau(x)} s^\flat\left( \tau(\sigma(Hx)g_1) \tau(\sigma(Hx g_1)g_2) \right) \\
+		= {}^{\tau(x)} s^\flat\left( \tau(\sigma(Hx)g_1) \right) \cdot {}^{\tau(x)\tau(\sigma(Hx)g_1)} s^\flat\left( \tau(\sigma(Hxg_1)g_2) \right) \\
+		\xlongequal{\text{\eqref{eqn:Shapiro-noncommutative-aux2}}} {}^{\tau(x)} s^\flat\left( \tau(\sigma(Hx)g_1) \right) \cdot {}^{\tau(xg_1)} s^\flat\left( \tau(\sigma(Hxg_1)g_2) \right),
+	\end{multline*}
+	which is the right-hand side.
+
+	Moreover, if $h\in H$, then $s(h)(1_G)=s^\flat(h)$, so $s$ maps to
+	$s^\flat$. This proves surjectivity.
+\end{proof}
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.p023
+Clearly the isomorphism in Theorem~\ref{prop:Shapiro-noncommutative}, when
+% Editorial correction: the theorem starts with an H-group; the frozen source
+% and Indonesian witness call A a G-group in this concluding sentence.
+$A$ is an abelian $H$-group, reduces to the special case of
+Proposition~\ref{prop:Shapiro-std-coh}. Moreover, a direct computation shows
+that these isomorphisms are compatible with the connecting morphisms in
+Theorem~\ref{prop:nonabelian-long}; the details are left as an exercise.
+
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.r002
+\begin{remark}[Nonabelian cohomology of profinite groups]\label{rem:pro-finite-coh-nonabelian}
+	\index{$G$-group!smooth}
+	Let $G$ be a profinite group. An object $A$ of
+	$G\dcate{Set}_\bullet$ or $G\dcate{Grp}$ is called \emph{smooth} if
+	$A=\bigcup_KA^K$, where $K$ ranges over the open normal subgroups of $G$;
+	in this case $A$ is given the discrete topology. Since all arguments in
+	this section are based on analogies with the standard cochain complex, all
+	the preceding results apply to a profinite group $G$ and smooth $A$. The
+	only difference is that $c\in Z^i(G,A)$, as a map from $G$ to $A$, must
+	be continuous, that is, locally constant. Thus $\Hm^i(G,A)$ and the
+	various canonical morphisms can be defined for $i=0,1$, and
+% segment-id: o014.li2.chapter6.nonabelian-cohomology.q038
+	\begin{align*}
+		Z^i(G, A) & = \varinjlim_K Z^i(G/K, A^K), \\
+		\Hm^i(G, A) & = \varinjlim_K \Hm^i(G/K, A^K), \quad i = 0, 1.
+	\end{align*}
+
+	In addition, the definition of $\Ind^G_H(A)$ must require $f:G\to A$ to
+	be locally constant. The proof of
+	Theorem~\ref{prop:Shapiro-noncommutative} also requires
+	Lemma~\ref{prop:profinite-section} to ensure that the $\zeta:G\to A$ in
+	the injectivity part can be chosen locally constant and that the
+	$\sigma:H\backslash G\to G$ in the surjectivity part is continuous.
+
+	Finally, Remark~\ref{rem:Z1-vs-section} remains valid for profinite groups
+	$G$: $Z^1(G,A)$ corresponds to the set of continuous sections of the
+	projection homomorphism $\pi:A\rtimes G\to G$, while $\Hm^1(G,A)$ is the
+	quotient of the set of continuous sections by the conjugation action of
+	$A$.
+\end{remark}

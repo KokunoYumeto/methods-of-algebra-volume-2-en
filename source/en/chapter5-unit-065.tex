@@ -1,0 +1,387 @@
+% Unit 065 English translation of chapter5.tex lines 141--349.
+% Source: Methods of Algebra, Volume 2, commit
+% 9a5803ff77dd3257484cb177f851a73770a59dd3 (CC BY 4.0).
+% stable-unit-id: o014.aljabr2.chapter5.general-spectral-sequences
+% Coverage: Complete Section 5.2.
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.h001
+\section{General definition of spectral sequences}\label{sec:spectral-sequence}
+\hypertarget{o014.aljabr2.chapter5.general-spectral-sequences}{ }
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.p001
+We begin with the general definition of a differential object. This involves an
+additive category with translation $(\mathcal{A},T)$ as in
+Definition~\ref{def:category-with-translation}, as well as morphisms with
+degree as in Definition~\ref{def:morphism-with-degree}.
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.d001
+\begin{definition}\label{def:differential-object}
+	\index{differential object}
+	\index[sym1]{ATd@$\mathcal{A}_d$, $(\mathcal{A}, T)_d$}
+	A \emph{differential object} over an additive category with translation
+	$(\mathcal{A},T)$ is data $(X,d)$, where $X\in\Obj(\mathcal{A})$ and
+	$d:X\xrightarrow{+1}X$ satisfies $d^2=0$.
+	\begin{itemize}
+		\item A morphism from $(X,d)$ to $(X',d')$ is a morphism
+		$\alpha:X\to X'$ satisfying $d'\alpha=\alpha d$.
+		\item All differential objects form a category $(\mathcal{A},T)_d$;
+		we also write
+		$\mathcal{A}_d:=(\mathcal{A},\identity_{\mathcal{A}})_d$.
+	\end{itemize}
+\end{definition}
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.p002
+If $\mathcal{A}$ is an $\cate{Ab}$-category (or a
+$\Bbbk\dcate{Mod}$-category, where $\Bbbk$ is a commutative ring), then so is
+$(\mathcal{A},T)_d$. The forgetful functor
+$(\mathcal{A},T)_d\to\mathcal{A}$ sends $(X,d)$ to $X$.
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.t001
+\begin{proposition}
+	\index[sym1]{HXd@$\Hm(X,d)$}
+	The forgetful functor $(\mathcal{A},T)_d\to\mathcal{A}$ creates all
+	$\varinjlim$ and $\varprojlim$ (Definition~\ref{def:create-limit}).
+\end{proposition}
+\begin{proof}
+	Replay the proof of Lemma~\ref{prop:limits-cplx}.
+\end{proof}
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.p003
+It follows that if $\mathcal{A}$ is an Abelian category, then
+$(\mathcal{A},T)_d$ is also Abelian and
+$(\mathcal{A},T)_d\to\mathcal{A}$ is exact.
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.p004
+In the case of an Abelian category, one distinguishing feature of a
+differential object is that it has homology or cohomology.
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.d002
+\begin{definition}
+	Let $\mathcal{A}$ be an Abelian category. We define the additive functor
+	\[ \Hm:(\mathcal{A},T)_d\to\mathcal{A},\qquad
+	   \Hm(X,d):=\Ker(d)/\Image(T^{-1}d). \]
+\end{definition}
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.p005
+We call a triangular diagram in an Abelian category $\mathcal{A}$
+$\begin{tikzcd}[column sep=small, row sep=small]
+	A \arrow[rr] & & B \arrow[ld] \\
+	& C \arrow[lu, "+m"] &
+\end{tikzcd}$
+\emph{exact} if
+\[ \cdots T^{k-m}C\to T^kA\to T^kB\to T^kC\to T^{k+m}A\cdots \]
+is an exact sequence extending infinitely in both directions. More general
+triangular diagrams with degrees are treated in the same way.
+\index{exact sequence}
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.l001
+\begin{lemma}\label{prop:diff-obj-triangle}
+	Let $(\mathcal{A},T)$ be an Abelian category with translation. If
+	$0\to(X',d')\to(X,d)\to(X'',d'')\to0$ is a short exact sequence in
+	$(\mathcal{A},T)_d$, then the following diagram is exact at every vertex:
+	\[\begin{tikzcd}[column sep=tiny]
+		\Hm(X',d') \arrow[rr] & & \Hm(X,d) \arrow[ld] . \\
+		& \Hm(X'',d'') \arrow[lu, "{+1}"] &
+	\end{tikzcd}\]
+\end{lemma}
+\begin{proof}
+	In $\mathcal{A}$, consider the sequence of complexes
+	\[ 0\to(T^nX',T^nd')_n\to(T^nX,T^nd)_n
+	   \to(T^nX'',T^nd'')_n\to0. \]
+	It is exact degree by degree, hence is a short exact sequence. Apply
+	Proposition~\ref{prop:long-exact-sequence-ses} to it.
+\end{proof}
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.e001
+\begin{example}[Complexes as differential objects]\label{eg:cplx-as-diff}
+	\index{differential graded object}
+	For an additive category $\mathcal{A}$, consider $\mathcal{A}^{\Z}$ together
+	with the translation functor $T:(X^n)_n\mapsto(X^{n+1})_n$. By the
+	discussion in \S\ref{sec:additive-cplx}, objects of
+	$(\mathcal{A}^{\Z},T)_d$ are also called differential graded objects, and
+	there is an isomorphism of categories
+	$\cate{C}(\mathcal{A})\simeq(\mathcal{A}^{\Z},T)_d$. If $\mathcal{A}$ is
+	Abelian, then plainly
+	\[ \Hm(X,d)=\left(\Hm^p(X)\right)_{p\in\Z}. \]
+\end{example}
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.p006
+We can now give the definition of a spectral sequence. To simplify the
+discussion, we first consider the case without translation, or equivalently
+the case of morphisms without degree; in other words, we take
+$T=\identity$.
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.d003
+\begin{definition}[J.\ Leray, J.-L.\ Koszul]\label{def:SS-abstract}
+	\index{spectral sequence}
+	Let $\mathcal{A}$ be an Abelian category and $a\in\Z$. A
+	\emph{spectral sequence} starting at $a$ is data
+	$\mathscr{E}=(E_r,d_r)_{r\in\Z_{\geq a}}$ together with
+	$(t_r)_{r\geq a+1}$, where
+	\begin{compactitem}
+		\item $(E_r,d_r)\in\Obj(\mathcal{A}_d)$;
+		\item $t_r:\Hm(E_{r-1},d_{r-1})\rightiso E_r$ for $r\geq a+1$.
+	\end{compactitem}
+	The data $a$ and $(t_r)_r$ are often omitted from the notation.
+
+	A morphism of spectral sequences $\mathscr{E}\to\mathscr{E}'$ is a family
+	of morphisms in $\mathcal{A}_d$
+	$\varphi_r:(E_r,d_r)\to(E'_r,d'_r)$ satisfying
+	$t_r\Hm(\varphi_{r-1})=\varphi_rt_r$ for $r\geq a+1$.
+\end{definition}
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.p007
+The pair $(E_r,d_r)$ is customarily called the \emph{$r$-th page} of the
+spectral sequence $\mathscr{E}$; computing $E_{r+1}$ from $E_r$ amounts to
+turning the page. Abstractly, the precise page at which a spectral sequence
+starts is immaterial, but in applications it depends on the particular
+context.
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.p008
+If $d_r$ in a spectral sequence is viewed as a morphism
+$\Hm(E_{r-1},d_{r-1})\to\Hm(E_{r-1},d_{r-1})$, then both
+$\Ker(d_r)$ and $\Image(d_r)$ correspond to subobjects of
+$\Ker(d_{r-1})$ that contain $\Image(d_{r-1})$. For simplicity, suppose the
+spectral sequence starts at $a=0$. Define $Z_1$ (respectively $B_1$) to be
+$\Ker(d_0)$ (respectively $\Image(d_0)$), then define $Z_2$ (respectively
+$B_2$) as the inverse image of $\Ker(d_1)$ (respectively $\Image(d_1)$) under
+$E_0\supset Z_1\twoheadrightarrow E_1$, and so on. Iteration yields
+\begin{equation}\label{eqn:spectral-sequence-Z-B}\begin{gathered}
+	0=:B_0\subset B_1\subset B_2\subset\cdots\subset Z_2\subset Z_1
+	\subset Z_0=:E_0, \\
+	Z_r\leftrightarrow\Ker(d_{r-1}),\quad
+	B_r\leftrightarrow\Image(d_{r-1}),\quad Z_r/B_r\simeq E_r.
+\end{gathered}\end{equation}
+\index[sym1]{ZBE@$Z_r$, $B_r$, $E_r$}
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.p009
+\begin{itemize}
+	\item If $Z_\infty:=\bigcap_rZ_r$ and $B_\infty:=\bigcup_rB_r$ exist, the
+	\emph{limit} of the spectral sequence $\mathscr{E}$ is defined to be
+	$E_\infty:=Z_\infty/B_\infty$.
+	\item If there is an $r$ such that $r'\geq r\implies d_{r'}=0$, then
+	$\mathscr{E}$ is said to \emph{degenerate at the $E_r$ page}. In this case
+	clearly $Z_r=Z_{r+1}=\cdots$ and $B_r=B_{r+1}=\cdots$, so
+	$Z_r=Z_\infty$ and $B_r=B_\infty$; consequently, $E_r=E_\infty$.
+	\index{spectral sequence!degenerate}
+\end{itemize}
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.p010
+When discussing homologically graded spectral sequences, we shall instead use
+the notation $(E^r,d^r)_r$ and $B^r,Z^r$.
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.t002
+\begin{proposition}\label{prop:ss-isom-infty}
+	Let $\varphi_r:\mathscr{E}\to\mathscr{E}'$ be a morphism of spectral
+	sequences. If $\varphi_r$ is an isomorphism, then $\varphi_s$ is also an
+	isomorphism for $s\geq r$; if the limits exist, then
+	$\varphi_\infty:E_\infty\to E'_\infty$ is also an isomorphism.
+\end{proposition}
+\begin{proof}
+	The isomorphism $\varphi_r$ induces an isomorphism
+	$\Hm(E_r,d_r)\to\Hm(E'_r,d'_r)$, which is precisely
+	$\varphi_{r+1}$. Without loss of generality, suppose that the spectral
+	sequences start at $r$. Then $(\varphi_s)_{s\geq r}$ is an isomorphism of
+	spectral sequences, and the assertion concerning $\varphi_\infty$ is
+	immediate.
+\end{proof}
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.p011
+More generally, for an Abelian category with translation $(\mathcal{A},T)$,
+the definition of a spectral sequence extends to the case
+$(E_r,d_r)\in\Obj((\mathcal{A},T^{a_r})_d)$, where
+$a_1,a_2,\ldots$ is a sequence of integers. The definitions of
+$\Hm(E_r,d_r)$ and $B_r,Z_r$ above remain unchanged.
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.p012
+In the generalization we shall need later, we may go even further and equip
+$\mathcal{A}$ with a family of mutually commuting automorphisms
+$T_1,\ldots,T_n$, with
+\[ d_r:E_r\xrightarrow{+\vec{a}_r}E_r,\qquad
+	\vec{a}_r=(a_{r,1},\ldots,a_{r,n})\in\Z^n. \]
+Following this idea, we introduce the two most commonly used versions, both of
+which involve graded structures.
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.d004
+\begin{definition}[Spectral sequences: graded and bigraded versions]
+\label{def:graded-spectral-sequence}
+	\index{spectral sequence!graded, bigraded}
+	\index[sym1]{drpq@$d_r^{p,q}$, $d^r_{p,q}$}
+	Let $\mathcal{A}$ be an Abelian category. Cohomologically graded and
+	cohomologically bigraded spectral sequences, both written
+	$\mathscr{E}=(E_r,d_r)_r$, are defined as follows.
+	\[\begin{array}{|c|c|c|c|} \hline
+		\text{Version} & E_r & d_r & \text{Degree of morphism} \\ \hline
+		\text{Graded} & (E_r^p)_{p\in\Z}\in\Obj(\mathcal{A}^{\Z})
+		& (d_r^p)_p & d_r^p:E_r^p\xrightarrow{+r}E_r^{p+r} \\
+		\text{Bigraded} &
+		(E_r^{p,q})_{(p,q)\in\Z^2}\in\Obj(\mathcal{A}^{\Z\times\Z})
+		& (d_r^{p,q})_{(p,q)} &
+		d_r^{p,q}:E_r^{p,q}\xrightarrow{+(r,-r+1)}E_r^{p+r,q-r+1}
+		\\ \hline
+	\end{array}\]
+	In both cases $(d_r)^2=0$ is required, with composition understood as the
+	composition of morphisms with degrees, and the data include a specified
+	isomorphism $\Hm(E_{r-1},d_{r-1})\rightiso E_r$.
+
+	Dually, a homologically graded (or bigraded) spectral sequence is defined as
+	the following data $(E^r,d^r)_{r\geq1}$, again with $(d^r)^2=0$ and a
+	specified isomorphism $\Hm(E^r,d^r)\simeq E^{r+1}$:
+	\[\begin{array}{|c|c|c|c|} \hline
+		\text{Version} & E^r & d^r & \text{Degree of morphism} \\ \hline
+		\text{Graded} & (E^r_p)_{p\in\Z}\in\Obj(\mathcal{A}^{\Z})
+		& (d^r_p)_p & d^r_p:E^r_p\xrightarrow{-r}E^r_{p-r} \\
+		\text{Bigraded} &
+		(E^r_{p,q})_{(p,q)\in\Z^2}\in\Obj(\mathcal{A}^{\Z\times\Z})
+		& (d^r_{p,q})_{(p,q)} &
+		d^r_{p,q}:E^r_{p,q}\xrightarrow{+(-r,r-1)}E^r_{p-r,q+r-1}
+		\\ \hline
+	\end{array}\]
+	Morphisms between these spectral sequences are defined in the usual way and
+	must be compatible with the specified isomorphisms.
+\end{definition}
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.p013
+In $(p,q)$ coordinates, the directions of $d_r$ and $d^r$ in a bigraded
+spectral sequence are as follows.
+\begin{center}\begin{tikzpicture}[>=Latex, scale=0.7, baseline=(O)]
+	\draw[very thin, gray!50] (-1,1) grid (4,-2);
+	\draw[thick, ->] (0,0) -- (0,1) node[left] {$d_0$};
+	\draw[thick, ->] (0,0) -- (1,0) node[right] {$d_1$};
+	\draw[thick, ->] (0,0) -- (2,-1) node[right] {$d_2$};
+	\draw[thick, ->] (0,0) -- (3,-2) node[right] {$d_3$};
+	\node at (1.5,-2.5) {$E_r^{p,q}$};
+	\coordinate (O) at (1.5,-0.5);
+\end{tikzpicture} \qquad \begin{tikzpicture}[>=Latex, scale=0.7, baseline=(O)]
+	\draw[very thin, gray!50] (1,-1) grid (-4,2);
+	\draw[thick, ->] (0,0) -- (0,-1) node[right] {$d^0$};
+	\draw[thick, ->] (0,0) -- (-1,0) node[left] {$d^1$};
+	\draw[thick, ->] (0,0) -- (-2,1) node[left] {$d^2$};
+	\draw[thick, ->] (0,0) -- (-3,2) node[left] {$d^3$};
+	\node at (-1.5,-1.5) {$E^r_{p,q}$};
+	\coordinate (O) at (-1.5,0.5);
+\end{tikzpicture}\end{center}
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.p014
+In either version, following the preceding pattern, we may define the objects
+$B_r^p\subset Z_r^p$, $B_r^{p,q}\subset Z_r^{p,q}$,
+$E_\infty^p$, $E_\infty^{p,q}$, as well as
+$B^r_p\subset Z^r_p$, $B^r_{p,q}\subset Z^r_{p,q}$,
+$E^\infty_p$, $E^\infty_{p,q}$, and so forth.
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.e002
+\begin{example}[The finite-width case]\label{eg:SS-finite-width}
+	In many common situations, the nonzero terms of a bigraded spectral sequence
+	are concentrated in a horizontal (or vertical) strip of width $s$, where
+	$s\in\Z_{\geq0}$, as in the following figure:
+	\[\begin{tikzpicture}[baseline]
+		\matrix (M) [matrix of math nodes, right delimiter=\}] {
+			\cdots & \bullet & \bullet & \bullet & \cdots \\
+			\vdots & \vdots & \vdots & \vdots & \vdots \\
+			\cdots & \bullet & \bullet & \bullet & \cdots \\
+		};
+		\node[right=2em] at (M-2-5) {\scriptsize \text{$s$ rows}};
+	\end{tikzpicture} \quad \text{or} \quad \begin{tikzpicture}[baseline]
+		\matrix (M) [matrix of math nodes, below delimiter=\}] {
+			\vdots & \vdots & \vdots \\
+			\bullet & \cdots & \bullet \\
+			\bullet & \cdots & \bullet \\
+			\vdots & \vdots & \vdots \\
+		};
+		\node[below=2em] at (M-4-2) {\scriptsize \text{$s$ columns}};
+	\end{tikzpicture}\]
+	Inspection of the arrow directions shows that $r>s$ (or $r\geq s$)
+	implies $d_r^{p,q}=0$ for all $p,q$; in this case the spectral sequence
+	degenerates at the $E_r$ page. The homological case is similar.
+\end{example}
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.d005
+\begin{definition}\label{def:bdd-ss}
+	\index{spectral sequence!bounded}
+	Let $\mathscr{E}$ be a cohomological (or homological) bigraded spectral
+	sequence, and let $r\in\Z$. If for every $n\in\Z$ there are at most
+	finitely many $(p,q)\in\Z^2$ satisfying $p+q=n$ and
+	$E_r^{p,q}\neq0$ (or $E^r_{p,q}\neq0$), then $E_r$ (or $E^r$) is
+	called \emph{bounded}.
+\end{definition}
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.p015
+It follows from $E_{r+1}\simeq\Hm(E_r,d_r)$ that
+$E_r^{p,q}=0\implies E_{r+1}^{p,q}=0$. In particular, if $E_r$ is bounded,
+then $E_{r+1}$ is bounded. The homological case is similar.
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.t003
+\begin{proposition}
+	Let $\mathscr{E}$ be a cohomological (or homological) bigraded spectral
+	sequence for which $E_r$ (or $E^r$) is bounded. For every
+	$(p,q)\in\Z^2$, there is an $r(p,q)$ such that, whenever
+	$r\geq r(p,q)$, one has $E_r^{p,q}=E_{r+1}^{p,q}$ (or
+	$E^r_{p,q}=E^{r+1}_{p,q}$). Consequently, the limit of $\mathscr{E}$
+	exists and satisfies $E_r^{p,q}=E_\infty^{p,q}$ (or
+	$E^r_{p,q}=E^\infty_{p,q}$).
+\end{proposition}
+\begin{proof}
+	It suffices to discuss the case of $E_r$. Fix $n$. By boundedness, for all
+	$(p,q)$ with $p+q=n$ and all sufficiently large $r$, we have
+	$E_r^{p-r,q+r-1}=0$, hence $B_r^{p,q}=0$. Similarly, for sufficiently
+	large $r$, we have $E_r^{p+r,q-r+1}=0$, hence
+	$Z_r^{p,q}=E_r^{p,q}$. This proves the assertion.
+\end{proof}
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.d006
+\begin{definition}\label{def:quadrant-ss}
+	Let $\mathscr{E}$ be a cohomological (or homological) bigraded spectral
+	sequence, and let $r\in\Z$. If $E_r^{p,q}\neq0$ (or
+	$E^r_{p,q}\neq0$) implies $p,q\geq0$, then $E_r$ (or $E^r$) is said to
+	lie in the first quadrant. The other quadrants are defined similarly.
+\end{definition}
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.p016
+An $E_r$ lying in the first or third quadrant is clearly bounded. It follows
+from $E_{r+1}\simeq\Hm(E_r,d_r)$ that if $E_r$ lies in any given quadrant,
+then $E_{r+1}$ lies in the same quadrant. The homological case is similar.
+
+% segment-id: o014.li2.chapter5.general-spectral-sequences.r001
+\begin{remark}[Edge calculations]\label{rem:edge-computing}
+	Spectral sequences lying in the first quadrant occur especially often. For
+	the cohomological version, the edge terms $E_r^{\bullet,0}$ and
+	$E_r^{0,\bullet}$ have special properties. Fix $p,q\geq1$. By carefully
+	examining the direction of $d_r$ and recalling that
+	$E_{r+1}\simeq\Hm(E_r,d_r)$, one verifies that
+	\begin{equation}\label{eqn:edge-ss-coh}\begin{array}{cc}
+		E_2^{p,0}\twoheadrightarrow E_3^{p,0}\twoheadrightarrow\cdots
+		\twoheadrightarrow E_{p+1}^{p,0}=E_\infty^{p,0}
+		& \text{($\because$ all outgoing $d$ are $0$)}, \\
+		E_\infty^{0,q}=E_{q+2}^{0,q}\hookrightarrow E_{q+1}^{0,q}
+		\hookrightarrow\cdots\hookrightarrow E_2^{0,q}\hookrightarrow E_1^{0,q}
+		& \text{($\because$ all incoming $d$ are $0$)}.
+	\end{array}\end{equation}
+	A first-quadrant homological bigraded spectral sequence has the corresponding
+	properties:
+	\begin{equation}\label{eqn:edge-ss-ho}\begin{array}{cc}
+		E^\infty_{p,0}=E^{p+1}_{p,0}\hookrightarrow E^p_{p,0}
+		\hookrightarrow\cdots\hookrightarrow E^3_{p,0}\hookrightarrow E^2_{p,0}
+		& \text{($\because$ all incoming $d$ are $0$)}, \\
+		E^1_{0,q}\twoheadrightarrow E^2_{0,q}\twoheadrightarrow\cdots
+		\twoheadrightarrow E^{q+2}_{0,q}=E^\infty_{0,q}
+		& \text{($\because$ all outgoing $d$ are $0$)}.
+	\end{array}\end{equation}
+	\index{edge morphism}
+
+	The morphisms arising from \eqref{eqn:edge-ss-coh} or
+	\eqref{eqn:edge-ss-ho} are collectively called \emph{edge morphisms}.
+	The preceding discussion gives the following exact sequence ($p\geq2$):
+	\begin{equation}\label{eqn:low-exact-coh}
+		0\to E^{0,p-1}_\infty\to E^{0,p-1}_p\xrightarrow{d}E^{p,0}_p
+		\to E^{p,0}_\infty\to0,
+	\end{equation}
+	in which every morphism except $d$ is an edge morphism. There is also a
+	homological version of this exact sequence ($p\geq2$):
+	\begin{equation}\label{eqn:low-exact-ho}
+		0\to E^\infty_{p,0}\to E^p_{p,0}\xrightarrow{d}E^p_{0,p-1}
+		\to E^\infty_{0,p-1}\to0.
+	\end{equation}
+	Beginning readers should be sure to draw the directions of the morphisms
+	$d$ involving these terms, determine when they are $0$, and thereby verify
+	all the assertions above.
+\end{remark}
