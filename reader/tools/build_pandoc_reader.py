@@ -764,7 +764,7 @@ def main() -> int:
 <script>window.MathJax={{tex:{{tags:"ams",macros:{mathjax_macros_json}}},options:{{enableAssistiveMml:true,ignoreHtmlClass:"tex2jax_ignore"}},chtml:{{fontURL:"vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2"}}}};</script>
 <script defer src="vendor/mathjax-3.2.2/tex-chtml-full.js"></script></head><body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<header class="reader-header"><a class="reader-home" href="index.html">Methods of Algebra II</a><span class="reader-edition">Independent English Edition</span></header>
+<header class="reader-header"><a class="reader-home" href="index.html">Methods of Algebra II</a><nav aria-label="Reader links"><a href="https://github.com/wenweili/AlJabr-2">Authoritative original</a> <span aria-hidden="true">·</span> <a href="https://kokunoyumeto.github.io/program-matematika-indonesia/en/#course-D80">Return to the mathematics program</a></nav><span class="reader-edition">Independent English Edition</span></header>
 <main id="main-content" class="reader-main" tabindex="-1">
 <section class="reader-cover" aria-labelledby="book-title"><h1 id="book-title">Methods of Algebra</h1><p class="reader-cover-volume">Volume 2: Linear Algebra</p><p class="reader-cover-author">Wen-Wei Li, author</p><hr><h2>About this edition</h2><p>Complete independent English translation of the 2024 source work.</p><p class="reader-cover-license">CC BY 4.0. Independent edition; the source author and publisher do not endorse it.</p></section>
 <nav class="reader-unit-index" aria-label="Unit navigation"><details open><summary>Navigate 146 units and 2 mastery bridges</summary><ol>{nav_items}</ol></details></nav>

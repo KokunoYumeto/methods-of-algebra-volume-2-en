@@ -12,7 +12,7 @@ Reader links:
 
 - Reflowable HTML: <https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/>
 - Repository: <https://github.com/KokunoYumeto/methods-of-algebra-volume-2-en>
-- Archival DOI: <https://doi.org/10.5281/zenodo.22233942>
+- Archival DOI: <https://doi.org/10.5281/zenodo.23115307>
 
 ## Source authority
 
@@ -32,6 +32,8 @@ claim that no English version exists anywhere.
 ## Contents
 
 - `source/en/`: complete editable XeLaTeX edition and source assets
+- `output/source/`: directly downloadable cumulative LaTeX containing all 146
+  units and both mastery bridges in source order
 - `backend/`: locale-linked units, segments, terminology, bridge, and diagram
   accessibility data keyed by stable course identifiers
 - `reader/`: accessible offline HTML reader and deterministic build tools
@@ -43,6 +45,12 @@ The PDF preserves the source's TikZ diagrams. The HTML reader provides local
 MathJax rendering, responsive reflow, stable anchors, and source-traced English
 text fallbacks for complex diagrams. No network connection is required after
 the offline-reader package has been extracted.
+
+Unit 023's 23 diagram descriptions have been rechecked against their exact
+TikZ or tikzcd sources. The Five Lemma's five-column statement diagram and its
+subsequent lifting diagrams now appear with complete, correctly associated
+descriptions at their actual uses; the correction does not alter the source
+mathematics or the PDF.
 
 ## Reproducible builds
 

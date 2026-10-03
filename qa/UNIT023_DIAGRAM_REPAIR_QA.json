@@ -1,0 +1,413 @@
+{
+  "schema": "o014-english-unit023-diagram-repair-qa-v1",
+  "recorded_at_utc": "2026-10-03T05:09:55.182977+00:00",
+  "result": "PASS",
+  "scope": "Unit 023 only; source mathematics and PDF bytes unchanged",
+  "checks": {
+    "defect_report_exists": true,
+    "defect_report_sha256_exact": true,
+    "unit_source_sha256_unchanged": true,
+    "control_entries_23": true,
+    "control_ids_unique": true,
+    "control_orders_1_to_23": true,
+    "source_environments_23": true,
+    "source_segments_g001_to_g023": true,
+    "ledger_rows_23_in_exact_order": true,
+    "inventory_rows_23_in_exact_order": true,
+    "html_figures_23_in_exact_order": true,
+    "all_per_diagram_checks_pass": true,
+    "no_truncated_or_generic_descriptions": true,
+    "d015_between_five_lemma_statement_and_proof_lift": true,
+    "d016_is_after_proof_lift_context": true,
+    "d015_text_is_five_column": true,
+    "d016_text_is_four_object_lift": true,
+    "outside_unit_ledger_unchanged_from_head": true,
+    "reader_validation_pass": true,
+    "reader_sections_149": true,
+    "reader_diagrams_907": true,
+    "reader_alt_texts_907": true,
+    "reader_validation_errors_zero": true,
+    "reader_unsupported_math_zero": true,
+    "reader_unsupported_raw_zero": true,
+    "reader_broken_anchor_fallbacks_zero": true
+  },
+  "forbidden_truncation_matches": [],
+  "per_diagram": [
+    {
+      "diagram_id": "chapter2-unit-023-d001",
+      "local_order": 1,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g001",
+      "source_ref": "source/en/chapter2-unit-023.tex:22-26",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    },
+    {
+      "diagram_id": "chapter2-unit-023-d002",
+      "local_order": 2,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g002",
+      "source_ref": "source/en/chapter2-unit-023.tex:42-46",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    },
+    {
+      "diagram_id": "chapter2-unit-023-d003",
+      "local_order": 3,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g003",
+      "source_ref": "source/en/chapter2-unit-023.tex:67-76",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    },
+    {
+      "diagram_id": "chapter2-unit-023-d004",
+      "local_order": 4,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g004",
+      "source_ref": "source/en/chapter2-unit-023.tex:107-116",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    },
+    {
+      "diagram_id": "chapter2-unit-023-d005",
+      "local_order": 5,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g005",
+      "source_ref": "source/en/chapter2-unit-023.tex:169-175",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    },
+    {
+      "diagram_id": "chapter2-unit-023-d006",
+      "local_order": 6,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g006",
+      "source_ref": "source/en/chapter2-unit-023.tex:179-183",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    },
+    {
+      "diagram_id": "chapter2-unit-023-diagram-007",
+      "local_order": 7,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g007",
+      "source_ref": "source/en/chapter2-unit-023.tex:245-252",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    },
+    {
+      "diagram_id": "chapter2-unit-023-d007",
+      "local_order": 8,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g008",
+      "source_ref": "source/en/chapter2-unit-023.tex:256-260",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    },
+    {
+      "diagram_id": "chapter2-unit-023-d008",
+      "local_order": 9,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g009",
+      "source_ref": "source/en/chapter2-unit-023.tex:277-283",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    },
+    {
+      "diagram_id": "chapter2-unit-023-d009",
+      "local_order": 10,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g010",
+      "source_ref": "source/en/chapter2-unit-023.tex:287-293",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    },
+    {
+      "diagram_id": "chapter2-unit-023-d010",
+      "local_order": 11,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g011",
+      "source_ref": "source/en/chapter2-unit-023.tex:302-307",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    },
+    {
+      "diagram_id": "chapter2-unit-023-d011",
+      "local_order": 12,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g012",
+      "source_ref": "source/en/chapter2-unit-023.tex:320-324",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    },
+    {
+      "diagram_id": "chapter2-unit-023-d012",
+      "local_order": 13,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g013",
+      "source_ref": "source/en/chapter2-unit-023.tex:330-335",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    },
+    {
+      "diagram_id": "chapter2-unit-023-d013",
+      "local_order": 14,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g014",
+      "source_ref": "source/en/chapter2-unit-023.tex:343-348",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    },
+    {
+      "diagram_id": "chapter2-unit-023-d014",
+      "local_order": 15,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g015",
+      "source_ref": "source/en/chapter2-unit-023.tex:354-359",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    },
+    {
+      "diagram_id": "chapter2-unit-023-d015",
+      "local_order": 16,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g016",
+      "source_ref": "source/en/chapter2-unit-023.tex:373-377",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    },
+    {
+      "diagram_id": "chapter2-unit-023-d016",
+      "local_order": 17,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g017",
+      "source_ref": "source/en/chapter2-unit-023.tex:403-407",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    },
+    {
+      "diagram_id": "chapter2-unit-023-diagram-018",
+      "local_order": 18,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g018",
+      "source_ref": "source/en/chapter2-unit-023.tex:410-415",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    },
+    {
+      "diagram_id": "chapter2-unit-023-d017",
+      "local_order": 19,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g019",
+      "source_ref": "source/en/chapter2-unit-023.tex:423-429",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    },
+    {
+      "diagram_id": "chapter2-unit-023-d018",
+      "local_order": 20,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g020",
+      "source_ref": "source/en/chapter2-unit-023.tex:431-434",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    },
+    {
+      "diagram_id": "chapter2-unit-023-d019",
+      "local_order": 21,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g021",
+      "source_ref": "source/en/chapter2-unit-023.tex:435-439",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    },
+    {
+      "diagram_id": "chapter2-unit-023-d020",
+      "local_order": 22,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g022",
+      "source_ref": "source/en/chapter2-unit-023.tex:441-445",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    },
+    {
+      "diagram_id": "chapter2-unit-023-d021",
+      "local_order": 23,
+      "source_segment_id": "o014.li2.chapter2.diagram-lemmas.g023",
+      "source_ref": "source/en/chapter2-unit-023.tex:446-450",
+      "checks": {
+        "ledger_id_and_order": true,
+        "ledger_description_exact": true,
+        "inventory_id_and_order": true,
+        "inventory_structure_matches": true,
+        "html_figure_present": true,
+        "html_description_exact": true,
+        "html_provenance_names_control": true
+      }
+    }
+  ],
+  "git_head_compared": "674ef26c04dba544e80a95a3f320a9961649407c",
+  "files": {
+    "defect_report": {
+      "bytes": 4757,
+      "sha256": "783700cb6803a6f651a09f08fe2d9dce3f32ec8dcccead5a9f0a57dba47e7bf5"
+    },
+    "unit_source": {
+      "bytes": 24152,
+      "sha256": "65ce863946f2f3f4fa33f4aa088f59e6aa82ed8403e93f8939e1c269e6863a5d"
+    },
+    "control": {
+      "bytes": 23623,
+      "sha256": "4456f96e2c13a8777f645ffbef7156d8044b51fd1eb3638ac2371adb5d8b2ba7"
+    },
+    "ledger": {
+      "bytes": 344106,
+      "sha256": "8cb96a9de8b2a4dd8a9e7c39bd845c50f6881ae37daa6bbf4ddb5b589303e6b6"
+    },
+    "inventory": {
+      "bytes": 786812,
+      "sha256": "3a3d2ca9e4cd5d82e002fe03d07fa6ffce1fd34dfef25ef04a27ac2d946dc8bf"
+    },
+    "reader_index": {
+      "bytes": 4501169,
+      "sha256": "a407428c684ef99596234763d9df3f8fa1b2e6bfe841cc9462804e6dd941a293"
+    },
+    "reader_validation": {
+      "bytes": 1771,
+      "sha256": "99ead324f5b8ca77eef3783a087af4ea5da40833975ea18c90400ae385310ed5"
+    }
+  }
+}

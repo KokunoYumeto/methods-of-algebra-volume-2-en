@@ -40,10 +40,11 @@ GATE_PATHS = (
 )
 PAYLOAD_NAMES = (
     "00_methods-of-algebra-volume-2-independent-english-edition.pdf",
-    "01_complete-xelatex-source.zip",
-    "02_semantic-backend.zip",
-    "03_offline-html-reader.zip",
-    "04_provenance-and-reproducibility.zip",
+    "01_methods-of-algebra-volume-2-independent-english-edition-cumulative.tex",
+    "02_complete-xelatex-source.zip",
+    "03_semantic-backend.zip",
+    "04_offline-html-reader.zip",
+    "05_provenance-and-reproducibility.zip",
     "LICENSE",
     "README.txt",
     "MANIFEST.csv",
@@ -53,7 +54,7 @@ PAYLOAD_NAMES = (
 # These directory roots, plus the individually named release files, are the
 # complete intended main-branch boundary.  In particular, release/staging and
 # the private Zenodo transaction state are outside it.
-PUBLISH_ROOTS = ("backend", "controls", "qa", "reader", "source/en", "tools")
+PUBLISH_ROOTS = ("backend", "controls", "qa", "reader", "source/en", "output/source", "tools")
 PUBLISH_FILES = (
     ".gitattributes",
     ".gitignore",
@@ -242,7 +243,7 @@ def validate_publication_boundary(gates: dict[str, dict]) -> dict[str, dict]:
 
     package_rows = package.get("files", [])
     if len(package_rows) != len(PAYLOAD_NAMES):
-        raise RuntimeError("Package receipt is not an exact nine-file boundary")
+        raise RuntimeError("Package receipt is not an exact ten-file boundary")
     expected = {}
     for row in package_rows:
         name = row.get("filename")

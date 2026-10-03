@@ -1,11 +1,11 @@
 {
   "schema": "o014-english-html-browser-qa-v2",
-  "recorded_at_utc": "2026-09-01T15:12:52.1941879Z",
+  "recorded_at_utc": "2026-10-03T05:18:17.617Z",
   "result": "PASS",
   "target": "reader/dist/index.html",
-  "target_bytes": 4493910,
-  "target_sha256": "411fe6246743388ba9c5352732cc7958c02aa5dc578a54daecd4e6a5b317347e",
-  "runtime": "Chromium-based Codex in-app browser against a task-local HTTP origin",
+  "target_bytes": 4501169,
+  "target_sha256": "a407428c684ef99596234763d9df3f8fa1b2e6bfe841cc9462804e6dd941a293",
+  "runtime": "Playwright Chromium 154.0.8037.93 against a task-local HTTP origin",
   "coverage": {
     "logical_sections": 149,
     "source_units": 146,
@@ -15,13 +15,7 @@
     "diagram_captions": 907,
     "rendered_mathjax_containers": 28459,
     "changed_sections_inspected_at_both_viewports": [
-      "unit-chapter4-unit-055",
-      "unit-chapter6-unit-076",
-      "unit-chapter7-unit-088",
-      "unit-chapter8-unit-106",
-      "unit-chapter9-unit-133",
-      "unit-appendix2-unit-140",
-      "unit-mastery-bridge-002-derived-functors-spectral-sequences"
+      "unit-chapter2-unit-023"
     ]
   },
   "desktop": {
@@ -30,7 +24,7 @@
       "height": 900
     },
     "layout_client_css_px": {
-      "width": 1425,
+      "width": 1440,
       "height": 900
     },
     "mjx_merror_nodes": 0,
@@ -40,16 +34,19 @@
     "diagram_captions_with_raw_tex_commands": 0,
     "known_indonesian_caption_residue": 0,
     "page_level_horizontal_overflow": false,
-    "page_scroll_width_css_px": 1425,
+    "page_scroll_width_css_px": 1440,
     "wide_candidates": 6,
     "wide_candidates_without_local_scroller": 0,
     "main_column_css_px": {
-      "left": 104.44444274902344,
-      "right": 1320.4444427490234,
+      "left": 112,
+      "right": 1328,
       "width": 1216
     },
-    "centered_margin_delta_css_px": 0.111114501953125,
-    "visual_inspection": "PASS: centered reader cover and body, seven repaired sections, equations, diagram descriptions, and mastery bridge are readable without clipping, overlap, raw anchor commands, or unsupported red macro text."
+    "centered_margin_delta_css_px": 0,
+    "unit023_figures": 23,
+    "unit023_figures_outside_main": [],
+    "unit023_figures_with_empty_or_hidden_boxes": [],
+    "visual_inspection": "PASS: Unit 023 is centered in the full-width reader column; the Five Lemma statement, its first lifting square, and the proof-tail descriptions are legible, correctly ordered, and free of clipping or overlap at 1440 by 900 CSS pixels."
   },
   "mobile": {
     "viewport_css_px": {
@@ -57,7 +54,7 @@
       "height": 844
     },
     "layout_client_css_px": {
-      "width": 375,
+      "width": 390,
       "height": 844
     },
     "mjx_merror_nodes": 0,
@@ -67,21 +64,605 @@
     "diagram_captions_with_raw_tex_commands": 0,
     "known_indonesian_caption_residue": 0,
     "page_level_horizontal_overflow": false,
-    "page_scroll_width_css_px": 375,
-    "wide_candidates": 1351,
+    "page_scroll_width_css_px": 390,
+    "wide_candidates": 1271,
     "wide_candidates_without_local_scroller": 0,
     "main_column_css_px": {
       "left": 8,
-      "right": 367.1111145019531,
-      "width": 359.1111145019531
+      "right": 382,
+      "width": 374
     },
-    "visual_inspection": "PASS: the reader fills and reflows within the mobile viewport; prose and headings remain legible, and intrinsically wide mathematics is contained by local horizontal scrollers."
+    "centered_margin_delta_css_px": 0,
+    "unit023_figures": 23,
+    "unit023_figures_outside_main": [],
+    "unit023_figures_with_empty_or_hidden_boxes": [],
+    "visual_inspection": "PASS: Unit 023 fills and reflows within the mobile reader column; all inspected descriptions wrap naturally without clipping, overlap, page overflow, or text outside the viewport at 390 by 844 CSS pixels."
+  },
+  "unit023_focused_runtime": {
+    "desktop_figure_metrics": [
+      {
+        "id": "chapter2-unit-023-d001",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 90.46875,
+        "caption_chars": 282,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d002",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 90.46875,
+        "caption_chars": 357,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d003",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 120.625,
+        "caption_chars": 495,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d004",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 180.9375,
+        "caption_chars": 784,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d005",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 150.78125,
+        "caption_chars": 596,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d006",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 90.46875,
+        "caption_chars": 312,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-diagram-007",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 90.46875,
+        "caption_chars": 356,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d007",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 60.3125,
+        "caption_chars": 263,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d008",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 90.46875,
+        "caption_chars": 292,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d009",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 90.46875,
+        "caption_chars": 290,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d010",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 120.625,
+        "caption_chars": 490,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d011",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 90.46875,
+        "caption_chars": 289,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d012",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 120.625,
+        "caption_chars": 527,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d013",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 120.625,
+        "caption_chars": 489,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d014",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 90.46875,
+        "caption_chars": 381,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d015",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 90.46875,
+        "caption_chars": 339,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d016",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 90.46875,
+        "caption_chars": 291,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-diagram-018",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 90.46875,
+        "caption_chars": 316,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d017",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 120.625,
+        "caption_chars": 483,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d018",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 60.3125,
+        "caption_chars": 250,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d019",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 60.3125,
+        "caption_chars": 254,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d020",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 90.46875,
+        "caption_chars": 306,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d021",
+        "left": 126.390625,
+        "right": 1313.609375,
+        "width": 1187.21875,
+        "height": 90.46875,
+        "caption_chars": 279,
+        "caption_font_px": 17.952,
+        "caption_line_height_px": 30.1594,
+        "within_main_column": true,
+        "visible_box": true
+      }
+    ],
+    "mobile_figure_metrics": [
+      {
+        "id": "chapter2-unit-023-d001",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 161.90625,
+        "caption_chars": 282,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d002",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 242.859375,
+        "caption_chars": 357,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d003",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 296.828125,
+        "caption_chars": 495,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d004",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 458.734375,
+        "caption_chars": 784,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d005",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 350.796875,
+        "caption_chars": 596,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d006",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 215.875,
+        "caption_chars": 312,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-diagram-007",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 215.875,
+        "caption_chars": 356,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d007",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 161.90625,
+        "caption_chars": 263,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d008",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 188.890625,
+        "caption_chars": 292,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d009",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 188.890625,
+        "caption_chars": 290,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d010",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 296.828125,
+        "caption_chars": 490,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d011",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 188.890625,
+        "caption_chars": 289,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d012",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 323.8125,
+        "caption_chars": 527,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d013",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 323.8125,
+        "caption_chars": 489,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d014",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 242.859375,
+        "caption_chars": 381,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d015",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 215.875,
+        "caption_chars": 339,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d016",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 188.890625,
+        "caption_chars": 291,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-diagram-018",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 188.890625,
+        "caption_chars": 316,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d017",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 296.828125,
+        "caption_chars": 483,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d018",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 161.90625,
+        "caption_chars": 250,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d019",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 161.90625,
+        "caption_chars": 254,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d020",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 188.890625,
+        "caption_chars": 306,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      },
+      {
+        "id": "chapter2-unit-023-d021",
+        "left": 12,
+        "right": 378,
+        "width": 366,
+        "height": 161.90625,
+        "caption_chars": 279,
+        "caption_font_px": 16.062,
+        "caption_line_height_px": 26.9842,
+        "within_main_column": true,
+        "visible_box": true
+      }
+    ],
+    "d015_caption_exact_on_both_viewports": true,
+    "d016_caption_exact_on_both_viewports": true,
+    "screenshots": [
+      {
+        "path": "qa/UNIT023_DESKTOP_five-lemma.png",
+        "bytes": 182332,
+        "sha256": "dc7a439362145b23c3b16ce75e86cd067b13e28fbe8d31ec5815f404ef8adec0"
+      },
+      {
+        "path": "qa/UNIT023_DESKTOP_proof-tail.png",
+        "bytes": 216566,
+        "sha256": "73192e08263429631d2c06d5d641858763ea1dd5d384d1080068db3e426c3e07"
+      },
+      {
+        "path": "qa/UNIT023_MOBILE_five-lemma.png",
+        "bytes": 83785,
+        "sha256": "2cf81c39fe44cef4b6b503280e460e59ad237a3a911766c1b89cc6d634bab795"
+      },
+      {
+        "path": "qa/UNIT023_MOBILE_proof-tail.png",
+        "bytes": 101320,
+        "sha256": "dd6cf438ac3c7eba89d13e4560360ce6af9063aa3d823111e604dcdabadec1c2"
+      }
+    ]
   },
   "anchor_and_macro_repairs": {
     "raw_hypertarget_commands_lifted_to_dom_anchors": 240,
-    "additional_segment_anchors_recovered": 12,
     "source_targets_preserved": 7224,
-    "unique_source_markers_and_labels": 7074,
     "missing_source_targets": 0,
     "mathjax_compatibility_occurrences": {
       "bm": 242,
@@ -90,7 +671,9 @@
       "longmapsfrom": 2,
       "llbracket": 3,
       "rrbracket": 3,
-      "multicolumn": 1
+      "multicolumn": 1,
+      "index": 0,
+      "par": 0
     },
     "active_index_metadata_removed_before_conversion": 754,
     "raw_index_or_par_residue": 0,
@@ -100,23 +683,24 @@
     "same_document_links_checked": 3645,
     "broken_same_document_targets": 0,
     "manifest_files_http_read_back": 31,
-    "manifest_files_http_read_back_bytes": 6196502,
+    "manifest_files_http_read_back_bytes": 6203761,
     "http_failures": 0,
     "byte_or_sha256_mismatches": 0,
     "manifest_path": "reader/dist/SHA256SUMS.txt",
     "manifest_bytes": 3897,
-    "manifest_sha256": "1d2071aa329dcedc1bafea6410fd785023e7e84365fcba9e26b5a5d74edc8f8c",
-    "browser_console_warnings_or_errors": 0
+    "manifest_sha256": "4a99210e529f1648094daa8dc97cb3da9bc08543eeeef50a95adc11742a9fbe6",
+    "browser_console_warnings_or_errors": 0,
+    "browser_console_defects": []
   },
   "build_receipt": {
     "path": "qa/HTML_BUILD_RECEIPT.json",
     "bytes": 34694,
-    "sha256": "1c9cee21a59708e5ba1c9799f70a3fcbfb392f7416cb10033c8e487032d8efe0"
+    "sha256": "c0c6b463fee31158e1e42bc55aa04ac51217fb0983b398f95a2627528e22248b"
   },
   "reader_build_report": {
     "path": "reader/build/reader-build-report.json",
     "bytes": 30824,
-    "sha256": "59458d06b7e8640ca6220688848bb861a38a9ef315a12fcc3a50f78636f9385a"
+    "sha256": "d35e7e0a3cf922f4c8ff609c87fa51d8b191b91f7c798a0e1f1f30fbe278936d"
   },
   "static_validation": {
     "path": "reader/dist/validation-report.json",

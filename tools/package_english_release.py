@@ -1,4 +1,4 @@
-"""Create a deterministic reader-first nine-file English release payload."""
+"""Create a deterministic reader-first ten-file English release payload."""
 
 from datetime import datetime, timezone
 import csv, hashlib, json
@@ -19,10 +19,11 @@ RECEIPT_TMP=STAGE/"PACKAGE_RECEIPT.json.tmp"
 FIXED=(2024,9,1,0,0,0)
 PAYLOAD_ROLES=(
     ("00_methods-of-algebra-volume-2-independent-english-edition.pdf","primary reader PDF"),
-    ("01_complete-xelatex-source.zip","complete editable XeLaTeX source"),
-    ("02_semantic-backend.zip","locale-linked semantic backend"),
-    ("03_offline-html-reader.zip","accessible reflowable offline HTML reader"),
-    ("04_provenance-and-reproducibility.zip","authority, workflow, QA, hashes, and build tools"),
+    ("01_methods-of-algebra-volume-2-independent-english-edition-cumulative.tex","direct cumulative editable LaTeX"),
+    ("02_complete-xelatex-source.zip","complete modular editable XeLaTeX source and dependencies"),
+    ("03_semantic-backend.zip","locale-linked semantic backend"),
+    ("04_offline-html-reader.zip","accessible reflowable offline HTML reader"),
+    ("05_provenance-and-reproducibility.zip","authority, workflow, QA, hashes, and build tools"),
     ("LICENSE","CC BY 4.0 license text"),
     ("README.txt","reader-first scope and use note"),
 )
@@ -217,6 +218,7 @@ def validate_inputs():
         ("html",ROOT/"qa"/"HTML_BUILD_RECEIPT.json","o014-english-html-build-v1"),
         ("html_browser",ROOT/"qa"/"HTML_BROWSER_QA.json","o014-english-html-browser-qa-v2"),
         ("backend",ROOT/"backend"/"BACKEND_VALIDATION.json","o014-english-backend-validation-v1"),
+        ("cumulative_tex",ROOT/"qa"/"CUMULATIVE_TEX_RECEIPT.json","o014-english-direct-cumulative-tex-v1"),
     )
     reports={}
     receipt_records={}
@@ -230,6 +232,16 @@ def validate_inputs():
         raise RuntimeError("PDF PASS receipt names a non-canonical artifact")
     pdf_record=bind_file(pdf,reports["pdf"].get("pdf_bytes"),reports["pdf"].get("pdf_sha256"),"PDF")
     pdf_visual_binding=validate_pdf_visual_gate(ROOT,reports["pdf"],reports["pdf_visual"])
+
+    cumulative_meta=reports["cumulative_tex"].get("output",{})
+    cumulative=ROOT/"output"/"source"/"methods-of-algebra-volume-2-independent-english-edition-cumulative.tex"
+    cumulative_relative=cumulative.relative_to(ROOT).as_posix()
+    if cumulative_meta.get("path")!=cumulative_relative:
+        raise RuntimeError("Cumulative-TeX receipt names a non-canonical artifact")
+    cumulative_record=bind_file(cumulative,cumulative_meta.get("bytes"),
+                                cumulative_meta.get("sha256"),"direct cumulative LaTeX")
+    if not all(reports["cumulative_tex"].get("checks",{}).values()):
+        raise RuntimeError("Direct cumulative LaTeX has a failed assembly check")
 
     source_entries=gather(ROOT/"source"/"en")
     backend_entries=gather(ROOT/"backend")
@@ -258,13 +270,16 @@ def validate_inputs():
     provenance=[]
     for folder in (ROOT/"controls",ROOT/"qa"):
         provenance += [(path,f"{folder.name}/{arc}") for path,arc in gather(folder)]
-    provenance += [(path,f"tools/{arc}") for path,arc in gather(ROOT/"tools",lambda path:path.suffix==".py",recursive=False)]
+    provenance += [(path,f"tools/{arc}") for path,arc in gather(
+        ROOT/"tools",lambda path:path.suffix in {".py",".js"},recursive=False
+    )]
     license_path=ROOT/"source"/"en"/"LICENSE"
     fingerprint(license_path)
-    return {"pdf":pdf,"source_entries":source_entries,"backend_entries":backend_entries,
+    return {"pdf":pdf,"cumulative_tex":cumulative,"source_entries":source_entries,"backend_entries":backend_entries,
             "reader_entries":reader_entries,"provenance":provenance,"license":license_path,
             "bindings":{"receipts":receipt_records,
                         "pdf":{"path":pdf_relative,**pdf_record},
+                        "cumulative_tex":{"path":cumulative_relative,**cumulative_record},
                         "html":html_binding,"backend":backend_binding,
                         "visual_qa":{"pdf":pdf_visual_binding,"html":html_browser_binding}}}
 
@@ -301,11 +316,11 @@ def reset_payload():
 
 
 def validate_payload():
-    if len(PAYLOAD_NAMES)!=9 or len(set(PAYLOAD_NAMES))!=9:
-        raise RuntimeError("Release allowlist must contain exactly nine unique names")
+    if len(PAYLOAD_NAMES)!=10 or len(set(PAYLOAD_NAMES))!=10:
+        raise RuntimeError("Release allowlist must contain exactly ten unique names")
     entries=list(PAYLOAD.iterdir())
     actual={path.name for path in entries}
-    if len(entries)!=9 or actual!=set(PAYLOAD_NAMES):
+    if len(entries)!=10 or actual!=set(PAYLOAD_NAMES):
         raise RuntimeError(f"Non-canonical payload inventory: {sorted(actual)}")
     for path in entries:
         fingerprint(path)
@@ -316,11 +331,12 @@ def main():
     inputs=validate_inputs()
     reset_payload()
     shutil.copy2(inputs["pdf"],PAYLOAD/"00_methods-of-algebra-volume-2-independent-english-edition.pdf")
+    shutil.copy2(inputs["cumulative_tex"],PAYLOAD/"01_methods-of-algebra-volume-2-independent-english-edition-cumulative.tex")
     zips={}
-    zips["01_complete-xelatex-source.zip"]=zip_files(PAYLOAD/"01_complete-xelatex-source.zip",inputs["source_entries"])
-    zips["02_semantic-backend.zip"]=zip_files(PAYLOAD/"02_semantic-backend.zip",inputs["backend_entries"])
-    zips["03_offline-html-reader.zip"]=zip_files(PAYLOAD/"03_offline-html-reader.zip",inputs["reader_entries"])
-    zips["04_provenance-and-reproducibility.zip"]=zip_files(PAYLOAD/"04_provenance-and-reproducibility.zip",inputs["provenance"])
+    zips["02_complete-xelatex-source.zip"]=zip_files(PAYLOAD/"02_complete-xelatex-source.zip",inputs["source_entries"])
+    zips["03_semantic-backend.zip"]=zip_files(PAYLOAD/"03_semantic-backend.zip",inputs["backend_entries"])
+    zips["04_offline-html-reader.zip"]=zip_files(PAYLOAD/"04_offline-html-reader.zip",inputs["reader_entries"])
+    zips["05_provenance-and-reproducibility.zip"]=zip_files(PAYLOAD/"05_provenance-and-reproducibility.zip",inputs["provenance"])
     shutil.copy2(inputs["license"],PAYLOAD/"LICENSE")
     readme='''Methods of Algebra, Volume 2: Linear Algebra — Independent English Edition
 
@@ -330,10 +346,13 @@ Source authority: official commit 9a5803ff77dd3257484cb177f851a73770a59dd3,
 tree 23bd05c2fb8434278df4fdfb636559a6a2b0d2ff. License: CC BY 4.0.
 
 Start with 00_methods-of-algebra-volume-2-independent-english-edition.pdf.
-For a reflowable offline reader, extract 03_offline-html-reader.zip and open
+The complete text is directly editable in
+01_methods-of-algebra-volume-2-independent-english-edition-cumulative.tex;
+copy it beside the dependencies in 02_complete-xelatex-source.zip to build it.
+For a reflowable offline reader, extract 04_offline-html-reader.zip and open
 index.html. The reader bundles MathJax locally and needs no network connection.
-The source, locale-linked backend, and reproducibility evidence are supplied in
-the remaining ZIP archives.
+The locale-linked backend and reproducibility evidence are supplied in the
+remaining ZIP archives.
 
 This is an independent translation. Wen-Wei Li and Higher Education Press do
 not endorse it. English translation, reader configuration, terminology
@@ -363,7 +382,7 @@ not displace source authorship or other human/component credits.
     RECEIPT_TMP.write_text(json.dumps(receipt,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     fingerprint(RECEIPT_TMP)
     RECEIPT_TMP.replace(RECEIPT)
-    print(json.dumps({"result":"PASS","files":9,"total_bytes":receipt["total_bytes"],"receipt_sha256":sha(RECEIPT)}))
+    print(json.dumps({"result":"PASS","files":10,"total_bytes":receipt["total_bytes"],"receipt_sha256":sha(RECEIPT)}))
 
 
 if __name__=="__main__":main()

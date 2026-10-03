@@ -32,8 +32,8 @@
     },
     {
       "path": "release/publish_zenodo.py",
-      "bytes": 43060,
-      "sha256": "25379087cb022676b85ad2e2d3df83a3289735a3652a32d19db7357a5e620bb5"
+      "bytes": 44298,
+      "sha256": "4b0852d0cbdb59ae15ec8e475f527cec9218ee7eb9a5932d473bbd0ae9e2970a"
     },
     {
       "path": "release/verify_github_public.py",
@@ -81,28 +81,28 @@
     "synthetic_exact_current_html_binding": {
       "receipt": {
         "path": "qa/HTML_BROWSER_QA.json",
-        "bytes": 4443,
-        "sha256": "e37a2c3a9d264888e7cb1a8adeb2d20d55e6ec9a968fa38bb9ba9e7924411171"
+        "bytes": 20744,
+        "sha256": "a74fec87a7663c247a76dca40d19e040fe64afaab46121fb0614d020d84df4e8"
       },
       "index": {
         "path": "reader/dist/index.html",
-        "bytes": 4493910,
-        "sha256": "411fe6246743388ba9c5352732cc7958c02aa5dc578a54daecd4e6a5b317347e"
+        "bytes": 4501169,
+        "sha256": "a407428c684ef99596234763d9df3f8fa1b2e6bfe841cc9462804e6dd941a293"
       },
       "html_build_receipt": {
         "path": "qa/HTML_BUILD_RECEIPT.json",
         "bytes": 34694,
-        "sha256": "1c9cee21a59708e5ba1c9799f70a3fcbfb392f7416cb10033c8e487032d8efe0"
+        "sha256": "c0c6b463fee31158e1e42bc55aa04ac51217fb0983b398f95a2627528e22248b"
       },
       "reader_build_report": {
         "path": "reader/build/reader-build-report.json",
         "bytes": 30824,
-        "sha256": "59458d06b7e8640ca6220688848bb861a38a9ef315a12fcc3a50f78636f9385a"
+        "sha256": "d35e7e0a3cf922f4c8ff609c87fa51d8b191b91f7c798a0e1f1f30fbe278936d"
       },
       "manifest": {
         "path": "reader/dist/SHA256SUMS.txt",
         "bytes": 3897,
-        "sha256": "1d2071aa329dcedc1bafea6410fd785023e7e84365fcba9e26b5a5d74edc8f8c"
+        "sha256": "4a99210e529f1648094daa8dc97cb3da9bc08543eeeef50a95adc11742a9fbe6"
       },
       "static_validation": {
         "path": "reader/dist/validation-report.json",
@@ -116,7 +116,7 @@
     "fail_closed_rejections": {
       "stale_pdf_artifact": "PDF visual QA is not bound to the current PDF build receipt",
       "stale_html_index": "HTML browser QA is not bound to the current HTML build receipt",
-      "stale_html_build_receipt": "HTML browser-QA build receipt is stale: expected {'bytes': 34694, 'sha256': '0000000000000000000000000000000000000000000000000000000000000000'}, current bytes are {'bytes': 34694, 'sha256': '1c9cee21a59708e5ba1c9799f70a3fcbfb392f7416cb10033c8e487032d8efe0'}"
+      "stale_html_build_receipt": "HTML browser-QA build receipt is stale: expected {'bytes': 34694, 'sha256': '0000000000000000000000000000000000000000000000000000000000000000'}, current bytes are {'bytes': 34694, 'sha256': 'c0c6b463fee31158e1e42bc55aa04ac51217fb0983b398f95a2627528e22248b'}"
     }
   },
   "interpretation": "The in-memory HTML candidate proves the validator accepts an exactly bound receipt; it is not a browser-QA result and was not written to qa/HTML_BROWSER_QA.json. A current stale browser receipt remains a hard release stop until browser QA is rerun."

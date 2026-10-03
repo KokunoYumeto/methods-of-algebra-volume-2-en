@@ -1,6 +1,6 @@
 {
   "schema": "o014-english-diagram-ledger-validation-v1",
-  "recorded_at_utc": "2026-09-01T14:37:47.952506+00:00",
+  "recorded_at_utc": "2026-10-03T05:06:51.210681+00:00",
   "result": "PASS",
   "checks": {
     "columns_exact": true,
@@ -20,6 +20,6 @@
   "description_defects": [],
   "witness_mismatches": [],
   "target_mismatches": [],
-  "ledger_bytes": 337312,
-  "ledger_sha256": "aa15c68e8e0f19ee58dc9329199c4ff84db1deb1df9bf58dd5a11105ff293937"
+  "ledger_bytes": 344106,
+  "ledger_sha256": "8cb96a9de8b2a4dd8a9e7c39bd845c50f6881ae37daa6bbf4ddb5b589303e6b6"
 }

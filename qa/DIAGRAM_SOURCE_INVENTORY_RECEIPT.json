@@ -1,6 +1,6 @@
 {
   "schema": "o014-english-complete-diagram-inventory-v2",
-  "recorded_at_utc": "2026-09-01T14:37:45.459048+00:00",
+  "recorded_at_utc": "2026-10-03T05:06:42.105206+00:00",
   "result": "PASS",
   "checks": {
     "inventory_907": true,
@@ -16,7 +16,7 @@
   "new_descriptions_required": 0,
   "transition_mode": "complete_907_row_revalidation",
   "alignment_failures": [],
-  "inventory_bytes": 722764,
-  "inventory_sha256": "d1fc3f3477a7798e2a6987c2ae8545e3f348233cdefb438577434414b3a4da9e",
-  "inherited_ledger_sha256": "aa15c68e8e0f19ee58dc9329199c4ff84db1deb1df9bf58dd5a11105ff293937"
+  "inventory_bytes": 786812,
+  "inventory_sha256": "3a3d2ca9e4cd5d82e002fe03d07fa6ffce1fd34dfef25ef04a27ac2d946dc8bf",
+  "inherited_ledger_sha256": "8cb96a9de8b2a4dd8a9e7c39bd845c50f6881ae37daa6bbf4ddb5b589303e6b6"
 }

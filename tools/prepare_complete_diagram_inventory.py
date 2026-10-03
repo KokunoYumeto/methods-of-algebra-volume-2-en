@@ -48,6 +48,26 @@ def occurrences(path: Path) -> list[dict[str, object]]:
 
 def align_existing(unit: str, diagrams: list[dict[str, object]], rows: list[dict[str, str]]):
     ordered_rows = sorted(rows, key=lambda value: int(value["local_order"]))
+    # When the ledger and the active source contain the same number of diagrams,
+    # local_order is the stable identity authority.  Trying to realign equal
+    # sequences by historical line numbers can shift every later caption after
+    # ordinary source reflow; that is the defect repaired in Unit 023.
+    local_orders = [int(row["local_order"]) for row in ordered_rows]
+    if (
+        len(diagrams) == len(ordered_rows)
+        and local_orders == list(range(1, len(ordered_rows) + 1))
+    ):
+        mapped: dict[int, dict[str, str]] = {}
+        for diagram, original in zip(diagrams, ordered_rows):
+            row = dict(original)
+            match = PROVENANCE_LINE.search(row.get("provenance", ""))
+            row["alignment_line_distance"] = str(
+                abs(int(diagram["line"]) - int(match.group(1))) if match else 0
+            )
+            row["alignment_mode"] = "direct_local_order_equal_cardinality"
+            mapped[int(diagram["actual_order"])] = row
+        return mapped, []
+
     failures = []
     provenance_lines = []
     for row in ordered_rows:
@@ -95,6 +115,7 @@ def align_existing(unit: str, diagrams: list[dict[str, object]], rows: list[dict
             row["alignment_line_distance"] = str(
                 abs(int(diagrams[j - 1]["line"]) - provenance_lines[i - 1])
             )
+            row["alignment_mode"] = "ordered_minimum_cost_with_source_skips"
             mapped[int(diagrams[j - 1]["actual_order"])] = row
             i -= 1
             j -= 1
@@ -159,6 +180,7 @@ def main() -> None:
                 "description_en": description,
                 "disposition": disposition,
                 "inherited_alignment_line_distance": int(prior["alignment_line_distance"]) if prior else None,
+                "inherited_alignment_mode": prior.get("alignment_mode") if prior else None,
                 "tex_body": diagram["tex_body"],
             })
 

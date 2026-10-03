@@ -1,6 +1,6 @@
 {
   "schema": "o014-english-backend-validation-v1",
-  "recorded_at_utc": "2026-09-01T14:37:49.304900+00:00",
+  "recorded_at_utc": "2026-10-03T05:06:58.168312+00:00",
   "checks": {
     "units_146": true,
     "unit_ids_unique": true,
@@ -59,8 +59,8 @@
       "sha256": "34e5d0214c2e5cf97898c9171e35dd78f0aa2171ae543da37899fbd4ba8813a6"
     },
     "figure-alt-text-en.csv": {
-      "bytes": 337312,
-      "sha256": "aa15c68e8e0f19ee58dc9329199c4ff84db1deb1df9bf58dd5a11105ff293937"
+      "bytes": 344106,
+      "sha256": "8cb96a9de8b2a4dd8a9e7c39bd845c50f6881ae37daa6bbf4ddb5b589303e6b6"
     },
     "bridges.jsonl": {
       "bytes": 674,

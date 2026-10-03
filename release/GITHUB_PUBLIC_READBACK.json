@@ -1,13 +1,13 @@
 {
   "schema": "o014-english-github-public-readback-v2",
-  "verified_at_utc": "2026-09-01T11:47:33.693002+00:00",
-  "started_at_utc": "2026-09-01T11:46:38.619510+00:00",
+  "verified_at_utc": "2026-09-01T18:02:24.375287+00:00",
+  "started_at_utc": "2026-09-01T18:01:28.892759+00:00",
   "result": "PASS",
   "repository": "https://github.com/KokunoYumeto/methods-of-algebra-volume-2-en",
   "pages_url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/",
-  "main_commit": "3570dc77c5abe8fb1a3462999f2abbb553db5682",
-  "main_tree": "3e3887187a498ea3cb15bf2c788a1a984ac2e373",
-  "pages_commit": "81b9a58f16aec0f0c22b3708ef52c7d36d15e009",
+  "main_commit": "674ef26c04dba544e80a95a3f320a9961649407c",
+  "main_tree": "f20d856d77cd6b0d9d727ae947e3087ac89667a5",
+  "pages_commit": "c53b473037ca96c3ea03ef752de7bf668725c650",
   "checks": {
     "publication_boundary": true,
     "repository_public": true,
@@ -24,8 +24,8 @@
     "root_present": true
   },
   "main_tree_record": {
-    "tree_sha1": "3e3887187a498ea3cb15bf2c788a1a984ac2e373",
-    "files": 288,
+    "tree_sha1": "f20d856d77cd6b0d9d727ae947e3087ac89667a5",
+    "files": 293,
     "git_blob_inventory": {
       ".gitattributes": {
         "git_blob_sha1": "1e82da1a44ecbbfe675bd4d6260f73295278fedf",
@@ -36,15 +36,15 @@
         "bytes": 156
       },
       "README.md": {
-        "git_blob_sha1": "3ffafcd72488e53cc971fa09c5fe4ad4fe417dba",
+        "git_blob_sha1": "43bbe4aa60af3471b5b8e07d35e3a00bd66a0279",
         "bytes": 3231
       },
       "backend/BACKEND_VALIDATION.json": {
-        "git_blob_sha1": "e92b114bad4d0b96210769dc7f9a9e03463e6283",
+        "git_blob_sha1": "0c4cb98d7defd05508e790f76fd5a49db2d9cb76",
         "bytes": 2285
       },
       "backend/bridges.jsonl": {
-        "git_blob_sha1": "bb15f36e12a950a8952670c3de70f46d2918fe2f",
+        "git_blob_sha1": "35b5a262ac48ad7a1f4003723ed09d503feb2ff8",
         "bytes": 672
       },
       "backend/figure-alt-text-en.csv": {
@@ -52,7 +52,7 @@
         "bytes": 337312
       },
       "backend/segments.jsonl": {
-        "git_blob_sha1": "105b1fe39d607d990bb1263954b97df7cfc00906",
+        "git_blob_sha1": "0e377d818f527213a4fb7f85c73916d7039e7031",
         "bytes": 2641717
       },
       "backend/term-overrides-en.csv": {
@@ -64,27 +64,27 @@
         "bytes": 41928
       },
       "backend/units.jsonl": {
-        "git_blob_sha1": "a6e75ad416704b1de759e9a2c005fc32aa1ea56e",
+        "git_blob_sha1": "0528849be1927a1d9c493a8486c31bd49768a7fc",
         "bytes": 111726
       },
       "controls/CURRENT_STATE.json": {
-        "git_blob_sha1": "29e865981263cf9074ecc8bd8630695a50920774",
-        "bytes": 2384
+        "git_blob_sha1": "b643c4b415b8cb143205a0ba33fb70db241b227b",
+        "bytes": 2906
       },
       "controls/ENGLISH_EDITION_SCOPE.md": {
         "git_blob_sha1": "364753bca02477ac039d0d766d99696589c1a3ea",
         "bytes": 5020
       },
       "controls/PRODUCTION_LOG.md": {
-        "git_blob_sha1": "ca007156184dc76c03318a980355703451e16376",
-        "bytes": 23162
+        "git_blob_sha1": "fa4fb063b8e9f8a132336477d95cdaec8c3807cd",
+        "bytes": 25876
       },
       "controls/SOURCE_FREEZE.json": {
         "git_blob_sha1": "c27be54417b8928e5477fa9de1ebb424d0d7ef53",
         "bytes": 5147
       },
       "controls/SOURCE_UNIT_MAP.json": {
-        "git_blob_sha1": "2ec32a5d598170708264c50f69d5b1028571fc76",
+        "git_blob_sha1": "6592926fc13f1ae50a7c01455c3fb49f838ceb4c",
         "bytes": 202162
       },
       "controls/ranges/001-015.json": {
@@ -108,7 +108,7 @@
         "bytes": 10374
       },
       "controls/ranges/047-055.json": {
-        "git_blob_sha1": "4b995f24a6d0045f4e302df8c8ac99280a4add32",
+        "git_blob_sha1": "e282e172942932496d763b532d5d87bdce16df4d",
         "bytes": 11330
       },
       "controls/ranges/056-064.json": {
@@ -120,19 +120,19 @@
         "bytes": 7750
       },
       "controls/ranges/074-082.json": {
-        "git_blob_sha1": "3914380ec224955c47f4a60479f5a3fc35d94ca1",
+        "git_blob_sha1": "b6b9cc0d9b9593cb3ed59d9995f0cab0600d449a",
         "bytes": 7704
       },
       "controls/ranges/083-089.json": {
-        "git_blob_sha1": "da2805922a4a81fc51878ad68c86ca692ef192a1",
-        "bytes": 11647
+        "git_blob_sha1": "74514b897ebb5bff18fba494e85d9ce3df9122fd",
+        "bytes": 11755
       },
       "controls/ranges/090-099.json": {
         "git_blob_sha1": "a6c76cf4ebef6ef60aa34d7c3e73762b18271772",
         "bytes": 8443
       },
       "controls/ranges/100-109.json": {
-        "git_blob_sha1": "6607e89ef4a48a0f4102dee8de8b94f3136f63be",
+        "git_blob_sha1": "077553cc4711106ddd8f2809ef561f4bf4dbe71c",
         "bytes": 8406
       },
       "controls/ranges/110-121.json": {
@@ -144,56 +144,64 @@
         "bytes": 14512
       },
       "controls/ranges/133-146.json": {
-        "git_blob_sha1": "4d95ff1070012f6a428c8efe5049cc7620edaffd",
+        "git_blob_sha1": "ce1416ff7cf034b6165f99db8ab7af5714b06748",
         "bytes": 11686
       },
       "controls/ranges/bridges.json": {
-        "git_blob_sha1": "3046042bf0cb8e3abdda47f0883e85f04e5fd52d",
+        "git_blob_sha1": "6cbbea52d60ea6d2a917f48fbfd86ec035fe03c7",
         "bytes": 5323
       },
       "output/pdf/methods-of-algebra-volume-2-independent-english-edition.pdf": {
-        "git_blob_sha1": "e0b7aa6bab03a857bf1299c3e8923fd84257bbb1",
-        "bytes": 3891627
+        "git_blob_sha1": "5c8ed11c86b46e31ecf2928258d59d105ec82c42",
+        "bytes": 3894743
       },
       "qa/DIAGRAM_LEDGER_VALIDATION.json": {
-        "git_blob_sha1": "285e2d6fbf3eed67190a4b8217eb8f82437f361a",
+        "git_blob_sha1": "d3a252595c784cbef46ebd6779da45f8b9362757",
         "bytes": 755
       },
       "qa/DIAGRAM_SOURCE_INVENTORY.jsonl": {
-        "git_blob_sha1": "a90983a0132511023ece95cfa992f44fbd4d022d",
-        "bytes": 696546
+        "git_blob_sha1": "94e1ffc5521d1e0451d9d505458ec848558b00ba",
+        "bytes": 722764
       },
       "qa/DIAGRAM_SOURCE_INVENTORY_RECEIPT.json": {
-        "git_blob_sha1": "41f629ef35dfc89fb9b72fe2077f325482725d17",
-        "bytes": 685
+        "git_blob_sha1": "ad8d97e327b45daaaec6345b91c56f7c6f6df1f3",
+        "bytes": 830
       },
       "qa/HTML_BROWSER_QA.json": {
-        "git_blob_sha1": "42241eb848166e1f54c95e555f572c046b0123a3",
-        "bytes": 3412
+        "git_blob_sha1": "528d2d35205cad006377c0def78eaeda3e94bd80",
+        "bytes": 4443
       },
       "qa/HTML_BUILD_RECEIPT.json": {
-        "git_blob_sha1": "1d95347ee16dfc6f2abdf2ffb5526dca7bebba9c",
-        "bytes": 31767
+        "git_blob_sha1": "5ba8a3e5a3fc353a70a2dc3c99308613c14228ad",
+        "bytes": 33831
       },
       "qa/PDF_BUILD_ATTEMPT_001.json": {
         "git_blob_sha1": "01c212feca411cac6b91c653a65b073a36fab52d",
         "bytes": 659
       },
       "qa/PDF_BUILD_RECEIPT.json": {
-        "git_blob_sha1": "ae51e0a492cf28b763444430172b70f8628965bd",
-        "bytes": 24067
+        "git_blob_sha1": "7108e536fd963a70d282a3ec41693f67d5f5aecb",
+        "bytes": 24073
       },
       "qa/PDF_VISUAL_QA.json": {
-        "git_blob_sha1": "43d28cdfb8a547c0cddbd98ad84e9295d3923656",
-        "bytes": 2637
+        "git_blob_sha1": "010387dd4a6921dcff3288ff00ade90b63722ca5",
+        "bytes": 9147
+      },
+      "qa/PDF_VISUAL_QA_ALL_PAGE_METRICS.json": {
+        "git_blob_sha1": "3b204429b444572db83f492e8ffc736cb4ca10b9",
+        "bytes": 519834
+      },
+      "qa/PDF_VISUAL_QA_PAGE_MANIFEST.csv": {
+        "git_blob_sha1": "84d84bfe05bbad718999a387acf6b258c1bb660c",
+        "bytes": 123351
       },
       "qa/READER_BUILDER_PREFLIGHT.json": {
         "git_blob_sha1": "334142910955b544f7c4eeb8544fbcf450ce4ce4",
         "bytes": 4924
       },
       "qa/RELEASE_TOOL_PREFLIGHT.json": {
-        "git_blob_sha1": "42ac9ffe12b0bb5edd3ebcd0c60c307ea5b6e4d2",
-        "bytes": 6211
+        "git_blob_sha1": "64214ef344de04c048903a1d3d7c4b9e3856a81e",
+        "bytes": 4755
       },
       "qa/RELEASE_TOOL_PREFLIGHT_SUPPLEMENT.json": {
         "git_blob_sha1": "96611c8ea865252eed5195effdc38a1a4f6ecca2",
@@ -204,11 +212,11 @@
         "bytes": 4202
       },
       "qa/SHARED_SOURCE_VALIDATION.json": {
-        "git_blob_sha1": "3b03330e347631ec95e605e1ac5769c02c445e85",
+        "git_blob_sha1": "16da1e5cbf7a3dbb74e61271e7093becdef1bd29",
         "bytes": 1972
       },
       "qa/UNIT_ADMISSION.json": {
-        "git_blob_sha1": "d7610dee4eab451de1381f8eb9458ea743db1bdc",
+        "git_blob_sha1": "c0d0fa08292be333a231042316ee003dde8deec9",
         "bytes": 180266
       },
       "reader/LICENSE.txt": {
@@ -228,7 +236,7 @@
         "bytes": 905
       },
       "reader/dist/SHA256SUMS.txt": {
-        "git_blob_sha1": "b739c6cfe904561c9e241919ba6cbfb9ad60fc30",
+        "git_blob_sha1": "19aaa15492056c07342b5d94f75508bf0efa8924",
         "bytes": 3897
       },
       "reader/dist/accessibility.html": {
@@ -236,16 +244,16 @@
         "bytes": 2398
       },
       "reader/dist/index.html": {
-        "git_blob_sha1": "1a74c0f6ceb74476cf95926a9d5b6c7df1152136",
-        "bytes": 4501242
+        "git_blob_sha1": "fd388fcba8e8fb80d2d5d9e1268745791cae5f44",
+        "bytes": 4493910
       },
       "reader/dist/reader.css": {
         "git_blob_sha1": "1fb7dc9274aa1e8ebd8d51bcb9802c7d47d8052f",
         "bytes": 6769
       },
       "reader/dist/validation-report.json": {
-        "git_blob_sha1": "7aab0ebc70ec39a29f00d4f899580a97b5bb6a86",
-        "bytes": 632
+        "git_blob_sha1": "6d01091d469f91f0ef74b47ed5247500b57136b2",
+        "bytes": 1771
       },
       "reader/dist/vendor/mathjax-3.2.2/LICENSE-MathJax.txt": {
         "git_blob_sha1": "d645695673349e3947e8e5ae42332d0ac3164cd7",
@@ -352,16 +360,16 @@
         "bytes": 6769
       },
       "reader/tools/build_pandoc_reader.py": {
-        "git_blob_sha1": "8bca2123c2c8002c728ce1e37a9459493e477d38",
-        "bytes": 31803
+        "git_blob_sha1": "1eded630d452012c09338f892f6e17c49314bf5b",
+        "bytes": 38891
       },
       "reader/tools/postprocess_reader.py": {
         "git_blob_sha1": "ac6953f5f5c025f508fbd4b18b46ccb99af5cf13",
         "bytes": 4743
       },
       "reader/tools/validate_reader.py": {
-        "git_blob_sha1": "13eeca271af8492b200ed6300073a87f9d104988",
-        "bytes": 17552
+        "git_blob_sha1": "553eaa0e3fe9f2d0ccdaadac3f30b5a763f4a7a4",
+        "bytes": 22747
       },
       "reader/vendor/mathjax-3.2.2/LICENSE-MathJax.txt": {
         "git_blob_sha1": "d645695673349e3947e8e5ae42332d0ac3164cd7",
@@ -464,24 +472,28 @@
         "bytes": 1327522
       },
       "release/GITHUB_PUBLICATION_RECEIPT.json": {
-        "git_blob_sha1": "36c752f54a266993c10063a52bbb62d6c7408d32",
-        "bytes": 58252
+        "git_blob_sha1": "adf5fea6c01d1778fa8e1e68051766aeb7caa362",
+        "bytes": 59277
+      },
+      "release/GITHUB_PUBLIC_READBACK.json": {
+        "git_blob_sha1": "d485b099541a2a199ada9db5b8144560ab23c773",
+        "bytes": 215891
       },
       "release/GITHUB_PUBLIC_READBACK_CHECKPOINT_HTML_ONLY.json": {
         "git_blob_sha1": "83a9ae6a1155c39659907fcf843a302b962b7648",
         "bytes": 16614
       },
       "release/ZENODO_PUBLICATION_RECEIPT.json": {
-        "git_blob_sha1": "6b4245a46fb4f78ca1ae3dc63dfde2dd46ac4787",
-        "bytes": 4904
+        "git_blob_sha1": "084e8e5dc127b3e7b2f492838bd48140c9130f60",
+        "bytes": 4907
       },
       "release/publish_github.py": {
-        "git_blob_sha1": "d64bb6579c51ab85d9f6f94d4178d998a33fbae5",
-        "bytes": 25448
+        "git_blob_sha1": "32a94e2619e0847bd3f9c318f0b00bd938175fd5",
+        "bytes": 26439
       },
       "release/publish_zenodo.py": {
-        "git_blob_sha1": "7d568d17683f1022071bda279a574bd1abbc0130",
-        "bytes": 42120
+        "git_blob_sha1": "8f506ac9623cda11d68b55ac314b58479e50616c",
+        "bytes": 44298
       },
       "release/verify_github_public.py": {
         "git_blob_sha1": "dd2ff62a8303e44fd25166c72ce666ae4b1bf664",
@@ -528,8 +540,8 @@
         "bytes": 5740
       },
       "source/en/appendix2-unit-140.tex": {
-        "git_blob_sha1": "bf199fb570784ad841f3fc63eef39e1ec921f110",
-        "bytes": 14627
+        "git_blob_sha1": "5352e8a6bccbfa475292b0adf2579006ea17d2a2",
+        "bytes": 14624
       },
       "source/en/appendix2-unit-141.tex": {
         "git_blob_sha1": "0ca4df1a4e97edb533edd9c9009a417a98eb7351",
@@ -748,8 +760,8 @@
         "bytes": 32273
       },
       "source/en/chapter4-unit-055.tex": {
-        "git_blob_sha1": "7df52379f3076e02c7f84630c880d36ac6bd5f44",
-        "bytes": 39225
+        "git_blob_sha1": "b11a8f7ba5435b5943ec536b8be9bf1aaf4e5dc9",
+        "bytes": 39199
       },
       "source/en/chapter4-unit-056.tex": {
         "git_blob_sha1": "80cc3e8027c7f8767f7df2dd059c222054ee58a1",
@@ -832,8 +844,8 @@
         "bytes": 14458
       },
       "source/en/chapter6-unit-076.tex": {
-        "git_blob_sha1": "8dd8dc67928864b8a1585c4f193fdf6a375bf6fc",
-        "bytes": 26876
+        "git_blob_sha1": "609234f8b117f4c6a0cfbf2599e4613a6f4ccbbc",
+        "bytes": 26891
       },
       "source/en/chapter6-unit-077.tex": {
         "git_blob_sha1": "9667081bf592b5b0dac67434fe78520e0c4c5610",
@@ -880,8 +892,8 @@
         "bytes": 21264
       },
       "source/en/chapter7-unit-088.tex": {
-        "git_blob_sha1": "668a8adb9079819eabdd01e0c96347948c1e057f",
-        "bytes": 48902
+        "git_blob_sha1": "f035fd5affa596c34a47dd74d51ee18074ee5e73",
+        "bytes": 48935
       },
       "source/en/chapter7-unit-089.tex": {
         "git_blob_sha1": "da818bc86de7817afbec0f96fa381e6434437e39",
@@ -952,8 +964,8 @@
         "bytes": 8139
       },
       "source/en/chapter8-unit-106.tex": {
-        "git_blob_sha1": "5d6d7c649f6438aabffbd2b7f3225c61b3a63149",
-        "bytes": 22762
+        "git_blob_sha1": "b319b9bface278f934389a9ce40be92e995fc322",
+        "bytes": 22775
       },
       "source/en/chapter8-unit-107.tex": {
         "git_blob_sha1": "7cf5d8c563834b2ac9ddf441ab0dd110cd66cd97",
@@ -1060,8 +1072,8 @@
         "bytes": 8959
       },
       "source/en/chapter9-unit-133.tex": {
-        "git_blob_sha1": "66031ea9ed79eb6176d6bf7519537c18f0057d2b",
-        "bytes": 14044
+        "git_blob_sha1": "4aead647724a3f5385f60691f6468bd4bf6e6f0a",
+        "bytes": 14095
       },
       "source/en/chapter9-unit-134.tex": {
         "git_blob_sha1": "97656705058d9c10df5961e41b6e6f117bdc768b",
@@ -1080,8 +1092,8 @@
         "bytes": 22487
       },
       "source/en/mastery-bridge-002-derived-functors-spectral-sequences.tex": {
-        "git_blob_sha1": "5130499a2615dce14e63184ef2073cd026315fdd",
-        "bytes": 24139
+        "git_blob_sha1": "24705a1220580a89e73a47a1432bf56d17f64757",
+        "bytes": 24160
       },
       "source/en/myarrows.sty": {
         "git_blob_sha1": "6c068d23172bb91d8e3e7d68bf7d09853cc65c16",
@@ -1132,8 +1144,8 @@
         "bytes": 11942
       },
       "tools/audit_english_range.py": {
-        "git_blob_sha1": "88a7b30adae8ed7267a04f30c78c0576faa091e3",
-        "bytes": 13106
+        "git_blob_sha1": "e8cc56b42c25db0b82868f6663c9df25a83c4d9b",
+        "bytes": 14384
       },
       "tools/build_complete_english_diagram_ledger.py": {
         "git_blob_sha1": "2034fddb316d828260eaa976179583e849e00105",
@@ -1148,8 +1160,8 @@
         "bytes": 13750
       },
       "tools/build_english_reader.py": {
-        "git_blob_sha1": "c410efdc42bfdbccb49632219fb157a68eb22713",
-        "bytes": 5397
+        "git_blob_sha1": "dd268e76e574805e2be5a992ba1e245efcf7b4c5",
+        "bytes": 5662
       },
       "tools/build_shared_english.py": {
         "git_blob_sha1": "6946f2870fbf03050487e1138a06ef5b7070e7f6",
@@ -1164,16 +1176,24 @@
         "bytes": 19062
       },
       "tools/package_english_release.py": {
-        "git_blob_sha1": "51613624c4ccc691f8f5a9585dc26bba6b4604e0",
-        "bytes": 16884
+        "git_blob_sha1": "7214f5493b920c06ca03182f56352dc8441e7a6f",
+        "bytes": 17540
+      },
+      "tools/preflight_release_visual_gates.py": {
+        "git_blob_sha1": "b037d48322e54808a8ceeb80452eea9b5cadbd60",
+        "bytes": 7434
       },
       "tools/prepare_complete_diagram_inventory.py": {
-        "git_blob_sha1": "5c428f06c13a57a0d2cfb952acd2752a906f32b5",
-        "bytes": 8275
+        "git_blob_sha1": "f8b9f4792a9bf6bda115d258a2492cd004e283f6",
+        "bytes": 8970
       },
       "tools/record_source_freeze.py": {
         "git_blob_sha1": "e73897a1874ad1260f9abc9c9e90f385ed908cc3",
         "bytes": 2284
+      },
+      "tools/release_visual_gates.py": {
+        "git_blob_sha1": "5626df5dffccfe031e4823c92fee3fd4deb1ebc4",
+        "bytes": 11370
       },
       "tools/validate_english_diagram_ledger.py": {
         "git_blob_sha1": "4c7c6d40ab6712c6d717c5662c834fdd7c60625d",
@@ -1182,7 +1202,7 @@
     }
   },
   "pages_tree_record": {
-    "tree_sha1": "ef1b80005be2ea44f352ef4694d00451ab6dc83d",
+    "tree_sha1": "8fd54d73dfdb39dbf8d3760e84f4f04079c85e1b",
     "files": 31,
     "git_blob_inventory": {
       "LICENSE.txt": {
@@ -1190,7 +1210,7 @@
         "bytes": 905
       },
       "SHA256SUMS.txt": {
-        "git_blob_sha1": "b739c6cfe904561c9e241919ba6cbfb9ad60fc30",
+        "git_blob_sha1": "19aaa15492056c07342b5d94f75508bf0efa8924",
         "bytes": 3897
       },
       "accessibility.html": {
@@ -1198,16 +1218,16 @@
         "bytes": 2398
       },
       "index.html": {
-        "git_blob_sha1": "1a74c0f6ceb74476cf95926a9d5b6c7df1152136",
-        "bytes": 4501242
+        "git_blob_sha1": "fd388fcba8e8fb80d2d5d9e1268745791cae5f44",
+        "bytes": 4493910
       },
       "reader.css": {
         "git_blob_sha1": "1fb7dc9274aa1e8ebd8d51bcb9802c7d47d8052f",
         "bytes": 6769
       },
       "validation-report.json": {
-        "git_blob_sha1": "7aab0ebc70ec39a29f00d4f899580a97b5bb6a86",
-        "bytes": 632
+        "git_blob_sha1": "6d01091d469f91f0ef74b47ed5247500b57136b2",
+        "bytes": 1771
       },
       "vendor/mathjax-3.2.2/LICENSE-MathJax.txt": {
         "git_blob_sha1": "d645695673349e3947e8e5ae42332d0ac3164cd7",
@@ -1314,7 +1334,7 @@
   "main_files": [
     {
       "path": ".gitattributes",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/.gitattributes",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/.gitattributes",
       "http_status": 200,
       "expected_bytes": 98,
       "bytes": 98,
@@ -1324,7 +1344,7 @@
     },
     {
       "path": ".gitignore",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/.gitignore",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/.gitignore",
       "http_status": 200,
       "expected_bytes": 156,
       "bytes": 156,
@@ -1334,37 +1354,37 @@
     },
     {
       "path": "README.md",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/README.md",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/README.md",
       "http_status": 200,
       "expected_bytes": 3231,
       "bytes": 3231,
-      "expected_sha256": "bdd4f7eb2ff9d287e30f7626b5e9e6166d4bb50e8c1ecfaf4b1216bbcf463ff1",
-      "sha256": "bdd4f7eb2ff9d287e30f7626b5e9e6166d4bb50e8c1ecfaf4b1216bbcf463ff1",
+      "expected_sha256": "2564ba03e4bd347ede4b325bf013934bc8e7dc16ec1db9e309b8cef4292d6b17",
+      "sha256": "2564ba03e4bd347ede4b325bf013934bc8e7dc16ec1db9e309b8cef4292d6b17",
       "pass": true
     },
     {
       "path": "backend/BACKEND_VALIDATION.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/backend/BACKEND_VALIDATION.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/backend/BACKEND_VALIDATION.json",
       "http_status": 200,
       "expected_bytes": 2285,
       "bytes": 2285,
-      "expected_sha256": "e9964e2745a599d43c01c3e37926fe798d66aadae4167ddd867e663976bcf2be",
-      "sha256": "e9964e2745a599d43c01c3e37926fe798d66aadae4167ddd867e663976bcf2be",
+      "expected_sha256": "a02e96253fece16e4e5576caa44dcd81844182d5df128c6e16a10314c43c69e7",
+      "sha256": "a02e96253fece16e4e5576caa44dcd81844182d5df128c6e16a10314c43c69e7",
       "pass": true
     },
     {
       "path": "backend/bridges.jsonl",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/backend/bridges.jsonl",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/backend/bridges.jsonl",
       "http_status": 200,
       "expected_bytes": 672,
       "bytes": 672,
-      "expected_sha256": "acf6141aab87852c2e994fd92adf88317f8552a6c01bde3056c5361dcc51cc57",
-      "sha256": "acf6141aab87852c2e994fd92adf88317f8552a6c01bde3056c5361dcc51cc57",
+      "expected_sha256": "e3374a13899dd15ccfd10186b0d7500e4a8354d016ee49f96752ac64c80ea97d",
+      "sha256": "e3374a13899dd15ccfd10186b0d7500e4a8354d016ee49f96752ac64c80ea97d",
       "pass": true
     },
     {
       "path": "backend/figure-alt-text-en.csv",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/backend/figure-alt-text-en.csv",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/backend/figure-alt-text-en.csv",
       "http_status": 200,
       "expected_bytes": 337312,
       "bytes": 337312,
@@ -1374,17 +1394,17 @@
     },
     {
       "path": "backend/segments.jsonl",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/backend/segments.jsonl",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/backend/segments.jsonl",
       "http_status": 200,
       "expected_bytes": 2641717,
       "bytes": 2641717,
-      "expected_sha256": "d7fd08c42834bc6039c725c9de9ebda7b9617115fa3bfa27b3e7d1c22c825131",
-      "sha256": "d7fd08c42834bc6039c725c9de9ebda7b9617115fa3bfa27b3e7d1c22c825131",
+      "expected_sha256": "84841b3d9cab11b65c8b2a5baf8705c7b147d38bf94027d9cc546a369ba6cda2",
+      "sha256": "84841b3d9cab11b65c8b2a5baf8705c7b147d38bf94027d9cc546a369ba6cda2",
       "pass": true
     },
     {
       "path": "backend/term-overrides-en.csv",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/backend/term-overrides-en.csv",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/backend/term-overrides-en.csv",
       "http_status": 200,
       "expected_bytes": 25413,
       "bytes": 25413,
@@ -1394,7 +1414,7 @@
     },
     {
       "path": "backend/terms.csv",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/backend/terms.csv",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/backend/terms.csv",
       "http_status": 200,
       "expected_bytes": 41928,
       "bytes": 41928,
@@ -1404,27 +1424,27 @@
     },
     {
       "path": "backend/units.jsonl",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/backend/units.jsonl",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/backend/units.jsonl",
       "http_status": 200,
       "expected_bytes": 111726,
       "bytes": 111726,
-      "expected_sha256": "469e15ad6f5e7db9e716ba10447ee90fe2798420c9f21aa50c696473165d0dd9",
-      "sha256": "469e15ad6f5e7db9e716ba10447ee90fe2798420c9f21aa50c696473165d0dd9",
+      "expected_sha256": "d0d8fc7c32c445877f81982997418f2897b8d827507cba589b1a9cfa65f4a576",
+      "sha256": "d0d8fc7c32c445877f81982997418f2897b8d827507cba589b1a9cfa65f4a576",
       "pass": true
     },
     {
       "path": "controls/CURRENT_STATE.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/controls/CURRENT_STATE.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/controls/CURRENT_STATE.json",
       "http_status": 200,
-      "expected_bytes": 2384,
-      "bytes": 2384,
-      "expected_sha256": "692fadd7064c90f4dbe7d849e365ad5fbe0ede8048b7b7a34a459a67fa4a34a9",
-      "sha256": "692fadd7064c90f4dbe7d849e365ad5fbe0ede8048b7b7a34a459a67fa4a34a9",
+      "expected_bytes": 2906,
+      "bytes": 2906,
+      "expected_sha256": "66cbd6c839d772ac8f3ccb67009c5f58dbf7dfeb3e7d862a264a7ed0544a7e1d",
+      "sha256": "66cbd6c839d772ac8f3ccb67009c5f58dbf7dfeb3e7d862a264a7ed0544a7e1d",
       "pass": true
     },
     {
       "path": "controls/ENGLISH_EDITION_SCOPE.md",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/controls/ENGLISH_EDITION_SCOPE.md",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/controls/ENGLISH_EDITION_SCOPE.md",
       "http_status": 200,
       "expected_bytes": 5020,
       "bytes": 5020,
@@ -1434,17 +1454,17 @@
     },
     {
       "path": "controls/PRODUCTION_LOG.md",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/controls/PRODUCTION_LOG.md",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/controls/PRODUCTION_LOG.md",
       "http_status": 200,
-      "expected_bytes": 23162,
-      "bytes": 23162,
-      "expected_sha256": "f4e7c5f9488b0fd0f7628b9b5187ffcb0fd6c2489a4698b15d0f4c0d039d3e2f",
-      "sha256": "f4e7c5f9488b0fd0f7628b9b5187ffcb0fd6c2489a4698b15d0f4c0d039d3e2f",
+      "expected_bytes": 25876,
+      "bytes": 25876,
+      "expected_sha256": "629550f51d9b5b985a91657df31a55f23107ccaa571b7ce2cb85308864b716da",
+      "sha256": "629550f51d9b5b985a91657df31a55f23107ccaa571b7ce2cb85308864b716da",
       "pass": true
     },
     {
       "path": "controls/SOURCE_FREEZE.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/controls/SOURCE_FREEZE.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/controls/SOURCE_FREEZE.json",
       "http_status": 200,
       "expected_bytes": 5147,
       "bytes": 5147,
@@ -1454,17 +1474,17 @@
     },
     {
       "path": "controls/SOURCE_UNIT_MAP.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/controls/SOURCE_UNIT_MAP.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/controls/SOURCE_UNIT_MAP.json",
       "http_status": 200,
       "expected_bytes": 202162,
       "bytes": 202162,
-      "expected_sha256": "658a46f7bd859293846d6e6fa5d73a7f8df52f0a4b22666607ec11519b228b12",
-      "sha256": "658a46f7bd859293846d6e6fa5d73a7f8df52f0a4b22666607ec11519b228b12",
+      "expected_sha256": "b92a350515c53b020fec570d5f3b946b72d83990daa4c0c88256dc7cd1d342d1",
+      "sha256": "b92a350515c53b020fec570d5f3b946b72d83990daa4c0c88256dc7cd1d342d1",
       "pass": true
     },
     {
       "path": "controls/ranges/001-015.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/controls/ranges/001-015.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/controls/ranges/001-015.json",
       "http_status": 200,
       "expected_bytes": 12083,
       "bytes": 12083,
@@ -1474,7 +1494,7 @@
     },
     {
       "path": "controls/ranges/016-024.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/controls/ranges/016-024.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/controls/ranges/016-024.json",
       "http_status": 200,
       "expected_bytes": 7721,
       "bytes": 7721,
@@ -1484,7 +1504,7 @@
     },
     {
       "path": "controls/ranges/025-032.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/controls/ranges/025-032.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/controls/ranges/025-032.json",
       "http_status": 200,
       "expected_bytes": 4550,
       "bytes": 4550,
@@ -1494,7 +1514,7 @@
     },
     {
       "path": "controls/ranges/033-040.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/controls/ranges/033-040.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/controls/ranges/033-040.json",
       "http_status": 200,
       "expected_bytes": 4883,
       "bytes": 4883,
@@ -1504,7 +1524,7 @@
     },
     {
       "path": "controls/ranges/041-046.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/controls/ranges/041-046.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/controls/ranges/041-046.json",
       "http_status": 200,
       "expected_bytes": 10374,
       "bytes": 10374,
@@ -1514,17 +1534,17 @@
     },
     {
       "path": "controls/ranges/047-055.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/controls/ranges/047-055.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/controls/ranges/047-055.json",
       "http_status": 200,
       "expected_bytes": 11330,
       "bytes": 11330,
-      "expected_sha256": "8a3c5070d05c851b93c95a3df37dc0ebdafcdae4a86c3153444d18c8bdde8b22",
-      "sha256": "8a3c5070d05c851b93c95a3df37dc0ebdafcdae4a86c3153444d18c8bdde8b22",
+      "expected_sha256": "1584a0cfd63490833a4eb8aad4589c77b21ed2cec4f603034cc2538d1afe6fc9",
+      "sha256": "1584a0cfd63490833a4eb8aad4589c77b21ed2cec4f603034cc2538d1afe6fc9",
       "pass": true
     },
     {
       "path": "controls/ranges/056-064.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/controls/ranges/056-064.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/controls/ranges/056-064.json",
       "http_status": 200,
       "expected_bytes": 7728,
       "bytes": 7728,
@@ -1534,7 +1554,7 @@
     },
     {
       "path": "controls/ranges/065-073.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/controls/ranges/065-073.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/controls/ranges/065-073.json",
       "http_status": 200,
       "expected_bytes": 7750,
       "bytes": 7750,
@@ -1544,27 +1564,27 @@
     },
     {
       "path": "controls/ranges/074-082.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/controls/ranges/074-082.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/controls/ranges/074-082.json",
       "http_status": 200,
       "expected_bytes": 7704,
       "bytes": 7704,
-      "expected_sha256": "d6e319f6e7199147a2d3ace5066b4527881c578d282ba5a79f8b8e3eb4807452",
-      "sha256": "d6e319f6e7199147a2d3ace5066b4527881c578d282ba5a79f8b8e3eb4807452",
+      "expected_sha256": "7fb35c7f8d35cd62d68e9739397f72cf9c79812eac063601200667265be54687",
+      "sha256": "7fb35c7f8d35cd62d68e9739397f72cf9c79812eac063601200667265be54687",
       "pass": true
     },
     {
       "path": "controls/ranges/083-089.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/controls/ranges/083-089.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/controls/ranges/083-089.json",
       "http_status": 200,
-      "expected_bytes": 11647,
-      "bytes": 11647,
-      "expected_sha256": "865868d251f28f7c02f1fe4278fb9580d7a9f430c81da0e3feaffb9d5149d6f1",
-      "sha256": "865868d251f28f7c02f1fe4278fb9580d7a9f430c81da0e3feaffb9d5149d6f1",
+      "expected_bytes": 11755,
+      "bytes": 11755,
+      "expected_sha256": "a4fab1c4d48e62fd75ff519d811d395c49a5969c34d965e39412bbb2a587a042",
+      "sha256": "a4fab1c4d48e62fd75ff519d811d395c49a5969c34d965e39412bbb2a587a042",
       "pass": true
     },
     {
       "path": "controls/ranges/090-099.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/controls/ranges/090-099.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/controls/ranges/090-099.json",
       "http_status": 200,
       "expected_bytes": 8443,
       "bytes": 8443,
@@ -1574,17 +1594,17 @@
     },
     {
       "path": "controls/ranges/100-109.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/controls/ranges/100-109.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/controls/ranges/100-109.json",
       "http_status": 200,
       "expected_bytes": 8406,
       "bytes": 8406,
-      "expected_sha256": "0a381a37986961a98624ac2b0a49889b9b0e34e496ccc58f72b112a327fce2dd",
-      "sha256": "0a381a37986961a98624ac2b0a49889b9b0e34e496ccc58f72b112a327fce2dd",
+      "expected_sha256": "ed0ca4bb1db4ed0f4d8bdd65b8616fa1959c7dc4e126e65a53d920b985f7d2a8",
+      "sha256": "ed0ca4bb1db4ed0f4d8bdd65b8616fa1959c7dc4e126e65a53d920b985f7d2a8",
       "pass": true
     },
     {
       "path": "controls/ranges/110-121.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/controls/ranges/110-121.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/controls/ranges/110-121.json",
       "http_status": 200,
       "expected_bytes": 9898,
       "bytes": 9898,
@@ -1594,7 +1614,7 @@
     },
     {
       "path": "controls/ranges/122-132.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/controls/ranges/122-132.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/controls/ranges/122-132.json",
       "http_status": 200,
       "expected_bytes": 14512,
       "bytes": 14512,
@@ -1604,87 +1624,87 @@
     },
     {
       "path": "controls/ranges/133-146.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/controls/ranges/133-146.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/controls/ranges/133-146.json",
       "http_status": 200,
       "expected_bytes": 11686,
       "bytes": 11686,
-      "expected_sha256": "a744276b1b649f26d7d3a0609b3b4258a36bfcdca4ee989c5cce3a8ccedd8ce7",
-      "sha256": "a744276b1b649f26d7d3a0609b3b4258a36bfcdca4ee989c5cce3a8ccedd8ce7",
+      "expected_sha256": "be3f31f6b82d8a9013afc277db7b329a216e65d02dad01957d0644c2f0441b38",
+      "sha256": "be3f31f6b82d8a9013afc277db7b329a216e65d02dad01957d0644c2f0441b38",
       "pass": true
     },
     {
       "path": "controls/ranges/bridges.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/controls/ranges/bridges.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/controls/ranges/bridges.json",
       "http_status": 200,
       "expected_bytes": 5323,
       "bytes": 5323,
-      "expected_sha256": "eebc902ea9d9697facc311864e91f0823f74d433f84b452f7faf6980340d02df",
-      "sha256": "eebc902ea9d9697facc311864e91f0823f74d433f84b452f7faf6980340d02df",
+      "expected_sha256": "b992ef2bf18128d737977a44a6135dcd2f30ac285b0ac8cfcb3fa82938685418",
+      "sha256": "b992ef2bf18128d737977a44a6135dcd2f30ac285b0ac8cfcb3fa82938685418",
       "pass": true
     },
     {
       "path": "output/pdf/methods-of-algebra-volume-2-independent-english-edition.pdf",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/output/pdf/methods-of-algebra-volume-2-independent-english-edition.pdf",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/output/pdf/methods-of-algebra-volume-2-independent-english-edition.pdf",
       "http_status": 200,
-      "expected_bytes": 3891627,
-      "bytes": 3891627,
-      "expected_sha256": "88114c09af3313d1e93d7b66da67c277aae21727fec60c0643b10a1f2b1d6448",
-      "sha256": "88114c09af3313d1e93d7b66da67c277aae21727fec60c0643b10a1f2b1d6448",
+      "expected_bytes": 3894743,
+      "bytes": 3894743,
+      "expected_sha256": "8193d44ef52c9c39807e769ad04507130f163481f82aa9cfaa0a1a3022ef7aa5",
+      "sha256": "8193d44ef52c9c39807e769ad04507130f163481f82aa9cfaa0a1a3022ef7aa5",
       "pass": true
     },
     {
       "path": "qa/DIAGRAM_LEDGER_VALIDATION.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/qa/DIAGRAM_LEDGER_VALIDATION.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/qa/DIAGRAM_LEDGER_VALIDATION.json",
       "http_status": 200,
       "expected_bytes": 755,
       "bytes": 755,
-      "expected_sha256": "978afacab8de64c9398a1867f1c48c32318a78037afeeeb35daab8853c973958",
-      "sha256": "978afacab8de64c9398a1867f1c48c32318a78037afeeeb35daab8853c973958",
+      "expected_sha256": "2b3215e44c99f1f2bdaf55588c084584ad64f14a8cdb0ce5ebe6e821a3dc9dbc",
+      "sha256": "2b3215e44c99f1f2bdaf55588c084584ad64f14a8cdb0ce5ebe6e821a3dc9dbc",
       "pass": true
     },
     {
       "path": "qa/DIAGRAM_SOURCE_INVENTORY.jsonl",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/qa/DIAGRAM_SOURCE_INVENTORY.jsonl",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/qa/DIAGRAM_SOURCE_INVENTORY.jsonl",
       "http_status": 200,
-      "expected_bytes": 696546,
-      "bytes": 696546,
-      "expected_sha256": "36f8d539bce4ce0a8990d5fe2e404195f963f8e2eae1afb82e9f7789677e6a03",
-      "sha256": "36f8d539bce4ce0a8990d5fe2e404195f963f8e2eae1afb82e9f7789677e6a03",
+      "expected_bytes": 722764,
+      "bytes": 722764,
+      "expected_sha256": "d1fc3f3477a7798e2a6987c2ae8545e3f348233cdefb438577434414b3a4da9e",
+      "sha256": "d1fc3f3477a7798e2a6987c2ae8545e3f348233cdefb438577434414b3a4da9e",
       "pass": true
     },
     {
       "path": "qa/DIAGRAM_SOURCE_INVENTORY_RECEIPT.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/qa/DIAGRAM_SOURCE_INVENTORY_RECEIPT.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/qa/DIAGRAM_SOURCE_INVENTORY_RECEIPT.json",
       "http_status": 200,
-      "expected_bytes": 685,
-      "bytes": 685,
-      "expected_sha256": "34e926fda547abc773b9dffb3d65d742b79607f1dbf2fa51074ec5685cb643a7",
-      "sha256": "34e926fda547abc773b9dffb3d65d742b79607f1dbf2fa51074ec5685cb643a7",
+      "expected_bytes": 830,
+      "bytes": 830,
+      "expected_sha256": "fac08e31690f417a044331981473b2b6e568c6a6f746b1a3c7d264d68cb41578",
+      "sha256": "fac08e31690f417a044331981473b2b6e568c6a6f746b1a3c7d264d68cb41578",
       "pass": true
     },
     {
       "path": "qa/HTML_BROWSER_QA.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/qa/HTML_BROWSER_QA.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/qa/HTML_BROWSER_QA.json",
       "http_status": 200,
-      "expected_bytes": 3412,
-      "bytes": 3412,
-      "expected_sha256": "d2acf7bebf30988cd276e3d9085f2865a33bf44d6a6b7389be3a93501531e19e",
-      "sha256": "d2acf7bebf30988cd276e3d9085f2865a33bf44d6a6b7389be3a93501531e19e",
+      "expected_bytes": 4443,
+      "bytes": 4443,
+      "expected_sha256": "e37a2c3a9d264888e7cb1a8adeb2d20d55e6ec9a968fa38bb9ba9e7924411171",
+      "sha256": "e37a2c3a9d264888e7cb1a8adeb2d20d55e6ec9a968fa38bb9ba9e7924411171",
       "pass": true
     },
     {
       "path": "qa/HTML_BUILD_RECEIPT.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/qa/HTML_BUILD_RECEIPT.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/qa/HTML_BUILD_RECEIPT.json",
       "http_status": 200,
-      "expected_bytes": 31767,
-      "bytes": 31767,
-      "expected_sha256": "63edfce4490c1ba02cab2e2c47efe285e307a4a3c7a4b37177b1bb3ea1d20ff4",
-      "sha256": "63edfce4490c1ba02cab2e2c47efe285e307a4a3c7a4b37177b1bb3ea1d20ff4",
+      "expected_bytes": 33831,
+      "bytes": 33831,
+      "expected_sha256": "2c867e280bbf61588cbdf543fe948ea7cd066b71a8438b054e04f0d0572a7d65",
+      "sha256": "2c867e280bbf61588cbdf543fe948ea7cd066b71a8438b054e04f0d0572a7d65",
       "pass": true
     },
     {
       "path": "qa/PDF_BUILD_ATTEMPT_001.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/qa/PDF_BUILD_ATTEMPT_001.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/qa/PDF_BUILD_ATTEMPT_001.json",
       "http_status": 200,
       "expected_bytes": 659,
       "bytes": 659,
@@ -1694,27 +1714,47 @@
     },
     {
       "path": "qa/PDF_BUILD_RECEIPT.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/qa/PDF_BUILD_RECEIPT.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/qa/PDF_BUILD_RECEIPT.json",
       "http_status": 200,
-      "expected_bytes": 24067,
-      "bytes": 24067,
-      "expected_sha256": "d10093a0bc1f409d05aa72b3955becdc137d2f34835371b1c085ecff7cfbfea1",
-      "sha256": "d10093a0bc1f409d05aa72b3955becdc137d2f34835371b1c085ecff7cfbfea1",
+      "expected_bytes": 24073,
+      "bytes": 24073,
+      "expected_sha256": "d68bcd2be3bba3b5c24a14c60d6cc532fdbfae2adfca1eeef17988431b72e304",
+      "sha256": "d68bcd2be3bba3b5c24a14c60d6cc532fdbfae2adfca1eeef17988431b72e304",
       "pass": true
     },
     {
       "path": "qa/PDF_VISUAL_QA.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/qa/PDF_VISUAL_QA.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/qa/PDF_VISUAL_QA.json",
       "http_status": 200,
-      "expected_bytes": 2637,
-      "bytes": 2637,
-      "expected_sha256": "d55fe8d4a00368ce0e26b349cd22a2c8e261e96b77f09ee00bdb619e1513af81",
-      "sha256": "d55fe8d4a00368ce0e26b349cd22a2c8e261e96b77f09ee00bdb619e1513af81",
+      "expected_bytes": 9147,
+      "bytes": 9147,
+      "expected_sha256": "6dca26326998ac37e034d86cd4ea378dc0a5a32e4bbf50ce767a9ff7e608174c",
+      "sha256": "6dca26326998ac37e034d86cd4ea378dc0a5a32e4bbf50ce767a9ff7e608174c",
+      "pass": true
+    },
+    {
+      "path": "qa/PDF_VISUAL_QA_ALL_PAGE_METRICS.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/qa/PDF_VISUAL_QA_ALL_PAGE_METRICS.json",
+      "http_status": 200,
+      "expected_bytes": 519834,
+      "bytes": 519834,
+      "expected_sha256": "d53c95ac0a01830c6726f65f008c0719a4633496e13afbfeb2262eacff77e9fa",
+      "sha256": "d53c95ac0a01830c6726f65f008c0719a4633496e13afbfeb2262eacff77e9fa",
+      "pass": true
+    },
+    {
+      "path": "qa/PDF_VISUAL_QA_PAGE_MANIFEST.csv",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/qa/PDF_VISUAL_QA_PAGE_MANIFEST.csv",
+      "http_status": 200,
+      "expected_bytes": 123351,
+      "bytes": 123351,
+      "expected_sha256": "f81cf6f23c9f619e604c35d07cc4718f2de91a8c5640a8c88622546245fb0f79",
+      "sha256": "f81cf6f23c9f619e604c35d07cc4718f2de91a8c5640a8c88622546245fb0f79",
       "pass": true
     },
     {
       "path": "qa/READER_BUILDER_PREFLIGHT.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/qa/READER_BUILDER_PREFLIGHT.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/qa/READER_BUILDER_PREFLIGHT.json",
       "http_status": 200,
       "expected_bytes": 4924,
       "bytes": 4924,
@@ -1724,17 +1764,17 @@
     },
     {
       "path": "qa/RELEASE_TOOL_PREFLIGHT.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/qa/RELEASE_TOOL_PREFLIGHT.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/qa/RELEASE_TOOL_PREFLIGHT.json",
       "http_status": 200,
-      "expected_bytes": 6211,
-      "bytes": 6211,
-      "expected_sha256": "b0512a0e7da11d47855f45b3b9c4f801b2c5d6d64fc46fdd39501fb0c0c9e552",
-      "sha256": "b0512a0e7da11d47855f45b3b9c4f801b2c5d6d64fc46fdd39501fb0c0c9e552",
+      "expected_bytes": 4755,
+      "bytes": 4755,
+      "expected_sha256": "c31971888498c7d66716c10e251cca9dad0b14333dca466bae62b103559fa8fc",
+      "sha256": "c31971888498c7d66716c10e251cca9dad0b14333dca466bae62b103559fa8fc",
       "pass": true
     },
     {
       "path": "qa/RELEASE_TOOL_PREFLIGHT_SUPPLEMENT.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/qa/RELEASE_TOOL_PREFLIGHT_SUPPLEMENT.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/qa/RELEASE_TOOL_PREFLIGHT_SUPPLEMENT.json",
       "http_status": 200,
       "expected_bytes": 1052,
       "bytes": 1052,
@@ -1744,7 +1784,7 @@
     },
     {
       "path": "qa/SHARED_PARATEXT_PREFLIGHT.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/qa/SHARED_PARATEXT_PREFLIGHT.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/qa/SHARED_PARATEXT_PREFLIGHT.json",
       "http_status": 200,
       "expected_bytes": 4202,
       "bytes": 4202,
@@ -1754,27 +1794,27 @@
     },
     {
       "path": "qa/SHARED_SOURCE_VALIDATION.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/qa/SHARED_SOURCE_VALIDATION.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/qa/SHARED_SOURCE_VALIDATION.json",
       "http_status": 200,
       "expected_bytes": 1972,
       "bytes": 1972,
-      "expected_sha256": "fa6e91c23a8a7220e71ac85a9cf62d0ed757b827167f940938c5e3d6d00e24b2",
-      "sha256": "fa6e91c23a8a7220e71ac85a9cf62d0ed757b827167f940938c5e3d6d00e24b2",
+      "expected_sha256": "2c36be692e1f0d0f3e9bb4cdc570cc414c6b1b4cb85cc3a637e98e6ab3966bf8",
+      "sha256": "2c36be692e1f0d0f3e9bb4cdc570cc414c6b1b4cb85cc3a637e98e6ab3966bf8",
       "pass": true
     },
     {
       "path": "qa/UNIT_ADMISSION.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/qa/UNIT_ADMISSION.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/qa/UNIT_ADMISSION.json",
       "http_status": 200,
       "expected_bytes": 180266,
       "bytes": 180266,
-      "expected_sha256": "02af1610c0b73461bf4f1f7f4637c0fde2db3dcfb71c846d94df666aacebc474",
-      "sha256": "02af1610c0b73461bf4f1f7f4637c0fde2db3dcfb71c846d94df666aacebc474",
+      "expected_sha256": "be934e394af7eb25b8fc27892625f4bae8c36df705ae1e16660cc7604c82cf89",
+      "sha256": "be934e394af7eb25b8fc27892625f4bae8c36df705ae1e16660cc7604c82cf89",
       "pass": true
     },
     {
       "path": "reader/LICENSE.txt",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/LICENSE.txt",
       "http_status": 200,
       "expected_bytes": 885,
       "bytes": 885,
@@ -1784,7 +1824,7 @@
     },
     {
       "path": "reader/accessibility.html",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/accessibility.html",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/accessibility.html",
       "http_status": 200,
       "expected_bytes": 2364,
       "bytes": 2364,
@@ -1794,7 +1834,7 @@
     },
     {
       "path": "reader/diagram-description-overrides-en.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/diagram-description-overrides-en.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/diagram-description-overrides-en.json",
       "http_status": 200,
       "expected_bytes": 4668,
       "bytes": 4668,
@@ -1804,7 +1844,7 @@
     },
     {
       "path": "reader/dist/LICENSE.txt",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/LICENSE.txt",
       "http_status": 200,
       "expected_bytes": 905,
       "bytes": 905,
@@ -1814,17 +1854,17 @@
     },
     {
       "path": "reader/dist/SHA256SUMS.txt",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/SHA256SUMS.txt",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/SHA256SUMS.txt",
       "http_status": 200,
       "expected_bytes": 3897,
       "bytes": 3897,
-      "expected_sha256": "4475669070524617dfc671e5091fac14000f8864d27338e5402e0b0a6369d864",
-      "sha256": "4475669070524617dfc671e5091fac14000f8864d27338e5402e0b0a6369d864",
+      "expected_sha256": "1d2071aa329dcedc1bafea6410fd785023e7e84365fcba9e26b5a5d74edc8f8c",
+      "sha256": "1d2071aa329dcedc1bafea6410fd785023e7e84365fcba9e26b5a5d74edc8f8c",
       "pass": true
     },
     {
       "path": "reader/dist/accessibility.html",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/accessibility.html",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/accessibility.html",
       "http_status": 200,
       "expected_bytes": 2398,
       "bytes": 2398,
@@ -1834,17 +1874,17 @@
     },
     {
       "path": "reader/dist/index.html",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/index.html",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/index.html",
       "http_status": 200,
-      "expected_bytes": 4501242,
-      "bytes": 4501242,
-      "expected_sha256": "15c5ce147ecbff02fe8d95416029e57f0ecbd9af1fcfa16f1857b183f21ce824",
-      "sha256": "15c5ce147ecbff02fe8d95416029e57f0ecbd9af1fcfa16f1857b183f21ce824",
+      "expected_bytes": 4493910,
+      "bytes": 4493910,
+      "expected_sha256": "411fe6246743388ba9c5352732cc7958c02aa5dc578a54daecd4e6a5b317347e",
+      "sha256": "411fe6246743388ba9c5352732cc7958c02aa5dc578a54daecd4e6a5b317347e",
       "pass": true
     },
     {
       "path": "reader/dist/reader.css",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/reader.css",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/reader.css",
       "http_status": 200,
       "expected_bytes": 6769,
       "bytes": 6769,
@@ -1854,17 +1894,17 @@
     },
     {
       "path": "reader/dist/validation-report.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/validation-report.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/validation-report.json",
       "http_status": 200,
-      "expected_bytes": 632,
-      "bytes": 632,
-      "expected_sha256": "f5b97ecbfbdffe9396e6c6d12baf25efe636b91d858944f14951a838292fc9dc",
-      "sha256": "f5b97ecbfbdffe9396e6c6d12baf25efe636b91d858944f14951a838292fc9dc",
+      "expected_bytes": 1771,
+      "bytes": 1771,
+      "expected_sha256": "99ead324f5b8ca77eef3783a087af4ea5da40833975ea18c90400ae385310ed5",
+      "sha256": "99ead324f5b8ca77eef3783a087af4ea5da40833975ea18c90400ae385310ed5",
       "pass": true
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/LICENSE-MathJax.txt",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/LICENSE-MathJax.txt",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/LICENSE-MathJax.txt",
       "http_status": 200,
       "expected_bytes": 11358,
       "bytes": 11358,
@@ -1874,7 +1914,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff",
       "http_status": 200,
       "expected_bytes": 40808,
       "bytes": 40808,
@@ -1884,7 +1924,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff",
       "http_status": 200,
       "expected_bytes": 9908,
       "bytes": 9908,
@@ -1894,7 +1934,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff",
       "http_status": 200,
       "expected_bytes": 9600,
       "bytes": 9600,
@@ -1904,7 +1944,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff",
       "http_status": 200,
       "expected_bytes": 22340,
       "bytes": 22340,
@@ -1914,7 +1954,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff",
       "http_status": 200,
       "expected_bytes": 21480,
       "bytes": 21480,
@@ -1924,7 +1964,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff",
       "http_status": 200,
       "expected_bytes": 34464,
       "bytes": 34464,
@@ -1934,7 +1974,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff",
       "http_status": 200,
       "expected_bytes": 20832,
       "bytes": 20832,
@@ -1944,7 +1984,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff",
       "http_status": 200,
       "expected_bytes": 34160,
       "bytes": 34160,
@@ -1954,7 +1994,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff",
       "http_status": 200,
       "expected_bytes": 19776,
       "bytes": 19776,
@@ -1964,7 +2004,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff",
       "http_status": 200,
       "expected_bytes": 19360,
       "bytes": 19360,
@@ -1974,7 +2014,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Regular.woff",
       "http_status": 200,
       "expected_bytes": 19288,
       "bytes": 19288,
@@ -1984,7 +2024,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff",
       "http_status": 200,
       "expected_bytes": 15944,
       "bytes": 15944,
@@ -1994,7 +2034,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff",
       "http_status": 200,
       "expected_bytes": 14628,
       "bytes": 14628,
@@ -2004,7 +2044,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff",
       "http_status": 200,
       "expected_bytes": 12660,
       "bytes": 12660,
@@ -2014,7 +2054,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff",
       "http_status": 200,
       "expected_bytes": 11852,
       "bytes": 11852,
@@ -2024,7 +2064,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff",
       "http_status": 200,
       "expected_bytes": 5792,
       "bytes": 5792,
@@ -2034,7 +2074,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff",
       "http_status": 200,
       "expected_bytes": 5464,
       "bytes": 5464,
@@ -2044,7 +2084,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff",
       "http_status": 200,
       "expected_bytes": 3244,
       "bytes": 3244,
@@ -2054,7 +2094,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff",
       "http_status": 200,
       "expected_bytes": 5148,
       "bytes": 5148,
@@ -2064,7 +2104,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff",
       "http_status": 200,
       "expected_bytes": 17604,
       "bytes": 17604,
@@ -2074,7 +2114,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff",
       "http_status": 200,
       "expected_bytes": 1116,
       "bytes": 1116,
@@ -2084,7 +2124,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff",
       "http_status": 200,
       "expected_bytes": 1136,
       "bytes": 1136,
@@ -2094,7 +2134,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Zero.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Zero.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Zero.woff",
       "http_status": 200,
       "expected_bytes": 1368,
       "bytes": 1368,
@@ -2104,7 +2144,7 @@
     },
     {
       "path": "reader/dist/vendor/mathjax-3.2.2/tex-chtml-full.js",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/dist/vendor/mathjax-3.2.2/tex-chtml-full.js",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/dist/vendor/mathjax-3.2.2/tex-chtml-full.js",
       "http_status": 200,
       "expected_bytes": 1327522,
       "bytes": 1327522,
@@ -2114,7 +2154,7 @@
     },
     {
       "path": "reader/reader.css",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/reader.css",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/reader.css",
       "http_status": 200,
       "expected_bytes": 6769,
       "bytes": 6769,
@@ -2124,17 +2164,17 @@
     },
     {
       "path": "reader/tools/build_pandoc_reader.py",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/tools/build_pandoc_reader.py",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/tools/build_pandoc_reader.py",
       "http_status": 200,
-      "expected_bytes": 31803,
-      "bytes": 31803,
-      "expected_sha256": "fcbe49283f313ae6557bd9affb8b1fa6f1643532b2f6bae1c5e5bcba7c931614",
-      "sha256": "fcbe49283f313ae6557bd9affb8b1fa6f1643532b2f6bae1c5e5bcba7c931614",
+      "expected_bytes": 38891,
+      "bytes": 38891,
+      "expected_sha256": "72a15b3c3f01e223a976aa6374bf5734d8038914c9c0717449cf36e05cf985a9",
+      "sha256": "72a15b3c3f01e223a976aa6374bf5734d8038914c9c0717449cf36e05cf985a9",
       "pass": true
     },
     {
       "path": "reader/tools/postprocess_reader.py",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/tools/postprocess_reader.py",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/tools/postprocess_reader.py",
       "http_status": 200,
       "expected_bytes": 4743,
       "bytes": 4743,
@@ -2144,17 +2184,17 @@
     },
     {
       "path": "reader/tools/validate_reader.py",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/tools/validate_reader.py",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/tools/validate_reader.py",
       "http_status": 200,
-      "expected_bytes": 17552,
-      "bytes": 17552,
-      "expected_sha256": "07bcfee26a2cf31a0d1243fc12eb341f71d8c43b73e57e310caa35c4c761d693",
-      "sha256": "07bcfee26a2cf31a0d1243fc12eb341f71d8c43b73e57e310caa35c4c761d693",
+      "expected_bytes": 22747,
+      "bytes": 22747,
+      "expected_sha256": "e2c9174d42e7306e6c8c97167289c46ca41ac3736507f6c9ab320ed9fd92d087",
+      "sha256": "e2c9174d42e7306e6c8c97167289c46ca41ac3736507f6c9ab320ed9fd92d087",
       "pass": true
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/LICENSE-MathJax.txt",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/LICENSE-MathJax.txt",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/LICENSE-MathJax.txt",
       "http_status": 200,
       "expected_bytes": 11358,
       "bytes": 11358,
@@ -2164,7 +2204,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff",
       "http_status": 200,
       "expected_bytes": 40808,
       "bytes": 40808,
@@ -2174,7 +2214,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff",
       "http_status": 200,
       "expected_bytes": 9908,
       "bytes": 9908,
@@ -2184,7 +2224,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff",
       "http_status": 200,
       "expected_bytes": 9600,
       "bytes": 9600,
@@ -2194,7 +2234,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff",
       "http_status": 200,
       "expected_bytes": 22340,
       "bytes": 22340,
@@ -2204,7 +2244,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff",
       "http_status": 200,
       "expected_bytes": 21480,
       "bytes": 21480,
@@ -2214,7 +2254,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff",
       "http_status": 200,
       "expected_bytes": 34464,
       "bytes": 34464,
@@ -2224,7 +2264,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff",
       "http_status": 200,
       "expected_bytes": 20832,
       "bytes": 20832,
@@ -2234,7 +2274,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff",
       "http_status": 200,
       "expected_bytes": 34160,
       "bytes": 34160,
@@ -2244,7 +2284,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff",
       "http_status": 200,
       "expected_bytes": 19776,
       "bytes": 19776,
@@ -2254,7 +2294,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff",
       "http_status": 200,
       "expected_bytes": 19360,
       "bytes": 19360,
@@ -2264,7 +2304,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Math-Regular.woff",
       "http_status": 200,
       "expected_bytes": 19288,
       "bytes": 19288,
@@ -2274,7 +2314,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff",
       "http_status": 200,
       "expected_bytes": 15944,
       "bytes": 15944,
@@ -2284,7 +2324,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff",
       "http_status": 200,
       "expected_bytes": 14628,
       "bytes": 14628,
@@ -2294,7 +2334,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff",
       "http_status": 200,
       "expected_bytes": 12660,
       "bytes": 12660,
@@ -2304,7 +2344,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff",
       "http_status": 200,
       "expected_bytes": 11852,
       "bytes": 11852,
@@ -2314,7 +2354,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff",
       "http_status": 200,
       "expected_bytes": 5792,
       "bytes": 5792,
@@ -2324,7 +2364,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff",
       "http_status": 200,
       "expected_bytes": 5464,
       "bytes": 5464,
@@ -2334,7 +2374,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff",
       "http_status": 200,
       "expected_bytes": 3244,
       "bytes": 3244,
@@ -2344,7 +2384,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff",
       "http_status": 200,
       "expected_bytes": 5148,
       "bytes": 5148,
@@ -2354,7 +2394,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff",
       "http_status": 200,
       "expected_bytes": 17604,
       "bytes": 17604,
@@ -2364,7 +2404,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff",
       "http_status": 200,
       "expected_bytes": 1116,
       "bytes": 1116,
@@ -2374,7 +2414,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff",
       "http_status": 200,
       "expected_bytes": 1136,
       "bytes": 1136,
@@ -2384,7 +2424,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Zero.woff",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Zero.woff",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/output/chtml/fonts/woff-v2/MathJax_Zero.woff",
       "http_status": 200,
       "expected_bytes": 1368,
       "bytes": 1368,
@@ -2394,7 +2434,7 @@
     },
     {
       "path": "reader/vendor/mathjax-3.2.2/tex-chtml-full.js",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/reader/vendor/mathjax-3.2.2/tex-chtml-full.js",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/reader/vendor/mathjax-3.2.2/tex-chtml-full.js",
       "http_status": 200,
       "expected_bytes": 1327522,
       "bytes": 1327522,
@@ -2404,17 +2444,27 @@
     },
     {
       "path": "release/GITHUB_PUBLICATION_RECEIPT.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/release/GITHUB_PUBLICATION_RECEIPT.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/release/GITHUB_PUBLICATION_RECEIPT.json",
       "http_status": 200,
-      "expected_bytes": 58252,
-      "bytes": 58252,
-      "expected_sha256": "fe0f978ca08014f43912b671941f4e83cbce17e4312c004cc9468f065741dc35",
-      "sha256": "fe0f978ca08014f43912b671941f4e83cbce17e4312c004cc9468f065741dc35",
+      "expected_bytes": 59277,
+      "bytes": 59277,
+      "expected_sha256": "791aefa78fd98a03f275dcfbc5663424eacf951865404be3c50aa9deac7d1585",
+      "sha256": "791aefa78fd98a03f275dcfbc5663424eacf951865404be3c50aa9deac7d1585",
+      "pass": true
+    },
+    {
+      "path": "release/GITHUB_PUBLIC_READBACK.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/release/GITHUB_PUBLIC_READBACK.json",
+      "http_status": 200,
+      "expected_bytes": 215891,
+      "bytes": 215891,
+      "expected_sha256": "b057f09cde324516ddb2ff93c9c9bab90af420178f2254bbffabf7167dceb176",
+      "sha256": "b057f09cde324516ddb2ff93c9c9bab90af420178f2254bbffabf7167dceb176",
       "pass": true
     },
     {
       "path": "release/GITHUB_PUBLIC_READBACK_CHECKPOINT_HTML_ONLY.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/release/GITHUB_PUBLIC_READBACK_CHECKPOINT_HTML_ONLY.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/release/GITHUB_PUBLIC_READBACK_CHECKPOINT_HTML_ONLY.json",
       "http_status": 200,
       "expected_bytes": 16614,
       "bytes": 16614,
@@ -2424,37 +2474,37 @@
     },
     {
       "path": "release/ZENODO_PUBLICATION_RECEIPT.json",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/release/ZENODO_PUBLICATION_RECEIPT.json",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/release/ZENODO_PUBLICATION_RECEIPT.json",
       "http_status": 200,
-      "expected_bytes": 4904,
-      "bytes": 4904,
-      "expected_sha256": "6b935faa68853fb6746de7b11e1457f948737e4308d286ce47ff9ba1769a1aa6",
-      "sha256": "6b935faa68853fb6746de7b11e1457f948737e4308d286ce47ff9ba1769a1aa6",
+      "expected_bytes": 4907,
+      "bytes": 4907,
+      "expected_sha256": "85c164cf6bbe66b43f82f60d15d185b6f7c12412673ae13da270428bd5edade0",
+      "sha256": "85c164cf6bbe66b43f82f60d15d185b6f7c12412673ae13da270428bd5edade0",
       "pass": true
     },
     {
       "path": "release/publish_github.py",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/release/publish_github.py",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/release/publish_github.py",
       "http_status": 200,
-      "expected_bytes": 25448,
-      "bytes": 25448,
-      "expected_sha256": "9ba79ef561c1469c21d5844831d6bb1bc30ad8c7dac3d92d73888d6963c772fd",
-      "sha256": "9ba79ef561c1469c21d5844831d6bb1bc30ad8c7dac3d92d73888d6963c772fd",
+      "expected_bytes": 26439,
+      "bytes": 26439,
+      "expected_sha256": "7ce6613c4c6262b8b43552cfa7c2b2fdb449eecd8354fa484b40f73e3e84ba58",
+      "sha256": "7ce6613c4c6262b8b43552cfa7c2b2fdb449eecd8354fa484b40f73e3e84ba58",
       "pass": true
     },
     {
       "path": "release/publish_zenodo.py",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/release/publish_zenodo.py",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/release/publish_zenodo.py",
       "http_status": 200,
-      "expected_bytes": 42120,
-      "bytes": 42120,
-      "expected_sha256": "01deed5276de970417b90e9a6e86f4b7b6fc16c132e3fbddd4f6caaf5e2e5d9c",
-      "sha256": "01deed5276de970417b90e9a6e86f4b7b6fc16c132e3fbddd4f6caaf5e2e5d9c",
+      "expected_bytes": 44298,
+      "bytes": 44298,
+      "expected_sha256": "4b0852d0cbdb59ae15ec8e475f527cec9218ee7eb9a5932d473bbd0ae9e2970a",
+      "sha256": "4b0852d0cbdb59ae15ec8e475f527cec9218ee7eb9a5932d473bbd0ae9e2970a",
       "pass": true
     },
     {
       "path": "release/verify_github_public.py",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/release/verify_github_public.py",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/release/verify_github_public.py",
       "http_status": 200,
       "expected_bytes": 17321,
       "bytes": 17321,
@@ -2464,7 +2514,7 @@
     },
     {
       "path": "source/en/AJbook2.cls",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/AJbook2.cls",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/AJbook2.cls",
       "http_status": 200,
       "expected_bytes": 13852,
       "bytes": 13852,
@@ -2474,7 +2524,7 @@
     },
     {
       "path": "source/en/Al-jabr-2-en-complete-draft.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/Al-jabr-2-en-complete-draft.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/Al-jabr-2-en-complete-draft.tex",
       "http_status": 200,
       "expected_bytes": 12632,
       "bytes": 12632,
@@ -2484,7 +2534,7 @@
     },
     {
       "path": "source/en/Al-jabr.bib",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/Al-jabr.bib",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/Al-jabr.bib",
       "http_status": 200,
       "expected_bytes": 23967,
       "bytes": 23967,
@@ -2494,7 +2544,7 @@
     },
     {
       "path": "source/en/LICENSE",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/LICENSE",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/LICENSE",
       "http_status": 200,
       "expected_bytes": 18650,
       "bytes": 18650,
@@ -2504,7 +2554,7 @@
     },
     {
       "path": "source/en/Lanzhou.png",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/Lanzhou.png",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/Lanzhou.png",
       "http_status": 200,
       "expected_bytes": 276766,
       "bytes": 276766,
@@ -2514,7 +2564,7 @@
     },
     {
       "path": "source/en/appendix1-unit-135.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/appendix1-unit-135.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/appendix1-unit-135.tex",
       "http_status": 200,
       "expected_bytes": 11778,
       "bytes": 11778,
@@ -2524,7 +2574,7 @@
     },
     {
       "path": "source/en/appendix1-unit-136.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/appendix1-unit-136.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/appendix1-unit-136.tex",
       "http_status": 200,
       "expected_bytes": 15483,
       "bytes": 15483,
@@ -2534,7 +2584,7 @@
     },
     {
       "path": "source/en/appendix1-unit-137.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/appendix1-unit-137.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/appendix1-unit-137.tex",
       "http_status": 200,
       "expected_bytes": 9617,
       "bytes": 9617,
@@ -2544,7 +2594,7 @@
     },
     {
       "path": "source/en/appendix1-unit-138.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/appendix1-unit-138.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/appendix1-unit-138.tex",
       "http_status": 200,
       "expected_bytes": 10285,
       "bytes": 10285,
@@ -2554,7 +2604,7 @@
     },
     {
       "path": "source/en/appendix1-unit-139.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/appendix1-unit-139.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/appendix1-unit-139.tex",
       "http_status": 200,
       "expected_bytes": 5740,
       "bytes": 5740,
@@ -2564,17 +2614,17 @@
     },
     {
       "path": "source/en/appendix2-unit-140.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/appendix2-unit-140.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/appendix2-unit-140.tex",
       "http_status": 200,
-      "expected_bytes": 14627,
-      "bytes": 14627,
-      "expected_sha256": "0e1cf5f82a8816f4e856ebe6ac147b0828cd16d85664fcb28e85465536006292",
-      "sha256": "0e1cf5f82a8816f4e856ebe6ac147b0828cd16d85664fcb28e85465536006292",
+      "expected_bytes": 14624,
+      "bytes": 14624,
+      "expected_sha256": "1c3b170d85ab6a90b091d79cd8617f53ea5fe61936a70c812e3f5c34b957dc15",
+      "sha256": "1c3b170d85ab6a90b091d79cd8617f53ea5fe61936a70c812e3f5c34b957dc15",
       "pass": true
     },
     {
       "path": "source/en/appendix2-unit-141.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/appendix2-unit-141.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/appendix2-unit-141.tex",
       "http_status": 200,
       "expected_bytes": 13754,
       "bytes": 13754,
@@ -2584,7 +2634,7 @@
     },
     {
       "path": "source/en/appendix2-unit-142.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/appendix2-unit-142.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/appendix2-unit-142.tex",
       "http_status": 200,
       "expected_bytes": 13596,
       "bytes": 13596,
@@ -2594,7 +2644,7 @@
     },
     {
       "path": "source/en/appendix2-unit-143.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/appendix2-unit-143.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/appendix2-unit-143.tex",
       "http_status": 200,
       "expected_bytes": 8492,
       "bytes": 8492,
@@ -2604,7 +2654,7 @@
     },
     {
       "path": "source/en/appendix2-unit-144.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/appendix2-unit-144.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/appendix2-unit-144.tex",
       "http_status": 200,
       "expected_bytes": 10021,
       "bytes": 10021,
@@ -2614,7 +2664,7 @@
     },
     {
       "path": "source/en/appendix2-unit-145.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/appendix2-unit-145.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/appendix2-unit-145.tex",
       "http_status": 200,
       "expected_bytes": 5729,
       "bytes": 5729,
@@ -2624,7 +2674,7 @@
     },
     {
       "path": "source/en/appendix2-unit-146.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/appendix2-unit-146.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/appendix2-unit-146.tex",
       "http_status": 200,
       "expected_bytes": 9161,
       "bytes": 9161,
@@ -2634,7 +2684,7 @@
     },
     {
       "path": "source/en/ccby.png",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/ccby.png",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/ccby.png",
       "http_status": 200,
       "expected_bytes": 12588,
       "bytes": 12588,
@@ -2644,7 +2694,7 @@
     },
     {
       "path": "source/en/chapter1-unit-008.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter1-unit-008.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter1-unit-008.tex",
       "http_status": 200,
       "expected_bytes": 6391,
       "bytes": 6391,
@@ -2654,7 +2704,7 @@
     },
     {
       "path": "source/en/chapter1-unit-009.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter1-unit-009.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter1-unit-009.tex",
       "http_status": 200,
       "expected_bytes": 12624,
       "bytes": 12624,
@@ -2664,7 +2714,7 @@
     },
     {
       "path": "source/en/chapter1-unit-010.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter1-unit-010.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter1-unit-010.tex",
       "http_status": 200,
       "expected_bytes": 11942,
       "bytes": 11942,
@@ -2674,7 +2724,7 @@
     },
     {
       "path": "source/en/chapter1-unit-011.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter1-unit-011.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter1-unit-011.tex",
       "http_status": 200,
       "expected_bytes": 28360,
       "bytes": 28360,
@@ -2684,7 +2734,7 @@
     },
     {
       "path": "source/en/chapter1-unit-012.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter1-unit-012.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter1-unit-012.tex",
       "http_status": 200,
       "expected_bytes": 8581,
       "bytes": 8581,
@@ -2694,7 +2744,7 @@
     },
     {
       "path": "source/en/chapter1-unit-013.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter1-unit-013.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter1-unit-013.tex",
       "http_status": 200,
       "expected_bytes": 17799,
       "bytes": 17799,
@@ -2704,7 +2754,7 @@
     },
     {
       "path": "source/en/chapter1-unit-014.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter1-unit-014.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter1-unit-014.tex",
       "http_status": 200,
       "expected_bytes": 20458,
       "bytes": 20458,
@@ -2714,7 +2764,7 @@
     },
     {
       "path": "source/en/chapter1-unit-015.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter1-unit-015.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter1-unit-015.tex",
       "http_status": 200,
       "expected_bytes": 26208,
       "bytes": 26208,
@@ -2724,7 +2774,7 @@
     },
     {
       "path": "source/en/chapter1-unit-016.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter1-unit-016.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter1-unit-016.tex",
       "http_status": 200,
       "expected_bytes": 11926,
       "bytes": 11926,
@@ -2734,7 +2784,7 @@
     },
     {
       "path": "source/en/chapter1-unit-017.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter1-unit-017.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter1-unit-017.tex",
       "http_status": 200,
       "expected_bytes": 38631,
       "bytes": 38631,
@@ -2744,7 +2794,7 @@
     },
     {
       "path": "source/en/chapter1-unit-018.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter1-unit-018.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter1-unit-018.tex",
       "http_status": 200,
       "expected_bytes": 16174,
       "bytes": 16174,
@@ -2754,7 +2804,7 @@
     },
     {
       "path": "source/en/chapter1-unit-019.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter1-unit-019.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter1-unit-019.tex",
       "http_status": 200,
       "expected_bytes": 42409,
       "bytes": 42409,
@@ -2764,7 +2814,7 @@
     },
     {
       "path": "source/en/chapter2-unit-020.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter2-unit-020.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter2-unit-020.tex",
       "http_status": 200,
       "expected_bytes": 6910,
       "bytes": 6910,
@@ -2774,7 +2824,7 @@
     },
     {
       "path": "source/en/chapter2-unit-021.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter2-unit-021.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter2-unit-021.tex",
       "http_status": 200,
       "expected_bytes": 8424,
       "bytes": 8424,
@@ -2784,7 +2834,7 @@
     },
     {
       "path": "source/en/chapter2-unit-022.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter2-unit-022.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter2-unit-022.tex",
       "http_status": 200,
       "expected_bytes": 19927,
       "bytes": 19927,
@@ -2794,7 +2844,7 @@
     },
     {
       "path": "source/en/chapter2-unit-023.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter2-unit-023.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter2-unit-023.tex",
       "http_status": 200,
       "expected_bytes": 24152,
       "bytes": 24152,
@@ -2804,7 +2854,7 @@
     },
     {
       "path": "source/en/chapter2-unit-024.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter2-unit-024.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter2-unit-024.tex",
       "http_status": 200,
       "expected_bytes": 21852,
       "bytes": 21852,
@@ -2814,7 +2864,7 @@
     },
     {
       "path": "source/en/chapter2-unit-025.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter2-unit-025.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter2-unit-025.tex",
       "http_status": 200,
       "expected_bytes": 20292,
       "bytes": 20292,
@@ -2824,7 +2874,7 @@
     },
     {
       "path": "source/en/chapter2-unit-026.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter2-unit-026.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter2-unit-026.tex",
       "http_status": 200,
       "expected_bytes": 21378,
       "bytes": 21378,
@@ -2834,7 +2884,7 @@
     },
     {
       "path": "source/en/chapter2-unit-027.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter2-unit-027.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter2-unit-027.tex",
       "http_status": 200,
       "expected_bytes": 12396,
       "bytes": 12396,
@@ -2844,7 +2894,7 @@
     },
     {
       "path": "source/en/chapter2-unit-028.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter2-unit-028.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter2-unit-028.tex",
       "http_status": 200,
       "expected_bytes": 37060,
       "bytes": 37060,
@@ -2854,7 +2904,7 @@
     },
     {
       "path": "source/en/chapter2-unit-029.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter2-unit-029.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter2-unit-029.tex",
       "http_status": 200,
       "expected_bytes": 24236,
       "bytes": 24236,
@@ -2864,7 +2914,7 @@
     },
     {
       "path": "source/en/chapter2-unit-030.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter2-unit-030.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter2-unit-030.tex",
       "http_status": 200,
       "expected_bytes": 42601,
       "bytes": 42601,
@@ -2874,7 +2924,7 @@
     },
     {
       "path": "source/en/chapter3-unit-031.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter3-unit-031.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter3-unit-031.tex",
       "http_status": 200,
       "expected_bytes": 12419,
       "bytes": 12419,
@@ -2884,7 +2934,7 @@
     },
     {
       "path": "source/en/chapter3-unit-032.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter3-unit-032.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter3-unit-032.tex",
       "http_status": 200,
       "expected_bytes": 12928,
       "bytes": 12928,
@@ -2894,7 +2944,7 @@
     },
     {
       "path": "source/en/chapter3-unit-033.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter3-unit-033.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter3-unit-033.tex",
       "http_status": 200,
       "expected_bytes": 18354,
       "bytes": 18354,
@@ -2904,7 +2954,7 @@
     },
     {
       "path": "source/en/chapter3-unit-034.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter3-unit-034.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter3-unit-034.tex",
       "http_status": 200,
       "expected_bytes": 23850,
       "bytes": 23850,
@@ -2914,7 +2964,7 @@
     },
     {
       "path": "source/en/chapter3-unit-035.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter3-unit-035.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter3-unit-035.tex",
       "http_status": 200,
       "expected_bytes": 10049,
       "bytes": 10049,
@@ -2924,7 +2974,7 @@
     },
     {
       "path": "source/en/chapter3-unit-036.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter3-unit-036.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter3-unit-036.tex",
       "http_status": 200,
       "expected_bytes": 27620,
       "bytes": 27620,
@@ -2934,7 +2984,7 @@
     },
     {
       "path": "source/en/chapter3-unit-037.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter3-unit-037.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter3-unit-037.tex",
       "http_status": 200,
       "expected_bytes": 13395,
       "bytes": 13395,
@@ -2944,7 +2994,7 @@
     },
     {
       "path": "source/en/chapter3-unit-038.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter3-unit-038.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter3-unit-038.tex",
       "http_status": 200,
       "expected_bytes": 24579,
       "bytes": 24579,
@@ -2954,7 +3004,7 @@
     },
     {
       "path": "source/en/chapter3-unit-039.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter3-unit-039.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter3-unit-039.tex",
       "http_status": 200,
       "expected_bytes": 34086,
       "bytes": 34086,
@@ -2964,7 +3014,7 @@
     },
     {
       "path": "source/en/chapter3-unit-040.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter3-unit-040.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter3-unit-040.tex",
       "http_status": 200,
       "expected_bytes": 14423,
       "bytes": 14423,
@@ -2974,7 +3024,7 @@
     },
     {
       "path": "source/en/chapter3-unit-041.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter3-unit-041.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter3-unit-041.tex",
       "http_status": 200,
       "expected_bytes": 19123,
       "bytes": 19123,
@@ -2984,7 +3034,7 @@
     },
     {
       "path": "source/en/chapter3-unit-042.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter3-unit-042.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter3-unit-042.tex",
       "http_status": 200,
       "expected_bytes": 36601,
       "bytes": 36601,
@@ -2994,7 +3044,7 @@
     },
     {
       "path": "source/en/chapter3-unit-043.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter3-unit-043.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter3-unit-043.tex",
       "http_status": 200,
       "expected_bytes": 37659,
       "bytes": 37659,
@@ -3004,7 +3054,7 @@
     },
     {
       "path": "source/en/chapter3-unit-044.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter3-unit-044.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter3-unit-044.tex",
       "http_status": 200,
       "expected_bytes": 17646,
       "bytes": 17646,
@@ -3014,7 +3064,7 @@
     },
     {
       "path": "source/en/chapter3-unit-045.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter3-unit-045.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter3-unit-045.tex",
       "http_status": 200,
       "expected_bytes": 25148,
       "bytes": 25148,
@@ -3024,7 +3074,7 @@
     },
     {
       "path": "source/en/chapter3-unit-046.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter3-unit-046.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter3-unit-046.tex",
       "http_status": 200,
       "expected_bytes": 28294,
       "bytes": 28294,
@@ -3034,7 +3084,7 @@
     },
     {
       "path": "source/en/chapter3-unit-047.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter3-unit-047.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter3-unit-047.tex",
       "http_status": 200,
       "expected_bytes": 26056,
       "bytes": 26056,
@@ -3044,7 +3094,7 @@
     },
     {
       "path": "source/en/chapter4-unit-048.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter4-unit-048.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter4-unit-048.tex",
       "http_status": 200,
       "expected_bytes": 13683,
       "bytes": 13683,
@@ -3054,7 +3104,7 @@
     },
     {
       "path": "source/en/chapter4-unit-049.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter4-unit-049.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter4-unit-049.tex",
       "http_status": 200,
       "expected_bytes": 17057,
       "bytes": 17057,
@@ -3064,7 +3114,7 @@
     },
     {
       "path": "source/en/chapter4-unit-050.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter4-unit-050.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter4-unit-050.tex",
       "http_status": 200,
       "expected_bytes": 5180,
       "bytes": 5180,
@@ -3074,7 +3124,7 @@
     },
     {
       "path": "source/en/chapter4-unit-051.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter4-unit-051.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter4-unit-051.tex",
       "http_status": 200,
       "expected_bytes": 34556,
       "bytes": 34556,
@@ -3084,7 +3134,7 @@
     },
     {
       "path": "source/en/chapter4-unit-052.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter4-unit-052.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter4-unit-052.tex",
       "http_status": 200,
       "expected_bytes": 7975,
       "bytes": 7975,
@@ -3094,7 +3144,7 @@
     },
     {
       "path": "source/en/chapter4-unit-053.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter4-unit-053.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter4-unit-053.tex",
       "http_status": 200,
       "expected_bytes": 13873,
       "bytes": 13873,
@@ -3104,7 +3154,7 @@
     },
     {
       "path": "source/en/chapter4-unit-054.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter4-unit-054.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter4-unit-054.tex",
       "http_status": 200,
       "expected_bytes": 32273,
       "bytes": 32273,
@@ -3114,17 +3164,17 @@
     },
     {
       "path": "source/en/chapter4-unit-055.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter4-unit-055.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter4-unit-055.tex",
       "http_status": 200,
-      "expected_bytes": 39225,
-      "bytes": 39225,
-      "expected_sha256": "1c10c315593fa7cec9bb0550e254907d9fc25ba100c08285f1839ffcdb77659d",
-      "sha256": "1c10c315593fa7cec9bb0550e254907d9fc25ba100c08285f1839ffcdb77659d",
+      "expected_bytes": 39199,
+      "bytes": 39199,
+      "expected_sha256": "e8e26fa04e709b751abc6599cfcf8aa41d00be2ce81e7ec84332a1d01376b72f",
+      "sha256": "e8e26fa04e709b751abc6599cfcf8aa41d00be2ce81e7ec84332a1d01376b72f",
       "pass": true
     },
     {
       "path": "source/en/chapter4-unit-056.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter4-unit-056.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter4-unit-056.tex",
       "http_status": 200,
       "expected_bytes": 24206,
       "bytes": 24206,
@@ -3134,7 +3184,7 @@
     },
     {
       "path": "source/en/chapter4-unit-057.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter4-unit-057.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter4-unit-057.tex",
       "http_status": 200,
       "expected_bytes": 19838,
       "bytes": 19838,
@@ -3144,7 +3194,7 @@
     },
     {
       "path": "source/en/chapter4-unit-058.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter4-unit-058.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter4-unit-058.tex",
       "http_status": 200,
       "expected_bytes": 21082,
       "bytes": 21082,
@@ -3154,7 +3204,7 @@
     },
     {
       "path": "source/en/chapter4-unit-059.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter4-unit-059.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter4-unit-059.tex",
       "http_status": 200,
       "expected_bytes": 15799,
       "bytes": 15799,
@@ -3164,7 +3214,7 @@
     },
     {
       "path": "source/en/chapter4-unit-060.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter4-unit-060.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter4-unit-060.tex",
       "http_status": 200,
       "expected_bytes": 11855,
       "bytes": 11855,
@@ -3174,7 +3224,7 @@
     },
     {
       "path": "source/en/chapter4-unit-061.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter4-unit-061.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter4-unit-061.tex",
       "http_status": 200,
       "expected_bytes": 19849,
       "bytes": 19849,
@@ -3184,7 +3234,7 @@
     },
     {
       "path": "source/en/chapter4-unit-062.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter4-unit-062.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter4-unit-062.tex",
       "http_status": 200,
       "expected_bytes": 24861,
       "bytes": 24861,
@@ -3194,7 +3244,7 @@
     },
     {
       "path": "source/en/chapter4-unit-063.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter4-unit-063.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter4-unit-063.tex",
       "http_status": 200,
       "expected_bytes": 29015,
       "bytes": 29015,
@@ -3204,7 +3254,7 @@
     },
     {
       "path": "source/en/chapter5-unit-064.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter5-unit-064.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter5-unit-064.tex",
       "http_status": 200,
       "expected_bytes": 18690,
       "bytes": 18690,
@@ -3214,7 +3264,7 @@
     },
     {
       "path": "source/en/chapter5-unit-065.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter5-unit-065.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter5-unit-065.tex",
       "http_status": 200,
       "expected_bytes": 18210,
       "bytes": 18210,
@@ -3224,7 +3274,7 @@
     },
     {
       "path": "source/en/chapter5-unit-066.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter5-unit-066.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter5-unit-066.tex",
       "http_status": 200,
       "expected_bytes": 9204,
       "bytes": 9204,
@@ -3234,7 +3284,7 @@
     },
     {
       "path": "source/en/chapter5-unit-067.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter5-unit-067.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter5-unit-067.tex",
       "http_status": 200,
       "expected_bytes": 12709,
       "bytes": 12709,
@@ -3244,7 +3294,7 @@
     },
     {
       "path": "source/en/chapter5-unit-068.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter5-unit-068.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter5-unit-068.tex",
       "http_status": 200,
       "expected_bytes": 16379,
       "bytes": 16379,
@@ -3254,7 +3304,7 @@
     },
     {
       "path": "source/en/chapter5-unit-069.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter5-unit-069.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter5-unit-069.tex",
       "http_status": 200,
       "expected_bytes": 26293,
       "bytes": 26293,
@@ -3264,7 +3314,7 @@
     },
     {
       "path": "source/en/chapter5-unit-070.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter5-unit-070.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter5-unit-070.tex",
       "http_status": 200,
       "expected_bytes": 13206,
       "bytes": 13206,
@@ -3274,7 +3324,7 @@
     },
     {
       "path": "source/en/chapter5-unit-071.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter5-unit-071.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter5-unit-071.tex",
       "http_status": 200,
       "expected_bytes": 8913,
       "bytes": 8913,
@@ -3284,7 +3334,7 @@
     },
     {
       "path": "source/en/chapter6-unit-072.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter6-unit-072.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter6-unit-072.tex",
       "http_status": 200,
       "expected_bytes": 39512,
       "bytes": 39512,
@@ -3294,7 +3344,7 @@
     },
     {
       "path": "source/en/chapter6-unit-073.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter6-unit-073.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter6-unit-073.tex",
       "http_status": 200,
       "expected_bytes": 26729,
       "bytes": 26729,
@@ -3304,7 +3354,7 @@
     },
     {
       "path": "source/en/chapter6-unit-074.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter6-unit-074.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter6-unit-074.tex",
       "http_status": 200,
       "expected_bytes": 18056,
       "bytes": 18056,
@@ -3314,7 +3364,7 @@
     },
     {
       "path": "source/en/chapter6-unit-075.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter6-unit-075.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter6-unit-075.tex",
       "http_status": 200,
       "expected_bytes": 14458,
       "bytes": 14458,
@@ -3324,17 +3374,17 @@
     },
     {
       "path": "source/en/chapter6-unit-076.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter6-unit-076.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter6-unit-076.tex",
       "http_status": 200,
-      "expected_bytes": 26876,
-      "bytes": 26876,
-      "expected_sha256": "defd6dce94a1fa82cbfc8360a194ab57337d3c8fc3e719b226966146696166d3",
-      "sha256": "defd6dce94a1fa82cbfc8360a194ab57337d3c8fc3e719b226966146696166d3",
+      "expected_bytes": 26891,
+      "bytes": 26891,
+      "expected_sha256": "9b2e2f5b6768ad533fd104cde3329b10143a64bfa715c6e18c2cd5f23bb69b75",
+      "sha256": "9b2e2f5b6768ad533fd104cde3329b10143a64bfa715c6e18c2cd5f23bb69b75",
       "pass": true
     },
     {
       "path": "source/en/chapter6-unit-077.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter6-unit-077.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter6-unit-077.tex",
       "http_status": 200,
       "expected_bytes": 15275,
       "bytes": 15275,
@@ -3344,7 +3394,7 @@
     },
     {
       "path": "source/en/chapter6-unit-078.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter6-unit-078.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter6-unit-078.tex",
       "http_status": 200,
       "expected_bytes": 10581,
       "bytes": 10581,
@@ -3354,7 +3404,7 @@
     },
     {
       "path": "source/en/chapter6-unit-079.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter6-unit-079.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter6-unit-079.tex",
       "http_status": 200,
       "expected_bytes": 19339,
       "bytes": 19339,
@@ -3364,7 +3414,7 @@
     },
     {
       "path": "source/en/chapter6-unit-080.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter6-unit-080.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter6-unit-080.tex",
       "http_status": 200,
       "expected_bytes": 8521,
       "bytes": 8521,
@@ -3374,7 +3424,7 @@
     },
     {
       "path": "source/en/chapter6-unit-081.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter6-unit-081.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter6-unit-081.tex",
       "http_status": 200,
       "expected_bytes": 12028,
       "bytes": 12028,
@@ -3384,7 +3434,7 @@
     },
     {
       "path": "source/en/chapter6-unit-082.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter6-unit-082.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter6-unit-082.tex",
       "http_status": 200,
       "expected_bytes": 41317,
       "bytes": 41317,
@@ -3394,7 +3444,7 @@
     },
     {
       "path": "source/en/chapter6-unit-083.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter6-unit-083.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter6-unit-083.tex",
       "http_status": 200,
       "expected_bytes": 19929,
       "bytes": 19929,
@@ -3404,7 +3454,7 @@
     },
     {
       "path": "source/en/chapter6-unit-084.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter6-unit-084.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter6-unit-084.tex",
       "http_status": 200,
       "expected_bytes": 12178,
       "bytes": 12178,
@@ -3414,7 +3464,7 @@
     },
     {
       "path": "source/en/chapter6-unit-085.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter6-unit-085.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter6-unit-085.tex",
       "http_status": 200,
       "expected_bytes": 14539,
       "bytes": 14539,
@@ -3424,7 +3474,7 @@
     },
     {
       "path": "source/en/chapter6-unit-086.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter6-unit-086.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter6-unit-086.tex",
       "http_status": 200,
       "expected_bytes": 33624,
       "bytes": 33624,
@@ -3434,7 +3484,7 @@
     },
     {
       "path": "source/en/chapter6-unit-087.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter6-unit-087.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter6-unit-087.tex",
       "http_status": 200,
       "expected_bytes": 21264,
       "bytes": 21264,
@@ -3444,17 +3494,17 @@
     },
     {
       "path": "source/en/chapter7-unit-088.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter7-unit-088.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter7-unit-088.tex",
       "http_status": 200,
-      "expected_bytes": 48902,
-      "bytes": 48902,
-      "expected_sha256": "a54579463b92a3d12f64ea5f2606e932590ca8655832e31ac60097faf5da91a8",
-      "sha256": "a54579463b92a3d12f64ea5f2606e932590ca8655832e31ac60097faf5da91a8",
+      "expected_bytes": 48935,
+      "bytes": 48935,
+      "expected_sha256": "7a7a3806d0f2e037b120813d1ccd244fb8d5c398751fdd790c62797d92230f33",
+      "sha256": "7a7a3806d0f2e037b120813d1ccd244fb8d5c398751fdd790c62797d92230f33",
       "pass": true
     },
     {
       "path": "source/en/chapter7-unit-089.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter7-unit-089.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter7-unit-089.tex",
       "http_status": 200,
       "expected_bytes": 24634,
       "bytes": 24634,
@@ -3464,7 +3514,7 @@
     },
     {
       "path": "source/en/chapter7-unit-090.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter7-unit-090.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter7-unit-090.tex",
       "http_status": 200,
       "expected_bytes": 12729,
       "bytes": 12729,
@@ -3474,7 +3524,7 @@
     },
     {
       "path": "source/en/chapter7-unit-091.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter7-unit-091.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter7-unit-091.tex",
       "http_status": 200,
       "expected_bytes": 17069,
       "bytes": 17069,
@@ -3484,7 +3534,7 @@
     },
     {
       "path": "source/en/chapter7-unit-092.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter7-unit-092.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter7-unit-092.tex",
       "http_status": 200,
       "expected_bytes": 21131,
       "bytes": 21131,
@@ -3494,7 +3544,7 @@
     },
     {
       "path": "source/en/chapter7-unit-093.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter7-unit-093.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter7-unit-093.tex",
       "http_status": 200,
       "expected_bytes": 18037,
       "bytes": 18037,
@@ -3504,7 +3554,7 @@
     },
     {
       "path": "source/en/chapter7-unit-094.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter7-unit-094.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter7-unit-094.tex",
       "http_status": 200,
       "expected_bytes": 15254,
       "bytes": 15254,
@@ -3514,7 +3564,7 @@
     },
     {
       "path": "source/en/chapter7-unit-095.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter7-unit-095.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter7-unit-095.tex",
       "http_status": 200,
       "expected_bytes": 21133,
       "bytes": 21133,
@@ -3524,7 +3574,7 @@
     },
     {
       "path": "source/en/chapter7-unit-096.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter7-unit-096.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter7-unit-096.tex",
       "http_status": 200,
       "expected_bytes": 14504,
       "bytes": 14504,
@@ -3534,7 +3584,7 @@
     },
     {
       "path": "source/en/chapter7-unit-097.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter7-unit-097.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter7-unit-097.tex",
       "http_status": 200,
       "expected_bytes": 15662,
       "bytes": 15662,
@@ -3544,7 +3594,7 @@
     },
     {
       "path": "source/en/chapter7-unit-098.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter7-unit-098.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter7-unit-098.tex",
       "http_status": 200,
       "expected_bytes": 7975,
       "bytes": 7975,
@@ -3554,7 +3604,7 @@
     },
     {
       "path": "source/en/chapter7-unit-099.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter7-unit-099.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter7-unit-099.tex",
       "http_status": 200,
       "expected_bytes": 12865,
       "bytes": 12865,
@@ -3564,7 +3614,7 @@
     },
     {
       "path": "source/en/chapter7-unit-100.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter7-unit-100.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter7-unit-100.tex",
       "http_status": 200,
       "expected_bytes": 17917,
       "bytes": 17917,
@@ -3574,7 +3624,7 @@
     },
     {
       "path": "source/en/chapter7-unit-101.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter7-unit-101.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter7-unit-101.tex",
       "http_status": 200,
       "expected_bytes": 17940,
       "bytes": 17940,
@@ -3584,7 +3634,7 @@
     },
     {
       "path": "source/en/chapter7-unit-102.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter7-unit-102.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter7-unit-102.tex",
       "http_status": 200,
       "expected_bytes": 24825,
       "bytes": 24825,
@@ -3594,7 +3644,7 @@
     },
     {
       "path": "source/en/chapter7-unit-103.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter7-unit-103.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter7-unit-103.tex",
       "http_status": 200,
       "expected_bytes": 13013,
       "bytes": 13013,
@@ -3604,7 +3654,7 @@
     },
     {
       "path": "source/en/chapter7-unit-104.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter7-unit-104.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter7-unit-104.tex",
       "http_status": 200,
       "expected_bytes": 13224,
       "bytes": 13224,
@@ -3614,7 +3664,7 @@
     },
     {
       "path": "source/en/chapter7-unit-105.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter7-unit-105.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter7-unit-105.tex",
       "http_status": 200,
       "expected_bytes": 8139,
       "bytes": 8139,
@@ -3624,17 +3674,17 @@
     },
     {
       "path": "source/en/chapter8-unit-106.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter8-unit-106.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter8-unit-106.tex",
       "http_status": 200,
-      "expected_bytes": 22762,
-      "bytes": 22762,
-      "expected_sha256": "f569c60fd700e40037b9d2c1876425ba0923a5eaba7094bef4ee967ae3c287f7",
-      "sha256": "f569c60fd700e40037b9d2c1876425ba0923a5eaba7094bef4ee967ae3c287f7",
+      "expected_bytes": 22775,
+      "bytes": 22775,
+      "expected_sha256": "08f9846d6496c79b4d916336a925e625549087832744b8cda636389054ccb919",
+      "sha256": "08f9846d6496c79b4d916336a925e625549087832744b8cda636389054ccb919",
       "pass": true
     },
     {
       "path": "source/en/chapter8-unit-107.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter8-unit-107.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter8-unit-107.tex",
       "http_status": 200,
       "expected_bytes": 10207,
       "bytes": 10207,
@@ -3644,7 +3694,7 @@
     },
     {
       "path": "source/en/chapter8-unit-108.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter8-unit-108.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter8-unit-108.tex",
       "http_status": 200,
       "expected_bytes": 14725,
       "bytes": 14725,
@@ -3654,7 +3704,7 @@
     },
     {
       "path": "source/en/chapter8-unit-109.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter8-unit-109.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter8-unit-109.tex",
       "http_status": 200,
       "expected_bytes": 27824,
       "bytes": 27824,
@@ -3664,7 +3714,7 @@
     },
     {
       "path": "source/en/chapter8-unit-110.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter8-unit-110.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter8-unit-110.tex",
       "http_status": 200,
       "expected_bytes": 18559,
       "bytes": 18559,
@@ -3674,7 +3724,7 @@
     },
     {
       "path": "source/en/chapter8-unit-111.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter8-unit-111.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter8-unit-111.tex",
       "http_status": 200,
       "expected_bytes": 17237,
       "bytes": 17237,
@@ -3684,7 +3734,7 @@
     },
     {
       "path": "source/en/chapter8-unit-112.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter8-unit-112.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter8-unit-112.tex",
       "http_status": 200,
       "expected_bytes": 16966,
       "bytes": 16966,
@@ -3694,7 +3744,7 @@
     },
     {
       "path": "source/en/chapter8-unit-113.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter8-unit-113.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter8-unit-113.tex",
       "http_status": 200,
       "expected_bytes": 11057,
       "bytes": 11057,
@@ -3704,7 +3754,7 @@
     },
     {
       "path": "source/en/chapter8-unit-114.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter8-unit-114.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter8-unit-114.tex",
       "http_status": 200,
       "expected_bytes": 16428,
       "bytes": 16428,
@@ -3714,7 +3764,7 @@
     },
     {
       "path": "source/en/chapter8-unit-115.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter8-unit-115.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter8-unit-115.tex",
       "http_status": 200,
       "expected_bytes": 10797,
       "bytes": 10797,
@@ -3724,7 +3774,7 @@
     },
     {
       "path": "source/en/chapter8-unit-116.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter8-unit-116.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter8-unit-116.tex",
       "http_status": 200,
       "expected_bytes": 16665,
       "bytes": 16665,
@@ -3734,7 +3784,7 @@
     },
     {
       "path": "source/en/chapter8-unit-117.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter8-unit-117.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter8-unit-117.tex",
       "http_status": 200,
       "expected_bytes": 16119,
       "bytes": 16119,
@@ -3744,7 +3794,7 @@
     },
     {
       "path": "source/en/chapter8-unit-118.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter8-unit-118.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter8-unit-118.tex",
       "http_status": 200,
       "expected_bytes": 14574,
       "bytes": 14574,
@@ -3754,7 +3804,7 @@
     },
     {
       "path": "source/en/chapter8-unit-119.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter8-unit-119.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter8-unit-119.tex",
       "http_status": 200,
       "expected_bytes": 13719,
       "bytes": 13719,
@@ -3764,7 +3814,7 @@
     },
     {
       "path": "source/en/chapter8-unit-120.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter8-unit-120.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter8-unit-120.tex",
       "http_status": 200,
       "expected_bytes": 11539,
       "bytes": 11539,
@@ -3774,7 +3824,7 @@
     },
     {
       "path": "source/en/chapter9-unit-121.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter9-unit-121.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter9-unit-121.tex",
       "http_status": 200,
       "expected_bytes": 29461,
       "bytes": 29461,
@@ -3784,7 +3834,7 @@
     },
     {
       "path": "source/en/chapter9-unit-122.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter9-unit-122.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter9-unit-122.tex",
       "http_status": 200,
       "expected_bytes": 16109,
       "bytes": 16109,
@@ -3794,7 +3844,7 @@
     },
     {
       "path": "source/en/chapter9-unit-123.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter9-unit-123.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter9-unit-123.tex",
       "http_status": 200,
       "expected_bytes": 21445,
       "bytes": 21445,
@@ -3804,7 +3854,7 @@
     },
     {
       "path": "source/en/chapter9-unit-124.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter9-unit-124.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter9-unit-124.tex",
       "http_status": 200,
       "expected_bytes": 14707,
       "bytes": 14707,
@@ -3814,7 +3864,7 @@
     },
     {
       "path": "source/en/chapter9-unit-125.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter9-unit-125.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter9-unit-125.tex",
       "http_status": 200,
       "expected_bytes": 11772,
       "bytes": 11772,
@@ -3824,7 +3874,7 @@
     },
     {
       "path": "source/en/chapter9-unit-126.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter9-unit-126.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter9-unit-126.tex",
       "http_status": 200,
       "expected_bytes": 14384,
       "bytes": 14384,
@@ -3834,7 +3884,7 @@
     },
     {
       "path": "source/en/chapter9-unit-127.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter9-unit-127.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter9-unit-127.tex",
       "http_status": 200,
       "expected_bytes": 11798,
       "bytes": 11798,
@@ -3844,7 +3894,7 @@
     },
     {
       "path": "source/en/chapter9-unit-128.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter9-unit-128.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter9-unit-128.tex",
       "http_status": 200,
       "expected_bytes": 12837,
       "bytes": 12837,
@@ -3854,7 +3904,7 @@
     },
     {
       "path": "source/en/chapter9-unit-129.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter9-unit-129.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter9-unit-129.tex",
       "http_status": 200,
       "expected_bytes": 11163,
       "bytes": 11163,
@@ -3864,7 +3914,7 @@
     },
     {
       "path": "source/en/chapter9-unit-130.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter9-unit-130.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter9-unit-130.tex",
       "http_status": 200,
       "expected_bytes": 17862,
       "bytes": 17862,
@@ -3874,7 +3924,7 @@
     },
     {
       "path": "source/en/chapter9-unit-131.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter9-unit-131.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter9-unit-131.tex",
       "http_status": 200,
       "expected_bytes": 12699,
       "bytes": 12699,
@@ -3884,7 +3934,7 @@
     },
     {
       "path": "source/en/chapter9-unit-132.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter9-unit-132.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter9-unit-132.tex",
       "http_status": 200,
       "expected_bytes": 8959,
       "bytes": 8959,
@@ -3894,17 +3944,17 @@
     },
     {
       "path": "source/en/chapter9-unit-133.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter9-unit-133.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter9-unit-133.tex",
       "http_status": 200,
-      "expected_bytes": 14044,
-      "bytes": 14044,
-      "expected_sha256": "a277c7e98b3abf84f297eaf9d149cd6598db87cca530ae84db03798a2e3c77bf",
-      "sha256": "a277c7e98b3abf84f297eaf9d149cd6598db87cca530ae84db03798a2e3c77bf",
+      "expected_bytes": 14095,
+      "bytes": 14095,
+      "expected_sha256": "ce92992e603d1288c4846a1e732fbc71cb047e67b6e3ef1d3b14b735e2f20fd0",
+      "sha256": "ce92992e603d1288c4846a1e732fbc71cb047e67b6e3ef1d3b14b735e2f20fd0",
       "pass": true
     },
     {
       "path": "source/en/chapter9-unit-134.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/chapter9-unit-134.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/chapter9-unit-134.tex",
       "http_status": 200,
       "expected_bytes": 9643,
       "bytes": 9643,
@@ -3914,7 +3964,7 @@
     },
     {
       "path": "source/en/coverpage-en.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/coverpage-en.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/coverpage-en.tex",
       "http_status": 200,
       "expected_bytes": 4772,
       "bytes": 4772,
@@ -3924,7 +3974,7 @@
     },
     {
       "path": "source/en/font-setup-en.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/font-setup-en.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/font-setup-en.tex",
       "http_status": 200,
       "expected_bytes": 1783,
       "bytes": 1783,
@@ -3934,7 +3984,7 @@
     },
     {
       "path": "source/en/mastery-bridge-001-diagram-chasing.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/mastery-bridge-001-diagram-chasing.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/mastery-bridge-001-diagram-chasing.tex",
       "http_status": 200,
       "expected_bytes": 22487,
       "bytes": 22487,
@@ -3944,17 +3994,17 @@
     },
     {
       "path": "source/en/mastery-bridge-002-derived-functors-spectral-sequences.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/mastery-bridge-002-derived-functors-spectral-sequences.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/mastery-bridge-002-derived-functors-spectral-sequences.tex",
       "http_status": 200,
-      "expected_bytes": 24139,
-      "bytes": 24139,
-      "expected_sha256": "20e7498059a531a3f95e94bb03c32a663b5c14a6ea8fa0dffe38e4ef0c5e103e",
-      "sha256": "20e7498059a531a3f95e94bb03c32a663b5c14a6ea8fa0dffe38e4ef0c5e103e",
+      "expected_bytes": 24160,
+      "bytes": 24160,
+      "expected_sha256": "b226ac20633f7ed05ef480c5316efc4414c3786a47042e6a967975eb1623aa8b",
+      "sha256": "b226ac20633f7ed05ef480c5316efc4414c3786a47042e6a967975eb1623aa8b",
       "pass": true
     },
     {
       "path": "source/en/myarrows.sty",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/myarrows.sty",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/myarrows.sty",
       "http_status": 200,
       "expected_bytes": 3651,
       "bytes": 3651,
@@ -3964,7 +4014,7 @@
     },
     {
       "path": "source/en/mycommand.sty",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/mycommand.sty",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/mycommand.sty",
       "http_status": 200,
       "expected_bytes": 7883,
       "bytes": 7883,
@@ -3974,7 +4024,7 @@
     },
     {
       "path": "source/en/pre-prelude-en.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/pre-prelude-en.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/pre-prelude-en.tex",
       "http_status": 200,
       "expected_bytes": 6608,
       "bytes": 6608,
@@ -3984,7 +4034,7 @@
     },
     {
       "path": "source/en/prelude-unit-001.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/prelude-unit-001.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/prelude-unit-001.tex",
       "http_status": 200,
       "expected_bytes": 4688,
       "bytes": 4688,
@@ -3994,7 +4044,7 @@
     },
     {
       "path": "source/en/prelude-unit-002.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/prelude-unit-002.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/prelude-unit-002.tex",
       "http_status": 200,
       "expected_bytes": 13829,
       "bytes": 13829,
@@ -4004,7 +4054,7 @@
     },
     {
       "path": "source/en/prelude-unit-003.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/prelude-unit-003.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/prelude-unit-003.tex",
       "http_status": 200,
       "expected_bytes": 6013,
       "bytes": 6013,
@@ -4014,7 +4064,7 @@
     },
     {
       "path": "source/en/prelude-unit-004.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/prelude-unit-004.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/prelude-unit-004.tex",
       "http_status": 200,
       "expected_bytes": 6123,
       "bytes": 6123,
@@ -4024,7 +4074,7 @@
     },
     {
       "path": "source/en/prelude-unit-005.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/prelude-unit-005.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/prelude-unit-005.tex",
       "http_status": 200,
       "expected_bytes": 5837,
       "bytes": 5837,
@@ -4034,7 +4084,7 @@
     },
     {
       "path": "source/en/prelude-unit-006.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/prelude-unit-006.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/prelude-unit-006.tex",
       "http_status": 200,
       "expected_bytes": 3365,
       "bytes": 3365,
@@ -4044,7 +4094,7 @@
     },
     {
       "path": "source/en/prelude-unit-007.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/prelude-unit-007.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/prelude-unit-007.tex",
       "http_status": 200,
       "expected_bytes": 36950,
       "bytes": 36950,
@@ -4054,7 +4104,7 @@
     },
     {
       "path": "source/en/titles-setup-en.tex",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/source/en/titles-setup-en.tex",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/source/en/titles-setup-en.tex",
       "http_status": 200,
       "expected_bytes": 6659,
       "bytes": 6659,
@@ -4064,7 +4114,7 @@
     },
     {
       "path": "tools/admit_translated_units.py",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/tools/admit_translated_units.py",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/tools/admit_translated_units.py",
       "http_status": 200,
       "expected_bytes": 11942,
       "bytes": 11942,
@@ -4074,17 +4124,17 @@
     },
     {
       "path": "tools/audit_english_range.py",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/tools/audit_english_range.py",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/tools/audit_english_range.py",
       "http_status": 200,
-      "expected_bytes": 13106,
-      "bytes": 13106,
-      "expected_sha256": "1b188def09f1352e297a555c0db15d6827aec65da1b10237d35e5abfe9476e6c",
-      "sha256": "1b188def09f1352e297a555c0db15d6827aec65da1b10237d35e5abfe9476e6c",
+      "expected_bytes": 14384,
+      "bytes": 14384,
+      "expected_sha256": "e2b762404203a042055fa4d1bc87ae3ee03674e3666600e4a4042445974b2af1",
+      "sha256": "e2b762404203a042055fa4d1bc87ae3ee03674e3666600e4a4042445974b2af1",
       "pass": true
     },
     {
       "path": "tools/build_complete_english_diagram_ledger.py",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/tools/build_complete_english_diagram_ledger.py",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/tools/build_complete_english_diagram_ledger.py",
       "http_status": 200,
       "expected_bytes": 33123,
       "bytes": 33123,
@@ -4094,7 +4144,7 @@
     },
     {
       "path": "tools/build_english_backend.py",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/tools/build_english_backend.py",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/tools/build_english_backend.py",
       "http_status": 200,
       "expected_bytes": 13885,
       "bytes": 13885,
@@ -4104,7 +4154,7 @@
     },
     {
       "path": "tools/build_english_pdf.py",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/tools/build_english_pdf.py",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/tools/build_english_pdf.py",
       "http_status": 200,
       "expected_bytes": 13750,
       "bytes": 13750,
@@ -4114,17 +4164,17 @@
     },
     {
       "path": "tools/build_english_reader.py",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/tools/build_english_reader.py",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/tools/build_english_reader.py",
       "http_status": 200,
-      "expected_bytes": 5397,
-      "bytes": 5397,
-      "expected_sha256": "3ddb110903bf206a273559eeff6c98c8e16def3f285ccb7f4ab8fbc2ed55d2b2",
-      "sha256": "3ddb110903bf206a273559eeff6c98c8e16def3f285ccb7f4ab8fbc2ed55d2b2",
+      "expected_bytes": 5662,
+      "bytes": 5662,
+      "expected_sha256": "121f915826da73a023c3b9db18bf024a50908e7bfa065fe3e42c1166a2a4b8de",
+      "sha256": "121f915826da73a023c3b9db18bf024a50908e7bfa065fe3e42c1166a2a4b8de",
       "pass": true
     },
     {
       "path": "tools/build_shared_english.py",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/tools/build_shared_english.py",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/tools/build_shared_english.py",
       "http_status": 200,
       "expected_bytes": 5458,
       "bytes": 5458,
@@ -4134,7 +4184,7 @@
     },
     {
       "path": "tools/initialize_english_lane.py",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/tools/initialize_english_lane.py",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/tools/initialize_english_lane.py",
       "http_status": 200,
       "expected_bytes": 2611,
       "bytes": 2611,
@@ -4144,7 +4194,7 @@
     },
     {
       "path": "tools/initialize_english_reader.py",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/tools/initialize_english_reader.py",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/tools/initialize_english_reader.py",
       "http_status": 200,
       "expected_bytes": 19062,
       "bytes": 19062,
@@ -4154,27 +4204,37 @@
     },
     {
       "path": "tools/package_english_release.py",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/tools/package_english_release.py",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/tools/package_english_release.py",
       "http_status": 200,
-      "expected_bytes": 16884,
-      "bytes": 16884,
-      "expected_sha256": "d85875d7a4132c0505ec223aac643d21e0ec4b71771ae39e2eff4c5cf91e479f",
-      "sha256": "d85875d7a4132c0505ec223aac643d21e0ec4b71771ae39e2eff4c5cf91e479f",
+      "expected_bytes": 17540,
+      "bytes": 17540,
+      "expected_sha256": "26f713099abf20628c02565407bbac3925d1f38050397480dd9cbbbfd00472c6",
+      "sha256": "26f713099abf20628c02565407bbac3925d1f38050397480dd9cbbbfd00472c6",
+      "pass": true
+    },
+    {
+      "path": "tools/preflight_release_visual_gates.py",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/tools/preflight_release_visual_gates.py",
+      "http_status": 200,
+      "expected_bytes": 7434,
+      "bytes": 7434,
+      "expected_sha256": "61287d403ba3cb758f1d88f508757677341f8d5d0110902086ba76474f5b71a2",
+      "sha256": "61287d403ba3cb758f1d88f508757677341f8d5d0110902086ba76474f5b71a2",
       "pass": true
     },
     {
       "path": "tools/prepare_complete_diagram_inventory.py",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/tools/prepare_complete_diagram_inventory.py",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/tools/prepare_complete_diagram_inventory.py",
       "http_status": 200,
-      "expected_bytes": 8275,
-      "bytes": 8275,
-      "expected_sha256": "64597e4defd3c9b2615fe7321a700d4badb970954e9becf4f01a9b0067a6fae7",
-      "sha256": "64597e4defd3c9b2615fe7321a700d4badb970954e9becf4f01a9b0067a6fae7",
+      "expected_bytes": 8970,
+      "bytes": 8970,
+      "expected_sha256": "801384d93673a0f323588fe9ff56bc50076544b8f6a55efd95f95c7b0ebb5a51",
+      "sha256": "801384d93673a0f323588fe9ff56bc50076544b8f6a55efd95f95c7b0ebb5a51",
       "pass": true
     },
     {
       "path": "tools/record_source_freeze.py",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/tools/record_source_freeze.py",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/tools/record_source_freeze.py",
       "http_status": 200,
       "expected_bytes": 2284,
       "bytes": 2284,
@@ -4183,8 +4243,18 @@
       "pass": true
     },
     {
+      "path": "tools/release_visual_gates.py",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/tools/release_visual_gates.py",
+      "http_status": 200,
+      "expected_bytes": 11370,
+      "bytes": 11370,
+      "expected_sha256": "9b21a279f010a6a56327cb4ab19cbebfe33c2cf11e2259e80505c4336a61e0e5",
+      "sha256": "9b21a279f010a6a56327cb4ab19cbebfe33c2cf11e2259e80505c4336a61e0e5",
+      "pass": true
+    },
+    {
       "path": "tools/validate_english_diagram_ledger.py",
-      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/3570dc77c5abe8fb1a3462999f2abbb553db5682/tools/validate_english_diagram_ledger.py",
+      "url": "https://raw.githubusercontent.com/KokunoYumeto/methods-of-algebra-volume-2-en/674ef26c04dba544e80a95a3f320a9961649407c/tools/validate_english_diagram_ledger.py",
       "http_status": 200,
       "expected_bytes": 7689,
       "bytes": 7689,
@@ -4210,8 +4280,8 @@
       "http_status": 200,
       "expected_bytes": 3897,
       "bytes": 3897,
-      "expected_sha256": "4475669070524617dfc671e5091fac14000f8864d27338e5402e0b0a6369d864",
-      "sha256": "4475669070524617dfc671e5091fac14000f8864d27338e5402e0b0a6369d864",
+      "expected_sha256": "1d2071aa329dcedc1bafea6410fd785023e7e84365fcba9e26b5a5d74edc8f8c",
+      "sha256": "1d2071aa329dcedc1bafea6410fd785023e7e84365fcba9e26b5a5d74edc8f8c",
       "pass": true
     },
     {
@@ -4228,10 +4298,10 @@
       "path": "index.html",
       "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/index.html",
       "http_status": 200,
-      "expected_bytes": 4501242,
-      "bytes": 4501242,
-      "expected_sha256": "15c5ce147ecbff02fe8d95416029e57f0ecbd9af1fcfa16f1857b183f21ce824",
-      "sha256": "15c5ce147ecbff02fe8d95416029e57f0ecbd9af1fcfa16f1857b183f21ce824",
+      "expected_bytes": 4493910,
+      "bytes": 4493910,
+      "expected_sha256": "411fe6246743388ba9c5352732cc7958c02aa5dc578a54daecd4e6a5b317347e",
+      "sha256": "411fe6246743388ba9c5352732cc7958c02aa5dc578a54daecd4e6a5b317347e",
       "pass": true
     },
     {
@@ -4248,10 +4318,10 @@
       "path": "validation-report.json",
       "url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/validation-report.json",
       "http_status": 200,
-      "expected_bytes": 632,
-      "bytes": 632,
-      "expected_sha256": "f5b97ecbfbdffe9396e6c6d12baf25efe636b91d858944f14951a838292fc9dc",
-      "sha256": "f5b97ecbfbdffe9396e6c6d12baf25efe636b91d858944f14951a838292fc9dc",
+      "expected_bytes": 1771,
+      "bytes": 1771,
+      "expected_sha256": "99ead324f5b8ca77eef3783a087af4ea5da40833975ea18c90400ae385310ed5",
+      "sha256": "99ead324f5b8ca77eef3783a087af4ea5da40833975ea18c90400ae385310ed5",
       "pass": true
     },
     {
@@ -4505,10 +4575,10 @@
       "pass": true
     }
   ],
-  "main_file_count": 288,
+  "main_file_count": 293,
   "pages_file_count": 31,
-  "main_total_bytes": 19737346,
-  "pages_total_bytes": 6202695,
+  "main_total_bytes": 20669489,
+  "pages_total_bytes": 6196502,
   "errors": [],
   "credentials_used": false
 }

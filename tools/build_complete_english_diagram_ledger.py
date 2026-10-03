@@ -25,6 +25,7 @@ from validate_english_diagram_ledger import (
 
 INVENTORY = ROOT / "qa" / "DIAGRAM_SOURCE_INVENTORY.jsonl"
 LEDGER = ROOT / "backend" / "figure-alt-text-en.csv"
+AUDITED_DESCRIPTION_LEDGER = ROOT / "controls" / "UNIT023_DIAGRAM_DESCRIPTIONS.json"
 
 
 # The eight omitted tikzpicture environments are small geometric glyphs rather
@@ -794,6 +795,29 @@ def valid_description(value: str) -> bool:
     )
 
 
+def load_audited_descriptions() -> dict[str, dict[str, object]]:
+    payload = json.loads(AUDITED_DESCRIPTION_LEDGER.read_text(encoding="utf-8-sig"))
+    entries = payload.get("entries")
+    if not isinstance(entries, list) or len(entries) != 23:
+        raise SystemExit("Unit 023 audited ledger must contain exactly 23 entries")
+    ids = [str(entry.get("diagram_id", "")) for entry in entries]
+    orders = [entry.get("local_order") for entry in entries]
+    if len(ids) != len(set(ids)) or orders != list(range(1, 24)):
+        raise SystemExit("Unit 023 audited ledger IDs/orders are not a unique 1..23 sequence")
+    for entry in entries:
+        if not str(entry.get("source_segment_id", "")).endswith(
+            f".g{int(entry['local_order']):03d}"
+        ):
+            raise SystemExit(f"source-segment mismatch for {entry['diagram_id']}")
+        if not valid_description(str(entry.get("description_en", ""))):
+            raise SystemExit(f"invalid audited description for {entry['diagram_id']}")
+        if not str(entry.get("source_ref", "")).startswith(
+            "source/en/chapter2-unit-023.tex:"
+        ):
+            raise SystemExit(f"invalid audited source reference for {entry['diagram_id']}")
+    return {str(entry["diagram_id"]): entry for entry in entries}
+
+
 def main() -> None:
     inventory = [
         json.loads(line)
@@ -802,14 +826,24 @@ def main() -> None:
     ]
     if len(inventory) != 907:
         raise SystemExit(f"inventory row count is {len(inventory)}, expected 907")
+    audited_descriptions = load_audited_descriptions()
 
     rows = []
     preserved = 0
     rebuilt = 0
     authored = 0
+    audited = 0
     for inventory_line, record in enumerate(inventory, 1):
         inherited = record["description_en"].strip()
-        if inherited and valid_description(inherited):
+        audited_entry = audited_descriptions.get(record["diagram_id"])
+        if audited_entry:
+            if record["unit_filename"] != "chapter2-unit-023.tex":
+                raise SystemExit(f"audited diagram in wrong unit: {record['diagram_id']}")
+            if int(record["actual_order"]) != int(audited_entry["local_order"]):
+                raise SystemExit(f"audited diagram order mismatch: {record['diagram_id']}")
+            description = str(audited_entry["description_en"])
+            audited += 1
+        elif inherited and valid_description(inherited):
             description = inherited
             preserved += 1
         elif record["diagram_id"] in SEMANTIC_OVERRIDES:
@@ -844,6 +878,11 @@ def main() -> None:
             f"source/en/{record['unit_filename']}:diagram {record['actual_order']}; "
             f"{record['environment']}; {record['source_relationship']}"
         )
+        if audited_entry:
+            provenance += (
+                f"; controls/UNIT023_DIAGRAM_DESCRIPTIONS.json#{record['diagram_id']}; "
+                f"{audited_entry['source_ref']}"
+            )
         rows.append({
             "diagram_id": record["diagram_id"],
             "unit_filename": record["unit_filename"],
@@ -872,6 +911,7 @@ def main() -> None:
         "valid_inherited_preserved": preserved,
         "invalid_inherited_rebuilt": rebuilt,
         "missing_authored": authored,
+        "audited_unit023_overrides": audited,
     }))
 
 

@@ -27,16 +27,17 @@ README = ROOT / "README.md"
 TOKEN_PATH = Path(r"C:\Users\Floris\Documents\Obsidian notes\New zenodo token.md")
 API = "https://zenodo.org/api"
 TITLE = "Methods of Algebra, Volume 2: Linear Algebra - Independent English Edition"
-VERSION = "complete-independent-english-edition-2026-09-01-r2"
-DATE = "2026-09-01"
+VERSION = "complete-independent-english-edition-2026-10-03-r3"
+DATE = "2026-10-03"
 EXPECTED_CONCEPT_RECORD_ID = "22229883"
-EXPECTED_PARENT_RECORD_ID = "22229884"
+EXPECTED_PARENT_RECORD_ID = "22233942"
 PAYLOAD_NAMES = (
     "00_methods-of-algebra-volume-2-independent-english-edition.pdf",
-    "01_complete-xelatex-source.zip",
-    "02_semantic-backend.zip",
-    "03_offline-html-reader.zip",
-    "04_provenance-and-reproducibility.zip",
+    "01_methods-of-algebra-volume-2-independent-english-edition-cumulative.tex",
+    "02_complete-xelatex-source.zip",
+    "03_semantic-backend.zip",
+    "04_offline-html-reader.zip",
+    "05_provenance-and-reproducibility.zip",
     "LICENSE", "README.txt", "MANIFEST.csv", "SHA256SUMS.txt",
 )
 POLL_DELAYS_SECONDS = (0, 1, 2, 4, 8, 16, 30)
@@ -134,7 +135,7 @@ def expected_inventory():
     package = json.loads(PACKAGE.read_text(encoding="utf-8-sig"))
     rows = package.get("files", [])
     if package.get("result") != "PASS" or len(rows) != len(PAYLOAD_NAMES):
-        raise RuntimeError("Release package is not an exact nine-file PASS boundary")
+        raise RuntimeError("Release package is not an exact ten-file PASS boundary")
     receipt_names = [row.get("filename") for row in rows]
     if len(set(receipt_names)) != len(receipt_names) or set(receipt_names) != set(PAYLOAD_NAMES):
         raise RuntimeError(f"Package receipt inventory is non-canonical: {receipt_names}")
@@ -170,9 +171,11 @@ def metadata(inherited=None):
         "<em>Methods of Algebra</em>, Volume 2: Linear Algebra. This release contains all 146 mapped "
         "source units, including exercises and hints, plus two separately attributed mastery bridges "
         "with full solutions.</p>"
-        "<p>The reader-first payload includes a PDF, complete editable XeLaTeX source, a locale-linked "
-        "semantic backend, an accessible reflowable offline HTML reader with local MathJax, and compact "
-        "provenance/reproducibility evidence. The frozen official source is commit "
+        "<p>The reader-first payload includes a PDF, a directly downloadable cumulative LaTeX file, a "
+        "complete modular XeLaTeX source archive, a locale-linked semantic backend, an accessible "
+        "reflowable offline HTML reader with local MathJax, and compact provenance/reproducibility "
+        "evidence. Unit 023 now supplies complete source-traceable English descriptions for all 23 "
+        "diagrams, including the Five Lemma statement and its proof lifts. The frozen official source is commit "
         "<code>9a5803ff77dd3257484cb177f851a73770a59dd3</code>, tree "
         "<code>23bd05c2fb8434278df4fdfb636559a6a2b0d2ff</code>.</p>"
         "<p>English translation, terminology reconciliation, reader configuration, metadata, and the "
@@ -229,6 +232,8 @@ def metadata_defects(md):
     if "9a5803ff77dd3257484cb177f851a73770a59dd3" not in plain_description or "23bd05c2fb8434278df4fdfb636559a6a2b0d2ff" not in plain_description:
         defects.append("frozen_source_identity")
     if "OpenAI Codex gpt-5.6-sol, Ultra" not in plain_description:defects.append("production_provenance")
+    if "directly downloadable cumulative LaTeX file" not in plain_description:defects.append("direct_cumulative_latex")
+    if "Unit 023" not in plain_description or "all 23 diagrams" not in plain_description:defects.append("unit023_correction_scope")
     related=md.get("related_identifiers",[])
     source_url="https://github.com/wenweili/AlJabr-2/tree/9a5803ff77dd3257484cb177f851a73770a59dd3"
     if not any(row.get("identifier")==source_url and row.get("relation")=="isDerivedFrom" for row in related):
@@ -613,7 +618,7 @@ def main():
     state_concept=record_id(state.get("concept_record_id"), "state concept record ID")
     if state_concept != EXPECTED_CONCEPT_RECORD_ID:
         raise RuntimeError(
-            f"V2 durable cursor must name concept {EXPECTED_CONCEPT_RECORD_ID}; "
+            f"V3 durable cursor must name concept {EXPECTED_CONCEPT_RECORD_ID}; "
             f"found {state_concept or '<missing>'}"
         )
     if published_id:
@@ -715,7 +720,7 @@ def main():
                                          "state parent record ID",required=True)
             if recorded_parent_id != EXPECTED_PARENT_RECORD_ID:
                 raise RuntimeError(
-                    f"V2 durable cursor must name parent {EXPECTED_PARENT_RECORD_ID}; "
+                    f"V3 durable cursor must name parent {EXPECTED_PARENT_RECORD_ID}; "
                     f"found {recorded_parent_id}"
                 )
             if parent_id != recorded_parent_id:
@@ -779,7 +784,7 @@ def main():
 
 def finish(record, reads, package, already_published, readme_preflight_sha256):
     md=record.get("metadata",{});defects=metadata_defects(md)
-    if len(reads)!=9 or not all(row["pass"] for row in reads):defects.append("public_files")
+    if len(reads)!=10 or not all(row["pass"] for row in reads):defects.append("public_files")
     if defects:raise RuntimeError(f"Public verification defects: {defects}")
     readme,_=preflight_readme_marker(readme_preflight_sha256)
     rid=record_id(record.get("id"),"final public record ID",required=True)
@@ -791,7 +796,7 @@ def finish(record, reads, package, already_published, readme_preflight_sha256):
              "public_url":f"https://zenodo.org/records/{rid}","metadata":{"title":TITLE,"version":VERSION,"language":"eng",
              "access_right":"open","license":"cc-by-4.0","creator_count":len(md.get("creators",[])),
              "contributor_count":len(md.get("contributors",[])),"defects":[]},
-             "public_files":reads,"total_files":9,"total_bytes":sum(row["bytes"] for row in reads),
+             "public_files":reads,"total_files":10,"total_bytes":sum(row["bytes"] for row in reads),
              "package_receipt_sha256":sha_file(PACKAGE),"source_commit":"9a5803ff77dd3257484cb177f851a73770a59dd3",
              "source_tree":"23bd05c2fb8434278df4fdfb636559a6a2b0d2ff","credential_material_present":False}
     doi_line = f"- Archival DOI: <https://doi.org/{receipt['doi']}>"
@@ -803,7 +808,7 @@ def finish(record, reads, package, already_published, readme_preflight_sha256):
     save_state(phase="published_and_anonymous_readback_passed",published_record_id=rid,concept_record_id=concept,
                doi=receipt["doi"],published=True,result="PASS")
     print(json.dumps({"result":"PASS","record_id":rid,"concept_record_id":concept,"doi":receipt["doi"],
-                      "files":9,"bytes":receipt["total_bytes"],"receipt_sha256":sha_file(RECEIPT)}))
+                      "files":10,"bytes":receipt["total_bytes"],"receipt_sha256":sha_file(RECEIPT)}))
 
 
 if __name__ == "__main__": main()

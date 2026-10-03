@@ -1,11 +1,11 @@
 {
   "schema": "o014-english-html-build-v1",
-  "built_at_utc": "2026-09-01T15:08:15.146310+00:00",
+  "built_at_utc": "2026-10-03T05:07:11.437367+00:00",
   "result": "PASS",
-  "index_bytes": 4493910,
-  "index_sha256": "411fe6246743388ba9c5352732cc7958c02aa5dc578a54daecd4e6a5b317347e",
+  "index_bytes": 4501169,
+  "index_sha256": "a407428c684ef99596234763d9df3f8fa1b2e6bfe841cc9462804e6dd941a293",
   "dist_files": 31,
-  "dist_bytes": 6196502,
+  "dist_bytes": 6203761,
   "validation": {
     "status": "pass",
     "html_files": 2,
@@ -123,7 +123,7 @@
       "stderr_tail": ""
     }
   ],
-  "reader_build_report_sha256": "59458d06b7e8640ca6220688848bb861a38a9ef315a12fcc3a50f78636f9385a",
+  "reader_build_report_sha256": "d35e7e0a3cf922f4c8ff609c87fa51d8b191b91f7c798a0e1f1f30fbe278936d",
   "source_inputs": {
     "master": {
       "path": "source/en/Al-jabr-2-en-complete-draft.tex",
@@ -139,7 +139,7 @@
     },
     "diagram_ledger": {
       "path": "backend/figure-alt-text-en.csv",
-      "sha256": "aa15c68e8e0f19ee58dc9329199c4ff84db1deb1df9bf58dd5a11105ff293937"
+      "sha256": "8cb96a9de8b2a4dd8a9e7c39bd845c50f6881ae37daa6bbf4ddb5b589303e6b6"
     },
     "units": [
       {
@@ -854,7 +854,7 @@
   },
   "builder_inputs": {
     "tools/build_english_reader.py": "121f915826da73a023c3b9db18bf024a50908e7bfa065fe3e42c1166a2a4b8de",
-    "reader/tools/build_pandoc_reader.py": "2d96baa0acd5212d8865dfa13e5e4f53691bae606179b7a12a7e4f8403cbb24c",
+    "reader/tools/build_pandoc_reader.py": "b40f2cd2c83ec30f7070ff077fc5543900efb396e5dc38551105144654ddea9d",
     "reader/tools/validate_reader.py": "2ebeaf4b6063f3844f4ea9372ca7818b03621006cb914fad0852f0bdbda33118"
   },
   "source_freeze_sha256": "468b07a489f4bfef79a799b19fbe2b948f8fc3503e48aee16e7f669f8778974f",
