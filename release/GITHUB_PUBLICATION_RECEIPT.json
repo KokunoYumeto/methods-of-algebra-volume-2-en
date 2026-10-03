@@ -1,15 +1,15 @@
 {
   "schema": "o014-english-github-publication-v2",
-  "published_at_utc": "2026-09-01T15:24:16.596517+00:00",
+  "published_at_utc": "2026-10-03T05:25:30.743120+00:00",
   "result": "PUSHED_PENDING_ANONYMOUS_READBACK",
   "repository": "https://github.com/KokunoYumeto/methods-of-algebra-volume-2-en",
   "pages_url": "https://kokunoyumeto.github.io/methods-of-algebra-volume-2-en/",
   "visibility": "public",
   "publication_scope": "complete_pdf_html_source_backend_release",
-  "main_content_commit": "bce2f6e714eef5b0f08abda32b72bde84423936b",
-  "main_content_tree": "04af26c82aba1653ed516c58b2160deaa94bfc3e",
-  "pages_commit": "c53b473037ca96c3ea03ef752de7bf668725c650",
-  "pages_previous_commit": "81b9a58f16aec0f0c22b3708ef52c7d36d15e009",
+  "main_content_commit": "2e3fce0ac0ebdcec23f6e58e534e2183e60ae9bd",
+  "main_content_tree": "d1d77744f9fd4f01b9ae239dcb61d6406c63c495",
+  "pages_commit": "63be6a13df724e6b58dd96090e5700c31d482857",
+  "pages_previous_commit": "8524fbc9dee45c737a5a02bb87cc8773470c5bf6",
   "source_commit": "9a5803ff77dd3257484cb177f851a73770a59dd3",
   "source_tree": "23bd05c2fb8434278df4fdfb636559a6a2b0d2ff",
   "gate_receipts": {
@@ -25,27 +25,27 @@
     },
     "qa/HTML_BUILD_RECEIPT.json": {
       "bytes": 34694,
-      "sha256": "1c9cee21a59708e5ba1c9799f70a3fcbfb392f7416cb10033c8e487032d8efe0",
+      "sha256": "c0c6b463fee31158e1e42bc55aa04ac51217fb0983b398f95a2627528e22248b",
       "result": "PASS"
     },
     "qa/HTML_BROWSER_QA.json": {
-      "bytes": 4443,
-      "sha256": "e37a2c3a9d264888e7cb1a8adeb2d20d55e6ec9a968fa38bb9ba9e7924411171",
+      "bytes": 20744,
+      "sha256": "a74fec87a7663c247a76dca40d19e040fe64afaab46121fb0614d020d84df4e8",
       "result": "PASS"
     },
     "backend/BACKEND_VALIDATION.json": {
       "bytes": 2355,
-      "sha256": "7cb8ea1ca9f38b91c919b0b174048be8664e4b2eaeedcdd07df58ab435f78fbf",
+      "sha256": "a0d68fd1bd95447066e0d2085089ad54a0c9ee61891bb9ca01e107dc7d1263d9",
       "result": "PASS"
     },
     "release/staging/PACKAGE_RECEIPT.json": {
-      "bytes": 8086,
-      "sha256": "117ae6b0b3a36e03245fb8d0cee17f8b736d5516105afbdd2d039e5f1ac32ea7",
+      "bytes": 8754,
+      "sha256": "6da7342349cc386a8d53268656ec7df973e78fd246a267f7cca416c731b87710",
       "result": "PASS"
     },
     "release/ZENODO_PUBLICATION_RECEIPT.json": {
-      "bytes": 5026,
-      "sha256": "987e5f069f9c345c688ae7d939517c5264efc9c91cbf1a77913fc9b919a11ec8",
+      "bytes": 5571,
+      "sha256": "e68d56ca9df6ff431f1c4fa8ce3d08e3fb96d772e8cc029fdfe260193051b749",
       "result": "PASS"
     }
   },
@@ -62,13 +62,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 3231,
-      "sha256": "2564ba03e4bd347ede4b325bf013934bc8e7dc16ec1db9e309b8cef4292d6b17"
+      "bytes": 3688,
+      "sha256": "d0f4b80755ca61680f8e86c0b79a20b2dfd72cec8fa368d5e671da2720208fdb"
     },
     {
       "path": "backend/BACKEND_VALIDATION.json",
       "bytes": 2285,
-      "sha256": "a02e96253fece16e4e5576caa44dcd81844182d5df128c6e16a10314c43c69e7"
+      "sha256": "77ef1e38557db43dfb3eba52e155226aa15b56a9e336513dda33f5273390c41c"
     },
     {
       "path": "backend/bridges.jsonl",
@@ -77,8 +77,8 @@
     },
     {
       "path": "backend/figure-alt-text-en.csv",
-      "bytes": 337312,
-      "sha256": "aa15c68e8e0f19ee58dc9329199c4ff84db1deb1df9bf58dd5a11105ff293937"
+      "bytes": 344106,
+      "sha256": "8cb96a9de8b2a4dd8a9e7c39bd845c50f6881ae37daa6bbf4ddb5b589303e6b6"
     },
     {
       "path": "backend/segments.jsonl",
@@ -124,6 +124,16 @@
       "path": "controls/SOURCE_UNIT_MAP.json",
       "bytes": 202162,
       "sha256": "b92a350515c53b020fec570d5f3b946b72d83990daa4c0c88256dc7cd1d342d1"
+    },
+    {
+      "path": "controls/UNIT023_DIAGRAM_DESCRIPTIONS.json",
+      "bytes": 23623,
+      "sha256": "4456f96e2c13a8777f645ffbef7156d8044b51fd1eb3638ac2371adb5d8b2ba7"
+    },
+    {
+      "path": "controls/UNIT023_DIAGRAM_REPAIR.md",
+      "bytes": 4521,
+      "sha256": "bc7c04ea0696e991c4cc8d5642e413db476369066f1128aa5ce322f2aef6b612"
     },
     {
       "path": "controls/ranges/001-015.json",
@@ -211,29 +221,39 @@
       "sha256": "8193d44ef52c9c39807e769ad04507130f163481f82aa9cfaa0a1a3022ef7aa5"
     },
     {
+      "path": "output/source/methods-of-algebra-volume-2-independent-english-edition-cumulative.tex",
+      "bytes": 2699024,
+      "sha256": "ad6d7832d9889b6e27079d43ec28d70f4bbe34ddf11fbfa67bd3f99ad72666ce"
+    },
+    {
+      "path": "qa/CUMULATIVE_TEX_RECEIPT.json",
+      "bytes": 29542,
+      "sha256": "1340f160c6c5f0d326fa9510d94add6c0c0a9dfef704cceac9693a4271c3c7ad"
+    },
+    {
       "path": "qa/DIAGRAM_LEDGER_VALIDATION.json",
       "bytes": 755,
-      "sha256": "2b3215e44c99f1f2bdaf55588c084584ad64f14a8cdb0ce5ebe6e821a3dc9dbc"
+      "sha256": "6cfceeb305811152e481f65c1dac6f84a35ee8f0c5a1b5ba6d923af0e1d5b4a5"
     },
     {
       "path": "qa/DIAGRAM_SOURCE_INVENTORY.jsonl",
-      "bytes": 722764,
-      "sha256": "d1fc3f3477a7798e2a6987c2ae8545e3f348233cdefb438577434414b3a4da9e"
+      "bytes": 786812,
+      "sha256": "3a3d2ca9e4cd5d82e002fe03d07fa6ffce1fd34dfef25ef04a27ac2d946dc8bf"
     },
     {
       "path": "qa/DIAGRAM_SOURCE_INVENTORY_RECEIPT.json",
       "bytes": 830,
-      "sha256": "fac08e31690f417a044331981473b2b6e568c6a6f746b1a3c7d264d68cb41578"
+      "sha256": "e486eb59523c55d161dc1446e709cdf7c1cbc8e40ff2009cf8ecefb8fc5aa709"
     },
     {
       "path": "qa/HTML_BROWSER_QA.json",
-      "bytes": 4443,
-      "sha256": "e37a2c3a9d264888e7cb1a8adeb2d20d55e6ec9a968fa38bb9ba9e7924411171"
+      "bytes": 20744,
+      "sha256": "a74fec87a7663c247a76dca40d19e040fe64afaab46121fb0614d020d84df4e8"
     },
     {
       "path": "qa/HTML_BUILD_RECEIPT.json",
       "bytes": 33831,
-      "sha256": "2c867e280bbf61588cbdf543fe948ea7cd066b71a8438b054e04f0d0572a7d65"
+      "sha256": "ed50e8e5f318684e645d265226b43475dcd7aa074b2fdfcf012af93d3990a037"
     },
     {
       "path": "qa/PDF_BUILD_ATTEMPT_001.json",
@@ -267,8 +287,8 @@
     },
     {
       "path": "qa/RELEASE_TOOL_PREFLIGHT.json",
-      "bytes": 4755,
-      "sha256": "c31971888498c7d66716c10e251cca9dad0b14333dca466bae62b103559fa8fc"
+      "bytes": 4756,
+      "sha256": "32b8dd29cb919e8885539252456d80bcaf7a85308af2a27a49c9ba8c42110761"
     },
     {
       "path": "qa/RELEASE_TOOL_PREFLIGHT_SUPPLEMENT.json",
@@ -284,6 +304,31 @@
       "path": "qa/SHARED_SOURCE_VALIDATION.json",
       "bytes": 1972,
       "sha256": "2c36be692e1f0d0f3e9bb4cdc570cc414c6b1b4cb85cc3a637e98e6ab3966bf8"
+    },
+    {
+      "path": "qa/UNIT023_DESKTOP_five-lemma.png",
+      "bytes": 182332,
+      "sha256": "dc7a439362145b23c3b16ce75e86cd067b13e28fbe8d31ec5815f404ef8adec0"
+    },
+    {
+      "path": "qa/UNIT023_DESKTOP_proof-tail.png",
+      "bytes": 216566,
+      "sha256": "73192e08263429631d2c06d5d641858763ea1dd5d384d1080068db3e426c3e07"
+    },
+    {
+      "path": "qa/UNIT023_DIAGRAM_REPAIR_QA.json",
+      "bytes": 14517,
+      "sha256": "3ab4773f40a1a953f069c23a117a8bf99a2a66ef1902d59a774c36643297bbe6"
+    },
+    {
+      "path": "qa/UNIT023_MOBILE_five-lemma.png",
+      "bytes": 83785,
+      "sha256": "2cf81c39fe44cef4b6b503280e460e59ad237a3a911766c1b89cc6d634bab795"
+    },
+    {
+      "path": "qa/UNIT023_MOBILE_proof-tail.png",
+      "bytes": 101320,
+      "sha256": "dd6cf438ac3c7eba89d13e4560360ce6af9063aa3d823111e604dcdabadec1c2"
     },
     {
       "path": "qa/UNIT_ADMISSION.json",
@@ -313,7 +358,7 @@
     {
       "path": "reader/dist/SHA256SUMS.txt",
       "bytes": 3897,
-      "sha256": "1d2071aa329dcedc1bafea6410fd785023e7e84365fcba9e26b5a5d74edc8f8c"
+      "sha256": "4a99210e529f1648094daa8dc97cb3da9bc08543eeeef50a95adc11742a9fbe6"
     },
     {
       "path": "reader/dist/accessibility.html",
@@ -322,8 +367,8 @@
     },
     {
       "path": "reader/dist/index.html",
-      "bytes": 4493910,
-      "sha256": "411fe6246743388ba9c5352732cc7958c02aa5dc578a54daecd4e6a5b317347e"
+      "bytes": 4501169,
+      "sha256": "a407428c684ef99596234763d9df3f8fa1b2e6bfe841cc9462804e6dd941a293"
     },
     {
       "path": "reader/dist/reader.css",
@@ -467,8 +512,8 @@
     },
     {
       "path": "reader/tools/build_pandoc_reader.py",
-      "bytes": 38891,
-      "sha256": "72a15b3c3f01e223a976aa6374bf5734d8038914c9c0717449cf36e05cf985a9"
+      "bytes": 39159,
+      "sha256": "91506174850c82664e6c0da202555e79e405b931de9f87317e3fbde07c6eba74"
     },
     {
       "path": "reader/tools/postprocess_reader.py",
@@ -607,8 +652,8 @@
     },
     {
       "path": "release/GITHUB_PUBLIC_READBACK.json",
-      "bytes": 215891,
-      "sha256": "b057f09cde324516ddb2ff93c9c9bab90af420178f2254bbffabf7167dceb176"
+      "bytes": 219203,
+      "sha256": "cbd39f23361f640c11a894bd45097c806ce018f0665f73a162015a525df8c216"
     },
     {
       "path": "release/GITHUB_PUBLIC_READBACK_CHECKPOINT_HTML_ONLY.json",
@@ -617,18 +662,18 @@
     },
     {
       "path": "release/ZENODO_PUBLICATION_RECEIPT.json",
-      "bytes": 4907,
-      "sha256": "85c164cf6bbe66b43f82f60d15d185b6f7c12412673ae13da270428bd5edade0"
+      "bytes": 5442,
+      "sha256": "3237ec09c710e270c7e1c575025af6b3470420f686d7376c7a05fef5caf481b3"
     },
     {
       "path": "release/publish_github.py",
-      "bytes": 26439,
-      "sha256": "7ce6613c4c6262b8b43552cfa7c2b2fdb449eecd8354fa484b40f73e3e84ba58"
+      "bytes": 26536,
+      "sha256": "20025dc05d74a562177c26d81711df84930121818e0e5f93818fb7334eccb11a"
     },
     {
       "path": "release/publish_zenodo.py",
-      "bytes": 44298,
-      "sha256": "4b0852d0cbdb59ae15ec8e475f527cec9218ee7eb9a5932d473bbd0ae9e2970a"
+      "bytes": 44857,
+      "sha256": "c3b19569f1c94b6edfa5249db16deccb670bbe6c1cd3dbb57ceb432bd47fe54d"
     },
     {
       "path": "release/verify_github_public.py",
@@ -1447,8 +1492,13 @@
     },
     {
       "path": "tools/build_complete_english_diagram_ledger.py",
-      "bytes": 33123,
-      "sha256": "3d69c8fdbb0304a6fdcf47e8d7ad9588ca1ef1b8a29d45867a2f06d44f7d11fb"
+      "bytes": 35339,
+      "sha256": "5d4a1219a58bd50507ebce21efd80188508b2b3a3fffa0caa76a1ecf7f26a26d"
+    },
+    {
+      "path": "tools/build_cumulative_english_tex.py",
+      "bytes": 7016,
+      "sha256": "e65fbc8ed5af707b9826ccfbca0e97103ad66ed73ee64185a447a395fc2ef35f"
     },
     {
       "path": "tools/build_english_backend.py",
@@ -1482,8 +1532,8 @@
     },
     {
       "path": "tools/package_english_release.py",
-      "bytes": 17540,
-      "sha256": "26f713099abf20628c02565407bbac3925d1f38050397480dd9cbbbfd00472c6"
+      "bytes": 18943,
+      "sha256": "98f67d344609e7402becad2e4c7d6b96f466707afa048deb3c2685a4e90a18a3"
     },
     {
       "path": "tools/preflight_release_visual_gates.py",
@@ -1492,8 +1542,8 @@
     },
     {
       "path": "tools/prepare_complete_diagram_inventory.py",
-      "bytes": 8970,
-      "sha256": "801384d93673a0f323588fe9ff56bc50076544b8f6a55efd95f95c7b0ebb5a51"
+      "bytes": 10154,
+      "sha256": "bc437a2c285df99a487522fa249c33a2ebdd69b0bb3507a584b961b4213ec1d6"
     },
     {
       "path": "tools/record_source_freeze.py",
@@ -1506,9 +1556,19 @@
       "sha256": "9b21a279f010a6a56327cb4ab19cbebfe33c2cf11e2259e80505c4336a61e0e5"
     },
     {
+      "path": "tools/run_unit023_browser_qa.js",
+      "bytes": 15954,
+      "sha256": "1759347e0600dab81623afe98d2ac689092bb4c8ee1cde1f10f457df05245115"
+    },
+    {
       "path": "tools/validate_english_diagram_ledger.py",
       "bytes": 7689,
       "sha256": "6e5c2fe78b28cfc8477602c2a384aab230738a08ae3942d0dba73145c21a1ab5"
+    },
+    {
+      "path": "tools/validate_unit023_diagram_repair.py",
+      "bytes": 11262,
+      "sha256": "e3dd54e72e8eeedf6f55ae5cd2de8b42851a18a2c5f2a0617bffd75d156db2f3"
     }
   ],
   "pages_inventory": [
@@ -1520,7 +1580,7 @@
     {
       "path": "SHA256SUMS.txt",
       "bytes": 3897,
-      "sha256": "1d2071aa329dcedc1bafea6410fd785023e7e84365fcba9e26b5a5d74edc8f8c"
+      "sha256": "4a99210e529f1648094daa8dc97cb3da9bc08543eeeef50a95adc11742a9fbe6"
     },
     {
       "path": "accessibility.html",
@@ -1529,8 +1589,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 4493910,
-      "sha256": "411fe6246743388ba9c5352732cc7958c02aa5dc578a54daecd4e6a5b317347e"
+      "bytes": 4501169,
+      "sha256": "a407428c684ef99596234763d9df3f8fa1b2e6bfe841cc9462804e6dd941a293"
     },
     {
       "path": "reader.css",
